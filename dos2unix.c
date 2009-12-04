@@ -57,7 +57,7 @@
 #define RCS_AUTHOR   "$$Author:  wurll $$"
 #define RCS_DATE     "$$Date: Thu Nov 19 1998 $$"
 #define RCS_REVISION "$$Revision: 3.1 $$"
-#define VER_AUTHOR   ""
+#define VER_AUTHOR   "Christian Wurll"
 #define VER_DATE     "Dec 4 2009"
 #define VER_REVISION "3.2"
 

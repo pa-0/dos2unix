@@ -26,8 +26,8 @@ MANDIR1		= $(MANDIR)/man1
 all: $(BIN) $(MAC2UNIX_BIN) $(MAC2UNIX).1
 
 
-$(BIN):
-	$(CC) dos2unix.c -o dos2unix
+$(BIN): dos2unix.c
+	$(CC) $< -o $@
 
 $(MAC2UNIX_BIN) : $(BIN)
 ifneq (, $(wildcard /cygdrive))
