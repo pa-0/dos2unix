@@ -1,0 +1,13 @@
+2009-11-04 Erwin Waterlander <waterlan@xs4all.nl>
+	* README: new file.
+	* INSTALL: new file.
+	* Makefile: Makefile according GNU standards.
+	* ChangeLog : New file.
+	* Applied all patches from RetHat:
+	  - use mkstemp i.s.o. mktemp: Nov 17 2000 Tim Powers <timp@redhat.com> 
+	  - segfault: Jan 17 2002 Bernhard Rosenkraenzer <bero@redhat.com>
+	  - manpage-update: Oct  6 2004 Mike A. Harris <mharris@redhat.com>
+	  - preserve-file-modes: Oct 11 2004 Tim Waugh <twaugh@redhat.com>
+	  - tmppath: Apr 13 2005 Tim Waugh <twaugh@redhat.com>
+	  - Remove trailing white space. 
+
