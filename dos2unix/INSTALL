@@ -1,0 +1,21 @@
+
+To build the program:
+
+    make
+
+
+To install:
+
+    make install [prefix=...]
+
+    Default prefix is /usr
+
+Clean:
+
+    make clean
+
+
+Maintainer clean:
+
+    make maintainer-clean
+
