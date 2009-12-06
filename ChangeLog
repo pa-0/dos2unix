@@ -16,3 +16,35 @@
 	  - c-missing-arg: Jan 18 2008 Tim Waugh <twaugh@redhat.com>
 	  - Remove trailing white space.
 
+1998-11-19 Christian Wurll <wurll@ira.uka.de>
+	* version 3.1
+	* Added extra newline if ^M occurs
+
+1998-02-04 Bernd Johannes Wuebben <wuebben@kde.org>
+	* version 3.0
+	* Added Mac text file translation, i.e. \r to \n conversion
+
+1995-03-30 Benjamin Lin <blin@socs.uts.edu.au>
+	* version 2.2
+	* Fixed a bug in 2.1 where in new file mode, if outfile already exists
+	* conversion can not be completed properly.
+
+1995-03-29 Benjamin Lin <blin@socs.uts.edu.au>
+	* version 2.1
+	* Conversion to SunOS charset implemented.
+
+1995-03-19 Benjamin Lin <blin@socs.uts.edu.au>
+	* version 2.0
+	* Rewritten from scratch.
+
+1995-03-16 Benjamin Lin <blin@socs.uts.edu.au>
+	* version 1.2
+	* Modified to more conform to UNIX style.
+
+1994-12-20 Benjamin Lin <blin@socs.uts.edu.au>
+	* version 1.1
+	* Cleaned up for Borland C/C++ 4.02
+
+1989-10-04 John Birchfield <jb@koko.csustan.edu>
+	* version 1.0
+
