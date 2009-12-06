@@ -5,6 +5,7 @@ help:
 	@echo "${MAKE} dist         : Create source code distribution packages."
 	@echo "${MAKE} tag-dos2unix : Create a tag copy of trunk/dos2unix."
 	@echo "${MAKE} tag-unix2dos : Create a tag copy of trunk/unix2dos."
+	@echo "${MAKE} tag          : Create a tag copy of trunk/dos2unix and trunk/unix2dos."
 
 
 RELEASE_DIR_DOS2UNIX = ../dos2unix-$(DOS2UNIX_VERSION)
@@ -30,5 +31,5 @@ tag-unix2dos:
 	         https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/tags/unix2dos-${UNIX2DOS_VERSION} \
 	    -m "Tagging unix2dos release ${UNIX2DOS_VERSION}."
 
-
+tag: tag-dos2unix tag-unix2dos
 
