@@ -37,6 +37,23 @@ msgid ""
 " infile           original file in new file mode\n"
 " outfile          output file in new file mode\n"
 msgstr ""
+"dos2unix %s (%s)\n"
+"Usage: dos2unix [-hkqLV] [-c convmode] [-o file ...] [-n infile "
+"outfile ...]\n"
+" -h --help        print deze help tekst\n"
+" -k --keepdate    bewaar datum uitvoerbestand\n"
+" -q --quiet       stille werking, onderdruk alle waarschuwingen\n"
+"                  altijd aan in stdin->stdout modus\n"
+" -L --license     print software licentie\n"
+" -V --version     print versie nummer\n"
+" -c --convmode    conversie modus\n"
+" convmode         ASCII, 7bit, ISO, Mac, standaard is ASCII\n"
+" -l --newline     voeg extra nieuwe regel toe in alle modi behalve Mac modus\n"
+" -o --oldfile     overschrijf oud bestand\n"
+" file ...         te converteren bestanden in 'oud bestand modus'\n"
+" -n --newfile     schrijf naar nieuw bestand\n"
+" infile           origineel bestand in 'nieuw bestand modus'\n"
+" outfile          uitvoerbestand in 'nieuw bestand modus'\n"
 
 #: dos2unix.c:128
 #, c-format
@@ -72,59 +89,59 @@ msgstr ""
 #: dos2unix.c:231 dos2unix.c:245 dos2unix.c:259 dos2unix.c:274 dos2unix.c:290
 #, c-format
 msgid "dos2unix: can not write to out file\n"
-msgstr ""
+msgstr "dos2unix: kan niet schrijven naar uitvoerbestand\n"
 
 #: dos2unix.c:298
 #, c-format
 msgid "dos2unix: program error, invalid conversion mode %d\n"
-msgstr ""
+msgstr "dos2unix: programma fout, ongeldige conversie modus %d\n"
 
 #: dos2unix.c:364 dos2unix.c:453
 #, c-format
 msgid "dos2unix: using %s as temp file\n"
-msgstr ""
+msgstr "dos2unix: %s wordt als tijdelijk bestand gebruikt\n"
 
 #: dos2unix.c:411 dos2unix.c:501
 #, c-format
 msgid "dos2unix: problems renaming '%s' to '%s'\n"
-msgstr ""
+msgstr "dos2unix: problemen met hernoemen van '%s' naar '%s'\n"
 
 #: dos2unix.c:412 dos2unix.c:502
 #, c-format
 msgid "          output file remains in '%s'\n"
-msgstr ""
+msgstr "          uitvoerbestand blijft in '%s'\n"
 
 #: dos2unix.c:593
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
-msgstr ""
+msgstr "dos2unix: ongeldige %s conversie modus gespecificeerd\n"
 
 #: dos2unix.c:601
 #, c-format
 msgid "dos2unix: option `%s' requires an argument\n"
-msgstr ""
+msgstr "dos2unix: optie `%s' heeft een argument nodig\n"
 
 #: dos2unix.c:612 dos2unix.c:624 dos2unix.c:666
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
-msgstr ""
+msgstr "dos2unix: doel van bestand %s is niet gespecificeerd in 'nieuw bestand modus'\n"
 
 #: dos2unix.c:640
 #, c-format
 msgid "dos2unix: converting file %s to file %s in UNIX format ...\n"
-msgstr ""
+msgstr "dos2unix: converteren bestand %s naar bestand %s in UNIX formaat ...\n"
 
 #: dos2unix.c:644
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
-msgstr ""
+msgstr "dos2unix: problemen met conversie van bestand %s naar bestand %s\n"
 
 #: dos2unix.c:653
 #, c-format
 msgid "dos2unix: converting file %s to UNIX format ...\n"
-msgstr ""
+msgstr "dos2unix: converteren bestand %s naar UNIX formaat ...\n"
 
 #: dos2unix.c:657
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
-msgstr ""
+msgstr "dos2unix: problemen met conversie van bestand %s\n"
