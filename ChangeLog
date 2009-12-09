@@ -1,4 +1,11 @@
-2009-11-04 Erwin Waterlander <waterlan@xs4all.nl>
+2009-12 Erwin Waterlander <waterlan@xs4all.nl>
+	* Added internationalisation using gettext.
+	* Added Dutch translation.
+	* New option -L/--license that prints software license.
+	* Code cleanup
+	* Update manual
+
+2009-12-04 Erwin Waterlander <waterlan@xs4all.nl>
 	* unix2dos.c: Changed version to 2.3.
 	* version.mk: New file.
 	* README: New file.

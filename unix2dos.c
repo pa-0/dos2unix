@@ -65,6 +65,9 @@
 #include <utime.h>
 #include <sys/stat.h>
 #include <sys/unistd.h>
+#ifdef ENABLE_NLS
+#include <locale.h>
+#endif
 #include "unix2dos.h"
 
 
@@ -453,6 +456,13 @@ int main (int argc, char *argv[])
   int CanSwitchFileMode;
   int ShouldExit;
   CFlag *pFlag;
+
+#ifdef ENABLE_NLS
+   setlocale (LC_ALL, "");
+   bindtextdomain (PACKAGE, LOCALEDIR);
+   textdomain (PACKAGE);
+#endif
+
 
   /* variable initialisations */
   ArgIdx = 0;

@@ -1,5 +1,5 @@
 .\" $$Id: unix2dos.1 2.2 1995/03/31 01:50:37 blin Exp blin $$
-.TH unix2dos 1 "unix2dos v2.2" "1995.03.31"
+.TH unix2dos 1 "unix2dos 4.0" "2009"
 
 .SH NAME
 
@@ -19,6 +19,11 @@ Options:
 This manual page documents unix2dos, the program that converts text 
 files in UNIX format to DOS format.
 
+In DOS/Windows text files line endings exist out of a combination of two characters:
+a Carriage Return (CR) followed by a Line Feed (LF).
+In Unix text files line endings exists out of a single Newline character which
+is equal to a DOS Line Feed (LF) character.
+
 .SH OPTIONS
 
 The following options are available:
@@ -36,15 +41,15 @@ Quiet mode. Suppress all warning and messages.
 
 .TP
 .B \-L --license
-Prints software license.
+Print software license.
 
 .TP
 .B \-V --version
-Prints version information.
+Print version information.
 
 .TP
 .B \-c --convmode convmode
-Sets conversion mode. Simulates unix2dos under SunOS.
+Set conversion mode. Simulates unix2dos under SunOS.
 
 .TP
 .B \-o --oldfile file ...
@@ -56,6 +61,27 @@ default to run in this mode. Wildcard names may be used.
 New file mode. Convert the infile and write output to outfile. File names
 must be given in pairs and wildcard names should NOT be used or you WILL 
 lost your files. 
+
+.SH "CONVERSION MODES"
+
+.TP
+.B ASCII
+In this mode Unix line endings are converted to DOS line endings.
+All other characters are left unchanged.
+
+.TP
+.B 7bit
+In this mode Unix line endings are converted to DOS line endings.
+All 8 bit non-ASCII characters (with values from 128 to 255) are converted
+to a space.
+
+.TP
+.B ISO
+In this mode Unix line endings are converted to DOS line endings.
+The conversion of 8 bit non-ASCII characters (with values from 128 to 255)
+is unclear. Partly characters are translated from ISO-8859-1 (Latin1) to
+DOS code page CP437. To convert text files between different encodings
+it's better to use iconv(1).
 
 .SH EXAMPLES
 
@@ -122,18 +148,10 @@ Benjamin Lin - (
 .B blin@socs.uts.edu.au
 )
 
-.SH MISCELLANY
+Project page: http://www.xs4all.nl/~waterlan/#DOS2UNIX
 
-Tested environment:
-.IP
-Linux 1.2.0 with GNU C 2.5.8
-.IP
-SunOS 4.1.3 with GNU C 2.6.3
-.IP
-MS-DOS 6.20 with Borland C++ 4.02
-.PP
-Suggestions and bug reports are welcome.
+SourceForge page: http://sourceforge.net/projects/dos2unix/
 
 .SH SEE ALSO
-dos2unix(1)
+dos2unix(1) iconv(1)
 
