@@ -117,7 +117,8 @@ ifdef STATIC
 	GCCFLAGS += -static
 endif
 
-CFLAGS		= \
+CFLAGS		= -DVER_REVISION=\"$(DOS2UNIX_VERSION)\" \
+		  -DVER_DATE=\"$(DOS2UNIX_DATE)\" \
 		  $(GCCFLAGS) \
 		  $(CFLAGS_OS) \
 		  $(NLSDEFS)

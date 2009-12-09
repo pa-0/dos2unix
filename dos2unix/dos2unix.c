@@ -58,8 +58,6 @@
 #define RCS_DATE     "$$Date: Thu Nov 19 1998 $$"
 #define RCS_REVISION "$$Revision: 3.1 $$"
 #define VER_AUTHOR   "Erwin Waterlander"
-#define VER_DATE     "Dec 8 2009"
-#define VER_REVISION "4.0-beta1"
 
 #define MACMODE  1
 static int macmode = 0;
