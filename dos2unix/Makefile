@@ -192,16 +192,19 @@ endif
 uninstall:
 	@echo "-- target: uninstall"
 	-rm -f $(BINDIR)/$(BIN)
+	-rm -f $(BINDIR)/$(MAC2UNIX_BIN)
 ifdef ENABLE_NLS
 	$(foreach mofile, $(MOFILES), rm -f $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 endif
 	-rm -f $(MANDIR)/man1/$(PACKAGE).1
+	-rm -f $(MANDIR)/man1/$(MAC2UNIX).1
 	-rm -rf $(DOCDIR)
 
 clean:
 	rm -f *.o
 	rm -f $(BIN) $(MAC2UNIX_BIN)
 	rm -f *.bak *~
+	rm -f */*.bak */*~
 
 maintainer-clean: clean
 	rm -f $(DOCFILES)

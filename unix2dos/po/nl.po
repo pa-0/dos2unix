@@ -1,0 +1,122 @@
+# Dutch translations for unix2dos package.
+# Copyright (C) 2009 THE unix2dos'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the unix2dos package.
+# Erwin Waterlander <waterlan@xs4all.nl>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: unix2dos\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-12-09 17:25+0100\n"
+"PO-Revision-Date: 2009-12-09 17:20+0100\n"
+"Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
+"Language-Team: Dutch <vertaling@vrijschrift.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: unix2dos.c:91
+#, c-format
+msgid ""
+"unix2dos %s (%s)\n"
+"Usage: unix2dos [-hkqLV] [-o file ...] [-c convmode] [-n infile "
+"outfile ...]\n"
+" -h --help        give this help\n"
+" -k --keepdate    keep output file date\n"
+" -q --quiet       quiet mode, suppress all warnings\n"
+"                  always on in stdin->stdout mode\n"
+" -L --license     print software license\n"
+" -V --version     display version number\n"
+" -c --convmode    conversion mode\n"
+" convmode         ASCII, 7bit, ISO, default to ASCII\n"
+" -o --oldfile     write to old file\n"
+" file ...         files to convert in old file mode\n"
+" -n --newfile     write to new file\n"
+" infile           original file in new file mode\n"
+" outfile          output file in new file mode\n"
+msgstr ""
+
+#: unix2dos.c:111
+#, c-format
+msgid ""
+"Copyright (c) 1994-1995 Benjamin Lin\n"
+"Copyright (c) 2009      Erwin Waterlander\n"
+"All rights reserved.\n"
+"\n"
+"Redistribution and use in source and binary forms, with or without\n"
+"modification, are permitted provided that the following conditions\n"
+"are met:\n"
+"1. Redistributions of source code must retain the above copyright\n"
+"   notice, this list of conditions and the following disclaimer.\n"
+"2. Redistributions in binary form must reproduce the above copyright\n"
+"   notice in the documentation and/or other materials provided with\n"
+"   the distribution.\n"
+"\n"
+"THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n"
+"EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
+"IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR\n"
+"PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE\n"
+"FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR\n"
+"CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT\n"
+"OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR\n"
+"BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,\n"
+"WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE\n"
+"OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN\n"
+"IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+msgstr ""
+
+#: unix2dos.c:192 unix2dos.c:204 unix2dos.c:216
+#, c-format
+msgid "unix2dos: can not write to output file\n"
+msgstr ""
+
+#: unix2dos.c:223
+#, c-format
+msgid "unix2dos: program error, invalid conversion mode %d\n"
+msgstr ""
+
+#: unix2dos.c:289 unix2dos.c:378
+#, c-format
+msgid "unix2dos: using %s as temp file\n"
+msgstr ""
+
+#: unix2dos.c:337 unix2dos.c:426
+#, c-format
+msgid "unix2dos: problems renaming '%s' to '%s'\n"
+msgstr ""
+
+#: unix2dos.c:338 unix2dos.c:427
+#, c-format
+msgid "          output file remains in '%s'\n"
+msgstr ""
+
+#: unix2dos.c:502
+#, c-format
+msgid "unix2dos: invalid %s conversion mode specified\n"
+msgstr ""
+
+#: unix2dos.c:513 unix2dos.c:524 unix2dos.c:566
+#, c-format
+msgid "unix2dos: target of file %s not specified in new file mode\n"
+msgstr ""
+
+#: unix2dos.c:540
+#, c-format
+msgid "unix2dos: converting file %s to file %s in DOS format ...\n"
+msgstr ""
+
+#: unix2dos.c:544
+#, c-format
+msgid "unix2dos: problems converting file %s to file %s\n"
+msgstr ""
+
+#: unix2dos.c:553
+#, c-format
+msgid "unix2dos: converting file %s to DOS format ...\n"
+msgstr ""
+
+#: unix2dos.c:557
+#, c-format
+msgid "unix2dos: problems converting file %s\n"
+msgstr ""

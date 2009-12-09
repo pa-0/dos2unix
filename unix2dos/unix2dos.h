@@ -4,7 +4,9 @@
 /* $$Id: unix2dos.h 2.2 1995/03/31 01:46:03 blin Exp blin $$ */
 
 #ifdef __GNUC__
+#ifndef strcmpi
 #  define strcmpi(s1, s2) strcasecmp(s1, s2)
+#endif
 #endif
 
 /* SunOS ASCII -> DOS ASCII */
@@ -122,5 +124,21 @@ static int U2DIsoTable[256] =
   '\xce', '\xa4', '\x95', '\xa2', '\x93', '\xda', '\x94', '\xf6',
   '\xf2', '\x97', '\xa3', '\x96', '\x81', '\xc4', '\xb3', '\x98',
 };
+
+#ifdef ENABLE_NLS
+
+#include <libintl.h>
+#define _(String) gettext (String)
+#define gettext_noop(String) String
+#define N_(String) gettext_noop (String)
+
+#else
+
+#define _(String) (String)
+#define N_(String) String
+#define textdomain(Domain)
+#define bindtextdomain(Package, Directory)
+
+#endif
 
 #endif

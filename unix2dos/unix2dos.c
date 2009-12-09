@@ -50,8 +50,6 @@
 #define RCS_DATE     "$$Date: 1995/03/31 01:41:00 $$"
 #define RCS_REVISION "$$Revision: 2.2 $$"
 #define VER_AUTHOR   "Benjamin Lin"
-#define VER_DATE     "Dec 4 2009"
-#define VER_REVISION "2.3"
 
 /* #define DEBUG */
 
@@ -66,6 +64,7 @@
 #include <string.h>
 #include <utime.h>
 #include <sys/stat.h>
+#include <sys/unistd.h>
 #include "unix2dos.h"
 
 
@@ -89,22 +88,53 @@ typedef struct
 
 void PrintUsage(void)
 {
-  fprintf(stderr, "unix2dos %s Copyright (c) 1994-1995 %s. (%s)\n", VER_REVISION, VER_AUTHOR, VER_DATE);
-  fprintf(stderr, "Usage: unix2dos [-hkqV] [-o file ...] [-c convmode] [-n infile outfile ...]\n");
-  fprintf(stderr, " -h --help        give this help\n");
-  fprintf(stderr, " -k --keepdate    keep output file date\n");
-  fprintf(stderr, " -q --quiet       quiet mode, suppress all warnings\n");
-  fprintf(stderr, "                  always on in stdin->stdout mode\n");
-  fprintf(stderr, " -V --version     display version number\n");
-  fprintf(stderr, " -c --convmode    conversion mode\n");
-  fprintf(stderr, " convmode         ASCII, 7bit, ISO, default to ASCII\n");
-  fprintf(stderr, " -o --oldfile     write to old file\n");
-  fprintf(stderr, " file ...         files to convert in old file mode\n");
-  fprintf(stderr, " -n --newfile     write to new file\n");
-  fprintf(stderr, " infile           original file in new file mode\n");
-  fprintf(stderr, " outfile          output file in new file mode\n");
+  fprintf(stderr, _("\
+unix2dos %s (%s)\n\
+Usage: unix2dos [-hkqLV] [-o file ...] [-c convmode] [-n infile outfile ...]\n\
+ -h --help        give this help\n\
+ -k --keepdate    keep output file date\n\
+ -q --quiet       quiet mode, suppress all warnings\n\
+                  always on in stdin->stdout mode\n\
+ -L --license     print software license\n\
+ -V --version     display version number\n\
+ -c --convmode    conversion mode\n\
+ convmode         ASCII, 7bit, ISO, default to ASCII\n\
+ -o --oldfile     write to old file\n\
+ file ...         files to convert in old file mode\n\
+ -n --newfile     write to new file\n\
+ infile           original file in new file mode\n\
+ outfile          output file in new file mode\n"), VER_REVISION, VER_DATE);
 }
 
+void PrintLicense(void)
+{
+  fprintf(stderr, _("\
+Copyright (c) 1994-1995 Benjamin Lin\n\
+Copyright (c) 2009      Erwin Waterlander\n\
+All rights reserved.\n\n\
+\
+Redistribution and use in source and binary forms, with or without\n\
+modification, are permitted provided that the following conditions\n\
+are met:\n\
+1. Redistributions of source code must retain the above copyright\n\
+   notice, this list of conditions and the following disclaimer.\n\
+2. Redistributions in binary form must reproduce the above copyright\n\
+   notice in the documentation and/or other materials provided with\n\
+   the distribution.\n\n\
+\
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n\
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n\
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR\n\
+PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE\n\
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR\n\
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT\n\
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR\n\
+BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,\n\
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE\n\
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN\n\
+IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n\
+"));
+}
 
 void PrintVersion(void)
 {
@@ -159,7 +189,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
                 {
                     RetVal = -1;
                     if (!ipFlag->Quiet)
-                        fprintf(stderr, "unix2dos: can not write to output file\n");
+                        fprintf(stderr, _("unix2dos: can not write to output file\n"));
                     break;
                 }
             break;
@@ -171,7 +201,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
                 {
                     RetVal = -1;
                     if (!ipFlag->Quiet)
-                        fprintf(stderr, "unix2dos: can not write to output file\n");
+                        fprintf(stderr, _("unix2dos: can not write to output file\n"));
                     break;
                 }
             break;
@@ -183,14 +213,14 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
                 {
                     RetVal = -1;
                     if (!ipFlag->Quiet)
-                        fprintf(stderr, "unix2dos: can not write to output file\n");
+                        fprintf(stderr, _("unix2dos: can not write to output file\n"));
                     break;
                 }
             break;
       default: /*unknown convmode */
           ;
 #ifdef DEBUG
-            fprintf(stderr, "unix2dos: program error, invalid conversion mode %d\n",ipFlag->ConvMode);
+            fprintf(stderr, _("unix2dos: program error, invalid conversion mode %d\n"),ipFlag->ConvMode);
             exit(1);
 #endif
   }
@@ -256,7 +286,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   }
 
 #ifdef DEBUG
-  fprintf(stderr, "unix2dos: using %s as temp file\n", TempPath);
+  fprintf(stderr, _("unix2dos: using %s as temp file\n"), TempPath);
 #endif
 
   /* can open in file? */
@@ -304,8 +334,8 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   {
     if ((rename(TempPath, ipOutFN) == -1) && (!ipFlag->Quiet))
     {
-      fprintf(stderr, "unix2dos: problems renaming '%s' to '%s'\n", TempPath, ipOutFN);
-      fprintf(stderr, "          output file remains in '%s'\n", TempPath);
+      fprintf(stderr, _("unix2dos: problems renaming '%s' to '%s'\n"), TempPath, ipOutFN);
+      fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
       RetVal = -1;
     }
   }
@@ -345,7 +375,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
     RetVal = -1;
 
 #ifdef DEBUG
-  fprintf(stderr, "unix2dos: using %s as temp file\n", TempPath);
+  fprintf(stderr, _("unix2dos: using %s as temp file\n"), TempPath);
 #endif
 
   /* can open in file? */
@@ -393,8 +423,8 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   {
     if (!ipFlag->Quiet)
     {
-      fprintf(stderr, "unix2dos: problems renaming '%s' to '%s'\n", TempPath, ipInFN);
-      fprintf(stderr, "          output file remains in '%s'\n", TempPath);
+      fprintf(stderr, _("unix2dos: problems renaming '%s' to '%s'\n"), TempPath, ipInFN);
+      fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
     }
     RetVal = -1;
   }
@@ -454,6 +484,8 @@ int main (int argc, char *argv[])
         pFlag->Quiet = 1;
       if ((strcmp(argv[ArgIdx],"-V") == 0) || (strcmp(argv[ArgIdx],"--version") == 0))
         PrintVersion();
+      if ((strcmp(argv[ArgIdx],"-L") == 0) || (strcmp(argv[ArgIdx],"--license") == 0))
+        PrintLicense();
 
       if ((strcmp(argv[ArgIdx],"-c") == 0) || (strcmp(argv[ArgIdx],"--convmode") == 0))
       {
@@ -467,7 +499,7 @@ int main (int argc, char *argv[])
         else
         {
           if (!pFlag->Quiet)
-            fprintf(stderr, "unix2dos: invalid %s conversion mode specified\n",argv[ArgIdx]);
+            fprintf(stderr, _("unix2dos: invalid %s conversion mode specified\n"),argv[ArgIdx]);
           ShouldExit = 1;
         }
       }
@@ -478,7 +510,7 @@ int main (int argc, char *argv[])
         if (!CanSwitchFileMode)
         {
           if (!pFlag->Quiet)
-            fprintf(stderr, "unix2dos: target of file %s not specified in new file mode\n", argv[ArgIdx-1]);
+            fprintf(stderr, _("unix2dos: target of file %s not specified in new file mode\n"), argv[ArgIdx-1]);
           ShouldExit = 1;
         }
         pFlag->NewFile = 0;
@@ -489,7 +521,7 @@ int main (int argc, char *argv[])
         if (!CanSwitchFileMode)
         {
           if (!pFlag->Quiet)
-            fprintf(stderr, "unix2dos: target of file %s not specified in new file mode\n", argv[ArgIdx-1]);
+            fprintf(stderr, _("unix2dos: target of file %s not specified in new file mode\n"), argv[ArgIdx-1]);
           ShouldExit = 1;
         }
         pFlag->NewFile = 1;
@@ -505,11 +537,11 @@ int main (int argc, char *argv[])
         else
         {
           if (!pFlag->Quiet)
-            fprintf(stderr, "unix2dos: converting file %s to file %s in DOS format ...\n", argv[ArgIdx-1], argv[ArgIdx]);
+            fprintf(stderr, _("unix2dos: converting file %s to file %s in DOS format ...\n"), argv[ArgIdx-1], argv[ArgIdx]);
           if (ConvertUnixToDosNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag))
           {
             if (!pFlag->Quiet)
-              fprintf(stderr, "unix2dos: problems converting file %s to file %s\n", argv[ArgIdx-1], argv[ArgIdx]);
+              fprintf(stderr, _("unix2dos: problems converting file %s to file %s\n"), argv[ArgIdx-1], argv[ArgIdx]);
             ShouldExit = 1;
           }
           CanSwitchFileMode = 1;
@@ -518,11 +550,11 @@ int main (int argc, char *argv[])
       else
       {
         if (!pFlag->Quiet)
-          fprintf(stderr, "unix2dos: converting file %s to DOS format ...\n", argv[ArgIdx]);
+          fprintf(stderr, _("unix2dos: converting file %s to DOS format ...\n"), argv[ArgIdx]);
         if (ConvertUnixToDosOldFile(argv[ArgIdx], pFlag))
         {
           if (!pFlag->Quiet)
-            fprintf(stderr, "unix2dos: problems converting file %s\n", argv[ArgIdx]);
+            fprintf(stderr, _("unix2dos: problems converting file %s\n"), argv[ArgIdx]);
           ShouldExit = 1;
         }
       }
@@ -531,7 +563,7 @@ int main (int argc, char *argv[])
 
   if ((!pFlag->Quiet) && (!CanSwitchFileMode))
   {
-    fprintf(stderr, "unix2dos: target of file %s not specified in new file mode\n", argv[ArgIdx-1]);
+    fprintf(stderr, _("unix2dos: target of file %s not specified in new file mode\n"), argv[ArgIdx-1]);
     ShouldExit = 1;
   }
   free(pFlag);
