@@ -16,6 +16,14 @@ Options:
 This manual page documents dos2unix, the program that converts plain text
 files in DOS/MAC format to UNIX format.
 
+In DOS/Windows text files line endings exist out of a combination of two characters:
+a Carriage Return (CR) followed by a Line Feed (LF).
+In Unix text files line endings exists out of a single Newline character which
+is equal to a DOS Line Feed (LF) character.
+In Mac text files, prior to Mac OS X, line endings exist out of a single Carriage
+Return character. Mac OS X is Unix based and has the same line endings as Unix.
+
+
 .SH "OPTIONS"
 The following options are available:
 .TP 
@@ -57,6 +65,32 @@ default to run in this mode. Wildcard names may be used.
 New file mode. Convert the infile and write output to outfile. File names
 must be given in pairs and wildcard names should NOT be used or you WILL 
 lost your files. 
+
+.SH "CONVERSION MODES"
+
+.TP
+.B ASCII
+In this mode DOS line endings are converted to Unix line endings.
+All other characters are left unchanged.
+
+.TP
+.B 7bit
+In this mode DOS line endings are converted to Unix line endings.
+All 8 bit non-ASCII characters (with values from 128 to 255) are converted
+to a space.
+
+.TP
+.B ISO
+In this mode DOS line endings are converted to Unix line endings.
+The conversion of 8 bit non-ASCII characters (with values from 128 to 255)
+is unclear. Partly characters are translated from DOS code page CP437 to
+ISO-8859-1 (Latin1). To convert text files between different encodings
+it's better to use iconv(1).
+
+.TP
+.B Mac
+In this mode Mac line endings are converted to Unix line endings.
+All other characters are left unchanged.
 
 .SH "EXAMPLES"
 .LP 
@@ -127,22 +161,16 @@ If you know why is that so, please tell me.
 Benjamin Lin \-
 .B <blin@socs.uts.edu.au>
 
-
 Bernd Johannes Wuebben (mac2unix mode) 
 .B <wuebben@kde.org>
 
+Project page: http://www.xs4all.nl/~waterlan/#DOS2UNIX
 
-.SH "MISCELLANY"
-Tested environment:
-.IP 
-Linux 1.2.0 with GNU C 2.5.8
-.IP 
-SunOS 4.1.3 with GNU C 2.6.3
-.IP 
-MS\-DOS 6.20 with Borland C++ 4.02
+SourceForge page: http://sourceforge.net/projects/dos2unix/
+
 .PP 
 Suggestions and bug reports are welcome.
 
 .SH "SEE ALSO"
-unix2dos(1) mac2unix(1)
+unix2dos(1) mac2unix(1) iconv(1)
 
