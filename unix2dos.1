@@ -77,11 +77,13 @@ to a space.
 
 .TP
 .B ISO
-In this mode Unix line endings are converted to DOS line endings.
-The conversion of 8 bit non-ASCII characters (with values from 128 to 255)
-is unclear. Partly characters are translated from ISO-8859-1 (Latin1) to
-DOS code page CP437. To convert text files between different encodings
-it's better to use iconv(1).
+In this mode Unix line endings are converted to DOS line endings.  The
+conversion of 8 bit non-ASCII characters (with values from 128 to 255) is
+unclear. Benjamin used this probably to convert between a character set he was
+using on SunOS in 1995 and DOS character set CP437. In this mode some
+characters are translated from ISO-8859-1 (Latin1) to DOS code page CP437, but
+for several others it's not clear. To convert text files between different
+encodings it's better to use iconv(1).
 
 .SH EXAMPLES
 
