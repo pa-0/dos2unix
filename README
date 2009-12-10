@@ -1,26 +1,18 @@
 
-Project homepage: http://sourceforge.net/projects/dos2unix/
+File list
 
+    README              : This file.
+    INSTALL             : How to build and install
+    COPYING             : distribution license.
+    unix2dos.txt        : Manual, text format.
+    unix2dos.ps         : Manual, PostScript format.
+    unix2dos.pdf        : Manual, PDF format.
+    ChangeLog           : Change log.
+    TODO                : Things to do.
 
+Project page: http://www.xs4all.nl/~waterlan/#DOS2UNIX
 
-unix2dos 2.3 Copyright (c) 1994-1995 Benjamin Lin. (1995.03.31)
-Usage: unix2dos [-hkqV] [-o file ...] [-c convmode] [-n infile outfile ...]
- -h --help        give this help
- -k --keepdate    keep output file date
- -q --quiet       quiet mode, suppress all warnings
-                  always on in stdin->stdout mode
- -V --version     display version number
- -c --convmode    conversion mode
- convmode         ASCII, 7bit, ISO, default to ASCII
- -o --oldfile     write to old file
- file ...         files to convert in old file mode
- -n --newfile     write to new file
- infile           original file in new file mode
- outfile          output file in new file mode
-
-
-
-See INSTALL for installation.
+SourceForge page: http://sourceforge.net/projects/dos2unix/
 
 
 Erwin Waterlander
