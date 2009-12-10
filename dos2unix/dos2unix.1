@@ -1,5 +1,3 @@
-.\" $$Id: dos2unix.1 2.2 1995/03/31 01:50:45 blin Exp blin $$
-.\" 
 .TH "dos2unix" "1" "dos2unix 4.0" "2009" ""
 .SH "NAME"
 dos2unix \- DOS/MAC to UNIX text file format converter
@@ -13,8 +11,7 @@ Options:
 
 .SH "DESCRIPTION"
 .PP 
-This manual page documents dos2unix, the program that converts plain text
-files in DOS/MAC format to UNIX format.
+Dos2unix converts plain text files in DOS/MAC format to UNIX format.
 
 In DOS/Windows text files line endings exist out of a combination of two characters:
 a Carriage Return (CR) followed by a Line Feed (LF).
@@ -87,7 +84,9 @@ unclear. Benjamin used this probably to convert between DOS character set CP437
 and a character set he was using on SunOS in 1995. In this mode some characters
 are translated from DOS code page CP437 to ISO-8859-1 (Latin1), but for several
 others it's not clear. To convert text files between different encodings it's
-better to use iconv(1).
+better to use iconv(1). For instance like this:
+.IP
+.B iconv -f CP437 -t ISO-8859-1 in.txt | dos2unix > out.txt
 
 .TP
 .B Mac
@@ -153,21 +152,16 @@ Convert and replace b.txt. Convert d.txt and write to f.txt.
 .IP 
 .B dos2unix \-n c.txt e.txt \-o a.txt b.txt \-n d.txt f.txt
 
-.SH "DIAGNOSTICS"
-
 .SH "BUGS"
 The program does not work properly under MSDOS in stdio processing mode. 
 If you know why is that so, please tell me.
 
 .SH "AUTHORS"
-Benjamin Lin \-
-.B <blin@socs.uts.edu.au>
+Benjamin Lin \- <blin@socs.uts.edu.au>
 
-Bernd Johannes Wuebben (mac2unix mode) 
-.B <wuebben@kde.org>
+Bernd Johannes Wuebben (mac2unix mode) <wuebben@kde.org>
 
-Erwin Waterlander (internationalisation)
-.B <waterlan@xs4all.nl>
+Erwin Waterlander <waterlan@xs4all.nl>
 
 Project page: http://www.xs4all.nl/~waterlan/#DOS2UNIX
 
