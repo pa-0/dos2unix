@@ -81,9 +81,19 @@ unclear. Benjamin used this probably to convert between a character set he was
 using on SunOS in 1995 and DOS character set CP437. In this mode some
 characters are translated from ISO-8859-1 (Latin1) to DOS code page CP437, but
 for several others it's not clear. To convert text files between different
-encodings it's better to use iconv(1). For instance like this:
+encodings it's better to use iconv(1). Some examples:
+
+Convert from Unix Latin-1 to DOSLatinUS
 .IP
 .B iconv -f ISO-8859-1 -t CP437 in.txt | unix2dos > out.txt
+
+Convert from Unix Latin-1 to DOSLatin1
+.IP
+.B iconv -f ISO-8859-1 -t CP850 in.txt | unix2dos > out.txt
+
+Convert from Unix Latin-1 to WinLatin1
+.IP
+.B iconv -f ISO-8859-1 -t CP1252 in.txt | unix2dos > out.txt
 
 .SH EXAMPLES
 

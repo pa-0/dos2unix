@@ -71,6 +71,11 @@ In this mode DOS line endings are converted to Unix line endings.
 All other characters are left unchanged.
 
 .TP
+.B Mac
+In this mode Mac line endings are converted to Unix line endings.
+All other characters are left unchanged.
+
+.TP
 .B 7bit
 In this mode DOS line endings are converted to Unix line endings.
 All 8 bit non-ASCII characters (with values from 128 to 255) are converted
@@ -84,14 +89,19 @@ unclear. Benjamin used this probably to convert between DOS character set CP437
 and a character set he was using on SunOS in 1995. In this mode some characters
 are translated from DOS code page CP437 to ISO-8859-1 (Latin1), but for several
 others it's not clear. To convert text files between different encodings it's
-better to use iconv(1). For instance like this:
+better to use iconv(1). Some examples:
+
+Convert from DOSLatinUS to Unix Latin-1
 .IP
 .B iconv -f CP437 -t ISO-8859-1 in.txt | dos2unix > out.txt
 
-.TP
-.B Mac
-In this mode Mac line endings are converted to Unix line endings.
-All other characters are left unchanged.
+Convert from DOSLatin1 to Unix Latin-1
+.IP
+.B iconv -f CP850 -t ISO-8859-1 in.txt | dos2unix > out.txt
+
+Convert from WinLatin1 to Unix Latin-1
+.IP
+.B iconv -f CP1252 -t ISO-8859-1 in.txt | dos2unix > out.txt
 
 .SH "EXAMPLES"
 .LP 
