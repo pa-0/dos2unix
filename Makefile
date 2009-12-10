@@ -34,8 +34,8 @@ POT		= po/$(PACKAGE).pot
 POFILES		= $(wildcard po/*.po)
 MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
 endif
-DOCFILES	= $(PACKAGE).txt
-INSTALL_OBJS_DOC = README ChangeLog COPYRIGHT TODO $(DOCFILES)
+DOCFILES	= $(PACKAGE).txt $(PACKAGE).ps $(PACKAGE).pdf
+INSTALL_OBJS_DOC = README ChangeLog COPYING TODO $(DOCFILES)
 
 # On some systems (e.g. FreeBSD 4.10) GNU install is installed as `ginstall'.
 INSTALL		= install
@@ -172,6 +172,12 @@ $(POT) : dos2unix.c
 
 $(PACKAGE).txt : dos2unix.1
 	LC_ALL=C nroff -man $< | col -bx > $@
+
+$(PACKAGE).ps : dos2unix.1
+	groff -man $< -T ps > $@
+
+%.pdf: %.ps
+	ps2pdf $< $@
 
 install: all
 	$(MKDIR) -p -m 755 $(BINDIR)
