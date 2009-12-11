@@ -23,19 +23,19 @@ BASIC INSTALLATION
 
 INSTALLATION NAMES
 
-	By default the 'install' target will install the program in
-	/usr/bin, the language files in /usr/share/locale
-	and the man page in /usr/share/man. You can specify an
-	installation prefix other than /usr by modifying the
-	'prefix' variable. An Example:
+    By default the 'install' target will install the program in
+    /usr/bin, the language files in /usr/share/locale
+    and the man page in /usr/share/man. You can specify an
+    installation prefix other than /usr by modifying the
+    'prefix' variable. An Example:
 
-	    make prefix=$HOME clean all
-	    make prefix=$HOME install
+        make prefix=$HOME clean all
+        make prefix=$HOME install
 
 NATIVE LANGUAGE SUPPORT
 
     Native Language Support (NLS) is by default enabled.
-    To disable NLS type ENABLE_NLS=. Example:
+    To disable NLS add ENABLE_NLS=. Example:
 
         make clean install ENABLE_NLS=
 

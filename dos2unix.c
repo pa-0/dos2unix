@@ -220,77 +220,77 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
 
     switch (ipFlag->ConvMode)
     {
-        case 0: /* ASCII */
-	  while ((TempChar = getc(ipInF)) != EOF) {
-	    if (TempChar != '\x0d') {
-	      if (putc(D2UAsciiTable[TempChar], ipOutF) == EOF) {
-		RetVal = -1;
-		if (!ipFlag->Quiet)
-		  fprintf(stderr, _("dos2unix: can not write to out file\n"));
-		break;
-	      } 
-	    } else {
-	      StripDelimiter( ipInF, ipOutF, ipFlag, TempChar );
-	    }
-	  }
-	  break;
-        case 1: /* 7Bit */
-	  while ((TempChar = getc(ipInF)) != EOF) {
-	    if (TempChar != '\x0d') {
-	      if (putc(D2U7BitTable[TempChar], ipOutF) == EOF) {
-		RetVal = -1;
-		if (!ipFlag->Quiet)
-		  fprintf(stderr, _("dos2unix: can not write to out file\n"));
-		break;
-	      }
-	    } else {
-	      StripDelimiter( ipInF, ipOutF, ipFlag, TempChar );
-	    }
-	  }
-	  break;
-        case 2: /* ISO */
-	  while ((TempChar = getc(ipInF)) != EOF) {
-	    if (TempChar != '\x0d') {
-	      if (putc(D2UIsoTable[TempChar], ipOutF) == EOF) {
-		RetVal = -1;
-		if (!ipFlag->Quiet)
-		  fprintf(stderr, _("dos2unix: can not write to out file\n"));
-		break;
-	      }
-	    } else {
-	      StripDelimiter( ipInF, ipOutF, ipFlag, TempChar );
-	    }
-	  }
-	  break;
-    case 3: /* Mac */
-	  while ((TempChar = getc(ipInF)) != EOF)
-	    if ((TempChar != '\x0d'))
-	      {
-		if(putc(D2UAsciiTable[TempChar], ipOutF) == EOF){
-		  RetVal = -1;
-		  if (!ipFlag->Quiet)
-		    fprintf(stderr, _("dos2unix: can not write to out file\n"));
-		  break;
-		}
-	      }
-	    else{
-	      if ( (TempNextChar = getc(ipInF)) != EOF) {
-		ungetc( TempNextChar, ipInF );  /* put back peek char */
-		/* Don't touch this delimiter if it's a CR,LF pair. */
-		if ( TempNextChar == '\x0a' ) {
-		  continue;
-		}
-	      }
-	      if (putc('\x0a', ipOutF) == EOF)
-		{
-		  RetVal = -1;
-		  if (!ipFlag->Quiet)
-		    fprintf(stderr, _("dos2unix: can not write to out file\n"));
-		  break;
-		}
-	    }
-	  break;
-    default: /* unknown convmode */
+      case 0: /* ASCII */
+        while ((TempChar = getc(ipInF)) != EOF) {
+          if (TempChar != '\x0d') {
+            if (putc(D2UAsciiTable[TempChar], ipOutF) == EOF) {
+              RetVal = -1;
+              if (!ipFlag->Quiet)
+                fprintf(stderr, _("dos2unix: can not write to out file\n"));
+              break;
+            } 
+          } else {
+            StripDelimiter( ipInF, ipOutF, ipFlag, TempChar );
+          }
+        }
+        break;
+      case 1: /* 7Bit */
+        while ((TempChar = getc(ipInF)) != EOF) {
+          if (TempChar != '\x0d') {
+            if (putc(D2U7BitTable[TempChar], ipOutF) == EOF) {
+              RetVal = -1;
+              if (!ipFlag->Quiet)
+                fprintf(stderr, _("dos2unix: can not write to out file\n"));
+              break;
+            }
+          } else {
+            StripDelimiter( ipInF, ipOutF, ipFlag, TempChar );
+          }
+        }
+        break;
+      case 2: /* ISO */
+        while ((TempChar = getc(ipInF)) != EOF) {
+          if (TempChar != '\x0d') {
+            if (putc(D2UIsoTable[TempChar], ipOutF) == EOF) {
+              RetVal = -1;
+              if (!ipFlag->Quiet)
+                fprintf(stderr, _("dos2unix: can not write to out file\n"));
+              break;
+            }
+          } else {
+            StripDelimiter( ipInF, ipOutF, ipFlag, TempChar );
+          }
+        }
+        break;
+      case 3: /* Mac */
+        while ((TempChar = getc(ipInF)) != EOF)
+          if ((TempChar != '\x0d'))
+            {
+              if(putc(D2UAsciiTable[TempChar], ipOutF) == EOF){
+                RetVal = -1;
+                if (!ipFlag->Quiet)
+                  fprintf(stderr, _("dos2unix: can not write to out file\n"));
+                break;
+              }
+            }
+          else{
+            if ( (TempNextChar = getc(ipInF)) != EOF) {
+              ungetc( TempNextChar, ipInF );  /* put back peek char */
+              /* Don't touch this delimiter if it's a CR,LF pair. */
+              if ( TempNextChar == '\x0a' ) {
+                continue;
+              }
+            }
+            if (putc('\x0a', ipOutF) == EOF)
+              {
+                RetVal = -1;
+                if (!ipFlag->Quiet)
+                  fprintf(stderr, _("dos2unix: can not write to out file\n"));
+                break;
+              }
+          }
+        break;
+      default: /* unknown convmode */
       ;
 #ifdef DEBUG
       fprintf(stderr, _("dos2unix: program error, invalid conversion mode %d\n"),ipFlag->ConvMode);
@@ -354,8 +354,8 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     RetVal = -1;
 
   if((fd = MakeTempFileFrom(ipOutFN, &TempPath))<0) {
-	  perror("Failed to open output temp file");
-	  RetVal = -1;
+          perror("Failed to open output temp file");
+          RetVal = -1;
   }
 
 #ifdef DEBUG
@@ -386,7 +386,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   if ((TempF) && (fclose(TempF) == EOF))
     RetVal = -1;
   if(fd>=0)
-	  close(fd);
+    close(fd);
 
   if ((!RetVal) && (ipFlag->KeepDate))
   {
@@ -440,8 +440,8 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
     mode = StatBuf.st_mode;
 
   if((fd = MakeTempFileFrom(ipInFN, &TempPath))<0) {
-	  perror("Failed to open output temp file");
-	  RetVal = -1;
+    perror("Failed to open output temp file");
+    RetVal = -1;
   }
 
   if (!RetVal && fchmod (fd, mode) && fchmod (fd, S_IRUSR | S_IWUSR))
@@ -476,7 +476,7 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
     RetVal = -1;
 
   if(fd>=0)
-	  close(fd);
+    close(fd);
 
   if ((!RetVal) && (ipFlag->KeepDate))
   {
