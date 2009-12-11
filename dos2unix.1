@@ -7,7 +7,7 @@ dos2unix [options] [\-c convmode] [\-o file ...] [\-n infile outfile ...]
 .PP 
 Options:
 .PP 
-[\-hkqV] [\-\-help] [\-\-keepdate] [\-\-quiet] [\-\-version]
+[\-hkqLV] [\-\-help] [\-\-keepdate] [\-\-quiet] [\-\-version]
 
 .SH "DESCRIPTION"
 .PP 
@@ -102,6 +102,10 @@ Convert from DOSLatin1 to Unix Latin-1
 Convert from WinLatin1 to Unix Latin-1
 .IP
 .B iconv -f CP1252 -t ISO-8859-1 in.txt | dos2unix > out.txt
+
+See also <http://czyborra.com/charsets/codepages.html>
+.br
+and <http://czyborra.com/charsets/iso8859.html>.
 
 .SH "EXAMPLES"
 .LP 
