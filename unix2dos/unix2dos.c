@@ -182,13 +182,21 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
     int RetVal = 0;
     int TempChar;
 
+    /* LF -> CR-LF */
+    /* CR-LF -> CR-LF  in case the input file is a DOS text file */
+    /* \x0a = Newline/Line Feed (LF) */
+    /* \x0d = Carriage Return (CR) */
+
     switch (ipFlag->ConvMode)
     {
         case 0: /* ASCII */
-            while ((TempChar = getc(ipInF)) != EOF)
-                if ((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF) ||
-                    (TempChar == '\x0d') && (((TempChar = getc(ipInF)) == EOF) || (putc('\x0d', ipOutF) == EOF)) ||
-                    (putc(U2DAsciiTable[TempChar], ipOutF) == EOF))
+            while ((TempChar = getc(ipInF)) != EOF)  /* get character */
+                if (
+                    /* read a Unix line end */
+                    ((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF)) ||  /* got LF, put CR */
+                    /* read a DOS line end */
+                    ((TempChar == '\x0d') && (((TempChar = getc(ipInF)) == EOF) || (putc('\x0d', ipOutF) == EOF))) || /* got CR, get next char; put CR */
+                    (putc(U2DAsciiTable[TempChar], ipOutF) == EOF)) /* put char (LF or other char) */
                 {
                     RetVal = -1;
                     if (!ipFlag->Quiet)
@@ -198,8 +206,8 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
             break;
       case 1: /* 7Bit */
             while ((TempChar = getc(ipInF)) != EOF)
-                if ((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF) ||
-                    (TempChar == '\x0d') && (((TempChar = getc(ipInF)) == EOF) || (putc('\x0d', ipOutF) == EOF)) ||
+                if (((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF)) ||
+                    ((TempChar == '\x0d') && (((TempChar = getc(ipInF)) == EOF) || (putc('\x0d', ipOutF) == EOF))) ||
                     (putc(U2D7BitTable[TempChar], ipOutF) == EOF))
                 {
                     RetVal = -1;
@@ -210,8 +218,8 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
             break;
       case 2: /* ISO */
             while ((TempChar = getc(ipInF)) != EOF)
-                if ((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF) ||
-                    (TempChar == '\x0d') && (((TempChar = getc(ipInF)) == EOF) || (putc('\x0d', ipOutF) == EOF)) ||
+                if (((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF)) ||
+                    ((TempChar == '\x0d') && (((TempChar = getc(ipInF)) == EOF) || (putc('\x0d', ipOutF) == EOF))) ||
                     (putc(U2DIsoTable[TempChar], ipOutF) == EOF))
                 {
                     RetVal = -1;

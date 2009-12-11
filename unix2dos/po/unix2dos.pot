@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-09 22:57+0100\n"
+"POT-Creation-Date: 2009-12-11 09:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,57 +66,57 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: unix2dos.c:195 unix2dos.c:207 unix2dos.c:219
+#: unix2dos.c:203 unix2dos.c:215 unix2dos.c:227
 #, c-format
 msgid "unix2dos: can not write to output file\n"
 msgstr ""
 
-#: unix2dos.c:226
+#: unix2dos.c:234
 #, c-format
 msgid "unix2dos: program error, invalid conversion mode %d\n"
 msgstr ""
 
-#: unix2dos.c:292 unix2dos.c:381
+#: unix2dos.c:300 unix2dos.c:389
 #, c-format
 msgid "unix2dos: using %s as temp file\n"
 msgstr ""
 
-#: unix2dos.c:340 unix2dos.c:429
+#: unix2dos.c:348 unix2dos.c:437
 #, c-format
 msgid "unix2dos: problems renaming '%s' to '%s'\n"
 msgstr ""
 
-#: unix2dos.c:341 unix2dos.c:430
+#: unix2dos.c:349 unix2dos.c:438
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr ""
 
-#: unix2dos.c:512
+#: unix2dos.c:520
 #, c-format
 msgid "unix2dos: invalid %s conversion mode specified\n"
 msgstr ""
 
-#: unix2dos.c:523 unix2dos.c:534 unix2dos.c:576
+#: unix2dos.c:531 unix2dos.c:542 unix2dos.c:584
 #, c-format
 msgid "unix2dos: target of file %s not specified in new file mode\n"
 msgstr ""
 
-#: unix2dos.c:550
+#: unix2dos.c:558
 #, c-format
 msgid "unix2dos: converting file %s to file %s in DOS format ...\n"
 msgstr ""
 
-#: unix2dos.c:554
+#: unix2dos.c:562
 #, c-format
 msgid "unix2dos: problems converting file %s to file %s\n"
 msgstr ""
 
-#: unix2dos.c:563
+#: unix2dos.c:571
 #, c-format
 msgid "unix2dos: converting file %s to DOS format ...\n"
 msgstr ""
 
-#: unix2dos.c:567
+#: unix2dos.c:575
 #, c-format
 msgid "unix2dos: problems converting file %s\n"
 msgstr ""
