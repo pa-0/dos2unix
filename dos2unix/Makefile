@@ -171,7 +171,7 @@ $(POT) : dos2unix.c
 	xgettext -C --keyword=_ $+ -o $(POT)
 
 $(PACKAGE).txt : dos2unix.1
-	LC_ALL=C nroff -man $< | col -bx > $@
+	LC_ALL=C nroff -man -c $< | col -bx > $@
 
 $(PACKAGE).ps : dos2unix.1
 	groff -man $< -T ps > $@

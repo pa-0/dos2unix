@@ -154,7 +154,7 @@ $(POT) : unix2dos.c
 	xgettext -C --keyword=_ $+ -o $(POT)
 
 $(PACKAGE).txt : unix2dos.1
-	LC_ALL=C nroff -man $< | col -bx > $@
+	LC_ALL=C nroff -man -c $< | col -bx > $@
 
 $(PACKAGE).ps : unix2dos.1
 	groff -man $< -T ps > $@
