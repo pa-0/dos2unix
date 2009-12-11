@@ -182,57 +182,57 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
     int RetVal = 0;
     int TempChar;
 
-    /* LF -> CR-LF */
-    /* CR-LF -> CR-LF  in case the input file is a DOS text file */
+    /* LF    -> CR-LF */
+    /* CR-LF -> CR-LF, in case the input file is a DOS text file */
     /* \x0a = Newline/Line Feed (LF) */
     /* \x0d = Carriage Return (CR) */
 
     switch (ipFlag->ConvMode)
     {
-        case 0: /* ASCII */
-            while ((TempChar = getc(ipInF)) != EOF)  /* get character */
-                if (
-                    /* read a Unix line end */
-                    ((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF)) ||  /* got LF, put CR */
-                    /* read a DOS line end */
-                    ((TempChar == '\x0d') && (((TempChar = getc(ipInF)) == EOF) || (putc('\x0d', ipOutF) == EOF))) || /* got CR, get next char; put CR */
-                    (putc(U2DAsciiTable[TempChar], ipOutF) == EOF)) /* put char (LF or other char) */
-                {
-                    RetVal = -1;
-                    if (!ipFlag->Quiet)
-                        fprintf(stderr, _("unix2dos: can not write to output file\n"));
-                    break;
-                }
-            break;
+      case 0: /* ASCII */
+        while ((TempChar = getc(ipInF)) != EOF)  /* get character */
+          if (
+              /* read a Unix line end */
+              ((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF)) ||  /* got LF, put CR */
+              /* read a DOS line end */
+              ((TempChar == '\x0d') && (((TempChar = getc(ipInF)) == EOF) || (putc('\x0d', ipOutF) == EOF))) || /* got CR, put CR and get next char (LF) */
+              (putc(U2DAsciiTable[TempChar], ipOutF) == EOF)) /* put char (LF or other char) */
+          {
+              RetVal = -1;
+              if (!ipFlag->Quiet)
+                fprintf(stderr, _("unix2dos: can not write to output file\n"));
+              break;
+          }
+        break;
       case 1: /* 7Bit */
-            while ((TempChar = getc(ipInF)) != EOF)
-                if (((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF)) ||
-                    ((TempChar == '\x0d') && (((TempChar = getc(ipInF)) == EOF) || (putc('\x0d', ipOutF) == EOF))) ||
-                    (putc(U2D7BitTable[TempChar], ipOutF) == EOF))
-                {
-                    RetVal = -1;
-                    if (!ipFlag->Quiet)
-                        fprintf(stderr, _("unix2dos: can not write to output file\n"));
-                    break;
-                }
-            break;
+        while ((TempChar = getc(ipInF)) != EOF)
+          if (((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF)) ||
+              ((TempChar == '\x0d') && (((TempChar = getc(ipInF)) == EOF) || (putc('\x0d', ipOutF) == EOF))) ||
+              (putc(U2D7BitTable[TempChar], ipOutF) == EOF))
+          {
+              RetVal = -1;
+              if (!ipFlag->Quiet)
+                fprintf(stderr, _("unix2dos: can not write to output file\n"));
+              break;
+          }
+        break;
       case 2: /* ISO */
-            while ((TempChar = getc(ipInF)) != EOF)
-                if (((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF)) ||
-                    ((TempChar == '\x0d') && (((TempChar = getc(ipInF)) == EOF) || (putc('\x0d', ipOutF) == EOF))) ||
-                    (putc(U2DIsoTable[TempChar], ipOutF) == EOF))
-                {
-                    RetVal = -1;
-                    if (!ipFlag->Quiet)
-                        fprintf(stderr, _("unix2dos: can not write to output file\n"));
-                    break;
-                }
-            break;
+        while ((TempChar = getc(ipInF)) != EOF)
+          if (((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF)) ||
+              ((TempChar == '\x0d') && (((TempChar = getc(ipInF)) == EOF) || (putc('\x0d', ipOutF) == EOF))) ||
+              (putc(U2DIsoTable[TempChar], ipOutF) == EOF))
+          {
+              RetVal = -1;
+              if (!ipFlag->Quiet)
+                fprintf(stderr, _("unix2dos: can not write to output file\n"));
+              break;
+          }
+        break;
       default: /*unknown convmode */
-          ;
+      ;
 #ifdef DEBUG
-            fprintf(stderr, _("unix2dos: program error, invalid conversion mode %d\n"),ipFlag->ConvMode);
-            exit(1);
+      fprintf(stderr, _("unix2dos: program error, invalid conversion mode %d\n"),ipFlag->ConvMode);
+      exit(1);
 #endif
   }
   return RetVal;
@@ -292,8 +292,8 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     RetVal = -1;
 
   if((fd = MakeTempFileFrom (ipOutFN, &TempPath)) < 0) {
-	  perror("Can't open output temp file");
-	  RetVal = -1;
+    perror("Can't open output temp file");
+    RetVal = -1;
   }
 
 #ifdef DEBUG
@@ -325,7 +325,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     RetVal = -1;
 
   if(fd>=0)
-	  close(fd);
+    close(fd);
 
   if ((!RetVal) && (ipFlag->KeepDate))
   {
@@ -414,7 +414,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
     RetVal = -1;
 
   if(fd>=0)
-	  close(fd);
+    close(fd);
 
   if ((!RetVal) && (ipFlag->KeepDate))
   {
