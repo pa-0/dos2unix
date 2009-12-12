@@ -35,7 +35,7 @@ POFILES		= $(wildcard po/*.po)
 MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
 endif
 DOCFILES	= $(PACKAGE).txt $(PACKAGE).ps $(PACKAGE).pdf
-INSTALL_OBJS_DOC = README ChangeLog COPYING TODO $(DOCFILES)
+INSTALL_OBJS_DOC = README.txt ChangeLog COPYING.txt TODO.txt $(DOCFILES)
 
 # On some systems (e.g. FreeBSD 4.10) GNU install is installed as `ginstall'.
 INSTALL		= install
