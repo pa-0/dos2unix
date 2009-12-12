@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-09 22:49+0100\n"
+"POT-Creation-Date: 2009-12-12 02:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,52 +79,52 @@ msgstr ""
 msgid "dos2unix: program error, invalid conversion mode %d\n"
 msgstr ""
 
-#: dos2unix.c:362 dos2unix.c:451
+#: dos2unix.c:391 dos2unix.c:502
 #, c-format
 msgid "dos2unix: using %s as temp file\n"
 msgstr ""
 
-#: dos2unix.c:409 dos2unix.c:499
+#: dos2unix.c:450 dos2unix.c:562
 #, c-format
 msgid "dos2unix: problems renaming '%s' to '%s'\n"
 msgstr ""
 
-#: dos2unix.c:410 dos2unix.c:500
+#: dos2unix.c:451 dos2unix.c:563
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr ""
 
-#: dos2unix.c:591
+#: dos2unix.c:654
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr ""
 
-#: dos2unix.c:599
+#: dos2unix.c:662
 #, c-format
 msgid "dos2unix: option `%s' requires an argument\n"
 msgstr ""
 
-#: dos2unix.c:610 dos2unix.c:622 dos2unix.c:664
+#: dos2unix.c:673 dos2unix.c:685 dos2unix.c:727
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr ""
 
-#: dos2unix.c:638
+#: dos2unix.c:701
 #, c-format
 msgid "dos2unix: converting file %s to file %s in UNIX format ...\n"
 msgstr ""
 
-#: dos2unix.c:642
+#: dos2unix.c:705
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr ""
 
-#: dos2unix.c:651
+#: dos2unix.c:714
 #, c-format
 msgid "dos2unix: converting file %s to UNIX format ...\n"
 msgstr ""
 
-#: dos2unix.c:655
+#: dos2unix.c:718
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr ""

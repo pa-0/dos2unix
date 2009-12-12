@@ -301,13 +301,22 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
     return RetVal;
 }
 
+#if defined(__MINGW32__)
+FILE* MakeTempFileFrom(const char *OutFN, char **fname_ret)
+#else
 static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
+#endif
 {
   char *cpy = strdup(OutFN);
   char *dir = NULL;
   size_t fname_len = 0;
   char  *fname_str = NULL;
+#if defined(__MINGW32__)
+  char *name;
+  FILE *fd = NULL;
+#else
   int fd = -1;
+#endif
   
   *fname_ret = NULL;
   
@@ -324,15 +333,26 @@ static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
   
   free(cpy);
   
+#if defined(__MINGW32__)
+  name = mktemp(fname_str);
+  *fname_ret = name;
+  if ((fd = fopen(fname_str, "w")) == NULL)
+    goto make_failed;
+#else
   if ((fd = mkstemp(fname_str)) == -1)
     goto make_failed;
+#endif
   
   return (fd);
   
  make_failed:
   free(*fname_ret);
   *fname_ret = NULL;
+#if defined(__MINGW32__)
+  return (NULL);
+#else
   return (-1);
+#endif
 }
 
 /* convert file ipInFN to UNIX format text and write to file ipOutFN
@@ -347,13 +367,21 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   char *TempPath;
   struct stat StatBuf;
   struct utimbuf UTimeBuf;
+#if defined(__MINGW32__)
+  FILE* fd;
+#else
   int fd;
+#endif
 
   /* retrieve ipInFN file date stamp */
   if ((ipFlag->KeepDate) && stat(ipInFN, &StatBuf))
     RetVal = -1;
 
+#if defined(__MINGW32__)
+  if((fd = MakeTempFileFrom(ipOutFN, &TempPath))==NULL) {
+#else
   if((fd = MakeTempFileFrom(ipOutFN, &TempPath))<0) {
+#endif
           perror("Failed to open output temp file");
           RetVal = -1;
   }
@@ -367,7 +395,11 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     RetVal = -1;
 
   /* can open out file? */
+#if defined(__MINGW32__)
+  if ((!RetVal) && (InF) && ((TempF=fd) == NULL))
+#else
   if ((!RetVal) && (InF) && ((TempF=OpenOutFile(fd)) == NULL))
+#endif
   {
     fclose (InF);
     InF = NULL;
@@ -385,8 +417,13 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   /* can close out file? */
   if ((TempF) && (fclose(TempF) == EOF))
     RetVal = -1;
+#if defined(__MINGW32__)
+  if(fd!=NULL)
+    fclose(fd);
+#else
   if(fd>=0)
     close(fd);
+#endif
 
   if ((!RetVal) && (ipFlag->KeepDate))
   {
@@ -404,6 +441,9 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   /* can rename temp file to out file? */
   if (!RetVal)
   {
+#if defined(__MINGW32__)
+    remove(ipOutFN);
+#endif
     if ((rename(TempPath, ipOutFN) == -1) && (!ipFlag->Quiet))
     {
       fprintf(stderr, _("dos2unix: problems renaming '%s' to '%s'\n"), TempPath, ipOutFN);
@@ -431,7 +471,11 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   struct stat StatBuf;
   struct utimbuf UTimeBuf;
   mode_t mode = S_IRUSR | S_IWUSR;
+#if defined(__MINGW32__)
+  FILE* fd;
+#else
   int fd;
+#endif
 
   /* retrieve ipInFN file date stamp */
   if (stat(ipInFN, &StatBuf))
@@ -439,13 +483,19 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   else
     mode = StatBuf.st_mode;
 
+#if defined(__MINGW32__)
+  if((fd = MakeTempFileFrom(ipInFN, &TempPath))==NULL) {
+#else
   if((fd = MakeTempFileFrom(ipInFN, &TempPath))<0) {
+#endif
     perror("Failed to open output temp file");
     RetVal = -1;
   }
 
+#if !defined(__MINGW32__)
   if (!RetVal && fchmod (fd, mode) && fchmod (fd, S_IRUSR | S_IWUSR))
     RetVal = -1;
+#endif
 
 #ifdef DEBUG
   fprintf(stderr, _("dos2unix: using %s as temp file\n"), TempPath);
@@ -456,7 +506,11 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
     RetVal = -1;
 
   /* can open out file? */
+#if defined(__MINGW32__)
+  if ((!RetVal) && (InF) && ((TempF=fd) == NULL))
+#else
   if ((!RetVal) && (InF) && ((TempF=OpenOutFile(fd)) == NULL))
+#endif
   {
     fclose (InF);
     InF = NULL;
@@ -475,8 +529,13 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   if ((TempF) && (fclose(TempF) == EOF))
     RetVal = -1;
 
+#if defined(__MINGW32__)
+  if(fd!=NULL)
+    fclose(fd);
+#else
   if(fd>=0)
     close(fd);
+#endif
 
   if ((!RetVal) && (ipFlag->KeepDate))
   {
@@ -491,6 +550,9 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   if ((RetVal) && (unlink(TempPath)))
     RetVal = -1;
 
+#if defined(__MINGW32__)
+  remove(ipInFN);
+#endif
   /* can rename out file to in file? */
   if ((!RetVal) && (rename(TempPath, ipInFN) == -1))
   {

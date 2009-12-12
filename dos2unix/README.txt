@@ -1,14 +1,14 @@
 
 File list
 
-    README              : This file.
-    INSTALL             : How to build and install
-    COPYING             : distribution license.
+    README.txt          : This file.
+    INSTALL.txt         : How to build and install
+    COPYING.txt         : distribution license.
     dos2unix.txt        : Manual, text format.
     dos2unix.ps         : Manual, PostScript format.
     dos2unix.pdf        : Manual, PDF format.
     ChangeLog           : Change log.
-    TODO                : Things to do.
+    TODO.txt            : Things to do.
 
 
 dos2unix - DOS/MAC to UNIX text file format converter.

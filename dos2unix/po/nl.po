@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-09 12:27+0100\n"
+"POT-Creation-Date: 2009-12-12 02:55+0100\n"
 "PO-Revision-Date: 2009-12-08 21:59+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -97,54 +97,54 @@ msgstr "dos2unix: kan niet schrijven naar uitvoerbestand\n"
 msgid "dos2unix: program error, invalid conversion mode %d\n"
 msgstr "dos2unix: programma fout, ongeldige conversie modus %d\n"
 
-#: dos2unix.c:362 dos2unix.c:451
+#: dos2unix.c:391 dos2unix.c:502
 #, c-format
 msgid "dos2unix: using %s as temp file\n"
 msgstr "dos2unix: %s wordt als tijdelijk bestand gebruikt\n"
 
-#: dos2unix.c:409 dos2unix.c:499
+#: dos2unix.c:450 dos2unix.c:562
 #, c-format
 msgid "dos2unix: problems renaming '%s' to '%s'\n"
 msgstr "dos2unix: problemen met hernoemen van '%s' naar '%s'\n"
 
-#: dos2unix.c:410 dos2unix.c:500
+#: dos2unix.c:451 dos2unix.c:563
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          uitvoerbestand blijft in '%s'\n"
 
-#: dos2unix.c:591
+#: dos2unix.c:654
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr "dos2unix: ongeldige %s conversie modus gespecificeerd\n"
 
-#: dos2unix.c:599
+#: dos2unix.c:662
 #, c-format
 msgid "dos2unix: option `%s' requires an argument\n"
 msgstr "dos2unix: optie `%s' heeft een argument nodig\n"
 
-#: dos2unix.c:610 dos2unix.c:622 dos2unix.c:664
+#: dos2unix.c:673 dos2unix.c:685 dos2unix.c:727
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr ""
 "dos2unix: doel van bestand %s is niet gespecificeerd in 'nieuw bestand "
 "modus'\n"
 
-#: dos2unix.c:638
+#: dos2unix.c:701
 #, c-format
 msgid "dos2unix: converting file %s to file %s in UNIX format ...\n"
 msgstr "dos2unix: converteren bestand %s naar bestand %s in UNIX formaat ...\n"
 
-#: dos2unix.c:642
+#: dos2unix.c:705
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s naar bestand %s\n"
 
-#: dos2unix.c:651
+#: dos2unix.c:714
 #, c-format
 msgid "dos2unix: converting file %s to UNIX format ...\n"
 msgstr "dos2unix: converteren bestand %s naar UNIX formaat ...\n"
 
-#: dos2unix.c:655
+#: dos2unix.c:718
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s\n"
