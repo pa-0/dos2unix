@@ -208,7 +208,7 @@ endif
 
 clean:
 	rm -f *.o
-	rm -f $(BIN) $(MAC2UNIX_BIN)
+	rm -f $(BIN) $(MAC2UNIX_BIN) $(MAC2UNIX).1
 	rm -f *.bak *~
 	rm -f */*.bak */*~
 
