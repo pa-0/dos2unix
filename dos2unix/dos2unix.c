@@ -98,6 +98,9 @@ typedef struct
   int NewLine;                          /* if TRUE, then additional newline */
 } CFlag;
 
+#if defined(__MINGW32__)
+#define MSDOS
+#endif
 
 
 void PrintUsage(void)
@@ -301,7 +304,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
     return RetVal;
 }
 
-#if defined(__MINGW32__)
+#ifdef MSDOS
 FILE* MakeTempFileFrom(const char *OutFN, char **fname_ret)
 #else
 static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
@@ -311,7 +314,7 @@ static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
   char *dir = NULL;
   size_t fname_len = 0;
   char  *fname_str = NULL;
-#if defined(__MINGW32__)
+#ifdef MSDOS
   char *name;
   FILE *fd = NULL;
 #else
@@ -333,7 +336,7 @@ static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
   
   free(cpy);
   
-#if defined(__MINGW32__)
+#ifdef MSDOS
   name = mktemp(fname_str);
   *fname_ret = name;
   if ((fd = fopen(fname_str, "w")) == NULL)
@@ -348,7 +351,7 @@ static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
  make_failed:
   free(*fname_ret);
   *fname_ret = NULL;
-#if defined(__MINGW32__)
+#ifdef MSDOS
   return (NULL);
 #else
   return (-1);
@@ -367,7 +370,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   char *TempPath;
   struct stat StatBuf;
   struct utimbuf UTimeBuf;
-#if defined(__MINGW32__)
+#ifdef MSDOS
   FILE* fd;
 #else
   int fd;
@@ -377,7 +380,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   if ((ipFlag->KeepDate) && stat(ipInFN, &StatBuf))
     RetVal = -1;
 
-#if defined(__MINGW32__)
+#ifdef MSDOS
   if((fd = MakeTempFileFrom(ipOutFN, &TempPath))==NULL) {
 #else
   if((fd = MakeTempFileFrom(ipOutFN, &TempPath))<0) {
@@ -395,7 +398,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     RetVal = -1;
 
   /* can open out file? */
-#if defined(__MINGW32__)
+#ifdef MSDOS
   if ((!RetVal) && (InF) && ((TempF=fd) == NULL))
 #else
   if ((!RetVal) && (InF) && ((TempF=OpenOutFile(fd)) == NULL))
@@ -417,7 +420,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   /* can close out file? */
   if ((TempF) && (fclose(TempF) == EOF))
     RetVal = -1;
-#if defined(__MINGW32__)
+#ifdef MSDOS
   if(fd!=NULL)
     fclose(fd);
 #else
@@ -441,7 +444,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   /* can rename temp file to out file? */
   if (!RetVal)
   {
-#if defined(__MINGW32__)
+#ifdef MSDOS
     remove(ipOutFN);
 #endif
     if ((rename(TempPath, ipOutFN) == -1) && (!ipFlag->Quiet))
@@ -471,7 +474,7 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   struct stat StatBuf;
   struct utimbuf UTimeBuf;
   mode_t mode = S_IRUSR | S_IWUSR;
-#if defined(__MINGW32__)
+#ifdef MSDOS
   FILE* fd;
 #else
   int fd;
@@ -483,7 +486,7 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   else
     mode = StatBuf.st_mode;
 
-#if defined(__MINGW32__)
+#ifdef MSDOS
   if((fd = MakeTempFileFrom(ipInFN, &TempPath))==NULL) {
 #else
   if((fd = MakeTempFileFrom(ipInFN, &TempPath))<0) {
@@ -492,7 +495,7 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
     RetVal = -1;
   }
 
-#if !defined(__MINGW32__)
+#ifndef MSDOS
   if (!RetVal && fchmod (fd, mode) && fchmod (fd, S_IRUSR | S_IWUSR))
     RetVal = -1;
 #endif
@@ -506,7 +509,7 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
     RetVal = -1;
 
   /* can open out file? */
-#if defined(__MINGW32__)
+#ifdef MSDOS
   if ((!RetVal) && (InF) && ((TempF=fd) == NULL))
 #else
   if ((!RetVal) && (InF) && ((TempF=OpenOutFile(fd)) == NULL))
@@ -529,7 +532,7 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   if ((TempF) && (fclose(TempF) == EOF))
     RetVal = -1;
 
-#if defined(__MINGW32__)
+#ifdef MSDOS
   if(fd!=NULL)
     fclose(fd);
 #else
@@ -550,8 +553,9 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   if ((RetVal) && (unlink(TempPath)))
     RetVal = -1;
 
-#if defined(__MINGW32__)
-  remove(ipInFN);
+#ifdef MSDOS
+  if (!RetVal)
+    remove(ipInFN);
 #endif
   /* can rename out file to in file? */
   if ((!RetVal) && (rename(TempPath, ipInFN) == -1))
