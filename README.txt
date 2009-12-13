@@ -7,7 +7,7 @@ File list
     dos2unix.txt        : Manual, text format.
     dos2unix.ps         : Manual, PostScript format.
     dos2unix.pdf        : Manual, PDF format.
-    ChangeLog           : Change log.
+    ChangeLog.txt       : Change log.
     TODO.txt            : Things to do.
 
 

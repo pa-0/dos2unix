@@ -81,7 +81,7 @@ static int macmode = 0;
 #endif
 #include "dos2unix.h"
 
-#if defined(__MINGW32__)
+#if defined(WIN32)
 #define MSDOS
 #endif
 
@@ -166,6 +166,11 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n\
 void PrintVersion(void)
 {
   fprintf(stderr, "dos2unix %s (%s)\n", VER_REVISION, VER_DATE);
+#ifdef ENABLE_NLS
+  fprintf(stderr, _("With native language support.\n"));
+#else
+  fprintf(stderr, "Without native language support.\n");
+#endif
 #ifdef DEBUG
   fprintf(stderr, "RCS_AUTHOR: %s\n", RCS_AUTHOR);
   fprintf(stderr, "RCS_DATE: %s\n", RCS_DATE);
@@ -605,7 +610,7 @@ int ConvertDosToUnixStdio(CFlag *ipFlag)
 
 #ifdef WIN32
     /* 'setmode' was deprecated by MicroSoft, starting
-     * from Visual C++ 2005. Use '_setmode' instead. */
+     * since Visual C++ 2005. Use '_setmode' instead. */
     _setmode(fileno(stdout), O_BINARY);
     _setmode(fileno(stdin), O_BINARY);
     return (ConvertDosToUnix(stdin, stdout, ipFlag));
