@@ -7,7 +7,7 @@ File list
     unix2dos.txt        : Manual, text format.
     unix2dos.ps         : Manual, PostScript format.
     unix2dos.pdf        : Manual, PDF format.
-    ChangeLog           : Change log.
+    ChangeLog.txt       : Change log.
     TODO.txt            : Things to do.
 
 
