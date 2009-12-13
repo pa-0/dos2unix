@@ -79,6 +79,11 @@ static int macmode = 0;
 #endif
 #include "dos2unix.h"
 
+#ifdef WIN32
+#include <fcntl.h>
+#include <io.h>
+#endif
+
 #if defined(__MINGW32__)
 #define MSDOS
 #endif
@@ -589,7 +594,31 @@ int ConvertDosToUnixStdio(CFlag *ipFlag)
     ipFlag->NewFile = 1;
     ipFlag->Quiet = 1;
     ipFlag->KeepDate = 0;
+
+    /* stdin and stdout are by default text streams. We need
+     * to reopen them in binary mode. Otherwise a LF will
+     * automatically be converted to CR-LF on DOS/Windows.
+     * Erwin */
+
+#ifdef WIN32
+    _setmode(fileno(stdout), O_BINARY);
+    _setmode(fileno(stdin), O_BINARY);
     return (ConvertDosToUnix(stdin, stdout, ipFlag));
+#elif defined(MSDOS)
+    /*
+    if ((freopen(NULL,R_CNTRL, stdin) != NULL) &&
+        (freopen(NULL,W_CNTRL, stdout) != NULL)) {
+      return (ConvertDosToUnix(stdin, stdout, ipFlag));
+    } else {
+      fprintf(stderr, _("dos2unix: cannot open stdin/stout in binary mode.\n"));
+      return(-1);
+    }
+    */
+    return (ConvertDosToUnix(stdin, stdout, ipFlag));
+
+#else
+    return (ConvertDosToUnix(stdin, stdout, ipFlag));
+#endif
 }
 
 

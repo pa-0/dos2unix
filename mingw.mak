@@ -7,7 +7,7 @@ all:
 
 
 install:
-	$(MAKE) install EXE=.exe LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix)
+	$(MAKE) install EXE=.exe GCCFLAGS="-O2 -Wall -std=gnu99" LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix)
 
 uninstall:
 	$(MAKE) uninstall EXE=.exe prefix=$(prefix)

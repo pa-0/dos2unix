@@ -2,12 +2,12 @@
 # Copyright (C) 2009
 # This file is distributed under the same license as the dos2unix package.
 # Erwin Waterlander <waterlan@xs4all.nl>, 2009.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-13 11:12+0100\n"
+"POT-Creation-Date: 2009-12-13 12:08+0100\n"
 "PO-Revision-Date: 2009-12-08 21:59+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: dos2unix.c:107
+#: dos2unix.c:112
 #, c-format
 msgid ""
 "dos2unix %s (%s)\n"
@@ -56,7 +56,7 @@ msgstr ""
 " infile           origineel bestand in 'nieuw bestand modus'\n"
 " outfile          uitvoerbestand in 'nieuw bestand modus'\n"
 
-#: dos2unix.c:128
+#: dos2unix.c:133
 #, c-format
 msgid ""
 "Copyright (c) 1994-1995 Benjamin Lin\n"
@@ -87,64 +87,68 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: dos2unix.c:240 dos2unix.c:254 dos2unix.c:268 dos2unix.c:283 dos2unix.c:299
+#: dos2unix.c:245 dos2unix.c:259 dos2unix.c:273 dos2unix.c:288 dos2unix.c:304
 #, c-format
 msgid "dos2unix: can not write to out file\n"
 msgstr "dos2unix: kan niet schrijven naar uitvoerbestand\n"
 
-#: dos2unix.c:307
+#: dos2unix.c:312
 #, c-format
 msgid "dos2unix: program error, invalid conversion mode %d\n"
 msgstr "dos2unix: programma fout, ongeldige conversie modus %d\n"
 
-#: dos2unix.c:401 dos2unix.c:512
+#: dos2unix.c:406 dos2unix.c:517
 #, c-format
 msgid "dos2unix: using %s as temp file\n"
 msgstr "dos2unix: %s wordt als tijdelijk bestand gebruikt\n"
 
-#: dos2unix.c:460 dos2unix.c:573
+#: dos2unix.c:465 dos2unix.c:578
 #, c-format
 msgid "dos2unix: problems renaming '%s' to '%s'\n"
 msgstr "dos2unix: problemen met hernoemen van '%s' naar '%s'\n"
 
-#: dos2unix.c:461 dos2unix.c:574
+#: dos2unix.c:466 dos2unix.c:579
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          uitvoerbestand blijft in '%s'\n"
 
-#: dos2unix.c:665
+#: dos2unix.c:694
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr "dos2unix: ongeldige %s conversie modus gespecificeerd\n"
 
-#: dos2unix.c:673
+#: dos2unix.c:702
 #, c-format
 msgid "dos2unix: option `%s' requires an argument\n"
 msgstr "dos2unix: optie `%s' heeft een argument nodig\n"
 
-#: dos2unix.c:684 dos2unix.c:696 dos2unix.c:738
+#: dos2unix.c:713 dos2unix.c:725 dos2unix.c:767
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr ""
 "dos2unix: doel van bestand %s is niet gespecificeerd in 'nieuw bestand "
 "modus'\n"
 
-#: dos2unix.c:712
+#: dos2unix.c:741
 #, c-format
 msgid "dos2unix: converting file %s to file %s in UNIX format ...\n"
 msgstr "dos2unix: converteren bestand %s naar bestand %s in UNIX formaat ...\n"
 
-#: dos2unix.c:716
+#: dos2unix.c:745
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s naar bestand %s\n"
 
-#: dos2unix.c:725
+#: dos2unix.c:754
 #, c-format
 msgid "dos2unix: converting file %s to UNIX format ...\n"
 msgstr "dos2unix: converteren bestand %s naar UNIX formaat ...\n"
 
-#: dos2unix.c:729
+#: dos2unix.c:758
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s\n"
+
+#, fuzzy
+#~ msgid "dos2unix: cannot open stdin/stout in binary mode.\n"
+#~ msgstr "dos2unix: kan niet schrijven naar uitvoerbestand\n"
