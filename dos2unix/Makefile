@@ -212,3 +212,27 @@ maintainer-clean: clean
 	rm -f $(MOFILES)
 
 realclean: maintainer-clean
+
+
+ZIPOBJ	= bin/$(BIN) \
+	  bin/$(MAC2UNIX_BIN) \
+	  share/locale/*/LC_MESSAGES/$(PACKAGE).mo \
+	  share/man/man1/$(PACKAGE).1 \
+	  share/man/man1/$(MAC2UNIX).1 \
+	  share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION) \
+	  $(ZIPOBJ_EXTRA)
+
+VERSIONSUFFIX	= -bin
+ZIPFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX).zip
+TGZFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX).tar.gz
+
+dist-zip:
+	cd $(prefix) ; zip -r $(ZIPFILE) $(ZIPOBJ)
+	mv $(prefix)/$(ZIPFILE) ../..
+
+dist-tgz:
+	cd $(prefix) ; tar cvzf $(TGZFILE) $(ZIPOBJ)
+	mv $(prefix)/$(TGZFILE) ../..
+
+dist: dist-tgz
+
