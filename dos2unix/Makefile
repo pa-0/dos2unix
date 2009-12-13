@@ -16,6 +16,8 @@ endif
 BIN=$(PACKAGE)$(EXE)
 MAC2UNIX_BIN=mac2unix$(EXE)
 
+LINK = ln -sf
+
 prefix		= /usr
 exec_prefix	= $(prefix)
 man_prefix	= $(prefix)/share
@@ -59,6 +61,7 @@ endif
 ifndef OS
 ifneq (, $(wildcard /cygdrive))
 	OS = cygwin
+	LINK = cp -f
 endif
 endif
 
@@ -139,18 +142,10 @@ $(BIN): dos2unix.o
 	$(CC) $< $(LDFLAGS) -o $@
 
 $(MAC2UNIX_BIN) : $(BIN)
-ifneq (, $(wildcard /cygdrive))
-	cp -f $< $@
-else
-	ln -sf $< $@
-endif
+	$(LINK) $< $@
 
 $(MAC2UNIX).1 : $(PACKAGE).1
-ifneq (, $(wildcard /cygdrive))
-	cp -f $< $@
-else
-	ln -sf $< $@
-endif
+	$(LINK) $< $@
 
 
 mofiles: $(MOFILES)

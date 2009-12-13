@@ -64,29 +64,32 @@ static int macmode = 0;
 
 /* #define DEBUG */
 
-#ifdef __MSDOS__
+#ifdef DJGPP
 #  include <dir.h>
+#  include <unistd.h>
+#else
+#  include <libgen.h>
+#  include <sys/unistd.h>
 #endif
-#include <libgen.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <utime.h>
 #include <sys/stat.h>
-#include <sys/unistd.h>
 #ifdef ENABLE_NLS
 #include <locale.h>
 #endif
 #include "dos2unix.h"
 
-#ifdef WIN32
+#if defined(__MINGW32__)
+#define MSDOS
+#endif
+
+#ifdef MSDOS /* DJGPP and MINGW32 */
 #include <fcntl.h>
 #include <io.h>
 #endif
 
-#if defined(__MINGW32__)
-#define MSDOS
-#endif
 
 #ifdef MSDOS
   #define R_CNTRL   "rb"
@@ -451,7 +454,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   }
 
   /* any error? */
-  if ((RetVal) && (unlink(TempPath)))
+  if ((RetVal) && (remove(TempPath)))
     RetVal = -1;
 
   /* can rename temp file to out file? */
@@ -563,7 +566,7 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   }
 
   /* any error? */
-  if ((RetVal) && (unlink(TempPath)))
+  if ((RetVal) && (remove(TempPath)))
     RetVal = -1;
 
 #ifdef MSDOS
@@ -601,21 +604,15 @@ int ConvertDosToUnixStdio(CFlag *ipFlag)
      * Erwin */
 
 #ifdef WIN32
+    /* 'setmode' was deprecated by MicroSoft, starting
+     * from Visual C++ 2005. Use '_setmode' instead. */
     _setmode(fileno(stdout), O_BINARY);
     _setmode(fileno(stdin), O_BINARY);
     return (ConvertDosToUnix(stdin, stdout, ipFlag));
 #elif defined(MSDOS)
-    /*
-    if ((freopen(NULL,R_CNTRL, stdin) != NULL) &&
-        (freopen(NULL,W_CNTRL, stdout) != NULL)) {
-      return (ConvertDosToUnix(stdin, stdout, ipFlag));
-    } else {
-      fprintf(stderr, _("dos2unix: cannot open stdin/stout in binary mode.\n"));
-      return(-1);
-    }
-    */
+    setmode(fileno(stdout), O_BINARY);
+    setmode(fileno(stdin), O_BINARY);
     return (ConvertDosToUnix(stdin, stdout, ipFlag));
-
 #else
     return (ConvertDosToUnix(stdin, stdout, ipFlag));
 #endif
