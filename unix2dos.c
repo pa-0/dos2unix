@@ -65,7 +65,6 @@
 #include <string.h>
 #include <utime.h>
 #include <sys/stat.h>
-#include <sys/unistd.h>
 #ifdef ENABLE_NLS
 #include <locale.h>
 #endif

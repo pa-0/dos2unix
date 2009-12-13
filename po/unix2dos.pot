@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-13 17:03+0100\n"
+"POT-Creation-Date: 2009-12-13 17:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: unix2dos.c:104
+#: unix2dos.c:103
 #, c-format
 msgid ""
 "unix2dos %s (%s)\n"
@@ -37,7 +37,7 @@ msgid ""
 " outfile          output file in new file mode\n"
 msgstr ""
 
-#: unix2dos.c:124
+#: unix2dos.c:123
 #, c-format
 msgid ""
 "Copyright (c) 1994-1995 Benjamin Lin\n"
@@ -66,62 +66,62 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: unix2dos.c:156
+#: unix2dos.c:155
 #, c-format
 msgid "With native language support.\n"
 msgstr ""
 
-#: unix2dos.c:218 unix2dos.c:230 unix2dos.c:242
+#: unix2dos.c:217 unix2dos.c:229 unix2dos.c:241
 #, c-format
 msgid "unix2dos: can not write to output file\n"
 msgstr ""
 
-#: unix2dos.c:249
+#: unix2dos.c:248
 #, c-format
 msgid "unix2dos: program error, invalid conversion mode %d\n"
 msgstr ""
 
-#: unix2dos.c:342 unix2dos.c:452
+#: unix2dos.c:341 unix2dos.c:451
 #, c-format
 msgid "unix2dos: using %s as temp file\n"
 msgstr ""
 
-#: unix2dos.c:402 unix2dos.c:513
+#: unix2dos.c:401 unix2dos.c:512
 #, c-format
 msgid "unix2dos: problems renaming '%s' to '%s'\n"
 msgstr ""
 
-#: unix2dos.c:403 unix2dos.c:514
+#: unix2dos.c:402 unix2dos.c:513
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr ""
 
-#: unix2dos.c:614
+#: unix2dos.c:613
 #, c-format
 msgid "unix2dos: invalid %s conversion mode specified\n"
 msgstr ""
 
-#: unix2dos.c:625 unix2dos.c:636 unix2dos.c:678
+#: unix2dos.c:624 unix2dos.c:635 unix2dos.c:677
 #, c-format
 msgid "unix2dos: target of file %s not specified in new file mode\n"
 msgstr ""
 
-#: unix2dos.c:652
+#: unix2dos.c:651
 #, c-format
 msgid "unix2dos: converting file %s to file %s in DOS format ...\n"
 msgstr ""
 
-#: unix2dos.c:656
+#: unix2dos.c:655
 #, c-format
 msgid "unix2dos: problems converting file %s to file %s\n"
 msgstr ""
 
-#: unix2dos.c:665
+#: unix2dos.c:664
 #, c-format
 msgid "unix2dos: converting file %s to DOS format ...\n"
 msgstr ""
 
-#: unix2dos.c:669
+#: unix2dos.c:668
 #, c-format
 msgid "unix2dos: problems converting file %s\n"
 msgstr ""
