@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-12 02:55+0100\n"
+"POT-Creation-Date: 2009-12-13 11:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: dos2unix.c:105
+#: dos2unix.c:107
 #, c-format
 msgid ""
 "dos2unix %s (%s)\n"
@@ -38,7 +38,7 @@ msgid ""
 " outfile          output file in new file mode\n"
 msgstr ""
 
-#: dos2unix.c:126
+#: dos2unix.c:128
 #, c-format
 msgid ""
 "Copyright (c) 1994-1995 Benjamin Lin\n"
@@ -69,62 +69,62 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: dos2unix.c:229 dos2unix.c:243 dos2unix.c:257 dos2unix.c:272 dos2unix.c:288
+#: dos2unix.c:240 dos2unix.c:254 dos2unix.c:268 dos2unix.c:283 dos2unix.c:299
 #, c-format
 msgid "dos2unix: can not write to out file\n"
 msgstr ""
 
-#: dos2unix.c:296
+#: dos2unix.c:307
 #, c-format
 msgid "dos2unix: program error, invalid conversion mode %d\n"
 msgstr ""
 
-#: dos2unix.c:391 dos2unix.c:502
+#: dos2unix.c:401 dos2unix.c:512
 #, c-format
 msgid "dos2unix: using %s as temp file\n"
 msgstr ""
 
-#: dos2unix.c:450 dos2unix.c:562
+#: dos2unix.c:460 dos2unix.c:573
 #, c-format
 msgid "dos2unix: problems renaming '%s' to '%s'\n"
 msgstr ""
 
-#: dos2unix.c:451 dos2unix.c:563
+#: dos2unix.c:461 dos2unix.c:574
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr ""
 
-#: dos2unix.c:654
+#: dos2unix.c:665
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr ""
 
-#: dos2unix.c:662
+#: dos2unix.c:673
 #, c-format
 msgid "dos2unix: option `%s' requires an argument\n"
 msgstr ""
 
-#: dos2unix.c:673 dos2unix.c:685 dos2unix.c:727
+#: dos2unix.c:684 dos2unix.c:696 dos2unix.c:738
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr ""
 
-#: dos2unix.c:701
+#: dos2unix.c:712
 #, c-format
 msgid "dos2unix: converting file %s to file %s in UNIX format ...\n"
 msgstr ""
 
-#: dos2unix.c:705
+#: dos2unix.c:716
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr ""
 
-#: dos2unix.c:714
+#: dos2unix.c:725
 #, c-format
 msgid "dos2unix: converting file %s to UNIX format ...\n"
 msgstr ""
 
-#: dos2unix.c:718
+#: dos2unix.c:729
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr ""

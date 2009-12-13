@@ -79,8 +79,11 @@ static int macmode = 0;
 #endif
 #include "dos2unix.h"
 
+#if defined(__MINGW32__)
+#define MSDOS
+#endif
 
-#ifdef __MSDOS__
+#ifdef MSDOS
   #define R_CNTRL   "rb"
   #define W_CNTRL   "wb"
 #else
@@ -97,10 +100,6 @@ typedef struct
   int ConvMode;                         /* 0 - ASCII, 1 - 7 bit, 2 - ISO, 3- Mac*/  
   int NewLine;                          /* if TRUE, then additional newline */
 } CFlag;
-
-#if defined(__MINGW32__)
-#define MSDOS
-#endif
 
 
 void PrintUsage(void)
@@ -193,6 +192,8 @@ FILE* OpenOutFile(int fd)
 void StripDelimiter(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar)
 {
   int TempNextChar;
+  /* CurChar is always CR (x0d) */
+  /* In normal dos2unix mode put nothing (skip CR). */
   /* Don't modify Mac files when in dos2unix mode. */
   if ( (TempNextChar = getc(ipInF)) != EOF) {
     ungetc( TempNextChar, ipInF );  /* put back peek char */
@@ -204,7 +205,7 @@ void StripDelimiter(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar)
     putc( CurChar, ipOutF );
   }
   if (ipFlag->NewLine) {  /* add additional LF? */
-    putc('\n', ipOutF);
+    putc('\x0a', ipOutF);
   }
 }
 
@@ -220,6 +221,13 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
     
     if ( macmode )
       ipFlag->ConvMode = 3;
+
+    /* CR-LF -> LF */
+    /* LF    -> LF, in case the input file is a Unix text file */
+    /* CR    -> CR, in dos2unix mode (don't modify Mac file) */
+    /* CR    -> LF, in Mac mode */
+    /* \x0a = Newline/Line Feed (LF) */
+    /* \x0d = Carriage Return (CR) */
 
     switch (ipFlag->ConvMode)
     {
@@ -339,7 +347,7 @@ static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
 #ifdef MSDOS
   name = mktemp(fname_str);
   *fname_ret = name;
-  if ((fd = fopen(fname_str, "w")) == NULL)
+  if ((fd = fopen(fname_str, W_CNTRL)) == NULL)
     goto make_failed;
 #else
   if ((fd = mkstemp(fname_str)) == -1)

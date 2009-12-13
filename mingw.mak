@@ -8,3 +8,10 @@ all:
 
 install:
 	$(MAKE) install EXE=.exe LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix)
+
+uninstall:
+	$(MAKE) uninstall EXE=.exe prefix=$(prefix)
+
+clean:
+	$(MAKE) clean EXE=.exe prefix=$(prefix)
+
