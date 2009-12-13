@@ -53,12 +53,13 @@
 
 /* #define DEBUG */
 
-#ifdef __MSDOS__
+#ifdef DJGPP
 #  include <dir.h>
-#else
 #  include <unistd.h>
+#else
+#  include <libgen.h>
+#  include <sys/unistd.h>
 #endif
-#include <libgen.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -70,8 +71,17 @@
 #endif
 #include "unix2dos.h"
 
+#if defined(WIN32)
+#define MSDOS
+#endif
 
-#ifdef __MSDOS__
+#ifdef MSDOS /* DJGPP and MINGW32 */
+#include <fcntl.h>
+#include <io.h>
+#endif
+
+
+#ifdef MSDOS
 #  define R_CNTRL   "rb"
 #  define W_CNTRL   "wb"
 #else
@@ -142,6 +152,11 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n\
 void PrintVersion(void)
 {
   fprintf(stderr, "unix2dos %s (%s)\n", VER_REVISION, VER_DATE);
+#ifdef ENABLE_NLS
+  fprintf(stderr, _("With native language support.\n"));
+#else
+  fprintf(stderr, "Without native language support.\n");
+#endif
 #ifdef DEBUG
   fprintf(stderr, "RCS_AUTHOR: %s\n", RCS_AUTHOR);
   fprintf(stderr, "RCS_DATE: %s\n", RCS_DATE);
@@ -238,14 +253,22 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
   return RetVal;
 }
 
-
+#ifdef MSDOS
+FILE* MakeTempFileFrom(const char *OutFN, char **fname_ret)
+#else
 static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
+#endif
 {
   char *cpy = strdup(OutFN);
   char *dir = NULL;
   size_t fname_len = 0;
   char  *fname_str = NULL;
+#ifdef MSDOS
+  char *name;
+  FILE *fd = NULL;
+#else
   int fd = -1;
+#endif
   
   *fname_ret = NULL;
  
@@ -262,15 +285,26 @@ static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
 
   free(cpy);
 
+#ifdef MSDOS
+  name = mktemp(fname_str);
+  *fname_ret = name;
+  if ((fd = fopen(fname_str, W_CNTRL)) == NULL)
+    goto make_failed;
+#else
   if ((fd = mkstemp(fname_str)) == -1)
     goto make_failed;
+#endif
   
   return (fd);
   
  make_failed:
   free(*fname_ret);
   *fname_ret = NULL;
+#ifdef MSDOS
+  return (NULL);
+#else
   return (-1);
+#endif
 }
 
 /* convert file ipInFN to DOS format text and write to file ipOutFN
@@ -285,13 +319,21 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   char *TempPath;
   struct stat StatBuf;
   struct utimbuf UTimeBuf;
+#ifdef MSDOS
+  FILE* fd;
+#else
   int fd;
+#endif
 
   /* retrieve ipInFN file date stamp */
   if ((ipFlag->KeepDate) && stat(ipInFN, &StatBuf))
     RetVal = -1;
 
+#ifdef MSDOS
+  if((fd = MakeTempFileFrom(ipOutFN, &TempPath))==NULL) {
+#else
   if((fd = MakeTempFileFrom (ipOutFN, &TempPath)) < 0) {
+#endif
     perror("Can't open output temp file");
     RetVal = -1;
   }
@@ -305,7 +347,11 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     RetVal = -1;
 
   /* can open out file? */
+#ifdef MSDOS
+  if ((!RetVal) && (InF) && ((TempF=fd) == NULL))
+#else
   if ((!RetVal) && (InF) && ((TempF=OpenOutFile(fd)) == NULL))
+#endif
   {
     fclose (InF);
     InF = NULL;
@@ -324,8 +370,13 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   if ((TempF) && (fclose(TempF) == EOF))
     RetVal = -1;
 
+#ifdef MSDOS
+  if(fd!=NULL)
+    fclose(fd);
+#else
   if(fd>=0)
     close(fd);
+#endif
 
   if ((!RetVal) && (ipFlag->KeepDate))
   {
@@ -343,6 +394,9 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   /* can rename temp file to out file? */
   if (!RetVal)
   {
+#ifdef MSDOS
+    remove(ipOutFN);
+#endif
     if ((rename(TempPath, ipOutFN) == -1) && (!ipFlag->Quiet))
     {
       fprintf(stderr, _("unix2dos: problems renaming '%s' to '%s'\n"), TempPath, ipOutFN);
@@ -351,7 +405,6 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     }
   }
   free(TempPath);
-
   return RetVal;
 }
 
@@ -369,7 +422,11 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   struct stat StatBuf;
   struct utimbuf UTimeBuf;
   mode_t mode = S_IRUSR | S_IWUSR;
+#ifdef MSDOS
+  FILE* fd;
+#else
   int fd;
+#endif
 
   /* retrieve ipInFN file date stamp */
   if (stat(ipInFN, &StatBuf))
@@ -377,13 +434,19 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   else
     mode = StatBuf.st_mode;
 
+#ifdef MSDOS
+  if((fd = MakeTempFileFrom(ipInFN, &TempPath))==NULL) {
+#else
   if((fd = MakeTempFileFrom(ipInFN, &TempPath)) < 0) {
+#endif
       perror("Can't open output temp file");
       RetVal = -1;
   }
 
+#ifndef MSDOS
   if (!RetVal && fchmod (fd, mode) && fchmod (fd, S_IRUSR | S_IWUSR))
     RetVal = -1;
+#endif
 
 #ifdef DEBUG
   fprintf(stderr, _("unix2dos: using %s as temp file\n"), TempPath);
@@ -394,7 +457,11 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
     RetVal = -1;
 
   /* can open out file? */
+#ifdef MSDOS
+  if ((!RetVal) && (InF) && ((TempF=fd) == NULL))
+#else
   if ((!RetVal) && (InF) && ((TempF=OpenOutFile(fd)) == NULL))
+#endif
   {
     fclose (InF);
     InF = NULL;
@@ -413,8 +480,13 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   if ((TempF) && (fclose(TempF) == EOF))
     RetVal = -1;
 
+#ifdef MSDOS
+  if(fd!=NULL)
+    fclose(fd);
+#else
   if(fd>=0)
     close(fd);
+#endif
 
   if ((!RetVal) && (ipFlag->KeepDate))
   {
@@ -429,6 +501,10 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   if ((RetVal) && (unlink(TempPath)))
     RetVal = -1;
 
+#ifdef MSDOS
+  if (!RetVal)
+    remove(ipInFN);
+#endif
   /* can rename out file to in file? */
   if ((!RetVal) && (rename(TempPath, ipInFN) == -1))
   {
@@ -453,7 +529,25 @@ int ConvertUnixToDosStdio(CFlag *ipFlag)
     ipFlag->NewFile = 1;
     ipFlag->Quiet = 1;
     ipFlag->KeepDate = 0;
+
+    /* stdin and stdout are by default text streams. We need
+     * to reopen them in binary mode. Otherwise a LF will
+     * automatically be converted to CR-LF on DOS/Windows.
+     * Erwin */
+
+#ifdef WIN32
+    /* 'setmode' was deprecated by MicroSoft, starting
+     * since Visual C++ 2005. Use '_setmode' instead. */
+    _setmode(fileno(stdout), O_BINARY);
+    _setmode(fileno(stdin), O_BINARY);
     return (ConvertUnixToDos(stdin, stdout, ipFlag));
+#elif defined(MSDOS)
+    setmode(fileno(stdout), O_BINARY);
+    setmode(fileno(stdin), O_BINARY);
+    return (ConvertUnixToDos(stdin, stdout, ipFlag));
+#else
+    return (ConvertUnixToDos(stdin, stdout, ipFlag));
+#endif
 }
 
 

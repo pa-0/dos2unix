@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-13 12:50+0100\n"
+"POT-Creation-Date: 2009-12-13 17:05+0100\n"
 "PO-Revision-Date: 2009-12-08 21:59+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -87,68 +87,70 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: dos2unix.c:248 dos2unix.c:262 dos2unix.c:276 dos2unix.c:291 dos2unix.c:307
+#: dos2unix.c:170
+#, c-format
+msgid "With native language support.\n"
+msgstr "Met moedertaal ondersteuning.\n"
+
+#: dos2unix.c:253 dos2unix.c:267 dos2unix.c:281 dos2unix.c:296 dos2unix.c:312
 #, c-format
 msgid "dos2unix: can not write to out file\n"
 msgstr "dos2unix: kan niet schrijven naar uitvoerbestand\n"
 
-#: dos2unix.c:315
+#: dos2unix.c:320
 #, c-format
 msgid "dos2unix: program error, invalid conversion mode %d\n"
 msgstr "dos2unix: programma fout, ongeldige conversie modus %d\n"
 
-#: dos2unix.c:409 dos2unix.c:520
+#: dos2unix.c:414 dos2unix.c:525
 #, c-format
 msgid "dos2unix: using %s as temp file\n"
 msgstr "dos2unix: %s wordt als tijdelijk bestand gebruikt\n"
 
-#: dos2unix.c:468 dos2unix.c:581
+#: dos2unix.c:473 dos2unix.c:586
 #, c-format
 msgid "dos2unix: problems renaming '%s' to '%s'\n"
 msgstr "dos2unix: problemen met hernoemen van '%s' naar '%s'\n"
 
-#: dos2unix.c:469 dos2unix.c:582
+#: dos2unix.c:474 dos2unix.c:587
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          uitvoerbestand blijft in '%s'\n"
 
-#: dos2unix.c:691
+#: dos2unix.c:696
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr "dos2unix: ongeldige %s conversie modus gespecificeerd\n"
 
-#: dos2unix.c:699
+#: dos2unix.c:704
 #, c-format
 msgid "dos2unix: option `%s' requires an argument\n"
 msgstr "dos2unix: optie `%s' heeft een argument nodig\n"
 
-#: dos2unix.c:710 dos2unix.c:722 dos2unix.c:764
+#: dos2unix.c:715 dos2unix.c:727 dos2unix.c:769
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr ""
 "dos2unix: doel van bestand %s is niet gespecificeerd in 'nieuw bestand "
 "modus'\n"
 
-#: dos2unix.c:738
+#: dos2unix.c:743
 #, c-format
 msgid "dos2unix: converting file %s to file %s in UNIX format ...\n"
 msgstr "dos2unix: converteren bestand %s naar bestand %s in UNIX formaat ...\n"
 
-#: dos2unix.c:742
+#: dos2unix.c:747
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s naar bestand %s\n"
 
-#: dos2unix.c:751
+#: dos2unix.c:756
 #, c-format
 msgid "dos2unix: converting file %s to UNIX format ...\n"
 msgstr "dos2unix: converteren bestand %s naar UNIX formaat ...\n"
 
-#: dos2unix.c:755
+#: dos2unix.c:760
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s\n"
 
-#, fuzzy
-#~ msgid "dos2unix: cannot open stdin/stout in binary mode.\n"
-#~ msgstr "dos2unix: kan niet schrijven naar uitvoerbestand\n"
