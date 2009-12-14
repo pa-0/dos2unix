@@ -1,13 +1,13 @@
 .TH "dos2unix" "1" "dos2unix 4.0" "2009" ""
 .SH "NAME"
-dos2unix \- DOS/MAC to UNIX text file format converter
+dos2unix - DOS/MAC to UNIX text file format converter
 
 .SH "SYNOPSYS"
-dos2unix [options] [\-c convmode] [\-o file ...] [\-n infile outfile ...]
+dos2unix [options] [-c convmode] [-o file ...] [-n infile outfile ...]
 .PP 
 Options:
 .PP 
-[\-hkqLV] [\-\-help] [\-\-keepdate] [\-\-quiet] [\-\-version]
+[-hkqLV] [--help] [--keepdate] [--quiet] [--license] [--version]
 
 .SH "DESCRIPTION"
 .PP 
@@ -19,7 +19,6 @@ In Unix text files line endings exists out of a single Newline character which
 is equal to a DOS Line Feed (LF) character.
 In Mac text files, prior to Mac OS X, line endings exist out of a single Carriage
 Return character. Mac OS X is Unix based and has the same line endings as Unix.
-
 
 .SH "OPTIONS"
 The following options are available:
@@ -48,9 +47,6 @@ Print version information.
 Set conversion mode. Where convmode is one of:
 .B ASCII, 7bit, ISO, Mac
 with ASCII being the default.
-Simulates dos2unix under SunOS.
-
-
 
 .TP 
 .B \-o \-\-oldfile file ...
@@ -68,12 +64,13 @@ lost your files.
 .TP
 .B ASCII
 In this mode DOS line endings are converted to Unix line endings.
-All other characters are left unchanged.
+
+Although the name of this mode is ASCII, which is a 7 bit standard,
+the actual mode is 8 bit.
 
 .TP
 .B Mac
 In this mode Mac line endings are converted to Unix line endings.
-All other characters are left unchanged.
 
 .TP
 .B 7bit
@@ -88,8 +85,11 @@ conversion of 8 bit non-ASCII characters (with values from 128 to 255) is
 unclear. Benjamin used this probably to convert between DOS character set CP437
 and a character set he was using on SunOS in 1995. In this mode some characters
 are translated from DOS code page CP437 to ISO-8859-1 (Latin1), but for several
-others it's not clear. To convert text files between different encodings it's
-better to use iconv(1). Some examples:
+others it's not clear.
+
+The ISO conversion mode is kept for legacy reasons. To convert text files
+between different encodings it's better to use dos2unix in combination
+with iconv(1). Some examples:
 
 Convert from DOSLatinUS to Unix Latin-1
 .IP
@@ -118,56 +118,60 @@ Convert and replace a.txt. Convert and replace b.txt.
 .IP 
 .B dos2unix a.txt b.txt
 .IP 
-.B dos2unix \-o a.txt b.txt
+.B dos2unix -o a.txt b.txt
 
 .LP 
 Convert and replace a.txt in ASCII conversion mode. 
 .IP 
-.B dos2unix a.txt \-c iso b.txt
+.B dos2unix a.txt
 
 .LP 
-Convert and replace b.txt in ISO conversion mode.
-.IP 
-.B dos2unix \-c ascii a.txt \-c iso b.txt
+Convert and replace a.txt in ASCII conversion mode.
+Convert and replace b.txt in 7bit conversion mode.
+.IP
+.B unix2dos a.txt -c 7bit b.txt
+.IP
+.B unix2dos -c ascii a.txt -c 7bit b.txt
 
 .LP 
-Convert c.txt from Mac to Unix ascii format.
-
+Convert a.txt from Mac to Unix format.
 .IP 
-.B dos2unix \-c mac c.txt  b.txt
+.B dos2unix -c mac a.txt
+.IP 
+.B mac2unix a.txt
 
 .LP 
 Convert and replace a.txt while keeping original date stamp.
 .IP 
-.B dos2unix \-k a.txt
+.B dos2unix -k a.txt
 .IP 
-.B dos2unix \-k \-o a.txt
+.B dos2unix -k -o a.txt
 
 .LP 
 Convert a.txt and write to e.txt.
 .IP 
-.B dos2unix \-n a.txt e.txt
+.B dos2unix -n a.txt e.txt
 
 .LP 
 Convert a.txt and write to e.txt, keep date stamp of e.txt same as a.txt.
 .IP 
-.B dos2unix \-k \-n a.txt e.txt 
+.B dos2unix -k -n a.txt e.txt 
 
 .LP 
 Convert and replace a.txt. Convert b.txt and write to e.txt.
 .IP 
-.B dos2unix a.txt \-n b.txt e.txt
+.B dos2unix a.txt -n b.txt e.txt
 .IP 
-.B dos2unix \-o a.txt \-n b.txt e.txt
+.B dos2unix -o a.txt -n b.txt e.txt
 
 .LP 
 Convert c.txt and write to e.txt. Convert and replace a.txt.
 Convert and replace b.txt. Convert d.txt and write to f.txt.
 .IP 
-.B dos2unix \-n c.txt e.txt \-o a.txt b.txt \-n d.txt f.txt
+.B dos2unix -n c.txt e.txt -o a.txt b.txt -n d.txt f.txt
 
 .SH "AUTHORS"
-Benjamin Lin \- <blin@socs.uts.edu.au>
+Benjamin Lin - <blin@socs.uts.edu.au>
 
 Bernd Johannes Wuebben (mac2unix mode) <wuebben@kde.org>
 
