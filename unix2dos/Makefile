@@ -199,16 +199,20 @@ realclean: maintainer-clean
 
 
 ZIPOBJ	= bin/$(BIN) \
-	  share/locale/*/LC_MESSAGES/$(PACKAGE).mo \
 	  share/man/man1/$(PACKAGE).1 \
 	  share/doc/$(PACKAGE)-$(UNIX2DOS_VERSION) \
 	  $(ZIPOBJ_EXTRA)
+
+ifdef ENABLE_NLS
+ZIPOBJ += share/locale/*/LC_MESSAGES/$(PACKAGE).mo
+endif
 
 VERSIONSUFFIX	= -bin
 ZIPFILE = $(PACKAGE)-$(UNIX2DOS_VERSION)$(VERSIONSUFFIX).zip
 TGZFILE = $(PACKAGE)-$(UNIX2DOS_VERSION)$(VERSIONSUFFIX).tar.gz
 
 dist-zip:
+	rm -f $(ZIPFILE)
 	cd $(prefix) ; zip -r $(ZIPFILE) $(ZIPOBJ)
 	mv $(prefix)/$(ZIPFILE) ../..
 
