@@ -2,7 +2,7 @@
 
 .SH NAME
 
-unix2dos \- UNIX to DOS text file format converter
+unix2dos - UNIX to DOS text file format converter
 
 .SH SYNOPSYS
 
@@ -10,7 +10,7 @@ unix2dos [options] [-c convmode] [-o file ...] [-n infile outfile ...]
 .PP
 Options:
 .PP
-[-hkqLV] [--help] [--keepdate] [--quiet] [--version]
+[-hkqLV] [--help] [--keepdate] [--quiet] [--license] [--version]
 
 .SH DESCRIPTION
 
@@ -26,36 +26,36 @@ is equal to a DOS Line Feed (LF) character.
 
 The following options are available:
 .TP
-.B \-h --help
+.B \-h \-\-help
 Print online help.
 
 .TP
-.B \-k --keepdate
+.B \-k \-\-keepdate
 Keep the date stamp of output file same as input file.
 
 .TP
-.B \-q --quiet
+.B \-q \-\-quiet
 Quiet mode. Suppress all warning and messages.
 
 .TP
-.B \-L --license
+.B \-L \-\-license
 Print software license.
 
 .TP
-.B \-V --version
+.B \-V \-\-version
 Print version information.
 
 .TP
-.B \-c --convmode convmode
+.B \-c \-\-convmode convmode
 Set conversion mode. Simulates unix2dos under SunOS.
 
 .TP
-.B \-o --oldfile file ...
+.B \-o \-\-oldfile file ...
 Old file mode. Convert the file and write output to it. The program 
 default to run in this mode. Wildcard names may be used.
 
 .TP 
-.B \-n --newfile infile outfile ...
+.B \-n \-\-newfile infile outfile ...
 New file mode. Convert the infile and write output to outfile. File names
 must be given in pairs and wildcard names should NOT be used or you WILL 
 lost your files. 
@@ -65,7 +65,9 @@ lost your files.
 .TP
 .B ASCII
 In this mode Unix line endings are converted to DOS line endings.
-All other characters are left unchanged.
+
+Although the name of this mode is ASCII, which is a 7 bit standard,
+the actual mode is 8 bit.
 
 .TP
 .B 7bit
@@ -80,8 +82,11 @@ conversion of 8 bit non-ASCII characters (with values from 128 to 255) is
 unclear. Benjamin used this probably to convert between a character set he was
 using on SunOS in 1995 and DOS character set CP437. In this mode some
 characters are translated from ISO-8859-1 (Latin1) to DOS code page CP437, but
-for several others it's not clear. To convert text files between different
-encodings it's better to use iconv(1). Some examples:
+for several others it's not clear.
+
+The ISO conversion mode is kept for legacy reasons. To convert text files
+between different encodings it's better to use unix2dos in combination
+with iconv(1). Some examples:
 
 Convert from Unix Latin-1 to DOSLatinUS
 .IP
@@ -115,11 +120,11 @@ Convert and replace a.txt. Convert and replace b.txt.
 
 .LP
 Convert and replace a.txt in ASCII conversion mode.
-Convert and replace b.txt in ISO conversion mode.
+Convert and replace b.txt in 7bit conversion mode.
 .IP
-.B unix2dos a.txt -c iso b.txt
+.B unix2dos a.txt -c 7bit b.txt
 .IP
-.B unix2dos -c ascii a.txt -c iso b.txt
+.B unix2dos -c ascii a.txt -c 7bit b.txt
 
 .LP
 Convert and replace a.txt while keeping original date stamp.
