@@ -1,7 +1,9 @@
 
 prefix=c:/djgpp
 ENABLE_NLS=
+ifdef $(ENABLE_NLS)
 LDFLAGS_EXTRA = -lintl -liconv
+endif
 ZIPOBJ_EXTRA = bin/cwsdpmi.exe
 
 all:
@@ -17,5 +19,5 @@ clean:
 	$(MAKE) clean EXE=.exe ENABLE_NLS=$(ENABLE_NLS) prefix=$(prefix)
 
 dist:
-	$(MAKE) dist-zip EXE=.exe prefix=$(prefix) VERSIONSUFFIX="-dos32" ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}"
+	$(MAKE) dist-zip EXE=.exe prefix=$(prefix) VERSIONSUFFIX="-dos32" ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" ENABLE_NLS=$(ENABLE_NLS)
 

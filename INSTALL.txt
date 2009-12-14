@@ -39,3 +39,17 @@ NATIVE LANGUAGE SUPPORT
 
         make clean install ENABLE_NLS=
 
+WINDOWS PORT
+
+    To compile a version for Windows, get the Mingw compiler
+    <http://www.mingw.org>, and use makefile mingw.mak:
+
+        make -f mingw.mak clean install
+
+DOS PORT
+
+    To compile a version for DOS, get the DJGPP compiler
+    <http://www.delorie.com/djgpp/>, and use makefile djgpp.mak:
+
+        make -f djgpp.mak clean install
+
