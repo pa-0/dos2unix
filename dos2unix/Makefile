@@ -233,12 +233,12 @@ TGZFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX).tar.gz
 
 dist-zip:
 	rm -f $(ZIPFILE)
-	cd $(prefix) ; unix2dos -k share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)/*.* share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1
+	cd $(prefix) ; unix2dos share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)/*.txt share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1
 	cd $(prefix) ; zip -r $(ZIPFILE) $(ZIPOBJ)
 	mv $(prefix)/$(ZIPFILE) ../..
 
 dist-tgz:
-	cd $(prefix) ; dos2unix -k share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)/*.* share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1
+	cd $(prefix) ; dos2unix share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)/*.txt share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1
 	cd $(prefix) ; tar cvzf $(TGZFILE) $(ZIPOBJ)
 	mv $(prefix)/$(TGZFILE) ../..
 

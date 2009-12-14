@@ -7,18 +7,45 @@ help:
 	@echo "${MAKE} tag-unix2dos : Create a tag copy of trunk/unix2dos."
 	@echo "${MAKE} tag          : Create a tag copy of trunk/dos2unix and trunk/unix2dos."
 
+# Documentation files are created and included in the source
+# package for users that don't have the proper tools installed.
+# Documentation creation only works properly on Cygwin or
+# a modern Linux distribution.
 
-RELEASE_DIR_DOS2UNIX = ../dos2unix-$(DOS2UNIX_VERSION)
-RELEASE_DIR_UNIX2DOS = ../unix2dos-$(UNIX2DOS_VERSION)
+# .po language files can be older than the .pot files, but
+# still be up-to-date. 'msgmerge' will be run by 'make', but
+# the .po files are not updated by msgmerge. For users that
+# don't have 'gettext' installed we do a few file touches
+# so that make doesn't run the gettext tools.
 
+RELEASE_DIR_DOS2UNIX = dos2unix-$(DOS2UNIX_VERSION)
+RELEASE_DIR_UNIX2DOS = unix2dos-$(UNIX2DOS_VERSION)
 
-dist:
-	rm -rf ${RELEASE_DIR_DOS2UNIX}
-	svn export https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/trunk/dos2unix ${RELEASE_DIR_DOS2UNIX}
-	cd .. ; tar cvzf dos2unix-${DOS2UNIX_VERSION}.tar.gz dos2unix-${DOS2UNIX_VERSION}
-	rm -rf ${RELEASE_DIR_UNIX2DOS}
-	svn export https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/trunk/unix2dos ${RELEASE_DIR_UNIX2DOS}
-	cd .. ; tar cvzf unix2dos-${UNIX2DOS_VERSION}.tar.gz unix2dos-${UNIX2DOS_VERSION}
+dist-dos2unix:
+	rm -rf ../${RELEASE_DIR_DOS2UNIX}
+	svn export https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/trunk/dos2unix ../${RELEASE_DIR_DOS2UNIX}
+	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) mofiles docfiles
+	sleep 2
+	cd ../${RELEASE_DIR_DOS2UNIX} ; touch *.pot
+	sleep 2
+	cd ../${RELEASE_DIR_DOS2UNIX} ; touch *.po
+	sleep 2
+	cd ../${RELEASE_DIR_DOS2UNIX} ; touch *.mo
+	cd .. ; tar cvzf ${RELEASE_DIR_DOS2UNIX}.tar.gz ${RELEASE_DIR_DOS2UNIX}
+
+dist-unix2dos:
+	rm -rf ../${RELEASE_DIR_UNIX2DOS}
+	svn export https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/trunk/unix2dos ../${RELEASE_DIR_UNIX2DOS}
+	cd ../${RELEASE_DIR_UNIX2DOS} ; $(MAKE) mofiles docfiles
+	sleep 2
+	cd ../${RELEASE_DIR_UNIX2DOS} ; touch *.pot
+	sleep 2
+	cd ../${RELEASE_DIR_UNIX2DOS} ; touch *.po
+	sleep 2
+	cd ../${RELEASE_DIR_UNIX2DOS} ; touch *.mo
+	cd .. ; tar cvzf ${RELEASE_DIR_UNIX2DOS}.tar.gz ${RELEASE_DIR_UNIX2DOS}
+
+dist: dist-dos2unix dist-unix2dos
 
 
 tag-dos2unix:
