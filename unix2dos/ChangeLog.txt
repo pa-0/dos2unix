@@ -9,7 +9,7 @@
 	* Update manual
 
 2009-12-04 Erwin Waterlander <waterlan@xs4all.nl>
-	* unix2dos.c: Changed version to 2.3.
+	* version 2.3
 	* version.mk: New file.
 	* README: New file.
 	* INSTALL: New file.

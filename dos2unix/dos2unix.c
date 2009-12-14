@@ -1,12 +1,4 @@
 /*
- * Added extra newline if ^M occurs
- * Christian Wurll, wurll@ira.uka.de
- * Thu Nov 19 1998 
- * 
- * Added Mac text file translation, i.e. \r to \n conversion
- * Bernd Johannes Wuebben, wuebben@kde.org
- * Wed Feb  4 19:12:58 EST 1998      
- *
  *  Name: dos2unix
  *  Documentation:
  *    Remove cr ('\x0d') characters from a file.
@@ -50,6 +42,14 @@
  *  == 2.2 == 1995.03.30 == Benjamin Lin (blin@socs.uts.edu.au)
  *     Fixed a bug in 2.1 where in new file mode, if outfile already exists
  *     conversion can not be completed properly.
+ *
+ * Added extra newline if ^M occurs
+ * Christian Wurll, wurll@ira.uka.de
+ * Thu Nov 19 1998 
+ * 
+ * Added Mac text file translation, i.e. \r to \n conversion
+ * Bernd Johannes Wuebben, wuebben@kde.org
+ * Wed Feb  4 19:12:58 EST 1998      
  *
  *  See ChangeLog.txt for complete version history.
  *

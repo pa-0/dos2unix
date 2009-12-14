@@ -9,7 +9,7 @@
 	* Update manual
 
 2009-12-04 Erwin Waterlander <waterlan@xs4all.nl>
-	* dos2unix.c: Changed version to 3.2.
+	* version 3.2
 	* version.mk: New file.
 	* README: New file.
 	* INSTALL: Updated.
