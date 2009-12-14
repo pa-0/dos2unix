@@ -10,9 +10,11 @@
  *  Name: dos2unix
  *  Documentation:
  *    Remove cr ('\x0d') characters from a file.
- *  Version: $$Id: dos2unix.c 2.2 1995/03/31 01:40:24 blin Exp blin $$
  * 
  *  Copyright (c) 1994, 1995 Benjamin Lin.
+ *  Copyright (c) 1998, Bernd Johannes Wuebben
+ *  Copyright (c) 1998, Christian Wurll
+ *  Copyright (c) 2009  Erwin Waterlander
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -49,14 +51,11 @@
  *     Fixed a bug in 2.1 where in new file mode, if outfile already exists
  *     conversion can not be completed properly.
  *
- *  == BUG ==
- *     stdio process under DOS not working
+ *  See ChangeLog.txt for complete version history.
+ *
  */
 
 
-#define RCS_AUTHOR   "$$Author:  wurll $$"
-#define RCS_DATE     "$$Date: Thu Nov 19 1998 $$"
-#define RCS_REVISION "$$Revision: 3.1 $$"
 #define VER_AUTHOR   "Erwin Waterlander"
 
 #define MACMODE  1
@@ -172,12 +171,7 @@ void PrintVersion(void)
   fprintf(stderr, "Without native language support.\n");
 #endif
 #ifdef DEBUG
-  fprintf(stderr, "RCS_AUTHOR: %s\n", RCS_AUTHOR);
-  fprintf(stderr, "RCS_DATE: %s\n", RCS_DATE);
-  fprintf(stderr, "RCS_REVISION: %s\n", RCS_REVISION);
   fprintf(stderr, "VER_AUTHOR: %s\n", VER_AUTHOR);
-  fprintf(stderr, "VER_DATE: %s\n", VER_DATE);
-  fprintf(stderr, "VER_REVISION: %s\n", VER_REVISION);
 #endif
 }
 
