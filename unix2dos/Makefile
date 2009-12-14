@@ -1,5 +1,7 @@
 
 # Author: Erwin Waterlander
+# Copyright (C) 2009 Erwin Waterlander
+# This file is distributed under the same license as the unix2dos package.
 
 include version.mk
 

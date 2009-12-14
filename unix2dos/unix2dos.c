@@ -3,9 +3,9 @@
  *  Documentation:
  *    Convert lf ('\x0a') characters in a file to cr lf ('\x0d' '\x0a')
  *    combinations.
- *  Version: $$Id: unix2dos.c 2.2 1995/03/31 01:41:00 blin Exp blin $$
  *
  *  Copyright (c) 1994, 1995 Benjamin Lin.
+ *  Copyright (c) 2009 Erwin Waterlander
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -41,15 +41,11 @@
  *  == 2.2 == 1995.03.30 == Benjamin Lin (blin@socs.uts.edu.au)
  *     Conversion from SunOS charset implemented.
  *
- *  == BUG ==
- *     stdio process under DOS not working
+ *  See ChangeLog.txt for complete version history.
  */
 
 
-#define RCS_AUTHOR   "$$Author: blin $$"
-#define RCS_DATE     "$$Date: 1995/03/31 01:41:00 $$"
-#define RCS_REVISION "$$Revision: 2.2 $$"
-#define VER_AUTHOR   "Benjamin Lin"
+#define VER_AUTHOR   "Erwin Waterlander"
 
 /* #define DEBUG */
 
@@ -157,12 +153,7 @@ void PrintVersion(void)
   fprintf(stderr, "Without native language support.\n");
 #endif
 #ifdef DEBUG
-  fprintf(stderr, "RCS_AUTHOR: %s\n", RCS_AUTHOR);
-  fprintf(stderr, "RCS_DATE: %s\n", RCS_DATE);
-  fprintf(stderr, "RCS_REVISION: %s\n", RCS_REVISION);
   fprintf(stderr, "VER_AUTHOR: %s\n", VER_AUTHOR);
-  fprintf(stderr, "VER_DATE: %s\n", VER_DATE);
-  fprintf(stderr, "VER_REVISION: %s\n", VER_REVISION);
 #endif
 }
 

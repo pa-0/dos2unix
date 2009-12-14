@@ -1,7 +1,13 @@
 #ifndef __DOS2UNIX_H
 #define __DOS2UNIX_H
 
-/* $$Id: dos2unix.h 2.2 1995/03/31 01:45:04 blin Exp blin $$ */
+/*
+ *  Copyright (c) 1994, 1995 Benjamin Lin.
+ *  Copyright (c) 2009 Erwin Waterlander
+ *  All rights reserved.
+ *
+ *  This file is distributed under the same license as the dos2unix package.
+ */
 
 #ifdef __GNUC__
 #ifndef strcmpi

@@ -1,7 +1,14 @@
+/*
+ *  Copyright (c) 1994, 1995 Benjamin Lin.
+ *  Copyright (c) 2009 Erwin Waterlander
+ *  All rights reserved.
+ *
+ *  This file is distributed under the same license as the unix2dos package.
+ */
+
 #ifndef __UNIX2DOS_H
 #define __UNIX2DOS_H
 
-/* $$Id: unix2dos.h 2.2 1995/03/31 01:46:03 blin Exp blin $$ */
 
 #ifdef __GNUC__
 #ifndef strcmpi
