@@ -520,14 +520,16 @@ int ConvertUnixToDosStdio(CFlag *ipFlag)
     ipFlag->Quiet = 1;
     ipFlag->KeepDate = 0;
 
+#ifdef WIN32
+
     /* stdin and stdout are by default text streams. We need
-     * to reopen them in binary mode. Otherwise a LF will
+     * to set them to binary mode. Otherwise an LF will
      * automatically be converted to CR-LF on DOS/Windows.
      * Erwin */
 
-#ifdef WIN32
-    /* 'setmode' was deprecated by MicroSoft, starting
+    /* 'setmode' was deprecated by MicroSoft
      * since Visual C++ 2005. Use '_setmode' instead. */
+
     _setmode(fileno(stdout), O_BINARY);
     _setmode(fileno(stdin), O_BINARY);
     return (ConvertUnixToDos(stdin, stdout, ipFlag));
