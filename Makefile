@@ -26,11 +26,11 @@ dist-dos2unix:
 	svn export https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/trunk/dos2unix ../${RELEASE_DIR_DOS2UNIX}
 	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) mofiles docfiles
 	sleep 2
-	cd ../${RELEASE_DIR_DOS2UNIX} ; touch *.pot
+	cd ../${RELEASE_DIR_DOS2UNIX} ; touch po/*.pot
 	sleep 2
-	cd ../${RELEASE_DIR_DOS2UNIX} ; touch *.po
+	cd ../${RELEASE_DIR_DOS2UNIX} ; touch po/*.po
 	sleep 2
-	cd ../${RELEASE_DIR_DOS2UNIX} ; touch *.mo
+	cd ../${RELEASE_DIR_DOS2UNIX} ; touch po/*.mo
 	cd .. ; tar cvzf ${RELEASE_DIR_DOS2UNIX}.tar.gz ${RELEASE_DIR_DOS2UNIX}
 
 dist-unix2dos:
@@ -38,11 +38,11 @@ dist-unix2dos:
 	svn export https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/trunk/unix2dos ../${RELEASE_DIR_UNIX2DOS}
 	cd ../${RELEASE_DIR_UNIX2DOS} ; $(MAKE) mofiles docfiles
 	sleep 2
-	cd ../${RELEASE_DIR_UNIX2DOS} ; touch *.pot
+	cd ../${RELEASE_DIR_UNIX2DOS} ; touch po/*.pot
 	sleep 2
-	cd ../${RELEASE_DIR_UNIX2DOS} ; touch *.po
+	cd ../${RELEASE_DIR_UNIX2DOS} ; touch po/*.po
 	sleep 2
-	cd ../${RELEASE_DIR_UNIX2DOS} ; touch *.mo
+	cd ../${RELEASE_DIR_UNIX2DOS} ; touch po/*.mo
 	cd .. ; tar cvzf ${RELEASE_DIR_UNIX2DOS}.tar.gz ${RELEASE_DIR_UNIX2DOS}
 
 dist: dist-dos2unix dist-unix2dos
