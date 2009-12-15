@@ -116,7 +116,7 @@ endif
 
 # ............................................................ flags ...
 
-GCCFLAGS	= -O2 -Wall
+GCCFLAGS	= -O2 -Wall -D_LARGEFILE_SOURCE
 
 ifdef STATIC
 	GCCFLAGS += -static
