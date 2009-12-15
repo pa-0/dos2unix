@@ -235,12 +235,12 @@ dist-zip:
 	rm -f $(ZIPFILE)
 	cd $(prefix) ; unix2dos share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)/*.txt share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1
 	cd $(prefix) ; zip -r $(ZIPFILE) $(ZIPOBJ)
-	mv $(prefix)/$(ZIPFILE) ../..
+	mv $(prefix)/$(ZIPFILE) ..
 
 dist-tgz:
 	cd $(prefix) ; dos2unix share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)/*.txt share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1
 	cd $(prefix) ; tar cvzf $(TGZFILE) $(ZIPOBJ)
-	mv $(prefix)/$(TGZFILE) ../..
+	mv $(prefix)/$(TGZFILE) ..
 
 dist: dist-tgz
 
