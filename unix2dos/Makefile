@@ -222,7 +222,7 @@ dist-zip:
 dist-tgz:
 	cd $(prefix) ; dos2unix share/doc/$(PACKAGE)-$(UNIX2DOS_VERSION)/*.txt share/man/man1/$(PACKAGE).1
 	cd $(prefix) ; tar cvzf $(TGZFILE) $(ZIPOBJ)
-	mv $(prefix)/$(TGZFILE) ../..
+	mv $(prefix)/$(TGZFILE) ..
 
 dist: dist-tgz
 
