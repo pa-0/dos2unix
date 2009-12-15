@@ -5,7 +5,8 @@
 
 prefix=c:/djgpp
 ENABLE_NLS=
-ifdef $(ENABLE_NLS)
+
+ifdef ENABLE_NLS
 LDFLAGS_EXTRA = -lintl -liconv
 endif
 ZIPOBJ_EXTRA = bin/cwsdpmi.exe

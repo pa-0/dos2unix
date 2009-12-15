@@ -6,7 +6,7 @@
 prefix=c:/usr/local
 ENABLE_NLS=1
 
-ifdef $(ENABLE_NLS)
+ifdef ENABLE_NLS
 LDFLAGS_EXTRA = -lintl -liconv
 # Using GnuWin32 gettext,iconv
 ZIPOBJ_EXTRA = bin/libintl3.dll bin/libiconv2.dll
