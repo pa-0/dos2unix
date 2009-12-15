@@ -3,7 +3,7 @@
 	* Added Dutch translation.
 	* Ported to Win32 using Mingw32 <http://www.mingw.org/>
 	* Ported to DOS using DJGPP <http://www.delorie.com/djgpp/>
-	* Fixed problem in DOS/Windows stdin/stdout mode.
+	* Fixed problem in DOS/Windows stdio mode.
 	* New option -L/--license that prints software license.
 	* Code cleanup
 	* Update manual
