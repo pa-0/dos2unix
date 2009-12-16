@@ -2,15 +2,15 @@
 
 .SH NAME
 
-unix2dos - UNIX to DOS text file format converter
+unix2dos \- UNIX to DOS text file format converter
 
 .SH SYNOPSYS
 
-unix2dos [options] [-c convmode] [-o file ...] [-n infile outfile ...]
+unix2dos [options] [\-c convmode] [\-o file ...] [\-n infile outfile ...]
 .PP
 Options:
 .PP
-[-hkqLV] [--help] [--keepdate] [--quiet] [--license] [--version]
+[\-hkqLV] [\-\-help] [\-\-keepdate] [\-\-quiet] [\-\-license] [\-\-version]
 
 .SH DESCRIPTION
 
@@ -92,15 +92,15 @@ with iconv(1). Some examples:
 
 Convert from Unix Latin-1 to DOSLatinUS
 .IP
-.B iconv -f ISO-8859-1 -t CP437 in.txt | unix2dos > out.txt
+.B iconv \-f ISO-8859-1 \-t CP437 in.txt | unix2dos > out.txt
 
 Convert from Unix Latin-1 to DOSLatin1
 .IP
-.B iconv -f ISO-8859-1 -t CP850 in.txt | unix2dos > out.txt
+.B iconv \-f ISO-8859-1 \-t CP850 in.txt | unix2dos > out.txt
 
 Convert from Unix Latin-1 to WinLatin1
 .IP
-.B iconv -f ISO-8859-1 -t CP1252 in.txt | unix2dos > out.txt
+.B iconv \-f ISO-8859-1 \-t CP1252 in.txt | unix2dos > out.txt
 
 See also <http://czyborra.com/charsets/codepages.html>
 .br
@@ -118,51 +118,51 @@ Convert and replace a.txt. Convert and replace b.txt.
 .IP
 .B unix2dos a.txt b.txt
 .IP
-.B unix2dos -o a.txt b.txt
+.B unix2dos \-o a.txt b.txt
 
 .LP
 Convert and replace a.txt in ASCII conversion mode.
 Convert and replace b.txt in 7bit conversion mode.
 .IP
-.B unix2dos a.txt -c 7bit b.txt
+.B unix2dos a.txt \-c 7bit b.txt
 .IP
-.B unix2dos -c ascii a.txt -c 7bit b.txt
+.B unix2dos \-c ascii a.txt \-c 7bit b.txt
 
 .LP
 Convert and replace a.txt while keeping original date stamp.
 .IP
-.B unix2dos -k a.txt
+.B unix2dos \-k a.txt
 .IP
-.B unix2dos -k -o a.txt
+.B unix2dos \-k \-o a.txt
 
 .LP
 Convert a.txt and write to e.txt.
 .IP
-.B unix2dos -n a.txt e.txt
+.B unix2dos \-n a.txt e.txt
 
 .LP
 Convert a.txt and write to e.txt, keep date stamp of e.txt same as a.txt.
 .IP
-.B unix2dos -k -n a.txt e.txt 
+.B unix2dos \-k \-n a.txt e.txt 
 
 .LP
 Convert and replace a.txt. Convert b.txt and write to e.txt.
 .IP
-.B unix2dos a.txt -n b.txt e.txt
+.B unix2dos a.txt \-n b.txt e.txt
 .IP
-.B unix2dos -o a.txt -n b.txt e.txt
+.B unix2dos \-o a.txt \-n b.txt e.txt
 
 .LP
 Convert c.txt and write to e.txt. Convert and replace a.txt.
 Convert and replace b.txt. Convert d.txt and write to f.txt.
 .IP
-.B unix2dos -n c.txt e.txt -o a.txt b.txt -n d.txt f.txt
+.B unix2dos \-n c.txt e.txt \-o a.txt b.txt \-n d.txt f.txt
 
 .SH AUTHORS
 
-Benjamin Lin - <blin@socs.uts.edu.au>
+Benjamin Lin \- <blin@socs.uts.edu.au>
 
-Erwin Waterlander - <waterlan@xs4all.nl>
+Erwin Waterlander \- <waterlan@xs4all.nl>
 
 Project page: http://www.xs4all.nl/~waterlan/#DOS2UNIX
 
