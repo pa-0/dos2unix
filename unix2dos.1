@@ -90,19 +90,19 @@ The ISO conversion mode is kept for legacy reasons. To convert text files
 between different encodings it's better to use unix2dos in combination
 with iconv(1). Some examples:
 
-Convert from Unix Latin-1 to DOSLatinUS
+Convert from Unix Latin-1 to DOS DOSLatinUS
 .IP
 .B iconv \-f ISO-8859-1 \-t CP437 in.txt | unix2dos > out.txt
 
-Convert from Unix Latin-1 to DOSLatin1
+Convert from Unix Latin-1 to DOS DOSLatin1
 .IP
 .B iconv \-f ISO-8859-1 \-t CP850 in.txt | unix2dos > out.txt
 
-Convert from Unix Latin-1 to WinLatin1
+Convert from Unix Latin-1 to Windows WinLatin1
 .IP
 .B iconv \-f ISO-8859-1 \-t CP1252 in.txt | unix2dos > out.txt
 
-Convert from Unix UTF-8 to WinLatin1
+Convert from Unix UTF-8 to Windows WinLatin1
 .IP
 .B iconv \-f UTF-8 \-t CP1252 in.txt | unix2dos > out.txt
 
