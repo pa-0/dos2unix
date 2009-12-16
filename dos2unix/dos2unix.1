@@ -1,13 +1,13 @@
 .TH "dos2unix" "1" "dos2unix 4.0" "2009" ""
 .SH "NAME"
-dos2unix - DOS/MAC to UNIX text file format converter
+dos2unix \- DOS/MAC to UNIX text file format converter
 
 .SH "SYNOPSYS"
-dos2unix [options] [-c convmode] [-o file ...] [-n infile outfile ...]
+dos2unix [options] [\-c convmode] [\-o file ...] [\-n infile outfile ...]
 .PP 
 Options:
 .PP 
-[-hkqLV] [--help] [--keepdate] [--quiet] [--license] [--version]
+[\-hkqLV] [\-\-help] [\-\-keepdate] [\-\-quiet] [\-\-license] [\-\-version]
 
 .SH "DESCRIPTION"
 .PP 
@@ -93,15 +93,15 @@ with iconv(1). Some examples:
 
 Convert from DOSLatinUS to Unix Latin-1
 .IP
-.B iconv -f CP437 -t ISO-8859-1 in.txt | dos2unix > out.txt
+.B iconv \-f CP437 \-t ISO-8859-1 in.txt | dos2unix > out.txt
 
 Convert from DOSLatin1 to Unix Latin-1
 .IP
-.B iconv -f CP850 -t ISO-8859-1 in.txt | dos2unix > out.txt
+.B iconv \-f CP850 \-t ISO-8859-1 in.txt | dos2unix > out.txt
 
 Convert from WinLatin1 to Unix Latin-1
 .IP
-.B iconv -f CP1252 -t ISO-8859-1 in.txt | dos2unix > out.txt
+.B iconv \-f CP1252 \-t ISO-8859-1 in.txt | dos2unix > out.txt
 
 See also <http://czyborra.com/charsets/codepages.html>
 .br
@@ -118,7 +118,7 @@ Convert and replace a.txt. Convert and replace b.txt.
 .IP 
 .B dos2unix a.txt b.txt
 .IP 
-.B dos2unix -o a.txt b.txt
+.B dos2unix \-o a.txt b.txt
 
 .LP 
 Convert and replace a.txt in ASCII conversion mode. 
@@ -129,53 +129,53 @@ Convert and replace a.txt in ASCII conversion mode.
 Convert and replace a.txt in ASCII conversion mode.
 Convert and replace b.txt in 7bit conversion mode.
 .IP
-.B unix2dos a.txt -c 7bit b.txt
+.B unix2dos a.txt \-c 7bit b.txt
 .IP
-.B unix2dos -c ascii a.txt -c 7bit b.txt
+.B unix2dos \-c ascii a.txt \-c 7bit b.txt
 
 .LP 
 Convert a.txt from Mac to Unix format.
 .IP 
-.B dos2unix -c mac a.txt
+.B dos2unix \-c mac a.txt
 .IP 
 .B mac2unix a.txt
 
 .LP 
 Convert and replace a.txt while keeping original date stamp.
 .IP 
-.B dos2unix -k a.txt
+.B dos2unix \-k a.txt
 .IP 
-.B dos2unix -k -o a.txt
+.B dos2unix \-k \-o a.txt
 
 .LP 
 Convert a.txt and write to e.txt.
 .IP 
-.B dos2unix -n a.txt e.txt
+.B dos2unix \-n a.txt e.txt
 
 .LP 
 Convert a.txt and write to e.txt, keep date stamp of e.txt same as a.txt.
 .IP 
-.B dos2unix -k -n a.txt e.txt 
+.B dos2unix \-k \-n a.txt e.txt 
 
 .LP 
 Convert and replace a.txt. Convert b.txt and write to e.txt.
 .IP 
-.B dos2unix a.txt -n b.txt e.txt
+.B dos2unix a.txt \-n b.txt e.txt
 .IP 
-.B dos2unix -o a.txt -n b.txt e.txt
+.B dos2unix \-o a.txt \-n b.txt e.txt
 
 .LP 
 Convert c.txt and write to e.txt. Convert and replace a.txt.
 Convert and replace b.txt. Convert d.txt and write to f.txt.
 .IP 
-.B dos2unix -n c.txt e.txt -o a.txt b.txt -n d.txt f.txt
+.B dos2unix \-n c.txt e.txt \-o a.txt b.txt \-n d.txt f.txt
 
 .SH "AUTHORS"
-Benjamin Lin - <blin@socs.uts.edu.au>
+Benjamin Lin \- <blin@socs.uts.edu.au>
 
-Bernd Johannes Wuebben (mac2unix mode) <wuebben@kde.org>
+Bernd Johannes Wuebben (mac2unix mode) \- <wuebben@kde.org>
 
-Erwin Waterlander <waterlan@xs4all.nl>
+Erwin Waterlander \- <waterlan@xs4all.nl>
 
 Project page: http://www.xs4all.nl/~waterlan/#DOS2UNIX
 
