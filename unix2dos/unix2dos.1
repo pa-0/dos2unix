@@ -17,6 +17,8 @@ Options:
 .PP
 Unix2dos converts text files in UNIX format to DOS format.
 
+This is an open source variant of unix2dos that was shipped with SunOS.
+
 In DOS/Windows text files line endings exist out of a combination of two characters:
 a Carriage Return (CR) followed by a Line Feed (LF).
 In Unix text files line endings exists out of a single Newline character which
@@ -79,16 +81,19 @@ to a space.
 
 .TP
 .B ISO
-In this mode Unix line endings are converted to DOS line endings.  The
-conversion of 8 bit non-ASCII characters (with values from 128 to 255) is
-unclear. Benjamin used this probably to convert between a character set he was
-using on SunOS in 1995 and DOS character set CP437. In this mode some
-characters are translated from ISO-8859-1 (Latin1) to DOS code page CP437, but
-for several others it's not clear.
+In this mode Unix line endings are converted to DOS line endings.  Characters
+are converted from ISO character set ISO-8859-1 to DOS character set (code
+page) CP437. ISO-8859-1 characters without CP437 equivalent, for which
+conversion is not possible, are converted to a wrong, but unique, CP437
+character. This means that if the converted file is converted back to Unix with
+dos2unix(1) in ISO mode, you get exactly the same file back as the original.
+So you can convert forth and back without loss of original text. The down side
+is that you may find strange characters in the converted file. CP437 is mainly
+used in the USA. In Western Europe CP850 is more standard.
 
-The ISO conversion mode is kept for legacy reasons. To convert text files
-between different encodings it's better to use unix2dos in combination
-with iconv(1). Some examples:
+Another option to convert text files between different encodings is to use
+unix2dos in combination with iconv(1). Iconv can convert between a long list of
+character encodings. Some examples:
 
 Convert from Unix Latin-1 to DOS DOSLatinUS
 .IP

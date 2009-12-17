@@ -1,5 +1,6 @@
 2009-12 Erwin Waterlander <waterlan@xs4all.nl>
 	* man page: Replace hyphens with minus signs (look like dashes) where needed.
+	* man page: Update ISO mode information.
 
 2009-12-15 Erwin Waterlander <waterlan@xs4all.nl>
 	* version 4.0
