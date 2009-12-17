@@ -13,6 +13,8 @@ Options:
 .PP 
 Dos2unix converts plain text files in DOS/MAC format to UNIX format.
 
+This is an open source variant of dos2unix that was shipped with SunOS.
+
 In DOS/Windows text files line endings exist out of a combination of two characters:
 a Carriage Return (CR) followed by a Line Feed (LF).
 In Unix text files line endings exists out of a single Newline character which
@@ -80,16 +82,19 @@ to a space.
 
 .TP
 .B ISO
-In this mode DOS line endings are converted to Unix line endings.  The
-conversion of 8 bit non-ASCII characters (with values from 128 to 255) is
-unclear. Benjamin used this probably to convert between DOS character set CP437
-and a character set he was using on SunOS in 1995. In this mode some characters
-are translated from DOS code page CP437 to ISO-8859-1 (Latin1), but for several
-others it's not clear.
+In this mode DOS line endings are converted to Unix line endings.
+Characters are converted from DOS character set (code page) CP437 to ISO
+character set ISO-8859-1. CP437 characters without ISO-8859-1 equivalent, for
+which conversion is not possible, are converted to a wrong, but unique, ISO
+character. This means that if the converted file is converted back to DOS with
+unix2dos(1) in ISO mode, you get exactly the same file back as the original.
+So you can convert forth and back without loss of original text. The down side
+is that you may find strange characters in the converted file.  CP437 is mainly
+used in the USA. In Western Europe CP850 is more standard.
 
-The ISO conversion mode is kept for legacy reasons. To convert text files
-between different encodings it's better to use dos2unix in combination
-with iconv(1). Some examples:
+Another option to convert text files between different encodings is to use
+dos2unix in combination with iconv(1). Iconv can convert between a long list of
+character encodings. Some examples:
 
 Convert from DOS DOSLatinUS to Unix Latin-1
 .IP
@@ -103,7 +108,7 @@ Convert from Windows WinLatin1 to Unix Latin-1
 .IP
 .B iconv \-f CP1252 \-t ISO-8859-1 in.txt | dos2unix > out.txt
 
-Convert from Windows WinLatin1 to Unix UTF-8
+Convert from Windows WinLatin1 to Unix UTF-8 (Unicode)
 .IP
 .B iconv \-f CP1252 \-t UTF-8 in.txt | dos2unix > out.txt
 
