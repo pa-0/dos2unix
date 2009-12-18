@@ -5,6 +5,9 @@
 	* dos2unix.c: Option -V prints localedir used.
 	* dos2unix.c: Localedir can be overruled with environment variable
 	  DOS2UNIX_LOCALEDIR.
+	* Fixed two wrong conversions in ISO mode:
+	  - Greek mu.
+	  - Closing guillemet (angle quotation mark, >>).
 
 2009-12-15 Erwin Waterlander <waterlan@xs4all.nl>
 	* version 4.0
