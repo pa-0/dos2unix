@@ -175,6 +175,12 @@ void PrintVersion(void)
 #endif
 }
 
+#ifdef ENABLE_NLS
+void PrintLocaledir(char *localedir)
+{
+  fprintf(stderr, "LOCALEDIR: %s\n", localedir);
+}
+#endif
 
 /* opens file of name ipFN in read only mode
  * RetVal: NULL if failure
@@ -627,10 +633,26 @@ int main (int argc, char *argv[])
   int CanSwitchFileMode;
   int ShouldExit;
   CFlag *pFlag;
-
 #ifdef ENABLE_NLS
+  char localedir[1024];
+  char *ptr;
+
+   ptr = getenv("DOS2UNIX_LOCALEDIR");
+   if (ptr == NULL)
+      strcpy(localedir,LOCALEDIR);
+   else
+   {
+      if (strlen(ptr) < sizeof(localedir))
+         strcpy(localedir,ptr);
+      else
+      {
+         fprintf(stderr,_("dos2unix: error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"));
+         strcpy(localedir,LOCALEDIR);
+      }
+   }
+
    setlocale (LC_ALL, "");
-   bindtextdomain (PACKAGE, LOCALEDIR);
+   bindtextdomain (PACKAGE, localedir);
    textdomain (PACKAGE);
 #endif
 
@@ -670,7 +692,12 @@ int main (int argc, char *argv[])
       if ((strcmp(argv[ArgIdx],"-l") == 0) || (strcmp(argv[ArgIdx],"--newline") == 0))
         pFlag->NewLine = 1;
       if ((strcmp(argv[ArgIdx],"-V") == 0) || (strcmp(argv[ArgIdx],"--version") == 0))
+      {
         PrintVersion();
+#ifdef ENABLE_NLS
+        PrintLocaledir(localedir);
+#endif
+      }
       if ((strcmp(argv[ArgIdx],"-L") == 0) || (strcmp(argv[ArgIdx],"--license") == 0))
         PrintLicense();
       

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-15 11:26+0100\n"
+"POT-Creation-Date: 2009-12-18 09:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,57 +71,64 @@ msgstr ""
 msgid "With native language support.\n"
 msgstr ""
 
-#: unix2dos.c:208 unix2dos.c:220 unix2dos.c:232
+#: unix2dos.c:214 unix2dos.c:226 unix2dos.c:238
 #, c-format
 msgid "unix2dos: can not write to output file\n"
 msgstr ""
 
-#: unix2dos.c:239
+#: unix2dos.c:245
 #, c-format
 msgid "unix2dos: program error, invalid conversion mode %d\n"
 msgstr ""
 
-#: unix2dos.c:332 unix2dos.c:442
+#: unix2dos.c:338 unix2dos.c:448
 #, c-format
 msgid "unix2dos: using %s as temp file\n"
 msgstr ""
 
-#: unix2dos.c:392 unix2dos.c:503
+#: unix2dos.c:398 unix2dos.c:509
 #, c-format
 msgid "unix2dos: problems renaming '%s' to '%s'\n"
 msgstr ""
 
-#: unix2dos.c:393 unix2dos.c:504
+#: unix2dos.c:399 unix2dos.c:510
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr ""
 
-#: unix2dos.c:606
+#: unix2dos.c:572
+#, c-format
+msgid ""
+"unix2dos: error: Value of environment variable UNIX2DOS_LOCALEDIR is too "
+"long.\n"
+msgstr ""
+
+#: unix2dos.c:633
 #, c-format
 msgid "unix2dos: invalid %s conversion mode specified\n"
 msgstr ""
 
-#: unix2dos.c:617 unix2dos.c:628 unix2dos.c:670
+#: unix2dos.c:644 unix2dos.c:655 unix2dos.c:697
 #, c-format
 msgid "unix2dos: target of file %s not specified in new file mode\n"
 msgstr ""
 
-#: unix2dos.c:644
+#: unix2dos.c:671
 #, c-format
 msgid "unix2dos: converting file %s to file %s in DOS format ...\n"
 msgstr ""
 
-#: unix2dos.c:648
+#: unix2dos.c:675
 #, c-format
 msgid "unix2dos: problems converting file %s to file %s\n"
 msgstr ""
 
-#: unix2dos.c:657
+#: unix2dos.c:684
 #, c-format
 msgid "unix2dos: converting file %s to DOS format ...\n"
 msgstr ""
 
-#: unix2dos.c:661
+#: unix2dos.c:688
 #, c-format
 msgid "unix2dos: problems converting file %s\n"
 msgstr ""

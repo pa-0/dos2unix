@@ -1,6 +1,10 @@
 2009-12 Erwin Waterlander <waterlan@xs4all.nl>
-	* man page: Replace hyphens with minus signs (look like dashes) where needed.
+	* man page: Replace hyphens with minus signs (look like dashes)
+	  where needed.
 	* man page: Update ISO mode information.
+	* unix2dos.c: Option -V prints localedir used.
+	* unix2dos.c: Localedir can be overruled with environment variable
+	  UNIX2DOS_LOCALEDIR.
 
 2009-12-15 Erwin Waterlander <waterlan@xs4all.nl>
 	* version 4.0
