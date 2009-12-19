@@ -8,6 +8,8 @@
 	* Fixed two wrong conversions in ISO mode:
 	  - Greek mu.
 	  - Closing guillemet (angle quotation mark, >>).
+	* Port to OS/2 Warp: Thanks to Elbert Pol.
+	* Makefiles: Added target 'strip'.
 
 2009-12-15 Erwin Waterlander <waterlan@xs4all.nl>
 	* version 4.0
