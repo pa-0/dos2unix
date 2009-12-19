@@ -70,13 +70,13 @@
 #define MSDOS
 #endif
 
-#ifdef MSDOS /* DJGPP and MINGW32 */
+#if defined(MSDOS) || defined(OS2) /* DJGPP, MINGW32 and OS/2 */
 #include <fcntl.h>
 #include <io.h>
 #endif
 
 
-#ifdef MSDOS
+#if defined(MSDOS) || defined(OS2)
 #  define R_CNTRL   "rb"
 #  define W_CNTRL   "wb"
 #else
@@ -539,7 +539,7 @@ int ConvertUnixToDosStdio(CFlag *ipFlag)
     _setmode(fileno(stdout), O_BINARY);
     _setmode(fileno(stdin), O_BINARY);
     return (ConvertUnixToDos(stdin, stdout, ipFlag));
-#elif defined(MSDOS)
+#elif defined(MSDOS) || defined(OS2)
     setmode(fileno(stdout), O_BINARY);
     setmode(fileno(stdin), O_BINARY);
     return (ConvertUnixToDos(stdin, stdout, ipFlag));
