@@ -53,3 +53,7 @@ DOS PORT
 
         make -f djgpp.mak clean install
 
+OS/2 PORT
+
+        make -f os2.mak clean install
+

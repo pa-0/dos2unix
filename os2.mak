@@ -3,13 +3,13 @@
 # Copyright (C) 2009 Erwin Waterlander
 # This file is distributed under the same license as the dos2unix package.
 
-prefix=c:/djgpp
-ENABLE_NLS=
+prefix=c:/usr
+ENABLE_NLS=1
 
 ifdef ENABLE_NLS
 LDFLAGS_EXTRA = -lintl -liconv
 endif
-ZIPOBJ_EXTRA = bin/cwsdpmi.exe
+ZIPOBJ_EXTRA =
 
 all:
 	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f"

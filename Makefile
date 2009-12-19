@@ -244,3 +244,8 @@ dist-tgz:
 
 dist: dist-tgz
 
+strip:
+	strip $(BIN)
+ifeq ($(LINK),cp -f)
+	strip $(MAC2UNIX_BIN)
+endif
