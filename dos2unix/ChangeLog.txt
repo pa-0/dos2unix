@@ -1,4 +1,5 @@
-2009-12 Erwin Waterlander <waterlan@xs4all.nl>
+2009-12-21 Erwin Waterlander <waterlan@xs4all.nl>
+	* version 4.0.1
 	* man page improvements: Thanks to Jari Aalto.
 	  - Replace hyphens with minus signs (look like dashes) where needed.
 	  - Options in alphabetical order.
