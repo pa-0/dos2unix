@@ -226,3 +226,5 @@ dist-tgz:
 
 dist: dist-tgz
 
+strip:
+	strip $(BIN)
