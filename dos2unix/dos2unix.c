@@ -84,13 +84,13 @@ static int macmode = 0;
 #define MSDOS
 #endif
 
-#if defined(MSDOS) || defined(OS2) /* DJGPP, MINGW32 and OS/2 */
+#if defined(MSDOS) || defined(__OS2__) /* DJGPP, MINGW32 and OS/2 */
 #include <fcntl.h>
 #include <io.h>
 #endif
 
 
-#if defined(MSDOS) || defined(OS2)
+#if defined(MSDOS) || defined(__OS2__)
   #define R_CNTRL   "rb"
   #define W_CNTRL   "wb"
 #else
@@ -616,7 +616,7 @@ int ConvertDosToUnixStdio(CFlag *ipFlag)
     _setmode(fileno(stdout), O_BINARY);
     _setmode(fileno(stdin), O_BINARY);
     return (ConvertDosToUnix(stdin, stdout, ipFlag));
-#elif defined(MSDOS) || defined(OS2)
+#elif defined(MSDOS) || defined(__OS2__)
     setmode(fileno(stdout), O_BINARY);
     setmode(fileno(stdin), O_BINARY);
     return (ConvertDosToUnix(stdin, stdout, ipFlag));
