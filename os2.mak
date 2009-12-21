@@ -24,7 +24,7 @@ clean:
 	$(MAKE) clean EXE=.exe ENABLE_NLS=$(ENABLE_NLS) prefix=$(prefix)
 
 dist:
-	$(MAKE) dist-zip EXE=.exe prefix=$(prefix) VERSIONSUFFIX="-dos32" ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" ENABLE_NLS=$(ENABLE_NLS)
+	$(MAKE) dist-zip EXE=.exe prefix=$(prefix) VERSIONSUFFIX="-os2" ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" ENABLE_NLS=$(ENABLE_NLS)
 
 strip:
 	$(MAKE) strip LINK="cp -f" EXE=.exe
