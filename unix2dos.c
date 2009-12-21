@@ -70,7 +70,20 @@
 #define MSDOS
 #endif
 
+#ifdef MSDOS
+/* Some compilers have no mkstemp().
+ * Use mktemp() instead.
+ * DJGPP, MINGW32 */
+#define NO_MKSTEMP 1
+#endif
+
+#if defined(MSDOS) || defined(__OS2__)
+/* On some systems rename() will always fail if target file already exists. */
+#define NEED_REMOVE 1
+#endif
+
 #if defined(MSDOS) || defined(__OS2__) /* DJGPP, MINGW32 and OS/2 */
+/* required for setmode() and O_BINARY */
 #include <fcntl.h>
 #include <io.h>
 #endif
@@ -249,7 +262,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
   return RetVal;
 }
 
-#ifdef MSDOS
+#ifdef NO_MKSTEMP
 FILE* MakeTempFileFrom(const char *OutFN, char **fname_ret)
 #else
 static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
@@ -259,7 +272,7 @@ static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
   char *dir = NULL;
   size_t fname_len = 0;
   char  *fname_str = NULL;
-#ifdef MSDOS
+#ifdef NO_MKSTEMP
   char *name;
   FILE *fd = NULL;
 #else
@@ -281,7 +294,7 @@ static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
 
   free(cpy);
 
-#ifdef MSDOS
+#ifdef NO_MKSTEMP
   name = mktemp(fname_str);
   *fname_ret = name;
   if ((fd = fopen(fname_str, W_CNTRL)) == NULL)
@@ -296,7 +309,7 @@ static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
  make_failed:
   free(*fname_ret);
   *fname_ret = NULL;
-#ifdef MSDOS
+#ifdef NO_MKSTEMP
   return (NULL);
 #else
   return (-1);
@@ -315,7 +328,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   char *TempPath;
   struct stat StatBuf;
   struct utimbuf UTimeBuf;
-#ifdef MSDOS
+#ifdef NO_MKSTEMP
   FILE* fd;
 #else
   int fd;
@@ -325,7 +338,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   if ((ipFlag->KeepDate) && stat(ipInFN, &StatBuf))
     RetVal = -1;
 
-#ifdef MSDOS
+#ifdef NO_MKSTEMP
   if((fd = MakeTempFileFrom(ipOutFN, &TempPath))==NULL) {
 #else
   if((fd = MakeTempFileFrom (ipOutFN, &TempPath)) < 0) {
@@ -343,7 +356,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     RetVal = -1;
 
   /* can open out file? */
-#ifdef MSDOS
+#ifdef NO_MKSTEMP
   if ((!RetVal) && (InF) && ((TempF=fd) == NULL))
 #else
   if ((!RetVal) && (InF) && ((TempF=OpenOutFile(fd)) == NULL))
@@ -366,7 +379,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   if ((TempF) && (fclose(TempF) == EOF))
     RetVal = -1;
 
-#ifdef MSDOS
+#ifdef NO_MKSTEMP
   if(fd!=NULL)
     fclose(fd);
 #else
@@ -390,7 +403,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   /* can rename temp file to out file? */
   if (!RetVal)
   {
-#if defined(MSDOS) || defined(__OS2__)
+#ifdef NEED_REMOVE
     remove(ipOutFN);
 #endif
     if ((rename(TempPath, ipOutFN) == -1) && (!ipFlag->Quiet))
@@ -418,7 +431,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   struct stat StatBuf;
   struct utimbuf UTimeBuf;
   mode_t mode = S_IRUSR | S_IWUSR;
-#ifdef MSDOS
+#ifdef NO_MKSTEMP
   FILE* fd;
 #else
   int fd;
@@ -430,7 +443,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   else
     mode = StatBuf.st_mode;
 
-#ifdef MSDOS
+#ifdef NO_MKSTEMP
   if((fd = MakeTempFileFrom(ipInFN, &TempPath))==NULL) {
 #else
   if((fd = MakeTempFileFrom(ipInFN, &TempPath)) < 0) {
@@ -453,7 +466,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
     RetVal = -1;
 
   /* can open out file? */
-#ifdef MSDOS
+#ifdef NO_MKSTEMP
   if ((!RetVal) && (InF) && ((TempF=fd) == NULL))
 #else
   if ((!RetVal) && (InF) && ((TempF=OpenOutFile(fd)) == NULL))
@@ -476,7 +489,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   if ((TempF) && (fclose(TempF) == EOF))
     RetVal = -1;
 
-#ifdef MSDOS
+#ifdef NO_MKSTEMP
   if(fd!=NULL)
     fclose(fd);
 #else
@@ -497,7 +510,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   if ((RetVal) && (unlink(TempPath)))
     RetVal = -1;
 
-#if defined(MSDOS) || defined(__OS2__)
+#ifdef NEED_REMOVE
   if (!RetVal)
     remove(ipInFN);
 #endif
