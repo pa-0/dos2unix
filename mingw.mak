@@ -30,5 +30,5 @@ dist:
 	$(MAKE) dist-zip EXE=.exe prefix=$(prefix) VERSIONSUFFIX="-win32" ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" ENABLE_NLS=$(ENABLE_NLS)
 
 strip:
-	$(MAKE) strip LINK="cp -f"
+	$(MAKE) strip LINK="cp -f" EXE=.exe
 
