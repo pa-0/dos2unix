@@ -390,7 +390,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   /* can rename temp file to out file? */
   if (!RetVal)
   {
-#ifdef MSDOS
+#if defined(MSDOS) || defined(__OS2__)
     remove(ipOutFN);
 #endif
     if ((rename(TempPath, ipOutFN) == -1) && (!ipFlag->Quiet))
@@ -497,7 +497,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   if ((RetVal) && (unlink(TempPath)))
     RetVal = -1;
 
-#ifdef MSDOS
+#if defined(MSDOS) || defined(__OS2__)
   if (!RetVal)
     remove(ipInFN);
 #endif
