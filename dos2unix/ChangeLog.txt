@@ -1,3 +1,8 @@
+2009-12 Erwin Waterlander <waterlan@xs4all.nl>
+	* version 4.0-beta1
+	* Automatically detect binary files.
+	* New option: -f --force: Force conversion of all files.
+
 2009-12-21 Erwin Waterlander <waterlan@xs4all.nl>
 	* version 4.0.1
 	* man page improvements: Thanks to Jari Aalto.

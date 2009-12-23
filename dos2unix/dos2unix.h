@@ -61,7 +61,7 @@ static int D2U7BitTable[256] =
 };
 
 
-/* DOS ISO -> SunOS ISO */
+/* CP437 -> ISO-8859-1 */
 
 static int D2UIsoTable[256] =
 {
