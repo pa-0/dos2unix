@@ -114,7 +114,7 @@ void PrintUsage(void)
 {
   fprintf(stderr, _("\
 unix2dos %s (%s)\n\
-Usage: unix2dos [-fhkLqV] [-o file ...] [-c convmode] [-n infile outfile ...]\n\
+Usage: unix2dos [-fhkLqV] [-c convmode] [-o file ...] [-n infile outfile ...]\n\
  -c --convmode    conversion mode\n\
    convmode       ASCII, 7bit, ISO, default to ASCII\n\
  -f --force       force conversion of all files\n\
