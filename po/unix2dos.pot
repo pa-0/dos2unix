@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-21 23:12+0100\n"
+"POT-Creation-Date: 2009-12-24 13:36+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,28 +16,29 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: unix2dos.c:112
+#: unix2dos.c:115
 #, c-format
 msgid ""
 "unix2dos %s (%s)\n"
-"Usage: unix2dos [-hkqLV] [-o file ...] [-c convmode] [-n infile "
+"Usage: unix2dos [-fhkLqV] [-o file ...] [-c convmode] [-n infile "
 "outfile ...]\n"
+" -c --convmode    conversion mode\n"
+"   convmode       ASCII, 7bit, ISO, default to ASCII\n"
+" -f --force       force conversion of all files\n"
 " -h --help        give this help\n"
 " -k --keepdate    keep output file date\n"
-" -q --quiet       quiet mode, suppress all warnings\n"
-"                  always on in stdin->stdout mode\n"
 " -L --license     print software license\n"
-" -V --version     display version number\n"
-" -c --convmode    conversion mode\n"
-" convmode         ASCII, 7bit, ISO, default to ASCII\n"
-" -o --oldfile     write to old file\n"
-" file ...         files to convert in old file mode\n"
 " -n --newfile     write to new file\n"
-" infile           original file in new file mode\n"
-" outfile          output file in new file mode\n"
+"   infile         original file in new file mode\n"
+"   outfile        output file in new file mode\n"
+" -o --oldfile     write to old file\n"
+"   file ...       files to convert in old file mode\n"
+" -q --quiet       quiet mode, suppress all warnings\n"
+"                  always on in stdio mode\n"
+" -V --version     display version number\n"
 msgstr ""
 
-#: unix2dos.c:132
+#: unix2dos.c:136
 #, c-format
 msgid ""
 "Copyright (c) 1994-1995 Benjamin Lin\n"
@@ -66,69 +67,74 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: unix2dos.c:164
+#: unix2dos.c:168
 #, c-format
 msgid "With native language support.\n"
 msgstr ""
 
-#: unix2dos.c:227 unix2dos.c:239 unix2dos.c:251
+#: unix2dos.c:242 unix2dos.c:264 unix2dos.c:286
 #, c-format
 msgid "unix2dos: can not write to output file\n"
 msgstr ""
 
-#: unix2dos.c:258
+#: unix2dos.c:294
 #, c-format
 msgid "unix2dos: program error, invalid conversion mode %d\n"
 msgstr ""
 
-#: unix2dos.c:351 unix2dos.c:461
+#: unix2dos.c:387 unix2dos.c:497
 #, c-format
 msgid "unix2dos: using %s as temp file\n"
 msgstr ""
 
-#: unix2dos.c:411 unix2dos.c:522
+#: unix2dos.c:447 unix2dos.c:558
 #, c-format
 msgid "unix2dos: problems renaming '%s' to '%s'\n"
 msgstr ""
 
-#: unix2dos.c:412 unix2dos.c:523
+#: unix2dos.c:448 unix2dos.c:559
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr ""
 
-#: unix2dos.c:585
+#: unix2dos.c:623
 #, c-format
 msgid ""
 "unix2dos: error: Value of environment variable UNIX2DOS_LOCALEDIR is too "
 "long.\n"
 msgstr ""
 
-#: unix2dos.c:646
+#: unix2dos.c:688
 #, c-format
 msgid "unix2dos: invalid %s conversion mode specified\n"
 msgstr ""
 
-#: unix2dos.c:657 unix2dos.c:668 unix2dos.c:710
+#: unix2dos.c:699 unix2dos.c:710 unix2dos.c:766
 #, c-format
 msgid "unix2dos: target of file %s not specified in new file mode\n"
 msgstr ""
 
-#: unix2dos.c:684
+#: unix2dos.c:729 unix2dos.c:749
+#, c-format
+msgid "unix2dos: Skipping binary file %s\n"
+msgstr ""
+
+#: unix2dos.c:732
 #, c-format
 msgid "unix2dos: converting file %s to file %s in DOS format ...\n"
 msgstr ""
 
-#: unix2dos.c:688
+#: unix2dos.c:736
 #, c-format
 msgid "unix2dos: problems converting file %s to file %s\n"
 msgstr ""
 
-#: unix2dos.c:697
+#: unix2dos.c:752
 #, c-format
 msgid "unix2dos: converting file %s to DOS format ...\n"
 msgstr ""
 
-#: unix2dos.c:701
+#: unix2dos.c:756
 #, c-format
 msgid "unix2dos: problems converting file %s\n"
 msgstr ""

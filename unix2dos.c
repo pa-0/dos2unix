@@ -97,6 +97,7 @@
 #  define W_CNTRL   "w"
 #endif
 
+#define BINARY_FILE 0x1
 
 typedef struct
 {
@@ -104,6 +105,8 @@ typedef struct
   int Quiet;                            /* is in quiet mode? */
   int KeepDate;                         /* should keep date stamp? */
   int ConvMode;                         /* 0 - ASCII, 1 - 7 bit, 2 - ISO */  
+  int Force;                            /* if TRUE, force conversion of all files. */
+  int status;
 } CFlag;
 
 
@@ -111,20 +114,21 @@ void PrintUsage(void)
 {
   fprintf(stderr, _("\
 unix2dos %s (%s)\n\
-Usage: unix2dos [-hkqLV] [-o file ...] [-c convmode] [-n infile outfile ...]\n\
+Usage: unix2dos [-fhkLqV] [-o file ...] [-c convmode] [-n infile outfile ...]\n\
+ -c --convmode    conversion mode\n\
+   convmode       ASCII, 7bit, ISO, default to ASCII\n\
+ -f --force       force conversion of all files\n\
  -h --help        give this help\n\
  -k --keepdate    keep output file date\n\
- -q --quiet       quiet mode, suppress all warnings\n\
-                  always on in stdin->stdout mode\n\
  -L --license     print software license\n\
- -V --version     display version number\n\
- -c --convmode    conversion mode\n\
- convmode         ASCII, 7bit, ISO, default to ASCII\n\
- -o --oldfile     write to old file\n\
- file ...         files to convert in old file mode\n\
  -n --newfile     write to new file\n\
- infile           original file in new file mode\n\
- outfile          output file in new file mode\n"), VER_REVISION, VER_DATE);
+   infile         original file in new file mode\n\
+   outfile        output file in new file mode\n\
+ -o --oldfile     write to old file\n\
+   file ...       files to convert in old file mode\n\
+ -q --quiet       quiet mode, suppress all warnings\n\
+                  always on in stdio mode\n\
+ -V --version     display version number\n"), VER_REVISION, VER_DATE);
 }
 
 void PrintLicense(void)
@@ -206,6 +210,8 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
     int RetVal = 0;
     int TempChar;
 
+    ipFlag->status = 0;
+
     /* LF    -> CR-LF */
     /* CR-LF -> CR-LF, in case the input file is a DOS text file */
     /* \x0a = Newline/Line Feed (LF) */
@@ -214,7 +220,16 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
     switch (ipFlag->ConvMode)
     {
       case 0: /* ASCII */
-        while ((TempChar = getc(ipInF)) != EOF)  /* get character */
+        while ((TempChar = getc(ipInF)) != EOF) {  /* get character */
+          if ((ipFlag->Force == 0) &&
+              (TempChar < 32) &&
+              (TempChar != '\x0a') &&  /* Not an LF */
+              (TempChar != '\x0d') &&  /* Not a CR */
+              (TempChar != '\x09')) {  /* Not a TAB */
+            RetVal = -1;
+            ipFlag->status |= BINARY_FILE ;
+            break;
+          }
           if (
               /* read a Unix line end */
               ((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF)) ||  /* got LF, put CR */
@@ -227,9 +242,19 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
                 fprintf(stderr, _("unix2dos: can not write to output file\n"));
               break;
           }
+	}
         break;
       case 1: /* 7Bit */
-        while ((TempChar = getc(ipInF)) != EOF)
+        while ((TempChar = getc(ipInF)) != EOF) {
+          if ((ipFlag->Force == 0) &&
+              (TempChar < 32) &&
+              (TempChar != '\x0a') &&  /* Not an LF */
+              (TempChar != '\x0d') &&  /* Not a CR */
+              (TempChar != '\x09')) {  /* Not a TAB */
+            RetVal = -1;
+            ipFlag->status |= BINARY_FILE ;
+            break;
+          }
           if (((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF)) ||
               ((TempChar == '\x0d') && (((TempChar = getc(ipInF)) == EOF) || (putc('\x0d', ipOutF) == EOF))) ||
               (putc(U2D7BitTable[TempChar], ipOutF) == EOF))
@@ -239,9 +264,19 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
                 fprintf(stderr, _("unix2dos: can not write to output file\n"));
               break;
           }
+	}
         break;
       case 2: /* ISO */
-        while ((TempChar = getc(ipInF)) != EOF)
+        while ((TempChar = getc(ipInF)) != EOF) {
+          if ((ipFlag->Force == 0) &&
+              (TempChar < 32) &&
+              (TempChar != '\x0a') &&  /* Not an LF */
+              (TempChar != '\x0d') &&  /* Not a CR */
+              (TempChar != '\x09')) {  /* Not a TAB */
+            RetVal = -1;
+            ipFlag->status |= BINARY_FILE ;
+            break;
+          }
           if (((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF)) ||
               ((TempChar == '\x0d') && (((TempChar = getc(ipInF)) == EOF) || (putc('\x0d', ipOutF) == EOF))) ||
               (putc(U2DIsoTable[TempChar], ipOutF) == EOF))
@@ -251,6 +286,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
                 fprintf(stderr, _("unix2dos: can not write to output file\n"));
               break;
           }
+	}
         break;
       default: /*unknown convmode */
       ;
@@ -538,6 +574,7 @@ int ConvertUnixToDosStdio(CFlag *ipFlag)
     ipFlag->NewFile = 1;
     ipFlag->Quiet = 1;
     ipFlag->KeepDate = 0;
+    ipFlag->Force = 1;
 
 #ifdef WIN32
 
@@ -568,6 +605,7 @@ int main (int argc, char *argv[])
   int ArgIdx;
   int CanSwitchFileMode;
   int ShouldExit;
+  int RetVal = 0;
   CFlag *pFlag;
 #ifdef ENABLE_NLS
   char localedir[1024];
@@ -602,6 +640,8 @@ int main (int argc, char *argv[])
   pFlag->Quiet = 0;
   pFlag->KeepDate = 0;
   pFlag->ConvMode = 0;
+  pFlag->Force = 0;
+  pFlag->status = 0;
   
   /* no option, use stdin and stdout */
   if (argc == 1)
@@ -619,6 +659,8 @@ int main (int argc, char *argv[])
         PrintUsage();
       if ((strcmp(argv[ArgIdx],"-k") == 0) || (strcmp(argv[ArgIdx],"--keepdate") == 0))
         pFlag->KeepDate = 1;
+      if ((strcmp(argv[ArgIdx],"-f") == 0) || (strcmp(argv[ArgIdx],"--force") == 0))
+        pFlag->Force = 1;
       if ((strcmp(argv[ArgIdx],"-q") == 0) || (strcmp(argv[ArgIdx],"--quiet") == 0))
         pFlag->Quiet = 1;
       if ((strcmp(argv[ArgIdx],"-V") == 0) || (strcmp(argv[ArgIdx],"--version") == 0))
@@ -680,27 +722,41 @@ int main (int argc, char *argv[])
           CanSwitchFileMode = 0;
         else
         {
-          if (!pFlag->Quiet)
-            fprintf(stderr, _("unix2dos: converting file %s to file %s in DOS format ...\n"), argv[ArgIdx-1], argv[ArgIdx]);
-          if (ConvertUnixToDosNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag))
+	  RetVal = ConvertUnixToDosNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag);
+	  if (pFlag->status & BINARY_FILE)
           {
             if (!pFlag->Quiet)
-              fprintf(stderr, _("unix2dos: problems converting file %s to file %s\n"), argv[ArgIdx-1], argv[ArgIdx]);
-            ShouldExit = 1;
-          }
+              fprintf(stderr, _("unix2dos: Skipping binary file %s\n"), argv[ArgIdx-1]);
+          } else {
+            if (!pFlag->Quiet)
+              fprintf(stderr, _("unix2dos: converting file %s to file %s in DOS format ...\n"), argv[ArgIdx-1], argv[ArgIdx]);
+            if (RetVal)
+            {
+              if (!pFlag->Quiet)
+                fprintf(stderr, _("unix2dos: problems converting file %s to file %s\n"), argv[ArgIdx-1], argv[ArgIdx]);
+              ShouldExit = 1;
+            }
+	  }
           CanSwitchFileMode = 1;
         }
       }
       else
       {
-        if (!pFlag->Quiet)
-          fprintf(stderr, _("unix2dos: converting file %s to DOS format ...\n"), argv[ArgIdx]);
-        if (ConvertUnixToDosOldFile(argv[ArgIdx], pFlag))
+	RetVal = ConvertUnixToDosOldFile(argv[ArgIdx], pFlag);
+	if (pFlag->status & BINARY_FILE)
         {
           if (!pFlag->Quiet)
-            fprintf(stderr, _("unix2dos: problems converting file %s\n"), argv[ArgIdx]);
-          ShouldExit = 1;
-        }
+            fprintf(stderr, _("unix2dos: Skipping binary file %s\n"), argv[ArgIdx]);
+        } else {
+          if (!pFlag->Quiet)
+            fprintf(stderr, _("unix2dos: converting file %s to DOS format ...\n"), argv[ArgIdx]);
+          if (RetVal)
+          {
+            if (!pFlag->Quiet)
+              fprintf(stderr, _("unix2dos: problems converting file %s\n"), argv[ArgIdx]);
+            ShouldExit = 1;
+          }
+	}
       }
     }
   }

@@ -1,3 +1,15 @@
+2009-12-23 Erwin Waterlander <waterlan@xs4all.nl>
+	* version 4.1-beta1
+	* Automatically detect binary files.
+	* New option: -f --force: Force conversion of all files.
+	* Option -h: Print options in alphabetical order.
+	* Update manual.
+	* ISO mode:
+	  - Non-convertable characters are converted to a dot.
+	  - Fixed wrong conversion of Interpunct.
+	  - Don't convert ASCII control characters
+	    DC4 (Pilcrow, 0x14) and NAK (Section-sign, 0x15).
+
 2009-12-21 Erwin Waterlander <waterlan@xs4all.nl>
 	* version 4.0.1
 	* man page improvements: Thanks to Jari Aalto.
