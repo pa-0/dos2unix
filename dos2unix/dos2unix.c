@@ -129,7 +129,7 @@ void PrintUsage(void)
 {
   fprintf(stderr, _("\
 dos2unix %s (%s)\n\
-Usage: dos2unix [-hkqLV] [-c convmode] [-o file ...] [-n infile outfile ...]\n\
+Usage: dos2unix [-fhkLlqV] [-c convmode] [-o file ...] [-n infile outfile ...]\n\
  -c --convmode    conversion mode\n\
    convmode       ASCII, 7bit, ISO, Mac, default to ASCII\n\
  -f --force       force conversion of all files\n\

@@ -1,4 +1,4 @@
-.TH "dos2unix" "1" "dos2unix 4.0.1" "2009" ""
+.TH "dos2unix" "1" "dos2unix 4.1" "2009" ""
 .SH "NAME"
 dos2unix \- DOS/MAC to UNIX text file format converter
 
@@ -7,7 +7,7 @@ dos2unix [options] [\-c convmode] [\-o file ...] [\-n infile outfile ...]
 .PP 
 Options:
 .PP 
-[\-hkqLV] [\-\-help] [\-\-keepdate] [\-\-quiet] [\-\-license] [\-\-version]
+[\-fhkLlqV] [\-\-force] [\-\-help] [\-\-keepdate] [\-\-license] [\-\-newline] [\-\-quiet] [\-\-version]
 
 .SH "DESCRIPTION"
 .PP 
@@ -32,6 +32,10 @@ Set conversion mode. Where convmode is one of:
 with ASCII being the default.
 
 .TP
+.B \-f \-\-force
+Force conversion of all files. Also binary files.
+
+.TP
 .B \-h \-\-help
 Print online help.
 
@@ -42,6 +46,10 @@ Keep the date stamp of output file same as input file.
 .TP
 .B \-L \-\-license
 Print software license.
+
+.TP
+.B \-l \-\-newline
+Add additional newline in all but Mac convmode.
 
 .TP
 .B \-n \-\-newfile infile outfile ...
