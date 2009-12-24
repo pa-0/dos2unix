@@ -3,6 +3,7 @@
 	* Automatically detect binary files.
 	* New option: -f --force: Force conversion of all files.
 	* Option -h: Print options in alphabetical order.
+	* Update manual.
 	* ISO mode:
 	  - Non-convertable characters are converted to a dot.
 	    Old conversion risked conversion to unwanted ISO C1
