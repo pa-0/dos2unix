@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unix2dos 4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-24 13:36+0100\n"
+"POT-Creation-Date: 2009-12-24 14:23+0100\n"
 "PO-Revision-Date: 2009-12-09 17:20+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -17,10 +17,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: unix2dos.c:115
-#, c-format
 msgid ""
 "unix2dos %s (%s)\n"
-"Usage: unix2dos [-fhkLqV] [-o file ...] [-c convmode] [-n infile "
+"Usage: unix2dos [-fhkLqV] [-c convmode] [-o file ...] [-n infile "
 "outfile ...]\n"
 " -c --convmode    conversion mode\n"
 "   convmode       ASCII, 7bit, ISO, default to ASCII\n"
@@ -38,7 +37,7 @@ msgid ""
 " -V --version     display version number\n"
 msgstr ""
 "unix2dos %s (%s)\n"
-"Usage: unix2dos [-fhkLqV] [-o file ...] [-c convmode] [-n infile "
+"Usage: unix2dos [-fhkLqV] [-c convmode] [-o file ...] [-n infile "
 "outfile ...]\n"
 " -c --convmode    conversie modus\n"
 "   convmode       ASCII, 7bit, ISO, standaard is ASCII\n"
@@ -136,6 +135,7 @@ msgstr ""
 "modus'\n"
 
 #: unix2dos.c:729 unix2dos.c:749
+#, c-format
 msgid "unix2dos: Skipping binary file %s\n"
 msgstr "unix2dos: Binair bestand %s wordt overgeslagen\n"
 
