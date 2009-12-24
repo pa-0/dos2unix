@@ -131,20 +131,20 @@ void PrintUsage(void)
 dos2unix %s (%s)\n\
 Usage: dos2unix [-hkqLV] [-c convmode] [-o file ...] [-n infile outfile ...]\n\
  -c --convmode    conversion mode\n\
- convmode         ASCII, 7bit, ISO, Mac, default to ASCII\n\
+   convmode       ASCII, 7bit, ISO, Mac, default to ASCII\n\
  -f --force       force conversion of all files\n\
  -h --help        give this help\n\
  -k --keepdate    keep output file date\n\
  -L --license     print software license\n\
  -l --newline     add additional newline in all but Mac convmode\n\
- -q --quiet       quiet mode, suppress all warnings\n\
-                  always on in stdin->stdout mode\n\
- -V --version     display version number\n\
- -o --oldfile     write to old file\n\
- file ...         files to convert in old file mode\n\
  -n --newfile     write to new file\n\
- infile           original file in new file mode\n\
- outfile          output file in new file mode\n"), VER_REVISION, VER_DATE);
+   infile         original file in new file mode\n\
+   outfile        output file in new file mode\n\
+ -o --oldfile     write to old file\n\
+   file ...       files to convert in old file mode\n\
+ -q --quiet       quiet mode, suppress all warnings\n\
+                  always on in stdio mode\n\
+ -V --version     display version number\n"), VER_REVISION, VER_DATE);
 }
 
 void PrintLicense(void)
