@@ -112,6 +112,7 @@ static int macmode = 0;
 #endif
 
 #define BINARY_FILE 0x1
+#define NO_REGFILE  0x2
 
 typedef struct
 {
@@ -124,6 +125,24 @@ typedef struct
   int status;
 } CFlag;
 
+/******************************************************************
+ *
+ * int regfile(char *path)
+ *
+ * test if *path points to a regular file.
+ *
+ * returns 0 on success, -1 when it fails.
+ *
+ ******************************************************************/
+int regfile(char *path)
+{
+   struct stat buf;
+
+   if ((lstat(path, &buf) == 0) && S_ISREG(buf.st_mode))
+      return(0);
+   else
+      return(-1);
+}
 
 void PrintUsage(void)
 {
@@ -453,6 +472,14 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   int fd;
 #endif
 
+  if ((ipFlag->Force == 0) && regfile(ipInFN))
+  {
+    ipFlag->status |= NO_REGFILE ;
+    return -1;
+  }
+  else
+    ipFlag->status = 0 ;
+
   /* retrieve ipInFN file date stamp */
   if ((ipFlag->KeepDate) && stat(ipInFN, &StatBuf))
     RetVal = -1;
@@ -556,6 +583,14 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
 #else
   int fd;
 #endif
+
+  if ((ipFlag->Force == 0) && regfile(ipInFN))
+  {
+    ipFlag->status |= NO_REGFILE ;
+    return -1;
+  }
+  else
+    ipFlag->status = 0 ;
 
   /* retrieve ipInFN file date stamp */
   if (stat(ipInFN, &StatBuf))
@@ -825,7 +860,11 @@ int main (int argc, char *argv[])
         else
         {
           RetVal = ConvertDosToUnixNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag);
-          if (pFlag->status & BINARY_FILE)
+          if (pFlag->status & NO_REGFILE)
+          {
+            if (!pFlag->Quiet)
+              fprintf(stderr, _("dos2unix: Skipping %s, not a regular file.\n"), argv[ArgIdx-1]);
+          } else if (pFlag->status & BINARY_FILE)
           {
             if (!pFlag->Quiet)
               fprintf(stderr, _("dos2unix: Skipping binary file %s\n"), argv[ArgIdx-1]);
@@ -845,7 +884,11 @@ int main (int argc, char *argv[])
       else
       {
         RetVal = ConvertDosToUnixOldFile(argv[ArgIdx], pFlag);
-        if (pFlag->status & BINARY_FILE)
+        if (pFlag->status & NO_REGFILE)
+        {
+          if (!pFlag->Quiet)
+            fprintf(stderr, _("dos2unix: Skipping %s, not a regular file.\n"), argv[ArgIdx]);
+        } else if (pFlag->status & BINARY_FILE)
         {
           if (!pFlag->Quiet)
             fprintf(stderr, _("dos2unix: Skipping binary file %s\n"), argv[ArgIdx]);
