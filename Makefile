@@ -232,10 +232,10 @@ ZIPFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX).zip
 TGZFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX).tar.gz
 
 dist-zip:
-	rm -f $(ZIPFILE)
+	rm -f $(prefix)/$(ZIPFILE)
 	cd $(prefix) ; unix2dos share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)/*.txt share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1
 	cd $(prefix) ; zip -r $(ZIPFILE) $(ZIPOBJ)
-	mv $(prefix)/$(ZIPFILE) ..
+	mv -f $(prefix)/$(ZIPFILE) ..
 
 dist-tgz:
 	cd $(prefix) ; dos2unix share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)/*.txt share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1
