@@ -92,6 +92,13 @@ static int macmode = 0;
 #endif
 
 #if defined(MSDOS) || defined(__OS2__)
+/* Systems without soft links use 'stat' instead of 'lstat'. */
+#define STAT stat
+#else
+#define STAT lstat
+#endif
+
+#if defined(MSDOS) || defined(__OS2__)
 /* On some systems rename() will always fail if target file already exists. */
 #define NEED_REMOVE 1
 #endif
@@ -138,7 +145,7 @@ int regfile(char *path)
 {
    struct stat buf;
 
-   if ((lstat(path, &buf) == 0) && S_ISREG(buf.st_mode))
+   if ((STAT(path, &buf) == 0) && S_ISREG(buf.st_mode))
       return(0);
    else
       return(-1);
