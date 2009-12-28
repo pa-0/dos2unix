@@ -1,17 +1,17 @@
 Begin4
 Title:           unix2dos
-Version:         4.0.1
-Entered-date:    2009-12-21
+Version:         4.1
+Entered-date:    2009-12-28
 Description:     Converts text files in UNIX format to DOS format
 Keywords:        dos2unix unix2dos convert
 Author:          blin@socs.uts.edu.au (Benjamin Lin),
-                 Erwin Waterlander
+                 waterlan@xs4all (Erwin Waterlander)
 Maintained-by:   waterlan@xs4all (Erwin Waterlander)
 Primary-site:    ibiblio.org /pub/Linux/utils/text
-                 24318 unix2dos-4.0.1.tar.gz
-                   608 unix2dos-4.0.1.lsm
-Alternate-site:
-Original-site:   http://sourceforge.net/projects/dos2unix/
+                 24318 unix2dos-4.1.tar.gz
+                   662 unix2dos-4.1.lsm
+Alternate-site:  http://sourceforge.net/projects/dos2unix/
+Original-site:   http://www.xs4all.nl/~waterlan/#DOS2UNIX
 Platforms:       POSIX
 Copying-policy:  FreeBSD license
 End
