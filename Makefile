@@ -214,10 +214,10 @@ ZIPFILE = $(PACKAGE)-$(UNIX2DOS_VERSION)$(VERSIONSUFFIX).zip
 TGZFILE = $(PACKAGE)-$(UNIX2DOS_VERSION)$(VERSIONSUFFIX).tar.gz
 
 dist-zip:
-	rm -f $(ZIPFILE)
+	rm -f $(prefix)/$(ZIPFILE)
 	cd $(prefix) ; unix2dos share/doc/$(PACKAGE)-$(UNIX2DOS_VERSION)/*.txt share/man/man1/$(PACKAGE).1
 	cd $(prefix) ; zip -r $(ZIPFILE) $(ZIPOBJ)
-	mv $(prefix)/$(ZIPFILE) ..
+	mv -f $(prefix)/$(ZIPFILE) ..
 
 dist-tgz:
 	cd $(prefix) ; dos2unix share/doc/$(PACKAGE)-$(UNIX2DOS_VERSION)/*.txt share/man/man1/$(PACKAGE).1
