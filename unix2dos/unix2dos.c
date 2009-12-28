@@ -130,7 +130,7 @@ int regfile(char *path)
 {
    struct stat buf;
 
-   if ((lstat(path, &buf) == 0) && S_ISREG(buf.st_mode))
+   if ((STAT(path, &buf) == 0) && S_ISREG(buf.st_mode))
       return(0);
    else
       return(-1);
