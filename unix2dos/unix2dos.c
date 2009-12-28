@@ -78,6 +78,13 @@
 #endif
 
 #if defined(MSDOS) || defined(__OS2__)
+/* Systems without soft links use 'stat' instead of 'lstat'. */
+#define STAT stat
+#else
+#define STAT lstat
+#endif
+
+#if defined(MSDOS) || defined(__OS2__)
 /* On some systems rename() will always fail if target file already exists. */
 #define NEED_REMOVE 1
 #endif
