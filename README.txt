@@ -16,7 +16,7 @@ unix2dos - UNIX to DOS text file format converter.
 Get also the companion package 'dos2unix' for conversion from DOS to Unix.
 
 
-Project page: http://www.xs4all.nl/~waterlan/#DOS2UNIX
+Project page: http://www.xs4all.nl/~waterlan/dos2unix.html
 
 SourceForge page: http://sourceforge.net/projects/dos2unix/
 
