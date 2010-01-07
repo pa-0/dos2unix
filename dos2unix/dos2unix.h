@@ -15,7 +15,7 @@
 #endif
 #endif
 
-/* DOS ASCII -> SunOS ASCII */
+/* ASCII mode. No conversion. */
 
 static int D2UAsciiTable[256] =
 {
@@ -38,7 +38,8 @@ static int D2UAsciiTable[256] =
 };
 
 
-/* DOS 7 bit -> SunOS 7 bit */
+/* 7bit mode. */
+/* All 8 bit non-ASCII characters are converted to a space (\x20) */
 
 static int D2U7BitTable[256] =
 {
@@ -62,7 +63,7 @@ static int D2U7BitTable[256] =
 
 
 /* CP437 -> ISO-8859-1 */
-/* Non convertable characters are converted to a dot (\x2e) */
+/* Non-convertable characters are converted to a dot (\x2e) */
 
 static int D2UIsoTable[256] =
 {
