@@ -16,7 +16,7 @@
 #endif
 #endif
 
-/* SunOS ASCII -> DOS ASCII */
+/* ASCII mode. No conversion. */
 
 static int U2DAsciiTable[256] =
 {
@@ -39,7 +39,8 @@ static int U2DAsciiTable[256] =
 };
 
 
-/* SunOS 7 bit -> DOS 7 bit */
+/* 7bit mode. */
+/* All 8 bit non-ASCII characters are converted to a space (\x20) */
 
 static int U2D7BitTable [256] =
 {
@@ -62,7 +63,8 @@ static int U2D7BitTable [256] =
 };
 
 
-/* Sun ISO -> DOS ISO */
+/* ISO mode. ISO-8859-1 -> CP437 */
+/* Non-convertable characters are converted to a dot (\x2e) */
 
 static int U2DIsoTable[256] =
 {
