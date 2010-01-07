@@ -18,7 +18,7 @@ includes: dos2unix and mac2unix.
 Get also the companion package 'unix2dos' for conversion from Unix to DOS.
 
 
-Project page: http://www.xs4all.nl/~waterlan/#DOS2UNIX
+Project page: http://www.xs4all.nl/~waterlan/dos2unix.html
 
 SourceForge page: http://sourceforge.net/projects/dos2unix/
 
