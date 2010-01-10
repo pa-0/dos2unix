@@ -1,5 +1,6 @@
 2010-01-10 Erwin Waterlander <waterlan@xs4all.nl>
 	* Fix compilation on FreeBSD.
+	* Changed home page to http://www.xs4all.nl/~waterlan/dos2unix.html
 
 2009-12-28 Erwin Waterlander <waterlan@xs4all.nl>
 	* version 4.1
