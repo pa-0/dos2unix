@@ -4,8 +4,8 @@
  *    Convert lf ('\x0a') characters in a file to cr lf ('\x0d' '\x0a')
  *    combinations.
  *
- *  Copyright (c) 1994, 1995 Benjamin Lin.
- *  Copyright (c) 2009 Erwin Waterlander
+ *  Copyright (c) 1994-1995 Benjamin Lin.
+ *  Copyright (c) 2009-2010 Erwin Waterlander
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -51,11 +51,10 @@
 
 #ifdef DJGPP
 #  include <dir.h>
-#  include <unistd.h>
 #else
 #  include <libgen.h>
-#  include <sys/unistd.h>
 #endif
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -161,7 +160,7 @@ void PrintLicense(void)
 {
   fprintf(stderr, _("\
 Copyright (c) 1994-1995 Benjamin Lin\n\
-Copyright (c) 2009      Erwin Waterlander\n\
+Copyright (c) 2009-2010 Erwin Waterlander\n\
 All rights reserved.\n\n\
 \
 Redistribution and use in source and binary forms, with or without\n\
