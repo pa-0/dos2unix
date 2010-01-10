@@ -3,10 +3,10 @@
  *  Documentation:
  *    Remove cr ('\x0d') characters from a file.
  * 
- *  Copyright (c) 1994, 1995 Benjamin Lin.
- *  Copyright (c) 1998, Bernd Johannes Wuebben
- *  Copyright (c) 1998, Christian Wurll
- *  Copyright (c) 2009  Erwin Waterlander
+ *  Copyright (c) 1994-1995 Benjamin Lin.
+ *  Copyright (c) 1998 Bernd Johannes Wuebben
+ *  Copyright (c) 1998 Christian Wurll
+ *  Copyright (c) 2009-2010 Erwin Waterlander
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -43,14 +43,14 @@
  *     Fixed a bug in 2.1 where in new file mode, if outfile already exists
  *     conversion can not be completed properly.
  *
- * Added extra newline if ^M occurs
- * Christian Wurll, wurll@ira.uka.de
- * Thu Nov 19 1998 
- * 
  * Added Mac text file translation, i.e. \r to \n conversion
  * Bernd Johannes Wuebben, wuebben@kde.org
  * Wed Feb  4 19:12:58 EST 1998      
  *
+ * Added extra newline if ^M occurs
+ * Christian Wurll, wurll@ira.uka.de
+ * Thu Nov 19 1998 
+ * 
  *  See ChangeLog.txt for complete version history.
  *
  */
@@ -65,11 +65,10 @@ static int macmode = 0;
 
 #ifdef DJGPP
 #  include <dir.h>
-#  include <unistd.h>
 #else
 #  include <libgen.h>
-#  include <sys/unistd.h>
 #endif
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -179,7 +178,7 @@ void PrintLicense(void)
 Copyright (c) 1994-1995 Benjamin Lin\n\
 Copyright (c) 1998      Bernd Johannes Wuebben (Version 3.0)\n\
 Copyright (c) 1998      Christian Wurll (Version 3.1)\n\
-Copyright (c) 2009      Erwin Waterlander\n\
+Copyright (c) 2009-2010 Erwin Waterlander\n\
 All rights reserved.\n\n\
 \
 Redistribution and use in source and binary forms, with or without\n\
