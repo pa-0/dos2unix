@@ -472,7 +472,9 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   char *TempPath;
   struct stat StatBuf;
   struct utimbuf UTimeBuf;
+#ifndef MSDOS
   mode_t mask;
+#endif
 #ifdef NO_MKSTEMP
   FILE* fd;
 #else
