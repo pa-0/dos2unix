@@ -111,17 +111,16 @@ endif
 
 # ............................................................ flags ...
 
-GCCFLAGS	= -O2 -Wall -D_LARGEFILE_SOURCE
+CFLAGS	= -O2 -Wall -D_LARGEFILE_SOURCE
 
-ifdef STATIC
-	GCCFLAGS += -static
-endif
-
-CFLAGS		= -DVER_REVISION=\"$(UNIX2DOS_VERSION)\" \
+EXTRA_CFLAGS	= -DVER_REVISION=\"$(UNIX2DOS_VERSION)\" \
 		  -DVER_DATE=\"$(UNIX2DOS_DATE)\" \
-		  $(GCCFLAGS) \
 		  $(CFLAGS_OS) \
 		  $(NLSDEFS)
+
+ifdef STATIC
+	EXTRA_CFLAGS += -static
+endif
 
 LDFLAGS		= $(LDFLAGS_EXTRA)
 
@@ -133,7 +132,7 @@ DEFS		= $(EXTRA_DEFS)
 all: $(BIN) $(DOCFILES) $(MOFILES)
 
 %.o : %.c
-	$(CC) $(CFLAGS) $(DEFS) -c $< -o $@
+	$(CC) $(EXTRA_CFLAGS) $(CFLAGS) $(DEFS) -c $< -o $@
 
 $(BIN): unix2dos.o
 	$(CC) $< $(LDFLAGS) -o $@
