@@ -472,6 +472,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   char *TempPath;
   struct stat StatBuf;
   struct utimbuf UTimeBuf;
+  mode_t mask;
 #ifdef NO_MKSTEMP
   FILE* fd;
 #else
@@ -487,7 +488,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     ipFlag->status = 0 ;
 
   /* retrieve ipInFN file date stamp */
-  if ((ipFlag->KeepDate) && stat(ipInFN, &StatBuf))
+  if (stat(ipInFN, &StatBuf))
     RetVal = -1;
 
 #ifdef NO_MKSTEMP
@@ -518,6 +519,14 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     InF = NULL;
     RetVal = -1;
   }
+
+#ifndef MSDOS
+  /* preserve original mode as modified by umask */
+  mask = umask(0);
+  umask(mask);
+  if (!RetVal && fchmod(fd, StatBuf.st_mode & ~mask))
+    RetVal = -1;
+#endif
 
   /* conversion sucessful? */
   if ((!RetVal) && (ConvertDosToUnix(InF, TempF, ipFlag)))
