@@ -1,3 +1,6 @@
+2010-01-24 Erwin Waterlander <waterlan@xs4all.nl>
+	* version 4.1.2
+
 2010-01-22 Tim Waugh <twaugh@redhat.com>
 	* unix2dos.c: Preserve file mode in 'new file mode'.
 	* Makefile: Allow CFLAGS to be set externally.

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-22 14:48+0100\n"
+"POT-Creation-Date: 2010-01-24 09:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: unix2dos.c:140
+#: unix2dos.c:143
 #, c-format
 msgid ""
 "unix2dos %s (%s)\n"
@@ -38,7 +38,7 @@ msgid ""
 " -V --version     display version number\n"
 msgstr ""
 
-#: unix2dos.c:161
+#: unix2dos.c:164
 #, c-format
 msgid ""
 "Copyright (c) 1994-1995 Benjamin Lin\n"
@@ -67,79 +67,79 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: unix2dos.c:193
+#: unix2dos.c:196
 #, c-format
 msgid "With native language support.\n"
 msgstr ""
 
-#: unix2dos.c:267 unix2dos.c:289 unix2dos.c:311
+#: unix2dos.c:270 unix2dos.c:292 unix2dos.c:314
 #, c-format
 msgid "unix2dos: can not write to output file\n"
 msgstr ""
 
-#: unix2dos.c:319
+#: unix2dos.c:322
 #, c-format
 msgid "unix2dos: program error, invalid conversion mode %d\n"
 msgstr ""
 
-#: unix2dos.c:423 unix2dos.c:549
+#: unix2dos.c:426 unix2dos.c:552
 #, c-format
 msgid "unix2dos: using %s as temp file\n"
 msgstr ""
 
-#: unix2dos.c:491 unix2dos.c:610
+#: unix2dos.c:494 unix2dos.c:613
 #, c-format
 msgid "unix2dos: problems renaming '%s' to '%s'\n"
 msgstr ""
 
-#: unix2dos.c:492 unix2dos.c:611
+#: unix2dos.c:495 unix2dos.c:614
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr ""
 
-#: unix2dos.c:675
+#: unix2dos.c:678
 #, c-format
 msgid ""
 "unix2dos: error: Value of environment variable UNIX2DOS_LOCALEDIR is too "
 "long.\n"
 msgstr ""
 
-#: unix2dos.c:740
+#: unix2dos.c:743
 #, c-format
 msgid "unix2dos: invalid %s conversion mode specified\n"
 msgstr ""
 
-#: unix2dos.c:751 unix2dos.c:762 unix2dos.c:826
+#: unix2dos.c:754 unix2dos.c:765 unix2dos.c:829
 #, c-format
 msgid "unix2dos: target of file %s not specified in new file mode\n"
 msgstr ""
 
-#: unix2dos.c:781 unix2dos.c:805
+#: unix2dos.c:784 unix2dos.c:808
 #, c-format
 msgid "unix2dos: Skipping %s, not a regular file.\n"
 msgstr ""
 
-#: unix2dos.c:785 unix2dos.c:809
+#: unix2dos.c:788 unix2dos.c:812
 #, c-format
 msgid "unix2dos: Skipping binary file %s\n"
 msgstr ""
 
-#: unix2dos.c:788
+#: unix2dos.c:791
 #, c-format
 msgid "unix2dos: converting file %s to file %s in DOS format ...\n"
 msgstr ""
 
-#: unix2dos.c:792
+#: unix2dos.c:795
 #, c-format
 msgid "unix2dos: problems converting file %s to file %s\n"
 msgstr ""
 
-#: unix2dos.c:812
+#: unix2dos.c:815
 #, c-format
 msgid "unix2dos: converting file %s to DOS format ...\n"
 msgstr ""
 
-#: unix2dos.c:816
+#: unix2dos.c:819
 #, c-format
 msgid "unix2dos: problems converting file %s\n"
 msgstr ""

@@ -63,7 +63,7 @@ static int macmode = 0;
 
 /* #define DEBUG */
 
-#ifdef DJGPP
+#ifdef MSDOS /* DJGPP */
 #  include <dir.h>
 #else
 #  include <libgen.h>
@@ -79,7 +79,7 @@ static int macmode = 0;
 #endif
 #include "dos2unix.h"
 
-#if defined(WIN32)
+#if defined(WIN32) /* MINGW32 */
 #define MSDOS
 #endif
 
@@ -88,6 +88,9 @@ static int macmode = 0;
  * Use mktemp() instead.
  * DJGPP, MINGW32 */
 #define NO_MKSTEMP 1
+/* Some compilers have no fchmod().
+ * DJGPP, MINGW32 */
+#define NO_FCHMOD 1
 #endif
 
 #if defined(MSDOS) || defined(__OS2__)
@@ -472,7 +475,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   char *TempPath;
   struct stat StatBuf;
   struct utimbuf UTimeBuf;
-#ifndef MSDOS
+#ifndef NO_FCHMOD
   mode_t mask;
 #endif
 #ifdef NO_MKSTEMP
@@ -522,7 +525,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     RetVal = -1;
   }
 
-#ifndef MSDOS
+#ifndef NO_FCHMOD
   /* preserve original mode as modified by umask */
   mask = umask(0);
   umask(mask);
@@ -624,7 +627,7 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
     RetVal = -1;
   }
 
-#ifndef MSDOS
+#ifndef NO_FCHMOD
   if (!RetVal && fchmod (fd, mode) && fchmod (fd, S_IRUSR | S_IWUSR))
     RetVal = -1;
 #endif

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-22 14:44+0100\n"
+"POT-Creation-Date: 2010-01-24 09:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: dos2unix.c:155
+#: dos2unix.c:158
 #, c-format
 msgid ""
 "dos2unix %s (%s)\n"
@@ -39,7 +39,7 @@ msgid ""
 " -V --version     display version number\n"
 msgstr ""
 
-#: dos2unix.c:177
+#: dos2unix.c:180
 #, c-format
 msgid ""
 "Copyright (c) 1994-1995 Benjamin Lin\n"
@@ -70,84 +70,84 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: dos2unix.c:211
+#: dos2unix.c:214
 #, c-format
 msgid "With native language support.\n"
 msgstr ""
 
-#: dos2unix.c:306 dos2unix.c:329 dos2unix.c:352 dos2unix.c:376 dos2unix.c:392
+#: dos2unix.c:309 dos2unix.c:332 dos2unix.c:355 dos2unix.c:379 dos2unix.c:395
 #, c-format
 msgid "dos2unix: can not write to out file\n"
 msgstr ""
 
-#: dos2unix.c:401
+#: dos2unix.c:404
 #, c-format
 msgid "dos2unix: program error, invalid conversion mode %d\n"
 msgstr ""
 
-#: dos2unix.c:506 dos2unix.c:633
+#: dos2unix.c:509 dos2unix.c:636
 #, c-format
 msgid "dos2unix: using %s as temp file\n"
 msgstr ""
 
-#: dos2unix.c:573 dos2unix.c:694
+#: dos2unix.c:576 dos2unix.c:697
 #, c-format
 msgid "dos2unix: problems renaming '%s' to '%s'\n"
 msgstr ""
 
-#: dos2unix.c:574 dos2unix.c:695
+#: dos2unix.c:577 dos2unix.c:698
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr ""
 
-#: dos2unix.c:759
+#: dos2unix.c:762
 #, c-format
 msgid ""
 "dos2unix: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
 "long.\n"
 msgstr ""
 
-#: dos2unix.c:833
+#: dos2unix.c:836
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr ""
 
-#: dos2unix.c:841
+#: dos2unix.c:844
 #, c-format
 msgid "dos2unix: option `%s' requires an argument\n"
 msgstr ""
 
-#: dos2unix.c:852 dos2unix.c:864 dos2unix.c:928
+#: dos2unix.c:855 dos2unix.c:867 dos2unix.c:931
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr ""
 
-#: dos2unix.c:883 dos2unix.c:907
+#: dos2unix.c:886 dos2unix.c:910
 #, c-format
 msgid "dos2unix: Skipping %s, not a regular file.\n"
 msgstr ""
 
-#: dos2unix.c:887 dos2unix.c:911
+#: dos2unix.c:890 dos2unix.c:914
 #, c-format
 msgid "dos2unix: Skipping binary file %s\n"
 msgstr ""
 
-#: dos2unix.c:890
+#: dos2unix.c:893
 #, c-format
 msgid "dos2unix: converting file %s to file %s in UNIX format ...\n"
 msgstr ""
 
-#: dos2unix.c:894
+#: dos2unix.c:897
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr ""
 
-#: dos2unix.c:914
+#: dos2unix.c:917
 #, c-format
 msgid "dos2unix: converting file %s to UNIX format ...\n"
 msgstr ""
 
-#: dos2unix.c:918
+#: dos2unix.c:921
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr ""
