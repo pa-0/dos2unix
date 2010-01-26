@@ -1,0 +1,10 @@
+open sftp://waterlan,dos2unix@frs.sourceforge.net
+cd /home/frs/project/d/do/dos2unix/dos2unix
+mkdir 4.1.2
+cd 4.1.2
+mput dos2unix-4.1.2.tar.gz dos2unix-4.1.2-dos32.zip dos2unix-4.1.2-win32.zip dos2unix-4.1.2-cygwin1.5.tar.gz dos2unix-4.1.2-cygwin1.7.tar.gz
+cd ../../unix2dos
+mkdir 4.1.2
+cd 4.1.2
+mput unix2dos-4.1.2.tar.gz unix2dos-4.1.2-dos32.zip unix2dos-4.1.2-win32.zip unix2dos-4.1.2-cygwin1.5.tar.gz unix2dos-4.1.2-cygwin1.7.tar.gz
+exit
