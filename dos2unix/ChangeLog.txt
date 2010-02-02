@@ -1,3 +1,6 @@
+2010-02-02 Erwin Waterlander <waterlan@xs4all.nl>
+	* Update Dutch translation.
+
 2010-01-24 Erwin Waterlander <waterlan@xs4all.nl>
 	* version 4.1.2
 

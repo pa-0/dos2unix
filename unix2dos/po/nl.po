@@ -138,7 +138,7 @@ msgstr ""
 #: unix2dos.c:784 unix2dos.c:808
 #, c-format
 msgid "unix2dos: Skipping %s, not a regular file.\n"
-msgstr "unix2dos: Overslaan %s, geen normaal bestand.\n"
+msgstr "unix2dos: Overslaan %s, geen regulier bestand.\n"
 
 #: unix2dos.c:788 unix2dos.c:812
 #, c-format
