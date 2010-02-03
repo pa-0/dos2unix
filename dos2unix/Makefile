@@ -22,16 +22,16 @@ LINK = ln -sf
 
 prefix		= /usr
 exec_prefix	= $(prefix)
-man_prefix	= $(prefix)/share
-mandir		= $(man_prefix)/man
 bindir		= $(exec_prefix)/bin
-sharedir	= $(prefix)/share
+datarootdir	= $(prefix)/share
+datadir		= $(datarootdir)
 
-BINDIR		= $(DESTDIR)$(bindir)
-DOCDIR		= $(DESTDIR)$(sharedir)/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)
-LOCALEDIR	= $(DESTDIR)$(sharedir)/locale
-MANDIR		= $(DESTDIR)$(mandir)
-MANDIR1		= $(MANDIR)/man1
+docdir		= $(datarootdir)/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)
+localedir	= $(datarootdir)/locale
+mandir		= $(datarootdir)/man
+man1dir		= $(mandir)/man1
+manext		= .1
+man1ext		= .1
 
 ifdef ENABLE_NLS
 POT		= po/$(PACKAGE).pot
@@ -47,7 +47,7 @@ INSTALL		= install
 MKDIR           = mkdir
 
 ifdef ENABLE_NLS
-	NLSDEFS = -DENABLE_NLS -DLOCALEDIR=\"$(sharedir)/locale\" -DPACKAGE=\"$(PACKAGE)\"
+	NLSDEFS = -DENABLE_NLS -DLOCALEDIR=\"$(localedir)\" -DPACKAGE=\"$(PACKAGE)\"
 endif
 
 # ......................................................... OS flags ...
@@ -121,7 +121,8 @@ CFLAGS	= -O2 -Wall -D_LARGEFILE_SOURCE
 EXTRA_CFLAGS	= -DVER_REVISION=\"$(DOS2UNIX_VERSION)\" \
 		  -DVER_DATE=\"$(DOS2UNIX_DATE)\" \
 		  $(CFLAGS_OS) \
-		  $(NLSDEFS)
+		  $(NLSDEFS) \
+		  $(RPM_OPT_FLAGS)
 
 ifdef STATIC
 	EXTRA_CFLAGS += -static
@@ -176,31 +177,31 @@ $(PACKAGE).ps : dos2unix.1
 	ps2pdf $< $@
 
 install: all
-	$(MKDIR) -p -m 755 $(BINDIR)
-	$(INSTALL)  -m 755 $(BIN) $(BINDIR)
-	$(INSTALL)  -m 755 $(MAC2UNIX_BIN) $(BINDIR)
-	$(MKDIR) -p -m 755 $(MANDIR1)
-	$(INSTALL)  -m 644 $(PACKAGE).1 $(MANDIR1)
-	$(INSTALL)  -m 644 $(MAC2UNIX).1 $(MANDIR1)
+	$(MKDIR) -p -m 755 $(DESTDIR)$(bindir)
+	$(INSTALL)  -m 755 $(BIN) $(DESTDIR)$(bindir)
+	$(INSTALL)  -m 755 $(MAC2UNIX_BIN) $(DESTDIR)$(bindir)
+	$(MKDIR) -p -m 755 $(DESTDIR)$(man1dir)
+	$(INSTALL)  -m 644 $(PACKAGE).1 $(DESTDIR)$(man1dir)
+	$(INSTALL)  -m 644 $(MAC2UNIX).1 $(DESTDIR)$(man1dir)
 ifdef ENABLE_NLS
 	@echo "-- install-mo"
-	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
-	$(foreach mofile, $(MOFILES), $(INSTALL) -m 644 $(mofile) $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
+	$(foreach mofile, $(MOFILES), $(INSTALL) -m 644 $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 endif
 	@echo "-- install-doc"
-	$(MKDIR) -p -m 755 $(DOCDIR)
-	$(INSTALL) -m 644 $(INSTALL_OBJS_DOC) $(DOCDIR)
+	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
+	$(INSTALL) -m 644 $(INSTALL_OBJS_DOC) $(DESTDIR)$(docdir)
 
 uninstall:
 	@echo "-- target: uninstall"
-	-rm -f $(BINDIR)/$(BIN)
-	-rm -f $(BINDIR)/$(MAC2UNIX_BIN)
+	-rm -f $(DESTDIR)$(bindir)/$(BIN)
+	-rm -f $(DESTDIR)$(bindir)/$(MAC2UNIX_BIN)
 ifdef ENABLE_NLS
-	$(foreach mofile, $(MOFILES), rm -f $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+	$(foreach mofile, $(MOFILES), rm -f $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 endif
-	-rm -f $(MANDIR)/man1/$(PACKAGE).1
-	-rm -f $(MANDIR)/man1/$(MAC2UNIX).1
-	-rm -rf $(DOCDIR)
+	-rm -f $(DESTDIR)$(mandir)/man1/$(PACKAGE).1
+	-rm -f $(DESTDIR)$(mandir)/man1/$(MAC2UNIX).1
+	-rm -rf $(DESTDIR)$(docdir)
 
 clean:
 	rm -f *.o
@@ -229,6 +230,7 @@ endif
 VERSIONSUFFIX	= -bin
 ZIPFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX).zip
 TGZFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX).tar.gz
+TBZFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX).tar.bz2
 
 dist-zip:
 	rm -f $(prefix)/$(ZIPFILE)
@@ -241,7 +243,12 @@ dist-tgz:
 	cd $(prefix) ; tar cvzf $(TGZFILE) $(ZIPOBJ)
 	mv $(prefix)/$(TGZFILE) ..
 
-dist: dist-tgz
+dist-tbz:
+	cd $(prefix) ; dos2unix share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)/*.txt share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1
+	cd $(prefix) ; tar cvjf $(TBZFILE) $(ZIPOBJ)
+	mv $(prefix)/$(TBZFILE) ..
+
+dist: dist-tbz
 
 strip:
 	strip $(BIN)

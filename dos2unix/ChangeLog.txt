@@ -1,3 +1,17 @@
+2010-02-03 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile : 
+	  - Use GNU standard directory variables everywhere.
+	  - Moved $(RPM_OPT_FLAGS) to EXTRA_CFLAGS.
+
+2010-02-03 Philipp Thomas <psmt@opensuse.org>
+	* po/de.po : Added German translation.
+	* Makefile :
+	  - Use GNU standard directory variable 'datadir' i.s.o. 'sharedir'.
+	  - Added $(RPM_OPT_FLAGS) to CFLAGS.
+	  - New target 'dist-tbz' creates bzip2 compressed archive.
+	  - Use DESTDIR only in install and uninstall targets (not in variables,
+	    this is more common practice).
+
 2010-02-02 Erwin Waterlander <waterlan@xs4all.nl>
 	* Update Dutch translation.
 
