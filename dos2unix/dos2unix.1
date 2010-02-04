@@ -126,6 +126,10 @@ Convert from Windows WinLatin1 to Unix UTF-8 (Unicode)
 .IP
 .B iconv \-f CP1252 \-t UTF-8 in.txt | dos2unix > out.txt
 
+Convert from Windows UTF-16 (Unicode) to Unix UTF-8 (Unicode)
+.IP
+.B iconv \-f UTF-16 \-t UTF-8 in.txt | dos2unix > out.txt
+
 See also <http://czyborra.com/charsets/codepages.html>
 .br
 and <http://czyborra.com/charsets/iso8859.html>.

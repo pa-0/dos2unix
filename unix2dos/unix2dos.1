@@ -107,19 +107,23 @@ character encodings. Some examples:
 
 Convert from Unix Latin-1 to DOS DOSLatinUS
 .IP
-.B iconv \-f ISO-8859-1 \-t CP437 in.txt | unix2dos > out.txt
+.B unix2dos < in.txt | iconv \-f ISO-8859-1 \-t CP437 > out.txt
 
 Convert from Unix Latin-1 to DOS DOSLatin1
 .IP
-.B iconv \-f ISO-8859-1 \-t CP850 in.txt | unix2dos > out.txt
+.B unix2dos < in.txt | iconv \-f ISO-8859-1 \-t CP850 > out.txt
 
 Convert from Unix Latin-1 to Windows WinLatin1
 .IP
-.B iconv \-f ISO-8859-1 \-t CP1252 in.txt | unix2dos > out.txt
+.B unix2dos < in.txt | iconv \-f ISO-8859-1 \-t CP1252 > out.txt
 
 Convert from Unix UTF-8 (Unicode) to Windows WinLatin1
 .IP
-.B iconv \-f UTF-8 \-t CP1252 in.txt | unix2dos > out.txt
+.B unix2dos < in.txt | iconv \-f UTF-8 \-t CP1252 in.txt > out.txt
+
+Convert from Unix UTF-8 (Unicode) to Windows UTF-16 (Unicode)
+.IP
+.B unix2dos < in.txt | iconv \-f UTF-8 \-t UTF-16 > out.txt
 
 See also <http://czyborra.com/charsets/codepages.html>
 .br
