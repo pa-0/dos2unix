@@ -111,7 +111,7 @@ endif
 
 # ............................................................ flags ...
 
-CFLAGS	= -O2 -Wall -D_LARGEFILE_SOURCE
+CFLAGS	= -O2 -Wall -D_LARGEFILE_SOURCE $(RPM_OPT_FLAGS)
 
 EXTRA_CFLAGS	= -DVER_REVISION=\"$(UNIX2DOS_VERSION)\" \
 		  -DVER_DATE=\"$(UNIX2DOS_DATE)\" \
@@ -132,7 +132,7 @@ DEFS		= $(EXTRA_DEFS)
 all: $(BIN) $(DOCFILES) $(MOFILES)
 
 %.o : %.c
-	$(CC) $(EXTRA_CFLAGS) $(CFLAGS) $(RPM_OPT_FLAGS) $(DEFS) -c $< -o $@
+	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(CFLAGS) -c $< -o $@
 
 $(BIN): unix2dos.o
 	$(CC) $< $(LDFLAGS) -o $@
