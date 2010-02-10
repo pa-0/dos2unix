@@ -1,3 +1,6 @@
+2010-02-10 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile : Moved $(RPM_OPT_FLAGS) line where CC is called.
+
 2010-02-03 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile : 
 	  - Use GNU standard directory variables everywhere.

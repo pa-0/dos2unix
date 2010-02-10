@@ -1,6 +1,6 @@
 
 # Author: Erwin Waterlander
-# Copyright (C) 2009 Erwin Waterlander
+# Copyright (C) 2009-2010 Erwin Waterlander
 # This file is distributed under the same license as the unix2dos package.
 
 include version.mk
@@ -18,16 +18,16 @@ BIN=$(PACKAGE)$(EXE)
 
 prefix		= /usr
 exec_prefix	= $(prefix)
-man_prefix	= $(prefix)/share
-mandir		= $(man_prefix)/man
 bindir		= $(exec_prefix)/bin
-sharedir	= $(prefix)/share
+datarootdir	= $(prefix)/share
+datadir		= $(datarootdir)
 
-BINDIR		= $(DESTDIR)$(bindir)
-DOCDIR		= $(DESTDIR)$(sharedir)/doc/$(PACKAGE)-$(UNIX2DOS_VERSION)
-LOCALEDIR	= $(DESTDIR)$(sharedir)/locale
-MANDIR		= $(DESTDIR)$(mandir)
-MANDIR1		= $(MANDIR)/man1
+docdir		= $(datarootdir)/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)
+localedir	= $(datarootdir)/locale
+mandir		= $(datarootdir)/man
+man1dir		= $(mandir)/man1
+manext		= .1
+man1ext		= .1
 
 ifdef ENABLE_NLS
 POT		= po/$(PACKAGE).pot
@@ -43,7 +43,7 @@ INSTALL		= install
 MKDIR           = mkdir
 
 ifdef ENABLE_NLS
-	NLSDEFS = -DENABLE_NLS -DLOCALEDIR=\"$(sharedir)/locale\" -DPACKAGE=\"$(PACKAGE)\"
+	NLSDEFS = -DENABLE_NLS -DLOCALEDIR=\"$(localedir)\" -DPACKAGE=\"$(PACKAGE)\"
 endif
 
 # ......................................................... OS flags ...
@@ -132,7 +132,7 @@ DEFS		= $(EXTRA_DEFS)
 all: $(BIN) $(DOCFILES) $(MOFILES)
 
 %.o : %.c
-	$(CC) $(EXTRA_CFLAGS) $(CFLAGS) $(DEFS) -c $< -o $@
+	$(CC) $(EXTRA_CFLAGS) $(CFLAGS) $(RPM_OPT_FLAGS) $(DEFS) -c $< -o $@
 
 $(BIN): unix2dos.o
 	$(CC) $< $(LDFLAGS) -o $@
@@ -164,27 +164,27 @@ $(PACKAGE).ps : unix2dos.1
 	ps2pdf $< $@
 
 install: all
-	$(MKDIR) -p -m 755 $(BINDIR)
-	$(INSTALL)  -m 755 $(BIN) $(BINDIR)
-	$(MKDIR) -p -m 755 $(MANDIR1)
-	$(INSTALL)  -m 644 $(PACKAGE).1 $(MANDIR1)
+	$(MKDIR) -p -m 755 $(DESTDIR)$(bindir)
+	$(INSTALL)  -m 755 $(BIN) $(DESTDIR)$(bindir)
+	$(MKDIR) -p -m 755 $(DESTDIR)$(man1dir)
+	$(INSTALL)  -m 644 $(PACKAGE).1 $(DESTDIR)$(man1dir)
 ifdef ENABLE_NLS
 	@echo "-- install-mo"
-	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
-	$(foreach mofile, $(MOFILES), $(INSTALL) -m 644 $(mofile) $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
+	$(foreach mofile, $(MOFILES), $(INSTALL) -m 644 $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 endif
 	@echo "-- install-doc"
-	$(MKDIR) -p -m 755 $(DOCDIR)
-	$(INSTALL) -m 644 $(INSTALL_OBJS_DOC) $(DOCDIR)
+	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
+	$(INSTALL) -m 644 $(INSTALL_OBJS_DOC) $(DESTDIR)$(docdir)
 
 uninstall:
 	@echo "-- target: uninstall"
-	-rm -f $(BINDIR)/$(BIN)
+	-rm -f $(DESTDIR)$(bindir)/$(BIN)
 ifdef ENABLE_NLS
-	$(foreach mofile, $(MOFILES), rm -f $(LOCALEDIR)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+	$(foreach mofile, $(MOFILES), rm -f $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 endif
-	-rm -f $(MANDIR)/man1/$(PACKAGE).1
-	-rm -rf $(DOCDIR)
+	-rm -f $(DESTDIR)$(mandir)/man1/$(PACKAGE).1
+	-rm -rf $(DESTDIR)$(docdir)
 
 clean:
 	rm -f *.o
@@ -211,6 +211,7 @@ endif
 VERSIONSUFFIX	= -bin
 ZIPFILE = $(PACKAGE)-$(UNIX2DOS_VERSION)$(VERSIONSUFFIX).zip
 TGZFILE = $(PACKAGE)-$(UNIX2DOS_VERSION)$(VERSIONSUFFIX).tar.gz
+TBZFILE = $(PACKAGE)-$(UNIX2DOS_VERSION)$(VERSIONSUFFIX).tar.bz2
 
 dist-zip:
 	rm -f $(prefix)/$(ZIPFILE)
@@ -222,6 +223,11 @@ dist-tgz:
 	cd $(prefix) ; dos2unix share/doc/$(PACKAGE)-$(UNIX2DOS_VERSION)/*.txt share/man/man1/$(PACKAGE).1
 	cd $(prefix) ; tar cvzf $(TGZFILE) $(ZIPOBJ)
 	mv $(prefix)/$(TGZFILE) ..
+
+dist-tbz:
+	cd $(prefix) ; dos2unix share/doc/$(PACKAGE)-$(UNIX2DOS_VERSION)/*.txt share/man/man1/$(PACKAGE).1
+	cd $(prefix) ; tar cvjf $(TBZFILE) $(ZIPOBJ)
+	mv $(prefix)/$(TBZFILE) ..
 
 dist: dist-tgz
 

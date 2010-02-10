@@ -1,3 +1,16 @@
+2010-02-10 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile : 
+	  - Use GNU standard directory variables everywhere.
+	  - Moved $(RPM_OPT_FLAGS) line where CC is called.
+	  - New target 'dist-tbz' creates bzip2 compressed archive.
+
+2010-02-10 Philipp Thomas <psmt@opensuse.org>
+	* po/de.po : Added German translation.
+	* Makefile :
+	  - Added $(RPM_OPT_FLAGS) to CFLAGS.
+	  - Use DESTDIR only in install and uninstall targets (not in variables,
+	    this is more common practice).
+
 2010-02-02 Erwin Waterlander <waterlan@xs4all.nl>
 	* Update Dutch translation.
 

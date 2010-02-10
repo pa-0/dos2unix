@@ -1,6 +1,6 @@
 
 # Author: Erwin Waterlander
-# Copyright (C) 2009 Erwin Waterlander
+# Copyright (C) 2009-2010 Erwin Waterlander
 # This file is distributed under the same license as the dos2unix package.
 
 include version.mk
@@ -121,8 +121,7 @@ CFLAGS	= -O2 -Wall -D_LARGEFILE_SOURCE
 EXTRA_CFLAGS	= -DVER_REVISION=\"$(DOS2UNIX_VERSION)\" \
 		  -DVER_DATE=\"$(DOS2UNIX_DATE)\" \
 		  $(CFLAGS_OS) \
-		  $(NLSDEFS) \
-		  $(RPM_OPT_FLAGS)
+		  $(NLSDEFS)
 
 ifdef STATIC
 	EXTRA_CFLAGS += -static
@@ -138,7 +137,7 @@ DEFS		= $(EXTRA_DEFS)
 all: $(BIN) $(MAC2UNIX_BIN) $(MAC2UNIX).1 $(DOCFILES) $(MOFILES)
 
 %.o : %.c
-	$(CC) $(EXTRA_CFLAGS) $(CFLAGS) $(DEFS) -c $< -o $@
+	$(CC) $(EXTRA_CFLAGS) $(CFLAGS) $(RPM_OPT_FLAGS) $(DEFS) -c $< -o $@
 
 $(BIN): dos2unix.o
 	$(CC) $< $(LDFLAGS) -o $@
@@ -248,7 +247,7 @@ dist-tbz:
 	cd $(prefix) ; tar cvjf $(TBZFILE) $(ZIPOBJ)
 	mv $(prefix)/$(TBZFILE) ..
 
-dist: dist-tbz
+dist: dist-tgz
 
 strip:
 	strip $(BIN)
