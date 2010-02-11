@@ -306,7 +306,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
             if (putc(D2UAsciiTable[TempChar], ipOutF) == EOF) {
               RetVal = -1;
               if (!ipFlag->Quiet)
-                fprintf(stderr, _("dos2unix: can not write to out file\n"));
+                fprintf(stderr, _("dos2unix: can not write to output file\n"));
               break;
             } 
           } else {
@@ -329,7 +329,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
             if (putc(D2U7BitTable[TempChar], ipOutF) == EOF) {
               RetVal = -1;
               if (!ipFlag->Quiet)
-                fprintf(stderr, _("dos2unix: can not write to out file\n"));
+                fprintf(stderr, _("dos2unix: can not write to output file\n"));
               break;
             }
           } else {
@@ -352,7 +352,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
             if (putc(D2UIsoTable[TempChar], ipOutF) == EOF) {
               RetVal = -1;
               if (!ipFlag->Quiet)
-                fprintf(stderr, _("dos2unix: can not write to out file\n"));
+                fprintf(stderr, _("dos2unix: can not write to output file\n"));
               break;
             }
           } else {
@@ -376,7 +376,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
               if(putc(D2UAsciiTable[TempChar], ipOutF) == EOF){
                 RetVal = -1;
                 if (!ipFlag->Quiet)
-                  fprintf(stderr, _("dos2unix: can not write to out file\n"));
+                  fprintf(stderr, _("dos2unix: can not write to output file\n"));
                 break;
               }
             }
@@ -392,7 +392,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
               {
                 RetVal = -1;
                 if (!ipFlag->Quiet)
-                  fprintf(stderr, _("dos2unix: can not write to out file\n"));
+                  fprintf(stderr, _("dos2unix: can not write to output file\n"));
                 break;
               }
           }
@@ -405,7 +405,6 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
       exit(1);
 #endif
     }
-    
     return RetVal;
 }
 
@@ -427,7 +426,7 @@ static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
 #endif
   
   *fname_ret = NULL;
-  
+
   if (!cpy)
     goto make_failed;
   
@@ -438,9 +437,9 @@ static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
     goto make_failed;
   sprintf(fname_str, "%s%s", dir, "/d2utmpXXXXXX");
   *fname_ret = fname_str;
-  
+
   free(cpy);
-  
+
 #ifdef NO_MKSTEMP
   name = mktemp(fname_str);
   *fname_ret = name;
@@ -499,21 +498,21 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
 #ifdef NO_MKSTEMP
   if((fd = MakeTempFileFrom(ipOutFN, &TempPath))==NULL) {
 #else
-  if((fd = MakeTempFileFrom(ipOutFN, &TempPath))<0) {
+  if((fd = MakeTempFileFrom (ipOutFN, &TempPath)) < 0) {
 #endif
-          perror("Failed to open output temp file");
-          RetVal = -1;
+    perror(_("dos2unix: Failed to open temporary output file"));
+    RetVal = -1;
   }
 
 #ifdef DEBUG
-  fprintf(stderr, _("dos2unix: using %s as temp file\n"), TempPath);
+  fprintf(stderr, _("dos2unix: using %s as temporary file\n"), TempPath);
 #endif
 
   /* can open in file? */
   if ((!RetVal) && ((InF=OpenInFile(ipInFN)) == NULL))
     RetVal = -1;
 
-  /* can open out file? */
+  /* can open output file? */
 #ifdef NO_MKSTEMP
   if ((!RetVal) && (InF) && ((TempF=fd) == NULL))
 #else
@@ -541,9 +540,10 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   if ((InF) && (fclose(InF) == EOF))
     RetVal = -1;
 
-  /* can close out file? */
+  /* can close output file? */
   if ((TempF) && (fclose(TempF) == EOF))
     RetVal = -1;
+
 #ifdef NO_MKSTEMP
   if(fd!=NULL)
     fclose(fd);
@@ -556,7 +556,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   {
     UTimeBuf.actime = StatBuf.st_atime;
     UTimeBuf.modtime = StatBuf.st_mtime;
-    /* can change out file time to in file time? */
+    /* can change output file time to in file time? */
     if (utime(TempPath, &UTimeBuf) == -1)
       RetVal = -1;
   }
@@ -565,7 +565,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   if ((RetVal) && (remove(TempPath)))
     RetVal = -1;
 
-  /* can rename temp file to out file? */
+  /* can rename temporary file to output file? */
   if (!RetVal)
   {
 #ifdef NEED_REMOVE
@@ -581,8 +581,6 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   free(TempPath);
   return RetVal;
 }
-
-
 
 
 /* convert file ipInFN to UNIX format text
@@ -621,9 +619,9 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
 #ifdef NO_MKSTEMP
   if((fd = MakeTempFileFrom(ipInFN, &TempPath))==NULL) {
 #else
-  if((fd = MakeTempFileFrom(ipInFN, &TempPath))<0) {
+  if((fd = MakeTempFileFrom(ipInFN, &TempPath)) < 0) {
 #endif
-    perror("Failed to open output temp file");
+    perror(_("dos2unix: Failed to open temporary output file"));
     RetVal = -1;
   }
 
@@ -633,14 +631,14 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
 #endif
 
 #ifdef DEBUG
-  fprintf(stderr, _("dos2unix: using %s as temp file\n"), TempPath);
+  fprintf(stderr, _("dos2unix: using %s as temporary file\n"), TempPath);
 #endif
 
   /* can open in file? */
   if ((!RetVal) && ((InF=OpenInFile(ipInFN)) == NULL))
     RetVal = -1;
 
-  /* can open out file? */
+  /* can open output file? */
 #ifdef NO_MKSTEMP
   if ((!RetVal) && (InF) && ((TempF=fd) == NULL))
 #else
@@ -660,7 +658,7 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   if ((InF) && (fclose(InF) == EOF))
     RetVal = -1;
 
-  /* can close out file? */
+  /* can close output file? */
   if ((TempF) && (fclose(TempF) == EOF))
     RetVal = -1;
 
@@ -676,7 +674,7 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   {
     UTimeBuf.actime = StatBuf.st_atime;
     UTimeBuf.modtime = StatBuf.st_mtime;
-    /* can change out file time to in file time? */
+    /* can change output file time to in file time? */
     if (utime(TempPath, &UTimeBuf) == -1)
       RetVal = -1;
   }
@@ -689,7 +687,7 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   if (!RetVal)
     remove(ipInFN);
 #endif
-  /* can rename out file to in file? */
+  /* can rename output file to in file? */
   if ((!RetVal) && (rename(TempPath, ipInFN) == -1))
   {
     if (!ipFlag->Quiet)
@@ -817,7 +815,7 @@ int main (int argc, char *argv[])
       }
       if ((strcmp(argv[ArgIdx],"-L") == 0) || (strcmp(argv[ArgIdx],"--license") == 0))
         PrintLicense();
-      
+
       if ((strcmp(argv[ArgIdx],"-c") == 0) || (strcmp(argv[ArgIdx],"--convmode") == 0))
       {
         if (++ArgIdx < argc)
@@ -841,7 +839,7 @@ int main (int argc, char *argv[])
         {
           ArgIdx--;
           if (!pFlag->Quiet)
-            fprintf(stderr,_("dos2unix: option `%s' requires an argument\n"),argv[ArgIdx]);
+            fprintf(stderr,_("dos2unix: option '%s' requires an argument\n"),argv[ArgIdx]);
           ShouldExit = 1;
         }
       }
@@ -925,7 +923,7 @@ int main (int argc, char *argv[])
       }
     }
   }
-  
+
   if ((!pFlag->Quiet) && (!CanSwitchFileMode))
   {
     fprintf(stderr, _("dos2unix: target of file %s not specified in new file mode\n"), argv[ArgIdx-1]);

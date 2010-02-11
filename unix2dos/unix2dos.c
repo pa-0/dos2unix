@@ -37,11 +37,12 @@
  *  == 1.3 == 1995.03.16 == Benjamin Lin (blin@socs.uts.edu.au)
  *     Modified to more conform to UNIX style.
  *  == 2.0 == 1995.03.19 == Benjamin Lin (blin@socs.uts.edu.au)
- *     Rewritten from scratch
+ *     Rewritten from scratch.
  *  == 2.2 == 1995.03.30 == Benjamin Lin (blin@socs.uts.edu.au)
  *     Conversion from SunOS charset implemented.
  *
  *  See ChangeLog.txt for complete version history.
+ *
  */
 
 
@@ -99,11 +100,11 @@
 
 
 #if defined(MSDOS) || defined(__OS2__)
-#  define R_CNTRL   "rb"
-#  define W_CNTRL   "wb"
+  #define R_CNTRL   "rb"
+  #define W_CNTRL   "wb"
 #else
-#  define R_CNTRL   "r"
-#  define W_CNTRL   "w"
+  #define R_CNTRL   "r"
+  #define W_CNTRL   "w"
 #endif
 
 #define BINARY_FILE 0x1
@@ -270,7 +271,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
                 fprintf(stderr, _("unix2dos: can not write to output file\n"));
               break;
           }
-	}
+        }
         break;
       case 1: /* 7Bit */
         while ((TempChar = getc(ipInF)) != EOF) {
@@ -292,7 +293,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
                 fprintf(stderr, _("unix2dos: can not write to output file\n"));
               break;
           }
-	}
+        }
         break;
       case 2: /* ISO */
         while ((TempChar = getc(ipInF)) != EOF) {
@@ -314,16 +315,16 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
                 fprintf(stderr, _("unix2dos: can not write to output file\n"));
               break;
           }
-	}
+        }
         break;
-      default: /*unknown convmode */
+      default: /* unknown convmode */
       ;
 #ifdef DEBUG
       fprintf(stderr, _("unix2dos: program error, invalid conversion mode %d\n"),ipFlag->ConvMode);
       exit(1);
 #endif
-  }
-  return RetVal;
+    }
+    return RetVal;
 }
 
 #ifdef NO_MKSTEMP
@@ -344,7 +345,7 @@ static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
 #endif
   
   *fname_ret = NULL;
- 
+
   if (!cpy)
     goto make_failed;
   
@@ -418,19 +419,19 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
 #else
   if((fd = MakeTempFileFrom (ipOutFN, &TempPath)) < 0) {
 #endif
-    perror("Can't open output temp file");
+    perror(_("unix2dos: Failed to open temporary output file"));
     RetVal = -1;
   }
 
 #ifdef DEBUG
-  fprintf(stderr, _("unix2dos: using %s as temp file\n"), TempPath);
+  fprintf(stderr, _("unix2dos: using %s as temporary file\n"), TempPath);
 #endif
 
   /* can open in file? */
   if ((!RetVal) && ((InF=OpenInFile(ipInFN)) == NULL))
     RetVal = -1;
 
-  /* can open out file? */
+  /* can open output file? */
 #ifdef NO_MKSTEMP
   if ((!RetVal) && (InF) && ((TempF=fd) == NULL))
 #else
@@ -447,7 +448,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   mask = umask(0);
   umask(mask);
   if (!RetVal && fchmod(fd, StatBuf.st_mode & ~mask))
-      RetVal = -1;
+    RetVal = -1;
 #endif
 
   /* conversion sucessful? */
@@ -458,7 +459,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   if ((InF) && (fclose(InF) == EOF))
     RetVal = -1;
 
-  /* can close out file? */
+  /* can close output file? */
   if ((TempF) && (fclose(TempF) == EOF))
     RetVal = -1;
 
@@ -474,7 +475,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   {
     UTimeBuf.actime = StatBuf.st_atime;
     UTimeBuf.modtime = StatBuf.st_mtime;
-    /* can change out file time to in file time? */
+    /* can change output file time to in file time? */
     if (utime(TempPath, &UTimeBuf) == -1)
       RetVal = -1;
   }
@@ -483,7 +484,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   if ((RetVal) && (unlink(TempPath)))
     RetVal = -1;
 
-  /* can rename temp file to out file? */
+  /* can rename temporary file to output file? */
   if (!RetVal)
   {
 #ifdef NEED_REMOVE
@@ -539,8 +540,8 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
 #else
   if((fd = MakeTempFileFrom(ipInFN, &TempPath)) < 0) {
 #endif
-      perror("Can't open output temp file");
-      RetVal = -1;
+    perror(_("unix2dos: Failed to open temporary output file"));
+    RetVal = -1;
   }
 
 #ifndef NO_FCHMOD
@@ -549,14 +550,14 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
 #endif
 
 #ifdef DEBUG
-  fprintf(stderr, _("unix2dos: using %s as temp file\n"), TempPath);
+  fprintf(stderr, _("unix2dos: using %s as temporary file\n"), TempPath);
 #endif
 
   /* can open in file? */
   if ((!RetVal) && ((InF=OpenInFile(ipInFN)) == NULL))
     RetVal = -1;
 
-  /* can open out file? */
+  /* can open output file? */
 #ifdef NO_MKSTEMP
   if ((!RetVal) && (InF) && ((TempF=fd) == NULL))
 #else
@@ -576,7 +577,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   if ((InF) && (fclose(InF) == EOF))
     RetVal = -1;
 
-  /* can close out file? */
+  /* can close output file? */
   if ((TempF) && (fclose(TempF) == EOF))
     RetVal = -1;
 
@@ -592,7 +593,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   {
     UTimeBuf.actime = StatBuf.st_atime;
     UTimeBuf.modtime = StatBuf.st_mtime;
-    /* can change out file time to in file time? */
+    /* can change output file time to in file time? */
     if (utime(TempPath, &UTimeBuf) == -1)
       RetVal = -1;
   }
@@ -605,7 +606,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   if (!RetVal)
     remove(ipInFN);
 #endif
-  /* can rename out file to in file? */
+  /* can rename output file to in file? */
   if ((!RetVal) && (rename(TempPath, ipInFN) == -1))
   {
     if (!ipFlag->Quiet)
@@ -730,17 +731,26 @@ int main (int argc, char *argv[])
 
       if ((strcmp(argv[ArgIdx],"-c") == 0) || (strcmp(argv[ArgIdx],"--convmode") == 0))
       {
-        ArgIdx++;
-        if (strcmpi(argv[ArgIdx],"ASCII") == 0)
-          pFlag->ConvMode = 0;
-        else if (strcmpi(argv[ArgIdx], "7Bit") == 0)
-          pFlag->ConvMode = 1;
-        else if (strcmpi(argv[ArgIdx], "ISO") == 0)
-          pFlag->ConvMode = 2;
+        if (++ArgIdx < argc)
+        {
+          if (strcmpi(argv[ArgIdx],"ASCII") == 0)
+            pFlag->ConvMode = 0;
+          else if (strcmpi(argv[ArgIdx], "7Bit") == 0)
+            pFlag->ConvMode = 1;
+          else if (strcmpi(argv[ArgIdx], "ISO") == 0)
+            pFlag->ConvMode = 2;
+          else
+          {
+            if (!pFlag->Quiet)
+              fprintf(stderr, _("unix2dos: invalid %s conversion mode specified\n"),argv[ArgIdx]);
+            ShouldExit = 1;
+          }
+        }
         else
         {
+          ArgIdx--;
           if (!pFlag->Quiet)
-            fprintf(stderr, _("unix2dos: invalid %s conversion mode specified\n"),argv[ArgIdx]);
+            fprintf(stderr,_("unix2dos: option '%s' requires an argument\n"),argv[ArgIdx]);
           ShouldExit = 1;
         }
       }
@@ -756,6 +766,7 @@ int main (int argc, char *argv[])
         }
         pFlag->NewFile = 0;
       }
+
       if ((strcmp(argv[ArgIdx],"-n") == 0) || (strcmp(argv[ArgIdx],"--newfile") == 0))
       {
         /* last convert not paired */
@@ -777,7 +788,7 @@ int main (int argc, char *argv[])
           CanSwitchFileMode = 0;
         else
         {
-	  RetVal = ConvertUnixToDosNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag);
+          RetVal = ConvertUnixToDosNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag);
           if (pFlag->status & NO_REGFILE)
           {
             if (!pFlag->Quiet)
@@ -795,13 +806,13 @@ int main (int argc, char *argv[])
                 fprintf(stderr, _("unix2dos: problems converting file %s to file %s\n"), argv[ArgIdx-1], argv[ArgIdx]);
               ShouldExit = 1;
             }
-	  }
+          }
           CanSwitchFileMode = 1;
         }
       }
       else
       {
-	RetVal = ConvertUnixToDosOldFile(argv[ArgIdx], pFlag);
+        RetVal = ConvertUnixToDosOldFile(argv[ArgIdx], pFlag);
         if (pFlag->status & NO_REGFILE)
         {
           if (!pFlag->Quiet)
@@ -819,7 +830,7 @@ int main (int argc, char *argv[])
               fprintf(stderr, _("unix2dos: problems converting file %s\n"), argv[ArgIdx]);
             ShouldExit = 1;
           }
-	}
+        }
       }
     }
   }
