@@ -1,0 +1,221 @@
+.TH "dos2unix" "1" "dos2unix 4.1.2" "2010" ""
+
+.SH "NAME"
+
+dos2unix \- DOS/MAC to UNIX text file format converter
+
+.SH "SYNOPSYS"
+
+dos2unix [options] [\-c convmode] [\-o file ...] [\-n infile outfile ...]
+.PP
+Options:
+.PP
+[\-fhkLlqV] [\-\-force] [\-\-help] [\-\-keepdate] [\-\-license] [\-\-newline] [\-\-quiet] [\-\-version]
+
+.SH "DESCRIPTION"
+
+.PP
+Dos2unix converts plain text files in DOS/MAC format to UNIX format.
+Binary files and non-regular files, such as soft links,
+are automatically skipped, unless conversion is forced.
+
+Dos2unix has a few conversion modes similar to dos2unix under SunOS/Solaris.
+
+In DOS/Windows text files line endings exist out of a combination of two characters:
+a Carriage Return (CR) followed by a Line Feed (LF).
+In Unix text files line endings exists out of a single Newline character which
+is equal to a DOS Line Feed (LF) character.
+In Mac text files, prior to Mac OS X, line endings exist out of a single Carriage
+Return character. Mac OS X is Unix based and has the same line endings as Unix.
+
+.SH "OPTIONS"
+The following options are available:
+
+.TP
+.B \-c \-\-convmode convmode
+Set conversion mode. Where convmode is one of:
+.B ASCII, 7bit, ISO, Mac
+with ASCII being the default.
+
+.TP
+.B \-f \-\-force
+Force conversion of all files. Also binary files.
+
+.TP
+.B \-h \-\-help
+Print online help.
+
+.TP
+.B \-k \-\-keepdate
+Keep the date stamp of output file same as input file.
+
+.TP
+.B \-L \-\-license
+Print software license.
+
+.TP
+.B \-l \-\-newline
+Add additional newline in all but Mac convmode.
+
+.TP
+.B \-n \-\-newfile infile outfile ...
+New file mode. Convert the infile and write output to outfile. File names
+must be given in pairs and wildcard names should NOT be used or you WILL
+lose your files.
+
+.TP
+.B \-o \-\-oldfile file ...
+Old file mode. Convert the file and write output to it. The program
+default to run in this mode. Wildcard names may be used.
+
+.TP
+.B \-q \-\-quiet
+Quiet mode. Suppress all warning and messages.
+
+.TP
+.B \-V \-\-version
+Print version information.
+
+.SH "CONVERSION MODES"
+
+Conversion modes
+.B ASCII
+,
+.B 7bit
+, and
+.B ISO
+are similar to those of dos2unix under SunOS/Solaris.
+
+.TP
+.B ASCII
+In this mode DOS line endings are converted to Unix line endings.
+
+Although the name of this mode is ASCII, which is a 7 bit standard,
+the actual mode is 8 bit.
+
+.TP
+.B Mac
+In this mode Mac line endings are converted to Unix line endings.
+
+.TP
+.B 7bit
+In this mode DOS line endings are converted to Unix line endings.
+All 8 bit non-ASCII characters (with values from 128 to 255) are converted
+to a space.
+
+.TP
+.B ISO
+In this mode DOS line endings are converted to Unix line endings.  Characters
+are converted from DOS character set (code page) CP437 to ISO character set
+ISO-8859-1. CP437 characters without ISO-8859-1 equivalent, for which
+conversion is not possible, are converted to a dot.  CP437 is mainly used in
+the USA. In Western Europe CP850 is more standard.
+
+Another option to convert text files between different encodings is to use
+dos2unix in combination with iconv(1). Iconv can convert between a long list of
+character encodings. Some examples:
+
+Convert from DOS DOSLatinUS to Unix Latin-1
+.IP
+.B iconv \-f CP437 \-t ISO-8859-1 in.txt | dos2unix > out.txt
+
+Convert from DOS DOSLatin1 to Unix Latin-1
+.IP
+.B iconv \-f CP850 \-t ISO-8859-1 in.txt | dos2unix > out.txt
+
+Convert from Windows WinLatin1 to Unix Latin-1
+.IP
+.B iconv \-f CP1252 \-t ISO-8859-1 in.txt | dos2unix > out.txt
+
+Convert from Windows WinLatin1 to Unix UTF-8 (Unicode)
+.IP
+.B iconv \-f CP1252 \-t UTF-8 in.txt | dos2unix > out.txt
+
+Convert from Windows UTF-16 (Unicode) to Unix UTF-8 (Unicode)
+.IP
+.B iconv \-f UTF-16 \-t UTF-8 in.txt | dos2unix > out.txt
+
+See also <http://czyborra.com/charsets/codepages.html>
+.br
+and <http://czyborra.com/charsets/iso8859.html>.
+
+.SH "EXAMPLES"
+.LP
+Get input from stdin and write output to stdout.
+.IP
+.B dos2unix
+
+.LP
+Convert and replace a.txt. Convert and replace b.txt.
+.IP
+.B dos2unix a.txt b.txt
+.IP
+.B dos2unix \-o a.txt b.txt
+
+.LP
+Convert and replace a.txt in ASCII conversion mode. 
+.IP
+.B dos2unix a.txt
+
+.LP
+Convert and replace a.txt in ASCII conversion mode.
+Convert and replace b.txt in 7bit conversion mode.
+.IP
+.B dos2unix a.txt \-c 7bit b.txt
+.IP
+.B dos2unix \-c ascii a.txt \-c 7bit b.txt
+
+.LP
+Convert a.txt from Mac to Unix format.
+.IP 
+.B dos2unix \-c mac a.txt
+.IP 
+.B mac2unix a.txt
+
+.LP 
+Convert and replace a.txt while keeping original date stamp.
+.IP
+.B dos2unix \-k a.txt
+.IP
+.B dos2unix \-k \-o a.txt
+
+.LP
+Convert a.txt and write to e.txt.
+.IP
+.B dos2unix \-n a.txt e.txt
+
+.LP
+Convert a.txt and write to e.txt, keep date stamp of e.txt same as a.txt.
+.IP
+.B dos2unix \-k \-n a.txt e.txt 
+
+.LP
+Convert and replace a.txt. Convert b.txt and write to e.txt.
+.IP
+.B dos2unix a.txt \-n b.txt e.txt
+.IP
+.B dos2unix \-o a.txt \-n b.txt e.txt
+
+.LP
+Convert c.txt and write to e.txt. Convert and replace a.txt.
+Convert and replace b.txt. Convert d.txt and write to f.txt.
+.IP
+.B dos2unix \-n c.txt e.txt \-o a.txt b.txt \-n d.txt f.txt
+
+.SH "AUTHORS"
+
+Benjamin Lin \- <blin@socs.uts.edu.au>
+
+Bernd Johannes Wuebben (mac2unix mode) \- <wuebben@kde.org>
+
+Erwin Waterlander \- <waterlan@xs4all.nl>
+
+Project page: http://www.xs4all.nl/~waterlan/dos2unix.html
+
+SourceForge page: http://sourceforge.net/projects/dos2unix/
+
+Freshmeat: http://freshmeat.net/projects/dos2unix
+
+.SH "SEE ALSO"
+unix2dos(1) mac2unix(1) iconv(1)
+
