@@ -140,7 +140,7 @@ DEFS		= $(EXTRA_DEFS)
 # .......................................................... targets ...
 
 
-all: $(BIN) $(MAC2UNIX_BIN) $(MAC2UNIX).1 $(DOCFILES) $(MOFILES)
+all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(MAC2UNIX).1 $(DOCFILES) $(MOFILES)
 
 %.o : %.c
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(CFLAGS) -c $< -o $@
@@ -194,9 +194,11 @@ install: all
 	$(MKDIR) -p -m 755 $(DESTDIR)$(bindir)
 	$(INSTALL)  -m 755 $(BIN) $(DESTDIR)$(bindir)
 	$(INSTALL)  -m 755 $(MAC2UNIX_BIN) $(DESTDIR)$(bindir)
+	$(INSTALL)  -m 755 $(UNIX2DOS_BIN) $(DESTDIR)$(bindir)
 	$(MKDIR) -p -m 755 $(DESTDIR)$(man1dir)
 	$(INSTALL)  -m 644 $(PACKAGE).1 $(DESTDIR)$(man1dir)
 	$(INSTALL)  -m 644 $(MAC2UNIX).1 $(DESTDIR)$(man1dir)
+	$(INSTALL)  -m 644 $(UNIX2DOS).1 $(DESTDIR)$(man1dir)
 ifdef ENABLE_NLS
 	@echo "-- install-mo"
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
@@ -210,6 +212,7 @@ uninstall:
 	@echo "-- target: uninstall"
 	-rm -f $(DESTDIR)$(bindir)/$(BIN)
 	-rm -f $(DESTDIR)$(bindir)/$(MAC2UNIX_BIN)
+	-rm -f $(DESTDIR)$(bindir)/$(UNIX2DOS_BIN)
 ifdef ENABLE_NLS
 	$(foreach mofile, $(MOFILES), rm -f $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 endif
