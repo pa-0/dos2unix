@@ -1,16 +1,20 @@
 .TH "dos2unix" "1" "dos2unix 4.1.2" "2010" ""
+
 .SH "NAME"
+
 dos2unix \- DOS/MAC to UNIX text file format converter
 
 .SH "SYNOPSYS"
+
 dos2unix [options] [\-c convmode] [\-o file ...] [\-n infile outfile ...]
-.PP 
+.PP
 Options:
-.PP 
+.PP
 [\-fhkLlqV] [\-\-force] [\-\-help] [\-\-keepdate] [\-\-license] [\-\-newline] [\-\-quiet] [\-\-version]
 
 .SH "DESCRIPTION"
-.PP 
+
+.PP
 Dos2unix converts plain text files in DOS/MAC format to UNIX format.
 Binary files and non-regular files, such as soft links,
 are automatically skipped, unless conversion is forced.
@@ -71,6 +75,7 @@ Quiet mode. Suppress all warning and messages.
 .TP
 .B \-V \-\-version
 Print version information.
+
 .SH "CONVERSION MODES"
 
 Conversion modes
@@ -135,32 +140,32 @@ See also <http://czyborra.com/charsets/codepages.html>
 and <http://czyborra.com/charsets/iso8859.html>.
 
 .SH "EXAMPLES"
-.LP 
+.LP
 Get input from stdin and write output to stdout.
-.IP 
+.IP
 .B dos2unix
 
-.LP 
+.LP
 Convert and replace a.txt. Convert and replace b.txt.
-.IP 
+.IP
 .B dos2unix a.txt b.txt
-.IP 
+.IP
 .B dos2unix \-o a.txt b.txt
 
-.LP 
+.LP
 Convert and replace a.txt in ASCII conversion mode. 
-.IP 
+.IP
 .B dos2unix a.txt
 
-.LP 
+.LP
 Convert and replace a.txt in ASCII conversion mode.
 Convert and replace b.txt in 7bit conversion mode.
 .IP
-.B unix2dos a.txt \-c 7bit b.txt
+.B dos2unix a.txt \-c 7bit b.txt
 .IP
-.B unix2dos \-c ascii a.txt \-c 7bit b.txt
+.B dos2unix \-c ascii a.txt \-c 7bit b.txt
 
-.LP 
+.LP
 Convert a.txt from Mac to Unix format.
 .IP 
 .B dos2unix \-c mac a.txt
@@ -169,35 +174,36 @@ Convert a.txt from Mac to Unix format.
 
 .LP 
 Convert and replace a.txt while keeping original date stamp.
-.IP 
+.IP
 .B dos2unix \-k a.txt
-.IP 
+.IP
 .B dos2unix \-k \-o a.txt
 
-.LP 
+.LP
 Convert a.txt and write to e.txt.
-.IP 
+.IP
 .B dos2unix \-n a.txt e.txt
 
-.LP 
+.LP
 Convert a.txt and write to e.txt, keep date stamp of e.txt same as a.txt.
-.IP 
+.IP
 .B dos2unix \-k \-n a.txt e.txt 
 
-.LP 
+.LP
 Convert and replace a.txt. Convert b.txt and write to e.txt.
-.IP 
+.IP
 .B dos2unix a.txt \-n b.txt e.txt
-.IP 
+.IP
 .B dos2unix \-o a.txt \-n b.txt e.txt
 
-.LP 
+.LP
 Convert c.txt and write to e.txt. Convert and replace a.txt.
 Convert and replace b.txt. Convert d.txt and write to f.txt.
-.IP 
+.IP
 .B dos2unix \-n c.txt e.txt \-o a.txt b.txt \-n d.txt f.txt
 
 .SH "AUTHORS"
+
 Benjamin Lin \- <blin@socs.uts.edu.au>
 
 Bernd Johannes Wuebben (mac2unix mode) \- <wuebben@kde.org>

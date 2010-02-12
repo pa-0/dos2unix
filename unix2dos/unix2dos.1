@@ -1,18 +1,18 @@
-.TH unix2dos 1 "unix2dos 4.1.2" "2010"
+.TH "unix2dos" "1" "unix2dos 4.1.2" "2010" ""
 
-.SH NAME
+.SH "NAME"
 
 unix2dos \- UNIX to DOS text file format converter
 
-.SH SYNOPSYS
+.SH "SYNOPSYS"
 
 unix2dos [options] [\-c convmode] [\-o file ...] [\-n infile outfile ...]
 .PP
 Options:
 .PP
-[\-fhkLqV] [\-\-force] [\-\-help] [\-\-keepdate] [\-\-license] [\-\-quiet] [\-\-version]
+[\-fhkLlqV] [\-\-force] [\-\-help] [\-\-keepdate] [\-\-license] [\-\-newline] [\-\-quiet] [\-\-version]
 
-.SH DESCRIPTION
+.SH "DESCRIPTION"
 
 .PP
 Unix2dos converts text files in UNIX format to DOS format.
@@ -26,9 +26,9 @@ a Carriage Return (CR) followed by a Line Feed (LF).
 In Unix text files line endings exists out of a single Newline character which
 is equal to a DOS Line Feed (LF) character.
 
-.SH OPTIONS
-
+.SH "OPTIONS"
 The following options are available:
+
 .TP
 .B \-c \-\-convmode convmode
 Set conversion mode. Where convmode is one of:
@@ -51,15 +51,19 @@ Keep the date stamp of output file same as input file.
 .B \-L \-\-license
 Print software license.
 
-.TP 
+.TP
+.B \-l \-\-newline
+Add additional newline.
+
+.TP
 .B \-n \-\-newfile infile outfile ...
 New file mode. Convert the infile and write output to outfile. File names
-must be given in pairs and wildcard names should NOT be used or you WILL 
-lose your files. 
+must be given in pairs and wildcard names should NOT be used or you WILL
+lose your files.
 
 .TP
 .B \-o \-\-oldfile file ...
-Old file mode. Convert the file and write output to it. The program 
+Old file mode. Convert the file and write output to it. The program
 default to run in this mode. Wildcard names may be used.
 
 .TP
@@ -129,8 +133,7 @@ See also <http://czyborra.com/charsets/codepages.html>
 .br
 and <http://czyborra.com/charsets/iso8859.html>.
 
-.SH EXAMPLES
-
+.SH "EXAMPLES"
 .LP
 Get input from stdin and write output to stdout.
 .IP
@@ -181,7 +184,7 @@ Convert and replace b.txt. Convert d.txt and write to f.txt.
 .IP
 .B unix2dos \-n c.txt e.txt \-o a.txt b.txt \-n d.txt f.txt
 
-.SH AUTHORS
+.SH "AUTHORS"
 
 Benjamin Lin \- <blin@socs.uts.edu.au>
 
@@ -193,6 +196,6 @@ SourceForge page: http://sourceforge.net/projects/dos2unix/
 
 Freshmeat: http://freshmeat.net/projects/dos2unix
 
-.SH SEE ALSO
+.SH "SEE ALSO"
 dos2unix(1) iconv(1)
 

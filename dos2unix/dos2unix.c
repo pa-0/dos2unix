@@ -292,7 +292,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
     switch (ipFlag->ConvMode)
     {
       case 0: /* ASCII */
-        while ((TempChar = getc(ipInF)) != EOF) {
+        while ((TempChar = getc(ipInF)) != EOF) {  /* get character */
           if ((ipFlag->Force == 0) &&
               (TempChar < 32) &&
               (TempChar != '\x0a') &&  /* Not an LF */

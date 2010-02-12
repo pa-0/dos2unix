@@ -116,6 +116,7 @@ typedef struct
   int Quiet;                            /* is in quiet mode? */
   int KeepDate;                         /* should keep date stamp? */
   int ConvMode;                         /* 0 - ASCII, 1 - 7 bit, 2 - ISO */  
+  int NewLine;                          /* if TRUE, then additional newline */
   int Force;                            /* if TRUE, force conversion of all files. */
   int status;
 } CFlag;
@@ -143,13 +144,14 @@ void PrintUsage(void)
 {
   fprintf(stderr, _("\
 unix2dos %s (%s)\n\
-Usage: unix2dos [-fhkLqV] [-c convmode] [-o file ...] [-n infile outfile ...]\n\
+Usage: unix2dos [-fhkLlqV] [-c convmode] [-o file ...] [-n infile outfile ...]\n\
  -c --convmode    conversion mode\n\
    convmode       ASCII, 7bit, ISO, default to ASCII\n\
  -f --force       force conversion of all files\n\
  -h --help        give this help\n\
  -k --keepdate    keep output file date\n\
  -L --license     print software license\n\
+ -l --newline     add additional newline\n\
  -n --newfile     write to new file\n\
    infile         original file in new file mode\n\
    outfile        output file in new file mode\n\
@@ -230,6 +232,16 @@ FILE* OpenOutFile(int fd)
 }
 
 
+void AddDOSNewLine(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar)
+{
+  if (ipFlag->NewLine) {  /* add additional LF? */
+    if (CurChar == '\x0a') {
+      putc('\x0d', ipOutF);
+      putc('\x0a', ipOutF);
+    }
+  }
+}
+
 /* converts stream ipInF to DOS format text and write to stream ipOutF
  * RetVal: 0  if success
  *         -1  otherwise
@@ -270,6 +282,8 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
               if (!ipFlag->Quiet)
                 fprintf(stderr, _("unix2dos: can not write to output file\n"));
               break;
+          } else {
+            AddDOSNewLine( ipInF, ipOutF, ipFlag, TempChar );
           }
         }
         break;
@@ -292,6 +306,8 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
               if (!ipFlag->Quiet)
                 fprintf(stderr, _("unix2dos: can not write to output file\n"));
               break;
+          } else {
+            AddDOSNewLine( ipInF, ipOutF, ipFlag, TempChar );
           }
         }
         break;
@@ -314,6 +330,8 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
               if (!ipFlag->Quiet)
                 fprintf(stderr, _("unix2dos: can not write to output file\n"));
               break;
+          } else {
+            AddDOSNewLine( ipInF, ipOutF, ipFlag, TempChar );
           }
         }
         break;
@@ -696,9 +714,10 @@ int main (int argc, char *argv[])
   pFlag->Quiet = 0;
   pFlag->KeepDate = 0;
   pFlag->ConvMode = 0;
+  pFlag->NewLine = 0;
   pFlag->Force = 0;
   pFlag->status = 0;
-  
+
   /* no option, use stdin and stdout */
   if (argc == 1)
   {
@@ -719,6 +738,8 @@ int main (int argc, char *argv[])
         pFlag->Force = 1;
       if ((strcmp(argv[ArgIdx],"-q") == 0) || (strcmp(argv[ArgIdx],"--quiet") == 0))
         pFlag->Quiet = 1;
+      if ((strcmp(argv[ArgIdx],"-l") == 0) || (strcmp(argv[ArgIdx],"--newline") == 0))
+        pFlag->NewLine = 1;
       if ((strcmp(argv[ArgIdx],"-V") == 0) || (strcmp(argv[ArgIdx],"--version") == 0))
       {
         PrintVersion();
