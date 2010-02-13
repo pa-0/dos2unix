@@ -45,7 +45,7 @@ UNIX2DOS_MOFILES	= $(patsubst %.po,%.mo,$(UNIX2DOS_POFILES))
 MOFILES			= $(DOS2UNIX_MOFILES) $(UNIX2DOS_MOFILES)
 endif
 DOCFILES	= $(PACKAGE).txt $(PACKAGE).ps $(PACKAGE).pdf $(UNIX2DOS).txt $(UNIX2DOS).ps $(UNIX2DOS).pdf
-INSTALL_OBJS_DOC = README.txt ChangeLog.txt COPYING.txt TODO.txt $(DOCFILES)
+INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt $(DOCFILES)
 
 # On some systems (e.g. FreeBSD 4.10) GNU install is installed as `ginstall'.
 INSTALL		= install
