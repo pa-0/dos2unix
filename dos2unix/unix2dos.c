@@ -115,7 +115,7 @@ typedef struct
   int NewFile;                          /* is in new file mode? */
   int Quiet;                            /* is in quiet mode? */
   int KeepDate;                         /* should keep date stamp? */
-  int ConvMode;                         /* 0: ascii, 1: 7bit, 2: iso */  
+  int ConvMode;                         /* 0: ascii, 1: 7bit, 2: iso, 3: mac */  
   int NewLine;                          /* if TRUE, then additional newline */
   int Force;                            /* if TRUE, force conversion of all files. */
   int status;
@@ -146,7 +146,7 @@ void PrintUsage(void)
 unix2dos %s (%s)\n\
 Usage: unix2dos [-fhkLlqV] [-c convmode] [-o file ...] [-n infile outfile ...]\n\
  -c --convmode    conversion mode\n\
-   convmode       ascii, 7bit, iso, default to ascii\n\
+   convmode       ascii, 7bit, iso, mac, default to ascii\n\
  -f --force       force conversion of all files\n\
  -h --help        give this help\n\
  -k --keepdate    keep output file date\n\
@@ -234,7 +234,7 @@ FILE* OpenOutFile(int fd)
 
 void AddDOSNewLine(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar)
 {
-  if (ipFlag->NewLine) {  /* add additional LF? */
+  if (ipFlag->NewLine) {  /* add additional CR-LF? */
     if (CurChar == '\x0a') {
       putc('\x0d', ipOutF);
       putc('\x0a', ipOutF);
@@ -250,6 +250,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
 {
     int RetVal = 0;
     int TempChar;
+    int PreviousChar = 0;
 
     ipFlag->status = 0;
 
@@ -332,6 +333,55 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
               break;
           } else {
             AddDOSNewLine( ipInF, ipOutF, ipFlag, TempChar );
+          }
+        }
+        break;
+      case 3: /* Mac */
+        while ((TempChar = getc(ipInF)) != EOF) {
+          if ((ipFlag->Force == 0) &&
+              (TempChar < 32) &&
+              (TempChar != '\x0a') &&  /* Not an LF */
+              (TempChar != '\x0d') &&  /* Not a CR */
+              (TempChar != '\x09')) {  /* Not a TAB */
+            RetVal = -1;
+            ipFlag->status |= BINARY_FILE ;
+            break;
+          }
+          if ((TempChar != '\x0a')) /* Not an LF */
+            {
+              if(putc(U2DAsciiTable[TempChar], ipOutF) == EOF){
+                RetVal = -1;
+                if (!ipFlag->Quiet)
+                  fprintf(stderr, _("unix2dos: can not write to output file\n"));
+                break;
+              }
+              PreviousChar = TempChar;
+            }
+          else{
+            /* TempChar is an LF */
+            /* Don't touch this delimiter if it's a CR,LF pair. */
+            if ( PreviousChar == '\x0d' ) {
+              if (putc('\x0a', ipOutF) == EOF)  /* CR,LF pair. Put LF */
+                {
+                  RetVal = -1;
+                  if (!ipFlag->Quiet)
+                    fprintf(stderr, _("unix2dos: can not write to output file\n"));
+                  break;
+                }
+              PreviousChar = TempChar;
+              continue;
+            }
+            PreviousChar = TempChar;
+            if (putc('\x0d', ipOutF) == EOF) /* Unix line end (LF). Put CR */
+              {
+                RetVal = -1;
+                if (!ipFlag->Quiet)
+                  fprintf(stderr, _("unix2dos: can not write to output file\n"));
+                break;
+              }
+            if (ipFlag->NewLine) {  /* add additional CR? */
+              putc('\x0d', ipOutF);
+            }
           }
         }
         break;
@@ -760,6 +810,8 @@ int main (int argc, char *argv[])
             pFlag->ConvMode = 1;
           else if (strcmpi(argv[ArgIdx], "iso") == 0)
             pFlag->ConvMode = 2;
+          else if (strcmpi(argv[ArgIdx], "mac") == 0)
+            pFlag->ConvMode = 3;
           else
           {
             if (!pFlag->Quiet)
@@ -820,7 +872,12 @@ int main (int argc, char *argv[])
               fprintf(stderr, _("unix2dos: Skipping binary file %s\n"), argv[ArgIdx-1]);
           } else {
             if (!pFlag->Quiet)
-              fprintf(stderr, _("unix2dos: converting file %s to file %s in DOS format ...\n"), argv[ArgIdx-1], argv[ArgIdx]);
+            {
+              if (pFlag->ConvMode == 3)
+                fprintf(stderr, _("unix2dos: converting file %s to file %s in MAC format ...\n"), argv[ArgIdx-1], argv[ArgIdx]);
+              else
+                fprintf(stderr, _("unix2dos: converting file %s to file %s in DOS format ...\n"), argv[ArgIdx-1], argv[ArgIdx]);
+            }
             if (RetVal)
             {
               if (!pFlag->Quiet)
@@ -844,7 +901,12 @@ int main (int argc, char *argv[])
             fprintf(stderr, _("unix2dos: Skipping binary file %s\n"), argv[ArgIdx]);
         } else {
           if (!pFlag->Quiet)
-            fprintf(stderr, _("unix2dos: converting file %s to DOS format ...\n"), argv[ArgIdx]);
+          {
+            if (pFlag->ConvMode == 3)
+              fprintf(stderr, _("unix2dos: converting file %s to MAC format ...\n"), argv[ArgIdx]);
+            else
+              fprintf(stderr, _("unix2dos: converting file %s to DOS format ...\n"), argv[ArgIdx]);
+          }
           if (RetVal)
           {
             if (!pFlag->Quiet)

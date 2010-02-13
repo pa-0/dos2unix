@@ -39,7 +39,7 @@ ifdef ENABLE_NLS
 DOS2UNIX_POT		= po/dos2unix/$(PACKAGE).pot
 DOS2UNIX_POFILES	= $(wildcard po/dos2unix/*.po)
 DOS2UNIX_MOFILES	= $(patsubst %.po,%.mo,$(DOS2UNIX_POFILES))
-UNIX2DOS_POT		= po/unix2dos/$(PACKAGE).pot
+UNIX2DOS_POT		= po/unix2dos/$(UNIX2DOS).pot
 UNIX2DOS_POFILES	= $(wildcard po/unix2dos/*.po)
 UNIX2DOS_MOFILES	= $(patsubst %.po,%.mo,$(UNIX2DOS_POFILES))
 MOFILES			= $(DOS2UNIX_MOFILES) $(UNIX2DOS_MOFILES)

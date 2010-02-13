@@ -1,4 +1,4 @@
-.TH "dos2unix" "1" "dos2unix 4.1.2" "2010" ""
+.TH "dos2unix" "1" "dos2unix 5.0" "2010" ""
 
 .SH "NAME"
 
@@ -55,7 +55,10 @@ Print software license.
 
 .TP
 .B \-l \-\-newline
-Add additional newline in all but Mac convmode.
+Add additional newline.
+Only DOS line endings are changed to two Unix line endings.
+In Mac mode only Mac line endings are changed to two Unix
+line endings.
 
 .TP
 .B \-n \-\-newfile infile outfile ...
@@ -89,6 +92,7 @@ are similar to those of dos2unix under SunOS/Solaris.
 .TP
 .B ascii
 In this mode DOS line endings are converted to Unix line endings.
+Unix and Mac line endings are not changed.
 
 Although the name of this mode is ASCII, which is a 7 bit standard,
 the actual mode is 8 bit.
@@ -96,6 +100,7 @@ the actual mode is 8 bit.
 .TP
 .B mac
 In this mode Mac line endings are converted to Unix line endings.
+DOS and Unix line endigs are not changed.
 
 .TP
 .B 7bit

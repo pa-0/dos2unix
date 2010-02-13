@@ -1,8 +1,8 @@
-.TH "unix2dos" "1" "unix2dos 4.1.2" "2010" ""
+.TH "unix2dos" "1" "unix2dos 5.0" "2010" ""
 
 .SH "NAME"
 
-unix2dos \- UNIX to DOS text file format converter
+unix2dos \- UNIX to DOS/MAC text file format converter
 
 .SH "SYNOPSYS"
 
@@ -15,7 +15,7 @@ Options:
 .SH "DESCRIPTION"
 
 .PP
-Unix2dos converts text files in UNIX format to DOS format.
+Unix2dos converts text files in UNIX format to DOS/MAC format.
 Binary files and non-regular files, such as soft links,
 are automatically skipped, unless conversion is forced.
 
@@ -25,6 +25,8 @@ In DOS/Windows text files line endings exist out of a combination of two charact
 a Carriage Return (CR) followed by a Line Feed (LF).
 In Unix text files line endings exists out of a single Newline character which
 is equal to a DOS Line Feed (LF) character.
+In Mac text files, prior to Mac OS X, line endings exist out of a single Carriage
+Return character. Mac OS X is Unix based and has the same line endings as Unix.
 
 .SH "OPTIONS"
 The following options are available:
@@ -32,7 +34,7 @@ The following options are available:
 .TP
 .B \-c \-\-convmode convmode
 Set conversion mode. Where convmode is one of:
-.B ascii, 7bit, iso
+.B ascii, 7bit, iso, mac
 with ascii being the default.
 
 .TP
@@ -87,9 +89,15 @@ are similar to those of unix2dos under SunOS/Solaris.
 .TP
 .B ascii
 In this mode Unix line endings are converted to DOS line endings.
+DOS and Mac line endings are not changed.
 
 Although the name of this mode is ASCII, which is a 7 bit standard,
 the actual mode is 8 bit.
+
+.TP
+.B mac
+In this mode Unix line endings are converted to Mac line endings.
+DOS and Mac line endigs are not changed.
 
 .TP
 .B 7bit
@@ -155,6 +163,11 @@ Convert and replace b.txt in 7bit conversion mode.
 .B unix2dos \-c ascii a.txt \-c 7bit b.txt
 
 .LP
+Convert a.txt from Unix to Mac format.
+.IP 
+.B dos2unix \-c mac a.txt
+
+.LP 
 Convert and replace a.txt while keeping original date stamp.
 .IP
 .B unix2dos \-k a.txt

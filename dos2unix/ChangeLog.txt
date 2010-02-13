@@ -1,7 +1,10 @@
 2010-02-13 Erwin Waterlander <waterlan@xs4all.nl>
 	* Bundle dos2unix and unix2dos in one package.
 	* dos2unix/unix2dos : Cleanup messages and manual.
+	* dos2unix: Option -l --newline also works in MAC mode.
 	* unix2dos: Added option -l, --newline.
+	* unix2dos: Added MAC mode. Convert Unix line endings
+	  to Mac line endings.
 
 2010-02-10 Erwin Waterlander <waterlan@xs4all.nl>
 	* unix2dos: Makefile : 

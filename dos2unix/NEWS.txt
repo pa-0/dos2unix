@@ -2,7 +2,9 @@
 
     Dos2unix and Unix2dos have been bundled in a single package.
     German translations have been added.
+    Dos2unix -l --newline also works in MAC mode.
     Unix2dos also got option -l, --newline.
+    Added MAC mode to Unix2dos: Convert Unix line endings to Mac line endings.
     Cleanup of messages and manual.
 
 2010-01-24: Version 4.1.2

@@ -128,7 +128,7 @@ typedef struct
   int NewFile;                          /* is in new file mode? */
   int Quiet;                            /* is in quiet mode? */
   int KeepDate;                         /* should keep date stamp? */
-  int ConvMode;                         /* 0: ascii, 1: 7bit, 2: iso, 3: mac*/  
+  int ConvMode;                         /* 0: ascii, 1: 7bit, 2: iso, 3: mac */  
   int NewLine;                          /* if TRUE, then additional newline */
   int Force;                            /* if TRUE, force conversion of all files. */
   int status;
@@ -164,7 +164,7 @@ Usage: dos2unix [-fhkLlqV] [-c convmode] [-o file ...] [-n infile outfile ...]\n
  -h --help        give this help\n\
  -k --keepdate    keep output file date\n\
  -L --license     print software license\n\
- -l --newline     add additional newline in all but Mac convmode\n\
+ -l --newline     add additional newline\n\
  -n --newfile     write to new file\n\
    infile         original file in new file mode\n\
    outfile        output file in new file mode\n\
@@ -381,6 +381,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
               }
             }
           else{
+            /* TempChar is a CR */
             if ( (TempNextChar = getc(ipInF)) != EOF) {
               ungetc( TempNextChar, ipInF );  /* put back peek char */
               /* Don't touch this delimiter if it's a CR,LF pair. */
@@ -388,13 +389,16 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
                 continue;
               }
             }
-            if (putc('\x0a', ipOutF) == EOF)
+            if (putc('\x0a', ipOutF) == EOF) /* MAC line end (CR). Put LF */
               {
                 RetVal = -1;
                 if (!ipFlag->Quiet)
                   fprintf(stderr, _("dos2unix: can not write to output file\n"));
                 break;
               }
+            if (ipFlag->NewLine) {  /* add additional LF? */
+              putc('\x0a', ipOutF);
+            }
           }
         }
         break;
