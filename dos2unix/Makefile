@@ -169,10 +169,10 @@ tags: $(DOS2UNIX_POT)
 
 merge: $(DOS2UNIX_POFILES)
 
-dos2unix/%.po : $(DOS2UNIX_POT)
+po/dos2unix/%.po : $(DOS2UNIX_POT)
 	msgmerge -U $@ $(DOS2UNIX_POT) --backup=numbered
 
-unix2dos/%.po : $(UNIX2DOS_POT)
+po/unix2dos/%.po : $(UNIX2DOS_POT)
 	msgmerge -U $@ $(UNIX2DOS_POT) --backup=numbered
 
 %.mo : %.po

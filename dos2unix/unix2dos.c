@@ -115,7 +115,7 @@ typedef struct
   int NewFile;                          /* is in new file mode? */
   int Quiet;                            /* is in quiet mode? */
   int KeepDate;                         /* should keep date stamp? */
-  int ConvMode;                         /* 0 - ASCII, 1 - 7 bit, 2 - ISO */  
+  int ConvMode;                         /* 0: ascii, 1: 7bit, 2: iso */  
   int NewLine;                          /* if TRUE, then additional newline */
   int Force;                            /* if TRUE, force conversion of all files. */
   int status;
@@ -146,7 +146,7 @@ void PrintUsage(void)
 unix2dos %s (%s)\n\
 Usage: unix2dos [-fhkLlqV] [-c convmode] [-o file ...] [-n infile outfile ...]\n\
  -c --convmode    conversion mode\n\
-   convmode       ASCII, 7bit, ISO, default to ASCII\n\
+   convmode       ascii, 7bit, iso, default to ascii\n\
  -f --force       force conversion of all files\n\
  -h --help        give this help\n\
  -k --keepdate    keep output file date\n\
@@ -260,7 +260,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
 
     switch (ipFlag->ConvMode)
     {
-      case 0: /* ASCII */
+      case 0: /* ascii */
         while ((TempChar = getc(ipInF)) != EOF) {  /* get character */
           if ((ipFlag->Force == 0) &&
               (TempChar < 32) &&
@@ -287,7 +287,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
           }
         }
         break;
-      case 1: /* 7Bit */
+      case 1: /* 7bit */
         while ((TempChar = getc(ipInF)) != EOF) {
           if ((ipFlag->Force == 0) &&
               (TempChar < 32) &&
@@ -311,7 +311,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
           }
         }
         break;
-      case 2: /* ISO */
+      case 2: /* iso */
         while ((TempChar = getc(ipInF)) != EOF) {
           if ((ipFlag->Force == 0) &&
               (TempChar < 32) &&
@@ -754,11 +754,11 @@ int main (int argc, char *argv[])
       {
         if (++ArgIdx < argc)
         {
-          if (strcmpi(argv[ArgIdx],"ASCII") == 0)
+          if (strcmpi(argv[ArgIdx],"ascii") == 0)
             pFlag->ConvMode = 0;
-          else if (strcmpi(argv[ArgIdx], "7Bit") == 0)
+          else if (strcmpi(argv[ArgIdx], "7bit") == 0)
             pFlag->ConvMode = 1;
-          else if (strcmpi(argv[ArgIdx], "ISO") == 0)
+          else if (strcmpi(argv[ArgIdx], "iso") == 0)
             pFlag->ConvMode = 2;
           else
           {

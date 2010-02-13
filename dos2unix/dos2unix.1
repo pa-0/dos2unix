@@ -34,8 +34,8 @@ The following options are available:
 .TP
 .B \-c \-\-convmode convmode
 Set conversion mode. Where convmode is one of:
-.B ASCII, 7bit, ISO, Mac
-with ASCII being the default.
+.B ascii, 7bit, iso, mac
+with ascii being the default.
 
 .TP
 .B \-f \-\-force
@@ -79,15 +79,15 @@ Print version information.
 .SH "CONVERSION MODES"
 
 Conversion modes
-.B ASCII
+.B ascii
 ,
 .B 7bit
 , and
-.B ISO
+.B iso
 are similar to those of dos2unix under SunOS/Solaris.
 
 .TP
-.B ASCII
+.B ascii
 In this mode DOS line endings are converted to Unix line endings.
 
 Although the name of this mode is ASCII, which is a 7 bit standard,
@@ -104,7 +104,7 @@ All 8 bit non-ASCII characters (with values from 128 to 255) are converted
 to a space.
 
 .TP
-.B ISO
+.B iso
 In this mode DOS line endings are converted to Unix line endings.  Characters
 are converted from DOS character set (code page) CP437 to ISO character set
 ISO-8859-1. CP437 characters without ISO-8859-1 equivalent, for which
@@ -153,12 +153,12 @@ Convert and replace a.txt. Convert and replace b.txt.
 .B dos2unix \-o a.txt b.txt
 
 .LP
-Convert and replace a.txt in ASCII conversion mode. 
+Convert and replace a.txt in ascii conversion mode. 
 .IP
 .B dos2unix a.txt
 
 .LP
-Convert and replace a.txt in ASCII conversion mode.
+Convert and replace a.txt in ascii conversion mode.
 Convert and replace b.txt in 7bit conversion mode.
 .IP
 .B dos2unix a.txt \-c 7bit b.txt
