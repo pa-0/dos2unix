@@ -53,7 +53,8 @@ INSTALL		= install
 MKDIR           = mkdir
 
 ifdef ENABLE_NLS
-	NLSDEFS = -DENABLE_NLS -DLOCALEDIR=\"$(localedir)\" -DPACKAGE=\"$(PACKAGE)\"
+	DOS2UNIX_NLSDEFS = -DENABLE_NLS -DLOCALEDIR=\"$(localedir)\" -DPACKAGE=\"$(PACKAGE)\"
+	UNIX2DOS_NLSDEFS = -DENABLE_NLS -DLOCALEDIR=\"$(localedir)\" -DPACKAGE=\"$(UNIX2DOS)\"
 endif
 
 # ......................................................... OS flags ...
@@ -126,8 +127,7 @@ CFLAGS	= -O2 -Wall -D_LARGEFILE_SOURCE $(RPM_OPT_FLAGS)
 
 EXTRA_CFLAGS	= -DVER_REVISION=\"$(DOS2UNIX_VERSION)\" \
 		  -DVER_DATE=\"$(DOS2UNIX_DATE)\" \
-		  $(CFLAGS_OS) \
-		  $(NLSDEFS)
+		  $(CFLAGS_OS)
 
 ifdef STATIC
 	EXTRA_CFLAGS += -static
@@ -142,8 +142,11 @@ DEFS		= $(EXTRA_DEFS)
 
 all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(MAC2UNIX).1 $(DOCFILES) $(MOFILES)
 
-%.o : %.c
-	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(CFLAGS) -c $< -o $@
+dos2unix.o : dos2unix.c
+	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
+
+unix2dos.o : unix2dos.c
+	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(UNIX2DOS_NLSDEFS) $(CFLAGS) -c $< -o $@
 
 $(BIN): dos2unix.o
 	$(CC) $< $(LDFLAGS) -o $@
@@ -202,7 +205,8 @@ install: all
 ifdef ENABLE_NLS
 	@echo "-- install-mo"
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
-	$(foreach mofile, $(MOFILES), $(INSTALL) -m 644 $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+	$(foreach mofile, $(DOS2UNIX_MOFILES), $(INSTALL) -m 644 $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+	$(foreach mofile, $(UNIX2DOS_MOFILES), $(INSTALL) -m 644 $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(UNIX2DOS).mo ;)
 endif
 	@echo "-- install-doc"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
@@ -214,7 +218,8 @@ uninstall:
 	-rm -f $(DESTDIR)$(bindir)/$(MAC2UNIX_BIN)
 	-rm -f $(DESTDIR)$(bindir)/$(UNIX2DOS_BIN)
 ifdef ENABLE_NLS
-	$(foreach mofile, $(MOFILES), rm -f $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+	$(foreach mofile, $(DOS2UNIX_MOFILES), rm -f $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+	$(foreach mofile, $(UNIX2DOS_MOFILES), rm -f $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(UNIX2DOS).mo ;)
 endif
 	-rm -f $(DESTDIR)$(mandir)/man1/$(PACKAGE).1
 	-rm -f $(DESTDIR)$(mandir)/man1/$(MAC2UNIX).1
