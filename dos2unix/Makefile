@@ -249,6 +249,7 @@ ZIPOBJ	= bin/$(BIN) \
 
 ifdef ENABLE_NLS
 ZIPOBJ += share/locale/*/LC_MESSAGES/$(PACKAGE).mo
+ZIPOBJ += share/locale/*/LC_MESSAGES/$(UNIX2DOS).mo
 endif
 
 VERSIONSUFFIX	= -bin
