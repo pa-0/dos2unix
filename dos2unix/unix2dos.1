@@ -143,6 +143,15 @@ See also <http://czyborra.com/charsets/codepages.html>
 .br
 and <http://czyborra.com/charsets/iso8859.html>.
 
+.SH "UNICODE"
+
+Unicode files can be encoded in different encodings. On Unix/Linux Unicode
+files are mostly encoded in UTF-8 encoding. UTF-8 is ASCII compatible. UTF-8
+files can be in DOS, Unix or Mac format. It is safe to run dos2unix/unix2dos on
+UTF-8 encoded files. On Windows mostly UTF-16 encoding is used for Unicode
+files. Dos2unix/unix2dos should not be run on UTF-16 files. UTF-16 files are
+automatically skipped, because it are binary files.
+
 .SH "EXAMPLES"
 .LP
 Get input from stdin and write output to stdout.
@@ -214,5 +223,5 @@ SourceForge page: http://sourceforge.net/projects/dos2unix/
 Freshmeat: http://freshmeat.net/projects/dos2unix
 
 .SH "SEE ALSO"
-dos2unix(1) iconv(1)
+dos2unix(1) unix2mac(1) iconv(1)
 

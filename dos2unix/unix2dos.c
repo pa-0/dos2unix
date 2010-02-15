@@ -61,7 +61,6 @@
 #include <string.h>
 #include <utime.h>
 #include <sys/stat.h>
-#include <fnmatch.h>
 #ifdef ENABLE_NLS
 #include <locale.h>
 #endif
@@ -809,7 +808,12 @@ int main (int argc, char *argv[])
   pFlag->Force = 0;
   pFlag->status = 0;
 
-  if (fnmatch("*unix2mac", argv[0], FNM_CASEFOLD) == 0)
+  if ( ((ptr=strrchr(argv[0],'/')) == NULL) && ((ptr=strrchr(argv[0],'\\')) == NULL) )
+    ptr = argv[0];
+  else
+    ptr++;
+
+  if ((strcmpi("unix2mac", ptr) == 0) || (strcmpi("unix2mac.exe", ptr) == 0))
     pFlag->ConvMode = 3;
 
   /* no option, use stdin and stdout */

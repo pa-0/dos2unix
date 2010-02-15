@@ -17,7 +17,7 @@ File list
 
 dos2unix - DOS/MAC to UNIX text file format converter.
 
-unix2dos - UNIX to DOS text file format converter.
+unix2dos - UNIX to DOS/MAC text file format converter.
 
 
 
