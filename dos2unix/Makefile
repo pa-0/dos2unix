@@ -9,6 +9,7 @@ CC=gcc
 PACKAGE=dos2unix
 UNIX2DOS=unix2dos
 MAC2UNIX=mac2unix
+UNIX2MAC=unix2mac
 
 ENABLE_NLS = 1
 
@@ -18,7 +19,8 @@ ifneq (, $(wildcard /cygdrive))
 endif
 BIN=$(PACKAGE)$(EXE)
 UNIX2DOS_BIN=$(UNIX2DOS)$(EXE)
-MAC2UNIX_BIN=mac2unix$(EXE)
+MAC2UNIX_BIN=$(MAC2UNIX)$(EXE)
+UNIX2MAC_BIN=$(UNIX2MAC)$(EXE)
 
 LINK = ln -sf
 
@@ -140,7 +142,7 @@ DEFS		= $(EXTRA_DEFS)
 # .......................................................... targets ...
 
 
-all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(MAC2UNIX).1 $(DOCFILES) $(MOFILES)
+all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(MAC2UNIX).1 $(UNIX2MAC).1 $(DOCFILES) $(MOFILES)
 
 dos2unix.o : dos2unix.c
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
@@ -158,6 +160,12 @@ $(MAC2UNIX_BIN) : $(BIN)
 	$(LINK) $< $@
 
 $(MAC2UNIX).1 : $(PACKAGE).1
+	$(LINK) $< $@
+
+$(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
+	$(LINK) $< $@
+
+$(UNIX2MAC).1 : $(UNIX2DOS).1
 	$(LINK) $< $@
 
 
@@ -198,10 +206,12 @@ install: all
 	$(INSTALL)  -m 755 $(BIN) $(DESTDIR)$(bindir)
 	$(INSTALL)  -m 755 $(MAC2UNIX_BIN) $(DESTDIR)$(bindir)
 	$(INSTALL)  -m 755 $(UNIX2DOS_BIN) $(DESTDIR)$(bindir)
+	$(INSTALL)  -m 755 $(UNIX2MAC_BIN) $(DESTDIR)$(bindir)
 	$(MKDIR) -p -m 755 $(DESTDIR)$(man1dir)
 	$(INSTALL)  -m 644 $(PACKAGE).1 $(DESTDIR)$(man1dir)
 	$(INSTALL)  -m 644 $(MAC2UNIX).1 $(DESTDIR)$(man1dir)
 	$(INSTALL)  -m 644 $(UNIX2DOS).1 $(DESTDIR)$(man1dir)
+	$(INSTALL)  -m 644 $(UNIX2MAC).1 $(DESTDIR)$(man1dir)
 ifdef ENABLE_NLS
 	@echo "-- install-mo"
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
@@ -217,17 +227,20 @@ uninstall:
 	-rm -f $(DESTDIR)$(bindir)/$(BIN)
 	-rm -f $(DESTDIR)$(bindir)/$(MAC2UNIX_BIN)
 	-rm -f $(DESTDIR)$(bindir)/$(UNIX2DOS_BIN)
+	-rm -f $(DESTDIR)$(bindir)/$(UNIX2MAC_BIN)
 ifdef ENABLE_NLS
 	$(foreach mofile, $(DOS2UNIX_MOFILES), rm -f $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 	$(foreach mofile, $(UNIX2DOS_MOFILES), rm -f $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(UNIX2DOS).mo ;)
 endif
 	-rm -f $(DESTDIR)$(mandir)/man1/$(PACKAGE).1
 	-rm -f $(DESTDIR)$(mandir)/man1/$(MAC2UNIX).1
+	-rm -f $(DESTDIR)$(mandir)/man1/$(UNIX2DOS).1
+	-rm -f $(DESTDIR)$(mandir)/man1/$(UNIX2MAC).1
 	-rm -rf $(DESTDIR)$(docdir)
 
 clean:
 	rm -f *.o
-	rm -f $(BIN) $(UNIX2DOS_BIN) $(MAC2UNIX_BIN) $(MAC2UNIX).1
+	rm -f $(BIN) $(UNIX2DOS_BIN) $(MAC2UNIX_BIN) $(MAC2UNIX).1 $(UNIX2MAC).1
 	rm -f *.bak *~
 	rm -f */*.bak */*~
 
@@ -241,9 +254,11 @@ realclean: maintainer-clean
 ZIPOBJ	= bin/$(BIN) \
 	  bin/$(MAC2UNIX_BIN) \
 	  bin/$(UNIX2DOS_BIN) \
+	  bin/$(UNIX2MAC_BIN) \
 	  share/man/man1/$(PACKAGE).1 \
 	  share/man/man1/$(MAC2UNIX).1 \
 	  share/man/man1/$(UNIX2DOS).1 \
+	  share/man/man1/$(UNIX2MAC).1 \
 	  share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION) \
 	  $(ZIPOBJ_EXTRA)
 
@@ -259,17 +274,17 @@ TBZFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX).tar.bz2
 
 dist-zip:
 	rm -f $(prefix)/$(ZIPFILE)
-	cd $(prefix) ; unix2dos share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)/*.txt share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1 share/man/man1/$(UNIX2DOS).1
+	cd $(prefix) ; unix2dos share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)/*.txt share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1 share/man/man1/$(UNIX2DOS).1 share/man/man1/$(UNIX2MAC).1
 	cd $(prefix) ; zip -r $(ZIPFILE) $(ZIPOBJ)
 	mv -f $(prefix)/$(ZIPFILE) ..
 
 dist-tgz:
-	cd $(prefix) ; dos2unix share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)/*.txt share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1 share/man/man1/$(UNIX2DOS).1
+	cd $(prefix) ; dos2unix share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)/*.txt share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1 share/man/man1/$(UNIX2DOS).1 share/man/man1/$(UNIX2MAC).1
 	cd $(prefix) ; tar cvzf $(TGZFILE) $(ZIPOBJ)
 	mv $(prefix)/$(TGZFILE) ..
 
 dist-tbz:
-	cd $(prefix) ; dos2unix share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)/*.txt share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1 share/man/man1/$(UNIX2DOS).1
+	cd $(prefix) ; dos2unix share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION)/*.txt share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1 share/man/man1/$(UNIX2DOS).1 share/man/man1/$(UNIX2MAC).1
 	cd $(prefix) ; tar cvjf $(TBZFILE) $(ZIPOBJ)
 	mv $(prefix)/$(TBZFILE) ..
 
@@ -277,7 +292,8 @@ dist: dist-tgz
 
 strip:
 	strip $(BIN)
+	strip $(UNIX2DOS_BIN)
 ifeq ($(LINK),cp -f)
 	strip $(MAC2UNIX_BIN)
+	strip $(UNIX2MAC_BIN)
 endif
-	strip $(UNIX2DOS_BIN)

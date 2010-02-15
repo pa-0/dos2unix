@@ -58,9 +58,6 @@
 
 #define VER_AUTHOR   "Erwin Waterlander"
 
-#define MACMODE  1
-static int macmode = 0;
-
 /* #define DEBUG */
 
 #ifdef MSDOS /* DJGPP */
@@ -74,6 +71,7 @@ static int macmode = 0;
 #include <string.h>
 #include <utime.h>
 #include <sys/stat.h>
+#include <fnmatch.h>
 #ifdef ENABLE_NLS
 #include <locale.h>
 #endif
@@ -276,9 +274,6 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
     int RetVal = 0;
     int TempChar;
     int TempNextChar;
-    
-    if ( macmode )
-      ipFlag->ConvMode = 3;
 
     ipFlag->status = 0;
 
@@ -785,8 +780,8 @@ int main (int argc, char *argv[])
   pFlag->Force = 0;
   pFlag->status = 0;
 
-  if( strcmp(argv[0],"mac2unix") == 0 )
-    macmode = MACMODE;
+  if (fnmatch("*mac2unix", argv[0], FNM_CASEFOLD) == 0)
+    pFlag->ConvMode = 3;
 
   /* no option, use stdin and stdout */
   if (argc == 1)

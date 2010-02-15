@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-13 23:36+0100\n"
+"POT-Creation-Date: 2010-02-15 22:11+0100\n"
 "PO-Revision-Date: 2010-02-05 16:34+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: unix2dos.c:145
+#: unix2dos.c:146
 #, c-format
 msgid ""
 "unix2dos %s (%s)\n"
@@ -57,7 +57,7 @@ msgstr ""
 "                  ist im stdio-Modus immer aktiv\n"
 " -V --version     Ausgabe der Versionsnummer\n"
 
-#: unix2dos.c:167
+#: unix2dos.c:168
 #, c-format
 msgid ""
 "Copyright (c) 1994-1995 Benjamin Lin\n"
@@ -115,42 +115,42 @@ msgstr ""
 "FAHRLÄSSIGKEIT), DIE AUS DER VERWENDUNG DIESER SOFTWARE ERWÄCHST,\n"
 "SELBST WENN AUF DIE MÖGLICHKIET SOLCHER SCHÄDEN HINGEWIESEN WURDE.\n"
 
-#: unix2dos.c:199
+#: unix2dos.c:200
 #, c-format
 msgid "With native language support.\n"
 msgstr "Mit Unterstützung von Landessprachen\n"
 
-#: unix2dos.c:284 unix2dos.c:308 unix2dos.c:332 unix2dos.c:355 unix2dos.c:368
-#: unix2dos.c:379
+#: unix2dos.c:296 unix2dos.c:334 unix2dos.c:372 unix2dos.c:396 unix2dos.c:409
+#: unix2dos.c:420
 #, c-format
 msgid "unix2dos: can not write to output file\n"
 msgstr "unix2dos: Schreiben in Ausgabedatei nicht möglich\n"
 
-#: unix2dos.c:391
+#: unix2dos.c:432
 #, c-format
 msgid "unix2dos: program error, invalid conversion mode %d\n"
 msgstr "unix2dos: Programmfehler: ungültiger Konvertierungsmodus %d\n"
 
-#: unix2dos.c:490 unix2dos.c:611
+#: unix2dos.c:531 unix2dos.c:652
 msgid "unix2dos: Failed to open temporary output file"
 msgstr ""
 
-#: unix2dos.c:495 unix2dos.c:621
+#: unix2dos.c:536 unix2dos.c:662
 #, c-format
 msgid "unix2dos: using %s as temporary file\n"
 msgstr "unix2dos: %s wird als temporäre Datei verwendet\n"
 
-#: unix2dos.c:563 unix2dos.c:682
+#: unix2dos.c:604 unix2dos.c:723
 #, c-format
 msgid "unix2dos: problems renaming '%s' to '%s'\n"
 msgstr "unix2dos: es gibt Probleme beim Umbenennen von »%s« zu »%s«\n"
 
-#: unix2dos.c:564 unix2dos.c:683
+#: unix2dos.c:605 unix2dos.c:724
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          Ausgabedatei verbleibt in »%s«\n"
 
-#: unix2dos.c:747
+#: unix2dos.c:788
 #, c-format
 msgid ""
 "unix2dos: error: Value of environment variable UNIX2DOS_LOCALEDIR is too "
@@ -159,60 +159,60 @@ msgstr ""
 "unix2dos: Fehler: Der Inhalt der Umgebungsvariablen UNIX2DOS_LOCALEDIR ist "
 "zu lang.\n"
 
-#: unix2dos.c:818
+#: unix2dos.c:862
 #, c-format
 msgid "unix2dos: invalid %s conversion mode specified\n"
 msgstr "unix2dos: der angegebene Konvertierungsmodus %s ist ungültig\n"
 
-#: unix2dos.c:826
+#: unix2dos.c:870
 #, c-format
 msgid "unix2dos: option '%s' requires an argument\n"
 msgstr "unix2dos: Die Option »%s« benötigt ein Argument\n"
 
-#: unix2dos.c:837 unix2dos.c:849 unix2dos.c:923
+#: unix2dos.c:881 unix2dos.c:893 unix2dos.c:967
 #, c-format
 msgid "unix2dos: target of file %s not specified in new file mode\n"
 msgstr ""
 "unix2dos: das Ziel von Datei %s wurde im neue Datei Modus nicht angegeben\n"
 
-#: unix2dos.c:868 unix2dos.c:897
+#: unix2dos.c:912 unix2dos.c:941
 #, c-format
 msgid "unix2dos: Skipping %s, not a regular file.\n"
 msgstr "unix2dos: %s wird übersprungen da es keine reguläre Datei ist.\n"
 
-#: unix2dos.c:872 unix2dos.c:901
+#: unix2dos.c:916 unix2dos.c:945
 #, c-format
 msgid "unix2dos: Skipping binary file %s\n"
 msgstr "unix2dos: die binäre Datei %s wird übersprungen\n"
 
-#: unix2dos.c:877
+#: unix2dos.c:921
 #, c-format
 msgid "unix2dos: converting file %s to file %s in MAC format ...\n"
 msgstr "unix2dos: Datei %s wird in Datei %s im MAC-Format konvertiert ...\n"
 
-#: unix2dos.c:879
+#: unix2dos.c:923
 #, c-format
 msgid "unix2dos: converting file %s to file %s in DOS format ...\n"
 msgstr "unix2dos: Datei %s wird in Datei %s im DOS-Format konvertiert ...\n"
 
-#: unix2dos.c:884
+#: unix2dos.c:928
 #, c-format
 msgid "unix2dos: problems converting file %s to file %s\n"
 msgstr ""
 "unix2dos: bei der Konvertierung von Datei %s in Datei %s sind Probleme "
 "aufgetreten\n"
 
-#: unix2dos.c:906
+#: unix2dos.c:950
 #, c-format
 msgid "unix2dos: converting file %s to MAC format ...\n"
 msgstr "unix2dos: Datei %s wird ins MAC-Format konvertiert ...\n"
 
-#: unix2dos.c:908
+#: unix2dos.c:952
 #, c-format
 msgid "unix2dos: converting file %s to DOS format ...\n"
 msgstr "unix2dos: Datei %s wird ins DOS-Format konvertiert ...\n"
 
-#: unix2dos.c:913
+#: unix2dos.c:957
 #, c-format
 msgid "unix2dos: problems converting file %s\n"
 msgstr "unix2dos: beim Konvertieren von Datei %s sind Probleme aufgetreten\n"

@@ -61,6 +61,7 @@
 #include <string.h>
 #include <utime.h>
 #include <sys/stat.h>
+#include <fnmatch.h>
 #ifdef ENABLE_NLS
 #include <locale.h>
 #endif
@@ -232,10 +233,11 @@ FILE* OpenOutFile(int fd)
 }
 
 
-void AddDOSNewLine(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar)
+void AddDOSNewLine(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar, int PrevChar)
 {
   if (ipFlag->NewLine) {  /* add additional CR-LF? */
-    if (CurChar == '\x0a') {
+    /* Don't add line ending if it is a DOS line ending. Only in case of Unix line ending. */
+    if ((CurChar == '\x0a') && (PrevChar != '\x0d')) {
       putc('\x0d', ipOutF);
       putc('\x0a', ipOutF);
     }
@@ -272,20 +274,31 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
             ipFlag->status |= BINARY_FILE ;
             break;
           }
-          if (
-              /* read a Unix line end */
-              ((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF)) ||  /* got LF, put CR */
-              /* read a DOS line end */
-              ((TempChar == '\x0d') && (((TempChar = getc(ipInF)) == EOF) || (putc('\x0d', ipOutF) == EOF))) || /* got CR, put CR and get next char (LF) */
-              (putc(U2DAsciiTable[TempChar], ipOutF) == EOF)) /* put char (LF or other char) */
+          if (TempChar == '\x0a')
+	  {
+            putc('\x0d', ipOutF); /* got LF, put CR */
+	  } else {
+             if (TempChar == '\x0d') /* got CR */
+	     {
+               if ((TempChar = getc(ipInF)) == EOF) /* get next char */
+                 TempChar = '\x0d';  /* Read error, or end of file. */
+	       else
+	       {
+                 putc('\x0d', ipOutF); /* put CR */
+                 PreviousChar = '\x0d';
+	       }
+	     }
+	  }
+          if (putc(U2DAsciiTable[TempChar], ipOutF) == EOF)
           {
               RetVal = -1;
               if (!ipFlag->Quiet)
                 fprintf(stderr, _("unix2dos: can not write to output file\n"));
               break;
           } else {
-            AddDOSNewLine( ipInF, ipOutF, ipFlag, TempChar );
+            AddDOSNewLine( ipInF, ipOutF, ipFlag, TempChar, PreviousChar);
           }
+          PreviousChar = TempChar;
         }
         break;
       case 1: /* 7bit */
@@ -299,17 +312,31 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
             ipFlag->status |= BINARY_FILE ;
             break;
           }
-          if (((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF)) ||
-              ((TempChar == '\x0d') && (((TempChar = getc(ipInF)) == EOF) || (putc('\x0d', ipOutF) == EOF))) ||
-              (putc(U2D7BitTable[TempChar], ipOutF) == EOF))
+          if (TempChar == '\x0a')
+	  {
+            putc('\x0d', ipOutF); /* got LF, put CR */
+	  } else {
+             if (TempChar == '\x0d') /* got CR */
+	     {
+               if ((TempChar = getc(ipInF)) == EOF) /* get next char */
+                 TempChar = '\x0d';  /* Read error, or end of file. */
+	       else
+	       {
+                 putc('\x0d', ipOutF); /* put CR */
+                 PreviousChar = '\x0d';
+	       }
+	     }
+	  }
+          if (putc(U2D7BitTable[TempChar], ipOutF) == EOF)
           {
               RetVal = -1;
               if (!ipFlag->Quiet)
                 fprintf(stderr, _("unix2dos: can not write to output file\n"));
               break;
           } else {
-            AddDOSNewLine( ipInF, ipOutF, ipFlag, TempChar );
+            AddDOSNewLine( ipInF, ipOutF, ipFlag, TempChar, PreviousChar);
           }
+          PreviousChar = TempChar;
         }
         break;
       case 2: /* iso */
@@ -323,17 +350,31 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
             ipFlag->status |= BINARY_FILE ;
             break;
           }
-          if (((TempChar == '\x0a') && (putc('\x0d', ipOutF) == EOF)) ||
-              ((TempChar == '\x0d') && (((TempChar = getc(ipInF)) == EOF) || (putc('\x0d', ipOutF) == EOF))) ||
-              (putc(U2DIsoTable[TempChar], ipOutF) == EOF))
+          if (TempChar == '\x0a')
+	  {
+            putc('\x0d', ipOutF); /* got LF, put CR */
+	  } else {
+             if (TempChar == '\x0d') /* got CR */
+	     {
+               if ((TempChar = getc(ipInF)) == EOF) /* get next char */
+                 TempChar = '\x0d';  /* Read error, or end of file. */
+	       else
+	       {
+                 putc('\x0d', ipOutF); /* put CR */
+                 PreviousChar = '\x0d';
+	       }
+	     }
+	  }
+          if (putc(U2DIsoTable[TempChar], ipOutF) == EOF)
           {
               RetVal = -1;
               if (!ipFlag->Quiet)
                 fprintf(stderr, _("unix2dos: can not write to output file\n"));
               break;
           } else {
-            AddDOSNewLine( ipInF, ipOutF, ipFlag, TempChar );
+            AddDOSNewLine( ipInF, ipOutF, ipFlag, TempChar, PreviousChar);
           }
+          PreviousChar = TempChar;
         }
         break;
       case 3: /* Mac */
@@ -735,7 +776,7 @@ int main (int argc, char *argv[])
   char localedir[1024];
   char *ptr;
 
-   ptr = getenv("UNIX2DOS_LOCALEDIR");
+   ptr = getenv("DOS2UNIX_LOCALEDIR");
    if (ptr == NULL)
       strcpy(localedir,LOCALEDIR);
    else
@@ -767,6 +808,9 @@ int main (int argc, char *argv[])
   pFlag->NewLine = 0;
   pFlag->Force = 0;
   pFlag->status = 0;
+
+  if (fnmatch("*unix2mac", argv[0], FNM_CASEFOLD) == 0)
+    pFlag->ConvMode = 3;
 
   /* no option, use stdin and stdout */
   if (argc == 1)

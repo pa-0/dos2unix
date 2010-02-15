@@ -56,6 +56,8 @@ Print software license.
 .TP
 .B \-l \-\-newline
 Add additional newline.
+Only Unix line endings are changed to two DOS line endings.
+In Mac mode to two Mac line endings.
 
 .TP
 .B \-n \-\-newfile infile outfile ...
@@ -166,6 +168,8 @@ Convert and replace b.txt in 7bit conversion mode.
 Convert a.txt from Unix to Mac format.
 .IP 
 .B dos2unix \-c mac a.txt
+.IP 
+.B unix2mac a.txt
 
 .LP 
 Convert and replace a.txt while keeping original date stamp.
