@@ -2,12 +2,12 @@
 # Copyright (C) 2009-2010
 # This file is distributed under the same license as the dos2unix package.
 # Erwin Waterlander <waterlan@xs4all.nl>, 2009-2010.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-16 13:36+0100\n"
+"POT-Creation-Date: 2010-02-16 21:30+0100\n"
 "PO-Revision-Date: 2009-12-08 21:59+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: dos2unix.c:155
+#, c-format
 msgid ""
 "dos2unix %s (%s)\n"
 "Usage: dos2unix [-fhkLlqV] [-c convmode] [-o file ...] [-n infile "

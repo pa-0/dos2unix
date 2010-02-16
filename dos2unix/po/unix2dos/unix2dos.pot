@@ -1,14 +1,14 @@
-# unix2dos, UNIX to DOS/MAC text file format converter.
-# Copyright (C) 2009-2010
-# This file is distributed under the same license as the dos2unix package.
-# Erwin Waterlander <waterlan@xs4all.nl>, 2009-2010.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-16 13:36+0100\n"
+"POT-Creation-Date: 2010-02-16 21:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"

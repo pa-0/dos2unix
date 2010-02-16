@@ -1,4 +1,4 @@
-2010-0?-??: Version 5.0
+2010-02-16: Version 5.0
 
     Dos2unix and Unix2dos have been bundled in a single package.
     German translations have been added.

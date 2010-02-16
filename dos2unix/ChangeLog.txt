@@ -1,3 +1,6 @@
+2010-02-16 Erwin Waterlander <waterlan@xs4all.nl>
+	* version 5.0
+
 2010-02-15 Erwin Waterlander <waterlan@xs4all.nl>
 	* unix2dos: Fix problem of reading Mac files.
 	* unix2dos: Added command 'unix2mac'.
