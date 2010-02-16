@@ -1,16 +1,16 @@
 Begin4
 Title:           dos2unix
-Version:         4.1.2
-Entered-date:    2010-01-24
-Description:     DOS/MAC to Unix text file converter
+Version:         5.0
+Entered-date:    2010-02-16
+Description:     DOS/MAC to Unix and vice versa text file converter
 Keywords:        dos2unix mac2unix text converter
 Author:          Benjamin Lin, Bernd Johannes Wuebben,
                  Christian Wurll, Erwin Waterlander
                  waterlan@xs4all (Erwin Waterlander)
 Maintained-by:   waterlan@xs4all (Erwin Waterlander)
 Primary-site:    ibiblio.org /pub/Linux/utils/text
-                 30374 dos2unix-4.1.2.tar.gz
-                   719 dos2unix-4.1.2.lsm
+                 61617 dos2unix-5.0.tar.gz
+                   728 dos2unix-5.0.lsm
 Alternate-site:  http://sourceforge.net/projects/dos2unix/
 Original-site:   http://www.xs4all.nl/~waterlan/dos2unix.html
 Platforms:       POSIX
