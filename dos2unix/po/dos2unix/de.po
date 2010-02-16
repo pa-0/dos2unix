@@ -137,7 +137,7 @@ msgstr "dos2unix: Programmfehler, der Konvertierungsmodus %d ist unzulässig\n"
 
 #: dos2unix.c:501 dos2unix.c:622
 msgid "dos2unix: Failed to open temporary output file"
-msgstr ""
+msgstr "dos2unix: Die temporäre Ausgabedatei konnte nicht geöffnet werden"
 
 #: dos2unix.c:506 dos2unix.c:632
 #, c-format

@@ -133,7 +133,7 @@ msgstr "unix2dos: Programmfehler: ungültiger Konvertierungsmodus %d\n"
 
 #: unix2dos.c:530 unix2dos.c:651
 msgid "unix2dos: Failed to open temporary output file"
-msgstr ""
+msgstr "unix2dos: Die temporäre Ausgabedatei konnte nicht geöffnet werden"
 
 #: unix2dos.c:535 unix2dos.c:661
 #, c-format

@@ -3,6 +3,7 @@
 	* unix2dos: Added command 'unix2mac'.
 	* unix2dos: Can use DOS2UNIX_LOCALEDIR i.s.o. UNIX2DOS_LOCALEDIR.
 	* dos2unix: 'mac2unix' command can have a prefix.
+	* Makefile: mac2unix and unix2mac are installed as soft links.
 
 2010-02-13 Erwin Waterlander <waterlan@xs4all.nl>
 	* Bundled dos2unix and unix2dos in one package.
@@ -69,7 +70,7 @@
 
 2009-12-21 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix/unix2dos: version 4.0.1
-	* dos2unix/unix2dos: man page improvements: Thanks to Jari Aalto.
+	* dos2unix/unix2dos: man page improvements: Thanks to Jari Aalto <jari.aalto@cante.net>.
 	  - Replace hyphens with minus signs (look like dashes) where needed.
 	  - Options in alphabetical order.
 	* dos2unix/unix2dos: man page: Update ISO mode information.
@@ -81,7 +82,7 @@
 	* dos2unix/unix2dos: Fixed two wrong conversions in ISO mode:
 	  - Greek mu.
 	  - Closing guillemet (angle quotation mark, >>).
-	* dos2unix/unix2dos: Port to OS/2 Warp: Thanks to Elbert Pol.
+	* dos2unix/unix2dos: Port to OS/2 Warp: Thanks to Elbert Pol <elbertdotpol@gmail.com>.
 	* dos2unix/unix2dos: Makefiles: Added target 'strip'.
 
 2009-12-15 Erwin Waterlander <waterlan@xs4all.nl>
