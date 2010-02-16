@@ -204,9 +204,14 @@ $(UNIX2DOS_POT) : unix2dos.c
 install: all
 	$(MKDIR) -p -m 755 $(DESTDIR)$(bindir)
 	$(INSTALL)  -m 755 $(BIN) $(DESTDIR)$(bindir)
-	$(INSTALL)  -m 755 $(MAC2UNIX_BIN) $(DESTDIR)$(bindir)
 	$(INSTALL)  -m 755 $(UNIX2DOS_BIN) $(DESTDIR)$(bindir)
+ifeq ($(LINK),cp -f)
+	$(INSTALL)  -m 755 $(MAC2UNIX_BIN) $(DESTDIR)$(bindir)
 	$(INSTALL)  -m 755 $(UNIX2MAC_BIN) $(DESTDIR)$(bindir)
+else
+	cd $(DESTDIR)$(bindir); $(LINK) $(BIN) $(MAC2UNIX_BIN)
+	cd $(DESTDIR)$(bindir); $(LINK) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN)
+endif
 	$(MKDIR) -p -m 755 $(DESTDIR)$(man1dir)
 	$(INSTALL)  -m 644 $(PACKAGE).1 $(DESTDIR)$(man1dir)
 	$(INSTALL)  -m 644 $(MAC2UNIX).1 $(DESTDIR)$(man1dir)

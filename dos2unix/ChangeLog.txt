@@ -1,6 +1,7 @@
 2010-02-15 Erwin Waterlander <waterlan@xs4all.nl>
 	* unix2dos: Fix problem of reading Mac files.
 	* unix2dos: Added command 'unix2mac'.
+	* unix2dos: Can use DOS2UNIX_LOCALEDIR i.s.o. UNIX2DOS_LOCALEDIR.
 	* dos2unix: 'mac2unix' command can have a prefix.
 
 2010-02-13 Erwin Waterlander <waterlan@xs4all.nl>
