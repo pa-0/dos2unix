@@ -150,7 +150,7 @@ Usage: unix2dos [-fhkLlqV] [-c convmode] [-o file ...] [-n infile outfile ...]\n
  -f --force       force conversion of all files\n\
  -h --help        give this help\n\
  -k --keepdate    keep output file date\n\
- -L --license     print software license\n\
+ -L --license     display software license\n\
  -l --newline     add additional newline\n\
  -n --newfile     write to new file\n\
    infile         original file in new file mode\n\
