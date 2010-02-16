@@ -245,7 +245,7 @@ endif
 
 clean:
 	rm -f *.o
-	rm -f $(BIN) $(UNIX2DOS_BIN) $(MAC2UNIX_BIN) $(MAC2UNIX).1 $(UNIX2MAC).1
+	rm -f $(BIN) $(UNIX2DOS_BIN) $(MAC2UNIX_BIN) $(UNIX2MAC_BIN) $(MAC2UNIX).1 $(UNIX2MAC).1
 	rm -f *.bak *~
 	rm -f */*.bak */*~
 
