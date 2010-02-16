@@ -742,9 +742,9 @@ int main (int argc, char *argv[])
   int ShouldExit;
   int RetVal = 0;
   CFlag *pFlag;
+  char *ptr;
 #ifdef ENABLE_NLS
   char localedir[1024];
-  char *ptr;
 
    ptr = getenv("DOS2UNIX_LOCALEDIR");
    if (ptr == NULL)
