@@ -1,7 +1,7 @@
 # Dutch translations for unix2dos package.
 # Copyright (C) 2009 THE unix2dos'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the unix2dos package.
-# Erwin Waterlander <waterlan@xs4all.nl>, 2009.
+# This file is distributed under the same license as the dos2unix package.
+# Erwin Waterlander <waterlan@xs4all.nl>, 2009-2010.
 # 
 msgid ""
 msgstr ""
@@ -17,6 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: unix2dos.c:145
+#, c-format
 msgid ""
 "unix2dos %s (%s)\n"
 "Usage: unix2dos [-fhkLlqV] [-c convmode] [-o file ...] [-n infile "

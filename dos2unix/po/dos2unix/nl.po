@@ -1,7 +1,7 @@
-# dos2unix, text file converter.
-# Copyright (C) 2009
+# dos2unix, DOS/MAC to UNIX text file format converter.
+# Copyright (C) 2009-2010
 # This file is distributed under the same license as the dos2unix package.
-# Erwin Waterlander <waterlan@xs4all.nl>, 2009.
+# Erwin Waterlander <waterlan@xs4all.nl>, 2009-2010.
 # 
 msgid ""
 msgstr ""
