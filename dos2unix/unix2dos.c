@@ -55,11 +55,16 @@
 #else
 #  include <libgen.h>
 #endif
+#ifndef __TURBOC__
 #include <unistd.h>
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <utime.h>
+#ifdef __TURBOC__
+#define __FLAT__
+#endif
 #include <sys/stat.h>
 #ifdef ENABLE_NLS
 #include <locale.h>
@@ -435,6 +440,21 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
     return RetVal;
 }
 
+#ifdef __TURBOC__
+char *dirname(char *path)
+{
+  char *ptr;
+
+  if (( path == NULL) || (((ptr=strrchr(path,'/')) == NULL) && ((ptr=strrchr(path,'\\')) == NULL)) )
+    return ".";
+  else
+  {
+    *ptr = '\0';
+    return(path);
+  }
+}
+#endif
+
 #ifdef NO_MKSTEMP
 FILE* MakeTempFileFrom(const char *OutFN, char **fname_ret)
 #else
@@ -622,7 +642,9 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   char *TempPath;
   struct stat StatBuf;
   struct utimbuf UTimeBuf;
+#ifndef NO_FCHMOD
   mode_t mode = S_IRUSR | S_IWUSR;
+#endif
 #ifdef NO_MKSTEMP
   FILE* fd;
 #else
@@ -637,11 +659,13 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   else
     ipFlag->status = 0 ;
 
+#ifndef NO_FCHMOD
   /* retrieve ipInFN file date stamp */
   if (stat(ipInFN, &StatBuf))
     RetVal = -1;
   else
     mode = StatBuf.st_mode;
+#endif
 
 #ifdef NO_MKSTEMP
   if((fd = MakeTempFileFrom(ipInFN, &TempPath))==NULL) {
