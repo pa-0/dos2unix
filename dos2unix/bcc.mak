@@ -57,8 +57,8 @@ dos2unix.cfg: bcc.mak
 -I$(INCLUDEPATH)
 -L$(LIBPATH)
 -DMSDOS
--DVER_REVISION="5.0"
--DVER_DATE="2010-02-16"
+-DVER_REVISION="5.0.1-beta1"
+-DVER_DATE="2010-02-28"
 | dos2unix.cfg
 
 
