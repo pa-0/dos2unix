@@ -46,12 +46,19 @@ WINDOWS PORT
 
         make -f mingw.mak clean install
 
-DOS PORT
+DOS PORT, 32 BIT
 
     To compile a version for DOS, get the DJGPP compiler
     <http://www.delorie.com/djgpp/>, and use makefile djgpp.mak:
 
         make -f djgpp.mak clean install
+
+DOS PORT, 16 BIT
+
+    To compile a version for DOS, use the Borland C compiler 3.1 or 4.0,
+    and use makefile bcc.mak:
+
+        make -f bcc.mak clean all
 
 OS/2 PORT
 

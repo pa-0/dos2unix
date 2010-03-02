@@ -1,3 +1,6 @@
+2010-03-02 Erwin Waterlander <waterlan@xs4all.nl>
+	* Port to 16 bit DOS, using Borland C.
+
 2010-02-16 Erwin Waterlander <waterlan@xs4all.nl>
 	* version 5.0
 
