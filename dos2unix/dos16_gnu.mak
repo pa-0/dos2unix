@@ -26,5 +26,5 @@ dist:
 	$(MAKE) dist-zip EXE=.exe prefix=$(prefix) VERSIONSUFFIX="-dos16" ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" ENABLE_NLS=$(ENABLE_NLS) docsubdir=dos2unix
 
 strip:
-	$(MAKE) strip LINK="cp -f" EXE=.exe
+	c:/bc4/bin/make -f bcc.mak strip
 
