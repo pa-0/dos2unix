@@ -237,7 +237,7 @@ FILE* OpenOutFile(int fd)
 }
 
 
-void AddDOSNewLine(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar, int PrevChar)
+void AddDOSNewLine(FILE* ipOutF, CFlag *ipFlag, int CurChar, int PrevChar)
 {
   if (ipFlag->NewLine) {  /* add additional CR-LF? */
     /* Don't add line ending if it is a DOS line ending. Only in case of Unix line ending. */
@@ -300,7 +300,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
                 fprintf(stderr, _("unix2dos: can not write to output file\n"));
               break;
           } else {
-            AddDOSNewLine( ipInF, ipOutF, ipFlag, TempChar, PreviousChar);
+            AddDOSNewLine( ipOutF, ipFlag, TempChar, PreviousChar);
           }
           PreviousChar = TempChar;
         }
@@ -338,7 +338,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
                 fprintf(stderr, _("unix2dos: can not write to output file\n"));
               break;
           } else {
-            AddDOSNewLine( ipInF, ipOutF, ipFlag, TempChar, PreviousChar);
+            AddDOSNewLine( ipOutF, ipFlag, TempChar, PreviousChar);
           }
           PreviousChar = TempChar;
         }
@@ -376,7 +376,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
                 fprintf(stderr, _("unix2dos: can not write to output file\n"));
               break;
           } else {
-            AddDOSNewLine( ipInF, ipOutF, ipFlag, TempChar, PreviousChar);
+            AddDOSNewLine( ipOutF, ipFlag, TempChar, PreviousChar);
           }
           PreviousChar = TempChar;
         }
@@ -659,10 +659,10 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   else
     ipFlag->status = 0 ;
 
-#ifndef NO_FCHMOD
   /* retrieve ipInFN file date stamp */
   if (stat(ipInFN, &StatBuf))
     RetVal = -1;
+#ifndef NO_FCHMOD
   else
     mode = StatBuf.st_mode;
 #endif

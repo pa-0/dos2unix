@@ -630,10 +630,10 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   else
     ipFlag->status = 0 ;
 
-#ifndef NO_FCHMOD
   /* retrieve ipInFN file date stamp */
   if (stat(ipInFN, &StatBuf))
     RetVal = -1;
+#ifndef NO_FCHMOD
   else
     mode = StatBuf.st_mode;
 #endif
