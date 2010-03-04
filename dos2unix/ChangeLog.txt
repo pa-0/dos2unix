@@ -1,3 +1,6 @@
+2010-03-04 Erwin Waterlander <waterlan@xs4all.nl>
+	* Port to 16 bit DOS, using OpenWatcom.
+
 2010-03-03 Erwin Waterlander <waterlan@xs4all.nl>
 	* Port to 16 bit DOS, using Borland C.
 

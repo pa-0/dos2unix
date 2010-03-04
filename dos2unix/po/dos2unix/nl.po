@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-01 09:20+0100\n"
+"POT-Creation-Date: 2010-03-04 21:50+0100\n"
 "PO-Revision-Date: 2009-12-08 21:59+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: dos2unix.c:160
+#: dos2unix.c:163
 #, c-format
 msgid ""
 "dos2unix %s (%s)\n"
@@ -57,7 +57,7 @@ msgstr ""
 "                  altijd aan in stdio modus\n"
 " -V --version     toon versie nummer\n"
 
-#: dos2unix.c:182
+#: dos2unix.c:185
 #, c-format
 msgid ""
 "Copyright (c) 1994-1995 Benjamin Lin\n"
@@ -88,41 +88,41 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: dos2unix.c:216
+#: dos2unix.c:219
 #, c-format
 msgid "With native language support.\n"
 msgstr "Met moedertaal ondersteuning.\n"
 
-#: dos2unix.c:308 dos2unix.c:331 dos2unix.c:354 dos2unix.c:378 dos2unix.c:395
+#: dos2unix.c:311 dos2unix.c:334 dos2unix.c:357 dos2unix.c:381 dos2unix.c:398
 #, c-format
 msgid "dos2unix: can not write to output file\n"
 msgstr "dos2unix: kan niet schrijven naar uitvoerbestand\n"
 
-#: dos2unix.c:407
+#: dos2unix.c:410
 #, c-format
 msgid "dos2unix: program error, invalid conversion mode %d\n"
 msgstr "dos2unix: programma fout, ongeldige conversie modus %d\n"
 
-#: dos2unix.c:521 dos2unix.c:646
+#: dos2unix.c:524 dos2unix.c:649
 msgid "dos2unix: Failed to open temporary output file"
 msgstr "dos2unix: Niet gelukt om tijdelijk uitvoerbestand te openen"
 
-#: dos2unix.c:526 dos2unix.c:656
+#: dos2unix.c:529 dos2unix.c:659
 #, c-format
 msgid "dos2unix: using %s as temporary file\n"
 msgstr "dos2unix: %s wordt als tijdelijk bestand gebruikt\n"
 
-#: dos2unix.c:594 dos2unix.c:717
+#: dos2unix.c:597 dos2unix.c:720
 #, c-format
 msgid "dos2unix: problems renaming '%s' to '%s'\n"
 msgstr "dos2unix: problemen met hernoemen van '%s' naar '%s'\n"
 
-#: dos2unix.c:595 dos2unix.c:718
+#: dos2unix.c:598 dos2unix.c:721
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          uitvoerbestand blijft in '%s'\n"
 
-#: dos2unix.c:782
+#: dos2unix.c:785
 #, c-format
 msgid ""
 "dos2unix: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
@@ -131,49 +131,49 @@ msgstr ""
 "dos2unix: fout: Waarde van omgevingsvariabele DOS2UNIX_LOCALEDIR is te "
 "lang.\n"
 
-#: dos2unix.c:861
+#: dos2unix.c:864
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr "dos2unix: ongeldige %s conversie modus gespecificeerd\n"
 
-#: dos2unix.c:869
+#: dos2unix.c:872
 #, c-format
 msgid "dos2unix: option '%s' requires an argument\n"
 msgstr "dos2unix: optie '%s' heeft een argument nodig\n"
 
-#: dos2unix.c:880 dos2unix.c:892 dos2unix.c:956
+#: dos2unix.c:883 dos2unix.c:895 dos2unix.c:959
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr ""
 "dos2unix: doel van bestand %s is niet gespecificeerd in 'nieuw bestand "
 "modus'\n"
 
-#: dos2unix.c:911 dos2unix.c:935
+#: dos2unix.c:914 dos2unix.c:938
 #, c-format
 msgid "dos2unix: Skipping %s, not a regular file.\n"
 msgstr "dos2unix: %s wordt overgeslagen, omdat het geen regulier bestand is.\n"
 
-#: dos2unix.c:915 dos2unix.c:939
+#: dos2unix.c:918 dos2unix.c:942
 #, c-format
 msgid "dos2unix: Skipping binary file %s\n"
 msgstr "dos2unix: Binair bestand %s wordt overgeslagen\n"
 
-#: dos2unix.c:918
+#: dos2unix.c:921
 #, c-format
 msgid "dos2unix: converting file %s to file %s in UNIX format ...\n"
 msgstr "dos2unix: converteren bestand %s naar bestand %s in UNIX formaat ...\n"
 
-#: dos2unix.c:922
+#: dos2unix.c:925
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s naar bestand %s\n"
 
-#: dos2unix.c:942
+#: dos2unix.c:945
 #, c-format
 msgid "dos2unix: converting file %s to UNIX format ...\n"
 msgstr "dos2unix: converteren bestand %s naar UNIX formaat ...\n"
 
-#: dos2unix.c:946
+#: dos2unix.c:949
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s\n"

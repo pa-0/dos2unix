@@ -1,16 +1,16 @@
+!include version.mk
+
 CC      = bcc
-DEFINES = -DMSDOS -DVER_REVISION="5.0.1-beta2" -DVER_DATE="2010-03-03"
+DEFINES = -DMSDOS -DVER_REVISION="$(DOS2UNIX_VERSION)" -DVER_DATE="$(DOS2UNIX_DATE)"
 CFLAGS  = $(DEFINES) -Z -O -w -mc -1
 
 all: dos2unix.exe unix2dos.exe mac2unix.exe unix2mac.exe
 
 dos2unix.exe: dos2unix.obj
 	bcc -mc dos2unix.obj noehc.lib
-	#bcc -mc @objlist.txt
 
 unix2dos.exe: unix2dos.obj
 	bcc -mc unix2dos.obj noehc.lib
-	#bcc -mc @objlist.txt
 
 # remove noehc.lib if you are using Borland C version prior
 # to 4.0. noeh?.lib, where ? stands for the memory model,

@@ -60,7 +60,7 @@
 
 /* #define DEBUG */
 
-#ifdef MSDOS /* DJGPP */
+#if defined(DJGPP) || defined(__TURBOC__) /* DJGPP */
 #  include <dir.h>
 #else
 #  include <libgen.h>
@@ -85,13 +85,16 @@
 #define MSDOS
 #endif
 
-#ifdef MSDOS
+#if  defined(__TURBOC__) || defined(DJGPP) || defined(__MINGW32__)
 /* Some compilers have no mkstemp().
  * Use mktemp() instead.
- * DJGPP, MINGW32 */
+ * BORLANDC, DJGPP, MINGW32 */
 #define NO_MKSTEMP 1
+#endif
+
+#ifdef MSDOS
 /* Some compilers have no fchmod().
- * DJGPP, MINGW32 */
+ * BORLANDC, DJGPP, MINGW32, OPENWATCOM */
 #define NO_FCHMOD 1
 #endif
 

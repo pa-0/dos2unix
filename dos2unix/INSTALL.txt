@@ -58,7 +58,13 @@ DOS PORT, 16 BIT
     To compile a version for DOS, use the Borland C compiler 3.1 or 4.0,
     and use makefile bcc.mak:
 
-        make -f bcc.mak clean all
+        make -f bcc.mak clean
+        make -f bcc.mak
+
+    Or use the OpenWatcom compiler <http://www.openwatcom.org>.
+
+        wmake -f watcom16.mak clean
+        wmake -f watcom16.mak
 
 OS/2 PORT
 
