@@ -137,6 +137,7 @@ typedef struct
   int NewLine;                          /* if TRUE, then additional newline */
   int Force;                            /* if TRUE, force conversion of all files. */
   int status;
+  int stdio_mode;                       /* if TRUE, stdio mode */
 } CFlag;
 
 /******************************************************************
@@ -388,6 +389,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
               ungetc( TempNextChar, ipInF );  /* put back peek char */
               /* Don't touch this delimiter if it's a CR,LF pair. */
               if ( TempNextChar == '\x0a' ) {
+                putc('\x0d', ipOutF); /* put CR, part of DOS CR-LF */
                 continue;
               }
             }
@@ -805,6 +807,7 @@ int main (int argc, char *argv[])
   pFlag->NewLine = 0;
   pFlag->Force = 0;
   pFlag->status = 0;
+  pFlag->stdio_mode = 1;
 
   if ( ((ptr=strrchr(argv[0],'/')) == NULL) && ((ptr=strrchr(argv[0],'\\')) == NULL) )
     ptr = argv[0];
@@ -814,12 +817,6 @@ int main (int argc, char *argv[])
   if ((strcmpi("mac2unix", ptr) == 0) || (strcmpi("mac2unix.exe", ptr) == 0))
     pFlag->ConvMode = 3;
 
-  /* no option, use stdin and stdout */
-  if (argc == 1)
-  {
-    exit(ConvertDosToUnixStdio(pFlag));
-  }
-
   while ((++ArgIdx < argc) && (!ShouldExit))
   {
     /* is it an option? */
@@ -827,26 +824,32 @@ int main (int argc, char *argv[])
     {
       /* an option */
       if ((strcmp(argv[ArgIdx],"-h") == 0) || (strcmp(argv[ArgIdx],"--help") == 0))
+      {
         PrintUsage();
-      if ((strcmp(argv[ArgIdx],"-k") == 0) || (strcmp(argv[ArgIdx],"--keepdate") == 0))
+        return(0);
+      }
+      else if ((strcmp(argv[ArgIdx],"-k") == 0) || (strcmp(argv[ArgIdx],"--keepdate") == 0))
         pFlag->KeepDate = 1;
-      if ((strcmp(argv[ArgIdx],"-f") == 0) || (strcmp(argv[ArgIdx],"--force") == 0))
+      else if ((strcmp(argv[ArgIdx],"-f") == 0) || (strcmp(argv[ArgIdx],"--force") == 0))
         pFlag->Force = 1;
-      if ((strcmp(argv[ArgIdx],"-q") == 0) || (strcmp(argv[ArgIdx],"--quiet") == 0))
+      else if ((strcmp(argv[ArgIdx],"-q") == 0) || (strcmp(argv[ArgIdx],"--quiet") == 0))
         pFlag->Quiet = 1;
-      if ((strcmp(argv[ArgIdx],"-l") == 0) || (strcmp(argv[ArgIdx],"--newline") == 0))
+      else if ((strcmp(argv[ArgIdx],"-l") == 0) || (strcmp(argv[ArgIdx],"--newline") == 0))
         pFlag->NewLine = 1;
-      if ((strcmp(argv[ArgIdx],"-V") == 0) || (strcmp(argv[ArgIdx],"--version") == 0))
+      else if ((strcmp(argv[ArgIdx],"-V") == 0) || (strcmp(argv[ArgIdx],"--version") == 0))
       {
         PrintVersion();
 #ifdef ENABLE_NLS
         PrintLocaledir(localedir);
 #endif
+        return(0);
       }
-      if ((strcmp(argv[ArgIdx],"-L") == 0) || (strcmp(argv[ArgIdx],"--license") == 0))
+      else if ((strcmp(argv[ArgIdx],"-L") == 0) || (strcmp(argv[ArgIdx],"--license") == 0))
+      {
         PrintLicense();
-
-      if ((strcmp(argv[ArgIdx],"-c") == 0) || (strcmp(argv[ArgIdx],"--convmode") == 0))
+        return(0);
+      }
+      else if ((strcmp(argv[ArgIdx],"-c") == 0) || (strcmp(argv[ArgIdx],"--convmode") == 0))
       {
         if (++ArgIdx < argc)
         {
@@ -874,7 +877,7 @@ int main (int argc, char *argv[])
         }
       }
 
-      if ((strcmp(argv[ArgIdx],"-o") == 0) || (strcmp(argv[ArgIdx],"--oldfile") == 0))
+      else if ((strcmp(argv[ArgIdx],"-o") == 0) || (strcmp(argv[ArgIdx],"--oldfile") == 0))
       {
         /* last convert not paired */
         if (!CanSwitchFileMode)
@@ -886,7 +889,7 @@ int main (int argc, char *argv[])
         pFlag->NewFile = 0;
       }
 
-      if ((strcmp(argv[ArgIdx],"-n") == 0) || (strcmp(argv[ArgIdx],"--newfile") == 0))
+      else if ((strcmp(argv[ArgIdx],"-n") == 0) || (strcmp(argv[ArgIdx],"--newfile") == 0))
       {
         /* last convert not paired */
         if (!CanSwitchFileMode)
@@ -897,9 +900,14 @@ int main (int argc, char *argv[])
         }
         pFlag->NewFile = 1;
       }
+      else { /* wrong option */
+        PrintUsage();
+        return(0);
+      }
     }
     else
     {
+      pFlag->stdio_mode = 0;
       /* not an option */
       if (pFlag->NewFile)
       {
@@ -953,6 +961,13 @@ int main (int argc, char *argv[])
       }
     }
   }
+
+  /* no file argument, use stdin and stdout */
+  if (pFlag->stdio_mode)
+  {
+    exit(ConvertDosToUnixStdio(pFlag));
+  }
+
 
   if ((!pFlag->Quiet) && (!CanSwitchFileMode))
   {

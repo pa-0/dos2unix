@@ -1,3 +1,8 @@
+2010-03-11 Erwin Waterlander <waterlan@xs4all.nl>
+	* Allow to set options in stdio mode.
+	* dos2unix: bugfix MAC mode: Don't change DOS line endings.
+	* Display help if a wrong option was used.
+
 2010-03-04 Erwin Waterlander <waterlan@xs4all.nl>
 	* Port to 16 bit DOS, using OpenWatcom.
 
