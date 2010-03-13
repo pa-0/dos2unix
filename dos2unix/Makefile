@@ -22,7 +22,10 @@ UNIX2DOS_BIN=$(UNIX2DOS)$(EXE)
 MAC2UNIX_BIN=$(MAC2UNIX)$(EXE)
 UNIX2MAC_BIN=$(UNIX2MAC)$(EXE)
 
+# DJGPP support linking of .EXEs via 'stubify'.
+# See djgpp.mak and http://www.delorie.com/djgpp/v2faq/faq22_5.html
 LINK = ln -sf
+LINK_MAN = $(LINK)
 
 prefix		= /usr
 exec_prefix	= $(prefix)
@@ -74,6 +77,7 @@ ifndef OS
 ifneq (, $(wildcard /cygdrive))
 	OS = cygwin
 	LINK = cp -f
+	LINK_MAN = cp -f
 endif
 endif
 
@@ -161,13 +165,13 @@ $(MAC2UNIX_BIN) : $(BIN)
 	$(LINK) $< $@
 
 $(MAC2UNIX).1 : $(PACKAGE).1
-	$(LINK) $< $@
+	$(LINK_MAN) $< $@
 
 $(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
 	$(LINK) $< $@
 
 $(UNIX2MAC).1 : $(UNIX2DOS).1
-	$(LINK) $< $@
+	$(LINK_MAN) $< $@
 
 
 mofiles: $(MOFILES)
