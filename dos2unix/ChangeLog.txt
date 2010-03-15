@@ -1,6 +1,7 @@
 2010-03-13 Erwin Waterlander <waterlan@xs4all.nl>
 	* DJGPP, dos32bit: Create 'stubs' for mac2unix and unix2mac.
 	  See also http://www.delorie.com/djgpp/v2faq/faq22_5.html
+	  Thanks to Rugxulo <rugxulo@gmail.com>
 
 2010-03-11 Erwin Waterlander <waterlan@xs4all.nl>
 	* Allow to set options in stdio mode.
