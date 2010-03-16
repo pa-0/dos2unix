@@ -41,6 +41,7 @@ History
 Translations
 
         Dutch           Erwin Waterlander <waterlan@xs4all.nl>
+        Esperanto       Rugxulo <rugxulo@gmail.com>
         German          Philipp Thomas <psmt@opensuse.org>
 
 

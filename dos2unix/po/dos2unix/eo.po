@@ -1,0 +1,175 @@
+# Esperanto translations for dos2unix package.
+# Copyright (C) 2010 THE dos'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the dos2unix package.
+# waterlan <waterlan@xs4all.nl>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dos 2unix\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-04 21:50+0100\n"
+"PO-Revision-Date: 2010-03-07 19:50+0100\n"
+"Last-Translator: Rugxulo <rugxulo@gmail.com>\n"
+"Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-3\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: dos2unix.c:163
+#, c-format
+msgid ""
+"dos2unix %s (%s)\n"
+"Usage: dos2unix [-fhkLlqV] [-c convmode] [-o file ...] [-n infile "
+"outfile ...]\n"
+" -c --convmode    conversion mode\n"
+"   convmode       ascii, 7bit, iso, mac, default to ascii\n"
+" -f --force       force conversion of all files\n"
+" -h --help        give this help\n"
+" -k --keepdate    keep output file date\n"
+" -L --license     display software license\n"
+" -l --newline     add additional newline\n"
+" -n --newfile     write to new file\n"
+"   infile         original file in new file mode\n"
+"   outfile        output file in new file mode\n"
+" -o --oldfile     write to old file\n"
+"   file ...       files to convert in old file mode\n"
+" -q --quiet       quiet mode, suppress all warnings\n"
+"                  always on in stdio mode\n"
+" -V --version     display version number\n"
+msgstr ""
+"dos2unix %s (%s)\n"
+"Uzado: dos2unix [-fhkLlqV] [-c sxangxmodo] [-o dosiero ...] [-n antauxajxo "
+"kreajxo ...]\n"
+" -c --convmode    modo de sxangxo\n"
+"   convmode       ascii, 7-a, iso, mac, provizore elektita ascii\n"
+" -f --force       forte sxangxi cxiujn dosierojn senhalte\n"
+" -h --help        diri cxi tiun mesagxon\n"
+" -k --keepdate    konservi dato-tempon dosieran\n"
+" -L --license     eldiru permesilon tekstan\n"
+" -l --newline     aldoni markon linian finan\n"
+" -n --newfile     registri novan dosieron\n"
+"   infile         al antauxa dosiero metita novmoden\n"
+"   outfile        al dosiero registrita novmoden\n"
+" -o --oldfile     registri malnovan dosieron\n"
+"   file...        dosiero(j)n por registri per malnova modo\n"
+" -q --quiet       silente eviti avertojn\n"
+"                  cxiam ensxaltata dum stdio modo\n"
+" -V --version     diri eldono-numeron\n"
+
+#: dos2unix.c:185
+#, c-format
+msgid ""
+"Copyright (c) 1994-1995 Benjamin Lin\n"
+"Copyright (c) 1998      Bernd Johannes Wuebben (Version 3.0)\n"
+"Copyright (c) 1998      Christian Wurll (Version 3.1)\n"
+"Copyright (c) 2009-2010 Erwin Waterlander\n"
+"All rights reserved.\n"
+"\n"
+"Redistribution and use in source and binary forms, with or without\n"
+"modification, are permitted provided that the following conditions\n"
+"are met:\n"
+"1. Redistributions of source code must retain the above copyright\n"
+"   notice, this list of conditions and the following disclaimer.\n"
+"2. Redistributions in binary form must reproduce the above copyright\n"
+"   notice in the documentation and/or other materials provided with\n"
+"   the distribution.\n"
+"\n"
+"THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n"
+"EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
+"IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR\n"
+"PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE\n"
+"FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR\n"
+"CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT\n"
+"OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR\n"
+"BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,\n"
+"WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE\n"
+"OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN\n"
+"IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+msgstr ""
+
+#: dos2unix.c:219
+#, c-format
+msgid "With native language support.\n"
+msgstr "Uzante denaskan lingvon sistemon.\n"
+
+#: dos2unix.c:311 dos2unix.c:334 dos2unix.c:357 dos2unix.c:381 dos2unix.c:398
+#, c-format
+msgid "dos2unix: can not write to output file\n"
+msgstr "dos2unix: ne povas registri dosieren\n"
+
+#: dos2unix.c:410
+#, c-format
+msgid "dos2unix: program error, invalid conversion mode %d\n"
+msgstr "dos2unix: programa eraro, negxustan sxangxmodon %d\n"
+
+#: dos2unix.c:524 dos2unix.c:649
+msgid "dos2unix: Failed to open temporary output file"
+msgstr "dos2unix: malsukcesis malfermi provizoran dosieron registran"
+
+#: dos2unix.c:529 dos2unix.c:659
+#, c-format
+msgid "dos2unix: using %s as temporary file\n"
+msgstr "dos2unix: uzante %s kiel provizora dosiero\n"
+
+#: dos2unix.c:597 dos2unix.c:720
+#, c-format
+msgid "dos2unix: problems renaming '%s' to '%s'\n"
+msgstr "dos2unix: problemojn trovitajn renomigi '%s' al '%s'\n"
+
+#: dos2unix.c:598 dos2unix.c:721
+#, c-format
+msgid "          output file remains in '%s'\n"
+msgstr "         kreatan dosieron restas en '%s'\n"
+
+#: dos2unix.c:785
+#, c-format
+msgid ""
+"dos2unix: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
+"long.\n"
+msgstr "dos2unix: eraro: DOS2UNIX_LOCALEDIR tro longigxis.\n"
+
+#: dos2unix.c:864
+#, c-format
+msgid "dos2unix: invalid %s conversion mode specified\n"
+msgstr "dos2unix: neuzebla %s sxangxmodo menciita\n"
+
+#: dos2unix.c:872
+#, c-format
+msgid "dos2unix: option '%s' requires an argument\n"
+msgstr "dos2unix: elekto '%s' bezonas elekto-vorton\n"
+
+#: dos2unix.c:883 dos2unix.c:895 dos2unix.c:959
+#, c-format
+msgid "dos2unix: target of file %s not specified in new file mode\n"
+msgstr "dos2unix: ejon de dosiero %s ne menciita en novmodo dosiera\n"
+
+#: dos2unix.c:914 dos2unix.c:938
+#, c-format
+msgid "dos2unix: Skipping %s, not a regular file.\n"
+msgstr "dos2unix: Pasante %s, dosiero ne taugxa.\n"
+
+#: dos2unix.c:918 dos2unix.c:942
+#, c-format
+msgid "dos2unix: Skipping binary file %s\n"
+msgstr "dos2unix: Pasante ne-tekstan dosieron %s\n"
+
+#: dos2unix.c:921
+#, c-format
+msgid "dos2unix: converting file %s to file %s in UNIX format ...\n"
+msgstr "dos2unix: sxangxante dosieron %s al dosiero %s UNIX-en ...\n"
+
+#: dos2unix.c:925
+#, c-format
+msgid "dos2unix: problems converting file %s to file %s\n"
+msgstr "dos2unix: problemojn trovitajn dum sxangxi dosiero %s al dosiero %s\n"
+
+#: dos2unix.c:945
+#, c-format
+msgid "dos2unix: converting file %s to UNIX format ...\n"
+msgstr "dos2unix: sxangxante dosiero %s UNIX-en ...\n"
+
+#: dos2unix.c:949
+#, c-format
+msgid "dos2unix: problems converting file %s\n"
+msgstr "dos2unix: problemojn dum sxangxi dosiero %s\n"
