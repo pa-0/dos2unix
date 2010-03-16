@@ -29,11 +29,13 @@ History
         other problems.  Internationalization has been added and ports to DOS,
         Windows, Cygwin and OS/2 Warp have been made. 
 
-        These implementations of dos2unix and unix2dos were originally made as
-        an Open Source alternative for dos2unix/unix2dos under SunOS/Solaris.
-        They have a few similar conversion modes, namely ascii, 7bit and iso.
-        The first versions were made by John Birchfield in 1989, and in 1995
-        rewritten from scratch by Benjamin Lin. 
+	These implementations of dos2unix and unix2dos were originally made as
+	an Open Source alternative for dos2unix/unix2dos under SunOS/Solaris.
+	They have a few similar conversion modes, namely ascii, 7bit and iso.
+	The first versions were made by John Birchfield in 1989, and in 1995
+	rewritten from scratch by Benjamin Lin. Mac to Unix conversion was
+	added by Bernd Johannes Wuebben in 1998, Unix to Mac conversion by
+	Erwin Waterlander in 2010.
 
 
 Translations
