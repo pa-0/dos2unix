@@ -39,29 +39,29 @@ msgid ""
 " -V --version     display version number\n"
 msgstr ""
 "unix2dos %s (%s)\n"
-"Uzado: unix2dos [-fhkLlqV] [-c ŝanĝmodo] [-o dosiero ...] [-n antaŭaĵo "
-"kreaĵo ...]\n"
-" -c --convmode    modo de ŝanĝo\n"
-"   ŝanĝmodo       ascii, 7bit, iso, mac, provizore elektita ascii\n"
-" -f --force       forte ŝanĝi ĉiujn dosierojn senhalte\n"
-" -h --help        diri ĉi tiun mesaĝon\n"
+"Uzado: unix2dos [-fhkLlqV] [-c sxangxmodo] [-o dosiero ...] [-n antauxajxo "
+"kreajxo ...]\n"
+" -c --convmode    modo de sxangxo\n"
+"   sxangxmodo     ascii, 7bit, iso, mac, provizore elektita ascii\n"
+" -f --force       forte sxangxi cxiujn dosierojn senhalte\n"
+" -h --help        diri cxi tiun mesagxon\n"
 " -k --keepdate    konservi dato-tempon dosieran\n"
 " -L --license     eldiru permesilon tekstan\n"
 " -l --newline     aldonu markon linian finan\n"
 " -n --newfile     registri novan dosieron\n"
-"   antaŭaĵo       al antaŭa dosiero metita novmoden\n"
-"   kreaĵo         al dosiero registrita novmoden\n"
+"   antauxajxo     al antauxa dosiero metita novmoden\n"
+"   kreajxo        al dosiero registrita novmoden\n"
 " -o --oldfile     registri malnovan dosieron\n"
-"   dosiero...     dosiero(j)n por registri per malnova modo\n"
+"   dosiero...        dosiero(j)n por registri per malnova modo\n"
 " -q --quiet       silente eviti avertojn\n"
-"                  ĉiam enŝaltata dum stdio modo\n"
+"                  cxiam ensxaltata dum stdio modo\n"
 " -V --version     diri eldono-numeron\n"
 
 #: unix2dos.c:175
 #, c-format
 msgid ""
-"Copyright (c) 1994-1995 Benjamin Lin\n"
-"Copyright (c) 2009-2010 Erwin Waterlander\n"
+"Copyright (C) 2009-2010 Erwin Waterlander\n"
+"Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
 "Redistribution and use in source and binary forms, with or without\n"
@@ -100,7 +100,7 @@ msgstr "unix2dos: ne povas registri dosieren\n"
 #: unix2dos.c:439
 #, c-format
 msgid "unix2dos: program error, invalid conversion mode %d\n"
-msgstr "unix2dos: programa eraro, neĝustan ŝanĝmodon %d\n"
+msgstr "unix2dos: programa eraro, negxustan sxangxmodon %d\n"
 
 #: unix2dos.c:553 unix2dos.c:678
 msgid "unix2dos: Failed to open temporary output file"
@@ -126,12 +126,12 @@ msgstr "         kreatan dosieron restas en '%s'\n"
 msgid ""
 "unix2dos: error: Value of environment variable UNIX2DOS_LOCALEDIR is too "
 "long.\n"
-msgstr "unix2dos: eraro: UNIX2DOS_LOCALEDIR tro longiĝis.\n"
+msgstr "unix2dos: eraro: UNIX2DOS_LOCALEDIR tro longigxis.\n"
 
 #: unix2dos.c:893
 #, c-format
 msgid "unix2dos: invalid %s conversion mode specified\n"
-msgstr "unix2dos: neuzebla %s ŝanĝmodo menciita\n"
+msgstr "unix2dos: neuzebla %s sxangxmodo menciita\n"
 
 #: unix2dos.c:901
 #, c-format
@@ -146,7 +146,7 @@ msgstr "unix2dos: ejon de dosiero %s ne menciita en novmodo dosiera\n"
 #: unix2dos.c:943 unix2dos.c:972
 #, c-format
 msgid "unix2dos: Skipping %s, not a regular file.\n"
-msgstr "unix2dos: Pasante %s, dosiero ne tauĝa.\n"
+msgstr "unix2dos: Pasante %s, dosiero ne taugxa.\n"
 
 #: unix2dos.c:947 unix2dos.c:976
 #, c-format
@@ -156,29 +156,29 @@ msgstr "unix2dos: Pasante ne-tekstan dosieron %s\n"
 #: unix2dos.c:952
 #, c-format
 msgid "unix2dos: converting file %s to file %s in MAC format ...\n"
-msgstr "unix2dos: ŝanĝante dosiero %s al dosiero %s MAC-en ...\n"
+msgstr "unix2dos: sxangxante dosiero %s al dosiero %s MAC-en ...\n"
 
 #: unix2dos.c:954
 #, c-format
 msgid "unix2dos: converting file %s to file %s in DOS format ...\n"
-msgstr "unix2dos: ŝanĝante dosiero %s al dosiero %s DOS-en ...\n"
+msgstr "unix2dos: sxangxante dosiero %s al dosiero %s DOS-en ...\n"
 
 #: unix2dos.c:959
 #, c-format
 msgid "unix2dos: problems converting file %s to file %s\n"
-msgstr "unix2dos: problemojn trovitajn dum ŝanĝi dosiero %s al dosiero %s\n"
+msgstr "unix2dos: problemojn trovitajn dum sxangxi dosiero %s al dosiero %s\n"
 
 #: unix2dos.c:981
 #, c-format
 msgid "unix2dos: converting file %s to MAC format ...\n"
-msgstr "unix2dos: ŝanĝante dosiero %s MAC-en ...\n"
+msgstr "unix2dos: sxangxante dosiero %s MAC-en ...\n"
 
 #: unix2dos.c:983
 #, c-format
 msgid "unix2dos: converting file %s to DOS format ...\n"
-msgstr "unix2dos: ŝanĝante dosiero %s DOS-en ...\n"
+msgstr "unix2dos: sxangxante dosiero %s DOS-en ...\n"
 
 #: unix2dos.c:988
 #, c-format
 msgid "unix2dos: problems converting file %s\n"
-msgstr "unix2dos: problemojn dum ŝanĝi %s\n"
+msgstr "unix2dos: problemojn dum sxangxi %s\n"

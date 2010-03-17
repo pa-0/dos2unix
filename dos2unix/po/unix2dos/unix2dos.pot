@@ -42,8 +42,8 @@ msgstr ""
 #: unix2dos.c:176
 #, c-format
 msgid ""
-"Copyright (c) 1994-1995 Benjamin Lin\n"
-"Copyright (c) 2009-2010 Erwin Waterlander\n"
+"Copyright (C) 2009-2010 Erwin Waterlander\n"
+"Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
 "Redistribution and use in source and binary forms, with or without\n"

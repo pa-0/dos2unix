@@ -4,8 +4,8 @@
  *    Convert lf ('\x0a') characters in a file to cr lf ('\x0d' '\x0a')
  *    combinations.
  *
- *  Copyright (c) 1994-1995 Benjamin Lin.
- *  Copyright (c) 2009-2010 Erwin Waterlander
+ *  Copyright (C) 2009-2010 Erwin Waterlander
+ *  Copyright (C) 1994-1995 Benjamin Lin.
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -174,8 +174,8 @@ Usage: unix2dos [-fhkLlqV] [-c convmode] [-o file ...] [-n infile outfile ...]\n
 void PrintLicense(void)
 {
   fprintf(stderr, _("\
-Copyright (c) 1994-1995 Benjamin Lin\n\
-Copyright (c) 2009-2010 Erwin Waterlander\n\
+Copyright (C) 2009-2010 Erwin Waterlander\n\
+Copyright (C) 1994-1995 Benjamin Lin\n\
 All rights reserved.\n\n\
 \
 Redistribution and use in source and binary forms, with or without\n\

@@ -3,10 +3,10 @@
  *  Documentation:
  *    Remove cr ('\x0d') characters from a file.
  * 
- *  Copyright (c) 1994-1995 Benjamin Lin.
- *  Copyright (c) 1998 Bernd Johannes Wuebben
- *  Copyright (c) 1998 Christian Wurll
- *  Copyright (c) 2009-2010 Erwin Waterlander
+ *  Copyright (C) 2009-2010 Erwin Waterlander
+ *  Copyright (C) 1998 Christian Wurll
+ *  Copyright (C) 1998 Bernd Johannes Wuebben
+ *  Copyright (C) 1994-1995 Benjamin Lin.
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -184,10 +184,10 @@ Usage: dos2unix [-fhkLlqV] [-c convmode] [-o file ...] [-n infile outfile ...]\n
 void PrintLicense(void)
 {
   fprintf(stderr, _("\
-Copyright (c) 1994-1995 Benjamin Lin\n\
-Copyright (c) 1998      Bernd Johannes Wuebben (Version 3.0)\n\
-Copyright (c) 1998      Christian Wurll (Version 3.1)\n\
-Copyright (c) 2009-2010 Erwin Waterlander\n\
+Copyright (C) 2009-2010 Erwin Waterlander\n\
+Copyright (C) 1998      Christian Wurll (Version 3.1)\n\
+Copyright (C) 1998      Bernd Johannes Wuebben (Version 3.0)\n\
+Copyright (C) 1994-1995 Benjamin Lin\n\
 All rights reserved.\n\n\
 \
 Redistribution and use in source and binary forms, with or without\n\

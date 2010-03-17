@@ -2,8 +2,8 @@
 #define __DOS2UNIX_H
 
 /*
- *  Copyright (c) 1994, 1995 Benjamin Lin.
- *  Copyright (c) 2009 Erwin Waterlander
+ *  Copyright (C) 2009 Erwin Waterlander
+ *  Copyright (C) 1994, 1995 Benjamin Lin.
  *  All rights reserved.
  *
  *  This file is distributed under the same license as the dos2unix package.

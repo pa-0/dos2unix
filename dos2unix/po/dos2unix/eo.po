@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-04 21:50+0100\n"
 "PO-Revision-Date: 2010-03-07 19:50+0100\n"
-"Last-Translator: Rugxulo <rugxulo@gmail.com>\n"
+"Last-Translator: Ruĝulo <rugxulo@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,31 +39,31 @@ msgid ""
 " -V --version     display version number\n"
 msgstr ""
 "dos2unix %s (%s)\n"
-"Uzado: dos2unix [-fhkLlqV] [-c sxangxmodo] [-o dosiero ...] [-n antauxajxo "
-"kreajxo ...]\n"
-" -c --convmode    modo de sxangxo\n"
-"   sxangxmodo     ascii, 7bit, iso, mac, provizore elektita ascii\n"
-" -f --force       forte sxangxi cxiujn dosierojn senhalte\n"
-" -h --help        diri cxi tiun mesagxon\n"
+"Uzado: dos2unix [-fhkLlqV] [-c ŝanĝmodo] [-o dosiero ...] [-n antaŭaĵo "
+"kreaĵo ...]\n"
+" -c --convmode    modo de ŝanĝo\n"
+"   ŝanĝmodo       ascii, 7bit, iso, mac, provizore elektita ascii\n"
+" -f --force       forte ŝanĝi ĉiujn dosierojn senhalte\n"
+" -h --help        diri ĉi tiun mesaĝon\n"
 " -k --keepdate    konservi dato-tempon dosieran\n"
 " -L --license     eldiru permesilon tekstan\n"
 " -l --newline     aldoni markon linian finan\n"
 " -n --newfile     registri novan dosieron\n"
-"   antauxajxo     al antauxa dosiero metita novmoden\n"
-"   kreajxo        al dosiero registrita novmoden\n"
+"   antaŭaĵo       al antaŭa dosiero metita novmoden\n"
+"   kreaĵo         al dosiero registrita novmoden\n"
 " -o --oldfile     registri malnovan dosieron\n"
 "   dosiero...     dosiero(j)n por registri per malnova modo\n"
 " -q --quiet       silente eviti avertojn\n"
-"                  cxiam ensxaltata dum stdio modo\n"
+"                  ĉiam enŝaltata dum stdio modo\n"
 " -V --version     diri eldono-numeron\n"
 
 #: dos2unix.c:185
 #, c-format
 msgid ""
-"Copyright (c) 1994-1995 Benjamin Lin\n"
-"Copyright (c) 1998      Bernd Johannes Wuebben (Version 3.0)\n"
-"Copyright (c) 1998      Christian Wurll (Version 3.1)\n"
-"Copyright (c) 2009-2010 Erwin Waterlander\n"
+"Copyright (C) 2009-2010 Erwin Waterlander\n"
+"Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
+"Copyright (C) 1998      Bernd Johannes Wuebben (Version 3.0)\n"
+"Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
 "Redistribution and use in source and binary forms, with or without\n"
@@ -101,7 +101,7 @@ msgstr "dos2unix: ne povas registri dosieren\n"
 #: dos2unix.c:410
 #, c-format
 msgid "dos2unix: program error, invalid conversion mode %d\n"
-msgstr "dos2unix: programa eraro, negxustan sxangxmodon %d\n"
+msgstr "dos2unix: programa eraro, neĝustan ŝanĝmodon %d\n"
 
 #: dos2unix.c:524 dos2unix.c:649
 msgid "dos2unix: Failed to open temporary output file"
@@ -127,12 +127,12 @@ msgstr "         kreatan dosieron restas en '%s'\n"
 msgid ""
 "dos2unix: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
 "long.\n"
-msgstr "dos2unix: eraro: DOS2UNIX_LOCALEDIR tro longigxis.\n"
+msgstr "dos2unix: eraro: DOS2UNIX_LOCALEDIR tro longiĝis.\n"
 
 #: dos2unix.c:864
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
-msgstr "dos2unix: neuzebla %s sxangxmodo menciita\n"
+msgstr "dos2unix: neuzebla %s ŝanĝmodo menciita\n"
 
 #: dos2unix.c:872
 #, c-format
@@ -147,7 +147,7 @@ msgstr "dos2unix: ejon de dosiero %s ne menciita en novmodo dosiera\n"
 #: dos2unix.c:914 dos2unix.c:938
 #, c-format
 msgid "dos2unix: Skipping %s, not a regular file.\n"
-msgstr "dos2unix: Pasante %s, dosiero ne taugxa.\n"
+msgstr "dos2unix: Pasante %s, dosiero ne tauĝa.\n"
 
 #: dos2unix.c:918 dos2unix.c:942
 #, c-format
@@ -157,19 +157,19 @@ msgstr "dos2unix: Pasante ne-tekstan dosieron %s\n"
 #: dos2unix.c:921
 #, c-format
 msgid "dos2unix: converting file %s to file %s in UNIX format ...\n"
-msgstr "dos2unix: sxangxante dosieron %s al dosiero %s UNIX-en ...\n"
+msgstr "dos2unix: ŝanĝante dosieron %s al dosiero %s UNIX-en ...\n"
 
 #: dos2unix.c:925
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
-msgstr "dos2unix: problemojn trovitajn dum sxangxi dosiero %s al dosiero %s\n"
+msgstr "dos2unix: problemojn trovitajn dum ŝanĝi dosiero %s al dosiero %s\n"
 
 #: dos2unix.c:945
 #, c-format
 msgid "dos2unix: converting file %s to UNIX format ...\n"
-msgstr "dos2unix: sxangxante dosiero %s UNIX-en ...\n"
+msgstr "dos2unix: ŝanĝante dosiero %s UNIX-en ...\n"
 
 #: dos2unix.c:949
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
-msgstr "dos2unix: problemojn dum sxangxi dosiero %s\n"
+msgstr "dos2unix: problemojn dum ŝanĝi dosiero %s\n"
