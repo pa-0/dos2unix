@@ -1,3 +1,6 @@
+2010-03-17 Erwin Waterlander <waterlan@xs4all.nl>
+	* Add localization information to manual.
+
 2010-03-16 Rugxulo <rugxulo@gmail.com>
 	* Added Esperanto translation.
 

@@ -218,6 +218,74 @@ Convert and replace b.txt. Convert d.txt and write to f.txt.
 .IP
 .B dos2unix \-n c.txt e.txt \-o a.txt b.txt \-n d.txt f.txt
 
+.SH "LOCALIZATION"
+
+
+.TP 4
+.I LANG
+The primary language is selected with the environment variable LANG. The LANG
+variable consists out of several parts.  The first part is in small letters the
+language code. The second is optional and is the country code in capital
+letters, preceded with an underscore. There is also an optional third part:
+character encoding, preceded with a dot. A few examples for POSIX standard type
+shells:
+
+export LANG=nl               Dutch
+.br
+export LANG=nl_NL            Dutch, The Netherlands
+.br
+export LANG=nl_BE            Dutch, Belgium
+.br
+export LANG=es_ES            Spanish, Spain
+.br
+export LANG=es_MX            Spanish, Mexico
+.br
+export LANG=en_US.iso88591   English, USA, Latin-1 encoding
+.br
+export LANG=en_GB.UTF-8      English, UK, UTF-8 encoding
+
+For a complete list of language and country codes see the gettext manual:
+.br
+.nf
+http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes
+
+.fi
+On Unix systems you can use to command locale(1) to get locale specific
+information.
+
+.TP 4
+.I LANGUAGE
+With the LANGUAGE environment variable you can specify a priority list of
+languages, separated by colons. Wcd gives preference to LANGUAGE over LANG.
+For instance, first Dutch and then German: LANGUAGE=nl:de. You have to first
+enable localization, by setting LANG (or LC_ALL) to a value other than
+"C", before you can use a language priority list through the LANGUAGE
+variable. See also the gettext manual:
+.br
+.nf
+http://www.gnu.org/software/gettext/manual/gettext.html#The-LANGUAGE-variable
+.fi
+
+For Esperanto there is a special language file in x-method format. X-method can
+be used on systems that don't support Latin-3 or Unicode character encoding.
+Make LANGUAGE equal to "eo-x:eo".
+
+If you select a language which is not available you will get the
+standard English messages.
+
+.TP 4
+.I DOS2UNIX_LOCALEDIR
+With the environment variable DOS2UNIX_LOCALEDIR the LOCALEDIR set during
+compilation can be overruled. LOCALEDIR is used to find the language files. The
+GNU default value is /usr/local/share/locale. Option "-V" will display the
+LOCALEDIR that is used.
+
+Example (windows cmd):
+
+set DOS2UNIX_LOCALEDIR=c:/my_prefix/share/locale
+
+
+
 .SH "AUTHORS"
 
 Benjamin Lin \- <blin@socs.uts.edu.au>
