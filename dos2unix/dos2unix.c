@@ -2,6 +2,10 @@
  *  Name: dos2unix
  *  Documentation:
  *    Remove cr ('\x0d') characters from a file.
+ *
+ *  The dos2unix package is distributed under FreeBSD style license.
+ *  See also http://www.freebsd.org/copyright/freebsd-license.html
+ *  --------
  * 
  *  Copyright (C) 2009-2010 Erwin Waterlander
  *  Copyright (C) 1998 Christian Wurll

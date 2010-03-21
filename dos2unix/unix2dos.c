@@ -4,6 +4,10 @@
  *    Convert lf ('\x0a') characters in a file to cr lf ('\x0d' '\x0a')
  *    combinations.
  *
+ *  The dos2unix package is distributed under FreeBSD style license.
+ *  See also http://www.freebsd.org/copyright/freebsd-license.html
+ *  --------
+ * 
  *  Copyright (C) 2009-2010 Erwin Waterlander
  *  Copyright (C) 1994-1995 Benjamin Lin.
  *  All rights reserved.
