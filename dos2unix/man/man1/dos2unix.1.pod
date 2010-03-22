@@ -1,16 +1,13 @@
-
 =pod
 
 =head1 NAME
 
 dos2unix - DOS/MAC to UNIX and vice versa text file format converter
 
-
 =head1 SYNOPSIS
 
     dos2unix [options] [-c CONVMODE] [-o FILE ...] [-n INFILE OUTFILE ...]
     unix2dos [options] [-c CONVMODE] [-o FILE ...] [-n INFILE OUTFILE ...]
-
 
 =head1 DESCRIPTION
 
@@ -35,7 +32,7 @@ Return character. Mac OS X is Unix based and has the same line endings as Unix.
 =item B<-c, --convmode CONVMODE>
 
 Set conversion mode. Where CONVMODE is one of:
-B<ascii>, B<7bit>, B<iso>, B<mac>
+I<ascii>, I<7bit>, I<iso>, I<mac>
 with ascii being the default.
 
 =item B<-f, --force>
@@ -88,7 +85,7 @@ Display version information.
 
 =head1 CONVERSION MODES
 
-Conversion modes C<ascii>, C<7bit>, and C<iso>
+Conversion modes I<ascii>, I<7bit>, and I<iso>
 are similar to those of dos2unix/unix2dos under SunOS/Solaris.
 
 =over 4
@@ -244,7 +241,6 @@ Convert and replace b.txt. Convert d.txt and write to f.txt.
 
 =head1 LOCALIZATION
 
-
 =over 4
 
 =item B<LANG>
@@ -274,7 +270,7 @@ information.
 
 With the LANGUAGE environment variable you can specify a priority list of
 languages, separated by colons. Wcd gives preference to LANGUAGE over LANG.
-For instance, first Dutch and then German: LANGUAGE=nl:de. You have to first
+For instance, first Dutch and then German: C<LANGUAGE=nl:de>. You have to first
 enable localization, by setting LANG (or LC_ALL) to a value other than
 "C", before you can use a language priority list through the LANGUAGE
 variable. See also the gettext manual:
@@ -291,7 +287,7 @@ standard English messages.
 
 With the environment variable DOS2UNIX_LOCALEDIR the LOCALEDIR set during
 compilation can be overruled. LOCALEDIR is used to find the language files. The
-GNU default value is /usr/local/share/locale. Option "-V" will display the
+GNU default value is C</usr/local/share/locale>. Option "-V" will display the
 LOCALEDIR that is used.
 
 Example (windows cmd):
@@ -318,3 +314,4 @@ Freshmeat: L<http://freshmeat.net/projects/dos2unix>
 
 iconv(1)
 
+=cut
