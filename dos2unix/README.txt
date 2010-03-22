@@ -1,7 +1,5 @@
 
-dos2unix - DOS/MAC to UNIX text file format converter.
-
-unix2dos - UNIX to DOS/MAC text file format converter.
+dos2unix - DOS/MAC to UNIX and vice versa text file format converter.
 
 
 File list
@@ -15,9 +13,7 @@ File list
         dos2unix.txt    : Dos2unix manual, text format.
         dos2unix.ps     : Dos2unix manual, PostScript format.
         dos2unix.pdf    : Dos2unix manual, PDF format.
-        unix2dos.txt    : Unix2dos manual, text format.
-        unix2dos.ps     : Unix2dos manual, PostScript format.
-        unix2dos.pdf    : Unix2dos manual, PDF format.
+        dos2unix.html   : Dos2unix manual, HTML format.
 
 
 History

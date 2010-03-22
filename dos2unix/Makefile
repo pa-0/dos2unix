@@ -50,7 +50,7 @@ UNIX2DOS_POFILES	= $(wildcard po/unix2dos/*.po)
 UNIX2DOS_MOFILES	= $(patsubst %.po,%.mo,$(UNIX2DOS_POFILES))
 MOFILES			= $(DOS2UNIX_MOFILES) $(UNIX2DOS_MOFILES)
 endif
-DOCFILES	= $(PACKAGE).txt $(PACKAGE).ps $(PACKAGE).pdf $(PACKAGE).html $(UNIX2DOS).txt $(UNIX2DOS).ps $(UNIX2DOS).pdf
+DOCFILES	= $(PACKAGE).txt $(PACKAGE).ps $(PACKAGE).pdf $(PACKAGE).html
 INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt $(DOCFILES)
 
 # On some systems (e.g. FreeBSD 4.10) GNU install is installed as `ginstall'.
@@ -147,7 +147,7 @@ DEFS		= $(EXTRA_DEFS)
 # .......................................................... targets ...
 
 
-all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) man/man1/$(MAC2UNIX).1 $(UNIX2MAC).1 $(DOCFILES) $(MOFILES)
+all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES)
 
 dos2unix.o : dos2unix.c
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
@@ -167,15 +167,8 @@ $(MAC2UNIX_BIN) : $(BIN)
 man/man1/dos2unix.1 : man/man1/dos2unix.1.pod
 	$(MAKE) -C man/man1
 
-man/man1/$(MAC2UNIX).1 : man/man1/$(PACKAGE).1
-	cd man/man1 ; $(LINK_MAN) $(PACKAGE).1 $(MAC2UNIX).1
-
 $(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
 	$(LINK) $< $@
-
-$(UNIX2MAC).1 : $(UNIX2DOS).1
-	$(LINK_MAN) $< $@
-
 
 mofiles: $(MOFILES)
 
@@ -203,13 +196,7 @@ $(UNIX2DOS_POT) : unix2dos.c
 %.txt : man/man1/%.1.pod
 	LC_CTYPE=C pod2text $< > $@
 
-%.txt : %.1
-	LC_ALL=C nroff -man -c $< | col -bx > $@
-
 %.ps : man/man1/%.1
-	groff -man $< -T ps > $@
-
-%.ps : %.1
 	groff -man $< -T ps > $@
 
 %.pdf: %.ps
@@ -231,9 +218,15 @@ else
 endif
 	$(MKDIR) -p -m 755 $(DESTDIR)$(man1dir)
 	$(INSTALL)  -m 644 man/man1/$(PACKAGE).1 $(DESTDIR)$(man1dir)
-	$(INSTALL)  -m 644 man/man1/$(MAC2UNIX).1 $(DESTDIR)$(man1dir)
-	$(INSTALL)  -m 644 $(UNIX2DOS).1 $(DESTDIR)$(man1dir)
-	$(INSTALL)  -m 644 $(UNIX2MAC).1 $(DESTDIR)$(man1dir)
+ifeq ($(LINK_MAN),cp -f)
+	$(INSTALL)  -m 644 man/man1/$(PACKAGE).1 $(DESTDIR)$(man1dir)/$(MAC2UNIX).1
+	$(INSTALL)  -m 644 man/man1/$(PACKAGE).1 $(DESTDIR)$(man1dir)/$(UNIX2DOS).1
+	$(INSTALL)  -m 644 man/man1/$(PACKAGE).1 $(DESTDIR)$(man1dir)/$(UNIX2MAC).1
+else
+	cd $(DESTDIR)$(man1dir); $(LINK_MAN) $(PACKAGE).1 $(MAC2UNIX).1
+	cd $(DESTDIR)$(man1dir); $(LINK_MAN) $(PACKAGE).1 $(UNIX2DOS).1
+	cd $(DESTDIR)$(man1dir); $(LINK_MAN) $(PACKAGE).1 $(UNIX2MAC).1
+endif
 ifdef ENABLE_NLS
 	@echo "-- install-mo"
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)

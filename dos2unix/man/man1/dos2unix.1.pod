@@ -9,13 +9,15 @@ dos2unix - DOS/MAC to UNIX and vice versa text file format converter
 =head1 SYNOPSIS
 
     dos2unix [options] [-c CONVMODE] [-o FILE ...] [-n INFILE OUTFILE ...]
+    unix2dos [options] [-c CONVMODE] [-o FILE ...] [-n INFILE OUTFILE ...]
 
 
 =head1 DESCRIPTION
 
-Dos2unix converts plain text files in DOS/MAC format to UNIX format.
-Binary files and non-regular files, such as soft links,
-are automatically skipped, unless conversion is forced.
+The Dos2unix package includes utilities C<dos2unix> and C<unix2dos> to convert
+plain text files in DOS or MAC format to UNIX format and vice versa.  Binary files
+and non-regular files, such as soft links, are automatically skipped, unless
+conversion is forced.
 
 Dos2unix has a few conversion modes similar to dos2unix under SunOS/Solaris.
 
@@ -55,9 +57,13 @@ Display software license.
 =item B<-l, --newline>
 
 Add additional newline.
-Only DOS line endings are changed to two Unix line endings.
+
+B<dos2unix>: Only DOS line endings are changed to two Unix line endings.
 In Mac mode only Mac line endings are changed to two Unix
 line endings.
+
+B<unix2dos>: Only Unix line endings are changed to two DOS line endings.
+In Mac mode Unix line endings are changed to two Mac line endings.
 
 =item B<-n, --newfile INFILE OUTFILE ...>
 
@@ -89,30 +95,39 @@ are similar to those of dos2unix/unix2dos under SunOS/Solaris.
 
 =item B<ascii>
 
-In this mode DOS line endings are converted to Unix line endings.
+B<dos2unix>: In this mode DOS line endings are converted to Unix line endings.
 Unix and Mac line endings are not changed.
+
+B<unix2dos>: In this mode Unix line endings are converted to DOS line endings.
+DOS and Mac line endings are not changed.
 
 Although the name of this mode is ASCII, which is a 7 bit standard,
 the actual mode is 8 bit.
 
 =item B<mac>
 
-In this mode Mac line endings are converted to Unix line endings.
-DOS and Unix line endigs are not changed.
+B<dos2unix>: In this mode Mac line endings are converted to Unix line endings.
+DOS and Unix line endigs are not changed. You can also use the command C<mac2unix> to
+run dos2unix in Mac mode.
+
+B<unix2dos>: In this mode Unix line endings are converted to Mac line endings.
+DOS and Mac line endigs are not changed. You can also use the command C<unix2mac> to
+run unix2dos in Mac mode.
 
 =item B<7bit>
 
-In this mode DOS line endings are converted to Unix line endings.
+In this mode DOS line endings are converted to Unix line endings or vice versa.
 All 8 bit non-ASCII characters (with values from 128 to 255) are converted
 to a space.
 
 =item B<iso>
 
-In this mode DOS line endings are converted to Unix line endings.  Characters
-are converted from DOS character set (code page) CP437 to ISO character set
-ISO-8859-1. CP437 characters without ISO-8859-1 equivalent, for which
-conversion is not possible, are converted to a dot.  CP437 is mainly used in
-the USA. In Western Europe CP850 is more standard.
+In this mode DOS line endings are converted to Unix line endings or vice versa.
+Characters are converted between the DOS character set (code page) CP437 and ISO
+character set ISO-8859-1 on Unix. CP437 characters without ISO-8859-1
+equivalent, for which conversion is not possible, are converted to a dot. The
+same counts for ISO-8859-1 characters without CP437 counterpart. CP437 is
+mainly used in the USA. In Western Europe CP850 is more standard.
 
 Another option to convert text files between different encodings is to use
 dos2unix in combination with iconv(1). Iconv can convert between a long list of
@@ -137,6 +152,26 @@ Convert from Windows WinLatin1 to Unix UTF-8 (Unicode)
 Convert from Windows UTF-16 (Unicode) to Unix UTF-8 (Unicode)
 
     iconv -f UTF-16 -t UTF-8 in.txt | dos2unix > out.txt
+
+Convert from Unix Latin-1 to DOS DOSLatinUS
+
+    unix2dos < in.txt | iconv -f ISO-8859-1 -t CP437 > out.txt
+
+Convert from Unix Latin-1 to DOS DOSLatin1
+
+    unix2dos < in.txt | iconv -f ISO-8859-1 -t CP850 > out.txt
+
+Convert from Unix Latin-1 to Windows WinLatin1
+
+    unix2dos < in.txt | iconv -f ISO-8859-1 -t CP1252 > out.txt
+
+Convert from Unix UTF-8 (Unicode) to Windows WinLatin1
+
+    unix2dos < in.txt | iconv -f UTF-8 -t CP1252 in.txt > out.txt
+
+Convert from Unix UTF-8 (Unicode) to Windows UTF-16 (Unicode)
+
+    unix2dos < in.txt | iconv -f UTF-8 -t UTF-16 > out.txt
 
 See also L<http://czyborra.com/charsets/codepages.html>
 and L<http://czyborra.com/charsets/iso8859.html>.
@@ -178,6 +213,11 @@ Convert a.txt from Mac to Unix format.
 
     dos2unix -c mac a.txt
     mac2unix a.txt
+
+Convert a.txt from Unix to Mac format.
+
+    unix2dos -c mac a.txt
+    unix2mac a.txt
 
 Convert and replace a.txt while keeping original date stamp.
 
@@ -276,6 +316,5 @@ Freshmeat: L<http://freshmeat.net/projects/dos2unix>
 
 =head1 SEE ALSO
 
-unix2dos(1), mac2unix(1), iconv(1)
-
+iconv(1)
 
