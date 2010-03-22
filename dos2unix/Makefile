@@ -50,7 +50,7 @@ UNIX2DOS_POFILES	= $(wildcard po/unix2dos/*.po)
 UNIX2DOS_MOFILES	= $(patsubst %.po,%.mo,$(UNIX2DOS_POFILES))
 MOFILES			= $(DOS2UNIX_MOFILES) $(UNIX2DOS_MOFILES)
 endif
-DOCFILES	= $(PACKAGE).txt $(PACKAGE).ps $(PACKAGE).pdf $(UNIX2DOS).txt $(UNIX2DOS).ps $(UNIX2DOS).pdf
+DOCFILES	= $(PACKAGE).txt $(PACKAGE).ps $(PACKAGE).pdf $(PACKAGE).html $(UNIX2DOS).txt $(UNIX2DOS).ps $(UNIX2DOS).pdf
 INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt $(DOCFILES)
 
 # On some systems (e.g. FreeBSD 4.10) GNU install is installed as `ginstall'.
@@ -147,7 +147,7 @@ DEFS		= $(EXTRA_DEFS)
 # .......................................................... targets ...
 
 
-all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(MAC2UNIX).1 $(UNIX2MAC).1 $(DOCFILES) $(MOFILES)
+all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) man/man1/$(MAC2UNIX).1 $(UNIX2MAC).1 $(DOCFILES) $(MOFILES)
 
 dos2unix.o : dos2unix.c
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
@@ -164,8 +164,11 @@ $(UNIX2DOS_BIN): unix2dos.o
 $(MAC2UNIX_BIN) : $(BIN)
 	$(LINK) $< $@
 
-$(MAC2UNIX).1 : $(PACKAGE).1
-	$(LINK_MAN) $< $@
+man/man1/dos2unix.1 : man/man1/dos2unix.1.pod
+	$(MAKE) -C man/man1
+
+man/man1/$(MAC2UNIX).1 : man/man1/$(PACKAGE).1
+	cd man/man1 ; $(LINK_MAN) $(PACKAGE).1 $(MAC2UNIX).1
 
 $(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
 	$(LINK) $< $@
@@ -197,14 +200,23 @@ $(DOS2UNIX_POT) : dos2unix.c
 $(UNIX2DOS_POT) : unix2dos.c
 	xgettext -C --keyword=_ $+ -o $(UNIX2DOS_POT)
 
+%.txt : man/man1/%.1.pod
+	LC_CTYPE=C pod2text $< > $@
+
 %.txt : %.1
 	LC_ALL=C nroff -man -c $< | col -bx > $@
+
+%.ps : man/man1/%.1
+	groff -man $< -T ps > $@
 
 %.ps : %.1
 	groff -man $< -T ps > $@
 
 %.pdf: %.ps
 	ps2pdf $< $@
+
+%.html : man/man1/%.1.pod
+	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
 
 install: all
 	$(MKDIR) -p -m 755 $(DESTDIR)$(bindir)
@@ -218,8 +230,8 @@ else
 	cd $(DESTDIR)$(bindir); $(LINK) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN)
 endif
 	$(MKDIR) -p -m 755 $(DESTDIR)$(man1dir)
-	$(INSTALL)  -m 644 $(PACKAGE).1 $(DESTDIR)$(man1dir)
-	$(INSTALL)  -m 644 $(MAC2UNIX).1 $(DESTDIR)$(man1dir)
+	$(INSTALL)  -m 644 man/man1/$(PACKAGE).1 $(DESTDIR)$(man1dir)
+	$(INSTALL)  -m 644 man/man1/$(MAC2UNIX).1 $(DESTDIR)$(man1dir)
 	$(INSTALL)  -m 644 $(UNIX2DOS).1 $(DESTDIR)$(man1dir)
 	$(INSTALL)  -m 644 $(UNIX2MAC).1 $(DESTDIR)$(man1dir)
 ifdef ENABLE_NLS
@@ -257,6 +269,7 @@ clean:
 maintainer-clean: clean
 	rm -f $(DOCFILES)
 	rm -f $(MOFILES)
+	rm -f man/man1/*.1
 
 realclean: maintainer-clean
 
