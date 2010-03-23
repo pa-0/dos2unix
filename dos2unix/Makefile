@@ -255,9 +255,10 @@ endif
 
 clean:
 	rm -f *.o
-	rm -f $(BIN) $(UNIX2DOS_BIN) $(MAC2UNIX_BIN) $(UNIX2MAC_BIN) $(MAC2UNIX).1 $(UNIX2MAC).1
+	rm -f $(BIN) $(UNIX2DOS_BIN) $(MAC2UNIX_BIN) $(UNIX2MAC_BIN)
 	rm -f *.bak *~
-	rm -f */*.bak */*~
+	rm -f man/man1/*.bak man/man1/*~
+	rm -f po/*/*.bak po/*/*~
 
 maintainer-clean: clean
 	rm -f $(DOCFILES)
