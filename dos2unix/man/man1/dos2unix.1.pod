@@ -269,7 +269,7 @@ information.
 =item B<LANGUAGE>
 
 With the LANGUAGE environment variable you can specify a priority list of
-languages, separated by colons. Wcd gives preference to LANGUAGE over LANG.
+languages, separated by colons. Dos2unix gives preference to LANGUAGE over LANG.
 For instance, first Dutch and then German: C<LANGUAGE=nl:de>. You have to first
 enable localization, by setting LANG (or LC_ALL) to a value other than
 "C", before you can use a language priority list through the LANGUAGE
