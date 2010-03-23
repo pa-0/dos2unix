@@ -1,3 +1,15 @@
+2010-0?-??: Version 5.1
+
+    Esperanto translations have been added.
+    Ports to 16 bit DOS have been made.
+    Command-line options can be set in stdio mode.
+    Bugfix dos2unix MAC mode: Don't change DOS line endings.
+    Create stubs for DOS32 versions of mac2unix and unix2mac.
+    Localization information has been added to the manual.
+    Man pages have been merged.
+    Man page generation from Perl POD file.
+
+
 2010-02-16: Version 5.0
 
     Dos2unix and Unix2dos have been bundled in a single package.
