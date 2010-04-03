@@ -1,6 +1,6 @@
 open sftp://waterlan,dos2unix@frs.sourceforge.net
 cd /home/frs/project/d/do/dos2unix/dos2unix
-mkdir 5.0
-cd 5.0
-mput dos2unix-5.0.tar.gz dos2unix-5.0-dos32.zip dos2unix-5.0-win32.zip dos2unix-5.0-cygwin1.5.tar.gz dos2unix-5.0-cygwin1.7.tar.gz
+mkdir 5.1
+cd 5.1
+mput dos2unix-5.1.tar.gz dos2unix-5.1-dos16.zip dos2unix-5.1-dos32.zip dos2unix-5.1-win32.zip dos2unix-5.1-cygwin1.5.tar.gz dos2unix-5.1-cygwin1.7.tar.gz
 exit

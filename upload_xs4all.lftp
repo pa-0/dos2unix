@@ -1,4 +1,4 @@
 open ftp://waterlan@ftp.xs4all.nl
 cd WWW/dos2unix
-mput dos2unix-5.0.tar.gz dos2unix-5.0-dos32.zip dos2unix-5.0-win32.zip dos2unix-5.0-cygwin1.5.tar.gz dos2unix-5.0-cygwin1.7.tar.gz
+mput dos2unix-5.1.tar.gz dos2unix-5.1-dos32.zip dos2unix-5.1-win32.zip dos2unix-5.1-cygwin1.5.tar.gz dos2unix-5.1-cygwin1.7.tar.gz
 exit

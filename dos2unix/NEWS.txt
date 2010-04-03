@@ -1,4 +1,4 @@
-2010-0?-??: Version 5.1
+2010-04-03: Version 5.1
 
     Esperanto translations have been added.
     Ports to 16 bit DOS have been made.
