@@ -276,7 +276,7 @@ ZIPOBJ	= bin/$(BIN) \
 	  share/man/man1/$(MAC2UNIX).1 \
 	  share/man/man1/$(UNIX2DOS).1 \
 	  share/man/man1/$(UNIX2MAC).1 \
-	  share/doc/$(PACKAGE)-$(DOS2UNIX_VERSION) \
+	  share/doc/$(docsubdir) \
 	  $(ZIPOBJ_EXTRA)
 
 ifdef ENABLE_NLS

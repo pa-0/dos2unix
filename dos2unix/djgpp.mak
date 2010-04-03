@@ -5,6 +5,7 @@
 
 prefix=c:/djgpp
 ENABLE_NLS=1
+VERSIONSUFFIX=-dos32
 
 ifdef ENABLE_NLS
 LDFLAGS_EXTRA = -lintl -liconv
@@ -24,7 +25,7 @@ clean:
 	$(MAKE) clean EXE=.exe ENABLE_NLS=$(ENABLE_NLS) prefix=$(prefix)
 
 dist:
-	$(MAKE) dist-zip EXE=.exe prefix=$(prefix) VERSIONSUFFIX="-dos32" ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" ENABLE_NLS=$(ENABLE_NLS)
+	$(MAKE) dist-zip EXE=.exe prefix=$(prefix) VERSIONSUFFIX="$(VERSIONSUFFIX)" ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" ENABLE_NLS=$(ENABLE_NLS)
 
 strip:
 	$(MAKE) strip LINK_MAN="cp -f" EXE=.exe
