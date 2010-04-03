@@ -24,6 +24,7 @@ dist:
 	rm -rf ../${RELEASE_DIR_DOS2UNIX}
 	svn export https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/trunk/dos2unix ../${RELEASE_DIR_DOS2UNIX}
 	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) mofiles docfiles
+	cd ../${RELEASE_DIR_DOS2UNIX} ; rm -f pod2*.tmp
 	sleep 2
 	cd ../${RELEASE_DIR_DOS2UNIX} ; touch po/*/*.pot
 	sleep 2
