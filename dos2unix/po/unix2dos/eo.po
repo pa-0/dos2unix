@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unix2dos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-21 22:29+0100\n"
+"POT-Creation-Date: 2010-04-04 08:09+0200\n"
 "PO-Revision-Date: 2010-03-07 19:52+0100\n"
 "Last-Translator: Ruĝulo <rugxulo@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -58,7 +58,6 @@ msgstr ""
 " -V --version     diri eldono-numeron\n"
 
 #: unix2dos.c:180
-#, c-format
 msgid ""
 "Copyright (C) 2009-2010 Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
@@ -87,13 +86,11 @@ msgid ""
 msgstr ""
 
 #: unix2dos.c:212
-#, c-format
 msgid "With native language support.\n"
 msgstr "Uzante denaskan lingvo-sistemon.\n"
 
 #: unix2dos.c:308 unix2dos.c:346 unix2dos.c:384 unix2dos.c:408 unix2dos.c:421
 #: unix2dos.c:432
-#, c-format
 msgid "unix2dos: can not write to output file\n"
 msgstr "unix2dos: ne povas registri dosieren\n"
 
@@ -122,7 +119,6 @@ msgid "          output file remains in '%s'\n"
 msgstr "         kreatan dosieron restas en '%s'\n"
 
 #: unix2dos.c:819
-#, c-format
 msgid ""
 "unix2dos: error: Value of environment variable UNIX2DOS_LOCALEDIR is too "
 "long.\n"

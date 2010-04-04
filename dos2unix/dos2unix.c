@@ -187,7 +187,7 @@ Usage: dos2unix [-fhkLlqV] [-c convmode] [-o file ...] [-n infile outfile ...]\n
 
 void PrintLicense(void)
 {
-  fprintf(stderr, _("\
+  fprintf(stderr, "%s", _("\
 Copyright (C) 2009-2010 Erwin Waterlander\n\
 Copyright (C) 1998      Christian Wurll (Version 3.1)\n\
 Copyright (C) 1998      Bernd Johannes Wuebben (Version 3.0)\n\
@@ -221,9 +221,9 @@ void PrintVersion(void)
 {
   fprintf(stderr, "dos2unix %s (%s)\n", VER_REVISION, VER_DATE);
 #ifdef ENABLE_NLS
-  fprintf(stderr, _("With native language support.\n"));
+  fprintf(stderr, "%s", _("With native language support.\n"));
 #else
-  fprintf(stderr, "Without native language support.\n");
+  fprintf(stderr, "%s", "Without native language support.\n");
 #endif
 #ifdef DEBUG
   fprintf(stderr, "VER_AUTHOR: %s\n", VER_AUTHOR);
@@ -313,7 +313,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
             if (putc(D2UAsciiTable[TempChar], ipOutF) == EOF) {
               RetVal = -1;
               if (!ipFlag->Quiet)
-                fprintf(stderr, _("dos2unix: can not write to output file\n"));
+                fprintf(stderr, "%s", _("dos2unix: can not write to output file\n"));
               break;
             } 
           } else {
@@ -336,7 +336,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
             if (putc(D2U7BitTable[TempChar], ipOutF) == EOF) {
               RetVal = -1;
               if (!ipFlag->Quiet)
-                fprintf(stderr, _("dos2unix: can not write to output file\n"));
+                fprintf(stderr, "%s", _("dos2unix: can not write to output file\n"));
               break;
             }
           } else {
@@ -359,7 +359,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
             if (putc(D2UIsoTable[TempChar], ipOutF) == EOF) {
               RetVal = -1;
               if (!ipFlag->Quiet)
-                fprintf(stderr, _("dos2unix: can not write to output file\n"));
+                fprintf(stderr, "%s", _("dos2unix: can not write to output file\n"));
               break;
             }
           } else {
@@ -383,7 +383,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
               if(putc(D2UAsciiTable[TempChar], ipOutF) == EOF){
                 RetVal = -1;
                 if (!ipFlag->Quiet)
-                  fprintf(stderr, _("dos2unix: can not write to output file\n"));
+                  fprintf(stderr, "%s", _("dos2unix: can not write to output file\n"));
                 break;
               }
             }
@@ -401,7 +401,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
               {
                 RetVal = -1;
                 if (!ipFlag->Quiet)
-                  fprintf(stderr, _("dos2unix: can not write to output file\n"));
+                  fprintf(stderr, "%s", _("dos2unix: can not write to output file\n"));
                 break;
               }
             if (ipFlag->NewLine) {  /* add additional LF? */
@@ -788,7 +788,7 @@ int main (int argc, char *argv[])
          strcpy(localedir,ptr);
       else
       {
-         fprintf(stderr,_("dos2unix: error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"));
+         fprintf(stderr, "%s", _("dos2unix: error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"));
          strcpy(localedir,LOCALEDIR);
       }
    }

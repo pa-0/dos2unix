@@ -177,7 +177,7 @@ Usage: unix2dos [-fhkLlqV] [-c convmode] [-o file ...] [-n infile outfile ...]\n
 
 void PrintLicense(void)
 {
-  fprintf(stderr, _("\
+  fprintf(stderr, "%s", _("\
 Copyright (C) 2009-2010 Erwin Waterlander\n\
 Copyright (C) 1994-1995 Benjamin Lin\n\
 All rights reserved.\n\n\
@@ -209,9 +209,9 @@ void PrintVersion(void)
 {
   fprintf(stderr, "unix2dos %s (%s)\n", VER_REVISION, VER_DATE);
 #ifdef ENABLE_NLS
-  fprintf(stderr, _("With native language support.\n"));
+  fprintf(stderr, "%s", _("With native language support.\n"));
 #else
-  fprintf(stderr, "Without native language support.\n");
+  fprintf(stderr, "%s", "Without native language support.\n");
 #endif
 #ifdef DEBUG
   fprintf(stderr, "VER_AUTHOR: %s\n", VER_AUTHOR);
@@ -305,7 +305,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
           {
               RetVal = -1;
               if (!ipFlag->Quiet)
-                fprintf(stderr, _("unix2dos: can not write to output file\n"));
+                fprintf(stderr, "%s", _("unix2dos: can not write to output file\n"));
               break;
           } else {
             AddDOSNewLine( ipOutF, ipFlag, TempChar, PreviousChar);
@@ -343,7 +343,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
           {
               RetVal = -1;
               if (!ipFlag->Quiet)
-                fprintf(stderr, _("unix2dos: can not write to output file\n"));
+                fprintf(stderr, "%s", _("unix2dos: can not write to output file\n"));
               break;
           } else {
             AddDOSNewLine( ipOutF, ipFlag, TempChar, PreviousChar);
@@ -381,7 +381,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
           {
               RetVal = -1;
               if (!ipFlag->Quiet)
-                fprintf(stderr, _("unix2dos: can not write to output file\n"));
+                fprintf(stderr, "%s", _("unix2dos: can not write to output file\n"));
               break;
           } else {
             AddDOSNewLine( ipOutF, ipFlag, TempChar, PreviousChar);
@@ -405,7 +405,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
               if(putc(U2DAsciiTable[TempChar], ipOutF) == EOF){
                 RetVal = -1;
                 if (!ipFlag->Quiet)
-                  fprintf(stderr, _("unix2dos: can not write to output file\n"));
+                  fprintf(stderr, "%s", _("unix2dos: can not write to output file\n"));
                 break;
               }
               PreviousChar = TempChar;
@@ -418,7 +418,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
                 {
                   RetVal = -1;
                   if (!ipFlag->Quiet)
-                    fprintf(stderr, _("unix2dos: can not write to output file\n"));
+                    fprintf(stderr, "%s", _("unix2dos: can not write to output file\n"));
                   break;
                 }
               PreviousChar = TempChar;
@@ -429,7 +429,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
               {
                 RetVal = -1;
                 if (!ipFlag->Quiet)
-                  fprintf(stderr, _("unix2dos: can not write to output file\n"));
+                  fprintf(stderr, "%s", _("unix2dos: can not write to output file\n"));
                 break;
               }
             if (ipFlag->NewLine) {  /* add additional CR? */
@@ -816,7 +816,7 @@ int main (int argc, char *argv[])
          strcpy(localedir,ptr);
       else
       {
-         fprintf(stderr,_("unix2dos: error: Value of environment variable UNIX2DOS_LOCALEDIR is too long.\n"));
+         fprintf(stderr, "%s", _("unix2dos: error: Value of environment variable UNIX2DOS_LOCALEDIR is too long.\n"));
          strcpy(localedir,LOCALEDIR);
       }
    }
