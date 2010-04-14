@@ -102,6 +102,15 @@ ifdef ENABLE_NLS
 endif
 endif
 
+ifeq (Darwin, $(shell uname -s))
+	OS = Darwin
+ifdef ENABLE_NLS
+	CFLAGS_OS     = -I/usr/local/include
+	LDFLAGS_EXTRA = -lintl -L/usr/local/lib
+endif
+endif
+
+
 ifndef OS
 ifneq (, $(wildcard /opt/csw))
 	OS = sun

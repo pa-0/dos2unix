@@ -1,5 +1,5 @@
-2010-04-04 Erwin Waterlander <waterlan@xs4all.nl>
-	* *.c: Fix compile warnings "format not a string literal and no format arguments".
+2010-04-14 Erwin Waterlander <waterlan@xs4all.nl>
+	* Fixed compilation on Darwin OS.
 
 2010-04-03 Erwin Waterlander <waterlan@xs4all.nl>
 	* version 5.1
