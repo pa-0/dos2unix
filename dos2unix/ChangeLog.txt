@@ -1,5 +1,5 @@
 2010-04-14 Erwin Waterlander <waterlan@xs4all.nl>
-	* Fixed compilation on Darwin OS.
+	* Fixed compilation on Darwin OS. Thanks to Marc Gianzero.
 
 2010-04-03 Erwin Waterlander <waterlan@xs4all.nl>
 	* version 5.1
