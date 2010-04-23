@@ -202,7 +202,7 @@ $(DOS2UNIX_POT) : dos2unix.c
 $(UNIX2DOS_POT) : unix2dos.c
 	xgettext -C --keyword=_ $+ -o $(UNIX2DOS_POT)
 
-%.txt : man/man1/%.1.pod
+%.txt : man/man1/%.pod
 	LC_CTYPE=C pod2text $< > $@
 
 %.ps : man/man1/%.1
@@ -211,7 +211,7 @@ $(UNIX2DOS_POT) : unix2dos.c
 %.pdf: %.ps
 	ps2pdf $< $@
 
-%.htm : man/man1/%.1.pod
+%.htm : man/man1/%.pod
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
 
 install: all
