@@ -50,7 +50,7 @@ UNIX2DOS_POFILES	= $(wildcard po/unix2dos/*.po)
 UNIX2DOS_MOFILES	= $(patsubst %.po,%.mo,$(UNIX2DOS_POFILES))
 MOFILES			= $(DOS2UNIX_MOFILES) $(UNIX2DOS_MOFILES)
 endif
-DOCFILES	= $(PACKAGE).txt $(PACKAGE).ps $(PACKAGE).pdf $(PACKAGE).html
+DOCFILES	= $(PACKAGE).txt $(PACKAGE).ps $(PACKAGE).pdf $(PACKAGE).htm
 INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt $(DOCFILES)
 
 # On some systems (e.g. FreeBSD 4.10) GNU install is installed as `ginstall'.
@@ -211,7 +211,7 @@ $(UNIX2DOS_POT) : unix2dos.c
 %.pdf: %.ps
 	ps2pdf $< $@
 
-%.html : man/man1/%.1.pod
+%.htm : man/man1/%.1.pod
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
 
 install: all

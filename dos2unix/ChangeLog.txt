@@ -1,3 +1,6 @@
+2010-04-22 Erwin Waterlander <waterlan@xs4all.nl>
+	* Support compilation in DOSBox (8.3 file names where needed).
+
 2010-04-14 Erwin Waterlander <waterlan@xs4all.nl>
 	* Fixed compilation on Darwin OS. Thanks to Marc Gianzero.
 

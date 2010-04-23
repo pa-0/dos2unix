@@ -13,7 +13,7 @@ File list
         dos2unix.txt    : Dos2unix manual, text format.
         dos2unix.ps     : Dos2unix manual, PostScript format.
         dos2unix.pdf    : Dos2unix manual, PDF format.
-        dos2unix.html   : Dos2unix manual, HTML format.
+        dos2unix.htm    : Dos2unix manual, HTML format.
 
 
 History
