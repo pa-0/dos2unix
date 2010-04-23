@@ -173,7 +173,7 @@ $(UNIX2DOS_BIN): unix2dos.o
 $(MAC2UNIX_BIN) : $(BIN)
 	$(LINK) $< $@
 
-man/man1/dos2unix.1 : man/man1/dos2unix.1.pod
+man/man1/dos2unix.1 : man/man1/dos2unix.pod
 	$(MAKE) -C man/man1
 
 $(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)

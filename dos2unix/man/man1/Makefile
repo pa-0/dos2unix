@@ -59,7 +59,7 @@ PODCENTER	?= $$(date "+%Y-%m-%d")
 MANSRC		=
 MANDEST		= $(MANSRC)
 
-MANPOD		= $(MANSRC)$(PACKAGE).$(MANSECT).pod
+MANPOD		= $(MANSRC)$(PACKAGE).pod
 MANPAGE		= $(MANDEST)$(PACKAGE).$(MANSECT)
 
 POD2MAN		= pod2man
