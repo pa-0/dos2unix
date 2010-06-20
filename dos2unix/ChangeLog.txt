@@ -1,3 +1,6 @@
+2010-06-20 Erwin Waterlander <waterlan@xs4all.nl>
+	* Don't ship po/*.mo files in source package.
+
 2010-04-22 Erwin Waterlander <waterlan@xs4all.nl>
 	* Support compilation in DOSBox (8.3 file names where needed).
 

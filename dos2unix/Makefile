@@ -189,9 +189,13 @@ merge: $(DOS2UNIX_POFILES)
 
 po/dos2unix/%.po : $(DOS2UNIX_POT)
 	msgmerge -U $@ $(DOS2UNIX_POT) --backup=numbered
+	# change timestamp in case .po file was not updated.
+	touch $@
 
 po/unix2dos/%.po : $(UNIX2DOS_POT)
 	msgmerge -U $@ $(UNIX2DOS_POT) --backup=numbered
+	# change timestamp in case .po file was not updated.
+	touch $@
 
 %.mo : %.po
 	msgfmt -c $< -o $@
@@ -268,10 +272,12 @@ clean:
 	rm -f *.bak *~
 	rm -f man/man1/*.bak man/man1/*~
 	rm -f po/*/*.bak po/*/*~
+	rm -f po/*/*.mo
 
-maintainer-clean: clean
+distclean: clean
+
+maintainer-clean: distclean
 	rm -f $(DOCFILES)
-	rm -f $(MOFILES)
 	rm -f man/man1/*.1
 
 realclean: maintainer-clean
