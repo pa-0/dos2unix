@@ -2,98 +2,99 @@
 
 =head1 NAME
 
-dos2unix - DOS/MAC to UNIX and vice versa text file format converter
+dos2unix - DOS/MAC naar UNIX en vice versa tekstbestand formaat omzetter
 
 =head1 SYNOPSIS
 
-    dos2unix [options] [-c CONVMODE] [-o FILE ...] [-n INFILE OUTFILE ...]
-    unix2dos [options] [-c CONVMODE] [-o FILE ...] [-n INFILE OUTFILE ...]
+    dos2unix [opties] [-c CONVMODUS] [-o BESTAND ...] [-n BESTAND-IN BESTAND-UIT ...]
+    unix2dos [opties] [-c CONVMODUS] [-o BESTAND ...] [-n BESTAND-IN BESTAND-UIT ...]
 
 =head1 DESCRIPTION
 
-The Dos2unix package includes utilities C<dos2unix> and C<unix2dos> to convert
-plain text files in DOS or MAC format to UNIX format and vice versa.  Binary files
-and non-regular files, such as soft links, are automatically skipped, unless
-conversion is forced.
+Het Dos2unix pakket bevat toepassingen C<dos2unix> en C<unix2dos> om 
+platte tekstbestanden in DOS of MAC formaat naar UNIX om te zetten en
+vice versa. Binaire bestanden en niet-reguliere bestanden, zoals
+snelkoppelingen, worden automatisch overgeslagen, behalve als de omzetting
+geforceerd wordt.
 
-Dos2unix has a few conversion modes similar to dos2unix under SunOS/Solaris.
+Dos2unix heeft een aantal conversiemodi gelijk aan dos2unix onder SunOS/Solaris.
 
-In DOS/Windows text files line endings exist out of a combination of two characters:
-a Carriage Return (CR) followed by a Line Feed (LF).
-In Unix text files line endings exists out of a single Newline character which
-is equal to a DOS Line Feed (LF) character.
-In Mac text files, prior to Mac OS X, line endings exist out of a single Carriage
-Return character. Mac OS X is Unix based and has the same line endings as Unix.
+In DOS/Windows tekstbestanden bestaat een regeleinde uit een combinatie van twee
+tekens: een 'Carriage Return' (CR) gevolgd door een 'Line Feed' (LF). In Unix
+tekstbestanden bestaat een regeleinde uit een enkel 'Newline' teken die gelijk is
+ann een DOS 'Line Feed' (LF) teken.
+In Mac tekst bestanden, voor Mac OS X, bestaan regeleindes uit een
+enkel 'Carriage Return' teken. Mac OS X is Unix gebaseerd en heeft dezelfde
+regeleindes als Unix. 
 
 =head1 OPTIONS
 
 =over 4
 
-=item B<-c, --convmode CONVMODE>
+=item B<-c, --convmode CONVMODUS>
 
-Set conversion mode. Where CONVMODE is one of:
+Stel conversiemodus in. Waarbij CONVMODUS een is van:
 I<ascii>, I<7bit>, I<iso>, I<mac>
-with ascii being the default.
+met ascii als standaard instelling.
 
 =item B<-f, --force>
 
-Force conversion of all files. Also binary files.
+Forceer omzetting van alle bestanden. Ook binaire bestanden.
 
 =item B<-h, --help>
 
-Display online help.
+Laat help tekst zien.
 
 =item B<-k, --keepdate>
 
-Keep the date stamp of output file same as input file.
+Behoud de datum van het invoerbestand in het uitvoerbestand.
 
 =item B<-L, --license>
 
-Display software license.
+Laat de software licentie zien.
 
 =item B<-l, --newline>
 
-Add additional newline.
+Voeg een extra regeleinde toe.
 
-B<dos2unix>: Only DOS line endings are changed to two Unix line endings.
-In Mac mode only Mac line endings are changed to two Unix
-line endings.
+B<dos2unix>: Alleen DOS regeleindes worden omgezet naar twee Unix regeleindes.
+In Mac modus worden alleen Mac regeleindes omgezet naar twee Unix regeleindes.
 
-B<unix2dos>: Only Unix line endings are changed to two DOS line endings.
-In Mac mode Unix line endings are changed to two Mac line endings.
+B<unix2dos>: Aleen Unix regeleindes worden omgezet naar twee DOS regeleindes.
+In Mac modus worden Unix regeleindes omgezet naar twee Mac regeleindes.
 
-=item B<-n, --newfile INFILE OUTFILE ...>
+=item B<-n, --newfile BESTAND-IN BESTAND-UIT ...>
 
-New file mode. Convert file INFILE and write output to file OUTFILE. File names
-must be given in pairs and wildcard names should NOT be used or you WILL
-lose your files.
+Nieuw bestand modus. Converteer bestand BESTAND-IN en schrijf naar bestand
+BESTAND-UIT. Bestandsnamen moeten opgegeven worden in paren. Jokertekens
+moeten NIET gebruikt worden, anders verlies je bestanden.
 
-=item B<-o, --oldfile FILE ...>
+=item B<-o, --oldfile BESTAND ...>
 
-Old file mode. Convert file FILE and overwrite output to it. The program
-default to run in this mode. Wildcard names may be used.
+Oud bestand modes. Converteer bestand BESTAND en overschrijf het.
+Dit is de standaard modus. Jokertekens kunnen gebruikt worden.
 
 =item B<-q, --quiet>
 
-Quiet mode. Suppress all warning and messages.
+Stille werking. Onderdruk alle waarschuwingen.
 
 =item B<-V, --version>
 
-Display version information.
+Laat versie informatie zien.
 
 =back
 
 =head1 CONVERSION MODES
 
-Conversion modes I<ascii>, I<7bit>, and I<iso>
-are similar to those of dos2unix/unix2dos under SunOS/Solaris.
+Conversie modi I<ascii>, I<7bit>, en I<iso>
+zijn gelijk aan die van dos2unix/unix2dos onder SunOS/Solaris.
 
 =over 4
 
 =item B<ascii>
 
-B<dos2unix>: In this mode DOS line endings are converted to Unix line endings.
-Unix and Mac line endings are not changed.
+B<dos2unix>: In deze modus worden DOS regeleindes omgezet naar Unix regeleindes.
+Unix en Mac regeleindes worden niet veranderd.
 
 B<unix2dos>: In this mode Unix line endings are converted to DOS line endings.
 DOS and Mac line endings are not changed.

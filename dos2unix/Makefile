@@ -53,6 +53,10 @@ endif
 DOCFILES	= $(PACKAGE).txt $(PACKAGE).ps $(PACKAGE).pdf $(PACKAGE).htm
 INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt $(DOCFILES)
 
+#PODFILES	= man/man1/dos2unix.pod $(wildcard man/*/man1/dos2unix.pod)
+PODFILES	= $(wildcard man/*/man1/dos2unix.pod)
+MANFILES	= $(patsubst %.pod,%.1,$(PODFILES))
+
 # On some systems (e.g. FreeBSD 4.10) GNU install is installed as `ginstall'.
 INSTALL		= install
 # On some systems (e.g. GNU Win32) GNU mkdir is installed as `gmkdir'.
@@ -156,7 +160,7 @@ DEFS		= $(EXTRA_DEFS)
 # .......................................................... targets ...
 
 
-all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES)
+all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES) $(MANFILES)
 
 dos2unix.o : dos2unix.c
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
@@ -173,7 +177,7 @@ $(UNIX2DOS_BIN): unix2dos.o
 $(MAC2UNIX_BIN) : $(BIN)
 	$(LINK) $< $@
 
-man/man1/dos2unix.1 : man/man1/dos2unix.pod
+%.1 : %.pod
 	$(MAKE) -C man/man1
 
 $(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
@@ -240,6 +244,8 @@ else
 	cd $(DESTDIR)$(man1dir); $(LINK_MAN) $(PACKAGE).1 $(UNIX2DOS).1
 	cd $(DESTDIR)$(man1dir); $(LINK_MAN) $(PACKAGE).1 $(UNIX2MAC).1
 endif
+	$(foreach manfile, $(MANFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ;)
+	$(foreach manfile, $(MANFILES), $(INSTALL) -m 644 $(manfile) $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ;)
 ifdef ENABLE_NLS
 	@echo "-- install-mo"
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
@@ -264,6 +270,7 @@ endif
 	-rm -f $(DESTDIR)$(mandir)/man1/$(MAC2UNIX).1
 	-rm -f $(DESTDIR)$(mandir)/man1/$(UNIX2DOS).1
 	-rm -f $(DESTDIR)$(mandir)/man1/$(UNIX2MAC).1
+	$(foreach manfile, $(MANFILES), rm -f $(DESTDIR)$(datarootdir)/$(manfile) ;)
 	-rm -rf $(DESTDIR)$(docdir)
 
 clean:

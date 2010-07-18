@@ -65,18 +65,21 @@ MANPAGE		= $(MANDEST)$(PACKAGE).$(MANSECT)
 POD2MAN		= pod2man
 POD2MAN_FLAGS	=
 
-all: $(MANPAGE)
+PODFILES = $(wildcard ../*/man1/dos2unix.pod)
+MAN_OBJECTS = dos2unix.1 $(patsubst %.pod,%.1,$(PODFILES))
 
-$(MANPAGE): $(MANPOD)
+all: $(MAN_OBJECTS)
+
+%.1 : %.pod
 	# make target - create manual page from a *.pod page
-	podchecker $(MANPOD)
+	podchecker $<
 	LC_CTYPE=C $(POD2MAN) $(POD2MAN_FLAGS) \
 		--center="$(PODCENTER)" \
 		--name="$(PACKAGE)" \
 		--section="$(MANSECT)" \
-		$(MANPOD) \
+		$< \
 	| sed 's,[Pp]erl v[0-9.]\+,$(PACKAGE),' \
-	  > $(MANPAGE) && \
+	  > $@ && \
 	rm -f pod*.tmp
 
 # End of of Makefile part
