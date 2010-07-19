@@ -1,5 +1,10 @@
+2010-07-19 Erwin Waterlander <waterlan@xs4all.nl>
+	* MinGW-64 Makefile added for Windows 64 bit port.
+
 2010-06-20 Erwin Waterlander <waterlan@xs4all.nl>
 	* Don't ship po/*.mo files in source package.
+	* Win32 binary package uses patched MinGW's libintl, with builtin
+	  relocation support. See http://www.xs4all.nl/~waterlan/libintl.html
 
 2010-04-22 Erwin Waterlander <waterlan@xs4all.nl>
 	* Support compilation in DOSBox (8.3 file names where needed).

@@ -6,6 +6,7 @@
 include version.mk
 
 CC=gcc
+STRIP=strip
 PACKAGE=dos2unix
 UNIX2DOS=unix2dos
 MAC2UNIX=mac2unix
@@ -330,9 +331,9 @@ dist-tbz:
 dist: dist-tgz
 
 strip:
-	strip $(BIN)
-	strip $(UNIX2DOS_BIN)
+	$(STRIP) $(BIN)
+	$(STRIP) $(UNIX2DOS_BIN)
 ifeq ($(LINK),cp -f)
-	strip $(MAC2UNIX_BIN)
-	strip $(UNIX2MAC_BIN)
+	$(STRIP) $(MAC2UNIX_BIN)
+	$(STRIP) $(UNIX2MAC_BIN)
 endif

@@ -3,22 +3,23 @@
 # Copyright (C) 2009 Erwin Waterlander
 # This file is distributed under the same license as the dos2unix package.
 
+CC = x86_64-w64-mingw32-gcc
+STRIP = x86_64-w64-mingw32-strip
+
 prefix=c:/usr/local
-ENABLE_NLS=1
+ENABLE_NLS=
 
 ifdef ENABLE_NLS
 LDFLAGS_EXTRA = -lintl -liconv
-# Using GnuWin32 gettext,iconv
-#ZIPOBJ_EXTRA = bin/libintl3.dll bin/libiconv2.dll
 # Using MinGW gettext,iconv
-ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
+#ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
 endif
 
 all:
-	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f"
+	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC)
 
 install:
-	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f"
+	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC)
 
 uninstall:
 	$(MAKE) uninstall EXE=.exe prefix=$(prefix)
@@ -30,5 +31,5 @@ dist:
 	$(MAKE) dist-zip EXE=.exe prefix=$(prefix) VERSIONSUFFIX="-win32" ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" ENABLE_NLS=$(ENABLE_NLS)
 
 strip:
-	$(MAKE) strip LINK="cp -f" EXE=.exe
+	$(MAKE) strip LINK="cp -f" EXE=.exe  STRIP=$(STRIP)
 
