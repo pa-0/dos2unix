@@ -46,6 +46,13 @@ WINDOWS PORT
 
         make -f mingw.mak clean install
 
+WINDOWS 64 BIT PORT
+
+    To compile a version for Windows, get the Mingw-w64 compiler
+    <http://mingw-w64.sourceforge.net>, and use makefile mingw64.mak:
+
+        make -f mingw64.mak clean install
+
 DOS PORT, 32 BIT
 
     To compile a version for DOS, get the DJGPP compiler
