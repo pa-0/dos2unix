@@ -1,3 +1,11 @@
+2010-0?-??: Version 5.1.1
+
+    Added Dutch translation of the manual.
+    Win64 port.
+    Win32 binary package uses patched MinGW's libintl, with builtin relocation support.
+    Support compilation in DOSBox (8.3 file names where needed).
+    Fixed compilation on Darwin OS.
+
 2010-04-03: Version 5.1
 
     Esperanto translations have been added.

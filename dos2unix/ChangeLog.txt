@@ -1,3 +1,6 @@
+2010-07-23 Erwin Waterlander <waterlan@xs4all.nl>
+	* Added Dutch translation of the manual.
+
 2010-07-19 Erwin Waterlander <waterlan@xs4all.nl>
 	* MinGW-64 Makefile added for Windows 64 bit port.
 
