@@ -164,7 +164,7 @@ Convert from Unix Latin-1 to Windows WinLatin1
 
 Convert from Unix UTF-8 (Unicode) to Windows WinLatin1
 
-    unix2dos < in.txt | iconv -f UTF-8 -t CP1252 in.txt > out.txt
+    unix2dos < in.txt | iconv -f UTF-8 -t CP1252 > out.txt
 
 Convert from Unix UTF-8 (Unicode) to Windows UTF-16 (Unicode)
 
@@ -177,16 +177,16 @@ and L<http://czyborra.com/charsets/iso8859.html>.
 
 =head1 UNICODE
 
-Unicode files can be encoded in different encodings. On Unix/Linux Unicode
+There exist different Unicode encodings. On Unix/Linux Unicode
 files are mostly encoded in UTF-8 encoding. UTF-8 is ASCII compatible. UTF-8
-files can be in DOS, Unix or Mac format. It is safe to run dos2unix/unix2dos on
+files can have DOS, Unix or Mac line endings. It is safe to run dos2unix/unix2dos on
 UTF-8 encoded files. On Windows mostly UTF-16 encoding is used for Unicode
 files. Dos2unix/unix2dos should not be run on UTF-16 files. UTF-16 files are
 automatically skipped, because it are binary files.
 
 =head1 EXAMPLES
 
-Get input from stdin and write output to stdout.
+Read input from 'stdin' and write output to 'stdout'.
 
     dos2unix
     dos2unix -l -c mac
@@ -290,7 +290,7 @@ compilation can be overruled. LOCALEDIR is used to find the language files. The
 GNU default value is C</usr/local/share/locale>. Option "-V" will display the
 LOCALEDIR that is used.
 
-Example (windows cmd):
+Example (Windows Command Prompt):
 
     set DOS2UNIX_LOCALEDIR=c:/my_prefix/share/locale
 

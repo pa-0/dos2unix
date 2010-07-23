@@ -1,15 +1,15 @@
 =pod
 
-=head1 NAME
+=head1 NAAM
 
 dos2unix - DOS/MAC naar UNIX en vice versa tekstbestand formaat omzetter
 
-=head1 SYNOPSIS
+=head1 OVERZICHT
 
     dos2unix [opties] [-c CONVMODUS] [-o BESTAND ...] [-n BESTAND-IN BESTAND-UIT ...]
     unix2dos [opties] [-c CONVMODUS] [-o BESTAND ...] [-n BESTAND-IN BESTAND-UIT ...]
 
-=head1 DESCRIPTION
+=head1 BESCHRIJVING
 
 Het Dos2unix pakket bevat toepassingen C<dos2unix> en C<unix2dos> om 
 platte tekstbestanden in DOS of MAC formaat naar UNIX om te zetten en
@@ -27,7 +27,7 @@ In Mac tekst bestanden, voor Mac OS X, bestaan regeleindes uit een
 enkel 'Carriage Return' teken. Mac OS X is Unix gebaseerd en heeft dezelfde
 regeleindes als Unix. 
 
-=head1 OPTIONS
+=head1 OPTIES
 
 =over 4
 
@@ -84,7 +84,7 @@ Laat versie informatie zien.
 
 =back
 
-=head1 CONVERSION MODES
+=head1 CONVERSIE MODI
 
 Conversie modi I<ascii>, I<7bit>, en I<iso>
 zijn gelijk aan die van dos2unix/unix2dos onder SunOS/Solaris.
@@ -96,222 +96,225 @@ zijn gelijk aan die van dos2unix/unix2dos onder SunOS/Solaris.
 B<dos2unix>: In deze modus worden DOS regeleindes omgezet naar Unix regeleindes.
 Unix en Mac regeleindes worden niet veranderd.
 
-B<unix2dos>: In this mode Unix line endings are converted to DOS line endings.
-DOS and Mac line endings are not changed.
+B<unix2dos>: In deze modus worden Unix regeleindes omgezet naar DOS regeleindes.
+DOS en Mac regeleindes worden niet veranderd.
 
-Although the name of this mode is ASCII, which is a 7 bit standard,
-the actual mode is 8 bit.
+Hoewel de naam van deze modus ASCII is, wat een 7 bit standaard is, is
+de werkelijke modus 8 bit.
 
 =item B<mac>
 
-B<dos2unix>: In this mode Mac line endings are converted to Unix line endings.
-DOS and Unix line endigs are not changed. You can also use the command C<mac2unix> to
-run dos2unix in Mac mode.
+B<dos2unix>: In deze modus worden Mac regeleindes omgezet in Unix regeleindes.
+DOS en Unix regeleindes worden niet omgezet. U kunt ook de opdracht C<mac2unix>
+gebruiken om dos2unix in Mac modus uit te voeren.
 
-B<unix2dos>: In this mode Unix line endings are converted to Mac line endings.
-DOS and Mac line endigs are not changed. You can also use the command C<unix2mac> to
-run unix2dos in Mac mode.
+B<unix2dos>: In deze modus worden Unix regeleindes omgezet in Mac regeleindes.
+DOS en Mac regeleindes worden niet omgezet. U kunt ook de opdracht  C<unix2mac>
+gebruiken om unix2dos in Mac modus uit te voeren.
 
 =item B<7bit>
 
-In this mode DOS line endings are converted to Unix line endings or vice versa.
-All 8 bit non-ASCII characters (with values from 128 to 255) are converted
-to a space.
+In deze modus worden DOS regeleindes omgezet in Unix regeleindes en vice versa.
+Alle 8 bit niet-ASCII karaktertekens (met waardes van 128 t/m 255) worden omgezet
+naar een spatie.
 
 =item B<iso>
 
-In this mode DOS line endings are converted to Unix line endings or vice versa.
-Characters are converted between the DOS character set (code page) CP437 and ISO
-character set ISO-8859-1 on Unix. CP437 characters without ISO-8859-1
-equivalent, for which conversion is not possible, are converted to a dot. The
-same counts for ISO-8859-1 characters without CP437 counterpart. CP437 is
-mainly used in the USA. In Western Europe CP850 is more standard.
+In deze modus worden DOS regeleindes omgezet in Unix regeleindes en vice versa.
+Karaktertekens worden omgezet tussen de DOS karakterset (codetabel) CP437
+en ISO karakterset ISO-8859-1 op Unix. CP437 tekens zonder gelijkwaardig ISO-8859-1
+teken, waarvoor geen omzetting mogelijk is, worden omgezet in een punt. Het zelfde
+geldt voor ISO-8859-1 tekens zonder CP437 tegenhanger. CP437 wordt met name in
+de VS gebruikt. In West Europa is CP850 meer gebruikelijk.
 
-Another option to convert text files between different encodings is to use
-dos2unix in combination with iconv(1). Iconv can convert between a long list of
-character encodings. Some examples:
+Een andere optie om tekst bestanden om te zetten naar andere coderingen is om
+dos2unix in combinatie met iconv(1) te gebruiken. Iconv kan omzetten tussen
+een lange lijst karaktercoderingen. Enkele voorbeelden:
 
-Convert from DOS DOSLatinUS to Unix Latin-1
 
-    iconv -f CP437 -t ISO-8859-1 in.txt | dos2unix > out.txt
+Omzetten van DOS DOSLatinUS naar Unix Latin-1
 
-Convert from DOS DOSLatin1 to Unix Latin-1
+    iconv -f CP437 -t ISO-8859-1 in.txt | dos2unix > uit.txt
 
-    iconv -f CP850 -t ISO-8859-1 in.txt | dos2unix > out.txt
+Omzetten van DOS DOSLatin1 naar Unix Latin-1
 
-Convert from Windows WinLatin1 to Unix Latin-1
+    iconv -f CP850 -t ISO-8859-1 in.txt | dos2unix > uit.txt
 
-    iconv -f CP1252 -t ISO-8859-1 in.txt | dos2unix > out.txt
+Omzetten van Windows WinLatin1 naar Unix Latin-1
 
-Convert from Windows WinLatin1 to Unix UTF-8 (Unicode)
+    iconv -f CP1252 -t ISO-8859-1 in.txt | dos2unix > uit.txt
 
-    iconv -f CP1252 -t UTF-8 in.txt | dos2unix > out.txt
+Omzetten van Windows WinLatin1 naar Unix UTF-8 (Unicode)
 
-Convert from Windows UTF-16 (Unicode) to Unix UTF-8 (Unicode)
+    iconv -f CP1252 -t UTF-8 in.txt | dos2unix > uit.txt
 
-    iconv -f UTF-16 -t UTF-8 in.txt | dos2unix > out.txt
+Omzetten van Windows UTF-16 (Unicode) naar Unix UTF-8 (Unicode)
 
-Convert from Unix Latin-1 to DOS DOSLatinUS
+    iconv -f UTF-16 -t UTF-8 in.txt | dos2unix > uit.txt
 
-    unix2dos < in.txt | iconv -f ISO-8859-1 -t CP437 > out.txt
+Omzetten van Unix Latin-1 naar DOS DOSLatinUS
 
-Convert from Unix Latin-1 to DOS DOSLatin1
+    unix2dos < in.txt | iconv -f ISO-8859-1 -t CP437 > uit.txt
 
-    unix2dos < in.txt | iconv -f ISO-8859-1 -t CP850 > out.txt
+Omzetten van Unix Latin-1 naar DOS DOSLatin1
 
-Convert from Unix Latin-1 to Windows WinLatin1
+    unix2dos < in.txt | iconv -f ISO-8859-1 -t CP850 > uit.txt
 
-    unix2dos < in.txt | iconv -f ISO-8859-1 -t CP1252 > out.txt
+Omzetten van Unix Latin-1 naar Windows WinLatin1
 
-Convert from Unix UTF-8 (Unicode) to Windows WinLatin1
+    unix2dos < in.txt | iconv -f ISO-8859-1 -t CP1252 > uit.txt
 
-    unix2dos < in.txt | iconv -f UTF-8 -t CP1252 in.txt > out.txt
+Omzetten van Unix UTF-8 (Unicode) naar Windows WinLatin1
 
-Convert from Unix UTF-8 (Unicode) to Windows UTF-16 (Unicode)
+    unix2dos < in.txt | iconv -f UTF-8 -t CP1252 > uit.txt
 
-    unix2dos < in.txt | iconv -f UTF-8 -t UTF-16 > out.txt
+Omzetten van Unix UTF-8 (Unicode) naar Windows UTF-16 (Unicode)
 
-See also L<http://czyborra.com/charsets/codepages.html>
-and L<http://czyborra.com/charsets/iso8859.html>.
+    unix2dos < in.txt | iconv -f UTF-8 -t UTF-16 > uit.txt
+
+Zie ook L<http://czyborra.com/charsets/codepages.html>
+en L<http://czyborra.com/charsets/iso8859.html>.
 
 =back
 
 =head1 UNICODE
 
-Unicode files can be encoded in different encodings. On Unix/Linux Unicode
-files are mostly encoded in UTF-8 encoding. UTF-8 is ASCII compatible. UTF-8
-files can be in DOS, Unix or Mac format. It is safe to run dos2unix/unix2dos on
-UTF-8 encoded files. On Windows mostly UTF-16 encoding is used for Unicode
-files. Dos2unix/unix2dos should not be run on UTF-16 files. UTF-16 files are
-automatically skipped, because it are binary files.
+Er bestaan verschillende Unicode coderingen. Op
+Unix/Linux zijn Unicode bestanden meestal in UTF-8 codering gecodeerd.
+UTF-8 is compatibel met ASCII. UTF-8 bestanden kunnen DOS, Unix of
+Mac regeleindes hebben. Dos2unix/unix2dos kan gerust op UTF-8 bestanden
+uitgevoerd worden. Op Windows wordt meestal UTF-16 codering gebruikt
+voor Unicode. Dos2unix/unix2dos zou niet uitgevoerd moeten worden op
+UTF-16 bestanden. UTF-16 bestanden worden automatisch overgeslagen,
+omdat het binaire bestanden zijn.
 
-=head1 EXAMPLES
+=head1 VOORBEELDEN
 
-Get input from stdin and write output to stdout.
+Lees invoer van 'stdin' en schrijf uitvoer naar 'stdout'.
 
     dos2unix
     dos2unix -l -c mac
 
-Convert and replace a.txt. Convert and replace b.txt.
+Omzetten en vervangen a.txt. Omzetten en vervangen b.txt.
 
     dos2unix a.txt b.txt
     dos2unix -o a.txt b.txt
 
-Convert and replace a.txt in ascii conversion mode. 
+Omzetten en vervangen a.txt in ascii conversie modus. 
 
     dos2unix a.txt
 
-Convert and replace a.txt in ascii conversion mode.
-Convert and replace b.txt in 7bit conversion mode.
+Omzetten en vervangen a.txt in ascii conversie modus.
+Omzetten en vervangen b.txt in 7bit conversie modus.
 
     dos2unix a.txt -c 7bit b.txt
     dos2unix -c ascii a.txt -c 7bit b.txt
 
-Convert a.txt from Mac to Unix format.
+Omzetten a.txt van Mac naar Unix format.
 
     dos2unix -c mac a.txt
     mac2unix a.txt
 
-Convert a.txt from Unix to Mac format.
+Omzetten a.txt van Unix naar Mac format.
 
     unix2dos -c mac a.txt
     unix2mac a.txt
 
-Convert and replace a.txt while keeping original date stamp.
+Omzetten en vervangen a.txt met behoud van originele datum.
 
     dos2unix -k a.txt
     dos2unix -k -o a.txt
 
-Convert a.txt and write to e.txt.
+Omzetten a.txt en schrijf naar e.txt.
 
     dos2unix -n a.txt e.txt
 
-Convert a.txt and write to e.txt, keep date stamp of e.txt same as a.txt.
+Omzetten a.txt en schrijf naar e.txt, behoud datum e.txt gelijk aan a.txt.
 
     dos2unix -k -n a.txt e.txt 
 
-Convert and replace a.txt. Convert b.txt and write to e.txt.
+Omzetten en vervangen a.txt. Omzetten b.txt en schrijf naar e.txt.
 
     dos2unix a.txt -n b.txt e.txt
     dos2unix -o a.txt -n b.txt e.txt
 
-Convert c.txt and write to e.txt. Convert and replace a.txt.
-Convert and replace b.txt. Convert d.txt and write to f.txt.
+Omzetten c.txt en schrijf naar e.txt. Omzetten en vervangen a.txt.
+Omzetten en vervangen b.txt. Omzetten d.txt en schrijf naar f.txt.
 
     dos2unix -n c.txt e.txt -o a.txt b.txt -n d.txt f.txt
 
-=head1 LOCALIZATION
+=head1 LOKALISATIE
 
 =over 4
 
 =item B<LANG>
 
-The primary language is selected with the environment variable LANG. The LANG
-variable consists out of several parts.  The first part is in small letters the
-language code. The second is optional and is the country code in capital
-letters, preceded with an underscore. There is also an optional third part:
-character encoding, preceded with a dot. A few examples for POSIX standard type
-shells:
+The primaire taal wordt geselecteerd met de omgevingsvariabele LANG. De LANG
+variabele bestaat uit verschillende onderdelen. Het eerste deel is in kleine
+letters de taalcode. Het tweede deel is optioneel en is de landcode in
+hoofdletters, voorafgegaan door een laag streepje. Er is ook een optioneel
+derde deel: karakterset codering, voorafgegaan door een punt. Enkele voorbeelden
+voor een POSIX staandaard shell:
 
-    export LANG=nl               Dutch
-    export LANG=nl_NL            Dutch, The Netherlands
-    export LANG=nl_BE            Dutch, Belgium
-    export LANG=es_ES            Spanish, Spain
-    export LANG=es_MX            Spanish, Mexico
-    export LANG=en_US.iso88591   English, USA, Latin-1 encoding
-    export LANG=en_GB.UTF-8      English, UK, UTF-8 encoding
+    export LANG=nl               Nederlands
+    export LANG=nl_NL            Nederlands, Nederland
+    export LANG=nl_BE            Nederlands, Belgie
+    export LANG=es_ES            Spaans, Spanje
+    export LANG=es_MX            Spaans, Mexico
+    export LANG=en_US.iso88591   Engels, VS, Latin-1 codering
+    export LANG=en_GB.UTF-8      Engels, GB, UTF-8 codering
 
-For a complete list of language and country codes see the gettext manual:
+Voor een complete lijst van taal- en landcodes zie de gettext handleiding:
 L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes>
 
-On Unix systems you can use to command locale(1) to get locale specific
-information.
+Op Unix systemen kunt u de opdracht locale(1) gebruiken om specifieke
+lokalisatie informatie te verkrijgen.
 
 =item B<LANGUAGE>
 
-With the LANGUAGE environment variable you can specify a priority list of
-languages, separated by colons. Dos2unix gives preference to LANGUAGE over LANG.
-For instance, first Dutch and then German: C<LANGUAGE=nl:de>. You have to first
-enable localization, by setting LANG (or LC_ALL) to a value other than
-"C", before you can use a language priority list through the LANGUAGE
-variable. See also the gettext manual:
+Met de omgevingsvariabele LANGUAGE kunt u een prioriteitenlijst specificeren
+van talen, gescheiden door dubbele punten. Dos2unix geeft voorkeur aan
+LANGUAGE boven LANG. Bijvoorbeeld, eerst Nederlands en dan Duits: C<LANGUAGE=nl:de>.
+U moet eerst lokalisatie in werking stellen, met het instellen van LANG (of LC_ALL)
+in een waarde ongelijk aan "C", voordat u een talen prioriteitenlijst kunt
+gebruiken via de LANGUAGE variabele. Zie ook de gettext handleiding:
 L<http://www.gnu.org/software/gettext/manual/gettext.html#The-LANGUAGE-variable>
 
-For Esperanto there is a special language file in x-method format. X-method can
-be used on systems that don't support Latin-3 or Unicode character encoding.
-Make LANGUAGE equal to "eo-x:eo".
+Er is voor Esperanto een speciaal taal bestand in x-methode formaat. X-methode
+kan gebruikt worden op systemen die niet Latin-3 of Unicode codering ondersteunen.
+Maak LANGUAGE gelijk aan "eo-x:eo".
 
-If you select a language which is not available you will get the
-standard English messages.
+Als u een taal kiest die niet beschikbaar is worden de standaard
+Engelse berichten gebruikt.
 
 =item B<DOS2UNIX_LOCALEDIR>
 
-With the environment variable DOS2UNIX_LOCALEDIR the LOCALEDIR set during
-compilation can be overruled. LOCALEDIR is used to find the language files. The
-GNU default value is C</usr/local/share/locale>. Option "-V" will display the
-LOCALEDIR that is used.
+Met de omgevingsvariabele DOS2UNIX_LOCALEDIR kan de LOCALEDIR gebruikt tijdens
+compilatie worden overstemd. LOCALEDIR wordt gebruikt om de taalbestanden te
+vinden. De GNU staandaard waarde is C</usr/local/share/locale>. De optie "-V"
+laat de gebruikte LOCALEDIR zien.
 
-Example (windows cmd):
+Voorbeeld (Windows Opdrachtprompt):
 
     set DOS2UNIX_LOCALEDIR=c:/my_prefix/share/locale
 
 =back
 
-=head1 AUTHORS
+=head1 AUTEURS
 
 Benjamin Lin - <blin@socs.uts.edu.au>
 
-Bernd Johannes Wuebben (mac2unix mode) - <wuebben@kde.org>
+Bernd Johannes Wuebben (mac2unix modus) - <wuebben@kde.org>
 
 Erwin Waterlander - <waterlan@xs4all.nl>
 
-Project page: L<http://www.xs4all.nl/~waterlan/dos2unix.html>
+Project pagina: L<http://www.xs4all.nl/~waterlan/dos2unix.html>
 
-SourceForge page: L<http://sourceforge.net/projects/dos2unix/>
+SourceForge pagina: L<http://sourceforge.net/projects/dos2unix/>
 
 Freshmeat: L<http://freshmeat.net/projects/dos2unix>
 
-=head1 SEE ALSO
+=head1 ZIE OOK
 
 iconv(1)
 
