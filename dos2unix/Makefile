@@ -161,7 +161,7 @@ DEFS		= $(EXTRA_DEFS)
 # .......................................................... targets ...
 
 
-all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES) $(MANFILES)
+all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES) $(MANFILES) man/man1/dos2unix.1
 
 dos2unix.o : dos2unix.c
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
@@ -290,6 +290,7 @@ distclean: clean
 maintainer-clean: distclean
 	rm -f $(DOCFILES)
 	rm -f man/man1/*.1
+	rm -f man/*/man1/*.1
 
 realclean: maintainer-clean
 
