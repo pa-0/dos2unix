@@ -1,5 +1,7 @@
 =pod
 
+=encoding utf8
+
 =head1 NAAM
 
 dos2unix - DOS/MAC naar UNIX en vice versa tekstbestand formaat omzetter
@@ -258,7 +260,7 @@ voor een POSIX staandaard shell:
 
     export LANG=nl               Nederlands
     export LANG=nl_NL            Nederlands, Nederland
-    export LANG=nl_BE            Nederlands, Belgie
+    export LANG=nl_BE            Nederlands, België
     export LANG=es_ES            Spaans, Spanje
     export LANG=es_MX            Spaans, Mexico
     export LANG=en_US.iso88591   Engels, VS, Latin-1 codering
