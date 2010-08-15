@@ -281,6 +281,7 @@ clean:
 	rm -f *.o
 	rm -f $(BIN) $(UNIX2DOS_BIN) $(MAC2UNIX_BIN) $(UNIX2MAC_BIN)
 	rm -f *.bak *~
+	rm -f *.tmp
 	rm -f man/man1/*.bak man/man1/*~
 	rm -f po/*/*.bak po/*/*~
 	rm -f po/*/*.mo
