@@ -5,7 +5,7 @@ dos2unix - DOS/MAC to UNIX and vice versa text file format converter.
 File list
 
         README.txt      : This file.
-        INSTALL.txt     : How to build and install
+        INSTALL.txt     : How to build and install.
         COPYING.txt     : distribution license.
         NEWS.txt        : News.
         ChangeLog.txt   : Change log.
