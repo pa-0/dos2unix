@@ -6,7 +6,7 @@
 CC = x86_64-w64-mingw32-gcc
 STRIP = x86_64-w64-mingw32-strip
 
-prefix=c:/usr/local
+prefix=c:/usr/local64
 ENABLE_NLS=
 
 ifdef ENABLE_NLS
