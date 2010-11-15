@@ -1,6 +1,7 @@
 2010-11-15 Erwin Waterlander <waterlan@xs4all.nl>
 	* Put full copyright text in *.h source files (FSF's recommendation).
 	  Thanks to Jari Aalto <jari.aalto@cante.net>.
+	* Don't include generated documentation files in Unix source package.
 
 2010-08-18 Erwin Waterlander <waterlan@xs4all.nl>
 	* version 5.1.1
