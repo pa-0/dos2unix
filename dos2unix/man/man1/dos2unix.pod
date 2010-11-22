@@ -57,11 +57,11 @@ conversion is forced.
 
 Dos2unix has a few conversion modes similar to dos2unix under SunOS/Solaris.
 
-In DOS/Windows text files a line break, also know as newline, is combination of two characters: a
-Carriage Return (CR) followed by a Line Feed (LF). In Unix text files a line
-break is a single character: the Line Feed (LF). In Mac text files, prior to
-Mac OS X, a line break was single Carriage Return (CR) character. Nowadays Mac
-OS use Unix style (LF) line breaks.
+In DOS/Windows text files a line break, also known as newline, is a combination
+of two characters: a Carriage Return (CR) followed by a Line Feed (LF). In Unix
+text files a line break is a single character: the Line Feed (LF). In Mac text
+files, prior to Mac OS X, a line break was single Carriage Return (CR)
+character. Nowadays Mac OS uses Unix style (LF) line breaks.
 
 =head1 OPTIONS
 
