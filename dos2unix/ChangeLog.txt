@@ -1,3 +1,10 @@
+2010-11-22 Ben Pfaff <blp@cs.stanford.edu>
+	* Don't indicate text files with ASCII Form Feed control
+	  characters (^L) as binary.
+	  Form feed characters are fairly common in GNU software text files,
+	  because the GNU coding standards advice to use form feeds to
+	  divide text into pages.
+
 2010-11-15 Erwin Waterlander <waterlan@xs4all.nl>
 	* Put full copyright text in *.h source files (FSF's recommendation).
 	  Thanks to Jari Aalto <jari.aalto@cante.net>.

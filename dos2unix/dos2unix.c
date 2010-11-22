@@ -304,7 +304,8 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
               (TempChar < 32) &&
               (TempChar != '\x0a') &&  /* Not an LF */
               (TempChar != '\x0d') &&  /* Not a CR */
-              (TempChar != '\x09')) {  /* Not a TAB */
+              (TempChar != '\x09') &&  /* Not a TAB */
+              (TempChar != '\x0c')) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
             break;
@@ -327,7 +328,8 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
               (TempChar < 32) &&
               (TempChar != '\x0a') &&  /* Not an LF */
               (TempChar != '\x0d') &&  /* Not a CR */
-              (TempChar != '\x09')) {  /* Not a TAB */
+              (TempChar != '\x09') &&  /* Not a TAB */
+              (TempChar != '\x0c')) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
             break;
@@ -350,7 +352,8 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
               (TempChar < 32) &&
               (TempChar != '\x0a') &&  /* Not an LF */
               (TempChar != '\x0d') &&  /* Not a CR */
-              (TempChar != '\x09')) {  /* Not a TAB */
+              (TempChar != '\x09') &&  /* Not a TAB */
+              (TempChar != '\x0c')) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
             break;
@@ -373,7 +376,8 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
               (TempChar < 32) &&
               (TempChar != '\x0a') &&  /* Not an LF */
               (TempChar != '\x0d') &&  /* Not a CR */
-              (TempChar != '\x09')) {  /* Not a TAB */
+              (TempChar != '\x09') &&  /* Not a TAB */
+              (TempChar != '\x0c')) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
             break;
