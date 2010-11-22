@@ -1,32 +1,69 @@
-
 # Author: Erwin Waterlander
-# Copyright (C) 2009-2010 Erwin Waterlander
-# This file is distributed under the same license as the dos2unix package.
+#
+#   Copyright information
+#
+#	Copyright (C) 2009-2010 Erwin Waterlander
+#
+#   License
+#
+#	This program is free software; you can redistribute it and/or
+#	modify it under the terms of the GNU General Public License as
+#	published by the Free Software Foundation; either version 2 of the
+#	License, or (at your option) any later version
+#
+#	This program is distributed in the hope that it will be useful, but
+#	WITHOUT ANY WARRANTY; without even the implied warranty of
+#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+#	General Public License for more details at
+#	Visit <http://www.gnu.org/copyleft/gpl.html>.
+#
+#   Description
+#
+#	This is a GNU Makefile that uses GNU compilers, linkers and cpp. The
+#	platform specific issues are determined by the various OS teets that
+#	rely on the uname(1) command and directory locations.
+#
+#   Developer notes
+#
+#	The documentation default is set for DOS and Unix.
+#
+#       In order to generate documentation for Unix only, use:
+#
+#	    make CPP_FLAGS_POD="-Dunix" man
+#
+#       In order to clean generated POD file:
+#
+#           make maintainer-clean
 
 include version.mk
 
-CC=gcc
-STRIP=strip
-PACKAGE=dos2unix
-UNIX2DOS=unix2dos
-MAC2UNIX=mac2unix
-UNIX2MAC=unix2mac
+CC		= gcc
+CPP		= cpp
+CPP_FLAGS_POD	= ALL
+STRIP		= strip
 
-ENABLE_NLS = 1
+PACKAGE		= dos2unix
+UNIX2DOS	= unix2dos
+MAC2UNIX	= mac2unix
+UNIX2MAC	= unix2mac
+
+ENABLE_NLS	= 1
 
 EXE=
 ifneq (, $(wildcard /cygdrive))
 	EXE = .exe
 endif
-BIN=$(PACKAGE)$(EXE)
-UNIX2DOS_BIN=$(UNIX2DOS)$(EXE)
-MAC2UNIX_BIN=$(MAC2UNIX)$(EXE)
-UNIX2MAC_BIN=$(UNIX2MAC)$(EXE)
+
+BIN		= $(PACKAGE)$(EXE)
+UNIX2DOS_BIN	= $(UNIX2DOS)$(EXE)
+MAC2UNIX_BIN	= $(MAC2UNIX)$(EXE)
+UNIX2MAC_BIN	= $(UNIX2MAC)$(EXE)
 
 # DJGPP support linking of .EXEs via 'stubify'.
 # See djgpp.mak and http://www.delorie.com/djgpp/v2faq/faq22_5.html
-LINK = ln -sf
-LINK_MAN = $(LINK)
+
+LINK		= ln -sf
+LINK_MAN	= $(LINK)
 
 prefix		= /usr
 exec_prefix	= $(prefix)
@@ -43,14 +80,15 @@ manext		= .1
 man1ext		= .1
 
 ifdef ENABLE_NLS
-DOS2UNIX_POT		= po/dos2unix/$(PACKAGE).pot
-DOS2UNIX_POFILES	= $(wildcard po/dos2unix/*.po)
-DOS2UNIX_MOFILES	= $(patsubst %.po,%.mo,$(DOS2UNIX_POFILES))
-UNIX2DOS_POT		= po/unix2dos/$(UNIX2DOS).pot
-UNIX2DOS_POFILES	= $(wildcard po/unix2dos/*.po)
-UNIX2DOS_MOFILES	= $(patsubst %.po,%.mo,$(UNIX2DOS_POFILES))
-MOFILES			= $(DOS2UNIX_MOFILES) $(UNIX2DOS_MOFILES)
+	DOS2UNIX_POT		= po/dos2unix/$(PACKAGE).pot
+	DOS2UNIX_POFILES	= $(wildcard po/dos2unix/*.po)
+	DOS2UNIX_MOFILES	= $(patsubst %.po,%.mo,$(DOS2UNIX_POFILES))
+	UNIX2DOS_POT		= po/unix2dos/$(UNIX2DOS).pot
+	UNIX2DOS_POFILES	= $(wildcard po/unix2dos/*.po)
+	UNIX2DOS_MOFILES	= $(patsubst %.po,%.mo,$(UNIX2DOS_POFILES))
+	MOFILES			= $(DOS2UNIX_MOFILES) $(UNIX2DOS_MOFILES)
 endif
+
 DOCFILES	= $(PACKAGE).txt $(PACKAGE).ps $(PACKAGE).pdf $(PACKAGE).htm
 INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt $(DOCFILES)
 
@@ -60,6 +98,7 @@ MANFILES	= $(patsubst %.pod,%.1,$(PODFILES))
 
 # On some systems (e.g. FreeBSD 4.10) GNU install is installed as `ginstall'.
 INSTALL		= install
+
 # On some systems (e.g. GNU Win32) GNU mkdir is installed as `gmkdir'.
 MKDIR           = mkdir
 
@@ -159,7 +198,6 @@ LDFLAGS		= $(LDFLAGS_EXTRA)
 DEFS		= $(EXTRA_DEFS)
 
 # .......................................................... targets ...
-
 
 all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES) $(MANFILES) man/man1/dos2unix.1
 
@@ -346,3 +384,5 @@ ifeq ($(LINK),cp -f)
 	$(STRIP) $(MAC2UNIX_BIN)
 	$(STRIP) $(UNIX2MAC_BIN)
 endif
+
+# End of file
