@@ -2,7 +2,7 @@
 
 =head1 NAAM
 
-dos2unix - DOS/MAC naar UNIX en vice versa tekstbestand formaat omzetter
+dos2unix - DOS/Mac naar Unix en vice versa tekstbestand formaat omzetter
 
 =head1 OVERZICHT
 
@@ -12,7 +12,7 @@ dos2unix - DOS/MAC naar UNIX en vice versa tekstbestand formaat omzetter
 =head1 BESCHRIJVING
 
 Het Dos2unix pakket bevat toepassingen C<dos2unix> en C<unix2dos> om 
-platte tekstbestanden in DOS of MAC formaat naar UNIX om te zetten en
+platte tekstbestanden in DOS of Mac formaat naar Unix om te zetten en
 vice versa. Binaire bestanden en niet-reguliere bestanden, zoals
 snelkoppelingen, worden automatisch overgeslagen, behalve als de omzetting
 geforceerd wordt.
@@ -294,18 +294,16 @@ compilatie worden overstemd. LOCALEDIR wordt gebruikt om de taalbestanden te
 vinden. De GNU staandaard waarde is C</usr/local/share/locale>. De optie "-V"
 laat de gebruikte LOCALEDIR zien.
 
-Voorbeeld (Windows Opdrachtprompt):
+Voorbeeld (POSIX shell):
 
-    set DOS2UNIX_LOCALEDIR=c:/my_prefix/share/locale
+    export DOS2UNIX_LOCALEDIR=$HOME/share/locale
 
 =back
 
 =head1 AUTEURS
 
 Benjamin Lin - <blin@socs.uts.edu.au>
-
 Bernd Johannes Wuebben (mac2unix modus) - <wuebben@kde.org>
-
 Erwin Waterlander - <waterlan@xs4all.nl>
 
 Project pagina: L<http://www.xs4all.nl/~waterlan/dos2unix.html>

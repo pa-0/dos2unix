@@ -41,7 +41,7 @@
 
 =head1 NAME
 
-dos2unix - DOS/MAC to UNIX and vice versa text file format converter
+dos2unix - DOS/Mac to Unix and vice versa text file format converter
 
 =head1 SYNOPSIS
 
@@ -51,7 +51,7 @@ dos2unix - DOS/MAC to UNIX and vice versa text file format converter
 =head1 DESCRIPTION
 
 The Dos2unix package includes utilities C<dos2unix> and C<unix2dos> to convert
-plain text files in DOS or MAC format to UNIX format and vice versa. Binary files
+plain text files in DOS or Mac format to Unix format and vice versa. Binary files
 and non-regular files, such as soft links, are automatically skipped, unless
 conversion is forced.
 
