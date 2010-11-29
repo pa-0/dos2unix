@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-22 12:26+0100\n"
+"POT-Creation-Date: 2010-11-29 15:36+0100\n"
 "PO-Revision-Date: 2010-02-05 16:34+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -183,8 +183,8 @@ msgstr "unix2dos: die binäre Datei %s wird übersprungen\n"
 
 #: unix2dos.c:967
 #, c-format
-msgid "unix2dos: converting file %s to file %s in MAC format ...\n"
-msgstr "unix2dos: Datei %s wird in Datei %s im MAC-Format konvertiert ...\n"
+msgid "unix2dos: converting file %s to file %s in Mac format ...\n"
+msgstr "unix2dos: Datei %s wird in Datei %s im Mac-Format konvertiert ...\n"
 
 #: unix2dos.c:969
 #, c-format
@@ -200,8 +200,8 @@ msgstr ""
 
 #: unix2dos.c:996
 #, c-format
-msgid "unix2dos: converting file %s to MAC format ...\n"
-msgstr "unix2dos: Datei %s wird ins MAC-Format konvertiert ...\n"
+msgid "unix2dos: converting file %s to Mac format ...\n"
+msgstr "unix2dos: Datei %s wird ins Mac-Format konvertiert ...\n"
 
 #: unix2dos.c:998
 #, c-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unix2dos 4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-22 12:26+0100\n"
+"POT-Creation-Date: 2010-11-29 15:36+0100\n"
 "PO-Revision-Date: 2009-12-09 17:20+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -155,8 +155,8 @@ msgstr "unix2dos: Binair bestand %s wordt overgeslagen\n"
 
 #: unix2dos.c:967
 #, c-format
-msgid "unix2dos: converting file %s to file %s in MAC format ...\n"
-msgstr "unix2dos: converteren bestand %s naar bestand %s in MAC formaat ...\n"
+msgid "unix2dos: converting file %s to file %s in Mac format ...\n"
+msgstr "unix2dos: converteren bestand %s naar bestand %s in Mac formaat ...\n"
 
 #: unix2dos.c:969
 #, c-format
@@ -170,8 +170,8 @@ msgstr "unix2dos: problemen met conversie van bestand %s naar bestand %s\n"
 
 #: unix2dos.c:996
 #, c-format
-msgid "unix2dos: converting file %s to MAC format ...\n"
-msgstr "unix2dos: converteren bestand %s naar MAC formaat ...\n"
+msgid "unix2dos: converting file %s to Mac format ...\n"
+msgstr "unix2dos: converteren bestand %s naar Mac formaat ...\n"
 
 #: unix2dos.c:998
 #, c-format

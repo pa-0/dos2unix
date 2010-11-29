@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-22 12:26+0100\n"
+"POT-Creation-Date: 2010-11-29 15:36+0100\n"
 "PO-Revision-Date: 2009-12-08 21:59+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -156,8 +156,8 @@ msgstr "dos2unix: Binair bestand %s wordt overgeslagen\n"
 
 #: dos2unix.c:937
 #, c-format
-msgid "dos2unix: converting file %s to file %s in UNIX format ...\n"
-msgstr "dos2unix: converteren bestand %s naar bestand %s in UNIX formaat ...\n"
+msgid "dos2unix: converting file %s to file %s in Unix format ...\n"
+msgstr "dos2unix: converteren bestand %s naar bestand %s in Unix formaat ...\n"
 
 #: dos2unix.c:941
 #, c-format
@@ -166,8 +166,8 @@ msgstr "dos2unix: problemen met conversie van bestand %s naar bestand %s\n"
 
 #: dos2unix.c:961
 #, c-format
-msgid "dos2unix: converting file %s to UNIX format ...\n"
-msgstr "dos2unix: converteren bestand %s naar UNIX formaat ...\n"
+msgid "dos2unix: converting file %s to Unix format ...\n"
+msgstr "dos2unix: converteren bestand %s naar Unix formaat ...\n"
 
 #: dos2unix.c:965
 #, c-format

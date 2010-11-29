@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unix2dos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-22 12:26+0100\n"
+"POT-Creation-Date: 2010-11-29 15:36+0100\n"
 "PO-Revision-Date: 2010-03-07 19:52+0100\n"
 "Last-Translator: Ruĝulo <rugxulo@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -151,8 +151,8 @@ msgstr "unix2dos: Pasante ne-tekstan dosieron %s\n"
 
 #: unix2dos.c:967
 #, c-format
-msgid "unix2dos: converting file %s to file %s in MAC format ...\n"
-msgstr "unix2dos: ŝanĝante dosiero %s al dosiero %s MAC-en ...\n"
+msgid "unix2dos: converting file %s to file %s in Mac format ...\n"
+msgstr "unix2dos: ŝanĝante dosiero %s al dosiero %s Mac-en ...\n"
 
 #: unix2dos.c:969
 #, c-format
@@ -166,8 +166,8 @@ msgstr "unix2dos: problemojn trovitajn dum ŝanĝi dosiero %s al dosiero %s\n"
 
 #: unix2dos.c:996
 #, c-format
-msgid "unix2dos: converting file %s to MAC format ...\n"
-msgstr "unix2dos: ŝanĝante dosiero %s MAC-en ...\n"
+msgid "unix2dos: converting file %s to Mac format ...\n"
+msgstr "unix2dos: ŝanĝante dosiero %s Mac-en ...\n"
 
 #: unix2dos.c:998
 #, c-format

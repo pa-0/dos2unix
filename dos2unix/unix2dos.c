@@ -964,7 +964,7 @@ int main (int argc, char *argv[])
             if (!pFlag->Quiet)
             {
               if (pFlag->ConvMode == 3)
-                fprintf(stderr, _("unix2dos: converting file %s to file %s in MAC format ...\n"), argv[ArgIdx-1], argv[ArgIdx]);
+                fprintf(stderr, _("unix2dos: converting file %s to file %s in Mac format ...\n"), argv[ArgIdx-1], argv[ArgIdx]);
               else
                 fprintf(stderr, _("unix2dos: converting file %s to file %s in DOS format ...\n"), argv[ArgIdx-1], argv[ArgIdx]);
             }
@@ -993,7 +993,7 @@ int main (int argc, char *argv[])
           if (!pFlag->Quiet)
           {
             if (pFlag->ConvMode == 3)
-              fprintf(stderr, _("unix2dos: converting file %s to MAC format ...\n"), argv[ArgIdx]);
+              fprintf(stderr, _("unix2dos: converting file %s to Mac format ...\n"), argv[ArgIdx]);
             else
               fprintf(stderr, _("unix2dos: converting file %s to DOS format ...\n"), argv[ArgIdx]);
           }

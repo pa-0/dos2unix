@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-22 12:26+0100\n"
+"POT-Creation-Date: 2010-11-29 15:36+0100\n"
 "PO-Revision-Date: 2010-01-24 09:00+0100\n"
 "Last-Translator: Philipp Thomas <psmt@opensuse.org>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -188,8 +188,8 @@ msgstr "dos2unix: binäre Datei %s wird übersprungen\n"
 
 #: dos2unix.c:937
 #, c-format
-msgid "dos2unix: converting file %s to file %s in UNIX format ...\n"
-msgstr "dos2unix: Datei %s wird zu Datei %s im UNIX-Format umgewandelt ...\n"
+msgid "dos2unix: converting file %s to file %s in Unix format ...\n"
+msgstr "dos2unix: Datei %s wird zu Datei %s im Unix-Format umgewandelt ...\n"
 
 #: dos2unix.c:941
 #, c-format
@@ -200,8 +200,8 @@ msgstr ""
 
 #: dos2unix.c:961
 #, c-format
-msgid "dos2unix: converting file %s to UNIX format ...\n"
-msgstr "dos2unix: Datei %s wird ins UNIX-Format umgewandelt ...\n"
+msgid "dos2unix: converting file %s to Unix format ...\n"
+msgstr "dos2unix: Datei %s wird ins Unix-Format umgewandelt ...\n"
 
 #: dos2unix.c:965
 #, c-format

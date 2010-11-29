@@ -934,7 +934,7 @@ int main (int argc, char *argv[])
               fprintf(stderr, _("dos2unix: Skipping binary file %s\n"), argv[ArgIdx-1]);
           } else {
             if (!pFlag->Quiet)
-              fprintf(stderr, _("dos2unix: converting file %s to file %s in UNIX format ...\n"), argv[ArgIdx-1], argv[ArgIdx]);
+              fprintf(stderr, _("dos2unix: converting file %s to file %s in Unix format ...\n"), argv[ArgIdx-1], argv[ArgIdx]);
             if (RetVal)
             {
               if (!pFlag->Quiet)
@@ -958,7 +958,7 @@ int main (int argc, char *argv[])
             fprintf(stderr, _("dos2unix: Skipping binary file %s\n"), argv[ArgIdx]);
         } else {
           if (!pFlag->Quiet)
-            fprintf(stderr, _("dos2unix: converting file %s to UNIX format ...\n"), argv[ArgIdx]);
+            fprintf(stderr, _("dos2unix: converting file %s to Unix format ...\n"), argv[ArgIdx]);
           if (RetVal)
           {
             if (!pFlag->Quiet)

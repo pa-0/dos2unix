@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-22 21:33+0100\n"
+"POT-Creation-Date: 2010-11-29 15:36+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -133,7 +133,7 @@ msgstr ""
 
 #: unix2dos.c:967
 #, c-format
-msgid "unix2dos: converting file %s to file %s in MAC format ...\n"
+msgid "unix2dos: converting file %s to file %s in Mac format ...\n"
 msgstr ""
 
 #: unix2dos.c:969
@@ -148,7 +148,7 @@ msgstr ""
 
 #: unix2dos.c:996
 #, c-format
-msgid "unix2dos: converting file %s to MAC format ...\n"
+msgid "unix2dos: converting file %s to Mac format ...\n"
 msgstr ""
 
 #: unix2dos.c:998

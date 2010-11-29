@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos 2unix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-22 12:26+0100\n"
+"POT-Creation-Date: 2010-11-29 15:36+0100\n"
 "PO-Revision-Date: 2010-03-07 19:50+0100\n"
 "Last-Translator: Rugxulo <rugxulo@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -152,8 +152,8 @@ msgstr "dos2unix: Pasante ne-tekstan dosieron %s\n"
 
 #: dos2unix.c:937
 #, c-format
-msgid "dos2unix: converting file %s to file %s in UNIX format ...\n"
-msgstr "dos2unix: sxangxante dosieron %s al dosiero %s UNIX-en ...\n"
+msgid "dos2unix: converting file %s to file %s in Unix format ...\n"
+msgstr "dos2unix: sxangxante dosieron %s al dosiero %s Unix-en ...\n"
 
 #: dos2unix.c:941
 #, c-format
@@ -162,8 +162,8 @@ msgstr "dos2unix: problemojn trovitajn dum sxangxi dosiero %s al dosiero %s\n"
 
 #: dos2unix.c:961
 #, c-format
-msgid "dos2unix: converting file %s to UNIX format ...\n"
-msgstr "dos2unix: sxangxante dosiero %s UNIX-en ...\n"
+msgid "dos2unix: converting file %s to Unix format ...\n"
+msgstr "dos2unix: sxangxante dosiero %s Unix-en ...\n"
 
 #: dos2unix.c:965
 #, c-format
