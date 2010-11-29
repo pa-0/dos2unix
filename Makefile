@@ -45,7 +45,7 @@ dist:
 	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) maintainer-clean
 	# Create the package.
 	cd .. ; tar cvzf ${RELEASE_DIR_DOS2UNIX}.tar.gz ${RELEASE_DIR_DOS2UNIX}
-	cd .. ; zip -r ${RELEASE_DIR_D2U}.zip ${RELEASE_DIR_D2U}
+	cd .. ; zip -r ${RELEASE_DIR_D2U}s.zip ${RELEASE_DIR_D2U}
 
 # Target: tag - Create a tag copy of trunk
 tag:

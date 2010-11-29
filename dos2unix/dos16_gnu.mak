@@ -1,6 +1,6 @@
 
 # Author: Erwin Waterlander
-# Copyright (C) 2009 Erwin Waterlander
+# Copyright (C) 2009-2010 Erwin Waterlander
 # This file is distributed under the same license as the dos2unix package.
 
 prefix=c:/dos16
@@ -23,7 +23,7 @@ clean:
 	$(MAKE) clean EXE=.exe ENABLE_NLS=$(ENABLE_NLS) prefix=$(prefix)
 
 dist:
-	$(MAKE) dist-zip EXE=.exe prefix=$(prefix) VERSIONSUFFIX="-dos16" ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" ENABLE_NLS=$(ENABLE_NLS) docsubdir=dos2unix
+	$(MAKE) dist-zip EXE=.exe prefix=$(prefix) ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" ENABLE_NLS=$(ENABLE_NLS) docsubdir=dos2unix ZIPFILE=d2u$(DOS2UNIX_VERSION_SHORT)b.zip
 
 strip:
 	c:/bc4/bin/make -f bcc.mak strip
