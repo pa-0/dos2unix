@@ -1,4 +1,7 @@
-2010-11-22 Ben Pfaff <blp@cs.stanford.edu>
+2010-11-22 Jari Aalto <jari.aalto@cante.net>
+	* Small updates man page and Makefile.
+
+2010-11-21 Ben Pfaff <blp@cs.stanford.edu>
 	* Don't indicate text files with ASCII Form Feed control
 	  characters (^L) as binary.
 	  Form feed characters are fairly common in GNU software text files,

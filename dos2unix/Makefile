@@ -22,18 +22,6 @@
 #	This is a GNU Makefile that uses GNU compilers, linkers and cpp. The
 #	platform specific issues are determined by the various OS teets that
 #	rely on the uname(1) command and directory locations.
-#
-#   Developer notes
-#
-#	The documentation default is set for DOS and Unix.
-#
-#       In order to generate documentation for Unix only, use:
-#
-#	    make CPP_FLAGS_POD="-Dunix" man
-#
-#       In order to clean generated POD file:
-#
-#           make maintainer-clean
 
 include version.mk
 
