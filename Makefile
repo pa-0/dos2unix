@@ -53,4 +53,9 @@ tag:
 	         https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/tags/dos2unix-${DOS2UNIX_VERSION} \
 	    -m "Tagging dos2unix release ${DOS2UNIX_VERSION}."
 
+BRANCH=dos2unix-60
 
+branch:
+	svn copy https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/trunk \
+	         https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/branches/${BRANCH} \
+	    -m "Branching ${BRANCH}."
