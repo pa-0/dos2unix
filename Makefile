@@ -19,8 +19,8 @@ RELEASE_DIR_D2U = d2u$(DOS2UNIX_VERSION_SHORT)
 dist:
 	rm -rf ../${RELEASE_DIR_DOS2UNIX}
 	svn export https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/trunk/dos2unix ../${RELEASE_DIR_DOS2UNIX}
-	# Include doc files, to make it easier to build wcd.
-	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) docfiles
+	# Include doc files, to make it easier to build dos2unix.
+	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) doc
 	# Make sure .po files are up to date.
 	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) merge
 	# cleanup.
@@ -59,3 +59,20 @@ branch:
 	svn copy https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/trunk \
 	         https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/branches/${BRANCH} \
 	    -m "Branching ${BRANCH}."
+
+
+# Get latest changes of trunk into branch.
+merge_from_trunk:
+	svn merge https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/trunk
+
+# Merge branch into trunk.
+# After this the branch is unusable for further work.
+# Copy a new branch if needed.
+merge_to_trunk:
+	svn merge --reintegrate https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/branches/${BRANCH}
+
+# Delete branch
+delete_branch:
+	svn delete https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/branches/${BRANCH} -m "Delete branch ${BRANCH}"
+
+

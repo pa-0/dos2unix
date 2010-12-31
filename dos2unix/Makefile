@@ -212,7 +212,7 @@ $(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
 
 mofiles: $(MOFILES)
 
-docfiles: $(DOCFILES)
+doc: $(DOCFILES)
 
 tags: $(DOS2UNIX_POT)
 
