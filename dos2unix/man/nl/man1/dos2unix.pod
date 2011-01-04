@@ -112,20 +112,20 @@ B<unix2dos>: In deze modus worden Unix regeleindes omgezet in Mac regeleindes.
 DOS en Mac regeleindes worden niet omgezet. U kunt ook de opdracht  C<unix2mac>
 gebruiken om unix2dos in Mac modus uit te voeren.
 
+
 =item B<7bit>
 
-In deze modus worden DOS regeleindes omgezet in Unix regeleindes en vice versa.
 Alle 8 bit niet-ASCII karaktertekens (met waardes van 128 t/m 255) worden omgezet
-naar een spatie.
+naar een spatie. 7bit modus can gecombineerd worden met B<ascii> en B<mac> modus.
 
 =item B<iso>
 
-In deze modus worden DOS regeleindes omgezet in Unix regeleindes en vice versa.
 Karaktertekens worden omgezet tussen de DOS karakterset (codetabel) CP437
 en ISO karakterset ISO-8859-1 op Unix. CP437 tekens zonder gelijkwaardig ISO-8859-1
 teken, waarvoor geen omzetting mogelijk is, worden omgezet in een punt. Het zelfde
 geldt voor ISO-8859-1 tekens zonder CP437 tegenhanger. CP437 wordt met name in
 de VS gebruikt. In West Europa is CP850 meer gebruikelijk.
+Iso modus can gecombineerd worden met B<ascii> en B<mac> modus.
 
 Een andere optie om tekst bestanden om te zetten naar andere coderingen is om
 dos2unix in combinatie met iconv(1) te gebruiken. Iconv kan omzetten tussen
@@ -134,6 +134,8 @@ een lange lijst karaktercoderingen. Enkele voorbeelden:
 
 Omzetten van DOS DOSLatinUS naar Unix Latin-1
 
+    dos2unix -c iso -n in.txt out.txt
+    of
     iconv -f CP437 -t ISO-8859-1 in.txt | dos2unix > uit.txt
 
 Omzetten van DOS DOSLatin1 naar Unix Latin-1
@@ -154,6 +156,8 @@ Omzetten van Windows UTF-16 (Unicode) naar Unix UTF-8 (Unicode)
 
 Omzetten van Unix Latin-1 naar DOS DOSLatinUS
 
+    unix2dos -c iso -n in.txt out.txt
+    of
     unix2dos < in.txt | iconv -f ISO-8859-1 -t CP437 > uit.txt
 
 Omzetten van Unix Latin-1 naar DOS DOSLatin1

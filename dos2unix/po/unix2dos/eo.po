@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unix2dos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-29 15:36+0100\n"
+"POT-Creation-Date: 2011-01-04 18:27+0100\n"
 "PO-Revision-Date: 2010-03-07 19:52+0100\n"
 "Last-Translator: Ruĝulo <rugxulo@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: unix2dos.c:158
+#: unix2dos.c:159
 #, c-format
 msgid ""
 "unix2dos %s (%s)\n"
@@ -57,9 +57,9 @@ msgstr ""
 "                  ĉiam enŝaltata dum stdio modo\n"
 " -V --version     diri eldono-numeron\n"
 
-#: unix2dos.c:180
+#: unix2dos.c:181
 msgid ""
-"Copyright (C) 2009-2010 Erwin Waterlander\n"
+"Copyright (C) 2009-2011 Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
@@ -85,96 +85,95 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: unix2dos.c:212
+#: unix2dos.c:213
 msgid "With native language support.\n"
 msgstr "Uzante denaskan lingvo-sistemon.\n"
 
-#: unix2dos.c:309 unix2dos.c:348 unix2dos.c:387 unix2dos.c:412 unix2dos.c:425
-#: unix2dos.c:436
+#: unix2dos.c:326 unix2dos.c:351 unix2dos.c:364 unix2dos.c:375
 msgid "unix2dos: can not write to output file\n"
 msgstr "unix2dos: ne povas registri dosieren\n"
 
-#: unix2dos.c:448
+#: unix2dos.c:387
 #, c-format
 msgid "unix2dos: program error, invalid conversion mode %d\n"
 msgstr "unix2dos: programa eraro, neĝustan ŝanĝmodon %d\n"
 
-#: unix2dos.c:562 unix2dos.c:687
+#: unix2dos.c:501 unix2dos.c:626
 msgid "unix2dos: Failed to open temporary output file"
 msgstr "unix2dos: malsukcesis malfermi provizoran dosieron registran"
 
-#: unix2dos.c:567 unix2dos.c:697
+#: unix2dos.c:506 unix2dos.c:636
 #, c-format
 msgid "unix2dos: using %s as temporary file\n"
 msgstr "unix2dos: uzante %s kiel provizora dosiero\n"
 
-#: unix2dos.c:635 unix2dos.c:758
+#: unix2dos.c:574 unix2dos.c:697
 #, c-format
 msgid "unix2dos: problems renaming '%s' to '%s'\n"
 msgstr "unix2dos: problemojn trovitajn renomigi '%s' al '%s'\n"
 
-#: unix2dos.c:636 unix2dos.c:759
+#: unix2dos.c:575 unix2dos.c:698
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "         kreatan dosieron restas en '%s'\n"
 
-#: unix2dos.c:823
+#: unix2dos.c:762
 msgid ""
-"unix2dos: error: Value of environment variable UNIX2DOS_LOCALEDIR is too "
+"unix2dos: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
 "long.\n"
-msgstr "unix2dos: eraro: UNIX2DOS_LOCALEDIR tro longiĝis.\n"
+msgstr "unix2dos: eraro: DOS2UNIX_LOCALEDIR tro longiĝis.\n"
 
-#: unix2dos.c:903
+#: unix2dos.c:846
 #, c-format
 msgid "unix2dos: invalid %s conversion mode specified\n"
 msgstr "unix2dos: neuzebla %s ŝanĝmodo menciita\n"
 
-#: unix2dos.c:911
+#: unix2dos.c:854
 #, c-format
 msgid "unix2dos: option '%s' requires an argument\n"
 msgstr "unix2dos: elekto '%s' bezonas elekto-vorton\n"
 
-#: unix2dos.c:922 unix2dos.c:934 unix2dos.c:1020
+#: unix2dos.c:865 unix2dos.c:877 unix2dos.c:963
 #, c-format
 msgid "unix2dos: target of file %s not specified in new file mode\n"
 msgstr "unix2dos: ejon de dosiero %s ne menciita en novmodo dosiera\n"
 
-#: unix2dos.c:958 unix2dos.c:987
+#: unix2dos.c:901 unix2dos.c:930
 #, c-format
 msgid "unix2dos: Skipping %s, not a regular file.\n"
 msgstr "unix2dos: Pasante %s, dosiero ne tauĝa.\n"
 
-#: unix2dos.c:962 unix2dos.c:991
+#: unix2dos.c:905 unix2dos.c:934
 #, c-format
 msgid "unix2dos: Skipping binary file %s\n"
 msgstr "unix2dos: Pasante ne-tekstan dosieron %s\n"
 
-#: unix2dos.c:967
+#: unix2dos.c:910
 #, c-format
 msgid "unix2dos: converting file %s to file %s in Mac format ...\n"
 msgstr "unix2dos: ŝanĝante dosiero %s al dosiero %s Mac-en ...\n"
 
-#: unix2dos.c:969
+#: unix2dos.c:912
 #, c-format
 msgid "unix2dos: converting file %s to file %s in DOS format ...\n"
 msgstr "unix2dos: ŝanĝante dosiero %s al dosiero %s DOS-en ...\n"
 
-#: unix2dos.c:974
+#: unix2dos.c:917
 #, c-format
 msgid "unix2dos: problems converting file %s to file %s\n"
 msgstr "unix2dos: problemojn trovitajn dum ŝanĝi dosiero %s al dosiero %s\n"
 
-#: unix2dos.c:996
+#: unix2dos.c:939
 #, c-format
 msgid "unix2dos: converting file %s to Mac format ...\n"
 msgstr "unix2dos: ŝanĝante dosiero %s Mac-en ...\n"
 
-#: unix2dos.c:998
+#: unix2dos.c:941
 #, c-format
 msgid "unix2dos: converting file %s to DOS format ...\n"
 msgstr "unix2dos: ŝanĝante dosiero %s DOS-en ...\n"
 
-#: unix2dos.c:1003
+#: unix2dos.c:946
 #, c-format
 msgid "unix2dos: problems converting file %s\n"
 msgstr "unix2dos: problemojn dum ŝanĝi %s\n"

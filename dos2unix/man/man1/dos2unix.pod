@@ -142,27 +142,26 @@ the actual mode is 8 bit.
 =item B<mac>
 
 B<dos2unix>: In this mode Mac line breaks are converted to Unix line breaks.
-DOS and Unix line endigs are not changed. You can also use the command C<mac2unix> to
+DOS and Unix line breaks are not changed. You can also use the command C<mac2unix> to
 run dos2unix in Mac mode.
 
 B<unix2dos>: In this mode Unix line breaks are converted to Mac line breaks.
-DOS and Mac line endigs are not changed. You can also use the command C<unix2mac> to
+DOS and Mac line breaks are not changed. You can also use the command C<unix2mac> to
 run unix2dos in Mac mode.
 
 =item B<7bit>
 
-In this mode DOS line breaks are converted to Unix line breaks or vice versa.
-All 8 bit non-ASCII characters (with values from 128 to 255) are converted
-to a space.
+In this mode all 8 bit non-ASCII characters (with values from 128 to 255) are
+converted to a space. 7bit mode can be combined with B<ascii> and B<mac> mode.
 
 =item B<iso>
 
-In this mode DOS line breaks are converted to Unix line breaks or vice versa.
 Characters are converted between the DOS character set (code page) CP437 and ISO
 character set ISO-8859-1 on Unix. CP437 characters without ISO-8859-1
 equivalent, for which conversion is not possible, are converted to a dot. The
 same counts for ISO-8859-1 characters without CP437 counterpart. CP437 is
 mainly used in the USA. In Western Europe CP850 is more standard.
+Iso mode can be combined with B<ascii> and B<mac> mode.
 
 Another option to convert text files between different encodings is to use
 dos2unix in combination with iconv(1). Iconv can convert between a long list of
@@ -170,6 +169,8 @@ character encodings. Some examples:
 
 Convert from DOS DOSLatinUS to Unix Latin-1
 
+    dos2unix -c iso -n in.txt out.txt
+    or
     iconv -f CP437 -t ISO-8859-1 in.txt | dos2unix > out.txt
 
 Convert from DOS DOSLatin1 to Unix Latin-1
@@ -190,6 +191,8 @@ Convert from Windows UTF-16 (Unicode) to Unix UTF-8 (Unicode)
 
 Convert from Unix Latin-1 to DOS DOSLatinUS
 
+    unix2dos -c iso -n in.txt out.txt
+    or
     unix2dos < in.txt | iconv -f ISO-8859-1 -t CP437 > out.txt
 
 Convert from Unix Latin-1 to DOS DOSLatin1

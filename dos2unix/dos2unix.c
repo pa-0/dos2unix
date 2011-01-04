@@ -7,7 +7,7 @@
  *  See also http://www.freebsd.org/copyright/freebsd-license.html
  *  --------
  * 
- *  Copyright (C) 2009-2010 Erwin Waterlander
+ *  Copyright (C) 2009-2011 Erwin Waterlander
  *  Copyright (C) 1998 Christian Wurll
  *  Copyright (C) 1998 Bernd Johannes Wuebben
  *  Copyright (C) 1994-1995 Benjamin Lin.
@@ -137,7 +137,8 @@ typedef struct
   int NewFile;                          /* is in new file mode? */
   int Quiet;                            /* is in quiet mode? */
   int KeepDate;                         /* should keep date stamp? */
-  int ConvMode;                         /* 0: ascii, 1: 7bit, 2: iso, 3: mac */  
+  int ConvMode;                         /* 0: ascii, 1: 7bit, 2: iso */  
+  int FromToMode;                       /* 0: dos2unix, 1: mac2unix */  
   int NewLine;                          /* if TRUE, then additional newline */
   int Force;                            /* if TRUE, force conversion of all files. */
   int status;
@@ -188,7 +189,7 @@ Usage: dos2unix [-fhkLlqV] [-c convmode] [-o file ...] [-n infile outfile ...]\n
 void PrintLicense(void)
 {
   fprintf(stderr, "%s", _("\
-Copyright (C) 2009-2010 Erwin Waterlander\n\
+Copyright (C) 2009-2011 Erwin Waterlander\n\
 Copyright (C) 1998      Christian Wurll (Version 3.1)\n\
 Copyright (C) 1998      Bernd Johannes Wuebben (Version 3.0)\n\
 Copyright (C) 1994-1995 Benjamin Lin\n\
@@ -286,8 +287,24 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
     int RetVal = 0;
     int TempChar;
     int TempNextChar;
+    int *ConvTable;
 
     ipFlag->status = 0;
+
+    switch (ipFlag->ConvMode)
+    {
+      case 0: /* ascii */
+        ConvTable = D2UAsciiTable;
+        break;
+      case 1: /* 7bit */
+        ConvTable = D2U7BitTable;
+        break;
+      case 2: /* iso */
+        ConvTable = D2UIsoTable;
+        break;
+      default: /* unknown convmode */
+        ConvTable = D2UAsciiTable;
+    }
 
     /* CR-LF -> LF */
     /* LF    -> LF, in case the input file is a Unix text file */
@@ -296,9 +313,9 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
     /* \x0a = Newline/Line Feed (LF) */
     /* \x0d = Carriage Return (CR) */
 
-    switch (ipFlag->ConvMode)
+    switch (ipFlag->FromToMode)
     {
-      case 0: /* ascii */
+      case 0: /* dos2unix */
         while ((TempChar = getc(ipInF)) != EOF) {  /* get character */
           if ((ipFlag->Force == 0) &&
               (TempChar < 32) &&
@@ -311,7 +328,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
             break;
           }
           if (TempChar != '\x0d') {
-            if (putc(D2UAsciiTable[TempChar], ipOutF) == EOF) {
+            if (putc(ConvTable[TempChar], ipOutF) == EOF) {
               RetVal = -1;
               if (!ipFlag->Quiet)
                 fprintf(stderr, "%s", _("dos2unix: can not write to output file\n"));
@@ -322,55 +339,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
           }
         }
         break;
-      case 1: /* 7bit */
-        while ((TempChar = getc(ipInF)) != EOF) {
-          if ((ipFlag->Force == 0) &&
-              (TempChar < 32) &&
-              (TempChar != '\x0a') &&  /* Not an LF */
-              (TempChar != '\x0d') &&  /* Not a CR */
-              (TempChar != '\x09') &&  /* Not a TAB */
-              (TempChar != '\x0c')) {  /* Not a form feed */
-            RetVal = -1;
-            ipFlag->status |= BINARY_FILE ;
-            break;
-          }
-          if (TempChar != '\x0d') {
-            if (putc(D2U7BitTable[TempChar], ipOutF) == EOF) {
-              RetVal = -1;
-              if (!ipFlag->Quiet)
-                fprintf(stderr, "%s", _("dos2unix: can not write to output file\n"));
-              break;
-            }
-          } else {
-            StripDelimiter( ipInF, ipOutF, ipFlag, TempChar );
-          }
-        }
-        break;
-      case 2: /* iso */
-        while ((TempChar = getc(ipInF)) != EOF) {
-          if ((ipFlag->Force == 0) &&
-              (TempChar < 32) &&
-              (TempChar != '\x0a') &&  /* Not an LF */
-              (TempChar != '\x0d') &&  /* Not a CR */
-              (TempChar != '\x09') &&  /* Not a TAB */
-              (TempChar != '\x0c')) {  /* Not a form feed */
-            RetVal = -1;
-            ipFlag->status |= BINARY_FILE ;
-            break;
-          }
-          if (TempChar != '\x0d') {
-            if (putc(D2UIsoTable[TempChar], ipOutF) == EOF) {
-              RetVal = -1;
-              if (!ipFlag->Quiet)
-                fprintf(stderr, "%s", _("dos2unix: can not write to output file\n"));
-              break;
-            }
-          } else {
-            StripDelimiter( ipInF, ipOutF, ipFlag, TempChar );
-          }
-        }
-        break;
-      case 3: /* Mac */
+      case 1: /* mac2unix */
         while ((TempChar = getc(ipInF)) != EOF) {
           if ((ipFlag->Force == 0) &&
               (TempChar < 32) &&
@@ -384,7 +353,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
           }
           if ((TempChar != '\x0d'))
             {
-              if(putc(D2UAsciiTable[TempChar], ipOutF) == EOF){
+              if(putc(ConvTable[TempChar], ipOutF) == EOF){
                 RetVal = -1;
                 if (!ipFlag->Quiet)
                   fprintf(stderr, "%s", _("dos2unix: can not write to output file\n"));
@@ -414,10 +383,10 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
           }
         }
         break;
-      default: /* unknown convmode */
+      default: /* unknown FromToMode */
       ;
 #ifdef DEBUG
-      fprintf(stderr, _("dos2unix: program error, invalid conversion mode %d\n"),ipFlag->ConvMode);
+      fprintf(stderr, _("dos2unix: program error, invalid conversion mode %d\n"),ipFlag->FromToMode);
       exit(1);
 #endif
     }
@@ -811,7 +780,8 @@ int main (int argc, char *argv[])
   pFlag->NewFile = 0;
   pFlag->Quiet = 0;
   pFlag->KeepDate = 0;
-  pFlag->ConvMode = 0;
+  pFlag->ConvMode = 0;  /* default ascii */
+  pFlag->FromToMode = 0;  /* default dos2unix */
   pFlag->NewLine = 0;
   pFlag->Force = 0;
   pFlag->status = 0;
@@ -823,7 +793,7 @@ int main (int argc, char *argv[])
     ptr++;
 
   if ((strcmpi("mac2unix", ptr) == 0) || (strcmpi("mac2unix.exe", ptr) == 0))
-    pFlag->ConvMode = 3;
+    pFlag->FromToMode = 1;
 
   while ((++ArgIdx < argc) && (!ShouldExit))
   {
@@ -862,13 +832,16 @@ int main (int argc, char *argv[])
         if (++ArgIdx < argc)
         {
           if (strcmpi(argv[ArgIdx],"ascii") == 0)
+          {
             pFlag->ConvMode = 0;
+            pFlag->FromToMode = 0;
+          }
           else if (strcmpi(argv[ArgIdx], "7bit") == 0)
             pFlag->ConvMode = 1;
           else if (strcmpi(argv[ArgIdx], "iso") == 0)
             pFlag->ConvMode = 2;
           else if (strcmpi(argv[ArgIdx], "mac") == 0)
-            pFlag->ConvMode = 3;
+            pFlag->FromToMode = 1;
           else
           {
             if (!pFlag->Quiet)

@@ -1,3 +1,6 @@
+2011-01-04 Erwin Waterlander <waterlan@xs4all.nl>
+	* 7bit and iso mode can be used in Mac mode.
+
 2010-11-22 Jari Aalto <jari.aalto@cante.net>
 	* Small updates man page and Makefile.
 
