@@ -1,3 +1,8 @@
+2011-01-07 Erwin Waterlander <waterlan@xs4all.nl>
+	* ISO mode -437, fix conversion of non-breaking space (NBSP)
+	* New ISO conversion modes -850 and -1252
+	* SunOS compatible command-line options -ascii, -iso, -7, -437, -850
+
 2011-01-04 Erwin Waterlander <waterlan@xs4all.nl>
 	* 7bit and iso mode can be used in Mac mode.
 

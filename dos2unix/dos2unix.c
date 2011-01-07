@@ -132,6 +132,15 @@
 #define BINARY_FILE 0x1
 #define NO_REGFILE  0x2
 
+#define CONVMODE_ASCII  0
+#define CONVMODE_7BIT   1
+#define CONVMODE_437    2
+#define CONVMODE_850    3
+#define CONVMODE_1252   4
+
+#define FROMTO_DOS2UNIX 0
+#define FROMTO_MAC2UNIX 1
+
 typedef struct
 {
   int NewFile;                          /* is in new file mode? */
@@ -168,11 +177,17 @@ void PrintUsage(void)
 {
   fprintf(stderr, _("\
 dos2unix %s (%s)\n\
-Usage: dos2unix [-fhkLlqV] [-c convmode] [-o file ...] [-n infile outfile ...]\n\
+Usage: dos2unix [options] [-c convmode] [-o file ...] [-n infile outfile ...]\n\
+ -1252            conversion mode iso cp1252\n\
+ -437             conversion mode iso cp437\n\
+ -7               conversion mode 7bit\n\
+ -850             conversion mode iso cp850\n\
+ -ascii           conversion mode ascii\n\
  -c --convmode    conversion mode\n\
    convmode       ascii, 7bit, iso, mac, default to ascii\n\
  -f --force       force conversion of all files\n\
  -h --help        give this help\n\
+ -iso             conversion mode iso cp437\n\
  -k --keepdate    keep output file date\n\
  -L --license     display software license\n\
  -l --newline     add additional newline\n\
@@ -293,14 +308,20 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
 
     switch (ipFlag->ConvMode)
     {
-      case 0: /* ascii */
+      case CONVMODE_ASCII: /* ascii */
         ConvTable = D2UAsciiTable;
         break;
-      case 1: /* 7bit */
+      case CONVMODE_7BIT: /* 7bit */
         ConvTable = D2U7BitTable;
         break;
-      case 2: /* iso */
-        ConvTable = D2UIsoTable;
+      case CONVMODE_437: /* iso */
+        ConvTable = D2UIso437Table;
+        break;
+      case CONVMODE_850: /* iso */
+        ConvTable = D2UIso850Table;
+        break;
+      case CONVMODE_1252: /* iso */
+        ConvTable = D2UIso1252Table;
         break;
       default: /* unknown convmode */
         ConvTable = D2UAsciiTable;
@@ -315,7 +336,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
 
     switch (ipFlag->FromToMode)
     {
-      case 0: /* dos2unix */
+      case FROMTO_DOS2UNIX: /* dos2unix */
         while ((TempChar = getc(ipInF)) != EOF) {  /* get character */
           if ((ipFlag->Force == 0) &&
               (TempChar < 32) &&
@@ -339,7 +360,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
           }
         }
         break;
-      case 1: /* mac2unix */
+      case FROMTO_MAC2UNIX: /* mac2unix */
         while ((TempChar = getc(ipInF)) != EOF) {
           if ((ipFlag->Force == 0) &&
               (TempChar < 32) &&
@@ -780,8 +801,8 @@ int main (int argc, char *argv[])
   pFlag->NewFile = 0;
   pFlag->Quiet = 0;
   pFlag->KeepDate = 0;
-  pFlag->ConvMode = 0;  /* default ascii */
-  pFlag->FromToMode = 0;  /* default dos2unix */
+  pFlag->ConvMode = CONVMODE_ASCII;  /* default ascii */
+  pFlag->FromToMode = FROMTO_DOS2UNIX;  /* default dos2unix */
   pFlag->NewLine = 0;
   pFlag->Force = 0;
   pFlag->status = 0;
@@ -793,7 +814,7 @@ int main (int argc, char *argv[])
     ptr++;
 
   if ((strcmpi("mac2unix", ptr) == 0) || (strcmpi("mac2unix.exe", ptr) == 0))
-    pFlag->FromToMode = 1;
+    pFlag->FromToMode = FROMTO_MAC2UNIX;
 
   while ((++ArgIdx < argc) && (!ShouldExit))
   {
@@ -827,21 +848,34 @@ int main (int argc, char *argv[])
         PrintLicense();
         return(0);
       }
+      else if (strcmp(argv[ArgIdx],"-ascii") == 0)  /* SunOS compatible options */
+      {
+        pFlag->ConvMode = CONVMODE_ASCII;
+        pFlag->FromToMode = FROMTO_DOS2UNIX;
+      }
+      else if (strcmp(argv[ArgIdx],"-7") == 0)
+        pFlag->ConvMode = CONVMODE_7BIT;
+      else if ((strcmp(argv[ArgIdx],"-iso") == 0) || (strcmp(argv[ArgIdx],"-437") == 0))
+        pFlag->ConvMode = CONVMODE_437;
+      else if (strcmp(argv[ArgIdx],"-850") == 0)
+        pFlag->ConvMode = CONVMODE_850;
+      else if (strcmp(argv[ArgIdx],"-1252") == 0)
+        pFlag->ConvMode = CONVMODE_1252;
       else if ((strcmp(argv[ArgIdx],"-c") == 0) || (strcmp(argv[ArgIdx],"--convmode") == 0))
       {
         if (++ArgIdx < argc)
         {
-          if (strcmpi(argv[ArgIdx],"ascii") == 0)
+          if (strcmpi(argv[ArgIdx],"ascii") == 0)  /* Benjamin Lin's legacy options */
           {
-            pFlag->ConvMode = 0;
-            pFlag->FromToMode = 0;
+            pFlag->ConvMode = CONVMODE_ASCII;
+            pFlag->FromToMode = FROMTO_DOS2UNIX;
           }
           else if (strcmpi(argv[ArgIdx], "7bit") == 0)
-            pFlag->ConvMode = 1;
+            pFlag->ConvMode = CONVMODE_7BIT;
           else if (strcmpi(argv[ArgIdx], "iso") == 0)
-            pFlag->ConvMode = 2;
+            pFlag->ConvMode = CONVMODE_437;
           else if (strcmpi(argv[ArgIdx], "mac") == 0)
-            pFlag->FromToMode = 1;
+            pFlag->FromToMode = FROMTO_MAC2UNIX;
           else
           {
             if (!pFlag->Quiet)
