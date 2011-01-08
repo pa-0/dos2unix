@@ -6,8 +6,8 @@ dos2unix - DOS/Mac naar Unix en vice versa tekstbestand formaat omzetter
 
 =head1 OVERZICHT
 
-    dos2unix [opties] [-c CONVMODUS] [-o BESTAND ...] [-n BESTAND-IN BESTAND-UIT ...]
-    unix2dos [opties] [-c CONVMODUS] [-o BESTAND ...] [-n BESTAND-IN BESTAND-UIT ...]
+    dos2unix [opties] [BESTAND ...] [-n BESTAND-IN BESTAND-UIT ...]
+    unix2dos [opties] [BESTAND ...] [-n BESTAND-IN BESTAND-UIT ...]
 
 =head1 BESCHRIJVING
 
@@ -17,7 +17,7 @@ vice versa. Binaire bestanden en niet-reguliere bestanden, zoals
 snelkoppelingen, worden automatisch overgeslagen, behalve als de omzetting
 geforceerd wordt.
 
-Dos2unix heeft een aantal conversiemodi gelijk aan dos2unix onder SunOS/Solaris.
+Dos2unix is gemodelleerd naar dos2unix onder SunOS/Solaris en heeft een aantal gelijke conversiemodi.
 
 In DOS/Windows tekstbestanden bestaat een regeleinde uit een combinatie van twee
 tekens: een 'Carriage Return' (CR) gevolgd door een 'Line Feed' (LF). In Unix
@@ -30,6 +30,31 @@ regeleindes als Unix.
 =head1 OPTIES
 
 =over 4
+
+=item B<-ascii>
+
+Converteer alleen regeleindes. Dit is de standaard coversie-modus.
+
+=item B<-iso>
+
+Conversie tussen DOS en ISO lettertekenreeks. Zie ook paragraaf
+CONVERSIE MODI.
+
+=item B<-1252>
+
+Gebruik Windows codetabel 1252.
+
+=item B<-437>
+
+Gebruik DOS code page 437. This is the default code page used for ISO conversion.
+
+=item B<-850>
+
+Use DOS code page 850.
+
+=item B<-7>
+
+Convert 8 bit characters to 7 bit space.
 
 =item B<-c, --convmode CONVMODUS>
 
@@ -86,7 +111,7 @@ Laat versie informatie zien.
 
 =head1 CONVERSIE MODI
 
-Conversie modi I<ascii>, I<7bit>, en I<iso>
+Conversie-modi I<ascii>, I<7bit>, en I<iso>
 zijn gelijk aan die van dos2unix/unix2dos onder SunOS/Solaris.
 
 =over 4
@@ -115,13 +140,13 @@ gebruiken om unix2dos in Mac modus uit te voeren.
 
 =item B<7bit>
 
-Alle 8 bit niet-ASCII karaktertekens (met waardes van 128 t/m 255) worden omgezet
+Alle 8 bit niet-ASCII lettertekens (met waardes van 128 t/m 255) worden omgezet
 naar een spatie. 7bit modus can gecombineerd worden met B<ascii> en B<mac> modus.
 
 =item B<iso>
 
-Karaktertekens worden omgezet tussen de DOS karakterset (codetabel) CP437
-en ISO karakterset ISO-8859-1 op Unix. CP437 tekens zonder gelijkwaardig ISO-8859-1
+Lettertekens worden omgezet tussen de DOS lettertekenreeks (codetabel) CP437
+en ISO lettertekenreeks ISO-8859-1 op Unix. CP437 tekens zonder gelijkwaardig ISO-8859-1
 teken, waarvoor geen omzetting mogelijk is, worden omgezet in een punt. Het zelfde
 geldt voor ISO-8859-1 tekens zonder CP437 tegenhanger. CP437 wordt met name in
 de VS gebruikt. In West Europa is CP850 meer gebruikelijk.
@@ -129,7 +154,7 @@ Iso modus can gecombineerd worden met B<ascii> en B<mac> modus.
 
 Een andere optie om tekst bestanden om te zetten naar andere coderingen is om
 dos2unix in combinatie met iconv(1) te gebruiken. Iconv kan omzetten tussen
-een lange lijst karaktercoderingen. Enkele voorbeelden:
+een lange lijst letterteken-coderingen. Enkele voorbeelden:
 
 
 Omzetten van DOS DOSLatinUS naar Unix Latin-1
@@ -257,7 +282,7 @@ The primaire taal wordt geselecteerd met de omgevingsvariabele LANG. De LANG
 variabele bestaat uit verschillende onderdelen. Het eerste deel is in kleine
 letters de taalcode. Het tweede deel is optioneel en is de landcode in
 hoofdletters, voorafgegaan door een laag streepje. Er is ook een optioneel
-derde deel: karakterset codering, voorafgegaan door een punt. Enkele voorbeelden
+derde deel: lettertekenreeks-codering, voorafgegaan door een punt. Enkele voorbeelden
 voor een POSIX staandaard shell:
 
     export LANG=nl               Nederlands
