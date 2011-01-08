@@ -167,17 +167,17 @@ void PrintUsage(void)
 {
   fprintf(stderr, _("\
 unix2dos %s (%s)\n\
-Usage: unix2dos [-fhkLlqV] [-c convmode] [-o file ...] [-n infile outfile ...]\n\
- -1252            conversion mode iso cp1252\n\
- -437             conversion mode iso cp437\n\
- -7               conversion mode 7bit\n\
- -850             conversion mode iso cp850\n\
- -ascii           conversion mode ascii\n\
+Usage: unix2dos [options] [file ...] [-n infile outfile ...]\n\
+ -ascii           convert only line breaks (default)\n\
+ -iso             conversion between DOS and ISO character set\n\
+   -1252          Use Windows code page 1252\n\
+   -437           Use DOS code page 437 (default)\n\
+   -850           Use DOS code page 850\n\
+ -7               Convert 8 bit characters to 7 bit space\n\
  -c --convmode    conversion mode\n\
    convmode       ascii, 7bit, iso, mac, default to ascii\n\
  -f --force       force conversion of all files\n\
  -h --help        give this help\n\
- -iso             conversion mode iso cp437\n\
  -k --keepdate    keep output file date\n\
  -L --license     display software license\n\
  -l --newline     add additional newline\n\
@@ -847,10 +847,7 @@ int main (int argc, char *argv[])
         return(0);
       }
       else if (strcmp(argv[ArgIdx],"-ascii") == 0)  /* SunOS compatible options */
-      {
         pFlag->ConvMode = CONVMODE_ASCII;
-        pFlag->FromToMode = FROMTO_UNIX2DOS;
-      }
       else if (strcmp(argv[ArgIdx],"-7") == 0)
         pFlag->ConvMode = CONVMODE_7BIT;
       else if ((strcmp(argv[ArgIdx],"-iso") == 0) || (strcmp(argv[ArgIdx],"-437") == 0))
@@ -864,10 +861,7 @@ int main (int argc, char *argv[])
         if (++ArgIdx < argc)
         {
           if (strcmpi(argv[ArgIdx],"ascii") == 0)  /* Benjamin Lin's legacy options */
-          {
             pFlag->ConvMode = CONVMODE_ASCII;
-            pFlag->FromToMode = FROMTO_UNIX2DOS;
-          }
           else if (strcmpi(argv[ArgIdx], "7bit") == 0)
             pFlag->ConvMode = CONVMODE_7BIT;
           else if (strcmpi(argv[ArgIdx], "iso") == 0)

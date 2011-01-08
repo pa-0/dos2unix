@@ -45,8 +45,8 @@ dos2unix - DOS/Mac to Unix and vice versa text file format converter
 
 =head1 SYNOPSIS
 
-    dos2unix [options] [-c CONVMODE] [-o FILE ...] [-n INFILE OUTFILE ...]
-    unix2dos [options] [-c CONVMODE] [-o FILE ...] [-n INFILE OUTFILE ...]
+    dos2unix [options] [FILE ...] [-n INFILE OUTFILE ...]
+    unix2dos [options] [FILE ...] [-n INFILE OUTFILE ...]
 
 =head1 DESCRIPTION
 
@@ -55,7 +55,8 @@ plain text files in DOS or Mac format to Unix format and vice versa. Binary file
 and non-regular files, such as soft links, are automatically skipped, unless
 conversion is forced.
 
-Dos2unix has a few conversion modes similar to dos2unix under SunOS/Solaris.
+Dos2unix was modeled after dos2unix under SunOS/Solaris and has a few similar
+conversion modes.
 
 In DOS/Windows text files a line break, also known as newline, is a combination
 of two characters: a Carriage Return (CR) followed by a Line Feed (LF). In Unix
@@ -66,6 +67,31 @@ character. Nowadays Mac OS uses Unix style (LF) line breaks.
 =head1 OPTIONS
 
 =over 4
+
+=item B<-ascii>
+
+Convert only line breaks. This is the default conversion mode.
+
+=item B<-iso>
+
+Conversion between DOS and ISO character set. See also section
+CONVERSION MODES.
+
+=item B<-1252>
+
+Use Windows code page 1252.
+
+=item B<-437>
+
+Use DOS code page 437. This is the default code page used for ISO conversion.
+
+=item B<-850>
+
+Use DOS code page 850.
+
+=item B<-7>
+
+Convert 8 bit characters to 7 bit space.
 
 =item B<-c, --convmode CONVMODE>
 
@@ -121,6 +147,14 @@ Display version information and exit.
 
 =back
 
+=head1 MAC MODE
+
+In normal mode line breaks are converted from DOS to Unix and vice versa. Mac line breaks are not converted.
+
+In Mac mode line breaks are converted from Mac to Unix and vice versa. DOS line breaks are not changed.
+
+To run in Mac mode use the command-line option C<-c mac> or use the commands C<mac2unix> or C<unix2mac>.
+
 =head1 CONVERSION MODES
 
 Conversion modes I<ascii>, I<7bit>, and I<iso>
@@ -130,58 +164,44 @@ are similar to those of dos2unix/unix2dos under SunOS/Solaris.
 
 =item B<ascii>
 
-B<dos2unix>: In this mode DOS line breaks are converted to Unix line breaks.
-Unix and Mac line breaks are not changed.
+In mode C<ascii> only line breaks are converted. This is the default conversion
+mode.
 
-B<unix2dos>: In this mode Unix line breaks are converted to DOS line breaks.
-DOS and Mac line breaks are not changed.
-
-Although the name of this mode is ASCII, which is a 7 bit standard,
-the actual mode is 8 bit.
-
-=item B<mac>
-
-B<dos2unix>: In this mode Mac line breaks are converted to Unix line breaks.
-DOS and Unix line breaks are not changed. You can also use the command C<mac2unix> to
-run dos2unix in Mac mode.
-
-B<unix2dos>: In this mode Unix line breaks are converted to Mac line breaks.
-DOS and Mac line breaks are not changed. You can also use the command C<unix2mac> to
-run unix2dos in Mac mode.
+Although the name of this mode is ASCII, which is a 7 bit standard, the actual
+mode is 8 bit. Use always this mode when converting Unicode UTF-8 files.
 
 =item B<7bit>
 
 In this mode all 8 bit non-ASCII characters (with values from 128 to 255) are
-converted to a space. 7bit mode can be combined with B<ascii> and B<mac> mode.
+converted to a 7 bit space.
 
 =item B<iso>
 
-Characters are converted between the DOS character set (code page) CP437 and ISO
-character set ISO-8859-1 on Unix. CP437 characters without ISO-8859-1
+Characters are converted between a DOS character set (code page) and ISO
+character set ISO-8859-1 (Latin-1) on Unix. DOS characters without ISO-8859-1
 equivalent, for which conversion is not possible, are converted to a dot. The
-same counts for ISO-8859-1 characters without CP437 counterpart. CP437 is
-mainly used in the USA. In Western Europe CP850 is more standard.
-Iso mode can be combined with B<ascii> and B<mac> mode.
+same counts for ISO-8859-1 characters without DOS counterpart.
 
-Another option to convert text files between different encodings is to use
-dos2unix in combination with iconv(1). Iconv can convert between a long list of
-character encodings. Some examples:
+The default DOS code page used is CP437, which is mainly used in the USA. In
+Western Europe CP850 is more standard.  Windows code page CP1252 is also
+supported. For other code pages use dos2unix in combination with iconv(1).
+Iconv can convert between a long list of character encodings.
 
-Convert from DOS DOSLatinUS to Unix Latin-1
+Some examples:
 
-    dos2unix -c iso -n in.txt out.txt
-    or
-    iconv -f CP437 -t ISO-8859-1 in.txt | dos2unix > out.txt
+Convert from DOS CP437 to Unix Latin-1
 
-Convert from DOS DOSLatin1 to Unix Latin-1
+    dos2unix -iso -n in.txt out.txt
 
-    iconv -f CP850 -t ISO-8859-1 in.txt | dos2unix > out.txt
+Convert from DOS CP850 to Unix Latin-1
 
-Convert from Windows WinLatin1 to Unix Latin-1
+    dos2unix -850 -n in.txt out.txt
 
-    iconv -f CP1252 -t ISO-8859-1 in.txt | dos2unix > out.txt
+Convert from Windows CP1252 to Unix Latin-1
 
-Convert from Windows WinLatin1 to Unix UTF-8 (Unicode)
+    dos2unix -1252 -n in.txt out.txt
+
+Convert from Windows CP1252 to Unix UTF-8 (Unicode)
 
     iconv -f CP1252 -t UTF-8 in.txt | dos2unix > out.txt
 
@@ -189,21 +209,19 @@ Convert from Windows UTF-16 (Unicode) to Unix UTF-8 (Unicode)
 
     iconv -f UTF-16 -t UTF-8 in.txt | dos2unix > out.txt
 
-Convert from Unix Latin-1 to DOS DOSLatinUS
+Convert from Unix Latin-1 to DOS CP437
 
-    unix2dos -c iso -n in.txt out.txt
-    or
-    unix2dos < in.txt | iconv -f ISO-8859-1 -t CP437 > out.txt
+    unix2dos -iso -n in.txt out.txt
 
-Convert from Unix Latin-1 to DOS DOSLatin1
+Convert from Unix Latin-1 to DOS CP850
 
-    unix2dos < in.txt | iconv -f ISO-8859-1 -t CP850 > out.txt
+    unix2dos -850 -n in.txt out.txt
 
-Convert from Unix Latin-1 to Windows WinLatin1
+Convert from Unix Latin-1 to Windows CP1252
 
-    unix2dos < in.txt | iconv -f ISO-8859-1 -t CP1252 > out.txt
+    unix2dos -1252 -n in.txt out.txt
 
-Convert from Unix UTF-8 (Unicode) to Windows WinLatin1
+Convert from Unix UTF-8 (Unicode) to Windows CP1252
 
     unix2dos < in.txt | iconv -f UTF-8 -t CP1252 > out.txt
 
@@ -218,11 +236,11 @@ and L<http://czyborra.com/charsets/iso8859.html>.
 
 =head1 UNICODE
 
-There exist different Unicode encodings. On Unix/Linux Unicode
-files are mostly encoded in UTF-8 encoding. UTF-8 is ASCII compatible. UTF-8
-files can have DOS, Unix or Mac line breaks. It is safe to run dos2unix/unix2dos on
-UTF-8 encoded files. On Windows mostly UTF-16 encoding is used for Unicode
-files. Dos2unix/unix2dos should not be run on UTF-16 files. UTF-16 files are
+There exist different Unicode encodings. On Unix/Linux Unicode files are mostly
+encoded in UTF-8 encoding. UTF-8 is ASCII compatible. UTF-8 files can have DOS,
+Unix or Mac line breaks. It is safe to run dos2unix/unix2dos on UTF-8 encoded
+files. On Windows mostly UTF-16 encoding is used for Unicode files.
+Dos2unix/unix2dos should not be run on UTF-16 files. UTF-16 files are
 automatically skipped, because they are considered binary.
 
 =head1 EXAMPLES
@@ -246,6 +264,7 @@ Convert and replace b.txt in 7bit conversion mode.
 
     dos2unix a.txt -c 7bit b.txt
     dos2unix -c ascii a.txt -c 7bit b.txt
+    dos2unix -ascii a.txt -7 b.txt
 
 Convert a.txt from Mac to Unix format.
 
@@ -337,7 +356,6 @@ Example (POSIX shell):
     export DOS2UNIX_LOCALEDIR=$HOME/share/locale
 
 =back
-
 
 
 =head1 STANDARDS
