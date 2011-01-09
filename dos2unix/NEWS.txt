@@ -1,3 +1,13 @@
+2011-??-??: Version 5.2
+    ISO conversion mode supports DOS CP850 and Windows CP1252.
+    SunOS compatible options -ascii, -iso, -7, -437 and -850.
+    ISO and 7bit mode can be used in Mac mode.
+    Fixed ISO conversion of non-breaking space (NBSP).
+    Treat ASCII Form Feed control characters as valid text.
+    Update manual pages.
+    Don't include generated documentation files in Unix source package.
+    Create a source package in DOS text format.
+
 2010-08-18: Version 5.1.1
 
     Added Dutch translation of the manual.
