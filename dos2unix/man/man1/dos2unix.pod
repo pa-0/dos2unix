@@ -1,7 +1,7 @@
 /*
 #  Copyright and License
 #
-#      Copyright (C) 2009-2010 Erwin Waterlander
+#      Copyright (C) 2009-2011 Erwin Waterlander
 #
 #   License
 #
@@ -149,11 +149,14 @@ Display version information and exit.
 
 =head1 MAC MODE
 
-In normal mode line breaks are converted from DOS to Unix and vice versa. Mac line breaks are not converted.
+In normal mode line breaks are converted from DOS to Unix and vice versa.
+Mac line breaks are not converted.
 
-In Mac mode line breaks are converted from Mac to Unix and vice versa. DOS line breaks are not changed.
+In Mac mode line breaks are converted from Mac to Unix and vice versa. DOS
+line breaks are not changed.
 
-To run in Mac mode use the command-line option C<-c mac> or use the commands C<mac2unix> or C<unix2mac>.
+To run in Mac mode use the command-line option C<-c mac> or use the
+commands C<mac2unix> or C<unix2mac>.
 
 =head1 CONVERSION MODES
 
@@ -164,16 +167,17 @@ are similar to those of dos2unix/unix2dos under SunOS/Solaris.
 
 =item B<ascii>
 
-In mode C<ascii> only line breaks are converted. This is the default conversion
-mode.
+In mode C<ascii> only line breaks are converted. This is the default
+conversion mode.
 
-Although the name of this mode is ASCII, which is a 7 bit standard, the actual
-mode is 8 bit. Use always this mode when converting Unicode UTF-8 files.
+Although the name of this mode is ASCII, which is a 7 bit standard, the
+actual mode is 8 bit. Use always this mode when converting Unicode UTF-8
+files.
 
 =item B<7bit>
 
-In this mode all 8 bit non-ASCII characters (with values from 128 to 255) are
-converted to a 7 bit space.
+In this mode all 8 bit non-ASCII characters (with values from 128 to 255)
+are converted to a 7 bit space.
 
 =item B<iso>
 
