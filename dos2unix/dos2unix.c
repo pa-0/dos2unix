@@ -179,7 +179,7 @@ void PrintUsage(void)
 dos2unix %s (%s)\n\
 Usage: dos2unix [options] [file ...] [-n infile outfile ...]\n\
  -ascii           convert only line breaks (default)\n\
- -iso             conversion between DOS and ISO character set\n\
+ -iso             conversion between DOS and ISO-8859-1 character set\n\
    -1252          Use Windows code page 1252\n\
    -437           Use DOS code page 437 (default)\n\
    -850           Use DOS code page 850\n\

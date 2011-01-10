@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unix2dos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-08 09:18+0100\n"
+"POT-Creation-Date: 2011-01-10 11:03+0100\n"
 "PO-Revision-Date: 2010-03-07 19:52+0100\n"
 "Last-Translator: Ruĝulo <rugxulo@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: unix2dos.c:168
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "unix2dos %s (%s)\n"
 "Usage: unix2dos [options] [file ...] [-n infile outfile ...]\n"
 " -ascii           convert only line breaks (default)\n"
-" -iso             conversion between DOS and ISO character set\n"
+" -iso             conversion between DOS and ISO-8859-1 character set\n"
 "   -1252          Use Windows code page 1252\n"
 "   -437           Use DOS code page 437 (default)\n"
 "   -850           Use DOS code page 850\n"
@@ -120,7 +120,7 @@ msgstr "unix2dos: problemojn trovitajn renomigi '%s' al '%s'\n"
 #: unix2dos.c:596 unix2dos.c:719
 #, c-format
 msgid "          output file remains in '%s'\n"
-msgstr "         kreatan dosieron restas en '%s'\n"
+msgstr "          kreatan dosieron restas en '%s'\n"
 
 #: unix2dos.c:783
 msgid ""

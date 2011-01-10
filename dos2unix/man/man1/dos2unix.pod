@@ -74,20 +74,20 @@ Convert only line breaks. This is the default conversion mode.
 
 =item B<-iso>
 
-Conversion between DOS and ISO character set. See also section
+Conversion between DOS and ISO-8859-1 character set. See also section
 CONVERSION MODES.
 
 =item B<-1252>
 
-Use Windows code page 1252.
+Use Windows code page 1252 (Western languages).
 
 =item B<-437>
 
-Use DOS code page 437. This is the default code page used for ISO conversion.
+Use DOS code page 437 (US). This is the default code page used for ISO conversion.
 
 =item B<-850>
 
-Use DOS code page 850.
+Use DOS code page 850 (Western Europe).
 
 =item B<-7>
 

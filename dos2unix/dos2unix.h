@@ -106,13 +106,6 @@ static int D2UIso437Table[256] =
 
 /* CP850 -> ISO-8859-1 */
 /* Non-convertable characters are converted to a dot (\x2e) */
-// 9b>f8, 9d>d8, 9e>d7
-// a9>ae
-// b5>c1, b6>c2, b6>c2, b7>c0, b8>a9, bd>a2, be>a5
-// c6>e3, c7>c3, cf>a4
-// d0>f0, d1>d0, d2>ca, d3>cb, d4>c8, d6>cd, d7>ce, d8>cf, dd>a6, de>cc
-// e0>d3, e2>d4, e3>d2, e4>f5, e5>d5, e7>fe, e8>de, e9>da, ea>db, eb>d9, ec>fd, ed>dd, ee>af, ef>b4
-// f0>ad, f3>be, f4>b6, f5>a7, f7>b8, f9>a8, fb>b9, fc>b3, fd>b2, ff>a0
 static int D2UIso850Table[256] =
 {
   '\x00', '\x01', '\x02', '\x03', '\x04', '\x05', '\x06', '\x07', '\x08', '\x09', '\x0a', '\x0b', '\x0c', '\x0d', '\x0e', '\x0f',

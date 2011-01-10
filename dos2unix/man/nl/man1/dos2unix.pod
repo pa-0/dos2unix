@@ -75,20 +75,20 @@ Converteer alleen regeleindes. Dit is de standaard conversiemodus.
 
 =item B<-iso>
 
-Conversie tussen DOS en ISO lettertekenreeks. Zie ook paragraaf
+Conversie tussen DOS en ISO-8859-1 lettertekenreeks. Zie ook paragraaf
 CONVERSIE MODI.
 
 =item B<-1252>
 
-Gebruik Windows codetabel 1252.
+Gebruik Windows codetabel 1252 (Westerse talen).
 
 =item B<-437>
 
-Gebruik DOS codetabel 437. Dit is de standaard codetabel die gebruikt wordt bij ISO conversie.
+Gebruik DOS codetabel 437 (VS). Dit is de standaard codetabel die gebruikt wordt bij ISO conversie.
 
 =item B<-850>
 
-Gebruik DOS codetabel 850.
+Gebruik DOS codetabel 850 (West Europa).
 
 =item B<-7>
 
