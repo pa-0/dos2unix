@@ -1,6 +1,13 @@
+2011-01-11 Erwin Waterlander <waterlan@xs4all.nl>
+	* New ISO conversion modes DOS CP860 (Portuguese)
+	  and CP863 (French Canadian).
+
+2011-01-10 Erwin Waterlander <waterlan@xs4all.nl>
+	* New ISO conversion mode DOS CP865 (Nordic).
+
 2011-01-07 Erwin Waterlander <waterlan@xs4all.nl>
-	* ISO mode -437, fix conversion of non-breaking space (NBSP)
-	* New ISO conversion modes -850 and -1252
+	* ISO mode CP437, fix conversion of non-breaking space (NBSP)
+	* New ISO conversion modes DOS CP850 (Western European) and Windows CP1252 (Western).
 	* SunOS compatible command-line options -ascii, -iso, -7, -437, -850
 
 2011-01-04 Erwin Waterlander <waterlan@xs4all.nl>

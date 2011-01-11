@@ -1,5 +1,8 @@
 2011-??-??: Version 5.2
-    ISO conversion mode supports DOS CP850 and Windows CP1252.
+    ISO conversion mode supports additional code pages
+      CP850 (Western European), CP860 (Portuguese),
+      CP863 (French Canadian), CP865 (Nordic),
+      and CP1252 (Western).
     SunOS compatible options -ascii, -iso, -7, -437 and -850.
     ISO and 7bit mode can be used in Mac mode.
     Fixed ISO conversion of non-breaking space (NBSP).

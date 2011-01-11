@@ -79,7 +79,7 @@ CONVERSION MODES.
 
 =item B<-1252>
 
-Use Windows code page 1252 (Western languages).
+Use Windows code page 1252 (Western).
 
 =item B<-437>
 
@@ -87,7 +87,19 @@ Use DOS code page 437 (US). This is the default code page used for ISO conversio
 
 =item B<-850>
 
-Use DOS code page 850 (Western Europe).
+Use DOS code page 850 (Western European).
+
+=item B<-860>
+
+Use DOS code page 860 (Portuguese).
+
+=item B<-863>
+
+Use DOS code page 863 (French Canadian).
+
+=item B<-865>
+
+Use DOS code page 865 (Nordic).
 
 =item B<-7>
 

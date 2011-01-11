@@ -80,7 +80,7 @@ CONVERSIE MODI.
 
 =item B<-1252>
 
-Gebruik Windows codetabel 1252 (Westerse talen).
+Gebruik Windows codetabel 1252 (Westers).
 
 =item B<-437>
 
@@ -88,7 +88,19 @@ Gebruik DOS codetabel 437 (VS). Dit is de standaard codetabel die gebruikt wordt
 
 =item B<-850>
 
-Gebruik DOS codetabel 850 (West Europa).
+Gebruik DOS codetabel 850 (West-Europees).
+
+=item B<-860>
+
+Gebruik DOS codetabel 860 (Portugees).
+
+=item B<-863>
+
+Gebruik DOS codetabel 863 (Frans-Canadees).
+
+=item B<-865>
+
+Gebruik DOS codetabel 865 (Noord-Europees).
 
 =item B<-7>
 

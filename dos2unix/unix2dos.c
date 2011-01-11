@@ -126,7 +126,10 @@
 #define CONVMODE_7BIT   1
 #define CONVMODE_437    2
 #define CONVMODE_850    3
-#define CONVMODE_1252   4
+#define CONVMODE_860    4
+#define CONVMODE_863    5
+#define CONVMODE_865    6
+#define CONVMODE_1252   7
 
 #define FROMTO_UNIX2DOS 0
 #define FROMTO_UNIX2MAC 1
@@ -170,9 +173,12 @@ unix2dos %s (%s)\n\
 Usage: unix2dos [options] [file ...] [-n infile outfile ...]\n\
  -ascii           convert only line breaks (default)\n\
  -iso             conversion between DOS and ISO-8859-1 character set\n\
-   -1252          Use Windows code page 1252\n\
-   -437           Use DOS code page 437 (default)\n\
-   -850           Use DOS code page 850\n\
+   -1252          Use Windows code page 1252 (Western)\n\
+   -437           Use DOS code page 437 (US) (default)\n\
+   -850           Use DOS code page 850 (Western European)\n\
+   -860           Use DOS code page 860 (Portuguese)\n\
+   -863           Use DOS code page 863 (French Canadian)\n\
+   -865           Use DOS code page 865 (Nordic)\n\
  -7               Convert 8 bit characters to 7 bit space\n\
  -c --convmode    conversion mode\n\
    convmode       ascii, 7bit, iso, mac, default to ascii\n\
@@ -298,6 +304,15 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
         break;
       case CONVMODE_850: /* iso */
         ConvTable = U2DIso850Table;
+        break;
+      case CONVMODE_860: /* iso */
+        ConvTable = U2DIso860Table;
+        break;
+      case CONVMODE_863: /* iso */
+        ConvTable = U2DIso863Table;
+        break;
+      case CONVMODE_865: /* iso */
+        ConvTable = U2DIso865Table;
         break;
       case CONVMODE_1252: /* iso */
         ConvTable = U2DIso1252Table;
@@ -854,6 +869,12 @@ int main (int argc, char *argv[])
         pFlag->ConvMode = CONVMODE_437;
       else if (strcmp(argv[ArgIdx],"-850") == 0)
         pFlag->ConvMode = CONVMODE_850;
+      else if (strcmp(argv[ArgIdx],"-860") == 0)
+        pFlag->ConvMode = CONVMODE_860;
+      else if (strcmp(argv[ArgIdx],"-863") == 0)
+        pFlag->ConvMode = CONVMODE_863;
+      else if (strcmp(argv[ArgIdx],"-865") == 0)
+        pFlag->ConvMode = CONVMODE_865;
       else if (strcmp(argv[ArgIdx],"-1252") == 0)
         pFlag->ConvMode = CONVMODE_1252;
       else if ((strcmp(argv[ArgIdx],"-c") == 0) || (strcmp(argv[ArgIdx],"--convmode") == 0))
