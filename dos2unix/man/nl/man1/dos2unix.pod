@@ -194,11 +194,12 @@ en ISO lettertekenreeks ISO-8859-1 op Unix. DOS lettertekens zonder gelijkwaardi
 teken, waarvoor geen omzetting mogelijk is, worden omgezet in een punt. Het zelfde
 geldt voor ISO-8859-1 tekens zonder DOS tegenhanger.
 
-De standaard DOS codetabel die gebruikt wordt is CP437, die met name in
-de VS gebruikt word. In West Europa is CP850 meer gebruikelijk. Windows
-codetabel 1252 wordt ook ondersteund. Gebruik voor andere codetabellen
-dos2unix in combinatie met iconv(1). Iconv kan omzetten tussen
-een lange lijst letterteken-coderingen.
+De standaard DOS codetabel die gebruikt wordt is CP437, die met name in de VS
+gebruikt word. Daarbij ondersteunt dos2unix ook CP850 (West-Europees), CP860
+(Portugees), CP863 (Frans-Canadees) en CP865 (Noord-Europees). Windows
+codetabel CP1252 (Westers) wordt ook ondersteund. Gebruik voor andere
+codetabellen dos2unix in combinatie met iconv(1). Iconv kan omzetten tussen een
+lange lijst letterteken-coderingen.
 
 Enkele voorbeelden:
 

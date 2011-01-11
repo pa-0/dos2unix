@@ -198,10 +198,12 @@ character set ISO-8859-1 (Latin-1) on Unix. DOS characters without ISO-8859-1
 equivalent, for which conversion is not possible, are converted to a dot. The
 same counts for ISO-8859-1 characters without DOS counterpart.
 
-The default DOS code page used is CP437, which is mainly used in the USA. In
-Western Europe CP850 is more standard.  Windows code page CP1252 is also
-supported. For other code pages use dos2unix in combination with iconv(1).
-Iconv can convert between a long list of character encodings.
+The default DOS code page used is CP437, which is mainly used in the USA.
+Additionally dos2unix supports DOS code pages CP850 (Western European), CP860
+(Portuguese), CP863 (French Canadian), and CP865 (Nordic).  Windows code page
+CP1252 (Western) is also supported. For other code pages use dos2unix in
+combination with iconv(1).  Iconv can convert between a long list of character
+encodings.
 
 Some examples:
 
