@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-11 22:22+0100\n"
+"POT-Creation-Date: 2011-01-12 21:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: dos2unix.c:181
+#: dos2unix.c:182
 #, c-format
 msgid ""
 "dos2unix %s (%s)\n"
@@ -47,7 +47,7 @@ msgid ""
 " -V --version     display version number\n"
 msgstr ""
 
-#: dos2unix.c:212
+#: dos2unix.c:213
 msgid ""
 "Copyright (C) 2009-2011 Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
@@ -77,85 +77,95 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: dos2unix.c:246
+#: dos2unix.c:247
 msgid "With native language support.\n"
 msgstr ""
 
-#: dos2unix.c:370 dos2unix.c:395 dos2unix.c:413
+#: dos2unix.c:354
+#, c-format
+msgid "dos2unix: using code page: %d\n"
+msgstr ""
+
+#: dos2unix.c:381 dos2unix.c:406 dos2unix.c:424
 msgid "dos2unix: can not write to output file\n"
 msgstr ""
 
-#: dos2unix.c:425
+#: dos2unix.c:436
 #, c-format
 msgid "dos2unix: program error, invalid conversion mode %d\n"
 msgstr ""
 
-#: dos2unix.c:539 dos2unix.c:664
+#: dos2unix.c:550 dos2unix.c:675
 msgid "dos2unix: Failed to open temporary output file"
 msgstr ""
 
-#: dos2unix.c:544 dos2unix.c:674
+#: dos2unix.c:555 dos2unix.c:685
 #, c-format
 msgid "dos2unix: using %s as temporary file\n"
 msgstr ""
 
-#: dos2unix.c:612 dos2unix.c:735
+#: dos2unix.c:623 dos2unix.c:746
 #, c-format
 msgid "dos2unix: problems renaming '%s' to '%s'\n"
 msgstr ""
 
-#: dos2unix.c:613 dos2unix.c:736
+#: dos2unix.c:624 dos2unix.c:747
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr ""
 
-#: dos2unix.c:800
+#: dos2unix.c:811
 msgid ""
 "dos2unix: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
 "long.\n"
 msgstr ""
 
-#: dos2unix.c:897
+#: dos2unix.c:885 dos2unix.c:911
+#, c-format
+msgid "dos2unix: active code page: %d\n"
+msgstr ""
+
+#: dos2unix.c:918
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr ""
 
-#: dos2unix.c:905
+#: dos2unix.c:926
 #, c-format
 msgid "dos2unix: option '%s' requires an argument\n"
 msgstr ""
 
-#: dos2unix.c:916 dos2unix.c:928 dos2unix.c:1004
+#: dos2unix.c:937 dos2unix.c:949 dos2unix.c:1025
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr ""
 
-#: dos2unix.c:952 dos2unix.c:976
+#: dos2unix.c:973 dos2unix.c:997
 #, c-format
 msgid "dos2unix: Skipping %s, not a regular file.\n"
 msgstr ""
 
-#: dos2unix.c:956 dos2unix.c:980
+#: dos2unix.c:977 dos2unix.c:1001
 #, c-format
 msgid "dos2unix: Skipping binary file %s\n"
 msgstr ""
 
-#: dos2unix.c:959
+#: dos2unix.c:980
 #, c-format
 msgid "dos2unix: converting file %s to file %s in Unix format ...\n"
 msgstr ""
 
-#: dos2unix.c:963
+#: dos2unix.c:984
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr ""
 
-#: dos2unix.c:983
+#: dos2unix.c:1004
 #, c-format
 msgid "dos2unix: converting file %s to Unix format ...\n"
 msgstr ""
 
-#: dos2unix.c:987
+#: dos2unix.c:1008
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr ""

@@ -84,6 +84,7 @@
 #include <locale.h>
 #endif
 #include "dos2unix.h"
+#include "querycp.h"
 
 #if defined(WIN32) /* MINGW32 */
 #define MSDOS
@@ -134,12 +135,12 @@
 
 #define CONVMODE_ASCII  0
 #define CONVMODE_7BIT   1
-#define CONVMODE_437    2
-#define CONVMODE_850    3
-#define CONVMODE_860    4
-#define CONVMODE_863    5
-#define CONVMODE_865    6
-#define CONVMODE_1252   7
+#define CONVMODE_437    437
+#define CONVMODE_850    850
+#define CONVMODE_860    860
+#define CONVMODE_863    863
+#define CONVMODE_865    865
+#define CONVMODE_1252   1252
 
 #define FROMTO_DOS2UNIX 0
 #define FROMTO_MAC2UNIX 1
@@ -339,8 +340,18 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
         ConvTable = D2UIso1252Table;
         break;
       default: /* unknown convmode */
-        ConvTable = D2UAsciiTable;
+	if (ipFlag->ConvMode == -1) /* dummy querycp() */
+	{
+ 	  ipFlag->ConvMode = CONVMODE_437;
+          ConvTable = D2UIso437Table;
+	}
+	else if (ipFlag->ConvMode > 1) /* iso mode, unsupported code page */
+          ConvTable = D2UIso437Table;
+	else
+          ConvTable = D2UAsciiTable;
     }
+    if (ipFlag->ConvMode > 1)
+       fprintf(stderr, _("dos2unix: using code page: %d\n"), ipFlag->ConvMode);
 
     /* CR-LF -> LF */
     /* LF    -> LF, in case the input file is a Unix text file */
@@ -867,7 +878,13 @@ int main (int argc, char *argv[])
         pFlag->ConvMode = CONVMODE_ASCII;
       else if (strcmp(argv[ArgIdx],"-7") == 0)
         pFlag->ConvMode = CONVMODE_7BIT;
-      else if ((strcmp(argv[ArgIdx],"-iso") == 0) || (strcmp(argv[ArgIdx],"-437") == 0))
+      else if (strcmp(argv[ArgIdx],"-iso") == 0)
+      {
+        pFlag->ConvMode = (int)query_con_codepage();
+        if (pFlag->ConvMode > 1)
+          fprintf(stderr,_("dos2unix: active code page: %d\n"), pFlag->ConvMode);
+      }
+      else if (strcmp(argv[ArgIdx],"-437") == 0)
         pFlag->ConvMode = CONVMODE_437;
       else if (strcmp(argv[ArgIdx],"-850") == 0)
         pFlag->ConvMode = CONVMODE_850;
@@ -888,7 +905,11 @@ int main (int argc, char *argv[])
           else if (strcmpi(argv[ArgIdx], "7bit") == 0)
             pFlag->ConvMode = CONVMODE_7BIT;
           else if (strcmpi(argv[ArgIdx], "iso") == 0)
-            pFlag->ConvMode = CONVMODE_437;
+          {
+            pFlag->ConvMode = (int)query_con_codepage();
+            if (pFlag->ConvMode > 1)
+              fprintf(stderr,_("dos2unix: active code page: %d\n"), pFlag->ConvMode);
+          }
           else if (strcmpi(argv[ArgIdx], "mac") == 0)
             pFlag->FromToMode = FROMTO_MAC2UNIX;
           else

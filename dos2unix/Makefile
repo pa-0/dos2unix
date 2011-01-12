@@ -189,17 +189,20 @@ DEFS		= $(EXTRA_DEFS)
 
 all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES) $(MANFILES) man/man1/dos2unix.1
 
+querycp.o : querycp.c
+	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
+
 dos2unix.o : dos2unix.c
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
 
 unix2dos.o : unix2dos.c
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(UNIX2DOS_NLSDEFS) $(CFLAGS) -c $< -o $@
 
-$(BIN): dos2unix.o
-	$(CC) $< $(LDFLAGS) -o $@
+$(BIN): dos2unix.o querycp.o
+	$(CC) $+ $(LDFLAGS) -o $@
 
-$(UNIX2DOS_BIN): unix2dos.o
-	$(CC) $< $(LDFLAGS) -o $@
+$(UNIX2DOS_BIN): unix2dos.o querycp.o
+	$(CC) $+ $(LDFLAGS) -o $@
 
 $(MAC2UNIX_BIN) : $(BIN)
 	$(LINK) $< $@

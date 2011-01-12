@@ -4,7 +4,8 @@
 # This file is distributed under the same license as the dos2unix package.
 
 prefix=c:/djgpp
-ENABLE_NLS=1
+#ENABLE_NLS=1
+ENABLE_NLS=
 VERSIONSUFFIX=-dos32
 
 ifdef ENABLE_NLS
