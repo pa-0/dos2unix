@@ -1,11 +1,11 @@
 2011-??-??: Version 5.2
-    ISO conversion mode supports additional code pages
-      CP850 (Western European), CP860 (Portuguese),
-      CP863 (French Canadian), CP865 (Nordic),
-      and CP1252 (Western).
-    SunOS compatible options -ascii, -iso, -7, -437 and -850.
-    ISO and 7bit mode can be used in Mac mode.
+    ISO conversion mode supports same DOS code pages as SunOS dos2unix does:
+      CP437 (US), CP850 (Western European), CP860 (Portuguese),
+      CP863 (French Canadian), and CP865 (Nordic). 
+    ISO conversion mode supports Windows code page CP1252 (Western).
+    SunOS compatible options -ascii, -iso, -7, -437, -850, -860, -863, and -865.
     Fixed ISO conversion of non-breaking space (NBSP).
+    ISO and 7bit mode can be used in Mac mode.
     Treat ASCII Form Feed control characters as valid text.
     Update manual pages.
     Don't include generated documentation files in Unix source package.
