@@ -318,18 +318,15 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
       case CONVMODE_1252: /* iso */
         ConvTable = U2DIso1252Table;
         break;
+      case -1: /* dummy querycp(), use default 437 */
+        ipFlag->ConvMode = CONVMODE_437;
+        ConvTable = U2DIso437Table;
+        break;
       default: /* unknown convmode */
-	if (ipFlag->ConvMode == -1) /* dummy querycp() */
-	{
- 	  ipFlag->ConvMode = CONVMODE_437;
-          ConvTable = U2DIso437Table;
-	}
-	else if (ipFlag->ConvMode > 1) /* iso mode, unsupported code page */
-          ConvTable = U2DIso437Table;
-	else
-          ConvTable = U2DAsciiTable;
+        fprintf(stderr, "%s", _("unix2dos: unsupported code page.\n"));
+        return(-1);
     }
-    if (ipFlag->ConvMode > 1)
+    if (ipFlag->ConvMode > 1) /* not ascii or 7bit */
        fprintf(stderr, _("unix2dos: using code page: %d\n"), ipFlag->ConvMode);
 
     /* LF    -> CR-LF */

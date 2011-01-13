@@ -1,3 +1,7 @@
+2011-01-12 Erwin Waterlander <waterlan@xs4all.nl>
+	* Detect active code page for ISO mode. DOS32 and Windows.
+	  Thanks to Rugxulo <rugxulo@gmail.com>
+
 2011-01-11 Erwin Waterlander <waterlan@xs4all.nl>
 	* New ISO conversion modes DOS CP860 (Portuguese)
 	  and CP863 (French Canadian).

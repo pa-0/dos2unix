@@ -4,6 +4,7 @@
       CP863 (French Canadian), and CP865 (Nordic). 
     ISO conversion mode supports Windows code page CP1252 (Western).
     SunOS compatible options -ascii, -iso, -7, -437, -850, -860, -863, and -865.
+    Active code page detection for ISO mode.
     Fixed ISO conversion of non-breaking space (NBSP).
     ISO and 7bit mode can be used in Mac mode.
     Treat ASCII Form Feed control characters as valid text.
