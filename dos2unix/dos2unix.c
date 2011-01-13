@@ -344,7 +344,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
         ConvTable = D2UIso437Table;
         break;
       default: /* unknown convmode */
-        fprintf(stderr, "%s", _("unix2dos: unsupported code page.\n"));
+        fprintf(stderr, "%s", _("dos2unix: unsupported code page.\n"));
         return(-1);
     }
     if (ipFlag->ConvMode > 1) /* not ascii or 7bit */
