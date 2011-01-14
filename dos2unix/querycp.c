@@ -34,7 +34,7 @@
 // P.S. For MS or DR: ren ega.cpx *.com ; upx -d ega.com ; ren ega.com *.cpi
 // ----------------------------------------------------------------------
 
-short query_con_codepage() {
+short query_con_codepage(void) {
    __dpmi_regs regs;
 
    short param_block[2] = { 0, 437 };
@@ -67,7 +67,7 @@ short query_con_codepage() {
 #include <dos.h>
 #include <i86.h>
 
-unsigned short query_con_codepage() {
+unsigned short query_con_codepage(void) {
    union REGS regs;
    unsigned short param_block[2] = { 0, 437 };
 
@@ -98,12 +98,12 @@ unsigned short query_con_codepage() {
 #elif defined (WIN32)
 
 #include <windows.h>
-short query_con_codepage() {
+short query_con_codepage(void) {
    return((short)GetConsoleOutputCP());
 }
 #else
 
-short query_con_codepage() {
+short query_con_codepage(void) {
    return(-1);
 }
 #endif
