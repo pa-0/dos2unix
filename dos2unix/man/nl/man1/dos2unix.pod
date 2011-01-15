@@ -100,7 +100,7 @@ Gebruik DOS codetabel 863 (Frans-Canadees).
 
 =item B<-865>
 
-Gebruik DOS codetabel 865 (Noord-Europees).
+Gebruik DOS codetabel 865 (Scandinavisch).
 
 =item B<-7>
 
@@ -194,16 +194,18 @@ en ISO lettertekenreeks ISO-8859-1 op Unix. DOS lettertekens zonder gelijkwaardi
 teken, waarvoor geen omzetting mogelijk is, worden omgezet in een punt. Het zelfde
 geldt voor ISO-8859-1 tekens zonder DOS tegenhanger.
 
-De standaard DOS codetabel die gebruikt wordt is CP437, die met name in de VS
-gebruikt word. Daarbij ondersteunt dos2unix ook CP850 (West-Europees), CP860
-(Portugees), CP863 (Frans-Canadees) en CP865 (Noord-Europees). Windows
-codetabel CP1252 (Westers) wordt ook ondersteund. Gebruik voor andere
-codetabellen dos2unix in combinatie met iconv(1). Iconv kan omzetten tussen een
-lange lijst letterteken-coderingen.
+Wanneer alleen optie C<-iso> gebruikt wordt, zal dos2unix proberen de actieve
+codetabel te gebruiken. Als dat niet mogelijk is wordt codetabel CP437
+gebruikt, die met name in de VS gebruikt word. Om een bepaalde codetabel te
+forceren gebruik opties C<-850> (West-Europees), C<-860> (Portugees), C<-863>
+(Frans-Canadees) of C<-865> (Scandinavisch). Windows codetabel CP1252 (Westers)
+wordt ook ondersteund met optie C<-1252>. Gebruik voor andere codetabellen
+dos2unix in combinatie met iconv(1). Iconv kan omzetten tussen een lange lijst
+letterteken-coderingen.
 
 Enkele voorbeelden:
 
-Omzetten van DOS CP437 naar Unix Latin-1
+Omzetten van DOS standaard codetabel naar Unix Latin-1
 
     dos2unix -iso -n in.txt out.txt
 
@@ -223,7 +225,7 @@ Omzetten van Windows UTF-16 (Unicode) naar Unix UTF-8 (Unicode)
 
     iconv -f UTF-16 -t UTF-8 in.txt | dos2unix > uit.txt
 
-Omzetten van Unix Latin-1 naar DOS CP437
+Omzetten van Unix Latin-1 naar DOS standaard code tabel
 
     unix2dos -iso -n in.txt out.txt
 

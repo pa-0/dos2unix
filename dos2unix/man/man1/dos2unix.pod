@@ -198,16 +198,18 @@ character set ISO-8859-1 (Latin-1) on Unix. DOS characters without ISO-8859-1
 equivalent, for which conversion is not possible, are converted to a dot. The
 same counts for ISO-8859-1 characters without DOS counterpart.
 
-The default DOS code page used is CP437, which is mainly used in the USA.
-Additionally dos2unix supports DOS code pages CP850 (Western European), CP860
-(Portuguese), CP863 (French Canadian), and CP865 (Nordic).  Windows code page
-CP1252 (Western) is also supported. For other code pages use dos2unix in
+When only option C<-iso> is used dos2unix will try to determine the active code
+page. When this is not possible dos2unix will use default code page CP437,
+which is mainly used in the USA.  To force a specific code page use options
+C<-437> (US), C<-850> (Western European), C<-860> (Portuguese), C<-863> (French
+Canadian), or C<-865> (Nordic).  Windows code page CP1252 (Western) is also
+supported with option C<-1252>. For other code pages use dos2unix in
 combination with iconv(1).  Iconv can convert between a long list of character
 encodings.
 
 Some examples:
 
-Convert from DOS CP437 to Unix Latin-1
+Convert from DOS default code page to Unix Latin-1
 
     dos2unix -iso -n in.txt out.txt
 
@@ -227,7 +229,7 @@ Convert from Windows UTF-16 (Unicode) to Unix UTF-8 (Unicode)
 
     iconv -f UTF-16 -t UTF-8 in.txt | dos2unix > out.txt
 
-Convert from Unix Latin-1 to DOS CP437
+Convert from Unix Latin-1 to DOS default code page.
 
     unix2dos -iso -n in.txt out.txt
 
