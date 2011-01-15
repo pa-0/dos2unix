@@ -18,6 +18,7 @@ RELEASE_DIR_D2U = d2u$(DOS2UNIX_VERSION_SHORT)
 # Target: dist - Create source code distribution packages
 dist:
 	rm -rf ../${RELEASE_DIR_DOS2UNIX}
+	rm -rf ../${RELEASE_DIR_D2U}
 	svn export https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/trunk/dos2unix ../${RELEASE_DIR_DOS2UNIX}
 	# Include doc files, to make it easier to build dos2unix.
 	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) doc
@@ -45,6 +46,7 @@ dist:
 	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) maintainer-clean
 	# Create the package.
 	cd .. ; tar cvzf ${RELEASE_DIR_DOS2UNIX}.tar.gz ${RELEASE_DIR_DOS2UNIX}
+	cd .. ; rm -f ${RELEASE_DIR_D2U}s.zip
 	cd .. ; zip -r ${RELEASE_DIR_D2U}s.zip ${RELEASE_DIR_D2U}
 
 # Target: tag - Create a tag copy of trunk
