@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-12 21:25+0100\n"
+"POT-Creation-Date: 2011-01-15 16:38+0100\n"
 "PO-Revision-Date: 2010-03-07 19:50+0100\n"
 "Last-Translator: Rugxulo <rugxulo@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -107,91 +107,96 @@ msgstr ""
 msgid "With native language support.\n"
 msgstr "Uzante denaskan lingvon sistemon.\n"
 
-#: dos2unix.c:354
+#: dos2unix.c:347
 #, fuzzy, c-format
-msgid "dos2unix: using code page: %d\n"
+msgid "dos2unix: code page %d is not supported.\n"
 msgstr "dos2unix: uzante %s kiel provizora dosiero\n"
 
-#: dos2unix.c:381 dos2unix.c:406 dos2unix.c:424
+#: dos2unix.c:351
+#, fuzzy, c-format
+msgid "dos2unix: using code page %d.\n"
+msgstr "dos2unix: uzante %s kiel provizora dosiero\n"
+
+#: dos2unix.c:378 dos2unix.c:403 dos2unix.c:421
 msgid "dos2unix: can not write to output file\n"
 msgstr "dos2unix: ne povas registri dosieren\n"
 
-#: dos2unix.c:436
+#: dos2unix.c:433
 #, c-format
 msgid "dos2unix: program error, invalid conversion mode %d\n"
 msgstr "dos2unix: programa eraro, negxustan sxangxmodon %d\n"
 
-#: dos2unix.c:550 dos2unix.c:675
+#: dos2unix.c:547 dos2unix.c:672
 msgid "dos2unix: Failed to open temporary output file"
 msgstr "dos2unix: malsukcesis malfermi provizoran dosieron registran"
 
-#: dos2unix.c:555 dos2unix.c:685
+#: dos2unix.c:552 dos2unix.c:682
 #, c-format
 msgid "dos2unix: using %s as temporary file\n"
 msgstr "dos2unix: uzante %s kiel provizora dosiero\n"
 
-#: dos2unix.c:623 dos2unix.c:746
+#: dos2unix.c:620 dos2unix.c:743
 #, c-format
 msgid "dos2unix: problems renaming '%s' to '%s'\n"
 msgstr "dos2unix: problemojn trovitajn renomigi '%s' al '%s'\n"
 
-#: dos2unix.c:624 dos2unix.c:747
+#: dos2unix.c:621 dos2unix.c:744
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          kreatan dosieron restas en '%s'\n"
 
-#: dos2unix.c:811
+#: dos2unix.c:808
 msgid ""
 "dos2unix: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
 "long.\n"
 msgstr "dos2unix: eraro: DOS2UNIX_LOCALEDIR tro longigxis.\n"
 
-#: dos2unix.c:885 dos2unix.c:911
+#: dos2unix.c:882 dos2unix.c:908
 #, c-format
 msgid "dos2unix: active code page: %d\n"
 msgstr ""
 
-#: dos2unix.c:918
+#: dos2unix.c:915
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr "dos2unix: neuzebla %s sxangxmodo menciita\n"
 
-#: dos2unix.c:926
+#: dos2unix.c:923
 #, c-format
 msgid "dos2unix: option '%s' requires an argument\n"
 msgstr "dos2unix: elekto '%s' bezonas elekto-vorton\n"
 
-#: dos2unix.c:937 dos2unix.c:949 dos2unix.c:1025
+#: dos2unix.c:934 dos2unix.c:946 dos2unix.c:1022
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr "dos2unix: ejon de dosiero %s ne menciita en novmodo dosiera\n"
 
-#: dos2unix.c:973 dos2unix.c:997
+#: dos2unix.c:970 dos2unix.c:994
 #, c-format
 msgid "dos2unix: Skipping %s, not a regular file.\n"
 msgstr "dos2unix: Pasante %s, dosiero ne taugxa.\n"
 
-#: dos2unix.c:977 dos2unix.c:1001
+#: dos2unix.c:974 dos2unix.c:998
 #, c-format
 msgid "dos2unix: Skipping binary file %s\n"
 msgstr "dos2unix: Pasante ne-tekstan dosieron %s\n"
 
-#: dos2unix.c:980
+#: dos2unix.c:977
 #, c-format
 msgid "dos2unix: converting file %s to file %s in Unix format ...\n"
 msgstr "dos2unix: sxangxante dosieron %s al dosiero %s Unix-en ...\n"
 
-#: dos2unix.c:984
+#: dos2unix.c:981
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr "dos2unix: problemojn trovitajn dum sxangxi dosiero %s al dosiero %s\n"
 
-#: dos2unix.c:1004
+#: dos2unix.c:1001
 #, c-format
 msgid "dos2unix: converting file %s to Unix format ...\n"
 msgstr "dos2unix: sxangxante dosiero %s Unix-en ...\n"
 
-#: dos2unix.c:1008
+#: dos2unix.c:1005
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr "dos2unix: problemojn dum sxangxi dosiero %s\n"

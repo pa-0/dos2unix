@@ -323,11 +323,11 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
         ConvTable = U2DIso437Table;
         break;
       default: /* unknown convmode */
-        fprintf(stderr, "%s", _("unix2dos: unsupported code page.\n"));
+        fprintf(stderr, _("unix2dos: code page %d is not supported.\n"), ipFlag->ConvMode);
         return(-1);
     }
     if (ipFlag->ConvMode > 1) /* not ascii or 7bit */
-       fprintf(stderr, _("unix2dos: using code page: %d\n"), ipFlag->ConvMode);
+       fprintf(stderr, _("unix2dos: using code page %d.\n"), ipFlag->ConvMode);
 
     /* LF    -> CR-LF */
     /* CR-LF -> CR-LF, in case the input file is a DOS text file */
@@ -876,7 +876,7 @@ int main (int argc, char *argv[])
       else if (strcmp(argv[ArgIdx],"-iso") == 0)
       {
         pFlag->ConvMode = (int)query_con_codepage();
-        if (pFlag->ConvMode > 1)
+        if (pFlag->ConvMode >= 0)
           fprintf(stderr,_("unix2dos: active code page: %d\n"), pFlag->ConvMode);
       }
       else if (strcmp(argv[ArgIdx],"-437") == 0)
@@ -902,7 +902,7 @@ int main (int argc, char *argv[])
           else if (strcmpi(argv[ArgIdx], "iso") == 0)
           {
             pFlag->ConvMode = (int)query_con_codepage();
-            if (pFlag->ConvMode > 1)
+            if (pFlag->ConvMode >= 0)
               fprintf(stderr,_("unix2dos: active code page: %d\n"), pFlag->ConvMode);
           }
           else if (strcmpi(argv[ArgIdx], "mac") == 0)
