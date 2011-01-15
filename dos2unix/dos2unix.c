@@ -880,6 +880,8 @@ int main (int argc, char *argv[])
         pFlag->ConvMode = (int)query_con_codepage();
         if (pFlag->ConvMode >= 0)
           fprintf(stderr,_("dos2unix: active code page: %d\n"), pFlag->ConvMode);
+        if ((pFlag->ConvMode == 0)||(pFlag->ConvMode == 1))
+           pFlag->ConvMode = CONVMODE_437;
       }
       else if (strcmp(argv[ArgIdx],"-437") == 0)
         pFlag->ConvMode = CONVMODE_437;
