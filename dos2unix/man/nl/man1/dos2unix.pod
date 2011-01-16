@@ -44,8 +44,8 @@ dos2unix - DOS/Mac naar Unix en vice versa tekstbestand formaat omzetter
 
 =head1 OVERZICHT
 
-    dos2unix [opties] [BESTAND ...] [-n BESTAND-IN BESTAND-UIT ...]
-    unix2dos [opties] [BESTAND ...] [-n BESTAND-IN BESTAND-UIT ...]
+    dos2unix [opties] [BESTAND ...] [-n INVOERBESTAND UITVOERBESTAND ...]
+    unix2dos [opties] [BESTAND ...] [-n INVOERBESTAND UITVOERBESTAND ...]
 
 =head1 BESCHRIJVING
 
@@ -55,15 +55,14 @@ vice versa. Binaire bestanden en niet-reguliere bestanden, zoals
 snelkoppelingen, worden automatisch overgeslagen, behalve als de omzetting
 geforceerd wordt.
 
-Dos2unix is gemodelleerd naar dos2unix onder SunOS/Solaris en heeft een aantal gelijke conversiemodi.
+Dos2unix is gemodelleerd naar dos2unix onder SunOS/Solaris en heeft gelijke conversiemodi.
 
-In DOS/Windows tekstbestanden bestaat een regeleinde uit een combinatie van twee
-tekens: een 'Carriage Return' (CR) gevolgd door een 'Line Feed' (LF). In Unix
-tekstbestanden bestaat een regeleinde uit een enkel 'Newline' teken die gelijk is
-ann een DOS 'Line Feed' (LF) teken.
-In Mac tekst bestanden, voor Mac OS X, bestaan regeleindes uit een
-enkel 'Carriage Return' teken. Mac OS X is Unix gebaseerd en heeft dezelfde
-regeleindes als Unix. 
+In DOS/Windows tekstbestanden bestaat een regeleinde uit een combinatie van
+twee tekens: een 'Carriage Return' (CR) gevolgd door een 'Line Feed' (LF). In
+Unix tekstbestanden bestaat een regeleinde uit een enkel 'Newline' teken die
+gelijk is aan een DOS 'Line Feed' (LF) teken.  In Mac tekst bestanden, voor Mac
+OS X, bestaan regeleindes uit een enkel 'Carriage Return' teken. Mac OS X is
+Unix gebaseerd en heeft dezelfde regeleindes als Unix. 
 
 =head1 OPTIES
 
@@ -76,7 +75,7 @@ Converteer alleen regeleindes. Dit is de standaard conversiemodus.
 =item B<-iso>
 
 Conversie tussen DOS en ISO-8859-1 lettertekenreeks. Zie ook paragraaf
-CONVERSIE MODI.
+CONVERSIEMODI.
 
 =item B<-1252>
 
@@ -138,15 +137,15 @@ In Mac modus worden alleen Mac regeleindes omgezet naar twee Unix regeleindes.
 B<unix2dos>: Aleen Unix regeleindes worden omgezet naar twee DOS regeleindes.
 In Mac modus worden Unix regeleindes omgezet naar twee Mac regeleindes.
 
-=item B<-n, --newfile BESTAND-IN BESTAND-UIT ...>
+=item B<-n, --newfile INVOERBESTAND UITVOERBESTAND ...>
 
-Nieuw bestand modus. Converteer bestand BESTAND-IN en schrijf naar bestand
-BESTAND-UIT. Bestandsnamen moeten opgegeven worden in paren. Jokertekens
+Nieuw-bestand-modus. Converteer bestand INVOERBESTAND en schrijf naar bestand
+UITVOERBESTAND. Bestandsnamen moeten opgegeven worden in paren. Jokertekens
 moeten NIET gebruikt worden, anders verlies je bestanden.
 
 =item B<-o, --oldfile BESTAND ...>
 
-Oud bestand modes. Converteer bestand BESTAND en overschrijf het.
+Oud-bestand-modus. Converteer bestand BESTAND en overschrijf het.
 Dit is de standaard modus. Jokertekens kunnen gebruikt worden.
 
 =item B<-q, --quiet>
@@ -167,7 +166,7 @@ In Mac modus worden Mac regeleindes naar Unix omgezet en vice versa. DOS regelei
 
 Om in Mac modus te draaien gebruik de schakeloptie C<-c mac> of gebruik de opdrachten C<mac2unix> of C<unix2mac>.
 
-=head1 CONVERSIE MODI
+=head1 CONVERSIEMODI
 
 Conversie-modi I<ascii>, I<7bit>, en I<iso>
 zijn gelijk aan die van dos2unix/unix2dos onder SunOS/Solaris.

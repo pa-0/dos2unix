@@ -55,7 +55,7 @@ plain text files in DOS or Mac format to Unix format and vice versa. Binary file
 and non-regular files, such as soft links, are automatically skipped, unless
 conversion is forced.
 
-Dos2unix was modeled after dos2unix under SunOS/Solaris and has a few similar
+Dos2unix was modelled after dos2unix under SunOS/Solaris and has similar
 conversion modes.
 
 In DOS/Windows text files a line break, also known as newline, is a combination
