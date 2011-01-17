@@ -79,7 +79,7 @@ CONVERSION MODES.
 
 =item B<-1252>
 
-Use Windows code page 1252 (Western).
+Use Windows code page 1252 (Western European).
 
 =item B<-437>
 
@@ -95,7 +95,7 @@ Use DOS code page 860 (Portuguese).
 
 =item B<-863>
 
-Use DOS code page 863 (Canadian French).
+Use DOS code page 863 (French Canadian).
 
 =item B<-865>
 
@@ -201,9 +201,9 @@ same counts for ISO-8859-1 characters without DOS counterpart.
 When only option C<-iso> is used dos2unix will try to determine the active code
 page. When this is not possible dos2unix will use default code page CP437,
 which is mainly used in the USA.  To force a specific code page use options
-C<-437> (US), C<-850> (Western European), C<-860> (Portuguese), C<-863> (Canadian
-French), or C<-865> (Nordic).  Windows code page CP1252 (Western) is also
-supported with option C<-1252>. For other code pages use dos2unix in
+C<-437> (US), C<-850> (Western European), C<-860> (Portuguese), C<-863> (French
+Canadian), or C<-865> (Nordic).  Windows code page CP1252 (Western European) is
+also supported with option C<-1252>. For other code pages use dos2unix in
 combination with iconv(1).  Iconv can convert between a long list of character
 encodings.
 

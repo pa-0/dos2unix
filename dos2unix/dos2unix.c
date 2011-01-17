@@ -184,11 +184,11 @@ dos2unix %s (%s)\n\
 Usage: dos2unix [options] [file ...] [-n infile outfile ...]\n\
  -ascii           convert only line breaks (default)\n\
  -iso             conversion between DOS and ISO-8859-1 character set\n\
-   -1252          Use Windows code page 1252 (Western)\n\
+   -1252          Use Windows code page 1252 (Western European)\n\
    -437           Use DOS code page 437 (US) (default)\n\
    -850           Use DOS code page 850 (Western European)\n\
    -860           Use DOS code page 860 (Portuguese)\n\
-   -863           Use DOS code page 863 (Canadian French)\n\
+   -863           Use DOS code page 863 (French Canadian)\n\
    -865           Use DOS code page 865 (Nordic)\n\
  -7               Convert 8 bit characters to 7 bit space\n\
  -c --convmode    conversion mode\n\

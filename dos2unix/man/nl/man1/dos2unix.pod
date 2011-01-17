@@ -79,7 +79,7 @@ CONVERSIEMODI.
 
 =item B<-1252>
 
-Gebruik Windows codetabel 1252 (Westers).
+Gebruik Windows codetabel 1252 (West-Europees).
 
 =item B<-437>
 
@@ -197,10 +197,10 @@ Wanneer alleen optie C<-iso> gebruikt wordt, zal dos2unix proberen de actieve
 codetabel te gebruiken. Als dat niet mogelijk is wordt codetabel CP437
 gebruikt, die met name in de VS gebruikt word. Om een bepaalde codetabel te
 forceren gebruik opties C<-850> (West-Europees), C<-860> (Portugees), C<-863>
-(Canadees Frans) of C<-865> (Scandinavisch). Windows codetabel CP1252 (Westers)
-wordt ook ondersteund met optie C<-1252>. Gebruik voor andere codetabellen
-dos2unix in combinatie met iconv(1). Iconv kan omzetten tussen een lange lijst
-letterteken-coderingen.
+(Canadees Frans) of C<-865> (Scandinavisch). Windows codetabel CP1252
+(West-Europees) wordt ook ondersteund met optie C<-1252>. Gebruik voor andere
+codetabellen dos2unix in combinatie met iconv(1). Iconv kan omzetten tussen een
+lange lijst letterteken-coderingen.
 
 Enkele voorbeelden:
 

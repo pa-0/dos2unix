@@ -2,12 +2,12 @@
 # Copyright (C) 2010 THE dos'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the dos2unix package.
 # waterlan <waterlan@xs4all.nl>, 2010.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-15 16:38+0100\n"
+"POT-Creation-Date: 2011-01-17 23:07+0100\n"
 "PO-Revision-Date: 2010-03-07 19:50+0100\n"
 "Last-Translator: Rugxulo <rugxulo@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -17,13 +17,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: dos2unix.c:182
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "dos2unix %s (%s)\n"
 "Usage: dos2unix [options] [file ...] [-n infile outfile ...]\n"
 " -ascii           convert only line breaks (default)\n"
 " -iso             conversion between DOS and ISO-8859-1 character set\n"
-"   -1252          Use Windows code page 1252 (Western)\n"
+"   -1252          Use Windows code page 1252 (Western European)\n"
 "   -437           Use DOS code page 437 (US) (default)\n"
 "   -850           Use DOS code page 850 (Western European)\n"
 "   -860           Use DOS code page 860 (Portuguese)\n"
@@ -50,12 +50,12 @@ msgstr ""
 "Uzado: dos2unix [elektojn] [dosiero ...] [-n antauxajxo kreajxo ...]\n"
 " -ascii           nur traduku linio-finojn (jam ensxaltita)\n"
 " -iso             traduku inter DOS kaj ISO-8859-1 literaro\n"
-"   -1252          Uzu Vindozan kodpagxon 1252\n"
-"   -437           Uzu DOS kodpagxon 437 (jam ensxaltita)\n"
-"   -850           Uzu DOS kodpagxon 850\n"
-"   -860           Uzu DOS kodpagxon 860\n"
-"   -863           Uzu DOS kodpagxon 863\n"
-"   -865           Uzu DOS kodpagxon 865\n"
+"   -1252          Uzu Vindozan kodpagxon 1252 (Okcident-Euxropa)\n"
+"   -437           Uzu DOS kodpagxon 437 (Usona) (jam ensxaltita)\n"
+"   -850           Uzu DOS kodpagxon 850 (Okcident-Euxropa)\n"
+"   -860           Uzu DOS kodpagxon 860 (Portugala)\n"
+"   -863           Uzu DOS kodpagxon 863 (Kebekia)\n"
+"   -865           Uzu DOS kodpagxon 865 (Nordlandaj)\n"
 " -7               Traduku de 8-bitaj literoj en blankspacon\n"
 " -c --convmode    modo de sxangxo\n"
 "   sxangxmodo     ascii, 7bit, iso, mac, provizore elektita ascii\n"
@@ -108,14 +108,14 @@ msgid "With native language support.\n"
 msgstr "Uzante denaskan lingvon sistemon.\n"
 
 #: dos2unix.c:347
-#, fuzzy, c-format
+#, c-format
 msgid "dos2unix: code page %d is not supported.\n"
-msgstr "dos2unix: uzante %s kiel provizora dosiero\n"
+msgstr "dos2unix: kodpagxo %d ne estas konvertebla.\n"
 
 #: dos2unix.c:351
-#, fuzzy, c-format
+#, c-format
 msgid "dos2unix: using code page %d.\n"
-msgstr "dos2unix: uzante %s kiel provizora dosiero\n"
+msgstr "dos2unix: uzante kodpagxon %d.\n"
 
 #: dos2unix.c:378 dos2unix.c:403 dos2unix.c:421
 msgid "dos2unix: can not write to output file\n"
@@ -151,52 +151,52 @@ msgid ""
 "long.\n"
 msgstr "dos2unix: eraro: DOS2UNIX_LOCALEDIR tro longigxis.\n"
 
-#: dos2unix.c:882 dos2unix.c:908
+#: dos2unix.c:882 dos2unix.c:910
 #, c-format
 msgid "dos2unix: active code page: %d\n"
-msgstr ""
+msgstr "dos2unix: nuntempa kodpagxo: %d\n"
 
-#: dos2unix.c:915
+#: dos2unix.c:917
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr "dos2unix: neuzebla %s sxangxmodo menciita\n"
 
-#: dos2unix.c:923
+#: dos2unix.c:925
 #, c-format
 msgid "dos2unix: option '%s' requires an argument\n"
 msgstr "dos2unix: elekto '%s' bezonas elekto-vorton\n"
 
-#: dos2unix.c:934 dos2unix.c:946 dos2unix.c:1022
+#: dos2unix.c:936 dos2unix.c:948 dos2unix.c:1024
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr "dos2unix: ejon de dosiero %s ne menciita en novmodo dosiera\n"
 
-#: dos2unix.c:970 dos2unix.c:994
+#: dos2unix.c:972 dos2unix.c:996
 #, c-format
 msgid "dos2unix: Skipping %s, not a regular file.\n"
 msgstr "dos2unix: Pasante %s, dosiero ne taugxa.\n"
 
-#: dos2unix.c:974 dos2unix.c:998
+#: dos2unix.c:976 dos2unix.c:1000
 #, c-format
 msgid "dos2unix: Skipping binary file %s\n"
 msgstr "dos2unix: Pasante ne-tekstan dosieron %s\n"
 
-#: dos2unix.c:977
+#: dos2unix.c:979
 #, c-format
 msgid "dos2unix: converting file %s to file %s in Unix format ...\n"
 msgstr "dos2unix: sxangxante dosieron %s al dosiero %s Unix-en ...\n"
 
-#: dos2unix.c:981
+#: dos2unix.c:983
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr "dos2unix: problemojn trovitajn dum sxangxi dosiero %s al dosiero %s\n"
 
-#: dos2unix.c:1001
+#: dos2unix.c:1003
 #, c-format
 msgid "dos2unix: converting file %s to Unix format ...\n"
 msgstr "dos2unix: sxangxante dosiero %s Unix-en ...\n"
 
-#: dos2unix.c:1005
+#: dos2unix.c:1007
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr "dos2unix: problemojn dum sxangxi dosiero %s\n"
