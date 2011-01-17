@@ -95,7 +95,7 @@ Gebruik DOS codetabel 860 (Portugees).
 
 =item B<-863>
 
-Gebruik DOS codetabel 863 (Frans-Canadees).
+Gebruik DOS codetabel 863 (Canadees Frans).
 
 =item B<-865>
 
@@ -197,7 +197,7 @@ Wanneer alleen optie C<-iso> gebruikt wordt, zal dos2unix proberen de actieve
 codetabel te gebruiken. Als dat niet mogelijk is wordt codetabel CP437
 gebruikt, die met name in de VS gebruikt word. Om een bepaalde codetabel te
 forceren gebruik opties C<-850> (West-Europees), C<-860> (Portugees), C<-863>
-(Frans-Canadees) of C<-865> (Scandinavisch). Windows codetabel CP1252 (Westers)
+(Canadees Frans) of C<-865> (Scandinavisch). Windows codetabel CP1252 (Westers)
 wordt ook ondersteund met optie C<-1252>. Gebruik voor andere codetabellen
 dos2unix in combinatie met iconv(1). Iconv kan omzetten tussen een lange lijst
 letterteken-coderingen.

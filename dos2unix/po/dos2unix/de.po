@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-15 16:38+0100\n"
+"POT-Creation-Date: 2011-01-17 12:46+0100\n"
 "PO-Revision-Date: 2010-01-24 09:00+0100\n"
 "Last-Translator: Philipp Thomas <psmt@opensuse.org>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: dos2unix.c:182
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "dos2unix %s (%s)\n"
 "Usage: dos2unix [options] [file ...] [-n infile outfile ...]\n"
@@ -29,7 +29,7 @@ msgid ""
 "   -437           Use DOS code page 437 (US) (default)\n"
 "   -850           Use DOS code page 850 (Western European)\n"
 "   -860           Use DOS code page 860 (Portuguese)\n"
-"   -863           Use DOS code page 863 (French Canadian)\n"
+"   -863           Use DOS code page 863 (Canadian French)\n"
 "   -865           Use DOS code page 865 (Nordic)\n"
 " -7               Convert 8 bit characters to 7 bit space\n"
 " -c --convmode    conversion mode\n"
@@ -52,12 +52,12 @@ msgstr ""
 "Aufruf: dos2unix [Optionen] [Datei ...] [-n Eingabedatei Ausgabedatei ...]\n"
 " -ascii           nur Zeilenumbrüche konvertieren (Vorgabe)\n"
 " -iso             Konvertierung zwischen DOS und ISO-8859-1 Zeichensatz\n"
-"   -1252          Windows Codepage 1252 verwenden\n"
-"   -437           DOS Codepage 437 verwenden (Vorgabe)\n"
-"   -850           DOS Codepage 850 verwenden\n"
-"   -860           DOS Codepage 860 verwenden\n"
-"   -863           DOS Codepage 863 verwenden\n"
-"   -865           DOS Codepage 865 verwenden\n"
+"   -1252          Windows Codepage 1252 verwenden (Westlich)\n"
+"   -437           DOS Codepage 437 verwenden (US) (Vorgabe)\n"
+"   -850           DOS Codepage 850 verwenden (Westeuropäisch)\n"
+"   -860           DOS Codepage 860 verwenden (Portugiesisch)\n"
+"   -863           DOS Codepage 863 verwenden (Kanadisches Französisch)\n"
+"   -865           DOS Codepage 865 verwenden (Nordisch)\n"
 " -7               8Bit Zeichen in solche aus dem 7Bit Raum konvertieren\n"
 " -c --convmode    Konvertierungsmodus angeben\n"
 "   convmode       ascii, 7bit, iso, mac, Standard ist nach ascii\n"
@@ -140,14 +140,14 @@ msgid "With native language support.\n"
 msgstr "Mit Unterstützung von Landessprachen.\n"
 
 #: dos2unix.c:347
-#, fuzzy, c-format
+#, c-format
 msgid "dos2unix: code page %d is not supported.\n"
-msgstr "dos2unix: %s wird als temporäre Datei verwendet\n"
+msgstr "dos2unix: Codepage %d wird nicht unterstützt.\n"
 
 #: dos2unix.c:351
-#, fuzzy, c-format
+#, c-format
 msgid "dos2unix: using code page %d.\n"
-msgstr "dos2unix: %s wird als temporäre Datei verwendet\n"
+msgstr "dos2unix: Codepage %d wird verwendet.\n"
 
 #: dos2unix.c:378 dos2unix.c:403 dos2unix.c:421
 msgid "dos2unix: can not write to output file\n"
@@ -185,56 +185,56 @@ msgstr ""
 "dos2unix: Fehler: Der Inhalt der Umgebungsvariablen DOS2UNIX_LOCALEDIR ist "
 "zu lang.\n"
 
-#: dos2unix.c:882 dos2unix.c:908
+#: dos2unix.c:882 dos2unix.c:910
 #, c-format
 msgid "dos2unix: active code page: %d\n"
-msgstr ""
+msgstr "dos2unix: aktive Codepage: %d\n"
 
-#: dos2unix.c:915
+#: dos2unix.c:917
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr "dos2unix: Der angegebene Konvertierungsmodus %s ist unzulässig\n"
 
-#: dos2unix.c:923
+#: dos2unix.c:925
 #, c-format
 msgid "dos2unix: option '%s' requires an argument\n"
 msgstr "dos2unix: Die Option »%s« benötigt ein Argument\n"
 
-#: dos2unix.c:934 dos2unix.c:946 dos2unix.c:1022
+#: dos2unix.c:936 dos2unix.c:948 dos2unix.c:1024
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr ""
 "dos2unix: Das Ziel der Datei %s wurde für den Neudatei-Modus nicht "
 "angegeben\n"
 
-#: dos2unix.c:970 dos2unix.c:994
+#: dos2unix.c:972 dos2unix.c:996
 #, c-format
 msgid "dos2unix: Skipping %s, not a regular file.\n"
 msgstr "dos2unix: %s wird übersprungen, da es keine reguläre Datei ist\n"
 
-#: dos2unix.c:974 dos2unix.c:998
+#: dos2unix.c:976 dos2unix.c:1000
 #, c-format
 msgid "dos2unix: Skipping binary file %s\n"
 msgstr "dos2unix: binäre Datei %s wird übersprungen\n"
 
-#: dos2unix.c:977
+#: dos2unix.c:979
 #, c-format
 msgid "dos2unix: converting file %s to file %s in Unix format ...\n"
 msgstr "dos2unix: Datei %s wird zu Datei %s im Unix-Format umgewandelt ...\n"
 
-#: dos2unix.c:981
+#: dos2unix.c:983
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr ""
 "dos2unix: Beim Konvertieren von Datei %s zu Datei %s sind Probleme "
 "aufgetreten\n"
 
-#: dos2unix.c:1001
+#: dos2unix.c:1003
 #, c-format
 msgid "dos2unix: converting file %s to Unix format ...\n"
 msgstr "dos2unix: Datei %s wird ins Unix-Format umgewandelt ...\n"
 
-#: dos2unix.c:1005
+#: dos2unix.c:1007
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr "dos2unix: Beim Umwandeln von Datei %s sind Probleme aufgetreten\n"
