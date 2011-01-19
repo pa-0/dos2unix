@@ -14,7 +14,7 @@
 // (Doesn't work on XP or Vista, though.)
 // ----------------------------------------------------------------------
 //
-// short query_con_codepage();
+// unsigned short query_con_codepage(void);
 //
 // gets currently selected display CON codepage
 //
@@ -34,10 +34,10 @@
 // P.S. For MS or DR: ren ega.cpx *.com ; upx -d ega.com ; ren ega.com *.cpi
 // ----------------------------------------------------------------------
 
-short query_con_codepage(void) {
+unsigned short query_con_codepage(void) {
    __dpmi_regs regs;
 
-   short param_block[2] = { 0, 437 };
+   unsigned short param_block[2] = { 0, 437 };
 
    regs.d.eax = 0x440C;                // GENERIC IO FOR HANDLES
    regs.d.ebx = 1;                     // STDOUT
@@ -98,13 +98,13 @@ unsigned short query_con_codepage(void) {
 #elif defined (WIN32)
 
 #include <windows.h>
-short query_con_codepage(void) {
-   return((short)GetConsoleOutputCP());
+unsigned short query_con_codepage(void) {
+   return((unsigned short)GetConsoleOutputCP());
 }
 #else
 
-short query_con_codepage(void) {
-   return(-1);
+unsigned short query_con_codepage(void) {
+   return(0);
 }
 #endif
 

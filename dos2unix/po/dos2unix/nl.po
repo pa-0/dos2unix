@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-17 23:07+0100\n"
+"POT-Creation-Date: 2011-01-19 14:25+0100\n"
 "PO-Revision-Date: 2009-12-08 21:59+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -108,45 +108,45 @@ msgstr ""
 msgid "With native language support.\n"
 msgstr "Met moedertaal ondersteuning.\n"
 
-#: dos2unix.c:347
+#: dos2unix.c:343
 #, c-format
 msgid "dos2unix: code page %d is not supported.\n"
 msgstr "dos2unix: codetabel %d wordt niet ondersteund.\n"
 
-#: dos2unix.c:351
+#: dos2unix.c:347
 #, c-format
 msgid "dos2unix: using code page %d.\n"
 msgstr "dos2unix: codetabel %d wordt gebruikt.\n"
 
-#: dos2unix.c:378 dos2unix.c:403 dos2unix.c:421
+#: dos2unix.c:374 dos2unix.c:399 dos2unix.c:417
 msgid "dos2unix: can not write to output file\n"
 msgstr "dos2unix: kan niet schrijven naar uitvoerbestand\n"
 
-#: dos2unix.c:433
+#: dos2unix.c:429
 #, c-format
 msgid "dos2unix: program error, invalid conversion mode %d\n"
 msgstr "dos2unix: programma fout, ongeldige conversie modus %d\n"
 
-#: dos2unix.c:547 dos2unix.c:672
+#: dos2unix.c:543 dos2unix.c:668
 msgid "dos2unix: Failed to open temporary output file"
 msgstr "dos2unix: Niet gelukt om tijdelijk uitvoerbestand te openen"
 
-#: dos2unix.c:552 dos2unix.c:682
+#: dos2unix.c:548 dos2unix.c:678
 #, c-format
 msgid "dos2unix: using %s as temporary file\n"
 msgstr "dos2unix: %s wordt als tijdelijk bestand gebruikt\n"
 
-#: dos2unix.c:620 dos2unix.c:743
+#: dos2unix.c:616 dos2unix.c:739
 #, c-format
 msgid "dos2unix: problems renaming '%s' to '%s'\n"
 msgstr "dos2unix: problemen met hernoemen van '%s' naar '%s'\n"
 
-#: dos2unix.c:621 dos2unix.c:744
+#: dos2unix.c:617 dos2unix.c:740
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          uitvoerbestand blijft in '%s'\n"
 
-#: dos2unix.c:808
+#: dos2unix.c:804
 msgid ""
 "dos2unix: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
 "long.\n"
@@ -154,54 +154,54 @@ msgstr ""
 "dos2unix: fout: Waarde van omgevingsvariabele DOS2UNIX_LOCALEDIR is te "
 "lang.\n"
 
-#: dos2unix.c:882 dos2unix.c:910
+#: dos2unix.c:877 dos2unix.c:904
 #, c-format
 msgid "dos2unix: active code page: %d\n"
 msgstr "dos2unix: actieve code tabel: %d\n"
 
-#: dos2unix.c:917
+#: dos2unix.c:913
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr "dos2unix: ongeldige %s conversie modus gespecificeerd\n"
 
-#: dos2unix.c:925
+#: dos2unix.c:921
 #, c-format
 msgid "dos2unix: option '%s' requires an argument\n"
 msgstr "dos2unix: optie '%s' heeft een argument nodig\n"
 
-#: dos2unix.c:936 dos2unix.c:948 dos2unix.c:1024
+#: dos2unix.c:932 dos2unix.c:944 dos2unix.c:1020
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr ""
 "dos2unix: doel van bestand %s is niet gespecificeerd in 'nieuw bestand "
 "modus'\n"
 
-#: dos2unix.c:972 dos2unix.c:996
+#: dos2unix.c:968 dos2unix.c:992
 #, c-format
 msgid "dos2unix: Skipping %s, not a regular file.\n"
 msgstr "dos2unix: %s wordt overgeslagen, omdat het geen regulier bestand is.\n"
 
-#: dos2unix.c:976 dos2unix.c:1000
+#: dos2unix.c:972 dos2unix.c:996
 #, c-format
 msgid "dos2unix: Skipping binary file %s\n"
 msgstr "dos2unix: Binair bestand %s wordt overgeslagen\n"
 
-#: dos2unix.c:979
+#: dos2unix.c:975
 #, c-format
 msgid "dos2unix: converting file %s to file %s in Unix format ...\n"
 msgstr "dos2unix: converteren bestand %s naar bestand %s in Unix formaat ...\n"
 
-#: dos2unix.c:983
+#: dos2unix.c:979
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s naar bestand %s\n"
 
-#: dos2unix.c:1003
+#: dos2unix.c:999
 #, c-format
 msgid "dos2unix: converting file %s to Unix format ...\n"
 msgstr "dos2unix: converteren bestand %s naar Unix formaat ...\n"
 
-#: dos2unix.c:1007
+#: dos2unix.c:1003
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s\n"

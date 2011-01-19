@@ -1,1 +1,1 @@
-short query_con_codepage(void);
+unsigned short query_con_codepage(void);

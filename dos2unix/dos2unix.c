@@ -339,10 +339,6 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
       case CONVMODE_1252: /* iso */
         ConvTable = D2UIso1252Table;
         break;
-      case -1: /* dummy querycp(), use default 437 */
-        ipFlag->ConvMode = CONVMODE_437;
-        ConvTable = D2UIso437Table;
-        break;
       default: /* unknown convmode */
         fprintf(stderr, _("dos2unix: code page %d is not supported.\n"), ipFlag->ConvMode);
         return(-1);
@@ -878,9 +874,8 @@ int main (int argc, char *argv[])
       else if (strcmp(argv[ArgIdx],"-iso") == 0)
       {
         pFlag->ConvMode = (int)query_con_codepage();
-        if (pFlag->ConvMode >= 0)
-          fprintf(stderr,_("dos2unix: active code page: %d\n"), pFlag->ConvMode);
-        if ((pFlag->ConvMode == 0)||(pFlag->ConvMode == 1))
+        fprintf(stderr,_("dos2unix: active code page: %d\n"), pFlag->ConvMode);
+        if (pFlag->ConvMode < 2)
            pFlag->ConvMode = CONVMODE_437;
       }
       else if (strcmp(argv[ArgIdx],"-437") == 0)
@@ -906,8 +901,9 @@ int main (int argc, char *argv[])
           else if (strcmpi(argv[ArgIdx], "iso") == 0)
           {
             pFlag->ConvMode = (int)query_con_codepage();
-            if (pFlag->ConvMode >= 0)
-              fprintf(stderr,_("dos2unix: active code page: %d\n"), pFlag->ConvMode);
+            fprintf(stderr,_("dos2unix: active code page: %d\n"), pFlag->ConvMode);
+            if (pFlag->ConvMode < 2)
+               pFlag->ConvMode = CONVMODE_437;
           }
           else if (strcmpi(argv[ArgIdx], "mac") == 0)
             pFlag->FromToMode = FROMTO_MAC2UNIX;
