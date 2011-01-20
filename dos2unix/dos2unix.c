@@ -132,6 +132,7 @@
 
 #define BINARY_FILE 0x1
 #define NO_REGFILE  0x2
+#define WRONG_CODEPAGE  0x4
 
 #define CONVMODE_ASCII  0
 #define CONVMODE_7BIT   1
@@ -340,7 +341,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
         ConvTable = D2UIso1252Table;
         break;
       default: /* unknown convmode */
-        fprintf(stderr, _("dos2unix: code page %d is not supported.\n"), ipFlag->ConvMode);
+        ipFlag->status |= WRONG_CODEPAGE ;
         return(-1);
     }
     if (ipFlag->ConvMode > 1) /* not ascii or 7bit */
@@ -970,6 +971,10 @@ int main (int argc, char *argv[])
           {
             if (!pFlag->Quiet)
               fprintf(stderr, _("dos2unix: Skipping binary file %s\n"), argv[ArgIdx-1]);
+          } else if (pFlag->status & WRONG_CODEPAGE)
+          {
+            if (!pFlag->Quiet)
+              fprintf(stderr, _("dos2unix: code page %d is not supported.\n"), pFlag->ConvMode);
           } else {
             if (!pFlag->Quiet)
               fprintf(stderr, _("dos2unix: converting file %s to file %s in Unix format ...\n"), argv[ArgIdx-1], argv[ArgIdx]);
@@ -994,6 +999,10 @@ int main (int argc, char *argv[])
         {
           if (!pFlag->Quiet)
             fprintf(stderr, _("dos2unix: Skipping binary file %s\n"), argv[ArgIdx]);
+        } else if (pFlag->status & WRONG_CODEPAGE)
+        {
+          if (!pFlag->Quiet)
+            fprintf(stderr, _("dos2unix: code page %d is not supported.\n"), pFlag->ConvMode);
         } else {
           if (!pFlag->Quiet)
             fprintf(stderr, _("dos2unix: converting file %s to Unix format ...\n"), argv[ArgIdx]);

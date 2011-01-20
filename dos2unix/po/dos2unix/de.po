@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-19 14:25+0100\n"
+"POT-Creation-Date: 2011-01-20 21:35+0100\n"
 "PO-Revision-Date: 2010-01-24 09:00+0100\n"
 "Last-Translator: Philipp Thomas <psmt@opensuse.org>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: dos2unix.c:182
+#: dos2unix.c:183
 #, c-format
 msgid ""
 "dos2unix %s (%s)\n"
@@ -75,7 +75,7 @@ msgstr ""
 "                  ist im stdio Modus immer aktiv\n"
 " -V --version     gibt die Versionsnummer aus\n"
 
-#: dos2unix.c:213
+#: dos2unix.c:214
 msgid ""
 "Copyright (C) 2009-2011 Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
@@ -135,49 +135,44 @@ msgstr ""
 "FAHRLÄSSIGKEIT), DIE AUS DER VERWENDUNG DIESER SOFTWARE ERWÄCHST,\n"
 "SELBST WENN AUF DIE MÖGLICHKIET SOLCHER SCHÄDEN HINGEWIESEN WURDE.\n"
 
-#: dos2unix.c:247
+#: dos2unix.c:248
 msgid "With native language support.\n"
 msgstr "Mit Unterstützung von Landessprachen.\n"
 
-#: dos2unix.c:343
-#, c-format
-msgid "dos2unix: code page %d is not supported.\n"
-msgstr "dos2unix: Codepage %d wird nicht unterstützt.\n"
-
-#: dos2unix.c:347
+#: dos2unix.c:348
 #, c-format
 msgid "dos2unix: using code page %d.\n"
 msgstr "dos2unix: Codepage %d wird verwendet.\n"
 
-#: dos2unix.c:374 dos2unix.c:399 dos2unix.c:417
+#: dos2unix.c:375 dos2unix.c:400 dos2unix.c:418
 msgid "dos2unix: can not write to output file\n"
 msgstr "dos2unix: In die Ausgabedatei kann nicht geschrieben werden\n"
 
-#: dos2unix.c:429
+#: dos2unix.c:430
 #, c-format
 msgid "dos2unix: program error, invalid conversion mode %d\n"
 msgstr "dos2unix: Programmfehler, der Konvertierungsmodus %d ist unzulässig\n"
 
-#: dos2unix.c:543 dos2unix.c:668
+#: dos2unix.c:544 dos2unix.c:669
 msgid "dos2unix: Failed to open temporary output file"
 msgstr "dos2unix: Die temporäre Ausgabedatei konnte nicht geöffnet werden"
 
-#: dos2unix.c:548 dos2unix.c:678
+#: dos2unix.c:549 dos2unix.c:679
 #, c-format
 msgid "dos2unix: using %s as temporary file\n"
 msgstr "dos2unix: %s wird als temporäre Datei verwendet\n"
 
-#: dos2unix.c:616 dos2unix.c:739
+#: dos2unix.c:617 dos2unix.c:740
 #, c-format
 msgid "dos2unix: problems renaming '%s' to '%s'\n"
 msgstr "dos2unix: Beim Umbenennen von »%s« zu »%s« sind Probleme aufgetreten\n"
 
-#: dos2unix.c:617 dos2unix.c:740
+#: dos2unix.c:618 dos2unix.c:741
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          Die Ausgabedatei verbleibt in »%s«\n"
 
-#: dos2unix.c:804
+#: dos2unix.c:805
 msgid ""
 "dos2unix: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
 "long.\n"
@@ -185,56 +180,61 @@ msgstr ""
 "dos2unix: Fehler: Der Inhalt der Umgebungsvariablen DOS2UNIX_LOCALEDIR ist "
 "zu lang.\n"
 
-#: dos2unix.c:877 dos2unix.c:904
+#: dos2unix.c:878 dos2unix.c:905
 #, c-format
 msgid "dos2unix: active code page: %d\n"
 msgstr "dos2unix: aktive Codepage: %d\n"
 
-#: dos2unix.c:913
+#: dos2unix.c:914
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr "dos2unix: Der angegebene Konvertierungsmodus %s ist unzulässig\n"
 
-#: dos2unix.c:921
+#: dos2unix.c:922
 #, c-format
 msgid "dos2unix: option '%s' requires an argument\n"
 msgstr "dos2unix: Die Option »%s« benötigt ein Argument\n"
 
-#: dos2unix.c:932 dos2unix.c:944 dos2unix.c:1020
+#: dos2unix.c:933 dos2unix.c:945 dos2unix.c:1029
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr ""
 "dos2unix: Das Ziel der Datei %s wurde für den Neudatei-Modus nicht "
 "angegeben\n"
 
-#: dos2unix.c:968 dos2unix.c:992
+#: dos2unix.c:969 dos2unix.c:997
 #, c-format
 msgid "dos2unix: Skipping %s, not a regular file.\n"
 msgstr "dos2unix: %s wird übersprungen, da es keine reguläre Datei ist\n"
 
-#: dos2unix.c:972 dos2unix.c:996
+#: dos2unix.c:973 dos2unix.c:1001
 #, c-format
 msgid "dos2unix: Skipping binary file %s\n"
 msgstr "dos2unix: binäre Datei %s wird übersprungen\n"
 
-#: dos2unix.c:975
+#: dos2unix.c:977 dos2unix.c:1005
+#, c-format
+msgid "dos2unix: code page %d is not supported.\n"
+msgstr "dos2unix: Codepage %d wird nicht unterstützt.\n"
+
+#: dos2unix.c:980
 #, c-format
 msgid "dos2unix: converting file %s to file %s in Unix format ...\n"
 msgstr "dos2unix: Datei %s wird zu Datei %s im Unix-Format umgewandelt ...\n"
 
-#: dos2unix.c:979
+#: dos2unix.c:984
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr ""
 "dos2unix: Beim Konvertieren von Datei %s zu Datei %s sind Probleme "
 "aufgetreten\n"
 
-#: dos2unix.c:999
+#: dos2unix.c:1008
 #, c-format
 msgid "dos2unix: converting file %s to Unix format ...\n"
 msgstr "dos2unix: Datei %s wird ins Unix-Format umgewandelt ...\n"
 
-#: dos2unix.c:1003
+#: dos2unix.c:1012
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr "dos2unix: Beim Umwandeln von Datei %s sind Probleme aufgetreten\n"

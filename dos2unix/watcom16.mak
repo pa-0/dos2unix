@@ -50,3 +50,5 @@ strip
 clean
 	-del *.obj
 	-del *.exe
+	-del *.SYM
+	-del *.MAP

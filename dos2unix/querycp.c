@@ -95,7 +95,7 @@ unsigned short query_con_codepage(void) {
 
 
 
-#elif defined (WIN32)
+#elif defined (WIN32) || defined(__CYGWIN__)
 
 #include <windows.h>
 unsigned short query_con_codepage(void) {

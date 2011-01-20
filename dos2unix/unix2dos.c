@@ -122,6 +122,7 @@
 
 #define BINARY_FILE 0x1
 #define NO_REGFILE  0x2
+#define WRONG_CODEPAGE  0x4
 
 #define CONVMODE_ASCII  0
 #define CONVMODE_7BIT   1
@@ -319,7 +320,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
         ConvTable = U2DIso1252Table;
         break;
       default: /* unknown convmode */
-        fprintf(stderr, _("unix2dos: code page %d is not supported.\n"), ipFlag->ConvMode);
+        ipFlag->status |= WRONG_CODEPAGE ;
         return(-1);
     }
     if (ipFlag->ConvMode > 1) /* not ascii or 7bit */
@@ -968,6 +969,10 @@ int main (int argc, char *argv[])
           {
             if (!pFlag->Quiet)
               fprintf(stderr, _("unix2dos: Skipping binary file %s\n"), argv[ArgIdx-1]);
+          } else if (pFlag->status & WRONG_CODEPAGE)
+          {
+            if (!pFlag->Quiet)
+              fprintf(stderr, _("unix2dos: code page %d is not supported.\n"), pFlag->ConvMode);
           } else {
             if (!pFlag->Quiet)
             {
@@ -997,6 +1002,10 @@ int main (int argc, char *argv[])
         {
           if (!pFlag->Quiet)
             fprintf(stderr, _("unix2dos: Skipping binary file %s\n"), argv[ArgIdx]);
+        } else if (pFlag->status & WRONG_CODEPAGE)
+        {
+          if (!pFlag->Quiet)
+            fprintf(stderr, _("unix2dos: code page %d is not supported.\n"), pFlag->ConvMode);
         } else {
           if (!pFlag->Quiet)
           {
