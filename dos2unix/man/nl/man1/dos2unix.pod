@@ -375,8 +375,9 @@ Voorbeeld (POSIX shell):
 
 =head1 AUTEURS
 
-Benjamin Lin - <blin@socs.uts.edu.au>
-Bernd Johannes Wuebben (mac2unix modus) - <wuebben@kde.org>
+Benjamin Lin - <blin@socs.uts.edu.au>,
+Bernd Johannes Wuebben (mac2unix modus) - <wuebben@kde.org>,
+Christian Wurll (voeg extra regeleinde toe) - <wurll@ira.uka.de>,
 Erwin Waterlander - <waterlan@xs4all.nl>
 
 Project pagina: L<http://www.xs4all.nl/~waterlan/dos2unix.html>

@@ -27,18 +27,40 @@ History
 
 	These implementations of dos2unix and unix2dos were originally made as
 	an Open Source alternative for dos2unix/unix2dos under SunOS/Solaris.
-	They have a few similar conversion modes, namely ascii, 7bit and iso.
+	They have similar conversion modes, namely ascii, 7bit and iso.
 	The first versions were made by John Birchfield in 1989, and in 1995
 	rewritten from scratch by Benjamin Lin. Mac to Unix conversion was
 	added by Bernd Johannes Wuebben in 1998, Unix to Mac conversion by
 	Erwin Waterlander in 2010.
 
+Authors
+
+        Erwin Waterlander       version 3.2-5.2  2009-2011 
+        Christian Wurll         version 3.1      1998
+        Bernd Johannes Wuebben  version 3.0      1998
+        Benjamin Lin            version 1.1-2.3  1994-1995
+        John Birchfield         version 1.0      1989
 
 Translations
 
         Dutch           Erwin Waterlander <waterlan@xs4all.nl>
         Esperanto       Rugxulo <rugxulo@gmail.com>
         German          Philipp Thomas <psmt@opensuse.org>
+
+Acknowledgements
+
+        Rugxulo         query_con_codepage(), code page detection in DOS.
+        Rugxulo         DJGPP stubs for mac2unix and unix2mac.
+        Jari Aalto      Improvements man page.
+        Jari Aalto      Improvments Makefile.
+        Ben Pfaff       Treat form feeds as valid text.
+        Marc Gianzero   Darwin OS port.
+        Elbert Pol      OS/2 port.
+        Tim Waugh       Various patches.
+        Mike Harris     Man page update.
+        Bernard RosenKraenzer  segfault patch.
+        Tim Powers      mkstemp patch.
+        Miloslav Trmac  safeconv patch.
 
 
 Contact information
