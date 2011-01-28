@@ -2,21 +2,22 @@
 dos2unix - DOS/MAC to UNIX and vice versa text file format converter.
 
 
-File list
+FILE LIST
 
         README.txt      : This file.
         INSTALL.txt     : How to build and install.
         COPYING.txt     : distribution license.
-        NEWS.txt        : News.
-        ChangeLog.txt   : Change log.
+        NEWS.txt        : Basic change log for users.
+        ChangeLog.txt   : Detailed change log for programmers.
         TODO.txt        : Things to do.
+	BUGS.txt        : Known bugs and instructions on reporting new ones.
         dos2unix.txt    : Dos2unix manual, text format.
         dos2unix.ps     : Dos2unix manual, PostScript format.
         dos2unix.pdf    : Dos2unix manual, PDF format.
         dos2unix.htm    : Dos2unix manual, HTML format.
 
 
-History
+HISTORY
 
         This is an update of Benjamin Lin's implementations of dos2unix and
         unix2dos.  Benjamin Lin's implementations of dos2unix and unix2dos are
@@ -33,7 +34,7 @@ History
 	added by Bernd Johannes Wuebben in 1998, Unix to Mac conversion by
 	Erwin Waterlander in 2010.
 
-Authors
+AUTHORS
 
         Erwin Waterlander       version 3.2-5.2  2009-2011 
         Christian Wurll         version 3.1      1998
@@ -41,13 +42,13 @@ Authors
         Benjamin Lin            version 1.1-2.3  1994-1995
         John Birchfield         version 1.0      1989
 
-Translations
+TRANSLATORS
 
         Dutch           Erwin Waterlander <waterlan@xs4all.nl>
         Esperanto       Rugxulo <rugxulo@gmail.com>
         German          Philipp Thomas <psmt@opensuse.org>
 
-Acknowledgements
+ACKNOWLEDGEMENTS
 
         Rugxulo         query_con_codepage(), code page detection in DOS.
         Rugxulo         DJGPP stubs for mac2unix and unix2mac.
@@ -63,7 +64,7 @@ Acknowledgements
         Miloslav Trmac  safeconv patch.
 
 
-Contact information
+CONTACT INFORMATION
 
         Project page             : http://www.xs4all.nl/~waterlan/dos2unix.html
         SourceForge project page : http://sourceforge.net/projects/dos2unix/

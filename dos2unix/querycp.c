@@ -1,3 +1,5 @@
+/* The code in this file is Public Domain */
+
 #ifdef DJGPP
 
 #include <dpmi.h>
@@ -63,6 +65,8 @@ unsigned short query_con_codepage(void) {
 }
 #elif defined(__WATCOMC__) && defined(MSDOS)
 
+/* rugxulo _AT_ gmail _DOT_ com */
+
 #include <stdio.h>
 #include <dos.h>
 #include <i86.h>
@@ -96,6 +100,8 @@ unsigned short query_con_codepage(void) {
 
 
 #elif defined (WIN32) || defined(__CYGWIN__)
+
+/* Erwin Waterlander */
 
 #include <windows.h>
 unsigned short query_con_codepage(void) {
