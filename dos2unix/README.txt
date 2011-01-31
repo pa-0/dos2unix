@@ -1,5 +1,5 @@
 
-dos2unix - DOS/MAC to UNIX and vice versa text file format converter.
+dos2unix - DOS/Mac to Unix and vice versa text file format converter.
 
 
 FILE LIST

@@ -1,6 +1,14 @@
+2011-01-19 Erwin Waterlander <waterlan@xs4all.nl>
+	* Update manual.
+
+2011-01-13 Rugxulo <rugxulo@gmail.com>
+	* querycp.c: Active code page detection. DOS 16 bit, OpenWatcom.
+
 2011-01-12 Erwin Waterlander <waterlan@xs4all.nl>
-	* Detect active code page for ISO mode. DOS32 and Windows.
-	  Thanks to Rugxulo <rugxulo@gmail.com>
+	* querycp.c: Detect active code page for ISO mode on Windows.
+
+2011-01-12 Rugxulo <rugxulo@gmail.com>
+	* querycp.c: Detect active code page for ISO mode. DOS 32 bit, DJGPP.
 
 2011-01-11 Erwin Waterlander <waterlan@xs4all.nl>
 	* New ISO conversion modes DOS CP860 (Portuguese)
@@ -10,9 +18,10 @@
 	* New ISO conversion mode DOS CP865 (Nordic).
 
 2011-01-07 Erwin Waterlander <waterlan@xs4all.nl>
-	* ISO mode CP437, fix conversion of non-breaking space (NBSP)
-	* New ISO conversion modes DOS CP850 (Western European) and Windows CP1252 (Western).
-	* SunOS compatible command-line options -ascii, -iso, -7, -437, -850
+	* ISO mode CP437: fix conversion of non-breaking space (NBSP)
+	* New ISO conversion modes: DOS CP850 (Western European) and Windows
+	  CP1252 (Western European).
+	* SunOS compatible command-line options -ascii, -iso, -7, -437, -850.
 
 2011-01-04 Erwin Waterlander <waterlan@xs4all.nl>
 	* 7bit and iso mode can be used in Mac mode.
