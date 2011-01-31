@@ -14,19 +14,19 @@ endif
 ZIPOBJ_EXTRA = bin/cwsdpmi.exe
 
 all:
-	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f"
+	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f" docsubdir=dos2unix
 
 install:
-	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f"
+	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f" docsubdir=dos2unix
 
 uninstall:
-	$(MAKE) uninstall EXE=.exe prefix=$(prefix)
+	$(MAKE) uninstall EXE=.exe prefix=$(prefix) docsubdir=dos2unix
 
 clean:
 	$(MAKE) clean EXE=.exe ENABLE_NLS=$(ENABLE_NLS) prefix=$(prefix)
 
 dist:
-	$(MAKE) dist-zip EXE=.exe prefix=$(prefix) VERSIONSUFFIX="$(VERSIONSUFFIX)" ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" ENABLE_NLS=$(ENABLE_NLS)
+	$(MAKE) dist-zip EXE=.exe prefix=$(prefix) VERSIONSUFFIX="$(VERSIONSUFFIX)" ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" ENABLE_NLS=$(ENABLE_NLS) docsubdir=dos2unix
 
 strip:
 	$(MAKE) strip LINK_MAN="cp -f" EXE=.exe
