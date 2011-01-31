@@ -2,7 +2,7 @@
 #
 #   Copyright information
 #
-#	Copyright (C) 2009-2010 Erwin Waterlander
+#	Copyright (C) 2009-2011 Erwin Waterlander
 #
 #   License
 #
