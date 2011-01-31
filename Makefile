@@ -26,8 +26,6 @@ dist:
 	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) merge
 	# cleanup.
 	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) clean
-	# fix pod2man bug
-	cd ../${RELEASE_DIR_DOS2UNIX}/man/nl/man1 ; perl -pli -e s/e\\\\\\*:/\\\\[:e]/ dos2unix.1
 	# fix some file mods.
 	cd ../${RELEASE_DIR_DOS2UNIX} ; chmod -x Makefile *.txt *.c *.h *.mak *.mk po/*/*.* man/nl/man1/*.*
 	# Create DOS source package.
