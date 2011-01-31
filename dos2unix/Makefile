@@ -78,7 +78,7 @@ ifdef ENABLE_NLS
 endif
 
 DOCFILES	= $(PACKAGE).txt $(PACKAGE).ps $(PACKAGE).pdf $(PACKAGE).htm
-INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt $(DOCFILES)
+INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt $(DOCFILES)
 
 #PODFILES	= man/man1/dos2unix.pod $(wildcard man/*/man1/dos2unix.pod)
 PODFILES	= $(wildcard man/*/man1/dos2unix.pod)
