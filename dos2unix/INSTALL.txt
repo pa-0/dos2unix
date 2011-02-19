@@ -39,6 +39,16 @@ NATIVE LANGUAGE SUPPORT
 
         make clean install ENABLE_NLS=
 
+DOCUMENTATION
+
+    Manual pages are generated from Perl POD files. By default
+    the manual pages are are created in text and html format.
+    To create a manual in PDF format type:
+
+        make pdf
+
+    PDF generation requires GhostScript to be installed.
+
 WINDOWS PORT
 
     To compile a version for Windows, get the Mingw compiler

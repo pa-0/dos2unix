@@ -21,7 +21,7 @@ dist:
 	rm -rf ../${RELEASE_DIR_D2U}
 	svn export https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/trunk/dos2unix ../${RELEASE_DIR_DOS2UNIX}
 	# Include doc files, to make it easier to build dos2unix.
-	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) doc
+	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) doc pdf
 	# Make sure .po files are up to date.
 	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) merge
 	# cleanup.

@@ -84,7 +84,7 @@ ifdef ENABLE_NLS
 	MOFILES			= $(DOS2UNIX_MOFILES) $(UNIX2DOS_MOFILES)
 endif
 
-DOCFILES	= $(PACKAGE).txt $(PACKAGE).ps $(PACKAGE).pdf $(PACKAGE).htm
+DOCFILES	= $(PACKAGE).txt $(PACKAGE).htm
 INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt $(DOCFILES)
 
 #PODFILES	= man/man1/dos2unix.pod $(wildcard man/*/man1/dos2unix.pod)
@@ -222,6 +222,14 @@ $(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
 
 mofiles: $(MOFILES)
 
+html: $(PACKAGE).htm
+
+txt: $(PACKAGE).txt
+
+ps: $(PACKAGE).ps
+
+pdf: $(PACKAGE).pdf
+
 doc: $(DOCFILES)
 
 tags: $(DOS2UNIX_POT)
@@ -294,7 +302,7 @@ ifdef ENABLE_NLS
 endif
 	@echo "-- install-doc"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
-	$(INSTALL) -m 644 $(INSTALL_OBJS_DOC) $(DESTDIR)$(docdir)
+	$(INSTALL) -m 644 $(INSTALL_OBJS_DOC) $(wildcard $(PACKAGE).ps) $(wildcard $(PACKAGE).pdf) $(DESTDIR)$(docdir)
 
 uninstall:
 	@echo "-- target: uninstall"
@@ -325,7 +333,7 @@ clean:
 distclean: clean
 
 maintainer-clean: distclean
-	rm -f $(DOCFILES)
+	rm -f $(DOCFILES) $(PACKAGE).ps $(PACKAGE).pdf
 	rm -f man/man1/*.1
 	rm -f man/*/man1/*.1
 
