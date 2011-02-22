@@ -2,12 +2,12 @@
 # Copyright (C) 2010 THE dos'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the dos2unix package.
 # waterlan <waterlan@xs4all.nl>, 2010.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-20 21:35+0100\n"
+"POT-Creation-Date: 2011-02-22 19:11+0100\n"
 "PO-Revision-Date: 2010-03-07 19:50+0100\n"
 "Last-Translator: Ruĝulo <ruĝulo@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: dos2unix.c:183
+#: dos2unix.c:205
 #, c-format
 msgid ""
 "dos2unix %s (%s)\n"
@@ -73,7 +73,7 @@ msgstr ""
 "                  ĉiam enŝaltata dum stdio modo\n"
 " -V --version     diri eldono-numeron\n"
 
-#: dos2unix.c:214
+#: dos2unix.c:236
 msgid ""
 "Copyright (C) 2009-2011 Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
@@ -103,100 +103,100 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: dos2unix.c:248
+#: dos2unix.c:270
 msgid "With native language support.\n"
 msgstr "Uzante denaskan lingvon sistemon.\n"
 
-#: dos2unix.c:348
+#: dos2unix.c:370
 #, c-format
 msgid "dos2unix: using code page %d.\n"
 msgstr "dos2unix: uzante kodpaĝon %d.\n"
 
-#: dos2unix.c:375 dos2unix.c:400 dos2unix.c:418
+#: dos2unix.c:397 dos2unix.c:422 dos2unix.c:440
 msgid "dos2unix: can not write to output file\n"
 msgstr "dos2unix: ne povas registri dosieren\n"
 
-#: dos2unix.c:430
+#: dos2unix.c:452
 #, c-format
 msgid "dos2unix: program error, invalid conversion mode %d\n"
 msgstr "dos2unix: programa eraro, neĝustan ŝanĝmodon %d\n"
 
-#: dos2unix.c:544 dos2unix.c:669
+#: dos2unix.c:566 dos2unix.c:691
 msgid "dos2unix: Failed to open temporary output file"
 msgstr "dos2unix: malsukcesis malfermi provizoran dosieron registran"
 
-#: dos2unix.c:549 dos2unix.c:679
+#: dos2unix.c:571 dos2unix.c:701
 #, c-format
 msgid "dos2unix: using %s as temporary file\n"
 msgstr "dos2unix: uzante %s kiel provizora dosiero\n"
 
-#: dos2unix.c:617 dos2unix.c:740
+#: dos2unix.c:639 dos2unix.c:762
 #, c-format
 msgid "dos2unix: problems renaming '%s' to '%s'\n"
 msgstr "dos2unix: problemojn trovitajn renomigi '%s' al '%s'\n"
 
-#: dos2unix.c:618 dos2unix.c:741
+#: dos2unix.c:640 dos2unix.c:763
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          kreatan dosieron restas en '%s'\n"
 
-#: dos2unix.c:805
+#: dos2unix.c:827
 msgid ""
 "dos2unix: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
 "long.\n"
 msgstr "dos2unix: eraro: DOS2UNIX_LOCALEDIR tro longiĝis.\n"
 
-#: dos2unix.c:878 dos2unix.c:905
+#: dos2unix.c:900 dos2unix.c:927
 #, c-format
 msgid "dos2unix: active code page: %d\n"
 msgstr "dos2unix: nuntempa kodpaĝo: %d\n"
 
-#: dos2unix.c:914
+#: dos2unix.c:936
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr "dos2unix: neuzebla %s ŝanĝmodo menciita\n"
 
-#: dos2unix.c:922
+#: dos2unix.c:944
 #, c-format
 msgid "dos2unix: option '%s' requires an argument\n"
 msgstr "dos2unix: elekto '%s' bezonas elekto-vorton\n"
 
-#: dos2unix.c:933 dos2unix.c:945 dos2unix.c:1029
+#: dos2unix.c:955 dos2unix.c:967 dos2unix.c:1051
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr "dos2unix: ejon de dosiero %s ne menciita en novmodo dosiera\n"
 
-#: dos2unix.c:969 dos2unix.c:997
+#: dos2unix.c:991 dos2unix.c:1019
 #, c-format
 msgid "dos2unix: Skipping %s, not a regular file.\n"
 msgstr "dos2unix: Pasante %s, dosiero ne tauĝa.\n"
 
-#: dos2unix.c:973 dos2unix.c:1001
+#: dos2unix.c:995 dos2unix.c:1023
 #, c-format
 msgid "dos2unix: Skipping binary file %s\n"
 msgstr "dos2unix: Pasante ne-tekstan dosieron %s\n"
 
-#: dos2unix.c:977 dos2unix.c:1005
+#: dos2unix.c:999 dos2unix.c:1027
 #, c-format
 msgid "dos2unix: code page %d is not supported.\n"
 msgstr "dos2unix: kodpaĝo %d ne estas konvertebla.\n"
 
-#: dos2unix.c:980
+#: dos2unix.c:1002
 #, c-format
 msgid "dos2unix: converting file %s to file %s in Unix format ...\n"
 msgstr "dos2unix: ŝanĝante dosieron %s al dosiero %s Unix-en ...\n"
 
-#: dos2unix.c:984
+#: dos2unix.c:1006
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr "dos2unix: problemojn trovitajn dum ŝanĝi dosiero %s al dosiero %s\n"
 
-#: dos2unix.c:1008
+#: dos2unix.c:1030
 #, c-format
 msgid "dos2unix: converting file %s to Unix format ...\n"
 msgstr "dos2unix: ŝanĝante dosiero %s Unix-en ...\n"
 
-#: dos2unix.c:1012
+#: dos2unix.c:1034
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr "dos2unix: problemojn dum ŝanĝi dosiero %s\n"

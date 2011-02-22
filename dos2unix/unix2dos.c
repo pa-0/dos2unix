@@ -52,7 +52,7 @@
 
 #define VER_AUTHOR   "Erwin Waterlander"
 
-/* #define DEBUG */
+/* #define DEBUG 1 */
 
 #if defined(DJGPP) || defined(__TURBOC__) /* DJGPP */
 #  include <dir.h>
@@ -162,6 +162,28 @@ int regfile(char *path)
 {
    struct stat buf;
 
+#if DEBUG
+   if (STAT(path, &buf) == 0)
+	{
+      fprintf(stderr, "dos2unix %s MODE 0%o ", path, buf.st_mode);
+		if (S_ISSOCK(buf.st_mode))
+         fprintf(stderr, " (socket)\n");
+		if (S_ISLNK(buf.st_mode))
+         fprintf(stderr, " (symbolic link)");
+		if (S_ISREG(buf.st_mode))
+         fprintf(stderr, " (regular file)");
+		if (S_ISBLK(buf.st_mode))
+         fprintf(stderr, " (block device)");
+		if (S_ISDIR(buf.st_mode))
+         fprintf(stderr, " (directory)");
+		if (S_ISCHR(buf.st_mode))
+         fprintf(stderr, " (character device)");
+		if (S_ISFIFO(buf.st_mode))
+         fprintf(stderr, " (FIFO)");
+      fprintf(stderr, "\n");
+
+	}
+#endif
    if ((STAT(path, &buf) == 0) && S_ISREG(buf.st_mode))
       return(0);
    else
@@ -237,7 +259,7 @@ void PrintVersion(void)
 #else
   fprintf(stderr, "%s", "Without native language support.\n");
 #endif
-#ifdef DEBUG
+#if DEBUG
   fprintf(stderr, "VER_AUTHOR: %s\n", VER_AUTHOR);
 #endif
 }
@@ -424,7 +446,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
         break;
       default: /* unknown FromToMode */
       ;
-#ifdef DEBUG
+#if DEBUG
       fprintf(stderr, _("unix2dos: program error, invalid conversion mode %d\n"),ipFlag->ConvMode);
       exit(1);
 #endif
@@ -543,7 +565,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     RetVal = -1;
   }
 
-#ifdef DEBUG
+#if DEBUG
   fprintf(stderr, _("unix2dos: using %s as temporary file\n"), TempPath);
 #endif
 
@@ -673,7 +695,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
     RetVal = -1;
 #endif
 
-#ifdef DEBUG
+#if DEBUG
   fprintf(stderr, _("unix2dos: using %s as temporary file\n"), TempPath);
 #endif
 

@@ -43,6 +43,7 @@ MAC2UNIX	= mac2unix
 UNIX2MAC	= unix2mac
 
 ENABLE_NLS	= 1
+DEBUG = 0
 
 EXE=
 ifneq (, $(wildcard /cygdrive))
@@ -182,6 +183,7 @@ CFLAGS	= -O2 -Wall -D_LARGEFILE_SOURCE $(RPM_OPT_FLAGS)
 
 EXTRA_CFLAGS	= -DVER_REVISION=\"$(DOS2UNIX_VERSION)\" \
 		  -DVER_DATE=\"$(DOS2UNIX_DATE)\" \
+		  -DDEBUG=$(DEBUG) \
 		  $(CFLAGS_OS)
 
 ifdef STATIC

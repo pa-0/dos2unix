@@ -1,3 +1,6 @@
+2011-02-22 Erwin Waterlander <waterlan@xs4all.nl>
+	* In debug mode file mode is printed (compile with DEBUG=1).
+
 2011-02-19 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Generation of PostScript and PDF is optional.
 	  This removes dependency on GhostScript (thanks to Philipp Thomas).
