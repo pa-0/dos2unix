@@ -174,25 +174,28 @@ int regfile(char *path)
 
 #if DEBUG
    if (STAT(path, &buf) == 0)
-	{
-      fprintf(stderr, "dos2unix %s MODE 0%o ", path, buf.st_mode);
-		if (S_ISSOCK(buf.st_mode))
+   {
+      fprintf(stderr, "dos2unix: %s MODE 0%o ", path, buf.st_mode);
+#ifdef S_ISSOCK
+      if (S_ISSOCK(buf.st_mode))
          fprintf(stderr, " (socket)");
-		if (S_ISLNK(buf.st_mode))
+#endif
+#ifdef S_ISLNK
+      if (S_ISLNK(buf.st_mode))
          fprintf(stderr, " (symbolic link)");
-		if (S_ISREG(buf.st_mode))
+#endif
+      if (S_ISREG(buf.st_mode))
          fprintf(stderr, " (regular file)");
-		if (S_ISBLK(buf.st_mode))
+      if (S_ISBLK(buf.st_mode))
          fprintf(stderr, " (block device)");
-		if (S_ISDIR(buf.st_mode))
+      if (S_ISDIR(buf.st_mode))
          fprintf(stderr, " (directory)");
-		if (S_ISCHR(buf.st_mode))
+      if (S_ISCHR(buf.st_mode))
          fprintf(stderr, " (character device)");
-		if (S_ISFIFO(buf.st_mode))
+      if (S_ISFIFO(buf.st_mode))
          fprintf(stderr, " (FIFO)");
       fprintf(stderr, "\n");
-
-	}
+   }
 #endif
    if ((STAT(path, &buf) == 0) && S_ISREG(buf.st_mode))
       return(0);
