@@ -172,9 +172,9 @@ int regfile(char *path)
 {
    struct stat buf;
 
-#if DEBUG
    if (STAT(path, &buf) == 0)
    {
+#if DEBUG
       fprintf(stderr, "dos2unix: %s MODE 0%o ", path, buf.st_mode);
 #ifdef S_ISSOCK
       if (S_ISSOCK(buf.st_mode))
@@ -195,12 +195,17 @@ int regfile(char *path)
       if (S_ISFIFO(buf.st_mode))
          fprintf(stderr, " (FIFO)");
       fprintf(stderr, "\n");
-   }
 #endif
-   if ((STAT(path, &buf) == 0) && S_ISREG(buf.st_mode))
-      return(0);
+      if (S_ISREG(buf.st_mode))
+         return(0);
+      else
+         return(-1);
+   }
    else
-      return(-1);
+   {
+     perror("dos2unix: stat() failed");
+     return(-1);
+   }
 }
 
 void PrintUsage(void)
@@ -559,7 +564,10 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
 
   /* retrieve ipInFN file date stamp */
   if (stat(ipInFN, &StatBuf))
+  {
+    perror(_("dos2unix: stat() failed"));
     RetVal = -1;
+  }
 
 #ifdef NO_MKSTEMP
   if((fd = MakeTempFileFrom(ipOutFN, &TempPath))==NULL) {
@@ -680,7 +688,10 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
 
   /* retrieve ipInFN file date stamp */
   if (stat(ipInFN, &StatBuf))
+  {
+    perror(_("dos2unix: stat() failed"));
     RetVal = -1;
+  }
 #ifndef NO_FCHMOD
   else
     mode = StatBuf.st_mode;

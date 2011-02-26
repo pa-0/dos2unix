@@ -1,3 +1,9 @@
+2011-02-26 Erwin Waterlander <waterlan@xs4all.nl>
+	* dos2unix.c/unix2dos.c: Report system error when stat() fails.
+	* Makefile: Enable 64 bit file system interface (_FILE_OFFSET_BITS=64).
+	  This enables opening files larger than 2GB on 32 bit systems, provided
+	  the system has Large File Support (LFS).
+
 2011-02-22 Erwin Waterlander <waterlan@xs4all.nl>
 	* In debug mode file mode is printed (compile with DEBUG=1).
 
