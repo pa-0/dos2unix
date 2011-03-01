@@ -1,3 +1,7 @@
+2011-02-28 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Make LFS optional with variable LFS (default on).
+	* dos2unix.c/unix2dos.c: Print file name with stat() system error.
+
 2011-02-26 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c/unix2dos.c: Report system error when stat() fails.
 	* Makefile: Enable 64 bit file system interface (_FILE_OFFSET_BITS=64).

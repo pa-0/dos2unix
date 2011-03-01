@@ -73,6 +73,7 @@
 #ifdef ENABLE_NLS
 #include <locale.h>
 #endif
+#include <errno.h>
 #include "unix2dos.h"
 #include "querycp.h"
 
@@ -161,6 +162,7 @@ typedef struct
 int regfile(char *path)
 {
    struct stat buf;
+   char *errstr;
 
    if (STAT(path, &buf) == 0)
    {
@@ -193,7 +195,8 @@ int regfile(char *path)
    }
    else
    {
-     perror("unix2dos: stat() failed");
+     errstr = strerror(errno);
+     fprintf(stderr, "unix2dos: %s: %s\n", path, errstr);
      return(-1);
    }
 }
@@ -541,6 +544,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   FILE *InF = NULL;
   FILE *TempF = NULL;
   char *TempPath;
+  char *errstr;
   struct stat StatBuf;
   struct utimbuf UTimeBuf;
 #ifndef NO_FCHMOD
@@ -563,7 +567,8 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   /* retrieve ipInFN file date stamp */
   if (stat(ipInFN, &StatBuf))
   {
-    perror(_("unix2dos: stat() failed"));
+    errstr = strerror(errno);
+    fprintf(stderr, "unix2dos: %s: %s\n", ipInFN, errstr);
     RetVal = -1;
   }
 
@@ -665,6 +670,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   FILE *InF = NULL;
   FILE *TempF = NULL;
   char *TempPath;
+  char *errstr;
   struct stat StatBuf;
   struct utimbuf UTimeBuf;
 #ifndef NO_FCHMOD
@@ -687,7 +693,8 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   /* retrieve ipInFN file date stamp */
   if (stat(ipInFN, &StatBuf))
   {
-    perror(_("unix2dos: stat() failed"));
+    errstr = strerror(errno);
+    fprintf(stderr, "unix2dos: %s: %s\n", ipInFN, errstr);
     RetVal = -1;
   }
 #ifndef NO_FCHMOD

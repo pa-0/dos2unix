@@ -42,7 +42,10 @@ UNIX2DOS	= unix2dos
 MAC2UNIX	= mac2unix
 UNIX2MAC	= unix2mac
 
+# Native Language Support (NLS)
 ENABLE_NLS	= 1
+# Large File Support (LFS)
+LFS             = 1
 DEBUG = 0
 
 EXE=
@@ -179,7 +182,7 @@ endif
 
 # ............................................................ flags ...
 
-CFLAGS	= -O2 -Wall -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 $(RPM_OPT_FLAGS)
+CFLAGS	= -O2 -Wall $(RPM_OPT_FLAGS)
 
 EXTRA_CFLAGS	= -DVER_REVISION=\"$(DOS2UNIX_VERSION)\" \
 		  -DVER_DATE=\"$(DOS2UNIX_DATE)\" \
@@ -188,6 +191,10 @@ EXTRA_CFLAGS	= -DVER_REVISION=\"$(DOS2UNIX_VERSION)\" \
 
 ifdef STATIC
 	EXTRA_CFLAGS += -static
+endif
+
+ifdef LFS
+	EXTRA_CFLAGS += -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
 endif
 
 LDFLAGS		= $(LDFLAGS_EXTRA)

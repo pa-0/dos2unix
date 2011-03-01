@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-25 15:04+0100\n"
+"POT-Creation-Date: 2011-02-28 10:05+0100\n"
 "PO-Revision-Date: 2009-12-08 21:59+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: dos2unix.c:213
+#: dos2unix.c:216
 #, c-format
 msgid ""
 "dos2unix %s (%s)\n"
@@ -74,7 +74,7 @@ msgstr ""
 "                  altijd aan in stdio modus\n"
 " -V --version     toon versie nummer\n"
 
-#: dos2unix.c:244
+#: dos2unix.c:247
 msgid ""
 "Copyright (C) 2009-2011 Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
@@ -104,49 +104,44 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: dos2unix.c:278
+#: dos2unix.c:281
 msgid "With native language support.\n"
 msgstr "Met moedertaal ondersteuning.\n"
 
-#: dos2unix.c:378
+#: dos2unix.c:381
 #, c-format
 msgid "dos2unix: using code page %d.\n"
 msgstr "dos2unix: codetabel %d wordt gebruikt.\n"
 
-#: dos2unix.c:405 dos2unix.c:430 dos2unix.c:448
+#: dos2unix.c:408 dos2unix.c:433 dos2unix.c:451
 msgid "dos2unix: can not write to output file\n"
 msgstr "dos2unix: kan niet schrijven naar uitvoerbestand\n"
 
-#: dos2unix.c:460
+#: dos2unix.c:463
 #, c-format
 msgid "dos2unix: program error, invalid conversion mode %d\n"
 msgstr "dos2unix: programma fout, ongeldige conversie modus %d\n"
 
-#: dos2unix.c:568 dos2unix.c:692
-#, fuzzy
-msgid "dos2unix: stat() failed"
-msgstr "dos2unix: %s wordt als tijdelijk bestand gebruikt\n"
-
-#: dos2unix.c:577 dos2unix.c:705
+#: dos2unix.c:582 dos2unix.c:712
 msgid "dos2unix: Failed to open temporary output file"
 msgstr "dos2unix: Niet gelukt om tijdelijk uitvoerbestand te openen"
 
-#: dos2unix.c:582 dos2unix.c:715
+#: dos2unix.c:587 dos2unix.c:722
 #, c-format
 msgid "dos2unix: using %s as temporary file\n"
 msgstr "dos2unix: %s wordt als tijdelijk bestand gebruikt\n"
 
-#: dos2unix.c:650 dos2unix.c:776
+#: dos2unix.c:655 dos2unix.c:783
 #, c-format
 msgid "dos2unix: problems renaming '%s' to '%s'\n"
 msgstr "dos2unix: problemen met hernoemen van '%s' naar '%s'\n"
 
-#: dos2unix.c:651 dos2unix.c:777
+#: dos2unix.c:656 dos2unix.c:784
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          uitvoerbestand blijft in '%s'\n"
 
-#: dos2unix.c:841
+#: dos2unix.c:848
 msgid ""
 "dos2unix: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
 "long.\n"
@@ -154,59 +149,59 @@ msgstr ""
 "dos2unix: fout: Waarde van omgevingsvariabele DOS2UNIX_LOCALEDIR is te "
 "lang.\n"
 
-#: dos2unix.c:914 dos2unix.c:941
+#: dos2unix.c:921 dos2unix.c:948
 #, c-format
 msgid "dos2unix: active code page: %d\n"
 msgstr "dos2unix: actieve code tabel: %d\n"
 
-#: dos2unix.c:950
+#: dos2unix.c:957
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr "dos2unix: ongeldige %s conversie modus gespecificeerd\n"
 
-#: dos2unix.c:958
+#: dos2unix.c:965
 #, c-format
 msgid "dos2unix: option '%s' requires an argument\n"
 msgstr "dos2unix: optie '%s' heeft een argument nodig\n"
 
-#: dos2unix.c:969 dos2unix.c:981 dos2unix.c:1065
+#: dos2unix.c:976 dos2unix.c:988 dos2unix.c:1072
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr ""
 "dos2unix: doel van bestand %s is niet gespecificeerd in 'nieuw bestand "
 "modus'\n"
 
-#: dos2unix.c:1005 dos2unix.c:1033
+#: dos2unix.c:1012 dos2unix.c:1040
 #, c-format
 msgid "dos2unix: Skipping %s, not a regular file.\n"
 msgstr "dos2unix: %s wordt overgeslagen, omdat het geen regulier bestand is.\n"
 
-#: dos2unix.c:1009 dos2unix.c:1037
+#: dos2unix.c:1016 dos2unix.c:1044
 #, c-format
 msgid "dos2unix: Skipping binary file %s\n"
 msgstr "dos2unix: Binair bestand %s wordt overgeslagen\n"
 
-#: dos2unix.c:1013 dos2unix.c:1041
+#: dos2unix.c:1020 dos2unix.c:1048
 #, c-format
 msgid "dos2unix: code page %d is not supported.\n"
 msgstr "dos2unix: codetabel %d wordt niet ondersteund.\n"
 
-#: dos2unix.c:1016
+#: dos2unix.c:1023
 #, c-format
 msgid "dos2unix: converting file %s to file %s in Unix format ...\n"
 msgstr "dos2unix: converteren bestand %s naar bestand %s in Unix formaat ...\n"
 
-#: dos2unix.c:1020
+#: dos2unix.c:1027
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s naar bestand %s\n"
 
-#: dos2unix.c:1044
+#: dos2unix.c:1051
 #, c-format
 msgid "dos2unix: converting file %s to Unix format ...\n"
 msgstr "dos2unix: converteren bestand %s naar Unix formaat ...\n"
 
-#: dos2unix.c:1048
+#: dos2unix.c:1055
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s\n"
