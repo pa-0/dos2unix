@@ -353,10 +353,6 @@ in een waarde ongelijk aan "C", voordat u een talen prioriteitenlijst kunt
 gebruiken via de LANGUAGE variabele. Zie ook de gettext handleiding:
 L<http://www.gnu.org/software/gettext/manual/gettext.html#The-LANGUAGE-variable>
 
-Er is voor Esperanto een speciaal taal bestand in x-methode formaat. X-methode
-kan gebruikt worden op systemen die niet Latin-3 of Unicode codering ondersteunen.
-Maak LANGUAGE gelijk aan "eo-x:eo".
-
 Als u een taal kiest die niet beschikbaar is worden de standaard
 Engelse berichten gebruikt.
 

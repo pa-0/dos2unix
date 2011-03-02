@@ -14,10 +14,10 @@ endif
 ZIPOBJ_EXTRA = bin/cwsdpmi.exe
 
 all:
-	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f" docsubdir=dos2unix
+	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f" docsubdir=dos2unix EO_XNOTATION=1
 
 install:
-	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f" docsubdir=dos2unix
+	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f" docsubdir=dos2unix EO_XNOTATION=1
 
 uninstall:
 	$(MAKE) uninstall EXE=.exe prefix=$(prefix) docsubdir=dos2unix

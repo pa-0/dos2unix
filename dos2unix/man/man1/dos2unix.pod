@@ -356,10 +356,6 @@ enable localization, by setting LANG (or LC_ALL) to a value other than
 variable. See also the gettext manual:
 L<http://www.gnu.org/software/gettext/manual/gettext.html#The-LANGUAGE-variable>
 
-For Esperanto there is a special language file in x-method format. X-method can
-be used on systems that don't support Latin-3 or Unicode character encoding.
-Make LANGUAGE equal to "eo-x:eo".
-
 If you select a language which is not available you will get the
 standard English messages.
 

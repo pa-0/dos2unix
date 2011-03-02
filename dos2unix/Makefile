@@ -78,13 +78,22 @@ man1dir		= $(mandir)/man1
 manext		= .1
 man1ext		= .1
 
+# For systems that don't support Unicode or Latin-3, select
+# Esperanto in X-notation format: EO_XNOTATION=1
+
+ifdef EO_XNOTATION
+EO_NOTATION = -x
+endif
+
 ifdef ENABLE_NLS
 	DOS2UNIX_POT		= po/dos2unix/$(PACKAGE).pot
-	DOS2UNIX_POFILES	= $(wildcard po/dos2unix/*.po)
+	DOS2UNIX_POFILES	= $(wildcard po/dos2unix/??.po)
 	DOS2UNIX_MOFILES	= $(patsubst %.po,%.mo,$(DOS2UNIX_POFILES))
 	UNIX2DOS_POT		= po/unix2dos/$(UNIX2DOS).pot
-	UNIX2DOS_POFILES	= $(wildcard po/unix2dos/*.po)
+	UNIX2DOS_POFILES	= $(wildcard po/unix2dos/??.po)
 	UNIX2DOS_MOFILES	= $(patsubst %.po,%.mo,$(UNIX2DOS_POFILES))
+	POFILES			= $(DOS2UNIX_POFILES) $(UNIX2DOS_POFILES)
+	EOX_POFILES		= po/dos2unix/eo-x.po po/unix2dos/eo-x.po
 	MOFILES			= $(DOS2UNIX_MOFILES) $(UNIX2DOS_MOFILES)
 endif
 
@@ -203,7 +212,7 @@ DEFS		= $(EXTRA_DEFS)
 
 # .......................................................... targets ...
 
-all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES) $(MANFILES) man/man1/dos2unix.1
+all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES) $(EOX_POFILES) $(MANFILES) man/man1/dos2unix.1
 
 querycp.o : querycp.c querycp.h
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
@@ -243,7 +252,7 @@ doc: $(DOCFILES)
 
 tags: $(DOS2UNIX_POT)
 
-merge: $(DOS2UNIX_POFILES)
+merge: $(POFILES) $(EOX_POFILES)
 
 po/dos2unix/%.po : $(DOS2UNIX_POT)
 	msgmerge -U $@ $(DOS2UNIX_POT) --backup=numbered
@@ -256,6 +265,12 @@ po/unix2dos/%.po : $(UNIX2DOS_POT)
 	touch $@
 
 %.mo : %.po
+	msgfmt -c $< -o $@
+
+po/dos2unix/eo.mo : po/dos2unix/eo$(EO_NOTATION).po
+	msgfmt -c $< -o $@
+
+po/unix2dos/eo.mo : po/unix2dos/eo$(EO_NOTATION).po
 	msgfmt -c $< -o $@
 
 $(DOS2UNIX_POT) : dos2unix.c

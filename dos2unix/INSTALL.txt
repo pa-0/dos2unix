@@ -50,6 +50,15 @@ LARGE FILE SUPPORT
         Disable LFS:
         make clean install LFS=
 
+ESPERANTO X-NOTATION
+
+    For systems that don't support the Unicode or Latin-3 character set,
+    Esperanto messages in ASCII x-notation format can be selected. Add
+    EO_XNOTATION=1 tot the make command-line.  It will change the format of the
+    normal dos2unix 'eo' locale from Unicode to ASCII x-notation.
+
+        make clean install EO_XNOTATION=1
+
 DOCUMENTATION
 
     Manual pages are generated from Perl POD files. By default

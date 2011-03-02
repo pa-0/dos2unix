@@ -1,3 +1,10 @@
+2011-03-02 Erwin Waterlander <waterlan@xs4all.nl>
+	* Esperanto x-notation format is optional. Default is Unicode.
+	  There is no installation of an 'eo-x' locale any more.
+	  Add EO_XNOTATION=1 to make command-line to select x-notation.
+	  It will change the format of the normal 'eo' locale from Unicode
+	  to ASCII x-notation.
+
 2011-02-28 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Make LFS optional with variable LFS (default on).
 	* dos2unix.c/unix2dos.c: Print file name with stat() system error.
