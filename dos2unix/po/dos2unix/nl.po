@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-28 10:05+0100\n"
+"POT-Creation-Date: 2011-03-03 09:55+0100\n"
 "PO-Revision-Date: 2009-12-08 21:59+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -149,59 +149,59 @@ msgstr ""
 "dos2unix: fout: Waarde van omgevingsvariabele DOS2UNIX_LOCALEDIR is te "
 "lang.\n"
 
-#: dos2unix.c:921 dos2unix.c:948
+#: dos2unix.c:922 dos2unix.c:950
 #, c-format
 msgid "dos2unix: active code page: %d\n"
 msgstr "dos2unix: actieve code tabel: %d\n"
 
-#: dos2unix.c:957
+#: dos2unix.c:959
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr "dos2unix: ongeldige %s conversie modus gespecificeerd\n"
 
-#: dos2unix.c:965
+#: dos2unix.c:967
 #, c-format
 msgid "dos2unix: option '%s' requires an argument\n"
 msgstr "dos2unix: optie '%s' heeft een argument nodig\n"
 
-#: dos2unix.c:976 dos2unix.c:988 dos2unix.c:1072
+#: dos2unix.c:978 dos2unix.c:990 dos2unix.c:1074
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr ""
 "dos2unix: doel van bestand %s is niet gespecificeerd in 'nieuw bestand "
 "modus'\n"
 
-#: dos2unix.c:1012 dos2unix.c:1040
+#: dos2unix.c:1014 dos2unix.c:1042
 #, c-format
 msgid "dos2unix: Skipping %s, not a regular file.\n"
 msgstr "dos2unix: %s wordt overgeslagen, omdat het geen regulier bestand is.\n"
 
-#: dos2unix.c:1016 dos2unix.c:1044
+#: dos2unix.c:1018 dos2unix.c:1046
 #, c-format
 msgid "dos2unix: Skipping binary file %s\n"
 msgstr "dos2unix: Binair bestand %s wordt overgeslagen\n"
 
-#: dos2unix.c:1020 dos2unix.c:1048
+#: dos2unix.c:1022 dos2unix.c:1050
 #, c-format
 msgid "dos2unix: code page %d is not supported.\n"
 msgstr "dos2unix: codetabel %d wordt niet ondersteund.\n"
 
-#: dos2unix.c:1023
+#: dos2unix.c:1025
 #, c-format
 msgid "dos2unix: converting file %s to file %s in Unix format ...\n"
 msgstr "dos2unix: converteren bestand %s naar bestand %s in Unix formaat ...\n"
 
-#: dos2unix.c:1027
+#: dos2unix.c:1029
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s naar bestand %s\n"
 
-#: dos2unix.c:1051
+#: dos2unix.c:1053
 #, c-format
 msgid "dos2unix: converting file %s to Unix format ...\n"
 msgstr "dos2unix: converteren bestand %s naar Unix formaat ...\n"
 
-#: dos2unix.c:1055
+#: dos2unix.c:1057
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s\n"

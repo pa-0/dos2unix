@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unix2dos 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-28 10:05+0100\n"
+"POT-Creation-Date: 2011-03-03 09:55+0100\n"
 "PO-Revision-Date: 2009-12-09 17:20+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -147,69 +147,69 @@ msgstr ""
 "unix2dos: fout: Waarde van omgevingsvariabele DOS2UNIX_LOCALEDIR is te "
 "lang.\n"
 
-#: unix2dos.c:919 unix2dos.c:946
+#: unix2dos.c:920 unix2dos.c:948
 #, c-format
 msgid "unix2dos: active code page: %d\n"
 msgstr "unix2dos: actieve codetabel: %d\n"
 
-#: unix2dos.c:955
+#: unix2dos.c:957
 #, c-format
 msgid "unix2dos: invalid %s conversion mode specified\n"
 msgstr "unix2dos: ongeldige %s conversie modus gespecificeerd\n"
 
-#: unix2dos.c:963
+#: unix2dos.c:965
 #, c-format
 msgid "unix2dos: option '%s' requires an argument\n"
 msgstr "unix2dos: optie '%s' heeft een argument nodig\n"
 
-#: unix2dos.c:974 unix2dos.c:986 unix2dos.c:1080
+#: unix2dos.c:976 unix2dos.c:988 unix2dos.c:1082
 #, c-format
 msgid "unix2dos: target of file %s not specified in new file mode\n"
 msgstr ""
 "unix2dos: doel van bestand %s is niet gespecificeerd in 'nieuw bestand "
 "modus'\n"
 
-#: unix2dos.c:1010 unix2dos.c:1043
+#: unix2dos.c:1012 unix2dos.c:1045
 #, c-format
 msgid "unix2dos: Skipping %s, not a regular file.\n"
 msgstr "unix2dos: %s wordt overgeslagen, omdat het geen regulier bestand is.\n"
 
-#: unix2dos.c:1014 unix2dos.c:1047
+#: unix2dos.c:1016 unix2dos.c:1049
 #, c-format
 msgid "unix2dos: Skipping binary file %s\n"
 msgstr "unix2dos: Binair bestand %s wordt overgeslagen\n"
 
-#: unix2dos.c:1018 unix2dos.c:1051
+#: unix2dos.c:1020 unix2dos.c:1053
 #, c-format
 msgid "unix2dos: code page %d is not supported.\n"
 msgstr "unix2dos: code tabel %d wordt niet ondersteund.\n"
 
-#: unix2dos.c:1023
+#: unix2dos.c:1025
 #, c-format
 msgid "unix2dos: converting file %s to file %s in Mac format ...\n"
 msgstr "unix2dos: converteren bestand %s naar bestand %s in Mac formaat ...\n"
 
-#: unix2dos.c:1025
+#: unix2dos.c:1027
 #, c-format
 msgid "unix2dos: converting file %s to file %s in DOS format ...\n"
 msgstr "unix2dos: converteren bestand %s naar bestand %s in DOS formaat ...\n"
 
-#: unix2dos.c:1030
+#: unix2dos.c:1032
 #, c-format
 msgid "unix2dos: problems converting file %s to file %s\n"
 msgstr "unix2dos: problemen met conversie van bestand %s naar bestand %s\n"
 
-#: unix2dos.c:1056
+#: unix2dos.c:1058
 #, c-format
 msgid "unix2dos: converting file %s to Mac format ...\n"
 msgstr "unix2dos: converteren bestand %s naar Mac formaat ...\n"
 
-#: unix2dos.c:1058
+#: unix2dos.c:1060
 #, c-format
 msgid "unix2dos: converting file %s to DOS format ...\n"
 msgstr "unix2dos: converteren bestand %s naar DOS formaat ...\n"
 
-#: unix2dos.c:1063
+#: unix2dos.c:1065
 #, c-format
 msgid "unix2dos: problems converting file %s\n"
 msgstr "unix2dos: problemen met conversie van bestand %s\n"

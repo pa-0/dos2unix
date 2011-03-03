@@ -377,7 +377,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
         ipFlag->status |= WRONG_CODEPAGE ;
         return(-1);
     }
-    if (ipFlag->ConvMode > 1) /* not ascii or 7bit */
+    if ((ipFlag->ConvMode > 1) && (!ipFlag->Quiet)) /* not ascii or 7bit */
        fprintf(stderr, _("dos2unix: using code page %d.\n"), ipFlag->ConvMode);
 
     /* CR-LF -> LF */
@@ -918,7 +918,8 @@ int main (int argc, char *argv[])
       else if (strcmp(argv[ArgIdx],"-iso") == 0)
       {
         pFlag->ConvMode = (int)query_con_codepage();
-        fprintf(stderr,_("dos2unix: active code page: %d\n"), pFlag->ConvMode);
+        if (!pFlag->Quiet)
+           fprintf(stderr,_("dos2unix: active code page: %d\n"), pFlag->ConvMode);
         if (pFlag->ConvMode < 2)
            pFlag->ConvMode = CONVMODE_437;
       }
@@ -945,7 +946,8 @@ int main (int argc, char *argv[])
           else if (strcmpi(argv[ArgIdx], "iso") == 0)
           {
             pFlag->ConvMode = (int)query_con_codepage();
-            fprintf(stderr,_("dos2unix: active code page: %d\n"), pFlag->ConvMode);
+            if (!pFlag->Quiet)
+               fprintf(stderr,_("dos2unix: active code page: %d\n"), pFlag->ConvMode);
             if (pFlag->ConvMode < 2)
                pFlag->ConvMode = CONVMODE_437;
           }

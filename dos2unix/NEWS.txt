@@ -1,3 +1,10 @@
+2011-03-??: Version 5.2.1
+
+    PDF and PostScript generation is optional. No default dependency on GhostScript and Groff.
+    Enable optional Large File Support (LFS).
+    Esperanto x-notation is optional. No longer installation of non-standard locale 'eo-x'.
+    Improved error messages.
+
 2011-01-31: Version 5.2
 
     ISO conversion mode supports same DOS code pages as SunOS dos2unix does:

@@ -1,3 +1,6 @@
+2011-03-03 Erwin Waterlander <waterlan@xs4all.nl>
+	* Don't print used code page in quiet mode.
+
 2011-03-02 Erwin Waterlander <waterlan@xs4all.nl>
 	* Esperanto x-notation format is optional. Default is Unicode.
 	  There is no installation of an 'eo-x' locale any more.
