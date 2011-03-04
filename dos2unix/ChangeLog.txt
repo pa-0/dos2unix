@@ -1,3 +1,6 @@
+2011-03-04 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 5.2.1
+
 2011-03-03 Erwin Waterlander <waterlan@xs4all.nl>
 	* Don't print used code page in quiet mode.
 

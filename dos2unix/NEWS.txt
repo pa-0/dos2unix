@@ -1,62 +1,64 @@
-2011-03-??: Version 5.2.1
+2011-03-04: Version 5.2.1
 
-    PDF and PostScript generation is optional. No default dependency on GhostScript and Groff.
-    Enable optional Large File Support (LFS).
-    Esperanto x-notation is optional. No longer installation of non-standard locale 'eo-x'.
-    Improved error messages.
+  * PDF and PostScript generation is optional. No default dependency on
+    GhostScript and Groff.
+  * Enable optional Large File Support (LFS).
+  * Esperanto x-notation is optional. No longer installation of non-standard
+    locale 'eo-x'.
+  * Improved error messages.
 
 2011-01-31: Version 5.2
 
-    ISO conversion mode supports same DOS code pages as SunOS dos2unix does:
+  * ISO conversion mode supports same DOS code pages as SunOS dos2unix does:
       CP437 (US), CP850 (Western European), CP860 (Portuguese),
       CP863 (French Canadian), and CP865 (Nordic). 
-    ISO conversion mode supports Windows code page CP1252 (Western).
-    SunOS compatible options -ascii, -iso, -7, -437, -850, -860, -863, and -865.
-    Active code page detection for ISO mode.
-    Fixed ISO conversion of non-breaking space (NBSP).
-    ISO and 7bit mode can be used in Mac mode.
-    Treat ASCII Form Feed control characters as valid text.
-    Update manual pages.
-    Don't include generated documentation files in Unix source package.
-    Create a source package in DOS text format.
+  * ISO conversion mode supports Windows code page CP1252 (Western).
+  * SunOS compatible options -ascii, -iso, -7, -437, -850, -860, -863, and -865.
+  * Active code page detection for ISO mode.
+  * Fixed ISO conversion of non-breaking space (NBSP).
+  * ISO and 7bit mode can be used in Mac mode.
+  * Treat ASCII Form Feed control characters as valid text.
+  * Update manual pages.
+  * Don't include generated documentation files in Unix source package.
+  * Create a source package in DOS text format.
 
 2010-08-18: Version 5.1.1
 
-    Added Dutch translation of the manual.
-    Win64 port.
-    Win32 binary package uses patched MinGW's libintl, with builtin
-    relocation support.
-    Support compilation in DOSBox (8.3 file names where needed).
-    Fixed compilation on Darwin OS.
+  * Added Dutch translation of the manual.
+  * Win64 port.
+  * Win32 binary package uses patched MinGW's libintl, with builtin
+  * relocation support.
+  * Support compilation in DOSBox (8.3 file names where needed).
+  * Fixed compilation on Darwin OS.
 
 2010-04-03: Version 5.1
 
-    Esperanto translations have been added.
-    Ports to 16 bit DOS have been made.
-    Command-line options can be set in stdio mode.
-    Bugfix dos2unix MAC mode: Don't change DOS line endings.
-    Create stubs for DOS32 versions of mac2unix and unix2mac.
-    Localization information has been added to the manual.
-    Man pages have been merged.
-    Man page generation from Perl POD file.
+  * Esperanto translations have been added.
+  * Ports to 16 bit DOS have been made.
+  * Command-line options can be set in stdio mode.
+  * Bugfix dos2unix MAC mode: Don't change DOS line endings.
+  * Create stubs for DOS32 versions of mac2unix and unix2mac.
+  * Localization information has been added to the manual.
+  * Man pages have been merged.
+  * Man page generation from Perl POD file.
 
 
 2010-02-16: Version 5.0
 
-    Dos2unix and Unix2dos have been bundled in a single package.
-    German translations have been added.
-    Dos2unix -l --newline also works in MAC mode.
-    Unix2dos also got option -l, --newline.
-    Added MAC mode to Unix2dos: Convert Unix line endings to Mac line endings.
-    Cleanup of messages and manual.
+  * Dos2unix and Unix2dos have been bundled in a single package.
+  * German translations have been added.
+  * Dos2unix -l --newline also works in MAC mode.
+  * Unix2dos also got option -l, --newline.
+  * Added MAC mode to Unix2dos: Convert Unix line endings to Mac line endings.
+  * Cleanup of messages and manual.
 
 2010-01-24: Version 4.1.2
 
-    Preserves file modes in new file mode.
+  * Preserves file modes in new file mode.
 
 2010-01-21: Version 4.1.1
 
-    Fixes a compilation problem on FreeBSD.
+  * Fixes a compilation problem on FreeBSD.
 
 2009-12-28: Version 4.1
 
