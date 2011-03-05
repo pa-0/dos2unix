@@ -1,3 +1,7 @@
+2011-03-05 Erwin Waterlander <waterlan@xs4all.nl>
+	* man/man1/dos2unix.pod: Replace GPL with FreeBSD license.
+	* man/nl/man1/dos2unix.pod: Replace GPL with FreeBSD license.
+
 2011-03-04 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 5.2.1
 
