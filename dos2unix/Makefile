@@ -128,8 +128,6 @@ endif
 ifndef OS
 ifneq (, $(wildcard /cygdrive))
 	OS = cygwin
-	LINK = cp -f
-	LINK_MAN = cp -f
 endif
 endif
 

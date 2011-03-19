@@ -1,3 +1,6 @@
+2011-03-19 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Install links instead of binary/manpage copies on Cygwin.
+
 2011-03-05 Erwin Waterlander <waterlan@xs4all.nl>
 	* man/man1/dos2unix.pod: Replace GPL with FreeBSD license.
 	* man/nl/man1/dos2unix.pod: Replace GPL with FreeBSD license.
