@@ -49,9 +49,6 @@ LFS             = 1
 DEBUG = 0
 
 EXE=
-ifneq (, $(wildcard /cygdrive))
-	EXE = .exe
-endif
 
 BIN		= $(PACKAGE)$(EXE)
 UNIX2DOS_BIN	= $(UNIX2DOS)$(EXE)
@@ -126,7 +123,7 @@ endif
 endif
 
 ifndef OS
-ifneq (, $(wildcard /cygdrive))
+ifeq ($(findstring CYGWIN,$(shell uname)),CYGWIN)
 	OS = cygwin
 endif
 endif
@@ -135,6 +132,16 @@ ifeq (cygwin,$(OS))
 ifdef ENABLE_NLS
 	LDFLAGS_EXTRA = -lintl -liconv -Wl,--enable-auto-import
 endif
+	EXE = .exe
+	# allow non-cygwin clients which do not understand cygwin
+	# symbolic links to launch applications...
+	LINK = ln -f
+	# but use symbolic links for man pages, since man client
+	# IS a cygwin app and DOES understand symlinks.
+	LINK_MAN = ln -fs
+	# Cygwin packaging standard avoids version numbers on
+	# documentation directories.
+	docsubdir	= $(PACKAGE)
 endif
 
 
