@@ -1,7 +1,9 @@
 2011-03-21 Chris Wilson <cygwin@cwilson.fastmail.fm>
-	* dos2unix.c/unix2dos.c: Cygwin may define WIN32 (via include files).
-	* dos2unix.c/unix2dos.c: Cygwin: set mode to binary in stdio
-	  mode conversion.
+	* dos2unix.c/unix2dos.c:
+	  - Cygwin may define WIN32 (via include files).
+	  - bugfix: Cygwin: set mode to binary in stdio mode conversion.
+	    Needed in case non-Cygwin program launches dos2unix.
+	  - bugfix: set failure mode if rename fails in quiet mode.
 	* Makefile: Cleanup for Cygwin.
 
 2011-03-19 Erwin Waterlander <waterlan@xs4all.nl>

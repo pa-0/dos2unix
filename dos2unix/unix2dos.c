@@ -648,10 +648,13 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
 #ifdef NEED_REMOVE
     remove(ipOutFN);
 #endif
-    if ((rename(TempPath, ipOutFN) == -1) && (!ipFlag->Quiet))
+    if (rename(TempPath, ipOutFN) == -1)
     {
-      fprintf(stderr, _("unix2dos: problems renaming '%s' to '%s'\n"), TempPath, ipOutFN);
-      fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
+      if (!ipFlag->Quiet)
+      {
+        fprintf(stderr, _("unix2dos: problems renaming '%s' to '%s'\n"), TempPath, ipOutFN);
+        fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
+      }
       RetVal = -1;
     }
   }
@@ -769,19 +772,21 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   if ((RetVal) && (unlink(TempPath)))
     RetVal = -1;
 
-#ifdef NEED_REMOVE
+  /* can rename output file to in file? */
   if (!RetVal)
+  {
+#ifdef NEED_REMOVE
     remove(ipInFN);
 #endif
-  /* can rename output file to in file? */
-  if ((!RetVal) && (rename(TempPath, ipInFN) == -1))
-  {
-    if (!ipFlag->Quiet)
+    if (rename(TempPath, ipInFN) == -1)
     {
-      fprintf(stderr, _("unix2dos: problems renaming '%s' to '%s'\n"), TempPath, ipInFN);
-      fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
+      if (!ipFlag->Quiet)
+      {
+        fprintf(stderr, _("unix2dos: problems renaming '%s' to '%s'\n"), TempPath, ipInFN);
+        fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
+      }
+      RetVal = -1;
     }
-    RetVal = -1;
   }
   free(TempPath);
   return RetVal;
