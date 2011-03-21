@@ -229,6 +229,7 @@ Usage: unix2dos [options] [file ...] [-n infile outfile ...]\n\
    file ...       files to convert in old file mode\n\
  -q --quiet       quiet mode, suppress all warnings\n\
                   always on in stdio mode\n\
+ -s --safe        skip non-regular and binary files (default)\n\
  -V --version     display version number\n"), VER_REVISION, VER_DATE);
 }
 
@@ -897,6 +898,8 @@ int main (int argc, char *argv[])
         pFlag->KeepDate = 1;
       else if ((strcmp(argv[ArgIdx],"-f") == 0) || (strcmp(argv[ArgIdx],"--force") == 0))
         pFlag->Force = 1;
+      else if ((strcmp(argv[ArgIdx],"-s") == 0) || (strcmp(argv[ArgIdx],"--safe") == 0))
+        pFlag->Force = 0;
       else if ((strcmp(argv[ArgIdx],"-q") == 0) || (strcmp(argv[ArgIdx],"--quiet") == 0))
         pFlag->Quiet = 1;
       else if ((strcmp(argv[ArgIdx],"-l") == 0) || (strcmp(argv[ArgIdx],"--newline") == 0))

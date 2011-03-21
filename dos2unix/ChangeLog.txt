@@ -4,6 +4,7 @@
 	  - bugfix: Cygwin: set mode to binary in stdio mode conversion.
 	    Needed in case non-Cygwin program launches dos2unix.
 	  - bugfix: set failure mode if rename fails in quiet mode.
+	  - New option: -s, --safe. Opposite of -f, --force.
 	* Makefile: Cleanup for Cygwin.
 
 2011-03-19 Erwin Waterlander <waterlan@xs4all.nl>
