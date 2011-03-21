@@ -1,3 +1,8 @@
+2011-03-21 Chris Wilson <cygwin@cwilson.fastmail.fm>
+	* dos2unix.c/unix2dos.c: Cygwin may define WIN32 (via include files).
+	* dos2unix.c/unix2dos.c: Cygwin: set mode to binary in stdio
+	  mode conversion.
+
 2011-03-19 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Install links instead of binary/manpage copies on Cygwin.
 
