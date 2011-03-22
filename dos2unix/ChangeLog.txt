@@ -1,3 +1,6 @@
+2011-03-22 Chris Wilson <cygwin@cwilson.fastmail.fm>
+	* querycp.c: Behave on Cygwin same as on Linux.
+
 2011-03-21 Chris Wilson <cygwin@cwilson.fastmail.fm>
 	* dos2unix.c/unix2dos.c:
 	  - Cygwin may define WIN32 (via include files).
