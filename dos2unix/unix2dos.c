@@ -125,6 +125,19 @@
 #include <io.h>
 #endif
 
+#if defined(__GLIBC__)
+/* on glibc, canonicalize_file_name() broken prior to 2.4 (06-Mar-2006) */
+# if __GNUC_PREREQ (2,4)
+#  define USE_CANONICALIZE_FILE_NAME 1
+# endif
+#elif defined(__CYGWIN__)
+/* on cygwin, canonicalize_file_name() available since api 0/213 */
+/* (1.7.0beta61, 25-Sep-09) */
+# include <cygwin/version.h>
+# if (CYGWIN_VERSION_DLL_COMBINED >= 213)
+#  define USE_CANONICALIZE_FILE_NAME 1
+# endif
+#endif
 
 #if defined(MSDOS) || defined(__CYGWIN__) || defined(__OS2__)
   #define R_CNTRL   "rb"
