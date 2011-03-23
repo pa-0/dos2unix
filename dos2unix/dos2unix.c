@@ -64,6 +64,18 @@
 
 /* #define DEBUG  1 */
 
+/* define feature test macros for realpath() -- needed on    */
+/* systems that have S_ISLNK, but chicken/egg means we must  */
+/* define early, before including stdlib.h (or sys/stat.h)   */
+#define _XOPEN_SOURCE 500
+
+/* similarly, instead of realpath we like to use, if         */
+/* available, the canonicalize_file_name() function, which   */
+/* is a GNU extension. We only ACTUALLY use the function if  */
+/* USE_CANONICALIZE_FILE_NAME is defined, but we don't define*/
+/* that until later. So...define the feature test macro now. */
+#define _GNU_SOURCE
+
 #if defined(DJGPP) || defined(__TURBOC__) /* DJGPP */
 #  include <dir.h>
 #else
@@ -76,6 +88,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <utime.h>
+#include <limits.h>
 #ifdef __TURBOC__
 #define __FLAT__
 #endif
@@ -156,6 +169,7 @@ typedef struct
   int FromToMode;                       /* 0: dos2unix, 1: mac2unix */  
   int NewLine;                          /* if TRUE, then additional newline */
   int Force;                            /* if TRUE, force conversion of all files. */
+  int Follow;                           /* if TRUE, act on target of symbolic link. */
   int status;
   int stdio_mode;                       /* if TRUE, stdio mode */
 } CFlag;
@@ -239,8 +253,20 @@ Usage: dos2unix [options] [file ...] [-n infile outfile ...]\n\
    file ...       files to convert in old file mode\n\
  -q --quiet       quiet mode, suppress all warnings\n\
                   always on in stdio mode\n\
- -s --safe        skip non-regular and binary files (default)\n\
- -V --version     display version number\n"), VER_REVISION, VER_DATE);
+ -s --safe        skip non-regular and binary files (default)\n"),
+ VER_REVISION, VER_DATE);
+#ifdef S_ISLNK
+  fprintf(stderr, _("\
+ --follow         follow symbolic links and modify the pointed-to\n\
+                  file.  This differs from --force, which breaks\n\
+                  the symbolic link, replaces it with a local\n\
+                  copy, and modifies the copy.  If --force, then\n\
+                  this option has no effect.\n\
+ --no-follow      do not follow symbolic links.  If --force, then\n\
+                  this option has no effect.\n"));
+#endif
+  fprintf(stderr, _("\
+ -V --version     display version number\n"));
 }
 
 void PrintLicense(void)
@@ -537,6 +563,87 @@ static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
 #endif
 }
 
+/* Test if *lFN is the name of a symbolic link.  If not, set *rFN equal
+ * to lFN, and return 0.  If so, then use canonicalize_file_name or
+ * realpath to determine the pointed-to file; the resulting name is
+ * stored in newly allocated memory, *rFN is set to point to that value,
+ * and 1 is returned. On error, -1 is returned and errno is set as
+ * appropriate.
+ *
+ * Note that if symbolic links are not supported, then 0 is always returned
+ * and *rFN = lFN.
+ *
+ * RetVal: 0 if success, and *lFN is not a symlink
+ *         1 if success, and *lFN is a symlink
+ *         -1 otherwise
+ */
+int ResolveSymbolicLink(char *lFN, char **rFN)
+{
+  int RetVal = 0;
+#ifdef S_ISLNK
+  struct stat StatBuf;
+  char *errstr;
+  char *targetFN = NULL;
+
+  if (STAT(lFN, &StatBuf))
+  {
+    errstr = strerror(errno);
+    fprintf(stderr, "dos2unix: %s: %s\n", lFN, errstr);
+    RetVal = -1;
+  }
+  else if (S_ISLNK(StatBuf.st_mode))
+  {
+#if USE_CANONICALIZE_FILE_NAME
+    targetFN = canonicalize_file_name(lFN);
+    if (!targetFN)
+    {
+      errstr = strerror(errno);
+      fprintf(stderr, "dos2unix: %s: %s\n", lFN, errstr);
+      RetVal = -1;
+    }
+    else
+    {
+      *rFN = targetFN;
+      RetVal = 1;
+    }
+#else
+    /* Sigh. Use realpath, but realize that it has a fatal
+     * flaw: PATH_MAX isn't necessarily the maximum path
+     * length -- so realpath() might fail. */
+    targetFN = (char *) malloc(PATH_MAX * sizeof(char));
+    if (!targetFN)
+    {
+      errstr = strerror(errno);
+      fprintf(stderr, "dos2unix: %s: %s\n", lFN, errstr);
+      RetVal = -1;
+    }
+    else
+    {
+      /* is there any platform with S_ISLNK that does not have realpath? */
+      char *rVal = realpath(lFN, targetFN);
+      if (!rVal)
+      {
+        errstr = strerror(errno);
+        fprintf(stderr, "dos2unix: %s: %s\n", lFN, errstr);
+        free(targetFN);
+        RetVal = -1;
+      }
+      else
+      {
+        *rFN = rVal;
+        RetVal = 1;
+      }
+    }
+#endif /* !USE_CANONICALIZE_FILE_NAME */
+  }
+  else
+    *rFN = lFN;
+#else  /* !S_ISLNK */
+  *rFN = lFN;
+#endif /* !S_ISLNK */
+  return RetVal;
+}
+
 /* convert file ipInFN to UNIX format text and write to file ipOutFN
  * RetVal: 0 if success
  *         -1 otherwise
@@ -558,8 +665,10 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
 #else
   int fd;
 #endif
+  char *TargetFN = NULL;
+  int ResolveSymlinkResult = 0;
 
-  if ((ipFlag->Force == 0) && regfile(ipInFN))
+  if ((ipFlag->Force == 0) && (ipFlag->Follow == 0) && regfile(ipInFN))
   {
     ipFlag->status |= NO_REGFILE ;
     return -1;
@@ -645,21 +754,49 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   if ((RetVal) && (remove(TempPath)))
     RetVal = -1;
 
+  /* If output file is a symbolic link, optional resolve the link and modify  */
+  /* the target, instead of removing the link and creating a new regular file */
+  if (!RetVal)
+  {
+    ResolveSymlinkResult = 0; /* indicates that TargetFN need not be freed */
+    TargetFN = ipOutFN;
+    if (ipFlag->Follow)
+    {
+      ResolveSymlinkResult = ResolveSymbolicLink(ipOutFN, &TargetFN);
+      if (ResolveSymlinkResult < 0)
+      {
+        if (!ipFlag->Quiet)
+        {
+          fprintf(stderr, _("dos2unix: problems resolving symbolic link '%s'\n"), ipOutFN);
+          fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
+        }
+        RetVal = -1;
+      }
+    }
+  }
+
   /* can rename temporary file to output file? */
   if (!RetVal)
   {
 #ifdef NEED_REMOVE
-    remove(ipOutFN);
+    remove(TargetFN);
 #endif
-    if (rename(TempPath, ipOutFN) == -1)
+    if (rename(TempPath, TargetFN) == -1)
     {
       if (!ipFlag->Quiet)
       {
-        fprintf(stderr, _("dos2unix: problems renaming '%s' to '%s'\n"), TempPath, ipOutFN);
+        fprintf(stderr, _("dos2unix: problems renaming '%s' to '%s'\n"), TempPath, TargetFN);
+#ifdef S_ISLNK
+        if (ResolveSymlinkResult > 0)
+          fprintf(stderr, _("          which is the target of symbolic link '%s'\n"), ipOutFN);
+#endif
         fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
       }
       RetVal = -1;
     }
+
+    if (ResolveSymlinkResult > 0)
+      free(TargetFN);
   }
   free(TempPath);
   return RetVal;
@@ -687,8 +824,10 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
 #else
   int fd;
 #endif
+  char *TargetFN = NULL;
+  int ResolveSymlinkResult = 0;
 
-  if ((ipFlag->Force == 0) && regfile(ipInFN))
+  if ((ipFlag->Force == 0) && (ipFlag->Follow == 0) && regfile(ipInFN))
   {
     ipFlag->status |= NO_REGFILE ;
     return -1;
@@ -775,21 +914,49 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   if ((RetVal) && (remove(TempPath)))
     RetVal = -1;
 
+  /* If input file is a symbolic link, optional resolve the link and modify  */
+  /* the target, instead of removing the link and creating a new regular file */
+  if (!RetVal)
+  {
+    ResolveSymlinkResult = 0; /* indicates that TargetFN need not be freed */
+    TargetFN = ipInFN;
+    if (ipFlag->Follow)
+    {
+      ResolveSymlinkResult = ResolveSymbolicLink(ipInFN, &TargetFN);
+      if (ResolveSymlinkResult < 0)
+      {
+        if (!ipFlag->Quiet)
+        {
+          fprintf(stderr, _("dos2unix: problems resolving symbolic link '%s'\n"), ipInFN);
+          fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
+        }
+        RetVal = -1;
+      }
+    }
+  }
+
   /* can rename output file to in file? */
   if (!RetVal)
   {
 #ifdef NEED_REMOVE
-    remove(ipInFN);
+    remove(TargetFN);
 #endif
-    if (rename(TempPath, ipInFN) == -1)
+    if (rename(TempPath, TargetFN) == -1)
     {
       if (!ipFlag->Quiet)
       {
-        fprintf(stderr, _("dos2unix: problems renaming '%s' to '%s'\n"), TempPath, ipInFN);
+        fprintf(stderr, _("dos2unix: problems renaming '%s' to '%s'\n"), TempPath, TargetFN);
+#ifdef S_ISLNK
+        if (ResolveSymlinkResult > 0)
+          fprintf(stderr, _("          which is the target of symbolic link '%s'\n"), ipInFN);
+#endif
         fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
       }
       RetVal = -1;
     }
+
+    if (ResolveSymlinkResult > 0)
+      free(TargetFN);
   }
   free(TempPath);
   return RetVal;
@@ -874,6 +1041,7 @@ int main (int argc, char *argv[])
   pFlag->FromToMode = FROMTO_DOS2UNIX;  /* default dos2unix */
   pFlag->NewLine = 0;
   pFlag->Force = 0;
+  pFlag->Follow = 0;
   pFlag->status = 0;
   pFlag->stdio_mode = 1;
 
@@ -906,6 +1074,10 @@ int main (int argc, char *argv[])
         pFlag->Quiet = 1;
       else if ((strcmp(argv[ArgIdx],"-l") == 0) || (strcmp(argv[ArgIdx],"--newline") == 0))
         pFlag->NewLine = 1;
+      else if (strcmp(argv[ArgIdx],"--follow") == 0)
+        pFlag->Follow = 1;
+      else if (strcmp(argv[ArgIdx],"--no-follow") == 0)
+        pFlag->Follow = 0;
       else if ((strcmp(argv[ArgIdx],"-V") == 0) || (strcmp(argv[ArgIdx],"--version") == 0))
       {
         PrintVersion();

@@ -1,5 +1,11 @@
+2011-03-23 Chris Wilson <cygwin@cwilson.fastmail.fm>
+	* dos2unix.c/unix2dos.c: New options --follow and --no-follow.
+	  In follow mode dos2unix writes to the symlink target, instead
+	  of replacing the symbolic link with an output file.
+
 2011-03-22 Chris Wilson <cygwin@cwilson.fastmail.fm>
-	* querycp.c: Behave on Cygwin same as on Linux.
+	* querycp.c: Behave on Cygwin same as on Linux. Default
+	  code page in ISO mode is CP437.
 
 2011-03-21 Chris Wilson <cygwin@cwilson.fastmail.fm>
 	* dos2unix.c/unix2dos.c:
