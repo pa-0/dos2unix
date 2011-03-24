@@ -172,21 +172,45 @@ typedef struct
   int FromToMode;                       /* 0: unix2dos, 1: unix2mac */  
   int NewLine;                          /* if TRUE, then additional newline */
   int Force;                            /* if TRUE, force conversion of all files. */
-  int Follow;                           /* if TRUE, act on target of symbolic link. */
+  int Follow;                           /* 0: skip symlink, 1: follow symbolic link, 2: replace symlink. */
   int status;
   int stdio_mode;                       /* if TRUE, stdio mode */
 } CFlag;
 
 /******************************************************************
  *
- * int regfile(char *path)
+ * int symbolic_link(char *path)
  *
- * test if *path points to a regular file.
+ * test if *path points to a that exists and is a symbolic link
+ *
+ * returns 1 on success, 0 when it fails.
+ *
+ ******************************************************************/
+int symbolic_link(char *path)
+{
+#ifdef S_ISLNK
+   struct stat buf;
+
+   if (STAT(path, &buf) == 0)
+   {
+      if (S_ISLNK(buf.st_mode))
+         return(1);
+   }
+#endif
+   return(0);
+}
+
+/******************************************************************
+ *
+ * int regfile(char *path, int allowSymlinks)
+ *
+ * test if *path points to a regular file (or is a symbolic link,
+ * if allowSymlinks != 0).
  *
  * returns 0 on success, -1 when it fails.
  *
  ******************************************************************/
-int regfile(char *path)
+int regfile(char *path, int allowSymlinks)
 {
    struct stat buf;
    char *errstr;
@@ -215,7 +239,11 @@ int regfile(char *path)
          fprintf(stderr, " (FIFO)");
       fprintf(stderr, "\n");
 #endif
-      if (S_ISREG(buf.st_mode))
+      if ((S_ISREG(buf.st_mode))
+#ifdef S_ISLNK
+          || (S_ISLNK(buf.st_mode) && allowSymlinks)
+#endif
+         )
          return(0);
       else
          return(-1);
@@ -260,13 +288,9 @@ Usage: unix2dos [options] [file ...] [-n infile outfile ...]\n\
  VER_REVISION, VER_DATE);
 #ifdef S_ISLNK
   fprintf(stderr, _("\
- --follow         follow symbolic links and modify the pointed-to\n\
-                  file.  This differs from --force, which breaks\n\
-                  the symbolic link, replaces it with a local\n\
-                  copy, and modifies the copy.  If --force, then\n\
-                  this option has no effect.\n\
- --no-follow      do not follow symbolic links.  If --force, then\n\
-                  this option has no effect.\n"));
+ --follow-symlink   follow symbolic links and modify the target.\n\
+ --replace-symlink  replace symbolic links with a regular file.\n\
+ --skip-symlink     keep symlinks intact. (default)\n"));
 #endif
   fprintf(stderr, _("\
  -V --version     display version number\n"));
@@ -679,7 +703,17 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   char *TargetFN = NULL;
   int ResolveSymlinkResult = 0;
 
-  if ((ipFlag->Force == 0) && (ipFlag->Follow == 0) && regfile(ipInFN))
+  /* Test if input file is a regular file or symbolic link */
+  if (regfile(ipInFN, 1))
+  {
+    ipFlag->status |= NO_REGFILE ;
+    return -1;
+  }
+  else
+    ipFlag->status = 0 ;
+
+  /* Test if output file is a symbolic link */
+  if (symbolic_link(ipOutFN) && !ipFlag->Follow)
   {
     ipFlag->status |= NO_REGFILE ;
     return -1;
@@ -767,11 +801,11 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
 
   /* If output file is a symbolic link, optional resolve the link and modify  */
   /* the target, instead of removing the link and creating a new regular file */
-  if (!RetVal)
+  if (symbolic_link(ipOutFN) && !RetVal)
   {
     ResolveSymlinkResult = 0; /* indicates that TargetFN need not be freed */
     TargetFN = ipOutFN;
-    if (ipFlag->Follow)
+    if (ipFlag->Follow == 1)
     {
       ResolveSymlinkResult = ResolveSymbolicLink(ipOutFN, &TargetFN);
       if (ResolveSymlinkResult < 0)
@@ -838,7 +872,8 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   char *TargetFN = NULL;
   int ResolveSymlinkResult = 0;
 
-  if ((ipFlag->Force == 0) && (ipFlag->Follow == 0) && regfile(ipInFN))
+  /* test if file is a regular file or symbolic link */
+  if (regfile(ipInFN, ipFlag->Follow))
   {
     ipFlag->status |= NO_REGFILE ;
     return -1;
@@ -927,11 +962,11 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
 
   /* If input file is a symbolic link, optional resolve the link and modify  */
   /* the target, instead of removing the link and creating a new regular file */
-  if (!RetVal)
+  if (symbolic_link(ipInFN) && !RetVal)
   {
     ResolveSymlinkResult = 0; /* indicates that TargetFN need not be freed */
     TargetFN = ipInFN;
-    if (ipFlag->Follow)
+    if (ipFlag->Follow == 1)
     {
       ResolveSymlinkResult = ResolveSymbolicLink(ipInFN, &TargetFN);
       if (ResolveSymlinkResult < 0)
@@ -1085,10 +1120,12 @@ int main (int argc, char *argv[])
         pFlag->Quiet = 1;
       else if ((strcmp(argv[ArgIdx],"-l") == 0) || (strcmp(argv[ArgIdx],"--newline") == 0))
         pFlag->NewLine = 1;
-      else if (strcmp(argv[ArgIdx],"--follow") == 0)
+      else if (strcmp(argv[ArgIdx],"--skip-symlink") == 0)
         pFlag->Follow = 1;
-      else if (strcmp(argv[ArgIdx],"--no-follow") == 0)
-        pFlag->Follow = 0;
+      else if (strcmp(argv[ArgIdx],"--follow-symlink") == 0)
+        pFlag->Follow = 1;
+      else if (strcmp(argv[ArgIdx],"--replace-symlink") == 0)
+        pFlag->Follow = 2;
       else if ((strcmp(argv[ArgIdx],"-V") == 0) || (strcmp(argv[ArgIdx],"--version") == 0))
       {
         PrintVersion();
