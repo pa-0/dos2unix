@@ -150,6 +150,7 @@
 #define BINARY_FILE 0x1
 #define NO_REGFILE  0x2
 #define WRONG_CODEPAGE  0x4
+#define OUTPUTFILE_SYMLINK 0x8
 
 #define CONVMODE_ASCII  0
 #define CONVMODE_7BIT   1
@@ -261,39 +262,39 @@ void PrintUsage(void)
   fprintf(stderr, _("\
 unix2dos %s (%s)\n\
 Usage: unix2dos [options] [file ...] [-n infile outfile ...]\n\
- -ascii           convert only line breaks (default)\n\
- -iso             conversion between DOS and ISO-8859-1 character set\n\
-   -1252          Use Windows code page 1252 (Western European)\n\
-   -437           Use DOS code page 437 (US) (default)\n\
-   -850           Use DOS code page 850 (Western European)\n\
-   -860           Use DOS code page 860 (Portuguese)\n\
-   -863           Use DOS code page 863 (French Canadian)\n\
-   -865           Use DOS code page 865 (Nordic)\n\
- -7               Convert 8 bit characters to 7 bit space\n\
- -c --convmode    conversion mode\n\
-   convmode       ascii, 7bit, iso, mac, default to ascii\n\
- -f --force       force conversion of all files\n\
- -h --help        give this help\n\
- -k --keepdate    keep output file date\n\
- -L --license     display software license\n\
- -l --newline     add additional newline\n\
- -n --newfile     write to new file\n\
-   infile         original file in new file mode\n\
-   outfile        output file in new file mode\n\
- -o --oldfile     write to old file\n\
-   file ...       files to convert in old file mode\n\
- -q --quiet       quiet mode, suppress all warnings\n\
-                  always on in stdio mode\n\
- -s --safe        skip non-regular and binary files (default)\n"),
+ -ascii                convert only line breaks (default)\n\
+ -iso                  conversion between DOS and ISO-8859-1 character set\n\
+   -1252               Use Windows code page 1252 (Western European)\n\
+   -437                Use DOS code page 437 (US) (default)\n\
+   -850                Use DOS code page 850 (Western European)\n\
+   -860                Use DOS code page 860 (Portuguese)\n\
+   -863                Use DOS code page 863 (French Canadian)\n\
+   -865                Use DOS code page 865 (Nordic)\n\
+ -7                    Convert 8 bit characters to 7 bit space\n\
+ -c, --convmode        conversion mode\n\
+   convmode            ascii, 7bit, iso, mac, default to ascii\n\
+ -f, --force           force conversion of binary files\n\
+ -h, --help            give this help\n\
+ -k, --keepdate        keep output file date\n\
+ -L, --license         display software license\n\
+ -l, --newline         add additional newline\n\
+ -n, --newfile         write to new file\n\
+   infile              original file in new file mode\n\
+   outfile             output file in new file mode\n\
+ -o, --oldfile         write to old file\n\
+   file ...            files to convert in old file mode\n\
+ -q, --quiet           quiet mode, suppress all warnings\n\
+                       always on in stdio mode\n\
+ -s, --safe            skip binary files (default)\n"),
  VER_REVISION, VER_DATE);
 #ifdef S_ISLNK
   fprintf(stderr, _("\
- --follow-symlink   follow symbolic links and modify the target.\n\
- --replace-symlink  replace symbolic links with a regular file.\n\
- --skip-symlink     keep symlinks intact. (default)\n"));
+     --follow-symlink  follow symbolic links and convert the target\n\
+     --replace-symlink replace symbolic links with converted file\n\
+     --skip-symlink    keep symbolic links intact (default)\n"));
 #endif
   fprintf(stderr, _("\
- -V --version     display version number\n"));
+ -V, --version         display version number\n"));
 }
 
 void PrintLicense(void)
@@ -715,7 +716,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   /* Test if output file is a symbolic link */
   if (symbolic_link(ipOutFN) && !ipFlag->Follow)
   {
-    ipFlag->status |= NO_REGFILE ;
+    ipFlag->status |= OUTPUTFILE_SYMLINK ;
     return -1;
   }
   else
@@ -875,7 +876,10 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   /* test if file is a regular file or symbolic link */
   if (regfile(ipInFN, ipFlag->Follow))
   {
-    ipFlag->status |= NO_REGFILE ;
+    if (symbolic_link(ipInFN))
+      ipFlag->status |= OUTPUTFILE_SYMLINK ;
+    else
+      ipFlag->status |= NO_REGFILE ;
     return -1;
   }
   else
@@ -1240,6 +1244,10 @@ int main (int argc, char *argv[])
           {
             if (!pFlag->Quiet)
               fprintf(stderr, _("unix2dos: Skipping %s, not a regular file.\n"), argv[ArgIdx-1]);
+          } else if (pFlag->status & OUTPUTFILE_SYMLINK)
+          {
+            if (!pFlag->Quiet)
+              fprintf(stderr, _("unix2dos: Skipping %s, output file %s is a symbolic link.\n"), argv[ArgIdx-1], argv[ArgIdx]);
           } else if (pFlag->status & BINARY_FILE)
           {
             if (!pFlag->Quiet)
@@ -1273,6 +1281,10 @@ int main (int argc, char *argv[])
         {
           if (!pFlag->Quiet)
             fprintf(stderr, _("unix2dos: Skipping %s, not a regular file.\n"), argv[ArgIdx]);
+        } else if (pFlag->status & OUTPUTFILE_SYMLINK)
+        {
+          if (!pFlag->Quiet)
+            fprintf(stderr, _("unix2dos: Skipping symbolic link %s.\n"), argv[ArgIdx]);
         } else if (pFlag->status & BINARY_FILE)
         {
           if (!pFlag->Quiet)
