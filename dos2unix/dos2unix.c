@@ -803,10 +803,10 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
 
   /* If output file is a symbolic link, optional resolve the link and modify  */
   /* the target, instead of removing the link and creating a new regular file */
+  TargetFN = ipOutFN;
   if (symbolic_link(ipOutFN) && !RetVal)
   {
     ResolveSymlinkResult = 0; /* indicates that TargetFN need not be freed */
-    TargetFN = ipOutFN;
     if (ipFlag->Follow == 1)
     {
       ResolveSymlinkResult = ResolveSymbolicLink(ipOutFN, &TargetFN);
@@ -964,10 +964,10 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
 
   /* If input file is a symbolic link, optional resolve the link and modify  */
   /* the target, instead of removing the link and creating a new regular file */
+  TargetFN = ipInFN;
   if (symbolic_link(ipInFN) && !RetVal)
   {
     ResolveSymlinkResult = 0; /* indicates that TargetFN need not be freed */
-    TargetFN = ipInFN;
     if (ipFlag->Follow == 1)
     {
       ResolveSymlinkResult = ResolveSymbolicLink(ipInFN, &TargetFN);
