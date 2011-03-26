@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unix2dos 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-26 15:57+0100\n"
+"POT-Creation-Date: 2011-03-26 17:56+0100\n"
 "PO-Revision-Date: 2009-12-09 17:20+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -77,15 +77,17 @@ msgstr ""
 #: unix2dos.c:291
 #, c-format
 msgid ""
-" -F, --follow-symlink  follow symbolic links and convert the target\n"
-" -R, --replace-symlink replace symbolic links with converted file\n"
-"                       (original target file remains unchanged)\n"
+" -F, --follow-symlink  follow symbolic links and convert the targets\n"
+" -R, --replace-symlink replace symbolic links with converted files\n"
+"                       (original target files remain unchanged)\n"
 " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr ""
-" -F, --follow-symlink  volg symbolische koppelingen en converteer het doel\n"
-" -R, --replace-symlink vervang symbolische koppelingen door geconverteerd bestand\n"
-"                       (origineel doelbestand blijft ongewijzigd)\n"
-" -S, --skip-symlink    laat symbolische koppelingen en doelen ongewijzigd (standaard)\n"
+" -F, --follow-symlink  volg symbolische koppelingen en converteer de doelen\n"
+" -R, --replace-symlink vervang symbolische koppelingen door geconverteerde "
+"bestanden\n"
+"                       (originele doelbestanden blijven ongewijzigd)\n"
+" -S, --skip-symlink    laat symbolische koppelingen en doelen ongewijzigd "
+"(standaard)\n"
 
 #: unix2dos.c:297
 #, c-format
@@ -147,7 +149,7 @@ msgstr "unix2dos: Niet gelukt om tijdelijk uitvoerbestand te openen"
 msgid "unix2dos: using %s as temporary file\n"
 msgstr "unix2dos: %s wordt als tijdelijk bestand gebruikt\n"
 
-#: dos2unix.c:819 dos2unix.c:983
+#: unix2dos.c:817 unix2dos.c:981
 #, c-format
 msgid "unix2dos: problems resolving symbolic link '%s'\n"
 msgstr "unix2dos: problemen met het herleiden van symbolische koppeling '%s'\n"
@@ -205,7 +207,9 @@ msgstr "unix2dos: %s wordt overgeslagen, omdat het geen regulier bestand is.\n"
 #: unix2dos.c:1251
 #, c-format
 msgid "unix2dos: Skipping %s, output file %s is a symbolic link.\n"
-msgstr "unix2dos: %s wordt overgeslagen, uitvoerbestand %s is een symbolische koppeling.\n"
+msgstr ""
+"unix2dos: %s wordt overgeslagen, uitvoerbestand %s is een symbolische "
+"koppeling.\n"
 
 #: unix2dos.c:1255 unix2dos.c:1292
 #, c-format

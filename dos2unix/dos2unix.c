@@ -299,9 +299,9 @@ Usage: dos2unix [options] [file ...] [-n infile outfile ...]\n\
  VER_REVISION, VER_DATE);
 #ifdef S_ISLNK
   fprintf(stderr, _("\
- -F, --follow-symlink  follow symbolic links and convert the target\n\
- -R, --replace-symlink replace symbolic links with converted file\n\
-                       (original target file remains unchanged)\n\
+ -F, --follow-symlink  follow symbolic links and convert the targets\n\
+ -R, --replace-symlink replace symbolic links with converted files\n\
+                       (original target files remain unchanged)\n\
  -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"));
 #endif
   fprintf(stderr, _("\
