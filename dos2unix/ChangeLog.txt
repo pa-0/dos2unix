@@ -1,6 +1,10 @@
 2011-03-24 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c/unix2dos.c: Changed options --follow, --no-follow,
-	  to  --follow-symlink,  --replace-symlink,  --skip-symlink
+	  to  --follow-symlink,  --replace-symlink,  --skip-symlink.
+	* dos2unix.c/unix2dos.c: Options --force and --safe are only to
+	  covert binary files or skip them.
+	* dos2unix.c/unix2dos.c: Non-regular files that are not symbolic
+	  links are never converted.
 
 2011-03-23 Chris Wilson <cygwin@cwilson.fastmail.fm>
 	* dos2unix.c/unix2dos.c: New options --follow and --no-follow.

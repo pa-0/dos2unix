@@ -289,10 +289,10 @@ Usage: unix2dos [options] [file ...] [-n infile outfile ...]\n\
  VER_REVISION, VER_DATE);
 #ifdef S_ISLNK
   fprintf(stderr, _("\
-     --follow-symlink  follow symbolic links and convert the target\n\
-     --replace-symlink replace symbolic links with converted file\n\
+ -F, --follow-symlink  follow symbolic links and convert the target\n\
+ -R, --replace-symlink replace symbolic links with converted file\n\
                        (original target file remains unchanged)\n\
-     --skip-symlink    keep symbolic links and targets unchanged (default)\n"));
+ -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"));
 #endif
   fprintf(stderr, _("\
  -V, --version         display version number\n"));
@@ -1125,11 +1125,11 @@ int main (int argc, char *argv[])
         pFlag->Quiet = 1;
       else if ((strcmp(argv[ArgIdx],"-l") == 0) || (strcmp(argv[ArgIdx],"--newline") == 0))
         pFlag->NewLine = 1;
-      else if (strcmp(argv[ArgIdx],"--skip-symlink") == 0)
+      else if ((strcmp(argv[ArgIdx],"-S") == 0) || (strcmp(argv[ArgIdx],"--skip-symlink") == 0))
         pFlag->Follow = 0;
-      else if (strcmp(argv[ArgIdx],"--follow-symlink") == 0)
+      else if ((strcmp(argv[ArgIdx],"-F") == 0) || (strcmp(argv[ArgIdx],"--follow-symlink") == 0))
         pFlag->Follow = 1;
-      else if (strcmp(argv[ArgIdx],"--replace-symlink") == 0)
+      else if ((strcmp(argv[ArgIdx],"-R") == 0) || (strcmp(argv[ArgIdx],"--replace-symlink") == 0))
         pFlag->Follow = 2;
       else if ((strcmp(argv[ArgIdx],"-V") == 0) || (strcmp(argv[ArgIdx],"--version") == 0))
       {

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-03 09:55+0100\n"
+"POT-Creation-Date: 2011-03-26 15:56+0100\n"
 "PO-Revision-Date: 2009-12-08 21:59+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -16,65 +16,83 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: dos2unix.c:216
+#: dos2unix.c:272
 #, c-format
 msgid ""
 "dos2unix %s (%s)\n"
 "Usage: dos2unix [options] [file ...] [-n infile outfile ...]\n"
-" -ascii           convert only line breaks (default)\n"
-" -iso             conversion between DOS and ISO-8859-1 character set\n"
-"   -1252          Use Windows code page 1252 (Western European)\n"
-"   -437           Use DOS code page 437 (US) (default)\n"
-"   -850           Use DOS code page 850 (Western European)\n"
-"   -860           Use DOS code page 860 (Portuguese)\n"
-"   -863           Use DOS code page 863 (French Canadian)\n"
-"   -865           Use DOS code page 865 (Nordic)\n"
-" -7               Convert 8 bit characters to 7 bit space\n"
-" -c --convmode    conversion mode\n"
-"   convmode       ascii, 7bit, iso, mac, default to ascii\n"
-" -f --force       force conversion of all files\n"
-" -h --help        give this help\n"
-" -k --keepdate    keep output file date\n"
-" -L --license     display software license\n"
-" -l --newline     add additional newline\n"
-" -n --newfile     write to new file\n"
-"   infile         original file in new file mode\n"
-"   outfile        output file in new file mode\n"
-" -o --oldfile     write to old file\n"
-"   file ...       files to convert in old file mode\n"
-" -q --quiet       quiet mode, suppress all warnings\n"
-"                  always on in stdio mode\n"
-" -V --version     display version number\n"
+" -ascii                convert only line breaks (default)\n"
+" -iso                  conversion between DOS and ISO-8859-1 character set\n"
+"   -1252               Use Windows code page 1252 (Western European)\n"
+"   -437                Use DOS code page 437 (US) (default)\n"
+"   -850                Use DOS code page 850 (Western European)\n"
+"   -860                Use DOS code page 860 (Portuguese)\n"
+"   -863                Use DOS code page 863 (French Canadian)\n"
+"   -865                Use DOS code page 865 (Nordic)\n"
+" -7                    Convert 8 bit characters to 7 bit space\n"
+" -c, --convmode        conversion mode\n"
+"   convmode            ascii, 7bit, iso, mac, default to ascii\n"
+" -f, --force           force conversion of binary files\n"
+" -h, --help            give this help\n"
+" -k, --keepdate        keep output file date\n"
+" -L, --license         display software license\n"
+" -l, --newline         add additional newline\n"
+" -n, --newfile         write to new file\n"
+"   infile              original file in new file mode\n"
+"   outfile             output file in new file mode\n"
+" -o, --oldfile         write to old file\n"
+"   file ...            files to convert in old file mode\n"
+" -q, --quiet           quiet mode, suppress all warnings\n"
+"                       always on in stdio mode\n"
+" -s, --safe            skip binary files (default)\n"
 msgstr ""
 "dos2unix %s (%s)\n"
 "Usage: dos2unix [opties] [bestand ...] [-n invoerbestand "
 "uitvoerbestand ...]\n"
-" -ascii           converteer alleen regeleindes (standaard)\n"
-" -iso             conversie tussen DOS en ISO-8859-1 lettertekenreeks\n"
-"   -1252          Gebruik Windows codetabel 1252 (West-Europees)\n"
-"   -437           Gebruik DOS codetabel 437 (VS) (standaard)\n"
-"   -850           Gebruik DOS codetabel 850 (West-Europees)\n"
-"   -860           Gebruik DOS codetabel 860 (Portugees)\n"
-"   -863           Gebruik DOS codetabel 863 (Canadees Frans)\n"
-"   -865           Gebruik DOS codetabel 865 (Scandinavisch)\n"
-" -7               Converteer 8 bit lettertekens naar 7 bit spatie\n"
-" -c --convmode    conversiemodus\n"
-"  conversiemodus  ascii, 7bit, iso, mac, standaard is ascii\n"
-" -f --force       forceer conversie van alle bestanden\n"
-" -h --help        toon deze help tekst\n"
-" -k --keepdate    behoud datum uitvoerbestand\n"
-" -L --license     toon software licentie\n"
-" -l --newline     voeg extra regeleinde toe\n"
-" -n --newfile     schrijf naar nieuw bestand\n"
-"  invoerbestand   origineel bestand in nieuw-bestand-modus\n"
-"  uitvoerbestand  uitvoerbestand in nieuw-bestand-modus\n"
-" -o --oldfile     overschrijf oud bestand\n"
-"   bestand ...    te converteren bestanden in oud-bestand-modus\n"
-" -q --quiet       stille werking, onderdruk alle waarschuwingen\n"
-"                  altijd aan in stdio modus\n"
-" -V --version     toon versie nummer\n"
+" -ascii                converteer alleen regeleindes (standaard)\n"
+" -iso                  conversie tussen DOS en ISO-8859-1 lettertekenreeks\n"
+"   -1252               Gebruik Windows codetabel 1252 (West-Europees)\n"
+"   -437                Gebruik DOS codetabel 437 (VS) (standaard)\n"
+"   -850                Gebruik DOS codetabel 850 (West-Europees)\n"
+"   -860                Gebruik DOS codetabel 860 (Portugees)\n"
+"   -863                Gebruik DOS codetabel 863 (Canadees Frans)\n"
+"   -865                Gebruik DOS codetabel 865 (Scandinavisch)\n"
+" -7                    Converteer 8 bit lettertekens naar 7 bit spatie\n"
+" -c, --convmode        conversiemodus\n"
+"  conversiemodus       ascii, 7bit, iso, mac, standaard is ascii\n"
+" -f, --force           forceer conversie van binaire bestanden\n"
+" -h, --help            toon deze help tekst\n"
+" -k, --keepdate        behoud datum uitvoerbestand\n"
+" -L, --license         toon software licentie\n"
+" -l, --newline         voeg extra regeleinde toe\n"
+" -n, --newfile         schrijf naar nieuw bestand\n"
+"  invoerbestand        origineel bestand in nieuw-bestand-modus\n"
+"  uitvoerbestand       uitvoerbestand in nieuw-bestand-modus\n"
+" -o, --oldfile         overschrijf oud bestand\n"
+"   bestand ...         te converteren bestanden in oud-bestand-modus\n"
+" -q, --quiet           stille werking, onderdruk alle waarschuwingen\n"
+"                       altijd aan in stdio modus\n"
+" -s, --safe            sla binaire bestanden over (standaard)\n"
 
-#: dos2unix.c:247
+#: dos2unix.c:301
+#, c-format
+msgid ""
+" -F, --follow-symlink  follow symbolic links and convert the target\n"
+" -R, --replace-symlink replace symbolic links with converted file\n"
+"                       (original target file remains unchanged)\n"
+" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
+msgstr ""
+" -F, --follow-symlink  volg symbolische koppelingen en converteer het doel\n"
+" -R, --replace-symlink vervang symbolische koppelingen door geconverteerd bestand\n"
+"                       (origineel doelbestand blijft ongewijzigd)\n"
+" -S, --skip-symlink    laat symbolische koppelingen en doelen ongewijzigd (standaard)\n"
+
+#: dos2unix.c:307
+#, c-format
+msgid " -V, --version         display version number\n"
+msgstr " -V, --version         toon versie nummer\n"
+
+#: dos2unix.c:313
 msgid ""
 "Copyright (C) 2009-2011 Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
@@ -104,44 +122,54 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: dos2unix.c:281
+#: dos2unix.c:347
 msgid "With native language support.\n"
 msgstr "Met moedertaal ondersteuning.\n"
 
-#: dos2unix.c:381
+#: dos2unix.c:447
 #, c-format
 msgid "dos2unix: using code page %d.\n"
 msgstr "dos2unix: codetabel %d wordt gebruikt.\n"
 
-#: dos2unix.c:408 dos2unix.c:433 dos2unix.c:451
+#: dos2unix.c:474 dos2unix.c:499 dos2unix.c:517
 msgid "dos2unix: can not write to output file\n"
 msgstr "dos2unix: kan niet schrijven naar uitvoerbestand\n"
 
-#: dos2unix.c:463
+#: dos2unix.c:529
 #, c-format
 msgid "dos2unix: program error, invalid conversion mode %d\n"
 msgstr "dos2unix: programma fout, ongeldige conversie modus %d\n"
 
-#: dos2unix.c:582 dos2unix.c:712
+#: dos2unix.c:741 dos2unix.c:908
 msgid "dos2unix: Failed to open temporary output file"
 msgstr "dos2unix: Niet gelukt om tijdelijk uitvoerbestand te openen"
 
-#: dos2unix.c:587 dos2unix.c:722
+#: dos2unix.c:746 dos2unix.c:918
 #, c-format
 msgid "dos2unix: using %s as temporary file\n"
 msgstr "dos2unix: %s wordt als tijdelijk bestand gebruikt\n"
 
-#: dos2unix.c:655 dos2unix.c:783
+#: dos2unix.c:819 dos2unix.c:983
 #, c-format
-msgid "dos2unix: problems renaming '%s' to '%s'\n"
-msgstr "dos2unix: problemen met hernoemen van '%s' naar '%s'\n"
+msgid "dos2unix: problems resolving symbolic link '%s'\n"
+msgstr "dos2unix: problemen met het herleiden van symbolische koppeling '%s'\n"
 
-#: dos2unix.c:656 dos2unix.c:784
+#: dos2unix.c:820 dos2unix.c:842 dos2unix.c:984 dos2unix.c:1006
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          uitvoerbestand blijft in '%s'\n"
 
-#: dos2unix.c:848
+#: dos2unix.c:837 dos2unix.c:1001
+#, c-format
+msgid "dos2unix: problems renaming '%s' to '%s'\n"
+msgstr "dos2unix: problemen met hernoemen van '%s' naar '%s'\n"
+
+#: dos2unix.c:840 dos2unix.c:1004
+#, c-format
+msgid "          which is the target of symbolic link '%s'\n"
+msgstr "          welke het doel is van symbolische koppeling '%s'\n"
+
+#: dos2unix.c:1074
 msgid ""
 "dos2unix: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
 "long.\n"
@@ -149,59 +177,69 @@ msgstr ""
 "dos2unix: fout: Waarde van omgevingsvariabele DOS2UNIX_LOCALEDIR is te "
 "lang.\n"
 
-#: dos2unix.c:922 dos2unix.c:950
+#: dos2unix.c:1157 dos2unix.c:1185
 #, c-format
 msgid "dos2unix: active code page: %d\n"
 msgstr "dos2unix: actieve code tabel: %d\n"
 
-#: dos2unix.c:959
+#: dos2unix.c:1194
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr "dos2unix: ongeldige %s conversie modus gespecificeerd\n"
 
-#: dos2unix.c:967
+#: dos2unix.c:1202
 #, c-format
 msgid "dos2unix: option '%s' requires an argument\n"
 msgstr "dos2unix: optie '%s' heeft een argument nodig\n"
 
-#: dos2unix.c:978 dos2unix.c:990 dos2unix.c:1074
+#: dos2unix.c:1213 dos2unix.c:1225 dos2unix.c:1317
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr ""
 "dos2unix: doel van bestand %s is niet gespecificeerd in 'nieuw bestand "
 "modus'\n"
 
-#: dos2unix.c:1014 dos2unix.c:1042
+#: dos2unix.c:1249 dos2unix.c:1281
 #, c-format
 msgid "dos2unix: Skipping %s, not a regular file.\n"
 msgstr "dos2unix: %s wordt overgeslagen, omdat het geen regulier bestand is.\n"
 
-#: dos2unix.c:1018 dos2unix.c:1046
+#: dos2unix.c:1253
+#, c-format
+msgid "dos2unix: Skipping %s, output file %s is a symbolic link.\n"
+msgstr "dos2unix: %s wordt overgeslagen, uitvoerbestand %s is een symbolische koppeling.\n"
+
+#: dos2unix.c:1257 dos2unix.c:1289
 #, c-format
 msgid "dos2unix: Skipping binary file %s\n"
 msgstr "dos2unix: Binair bestand %s wordt overgeslagen\n"
 
-#: dos2unix.c:1022 dos2unix.c:1050
+#: dos2unix.c:1261 dos2unix.c:1293
 #, c-format
 msgid "dos2unix: code page %d is not supported.\n"
 msgstr "dos2unix: codetabel %d wordt niet ondersteund.\n"
 
-#: dos2unix.c:1025
+#: dos2unix.c:1264
 #, c-format
 msgid "dos2unix: converting file %s to file %s in Unix format ...\n"
 msgstr "dos2unix: converteren bestand %s naar bestand %s in Unix formaat ...\n"
 
-#: dos2unix.c:1029
+#: dos2unix.c:1268
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s naar bestand %s\n"
 
-#: dos2unix.c:1053
+#: dos2unix.c:1285
+#, c-format
+msgid "dos2unix: Skipping symbolic link %s.\n"
+msgstr "dos2unix: symbolische koppeling %s wordt overgeslagen.\n"
+
+#: dos2unix.c:1296
 #, c-format
 msgid "dos2unix: converting file %s to Unix format ...\n"
 msgstr "dos2unix: converteren bestand %s naar Unix formaat ...\n"
 
-#: dos2unix.c:1057
+#: dos2unix.c:1300
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s\n"

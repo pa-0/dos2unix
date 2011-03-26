@@ -70,6 +70,8 @@ ACKNOWLEDGEMENTS
         Bernard RosenKraenzer  segfault patch.
         Tim Powers      mkstemp patch.
         Miloslav Trmac  safeconv patch.
+        Charles Wilson  Follow symbolic links.
+        Charles Wilson  Makefile and code cleanup for Cygwin.
 
 
 CONTACT INFORMATION

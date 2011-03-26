@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-03 09:55+0100\n"
+"POT-Creation-Date: 2011-03-26 15:57+0100\n"
 "PO-Revision-Date: 2010-02-05 16:34+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -16,64 +16,77 @@ msgstr ""
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: unix2dos.c:206
+#: unix2dos.c:262
 #, c-format
 msgid ""
 "unix2dos %s (%s)\n"
 "Usage: unix2dos [options] [file ...] [-n infile outfile ...]\n"
-" -ascii           convert only line breaks (default)\n"
-" -iso             conversion between DOS and ISO-8859-1 character set\n"
-"   -1252          Use Windows code page 1252 (Western European)\n"
-"   -437           Use DOS code page 437 (US) (default)\n"
-"   -850           Use DOS code page 850 (Western European)\n"
-"   -860           Use DOS code page 860 (Portuguese)\n"
-"   -863           Use DOS code page 863 (French Canadian)\n"
-"   -865           Use DOS code page 865 (Nordic)\n"
-" -7               Convert 8 bit characters to 7 bit space\n"
-" -c --convmode    conversion mode\n"
-"   convmode       ascii, 7bit, iso, mac, default to ascii\n"
-" -f --force       force conversion of all files\n"
-" -h --help        give this help\n"
-" -k --keepdate    keep output file date\n"
-" -L --license     display software license\n"
-" -l --newline     add additional newline\n"
-" -n --newfile     write to new file\n"
-"   infile         original file in new file mode\n"
-"   outfile        output file in new file mode\n"
-" -o --oldfile     write to old file\n"
-"   file ...       files to convert in old file mode\n"
-" -q --quiet       quiet mode, suppress all warnings\n"
-"                  always on in stdio mode\n"
-" -V --version     display version number\n"
+" -ascii                convert only line breaks (default)\n"
+" -iso                  conversion between DOS and ISO-8859-1 character set\n"
+"   -1252               Use Windows code page 1252 (Western European)\n"
+"   -437                Use DOS code page 437 (US) (default)\n"
+"   -850                Use DOS code page 850 (Western European)\n"
+"   -860                Use DOS code page 860 (Portuguese)\n"
+"   -863                Use DOS code page 863 (French Canadian)\n"
+"   -865                Use DOS code page 865 (Nordic)\n"
+" -7                    Convert 8 bit characters to 7 bit space\n"
+" -c, --convmode        conversion mode\n"
+"   convmode            ascii, 7bit, iso, mac, default to ascii\n"
+" -f, --force           force conversion of binary files\n"
+" -h, --help            give this help\n"
+" -k, --keepdate        keep output file date\n"
+" -L, --license         display software license\n"
+" -l, --newline         add additional newline\n"
+" -n, --newfile         write to new file\n"
+"   infile              original file in new file mode\n"
+"   outfile             output file in new file mode\n"
+" -o, --oldfile         write to old file\n"
+"   file ...            files to convert in old file mode\n"
+" -q, --quiet           quiet mode, suppress all warnings\n"
+"                       always on in stdio mode\n"
+" -s, --safe            skip binary files (default)\n"
 msgstr ""
 "unix2dos %s (%s)\n"
 "Aufruf: unix2dos [Optionen] [Datei ...] [-n Eingabedatei Ausgabedatei ...]\n"
-" -ascii           nur Zeilenumbrüche konvertieren (Vorgabe)\n"
-" -iso             Konvertierung zwischen DOS und ISO-8859-1 Zeichensatz\n"
-"   -1252          Windows Codepage 1252 verwenden (Westeuropäisch)\n"
-"   -437           DOS Codepage 437 verwenden (US) (Vorgabe)\n"
-"   -850           DOS Codepage 850 verwenden (Westeuropäisch)\n"
-"   -860           DOS Codepage 860 verwenden (Portugiesisch)\n"
-"   -863           DOS Codepage 863 verwenden (Kanadisches Französisch)\n"
-"   -865           DOS Codepage 865 verwenden (Nordisch)\n"
-" -7               8Bit Zeichen in solche aus dem 7Bit Raum konvertieren\n"
-" -c --convmode    Konvertierungsmodus\n"
-"   Konvmodus      ascii, 7bit, iso, mac, Standard ist ascii\n"
-" -f --force       erzwingt die Konvertierung aller Dateien\n"
-" -h --help        gibt diese Hilfe aus\n"
-" -k --keepdate    Datum der Ausgabedateien bleibt erhalten\n"
-" -L --license     Ausgabe der Softwarelizenz\n"
-" -l --newline     fügt einen Zeilenumbruch hinzu\n"
-" -n --newfile     Es wird in neue Dateien geschrieben\n"
-"   Eingabedatei   Originaldatei im \"neue Datei\" Modus\n"
-"   Ausgabedatei   Ausgabedatei im \"neue Datei\" Modus\n"
-" -o --oldfile     die alten Dateine werden überschrieben\n"
-"   Datei ...      die zu konvertierenden Dateien im \"alte Datei\" Modus\n"
-" -q --quiet       leiser Modus, unterdrückt alle Warnungen\n"
-"                  ist im stdio-Modus immer aktiv\n"
-" -V --version     Ausgabe der Versionsnummer\n"
+" -ascii                nur Zeilenumbrüche konvertieren (Vorgabe)\n"
+" -iso                  Konvertierung zwischen DOS und ISO-8859-1 Zeichensatz\n"
+"   -1252               Windows Codepage 1252 verwenden (Westeuropäisch)\n"
+"   -437                DOS Codepage 437 verwenden (US) (Vorgabe)\n"
+"   -850                DOS Codepage 850 verwenden (Westeuropäisch)\n"
+"   -860                DOS Codepage 860 verwenden (Portugiesisch)\n"
+"   -863                DOS Codepage 863 verwenden (Kanadisches Französisch)\n"
+"   -865                DOS Codepage 865 verwenden (Nordisch)\n"
+" -7                    8Bit Zeichen in solche aus dem 7Bit Raum konvertieren\n"
+" -c, --convmode        Konvertierungsmodus angeben\n"
+"   convmode            ascii, 7bit, iso, mac, Standard ist nach ascii\n"
+" -f, --force           erzwingt die Konvertierung aller Dateien\n"
+" -h, --help            gibt diese Hilfe\n"
+" -k, --keepdate        Datum der Ausgabedatei bleibt erhalten\n"
+" -L, --license         Ausgabe der Software-Lizenz\n"
+" -l, --newline         fügt einen Zeilenumbruch hinzu\n"
+" -n, --newfile         eine neue Datei wird erzeugt\n"
+"   Eingabedatei        Originaldatei im neue Datei Modus\n"
+"   Ausgabedatei        Ausgabedatei im neue Datei Modus\n"
+" -o, --oldfile         überschreibt die alte Datei\n"
+"   Datei ...           Die im alte Datei Modus zu konvertierenden Dateien\n"
+" -q, --quiet           ruhiger Modus, unterdrückt alle Warnungen\n"
+"                       ist im stdio Modus immer aktiv\n"
 
-#: unix2dos.c:237
+#: unix2dos.c:291
+#, c-format
+msgid ""
+" -F, --follow-symlink  follow symbolic links and convert the target\n"
+" -R, --replace-symlink replace symbolic links with converted file\n"
+"                       (original target file remains unchanged)\n"
+" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
+msgstr ""
+
+#: unix2dos.c:297
+#, c-format
+msgid " -V, --version         display version number\n"
+msgstr " -V, --version         gibt die Versionsnummer aus\n"
+
+#: unix2dos.c:303
 msgid ""
 "Copyright (C) 2009-2011 Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
@@ -130,44 +143,54 @@ msgstr ""
 "FAHRLÄSSIGKEIT), DIE AUS DER VERWENDUNG DIESER SOFTWARE ERWÄCHST,\n"
 "SELBST WENN AUF DIE MÖGLICHKIET SOLCHER SCHÄDEN HINGEWIESEN WURDE.\n"
 
-#: unix2dos.c:269
+#: unix2dos.c:335
 msgid "With native language support.\n"
 msgstr "Mit Unterstützung von Landessprachen\n"
 
-#: unix2dos.c:360
+#: unix2dos.c:426
 #, c-format
 msgid "unix2dos: using code page %d.\n"
 msgstr "unix2dos: Codepage %d wird verwendet.\n"
 
-#: unix2dos.c:400 unix2dos.c:425 unix2dos.c:438 unix2dos.c:449
+#: unix2dos.c:466 unix2dos.c:491 unix2dos.c:504 unix2dos.c:515
 msgid "unix2dos: can not write to output file\n"
 msgstr "unix2dos: Schreiben in Ausgabedatei nicht möglich\n"
 
-#: unix2dos.c:461
+#: unix2dos.c:527
 #, c-format
 msgid "unix2dos: program error, invalid conversion mode %d\n"
 msgstr "unix2dos: Programmfehler: ungültiger Konvertierungsmodus %d\n"
 
-#: unix2dos.c:580 unix2dos.c:710
+#: unix2dos.c:739 unix2dos.c:906
 msgid "unix2dos: Failed to open temporary output file"
 msgstr "unix2dos: Die temporäre Ausgabedatei konnte nicht geöffnet werden"
 
-#: unix2dos.c:585 unix2dos.c:720
+#: unix2dos.c:744 unix2dos.c:916
 #, c-format
 msgid "unix2dos: using %s as temporary file\n"
 msgstr "unix2dos: %s wird als temporäre Datei verwendet\n"
 
-#: unix2dos.c:653 unix2dos.c:781
-#, c-format
-msgid "unix2dos: problems renaming '%s' to '%s'\n"
+#: unix2dos.c:817 unix2dos.c:981
+#, fuzzy, c-format
+msgid "unix2dos: problems resolving symbolic link '%s'\n"
 msgstr "unix2dos: es gibt Probleme beim Umbenennen von »%s« zu »%s«\n"
 
-#: unix2dos.c:654 unix2dos.c:782
+#: unix2dos.c:818 unix2dos.c:840 unix2dos.c:982 unix2dos.c:1004
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          Ausgabedatei verbleibt in »%s«\n"
 
-#: unix2dos.c:846
+#: unix2dos.c:835 unix2dos.c:999
+#, c-format
+msgid "unix2dos: problems renaming '%s' to '%s'\n"
+msgstr "unix2dos: es gibt Probleme beim Umbenennen von »%s« zu »%s«\n"
+
+#: unix2dos.c:838 unix2dos.c:1002
+#, fuzzy, c-format
+msgid "          which is the target of symbolic link '%s'\n"
+msgstr "          Ausgabedatei verbleibt in »%s«\n"
+
+#: unix2dos.c:1072
 msgid ""
 "unix2dos: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
 "long.\n"
@@ -175,70 +198,80 @@ msgstr ""
 "unix2dos: Fehler: Der Inhalt der Umgebungsvariablen DOS2UNIX_LOCALEDIR ist "
 "zu lang.\n"
 
-#: unix2dos.c:920 unix2dos.c:948
+#: unix2dos.c:1155 unix2dos.c:1183
 #, c-format
 msgid "unix2dos: active code page: %d\n"
 msgstr "unix2dos: aktive Codepage: %d\n"
 
-#: unix2dos.c:957
+#: unix2dos.c:1192
 #, c-format
 msgid "unix2dos: invalid %s conversion mode specified\n"
 msgstr "unix2dos: der angegebene Konvertierungsmodus %s ist ungültig\n"
 
-#: unix2dos.c:965
+#: unix2dos.c:1200
 #, c-format
 msgid "unix2dos: option '%s' requires an argument\n"
 msgstr "unix2dos: Die Option »%s« benötigt ein Argument\n"
 
-#: unix2dos.c:976 unix2dos.c:988 unix2dos.c:1082
+#: unix2dos.c:1211 unix2dos.c:1223 unix2dos.c:1325
 #, c-format
 msgid "unix2dos: target of file %s not specified in new file mode\n"
 msgstr ""
 "unix2dos: das Ziel von Datei %s wurde im neue Datei Modus nicht angegeben\n"
 
-#: unix2dos.c:1012 unix2dos.c:1045
+#: unix2dos.c:1247 unix2dos.c:1284
 #, c-format
 msgid "unix2dos: Skipping %s, not a regular file.\n"
 msgstr "unix2dos: %s wird übersprungen da es keine reguläre Datei ist.\n"
 
-#: unix2dos.c:1016 unix2dos.c:1049
+#: unix2dos.c:1251
+#, fuzzy, c-format
+msgid "unix2dos: Skipping %s, output file %s is a symbolic link.\n"
+msgstr "unix2dos: %s wird übersprungen da es keine reguläre Datei ist.\n"
+
+#: unix2dos.c:1255 unix2dos.c:1292
 #, c-format
 msgid "unix2dos: Skipping binary file %s\n"
 msgstr "unix2dos: die binäre Datei %s wird übersprungen\n"
 
-#: unix2dos.c:1020 unix2dos.c:1053
+#: unix2dos.c:1259 unix2dos.c:1296
 #, c-format
 msgid "unix2dos: code page %d is not supported.\n"
 msgstr "unix2dos: Codepage %d wird nicht unterstützt.\n"
 
-#: unix2dos.c:1025
+#: unix2dos.c:1264
 #, c-format
 msgid "unix2dos: converting file %s to file %s in Mac format ...\n"
 msgstr "unix2dos: Datei %s wird in Datei %s im Mac-Format konvertiert ...\n"
 
-#: unix2dos.c:1027
+#: unix2dos.c:1266
 #, c-format
 msgid "unix2dos: converting file %s to file %s in DOS format ...\n"
 msgstr "unix2dos: Datei %s wird in Datei %s im DOS-Format konvertiert ...\n"
 
-#: unix2dos.c:1032
+#: unix2dos.c:1271
 #, c-format
 msgid "unix2dos: problems converting file %s to file %s\n"
 msgstr ""
 "unix2dos: bei der Konvertierung von Datei %s in Datei %s sind Probleme "
 "aufgetreten\n"
 
-#: unix2dos.c:1058
+#: unix2dos.c:1288
+#, fuzzy, c-format
+msgid "unix2dos: Skipping symbolic link %s.\n"
+msgstr "unix2dos: %s wird übersprungen da es keine reguläre Datei ist.\n"
+
+#: unix2dos.c:1301
 #, c-format
 msgid "unix2dos: converting file %s to Mac format ...\n"
 msgstr "unix2dos: Datei %s wird ins Mac-Format konvertiert ...\n"
 
-#: unix2dos.c:1060
+#: unix2dos.c:1303
 #, c-format
 msgid "unix2dos: converting file %s to DOS format ...\n"
 msgstr "unix2dos: Datei %s wird ins DOS-Format konvertiert ...\n"
 
-#: unix2dos.c:1065
+#: unix2dos.c:1308
 #, c-format
 msgid "unix2dos: problems converting file %s\n"
 msgstr "unix2dos: beim Konvertieren von Datei %s sind Probleme aufgetreten\n"

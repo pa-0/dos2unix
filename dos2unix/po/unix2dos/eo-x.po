@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unix2dos 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-03 09:55+0100\n"
+"POT-Creation-Date: 2011-03-26 15:57+0100\n"
 "PO-Revision-Date: 2010-03-07 19:52+0100\n"
 "Last-Translator: Rugxulo <rugxulo@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -16,64 +16,77 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: unix2dos.c:206
+#: unix2dos.c:262
 #, c-format
 msgid ""
 "unix2dos %s (%s)\n"
 "Usage: unix2dos [options] [file ...] [-n infile outfile ...]\n"
-" -ascii           convert only line breaks (default)\n"
-" -iso             conversion between DOS and ISO-8859-1 character set\n"
-"   -1252          Use Windows code page 1252 (Western European)\n"
-"   -437           Use DOS code page 437 (US) (default)\n"
-"   -850           Use DOS code page 850 (Western European)\n"
-"   -860           Use DOS code page 860 (Portuguese)\n"
-"   -863           Use DOS code page 863 (French Canadian)\n"
-"   -865           Use DOS code page 865 (Nordic)\n"
-" -7               Convert 8 bit characters to 7 bit space\n"
-" -c --convmode    conversion mode\n"
-"   convmode       ascii, 7bit, iso, mac, default to ascii\n"
-" -f --force       force conversion of all files\n"
-" -h --help        give this help\n"
-" -k --keepdate    keep output file date\n"
-" -L --license     display software license\n"
-" -l --newline     add additional newline\n"
-" -n --newfile     write to new file\n"
-"   infile         original file in new file mode\n"
-"   outfile        output file in new file mode\n"
-" -o --oldfile     write to old file\n"
-"   file ...       files to convert in old file mode\n"
-" -q --quiet       quiet mode, suppress all warnings\n"
-"                  always on in stdio mode\n"
-" -V --version     display version number\n"
+" -ascii                convert only line breaks (default)\n"
+" -iso                  conversion between DOS and ISO-8859-1 character set\n"
+"   -1252               Use Windows code page 1252 (Western European)\n"
+"   -437                Use DOS code page 437 (US) (default)\n"
+"   -850                Use DOS code page 850 (Western European)\n"
+"   -860                Use DOS code page 860 (Portuguese)\n"
+"   -863                Use DOS code page 863 (French Canadian)\n"
+"   -865                Use DOS code page 865 (Nordic)\n"
+" -7                    Convert 8 bit characters to 7 bit space\n"
+" -c, --convmode        conversion mode\n"
+"   convmode            ascii, 7bit, iso, mac, default to ascii\n"
+" -f, --force           force conversion of binary files\n"
+" -h, --help            give this help\n"
+" -k, --keepdate        keep output file date\n"
+" -L, --license         display software license\n"
+" -l, --newline         add additional newline\n"
+" -n, --newfile         write to new file\n"
+"   infile              original file in new file mode\n"
+"   outfile             output file in new file mode\n"
+" -o, --oldfile         write to old file\n"
+"   file ...            files to convert in old file mode\n"
+" -q, --quiet           quiet mode, suppress all warnings\n"
+"                       always on in stdio mode\n"
+" -s, --safe            skip binary files (default)\n"
 msgstr ""
 "unix2dos %s (%s)\n"
-"Uzado: unix2dos [elektojn] [dosiero ...] [-n antauxajxo kreajxo ...]\n"
-" -ascii           nur traduku linio-finojn (jam ensxaltita)\n"
-" -iso             traduku inter DOS kaj ISO-8859-1 literaro\n"
-"   -1252          Uzu Vindozan kodpagxon 1252 (Okcident-Euxropa)\n"
-"   -437           Uzu DOS kodpagxon 437 (Usona) (jam ensxaltita)\n"
-"   -850           Uzu DOS kodpagxon 850 (Okcident-Euxropa)\n"
-"   -860           Uzu DOS kodpagxon 860 (Portugala)\n"
-"   -863           Uzu DOS kodpagxon 863 (Kebekia)\n"
-"   -865           Uzu DOS kodpagxon 865 (Nordlandaj)\n"
-" -7               Traduku de 8-bitaj literoj en blankspacon\n"
-" -c --convmode    modo de sxangxo\n"
-"   sxangxmodo     ascii, 7bit, iso, mac, provizore elektita ascii\n"
-" -f --force       forte sxangxi cxiujn dosierojn senhalte\n"
-" -h --help        diri cxi tiun mesagxon\n"
-" -k --keepdate    konservi dato-tempon dosieran\n"
-" -L --license     eldiru permesilon tekstan\n"
-" -l --newline     aldonu markon linian finan\n"
-" -n --newfile     registri novan dosieron\n"
-"   antauxajxo     al antauxa dosiero metita novmoden\n"
-"   kreajxo        al dosiero registrita novmoden\n"
-" -o --oldfile     registri malnovan dosieron\n"
-"   dosiero...        dosiero(j)n por registri per malnova modo\n"
-" -q --quiet       silente eviti avertojn\n"
-"                  cxiam ensxaltata dum stdio modo\n"
-" -V --version     diri eldono-numeron\n"
+"Uzado: dos2unix [elektojn] [dosiero ...] [-n antauxajxo kreajxo ...]\n"
+" -ascii                nur traduku linio-finojn (jam ensxaltita)\n"
+" -iso                  traduku inter DOS kaj ISO-8859-1 literaro\n"
+"   -1252               Uzu Vindozan kodpagxon 1252 (Okcident-Euxropa)\n"
+"   -437                Uzu DOS kodpagxon 437 (Usona) (jam ensxaltita)\n"
+"   -850                Uzu DOS kodpagxon 850 (Okcident-Euxropa)\n"
+"   -860                Uzu DOS kodpagxon 860 (Portugala)\n"
+"   -863                Uzu DOS kodpagxon 863 (Kebekia)\n"
+"   -865                Uzu DOS kodpagxon 865 (Nordlandaj)\n"
+" -7                    Traduku de 8-bitaj literoj en blankspacon\n"
+" -c, --convmode        modo de sxangxo\n"
+"   sxangxmodo          ascii, 7bit, iso, mac, provizore elektita ascii\n"
+" -f, --force           forte sxangxi cxiujn dosierojn senhalte\n"
+" -h, --help            diri cxi tiun mesagxon\n"
+" -k, --keepdate        konservi dato-tempon dosieran\n"
+" -L, --license         eldiru permesilon tekstan\n"
+" -l, --newline         aldoni markon linian finan\n"
+" -n, --newfile         registri novan dosieron\n"
+"   antauxajxo          al antauxa dosiero metita novmoden\n"
+"   kreajxo             al dosiero registrita novmoden\n"
+" -o, --oldfile         registri malnovan dosieron\n"
+"   dosiero...          dosiero(j)n por registri per malnova modo\n"
+" -q, --quiet           silente eviti avertojn\n"
+"                       cxiam ensxaltata dum stdio modo\n"
 
-#: unix2dos.c:237
+#: unix2dos.c:291
+#, c-format
+msgid ""
+" -F, --follow-symlink  follow symbolic links and convert the target\n"
+" -R, --replace-symlink replace symbolic links with converted file\n"
+"                       (original target file remains unchanged)\n"
+" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
+msgstr ""
+
+#: unix2dos.c:297
+#, c-format
+msgid " -V, --version         display version number\n"
+msgstr " -V, --version         diri eldono-numeron\n"
+
+#: unix2dos.c:303
 msgid ""
 "Copyright (C) 2009-2011 Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
@@ -101,110 +114,130 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: unix2dos.c:269
+#: unix2dos.c:335
 msgid "With native language support.\n"
 msgstr "Uzante denaskan lingvo-sistemon.\n"
 
-#: unix2dos.c:360
+#: unix2dos.c:426
 #, c-format
 msgid "unix2dos: using code page %d.\n"
 msgstr "unix2dos: uzante kodpagxon %d.\n"
 
-#: unix2dos.c:400 unix2dos.c:425 unix2dos.c:438 unix2dos.c:449
+#: unix2dos.c:466 unix2dos.c:491 unix2dos.c:504 unix2dos.c:515
 msgid "unix2dos: can not write to output file\n"
 msgstr "unix2dos: ne povas registri dosieren\n"
 
-#: unix2dos.c:461
+#: unix2dos.c:527
 #, c-format
 msgid "unix2dos: program error, invalid conversion mode %d\n"
 msgstr "unix2dos: programa eraro, negxustan sxangxmodon %d\n"
 
-#: unix2dos.c:580 unix2dos.c:710
+#: unix2dos.c:739 unix2dos.c:906
 msgid "unix2dos: Failed to open temporary output file"
 msgstr "unix2dos: malsukcesis malfermi provizoran dosieron registran"
 
-#: unix2dos.c:585 unix2dos.c:720
+#: unix2dos.c:744 unix2dos.c:916
 #, c-format
 msgid "unix2dos: using %s as temporary file\n"
 msgstr "unix2dos: uzante %s kiel provizora dosiero\n"
 
-#: unix2dos.c:653 unix2dos.c:781
-#, c-format
-msgid "unix2dos: problems renaming '%s' to '%s'\n"
+#: unix2dos.c:817 unix2dos.c:981
+#, fuzzy, c-format
+msgid "unix2dos: problems resolving symbolic link '%s'\n"
 msgstr "unix2dos: problemojn trovitajn renomigi '%s' al '%s'\n"
 
-#: unix2dos.c:654 unix2dos.c:782
+#: unix2dos.c:818 unix2dos.c:840 unix2dos.c:982 unix2dos.c:1004
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          kreatan dosieron restas en '%s'\n"
 
-#: unix2dos.c:846
+#: unix2dos.c:835 unix2dos.c:999
+#, c-format
+msgid "unix2dos: problems renaming '%s' to '%s'\n"
+msgstr "unix2dos: problemojn trovitajn renomigi '%s' al '%s'\n"
+
+#: unix2dos.c:838 unix2dos.c:1002
+#, fuzzy, c-format
+msgid "          which is the target of symbolic link '%s'\n"
+msgstr "          kreatan dosieron restas en '%s'\n"
+
+#: unix2dos.c:1072
 msgid ""
 "unix2dos: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
 "long.\n"
 msgstr "unix2dos: eraro: DOS2UNIX_LOCALEDIR tro longigxis.\n"
 
-#: unix2dos.c:920 unix2dos.c:948
+#: unix2dos.c:1155 unix2dos.c:1183
 #, c-format
 msgid "unix2dos: active code page: %d\n"
 msgstr "unix2dos: nuntempa kodpagxo: %d\n"
 
-#: unix2dos.c:957
+#: unix2dos.c:1192
 #, c-format
 msgid "unix2dos: invalid %s conversion mode specified\n"
 msgstr "unix2dos: neuzebla %s sxangxmodo menciita\n"
 
-#: unix2dos.c:965
+#: unix2dos.c:1200
 #, c-format
 msgid "unix2dos: option '%s' requires an argument\n"
 msgstr "unix2dos: elekto '%s' bezonas elekto-vorton\n"
 
-#: unix2dos.c:976 unix2dos.c:988 unix2dos.c:1082
+#: unix2dos.c:1211 unix2dos.c:1223 unix2dos.c:1325
 #, c-format
 msgid "unix2dos: target of file %s not specified in new file mode\n"
 msgstr "unix2dos: ejon de dosiero %s ne menciita en novmodo dosiera\n"
 
-#: unix2dos.c:1012 unix2dos.c:1045
+#: unix2dos.c:1247 unix2dos.c:1284
 #, c-format
 msgid "unix2dos: Skipping %s, not a regular file.\n"
 msgstr "unix2dos: Pasante %s, dosiero ne taugxa.\n"
 
-#: unix2dos.c:1016 unix2dos.c:1049
+#: unix2dos.c:1251
+#, fuzzy, c-format
+msgid "unix2dos: Skipping %s, output file %s is a symbolic link.\n"
+msgstr "unix2dos: Pasante %s, dosiero ne taugxa.\n"
+
+#: unix2dos.c:1255 unix2dos.c:1292
 #, c-format
 msgid "unix2dos: Skipping binary file %s\n"
 msgstr "unix2dos: Pasante ne-tekstan dosieron %s\n"
 
-#: unix2dos.c:1020 unix2dos.c:1053
+#: unix2dos.c:1259 unix2dos.c:1296
 #, c-format
 msgid "unix2dos: code page %d is not supported.\n"
 msgstr "unix2dos: kodpagxo %d ne estas konvertebla.\n"
 
-#: unix2dos.c:1025
+#: unix2dos.c:1264
 #, c-format
 msgid "unix2dos: converting file %s to file %s in Mac format ...\n"
 msgstr "unix2dos: sxangxante dosiero %s al dosiero %s Mac-en ...\n"
 
-#: unix2dos.c:1027
+#: unix2dos.c:1266
 #, c-format
 msgid "unix2dos: converting file %s to file %s in DOS format ...\n"
 msgstr "unix2dos: sxangxante dosiero %s al dosiero %s DOS-en ...\n"
 
-#: unix2dos.c:1032
+#: unix2dos.c:1271
 #, c-format
 msgid "unix2dos: problems converting file %s to file %s\n"
 msgstr "unix2dos: problemojn trovitajn dum sxangxi dosiero %s al dosiero %s\n"
 
-#: unix2dos.c:1058
+#: unix2dos.c:1288
+#, fuzzy, c-format
+msgid "unix2dos: Skipping symbolic link %s.\n"
+msgstr "unix2dos: Pasante %s, dosiero ne taugxa.\n"
+
+#: unix2dos.c:1301
 #, c-format
 msgid "unix2dos: converting file %s to Mac format ...\n"
 msgstr "unix2dos: sxangxante dosiero %s Mac-en ...\n"
 
-#: unix2dos.c:1060
+#: unix2dos.c:1303
 #, c-format
 msgid "unix2dos: converting file %s to DOS format ...\n"
 msgstr "unix2dos: sxangxante dosiero %s DOS-en ...\n"
 
-#: unix2dos.c:1065
+#: unix2dos.c:1308
 #, c-format
 msgid "unix2dos: problems converting file %s\n"
 msgstr "unix2dos: problemojn dum sxangxi %s\n"
