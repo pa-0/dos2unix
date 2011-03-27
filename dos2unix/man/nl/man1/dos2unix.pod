@@ -121,7 +121,7 @@ met ascii als standaard instelling.
 
 =item B<-f, --force>
 
-Forceer omzetting van alle bestanden. Ook binaire bestanden.
+Forceer omzetting van binaire bestanden.
 
 =item B<-h, --help>
 
@@ -159,6 +159,23 @@ Dit is de standaard modus. Jokertekens kunnen gebruikt worden.
 =item B<-q, --quiet>
 
 Stille werking. Onderdruk alle waarschuwingen.
+
+=item B<-s, --safe>
+
+Sla binaire bestanden over (standaard).
+
+=item B<-F, --follow-symlink>
+
+Volg symbolische koppelingen en coverteer de doelen.
+
+=item B<-R, --replace-symlink>
+
+Vervang symbolische koppelingen door geconverteerde bestanden
+(originele doelbestanden blijven ongewijzigd).
+
+=item B<-S, --skip-symlink>
+
+Laat symbolische koppelingen en doelen ongewijzigd (standaard).
 
 =item B<-V, --version>
 

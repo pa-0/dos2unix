@@ -121,7 +121,7 @@ with ascii being the default.
 
 =item B<-f, --force>
 
-Force conversion of all files. Also binary files.
+Force conversion of binary files.
 
 =item B<-h, --help>
 
@@ -160,6 +160,23 @@ default to run in this mode. Wildcard names may be used.
 =item B<-q, --quiet>
 
 Quiet mode. Suppress all warnings and messages.
+
+=item B<-s, --safe>
+
+Skip binary files (default).
+
+=item B<-F, --follow-symlink>
+
+Follow symbolic links and convert the targets.
+
+=item B<-R, --replace-symlink>
+
+Replace symbolic links with converted files
+(original target files remain unchanged).
+
+=item B<-S, --skip-symlink>
+
+Keep symbolic links and targets unchanged (default).
 
 =item B<-V, --version>
 
