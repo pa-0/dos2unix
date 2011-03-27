@@ -1,3 +1,9 @@
+2011-03-27 Erwin Waterlander <waterlan@xs4all.nl>
+	* dos2unix.c/unix2dos.c: Check if symbolic links point to
+	  regular files.
+	* dos2unix.c/unix2dos.c: Added short options -F, -R, -S.
+	* po: update translations.
+
 2011-03-24 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c/unix2dos.c: Changed options --follow, --no-follow,
 	  to  --follow-symlink,  --replace-symlink,  --skip-symlink.

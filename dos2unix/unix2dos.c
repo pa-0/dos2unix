@@ -151,6 +151,8 @@
 #define NO_REGFILE  0x2
 #define WRONG_CODEPAGE  0x4
 #define OUTPUTFILE_SYMLINK 0x8
+#define INPUT_TARGET_NO_REGFILE 0x10
+#define OUTPUT_TARGET_NO_REGFILE 0x20
 
 #define CONVMODE_ASCII  0
 #define CONVMODE_7BIT   1
@@ -245,6 +247,35 @@ int regfile(char *path, int allowSymlinks)
           || (S_ISLNK(buf.st_mode) && allowSymlinks)
 #endif
          )
+         return(0);
+      else
+         return(-1);
+   }
+   else
+   {
+     errstr = strerror(errno);
+     fprintf(stderr, "unix2dos: %s: %s\n", path, errstr);
+     return(-1);
+   }
+}
+
+/******************************************************************
+ *
+ * int regfile_target(char *path)
+ *
+ * test if *path points to a regular file (follow symbolic link)
+ *
+ * returns 0 on success, -1 when it fails.
+ *
+ ******************************************************************/
+int regfile_target(char *path)
+{
+   struct stat buf;
+   char *errstr;
+
+   if (stat(path, &buf) == 0)
+   {
+      if (S_ISREG(buf.st_mode))
          return(0);
       else
          return(-1);
@@ -714,10 +745,28 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   else
     ipFlag->status = 0 ;
 
+  /* Test if input file target is a regular file */
+  if (symbolic_link(ipInFN) && regfile_target(ipInFN))
+  {
+    ipFlag->status |= INPUT_TARGET_NO_REGFILE ;
+    return -1;
+  }
+  else
+    ipFlag->status = 0 ;
+
   /* Test if output file is a symbolic link */
   if (symbolic_link(ipOutFN) && !ipFlag->Follow)
   {
     ipFlag->status |= OUTPUTFILE_SYMLINK ;
+    return -1;
+  }
+  else
+    ipFlag->status = 0 ;
+
+  /* Test if output file target is a regular file */
+  if (symbolic_link(ipOutFN) && (ipFlag->Follow == 1) && regfile_target(ipOutFN))
+  {
+    ipFlag->status |= OUTPUT_TARGET_NO_REGFILE ;
     return -1;
   }
   else
@@ -881,6 +930,15 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
       ipFlag->status |= OUTPUTFILE_SYMLINK ;
     else
       ipFlag->status |= NO_REGFILE ;
+    return -1;
+  }
+  else
+    ipFlag->status = 0 ;
+
+  /* Test if input file target is a regular file */
+  if (symbolic_link(ipInFN) && regfile_target(ipInFN))
+  {
+    ipFlag->status |= INPUT_TARGET_NO_REGFILE ;
     return -1;
   }
   else
@@ -1249,6 +1307,14 @@ int main (int argc, char *argv[])
           {
             if (!pFlag->Quiet)
               fprintf(stderr, _("unix2dos: Skipping %s, output file %s is a symbolic link.\n"), argv[ArgIdx-1], argv[ArgIdx]);
+          } else if (pFlag->status & INPUT_TARGET_NO_REGFILE)
+          {
+            if (!pFlag->Quiet)
+              fprintf(stderr, _("unix2dos: Skipping symbolic link %s, target is not a regular file.\n"), argv[ArgIdx-1]);
+          } else if (pFlag->status & OUTPUT_TARGET_NO_REGFILE)
+          {
+            if (!pFlag->Quiet)
+              fprintf(stderr, _("unix2dos: Skipping %s, target of symbolic link %s is not a regular file.\n"), argv[ArgIdx-1], argv[ArgIdx]);
           } else if (pFlag->status & BINARY_FILE)
           {
             if (!pFlag->Quiet)
@@ -1286,6 +1352,10 @@ int main (int argc, char *argv[])
         {
           if (!pFlag->Quiet)
             fprintf(stderr, _("unix2dos: Skipping symbolic link %s.\n"), argv[ArgIdx]);
+        } else if (pFlag->status & INPUT_TARGET_NO_REGFILE)
+        {
+          if (!pFlag->Quiet)
+            fprintf(stderr, _("unix2dos: Skipping symbolic link %s, target is not a regular file.\n"), argv[ArgIdx]);
         } else if (pFlag->status & BINARY_FILE)
         {
           if (!pFlag->Quiet)
