@@ -59,7 +59,7 @@ msgstr ""
 " -7                    Traduku de 8-bitaj literoj en blankspacon\n"
 " -c, --convmode        modo de ŝanĝo\n"
 "   ŝanĝmodo           ascii, 7bit, iso, mac, provizore elektita ascii\n"
-" -f, --force           forte ŝanĝi ĉiujn dosierojn senhalte\n"
+" -f, --force           force conversion of binary files\n"
 " -h, --help            diri ĉi tiun mesaĝon\n"
 " -k, --keepdate        konservi dato-tempon dosieran\n"
 " -L, --license         eldiru permesilon tekstan\n"
@@ -71,6 +71,7 @@ msgstr ""
 "   dosiero...          dosiero(j)n por registri per malnova modo\n"
 " -q, --quiet           silente eviti avertojn\n"
 "                       ĉiam enŝaltata dum stdio modo\n"
+" -s, --safe            skip binary files (default)\n"
 
 #: dos2unix.c:332
 #, c-format

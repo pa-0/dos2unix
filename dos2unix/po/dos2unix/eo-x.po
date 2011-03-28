@@ -59,7 +59,7 @@ msgstr ""
 " -7                    Traduku de 8-bitaj literoj en blankspacon\n"
 " -c, --convmode        modo de sxangxo\n"
 "   sxangxmodo          ascii, 7bit, iso, mac, provizore elektita ascii\n"
-" -f, --force           forte sxangxi cxiujn dosierojn senhalte\n"
+" -f, --force           force conversion of binary files\n"
 " -h, --help            diri cxi tiun mesagxon\n"
 " -k, --keepdate        konservi dato-tempon dosieran\n"
 " -L, --license         eldiru permesilon tekstan\n"
@@ -71,6 +71,7 @@ msgstr ""
 "   dosiero...          dosiero(j)n por registri per malnova modo\n"
 " -q, --quiet           silente eviti avertojn\n"
 "                       cxiam ensxaltata dum stdio modo\n"
+" -s, --safe            skip binary files (default)\n"
 
 #: dos2unix.c:332
 #, c-format
