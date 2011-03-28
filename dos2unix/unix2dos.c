@@ -648,7 +648,7 @@ static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
 int ResolveSymbolicLink(char *lFN, char **rFN)
 {
   int RetVal = 0;
-#ifdef S_ISLNK
+#if defined(S_ISLNK) && !defined(__WATCOMC__)
   struct stat StatBuf;
   char *errstr;
   char *targetFN = NULL;
