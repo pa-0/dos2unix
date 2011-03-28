@@ -1,3 +1,7 @@
+2011-0?-??: Version 5.3
+  * Improved handling of symbolic links. New options -F, -R, -S.
+  * Code cleanup for Cygwin.
+
 2011-03-04: Version 5.2.1
 
   * PDF and PostScript generation is optional. No default dependency on

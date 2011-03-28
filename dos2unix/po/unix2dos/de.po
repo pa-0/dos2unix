@@ -61,7 +61,7 @@ msgstr ""
 "konvertieren\n"
 " -c, --convmode        Konvertierungsmodus angeben\n"
 "   convmode            ascii, 7bit, iso, mac, Standard ist nach ascii\n"
-" -f, --force           erzwingt die Konvertierung aller Dateien\n"
+" -f, --force           erzwingt die Umwandlung binärer Dateien\n"
 " -h, --help            gibt diese Hilfe\n"
 " -k, --keepdate        Datum der Ausgabedatei bleibt erhalten\n"
 " -L, --license         Ausgabe der Software-Lizenz\n"
@@ -73,6 +73,7 @@ msgstr ""
 "   Datei ...           Die im alte Datei Modus zu konvertierenden Dateien\n"
 " -q, --quiet           ruhiger Modus, unterdrückt alle Warnungen\n"
 "                       ist im stdio Modus immer aktiv\n"
+" -s, --safe            überspringt binäre Dateien (Vorgabe)\n"
 
 #: unix2dos.c:322
 #, c-format
@@ -82,6 +83,11 @@ msgid ""
 "                       (original target files remain unchanged)\n"
 " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr ""
+" -F, --follow-symlink  folgt symbolischen Verknüpfungen und wandelt die Ziele um\n"
+" -R, --replace-symlink ersetzt symbolische Verknüpfungen durch die umgewandelten\n"
+"                       Dateien (die Originale Ziele bleiben unangetastet)\n"
+" -S, --skip-symlink    symbolische Verknüpfungen und deren Ziele bleiben\n"
+"                       unangetastet (Vorgabe)\n"
 
 #: unix2dos.c:328
 #, c-format
@@ -173,9 +179,9 @@ msgid "unix2dos: using %s as temporary file\n"
 msgstr "unix2dos: %s wird als temporäre Datei verwendet\n"
 
 #: unix2dos.c:866 unix2dos.c:1039
-#, fuzzy, c-format
+#, c-format
 msgid "unix2dos: problems resolving symbolic link '%s'\n"
-msgstr "unix2dos: es gibt Probleme beim Umbenennen von »%s« zu »%s«\n"
+msgstr "unix2dos: es gab Probleme beim Auflösen der symbolischen Verknüpfung »%s«\n"
 
 #: unix2dos.c:867 unix2dos.c:889 unix2dos.c:1040 unix2dos.c:1062
 #, c-format
@@ -188,9 +194,9 @@ msgid "unix2dos: problems renaming '%s' to '%s'\n"
 msgstr "unix2dos: es gibt Probleme beim Umbenennen von »%s« zu »%s«\n"
 
 #: unix2dos.c:887 unix2dos.c:1060
-#, fuzzy, c-format
+#, c-format
 msgid "          which is the target of symbolic link '%s'\n"
-msgstr "          Ausgabedatei verbleibt in »%s«\n"
+msgstr "          welche das Ziel der symbolischen Verknüpfung »%s« ist\n"
 
 #: unix2dos.c:1130
 msgid ""
@@ -227,20 +233,24 @@ msgid "unix2dos: Skipping %s, not a regular file.\n"
 msgstr "unix2dos: %s wird übersprungen da es keine reguläre Datei ist.\n"
 
 #: unix2dos.c:1309
-#, fuzzy, c-format
+#, c-format
 msgid "unix2dos: Skipping %s, output file %s is a symbolic link.\n"
-msgstr "unix2dos: %s wird übersprungen da es keine reguläre Datei ist.\n"
+msgstr "unix2dos: %s wird übersprungen, Ausgabedatei %s ist eine symbolische Verknüpfung.\n"
 
 #: unix2dos.c:1313 unix2dos.c:1358
-#, fuzzy, c-format
+#, c-format
 msgid "unix2dos: Skipping symbolic link %s, target is not a regular file.\n"
-msgstr "unix2dos: %s wird übersprungen da es keine reguläre Datei ist.\n"
+msgstr ""
+"unix2dos: Symbolische Verknüpfung %s wird übersprungen da das Ziel\n"
+"          keine reguläre Datei ist.\n"
 
 #: unix2dos.c:1317
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "unix2dos: Skipping %s, target of symbolic link %s is not a regular file.\n"
-msgstr "unix2dos: %s wird übersprungen da es keine reguläre Datei ist.\n"
+msgstr ""
+"unix2dos: %s wird übersprungen, das Ziel der symbolischen Verknüpfung %s\n"
+"          ist keine reguläre Datei.\n"
 
 #: unix2dos.c:1321 unix2dos.c:1362
 #, c-format
@@ -270,9 +280,9 @@ msgstr ""
 "aufgetreten\n"
 
 #: unix2dos.c:1354
-#, fuzzy, c-format
+#, c-format
 msgid "unix2dos: Skipping symbolic link %s.\n"
-msgstr "unix2dos: %s wird übersprungen da es keine reguläre Datei ist.\n"
+msgstr "unix2dos: Symbolische Verknüpfung %s wird übersprungen.\n"
 
 #: unix2dos.c:1371
 #, c-format
@@ -288,8 +298,3 @@ msgstr "unix2dos: Datei %s wird ins DOS-Format konvertiert ...\n"
 #, c-format
 msgid "unix2dos: problems converting file %s\n"
 msgstr "unix2dos: beim Konvertieren von Datei %s sind Probleme aufgetreten\n"
-
-#, fuzzy
-#~ msgid ""
-#~ "unix2dos: Skipping symbolic link %s, target of %s is not a regular file.\n"
-#~ msgstr "unix2dos: %s wird übersprungen da es keine reguläre Datei ist.\n"
