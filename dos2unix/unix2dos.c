@@ -107,6 +107,11 @@
 #define NO_FCHMOD 1
 #endif
 
+/* Watcom C defines S_ISLNK */
+#ifdef __WATCOMC__
+#undef S_ISLNK
+#endif
+
 #if defined(MSDOS) || defined(__OS2__)
 /* Systems without soft links use 'stat' instead of 'lstat'. */
 #define STAT stat
@@ -648,7 +653,7 @@ static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
 int ResolveSymbolicLink(char *lFN, char **rFN)
 {
   int RetVal = 0;
-#if defined(S_ISLNK) && !defined(__WATCOMC__)
+#ifdef S_ISLNK
   struct stat StatBuf;
   char *errstr;
   char *targetFN = NULL;

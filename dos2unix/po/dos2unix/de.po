@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-27 09:13+0200\n"
+"POT-Creation-Date: 2011-03-29 21:01+0200\n"
 "PO-Revision-Date: 2010-01-24 09:00+0100\n"
 "Last-Translator: Philipp Thomas <psmt@opensuse.org>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: dos2unix.c:303
+#: dos2unix.c:308
 #, c-format
 msgid ""
 "dos2unix %s (%s)\n"
@@ -77,7 +77,7 @@ msgstr ""
 "                       ist im stdio Modus immer aktiv\n"
 " -s, --safe            überspringt binäre Dateien (Vorgabe)\n"
 
-#: dos2unix.c:332
+#: dos2unix.c:337
 #, c-format
 msgid ""
 " -F, --follow-symlink  follow symbolic links and convert the targets\n"
@@ -85,18 +85,20 @@ msgid ""
 "                       (original target files remain unchanged)\n"
 " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr ""
-" -F, --follow-symlink  folgt symbolischen Verknüpfungen und wandelt die Ziele um\n"
-" -R, --replace-symlink ersetzt symbolische Verknüpfungen durch die umgewandelten\n"
+" -F, --follow-symlink  folgt symbolischen Verknüpfungen und wandelt die "
+"Ziele um\n"
+" -R, --replace-symlink ersetzt symbolische Verknüpfungen durch die "
+"umgewandelten\n"
 "                       Dateien (die Originale Ziele bleiben unangetastet)\n"
 " -S, --skip-symlink    symbolische Verknüpfungen und deren Ziele bleiben\n"
 "                       unangetastet (Vorgabe)\n"
 
-#: dos2unix.c:338
+#: dos2unix.c:343
 #, c-format
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         gibt die Versionsnummer aus\n"
 
-#: dos2unix.c:344
+#: dos2unix.c:349
 msgid ""
 "Copyright (C) 2009-2011 Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
@@ -156,54 +158,55 @@ msgstr ""
 "FAHRLÄSSIGKEIT), DIE AUS DER VERWENDUNG DIESER SOFTWARE ERWÄCHST,\n"
 "SELBST WENN AUF DIE MÖGLICHKIET SOLCHER SCHÄDEN HINGEWIESEN WURDE.\n"
 
-#: dos2unix.c:378
+#: dos2unix.c:383
 msgid "With native language support.\n"
 msgstr "Mit Unterstützung von Landessprachen.\n"
 
-#: dos2unix.c:478
+#: dos2unix.c:483
 #, c-format
 msgid "dos2unix: using code page %d.\n"
 msgstr "dos2unix: Codepage %d wird verwendet.\n"
 
-#: dos2unix.c:505 dos2unix.c:530 dos2unix.c:548
+#: dos2unix.c:510 dos2unix.c:535 dos2unix.c:553
 msgid "dos2unix: can not write to output file\n"
 msgstr "dos2unix: In die Ausgabedatei kann nicht geschrieben werden\n"
 
-#: dos2unix.c:560
+#: dos2unix.c:565
 #, c-format
 msgid "dos2unix: program error, invalid conversion mode %d\n"
 msgstr "dos2unix: Programmfehler, der Konvertierungsmodus %d ist unzulässig\n"
 
-#: dos2unix.c:790 dos2unix.c:966
+#: dos2unix.c:795 dos2unix.c:971
 msgid "dos2unix: Failed to open temporary output file"
 msgstr "dos2unix: Die temporäre Ausgabedatei konnte nicht geöffnet werden"
 
-#: dos2unix.c:795 dos2unix.c:976
+#: dos2unix.c:800 dos2unix.c:981
 #, c-format
 msgid "dos2unix: using %s as temporary file\n"
 msgstr "dos2unix: %s wird als temporäre Datei verwendet\n"
 
-#: dos2unix.c:868 dos2unix.c:1041
+#: dos2unix.c:873 dos2unix.c:1046
 #, c-format
 msgid "dos2unix: problems resolving symbolic link '%s'\n"
-msgstr "dos2unix: es gab Probleme beim Auflösen der symbolischen Verknüpfung »%s«\n"
+msgstr ""
+"dos2unix: es gab Probleme beim Auflösen der symbolischen Verknüpfung »%s«\n"
 
-#: dos2unix.c:869 dos2unix.c:891 dos2unix.c:1042 dos2unix.c:1064
+#: dos2unix.c:874 dos2unix.c:896 dos2unix.c:1047 dos2unix.c:1069
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          Die Ausgabedatei verbleibt in »%s«\n"
 
-#: dos2unix.c:886 dos2unix.c:1059
+#: dos2unix.c:891 dos2unix.c:1064
 #, c-format
 msgid "dos2unix: problems renaming '%s' to '%s'\n"
 msgstr "dos2unix: Beim Umbenennen von »%s« zu »%s« sind Probleme aufgetreten\n"
 
-#: dos2unix.c:889 dos2unix.c:1062
+#: dos2unix.c:894 dos2unix.c:1067
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          welche das Ziel der symbolischen Verknüpfung »%s« ist\n"
 
-#: dos2unix.c:1132
+#: dos2unix.c:1137
 msgid ""
 "dos2unix: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
 "long.\n"
@@ -211,86 +214,85 @@ msgstr ""
 "dos2unix: Fehler: Der Inhalt der Umgebungsvariablen DOS2UNIX_LOCALEDIR ist "
 "zu lang.\n"
 
-#: dos2unix.c:1215 dos2unix.c:1243
+#: dos2unix.c:1220 dos2unix.c:1248
 #, c-format
 msgid "dos2unix: active code page: %d\n"
 msgstr "dos2unix: aktive Codepage: %d\n"
 
-#: dos2unix.c:1252
+#: dos2unix.c:1257
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr "dos2unix: Der angegebene Konvertierungsmodus %s ist unzulässig\n"
 
-#: dos2unix.c:1260
+#: dos2unix.c:1265
 #, c-format
 msgid "dos2unix: option '%s' requires an argument\n"
 msgstr "dos2unix: Die Option »%s« benötigt ein Argument\n"
 
-#: dos2unix.c:1271 dos2unix.c:1283 dos2unix.c:1387
+#: dos2unix.c:1276 dos2unix.c:1288 dos2unix.c:1392
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr ""
 "dos2unix: Das Ziel der Datei %s wurde für den Neudatei-Modus nicht "
 "angegeben\n"
 
-#: dos2unix.c:1307 dos2unix.c:1347
+#: dos2unix.c:1312 dos2unix.c:1352
 #, c-format
 msgid "dos2unix: Skipping %s, not a regular file.\n"
 msgstr "dos2unix: %s wird übersprungen, da es keine reguläre Datei ist\n"
 
-#: dos2unix.c:1311
+#: dos2unix.c:1316
 #, c-format
 msgid "dos2unix: Skipping %s, output file %s is a symbolic link.\n"
-msgstr "dos2unix: %s wird übersprungen, Ausgabedatei %s ist eine symbolische Verknüpfung.\n"
+msgstr ""
+"dos2unix: %s wird übersprungen, Ausgabedatei %s ist eine symbolische "
+"Verknüpfung.\n"
 
-#: dos2unix.c:1315 dos2unix.c:1355
+#: dos2unix.c:1320 dos2unix.c:1360
 #, c-format
 msgid "dos2unix: Skipping symbolic link %s, target is not a regular file.\n"
 msgstr ""
-"dos2unix: Symbolische Verknüpfung %s wird übersprungen da das Ziel\n"
-"          keine reguläre Datei ist.\n"
+"dos2unix: Symbolische Verknüpfung %s wird übersprungen da das Ziel keine reguläre Datei ist.\n"
 
-#: dos2unix.c:1319
+#: dos2unix.c:1324
 #, c-format
 msgid ""
 "dos2unix: Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr ""
-"dos2unix: %s wird übersprungen, das Ziel der symbolischen Verknüpfung %s\n"
-"          ist keine reguläre Datei.\n"
-
-#: dos2unix.c:1323 dos2unix.c:1359
+"dos2unix: %s wird übersprungen, das Ziel der symbolischen Verknüpfung %s ist keine reguläre Datei.\n" 
+#: dos2unix.c:1328 dos2unix.c:1364
 #, c-format
 msgid "dos2unix: Skipping binary file %s\n"
 msgstr "dos2unix: binäre Datei %s wird übersprungen\n"
 
-#: dos2unix.c:1327 dos2unix.c:1363
+#: dos2unix.c:1332 dos2unix.c:1368
 #, c-format
 msgid "dos2unix: code page %d is not supported.\n"
 msgstr "dos2unix: Codepage %d wird nicht unterstützt.\n"
 
-#: dos2unix.c:1330
+#: dos2unix.c:1335
 #, c-format
 msgid "dos2unix: converting file %s to file %s in Unix format ...\n"
 msgstr "dos2unix: Datei %s wird zu Datei %s im Unix-Format umgewandelt ...\n"
 
-#: dos2unix.c:1334
+#: dos2unix.c:1339
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr ""
 "dos2unix: Beim Konvertieren von Datei %s zu Datei %s sind Probleme "
 "aufgetreten\n"
 
-#: dos2unix.c:1351
+#: dos2unix.c:1356
 #, c-format
 msgid "dos2unix: Skipping symbolic link %s.\n"
 msgstr "dos2unix: Symbolische Verknüpfung %s wird übersprungen.\n"
 
-#: dos2unix.c:1366
+#: dos2unix.c:1371
 #, c-format
 msgid "dos2unix: converting file %s to Unix format ...\n"
 msgstr "dos2unix: Datei %s wird ins Unix-Format umgewandelt ...\n"
 
-#: dos2unix.c:1370
+#: dos2unix.c:1375
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr "dos2unix: Beim Umwandeln von Datei %s sind Probleme aufgetreten\n"
