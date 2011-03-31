@@ -741,14 +741,14 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   char *TargetFN = NULL;
   int ResolveSymlinkResult = 0;
 
+  ipFlag->status = 0 ;
+
   /* Test if input file is a regular file or symbolic link */
   if (regfile(ipInFN, 1))
   {
     ipFlag->status |= NO_REGFILE ;
     return -1;
   }
-  else
-    ipFlag->status = 0 ;
 
   /* Test if input file target is a regular file */
   if (symbolic_link(ipInFN) && regfile_target(ipInFN))
@@ -756,8 +756,6 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     ipFlag->status |= INPUT_TARGET_NO_REGFILE ;
     return -1;
   }
-  else
-    ipFlag->status = 0 ;
 
   /* Test if output file is a symbolic link */
   if (symbolic_link(ipOutFN) && !ipFlag->Follow)
@@ -765,8 +763,6 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     ipFlag->status |= OUTPUTFILE_SYMLINK ;
     return -1;
   }
-  else
-    ipFlag->status = 0 ;
 
   /* Test if output file target is a regular file */
   if (symbolic_link(ipOutFN) && (ipFlag->Follow == 1) && regfile_target(ipOutFN))
@@ -774,8 +770,6 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     ipFlag->status |= OUTPUT_TARGET_NO_REGFILE ;
     return -1;
   }
-  else
-    ipFlag->status = 0 ;
 
   /* retrieve ipInFN file date stamp */
   if (stat(ipInFN, &StatBuf))
@@ -928,6 +922,8 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   char *TargetFN = NULL;
   int ResolveSymlinkResult = 0;
 
+  ipFlag->status = 0 ;
+
   /* test if file is a regular file or symbolic link */
   if (regfile(ipInFN, ipFlag->Follow))
   {
@@ -937,8 +933,6 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
       ipFlag->status |= NO_REGFILE ;
     return -1;
   }
-  else
-    ipFlag->status = 0 ;
 
   /* Test if input file target is a regular file */
   if (symbolic_link(ipInFN) && regfile_target(ipInFN))
@@ -946,8 +940,6 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
     ipFlag->status |= INPUT_TARGET_NO_REGFILE ;
     return -1;
   }
-  else
-    ipFlag->status = 0 ;
 
   /* retrieve ipInFN file date stamp */
   if (stat(ipInFN, &StatBuf))
