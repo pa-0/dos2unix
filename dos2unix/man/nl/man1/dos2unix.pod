@@ -158,7 +158,7 @@ Dit is de standaard modus. Jokertekens kunnen gebruikt worden.
 
 =item B<-q, --quiet>
 
-Stille werking. Onderdruk alle waarschuwingen.
+Stille werking. Onderdruk alle waarschuwingen. De teruggave waarde is nul.
 
 =item B<-s, --safe>
 
@@ -393,6 +393,13 @@ Voorbeeld (POSIX shell):
     export DOS2UNIX_LOCALEDIR=$HOME/share/locale
 
 =back
+
+=head1 TERUGGAVE WAARDE
+
+Wanneer er een fout optreedt is de teruggave waarde 1, anders is
+de teruggave waarde nul.
+
+De teruggave waarde is altijd nul in stille werking modus.
 
 =head1 AUTEURS
 

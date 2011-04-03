@@ -159,7 +159,7 @@ default to run in this mode. Wildcard names may be used.
 
 =item B<-q, --quiet>
 
-Quiet mode. Suppress all warnings and messages.
+Quiet mode. Suppress all warnings and messages. The return value is zero.
 
 =item B<-s, --safe>
 
@@ -398,6 +398,13 @@ Example (POSIX shell):
 
 =back
 
+
+=head1 RETURN VALUE
+
+When an error occurs the return value is 1, otherwise the return
+value is zero.
+
+The return value is always zero in quiet mode.
 
 =head1 STANDARDS
 

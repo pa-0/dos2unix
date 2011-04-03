@@ -62,7 +62,7 @@
 
 #define VER_AUTHOR   "Erwin Waterlander"
 
-/* #define DEBUG  1 */
+/* #define DEBUG 1 */
 
 /* define feature test macros for realpath() -- needed on    */
 /* systems that have S_ISLNK, but chicken/egg means we must  */
@@ -193,6 +193,7 @@ typedef struct
   int Follow;                           /* 0: skip symlink, 1: follow symbolic link, 2: replace symlink. */
   int status;
   int stdio_mode;                       /* if TRUE, stdio mode */
+  int error;                            /* an error occurred */
 } CFlag;
 
 /******************************************************************
@@ -228,7 +229,7 @@ int symbolic_link(char *path)
  * returns 0 on success, -1 when it fails.
  *
  ******************************************************************/
-int regfile(char *path, int allowSymlinks)
+int regfile(char *path, int allowSymlinks, CFlag *ipFlag)
 {
    struct stat buf;
    char *errstr;
@@ -268,8 +269,12 @@ int regfile(char *path, int allowSymlinks)
    }
    else
    {
-     errstr = strerror(errno);
-     fprintf(stderr, "dos2unix: %s: %s\n", path, errstr);
+     if (!ipFlag->Quiet)
+     {
+       errstr = strerror(errno);
+       fprintf(stderr, "dos2unix: %s: %s\n", path, errstr);
+       ipFlag->error = 1;
+     }
      return(-1);
    }
 }
@@ -283,7 +288,7 @@ int regfile(char *path, int allowSymlinks)
  * returns 0 on success, -1 when it fails.
  *
  ******************************************************************/
-int regfile_target(char *path)
+int regfile_target(char *path, CFlag *ipFlag)
 {
    struct stat buf;
    char *errstr;
@@ -297,8 +302,12 @@ int regfile_target(char *path)
    }
    else
    {
-     errstr = strerror(errno);
-     fprintf(stderr, "dos2unix: %s: %s\n", path, errstr);
+     if (!ipFlag->Quiet)
+     {
+       errstr = strerror(errno);
+       fprintf(stderr, "dos2unix: %s: %s\n", path, errstr);
+       ipFlag->error = 1;
+     }
      return(-1);
    }
 }
@@ -652,7 +661,7 @@ static int MakeTempFileFrom(const char *OutFN, char **fname_ret)
  *         1 if success, and *lFN is a symlink
  *         -1 otherwise
  */
-int ResolveSymbolicLink(char *lFN, char **rFN)
+int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag)
 {
   int RetVal = 0;
 #ifdef S_ISLNK
@@ -662,8 +671,12 @@ int ResolveSymbolicLink(char *lFN, char **rFN)
 
   if (STAT(lFN, &StatBuf))
   {
-    errstr = strerror(errno);
-    fprintf(stderr, "dos2unix: %s: %s\n", lFN, errstr);
+    if (!ipFlag->Quiet)
+    {
+      errstr = strerror(errno);
+      fprintf(stderr, "dos2unix: %s: %s\n", lFN, errstr);
+      ipFlag->error = 1;
+    }
     RetVal = -1;
   }
   else if (S_ISLNK(StatBuf.st_mode))
@@ -672,8 +685,12 @@ int ResolveSymbolicLink(char *lFN, char **rFN)
     targetFN = canonicalize_file_name(lFN);
     if (!targetFN)
     {
-      errstr = strerror(errno);
-      fprintf(stderr, "dos2unix: %s: %s\n", lFN, errstr);
+      if (!ipFlag->Quiet)
+      {
+        errstr = strerror(errno);
+        fprintf(stderr, "dos2unix: %s: %s\n", lFN, errstr);
+        ipFlag->error = 1;
+      }
       RetVal = -1;
     }
     else
@@ -688,8 +705,12 @@ int ResolveSymbolicLink(char *lFN, char **rFN)
     targetFN = (char *) malloc(PATH_MAX * sizeof(char));
     if (!targetFN)
     {
-      errstr = strerror(errno);
-      fprintf(stderr, "dos2unix: %s: %s\n", lFN, errstr);
+      if (!ipFlag->Quiet)
+      {
+        errstr = strerror(errno);
+        fprintf(stderr, "dos2unix: %s: %s\n", lFN, errstr);
+        ipFlag->error = 1;
+      }
       RetVal = -1;
     }
     else
@@ -698,8 +719,12 @@ int ResolveSymbolicLink(char *lFN, char **rFN)
       char *rVal = realpath(lFN, targetFN);
       if (!rVal)
       {
-        errstr = strerror(errno);
-        fprintf(stderr, "dos2unix: %s: %s\n", lFN, errstr);
+        if (!ipFlag->Quiet)
+        {
+          errstr = strerror(errno);
+          fprintf(stderr, "dos2unix: %s: %s\n", lFN, errstr);
+          ipFlag->error = 1;
+        }
         free(targetFN);
         RetVal = -1;
       }
@@ -746,14 +771,14 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   ipFlag->status = 0 ;
 
   /* Test if input file is a regular file or symbolic link */
-  if (regfile(ipInFN, 1))
+  if (regfile(ipInFN, 1, ipFlag))
   {
     ipFlag->status |= NO_REGFILE ;
     return -1;
   }
 
   /* Test if input file target is a regular file */
-  if (symbolic_link(ipInFN) && regfile_target(ipInFN))
+  if (symbolic_link(ipInFN) && regfile_target(ipInFN, ipFlag))
   {
     ipFlag->status |= INPUT_TARGET_NO_REGFILE ;
     return -1;
@@ -767,7 +792,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   }
 
   /* Test if output file target is a regular file */
-  if (symbolic_link(ipOutFN) && (ipFlag->Follow == 1) && regfile_target(ipOutFN))
+  if (symbolic_link(ipOutFN) && (ipFlag->Follow == 1) && regfile_target(ipOutFN, ipFlag))
   {
     ipFlag->status |= OUTPUT_TARGET_NO_REGFILE ;
     return -1;
@@ -776,8 +801,12 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   /* retrieve ipInFN file date stamp */
   if (stat(ipInFN, &StatBuf))
   {
-    errstr = strerror(errno);
-    fprintf(stderr, "dos2unix: %s: %s\n", ipInFN, errstr);
+    if (!ipFlag->Quiet)
+    {
+      errstr = strerror(errno);
+      fprintf(stderr, "dos2unix: %s: %s\n", ipInFN, errstr);
+      ipFlag->error = 1;
+    }
     RetVal = -1;
   }
 
@@ -786,7 +815,11 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
 #else
   if((fd = MakeTempFileFrom (ipOutFN, &TempPath)) < 0) {
 #endif
-    perror(_("dos2unix: Failed to open temporary output file"));
+    if (!ipFlag->Quiet)
+    {
+      perror(_("dos2unix: Failed to open temporary output file"));
+      ipFlag->error = 1;
+    }
     RetVal = -1;
   }
 
@@ -844,12 +877,31 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     UTimeBuf.modtime = StatBuf.st_mtime;
     /* can change output file time to in file time? */
     if (utime(TempPath, &UTimeBuf) == -1)
+    {
+      if (!ipFlag->Quiet)
+      {
+        errstr = strerror(errno);
+        fprintf(stderr, "dos2unix: %s: %s\n", TempPath, errstr);
+        ipFlag->error = 1;
+      }
       RetVal = -1;
+    }
   }
 
   /* any error? */
-  if ((RetVal) && (unlink(TempPath)))
-    RetVal = -1;
+  if (RetVal)
+  {
+    if (unlink(TempPath))
+    {
+      if (!ipFlag->Quiet)
+      {
+        errstr = strerror(errno);
+        fprintf(stderr, "dos2unix: %s: %s\n", TempPath, errstr);
+        ipFlag->error = 1;
+      }
+      RetVal = -1;
+    }
+  }
 
   /* If output file is a symbolic link, optional resolve the link and modify  */
   /* the target, instead of removing the link and creating a new regular file */
@@ -859,7 +911,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     ResolveSymlinkResult = 0; /* indicates that TargetFN need not be freed */
     if (ipFlag->Follow == 1)
     {
-      ResolveSymlinkResult = ResolveSymbolicLink(ipOutFN, &TargetFN);
+      ResolveSymlinkResult = ResolveSymbolicLink(ipOutFN, &TargetFN, ipFlag);
       if (ResolveSymlinkResult < 0)
       {
         if (!ipFlag->Quiet)
@@ -876,18 +928,29 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   if (!RetVal)
   {
 #ifdef NEED_REMOVE
-    remove(TargetFN);
+    if (unlink(TargetFN))
+    {
+      if (!ipFlag->Quiet)
+      {
+        errstr = strerror(errno);
+        fprintf(stderr, "dos2unix: %s: %s\n", TargetFN, errstr);
+        ipFlag->error = 1;
+      }
+      RetVal = -1;
+    }
 #endif
     if (rename(TempPath, TargetFN) == -1)
     {
       if (!ipFlag->Quiet)
       {
-        fprintf(stderr, _("dos2unix: problems renaming '%s' to '%s'\n"), TempPath, TargetFN);
+        errstr = strerror(errno);
+        fprintf(stderr, _("dos2unix: problems renaming '%s' to '%s': %s\n"), TempPath, TargetFN, errstr);
 #ifdef S_ISLNK
         if (ResolveSymlinkResult > 0)
           fprintf(stderr, _("          which is the target of symbolic link '%s'\n"), ipOutFN);
 #endif
         fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
+        ipFlag->error = 1;
       }
       RetVal = -1;
     }
@@ -927,7 +990,7 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   ipFlag->status = 0 ;
 
   /* test if file is a regular file or symbolic link */
-  if (regfile(ipInFN, ipFlag->Follow))
+  if (regfile(ipInFN, ipFlag->Follow, ipFlag))
   {
     if (symbolic_link(ipInFN))
       ipFlag->status |= OUTPUTFILE_SYMLINK ;
@@ -937,7 +1000,7 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   }
 
   /* Test if input file target is a regular file */
-  if (symbolic_link(ipInFN) && regfile_target(ipInFN))
+  if (symbolic_link(ipInFN) && regfile_target(ipInFN, ipFlag))
   {
     ipFlag->status |= INPUT_TARGET_NO_REGFILE ;
     return -1;
@@ -946,8 +1009,12 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   /* retrieve ipInFN file date stamp */
   if (stat(ipInFN, &StatBuf))
   {
-    errstr = strerror(errno);
-    fprintf(stderr, "dos2unix: %s: %s\n", ipInFN, errstr);
+    if (!ipFlag->Quiet)
+    {
+      errstr = strerror(errno);
+      fprintf(stderr, "dos2unix: %s: %s\n", ipInFN, errstr);
+      ipFlag->error = 1;
+    }
     RetVal = -1;
   }
 #ifndef NO_FCHMOD
@@ -960,7 +1027,11 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
 #else
   if((fd = MakeTempFileFrom(ipInFN, &TempPath)) < 0) {
 #endif
-    perror(_("dos2unix: Failed to open temporary output file"));
+    if (!ipFlag->Quiet)
+    {
+      perror(_("dos2unix: Failed to open temporary output file"));
+      ipFlag->error = 1;
+    }
     RetVal = -1;
   }
 
@@ -1015,12 +1086,31 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
     UTimeBuf.modtime = StatBuf.st_mtime;
     /* can change output file time to in file time? */
     if (utime(TempPath, &UTimeBuf) == -1)
+    {
+      if (!ipFlag->Quiet)
+      {
+        errstr = strerror(errno);
+        fprintf(stderr, "dos2unix: %s: %s\n", TempPath, errstr);
+        ipFlag->error = 1;
+      }
       RetVal = -1;
+    }
   }
 
   /* any error? */
-  if ((RetVal) && (unlink(TempPath)))
-    RetVal = -1;
+  if (RetVal)
+  {
+    if (unlink(TempPath))
+    {
+      if (!ipFlag->Quiet)
+      {
+        errstr = strerror(errno);
+        fprintf(stderr, "dos2unix: %s: %s\n", TempPath, errstr);
+        ipFlag->error = 1;
+      }
+      RetVal = -1;
+    }
+  }
 
   /* If input file is a symbolic link, optional resolve the link and modify  */
   /* the target, instead of removing the link and creating a new regular file */
@@ -1030,7 +1120,7 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
     ResolveSymlinkResult = 0; /* indicates that TargetFN need not be freed */
     if (ipFlag->Follow == 1)
     {
-      ResolveSymlinkResult = ResolveSymbolicLink(ipInFN, &TargetFN);
+      ResolveSymlinkResult = ResolveSymbolicLink(ipInFN, &TargetFN, ipFlag);
       if (ResolveSymlinkResult < 0)
       {
         if (!ipFlag->Quiet)
@@ -1047,18 +1137,29 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   if (!RetVal)
   {
 #ifdef NEED_REMOVE
-    remove(TargetFN);
+    if (unlink(TargetFN))
+    {
+      if (!ipFlag->Quiet)
+      {
+        errstr = strerror(errno);
+        fprintf(stderr, "dos2unix: %s: %s\n", TargetFN, errstr);
+        ipFlag->error = 1;
+      }
+      RetVal = -1;
+    }
 #endif
     if (rename(TempPath, TargetFN) == -1)
     {
       if (!ipFlag->Quiet)
       {
-        fprintf(stderr, _("dos2unix: problems renaming '%s' to '%s'\n"), TempPath, TargetFN);
+        errstr = strerror(errno);
+        fprintf(stderr, _("dos2unix: problems renaming '%s' to '%s': %s\n"), TempPath, TargetFN, errstr);
 #ifdef S_ISLNK
         if (ResolveSymlinkResult > 0)
           fprintf(stderr, _("          which is the target of symbolic link '%s'\n"), ipInFN);
 #endif
         fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
+        ipFlag->error = 1;
       }
       RetVal = -1;
     }
@@ -1152,6 +1253,7 @@ int main (int argc, char *argv[])
   pFlag->Follow = 0;
   pFlag->status = 0;
   pFlag->stdio_mode = 1;
+  pFlag->error = 0;
 
   if ( ((ptr=strrchr(argv[0],'/')) == NULL) && ((ptr=strrchr(argv[0],'\\')) == NULL) )
     ptr = argv[0];
@@ -1170,7 +1272,7 @@ int main (int argc, char *argv[])
       if ((strcmp(argv[ArgIdx],"-h") == 0) || (strcmp(argv[ArgIdx],"--help") == 0))
       {
         PrintUsage();
-        return(0);
+        return(pFlag->error);
       }
       else if ((strcmp(argv[ArgIdx],"-k") == 0) || (strcmp(argv[ArgIdx],"--keepdate") == 0))
         pFlag->KeepDate = 1;
@@ -1194,12 +1296,12 @@ int main (int argc, char *argv[])
 #ifdef ENABLE_NLS
         PrintLocaledir(localedir);
 #endif
-        return(0);
+        return(pFlag->error);
       }
       else if ((strcmp(argv[ArgIdx],"-L") == 0) || (strcmp(argv[ArgIdx],"--license") == 0))
       {
         PrintLicense();
-        return(0);
+        return(pFlag->error);
       }
       else if (strcmp(argv[ArgIdx],"-ascii") == 0)  /* SunOS compatible options */
         pFlag->ConvMode = CONVMODE_ASCII;
@@ -1246,7 +1348,10 @@ int main (int argc, char *argv[])
           else
           {
             if (!pFlag->Quiet)
+          {
               fprintf(stderr, _("dos2unix: invalid %s conversion mode specified\n"),argv[ArgIdx]);
+              pFlag->error = 1;
+        }
             ShouldExit = 1;
           }
         }
@@ -1254,7 +1359,10 @@ int main (int argc, char *argv[])
         {
           ArgIdx--;
           if (!pFlag->Quiet)
+          {
             fprintf(stderr,_("dos2unix: option '%s' requires an argument\n"),argv[ArgIdx]);
+            pFlag->error = 1;
+          }
           ShouldExit = 1;
         }
       }
@@ -1265,7 +1373,10 @@ int main (int argc, char *argv[])
         if (!CanSwitchFileMode)
         {
           if (!pFlag->Quiet)
+          {
             fprintf(stderr, _("dos2unix: target of file %s not specified in new file mode\n"), argv[ArgIdx-1]);
+            pFlag->error = 1;
+          }
           ShouldExit = 1;
         }
         pFlag->NewFile = 0;
@@ -1277,14 +1388,19 @@ int main (int argc, char *argv[])
         if (!CanSwitchFileMode)
         {
           if (!pFlag->Quiet)
+          {
             fprintf(stderr, _("dos2unix: target of file %s not specified in new file mode\n"), argv[ArgIdx-1]);
+            pFlag->error = 1;
+          }
           ShouldExit = 1;
         }
         pFlag->NewFile = 1;
       }
       else { /* wrong option */
         PrintUsage();
-        return(0);
+        ShouldExit = 1;
+        if (!pFlag->Quiet)
+          pFlag->error = 1;
       }
     }
     else
@@ -1329,7 +1445,6 @@ int main (int argc, char *argv[])
             {
               if (!pFlag->Quiet)
                 fprintf(stderr, _("dos2unix: problems converting file %s to file %s\n"), argv[ArgIdx-1], argv[ArgIdx]);
-              ShouldExit = 1;
             }
           }
           CanSwitchFileMode = 1;
@@ -1365,7 +1480,6 @@ int main (int argc, char *argv[])
           {
             if (!pFlag->Quiet)
               fprintf(stderr, _("dos2unix: problems converting file %s\n"), argv[ArgIdx]);
-            ShouldExit = 1;
           }
         }
       }
@@ -1382,9 +1496,8 @@ int main (int argc, char *argv[])
   if ((!pFlag->Quiet) && (!CanSwitchFileMode))
   {
     fprintf(stderr, _("dos2unix: target of file %s not specified in new file mode\n"), argv[ArgIdx-1]);
-    ShouldExit = 1;
+    pFlag->error = 1;
   }
-  free(pFlag);
-  return (ShouldExit);
+  return (pFlag->error);
 }
 

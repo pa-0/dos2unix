@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-29 21:01+0200\n"
+"POT-Creation-Date: 2011-04-03 16:49+0200\n"
 "PO-Revision-Date: 2010-03-07 19:50+0100\n"
 "Last-Translator: Ruĝulo <ruĝulo@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: dos2unix.c:308
+#: dos2unix.c:317
 #, c-format
 msgid ""
 "dos2unix %s (%s)\n"
@@ -73,7 +73,7 @@ msgstr ""
 "                       ĉiam enŝaltata dum stdio modo\n"
 " -s, --safe            skip binary files (default)\n"
 
-#: dos2unix.c:337
+#: dos2unix.c:346
 #, c-format
 msgid ""
 " -F, --follow-symlink  follow symbolic links and convert the targets\n"
@@ -82,12 +82,12 @@ msgid ""
 " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr ""
 
-#: dos2unix.c:343
+#: dos2unix.c:352
 #, c-format
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         diri eldono-numeron\n"
 
-#: dos2unix.c:349
+#: dos2unix.c:358
 msgid ""
 "Copyright (C) 2009-2011 Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
@@ -117,131 +117,131 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: dos2unix.c:383
+#: dos2unix.c:392
 msgid "With native language support.\n"
 msgstr "Uzante denaskan lingvon sistemon.\n"
 
-#: dos2unix.c:483
+#: dos2unix.c:492
 #, c-format
 msgid "dos2unix: using code page %d.\n"
 msgstr "dos2unix: uzante kodpaĝon %d.\n"
 
-#: dos2unix.c:510 dos2unix.c:535 dos2unix.c:553
+#: dos2unix.c:519 dos2unix.c:544 dos2unix.c:562
 msgid "dos2unix: can not write to output file\n"
 msgstr "dos2unix: ne povas registri dosieren\n"
 
-#: dos2unix.c:565
+#: dos2unix.c:574
 #, c-format
 msgid "dos2unix: program error, invalid conversion mode %d\n"
 msgstr "dos2unix: programa eraro, neĝustan ŝanĝmodon %d\n"
 
-#: dos2unix.c:795 dos2unix.c:971
+#: dos2unix.c:820 dos2unix.c:1032
 msgid "dos2unix: Failed to open temporary output file"
 msgstr "dos2unix: malsukcesis malfermi provizoran dosieron registran"
 
-#: dos2unix.c:800 dos2unix.c:981
+#: dos2unix.c:827 dos2unix.c:1044
 #, c-format
 msgid "dos2unix: using %s as temporary file\n"
 msgstr "dos2unix: uzante %s kiel provizora dosiero\n"
 
-#: dos2unix.c:873 dos2unix.c:1046
+#: dos2unix.c:919 dos2unix.c:1128
 #, fuzzy, c-format
 msgid "dos2unix: problems resolving symbolic link '%s'\n"
 msgstr "dos2unix: problemojn trovitajn renomigi '%s' al '%s'\n"
 
-#: dos2unix.c:874 dos2unix.c:896 dos2unix.c:1047 dos2unix.c:1069
+#: dos2unix.c:920 dos2unix.c:952 dos2unix.c:1129 dos2unix.c:1161
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          kreatan dosieron restas en '%s'\n"
 
-#: dos2unix.c:891 dos2unix.c:1064
+#: dos2unix.c:947 dos2unix.c:1156
 #, c-format
-msgid "dos2unix: problems renaming '%s' to '%s'\n"
-msgstr "dos2unix: problemojn trovitajn renomigi '%s' al '%s'\n"
+msgid "dos2unix: problems renaming '%s' to '%s': %s\n"
+msgstr "dos2unix: problemojn trovitajn renomigi '%s' al '%s': %s\n"
 
-#: dos2unix.c:894 dos2unix.c:1067
+#: dos2unix.c:950 dos2unix.c:1159
 #, fuzzy, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          kreatan dosieron restas en '%s'\n"
 
-#: dos2unix.c:1137
+#: dos2unix.c:1230
 msgid ""
 "dos2unix: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
 "long.\n"
 msgstr "dos2unix: eraro: DOS2UNIX_LOCALEDIR tro longiĝis.\n"
 
-#: dos2unix.c:1220 dos2unix.c:1248
+#: dos2unix.c:1314 dos2unix.c:1342
 #, c-format
 msgid "dos2unix: active code page: %d\n"
 msgstr "dos2unix: nuntempa kodpaĝo: %d\n"
 
-#: dos2unix.c:1257
+#: dos2unix.c:1352
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr "dos2unix: neuzebla %s ŝanĝmodo menciita\n"
 
-#: dos2unix.c:1265
+#: dos2unix.c:1363
 #, c-format
 msgid "dos2unix: option '%s' requires an argument\n"
 msgstr "dos2unix: elekto '%s' bezonas elekto-vorton\n"
 
-#: dos2unix.c:1276 dos2unix.c:1288 dos2unix.c:1392
+#: dos2unix.c:1377 dos2unix.c:1392 dos2unix.c:1498
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr "dos2unix: ejon de dosiero %s ne menciita en novmodo dosiera\n"
 
-#: dos2unix.c:1312 dos2unix.c:1352
+#: dos2unix.c:1420 dos2unix.c:1459
 #, c-format
 msgid "dos2unix: Skipping %s, not a regular file.\n"
 msgstr "dos2unix: Pasante %s, dosiero ne tauĝa.\n"
 
-#: dos2unix.c:1316
+#: dos2unix.c:1424
 #, fuzzy, c-format
 msgid "dos2unix: Skipping %s, output file %s is a symbolic link.\n"
 msgstr "dos2unix: Pasante %s, dosiero ne tauĝa.\n"
 
-#: dos2unix.c:1320 dos2unix.c:1360
+#: dos2unix.c:1428 dos2unix.c:1467
 #, fuzzy, c-format
 msgid "dos2unix: Skipping symbolic link %s, target is not a regular file.\n"
 msgstr "dos2unix: Pasante %s, dosiero ne tauĝa.\n"
 
-#: dos2unix.c:1324
+#: dos2unix.c:1432
 #, fuzzy, c-format
 msgid ""
 "dos2unix: Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr "dos2unix: Pasante %s, dosiero ne tauĝa.\n"
 
-#: dos2unix.c:1328 dos2unix.c:1364
+#: dos2unix.c:1436 dos2unix.c:1471
 #, c-format
 msgid "dos2unix: Skipping binary file %s\n"
 msgstr "dos2unix: Pasante ne-tekstan dosieron %s\n"
 
-#: dos2unix.c:1332 dos2unix.c:1368
+#: dos2unix.c:1440 dos2unix.c:1475
 #, c-format
 msgid "dos2unix: code page %d is not supported.\n"
 msgstr "dos2unix: kodpaĝo %d ne estas konvertebla.\n"
 
-#: dos2unix.c:1335
+#: dos2unix.c:1443
 #, c-format
 msgid "dos2unix: converting file %s to file %s in Unix format ...\n"
 msgstr "dos2unix: ŝanĝante dosieron %s al dosiero %s Unix-en ...\n"
 
-#: dos2unix.c:1339
+#: dos2unix.c:1447
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr "dos2unix: problemojn trovitajn dum ŝanĝi dosiero %s al dosiero %s\n"
 
-#: dos2unix.c:1356
+#: dos2unix.c:1463
 #, fuzzy, c-format
 msgid "dos2unix: Skipping symbolic link %s.\n"
 msgstr "dos2unix: Pasante %s, dosiero ne tauĝa.\n"
 
-#: dos2unix.c:1371
+#: dos2unix.c:1478
 #, c-format
 msgid "dos2unix: converting file %s to Unix format ...\n"
 msgstr "dos2unix: ŝanĝante dosiero %s Unix-en ...\n"
 
-#: dos2unix.c:1375
+#: dos2unix.c:1482
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr "dos2unix: problemojn dum ŝanĝi dosiero %s\n"
