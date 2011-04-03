@@ -396,10 +396,10 @@ Voorbeeld (POSIX shell):
 
 =head1 TERUGGAVE WAARDE
 
-Wanneer er een fout optreedt is de teruggave waarde 1, anders is
-de teruggave waarde nul.
+Bij succes wordt nul terug gegeven. Wanneer een systeemfout optreedt wordt de
+het systeemfoutnummer terug gegeven. Bij andere fouten wordt 1 terug gegeven.
 
-De teruggave waarde is altijd nul in stille werking modus.
+De teruggave is altijd nul in de modus stille werking.
 
 =head1 AUTEURS
 

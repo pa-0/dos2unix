@@ -401,8 +401,8 @@ Example (POSIX shell):
 
 =head1 RETURN VALUE
 
-When an error occurs the return value is 1, otherwise the return
-value is zero.
+On success, zero is returned.  When a system error occurs the system error will be
+returned. For other errors 1 is returned.
 
 The return value is always zero in quiet mode.
 

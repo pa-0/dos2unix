@@ -271,9 +271,9 @@ int regfile(char *path, int allowSymlinks, CFlag *ipFlag)
    {
      if (!ipFlag->Quiet)
      {
+       ipFlag->error = errno;
        errstr = strerror(errno);
        fprintf(stderr, "dos2unix: %s: %s\n", path, errstr);
-       ipFlag->error = 1;
      }
      return(-1);
    }
@@ -304,9 +304,9 @@ int regfile_target(char *path, CFlag *ipFlag)
    {
      if (!ipFlag->Quiet)
      {
+       ipFlag->error = errno;
        errstr = strerror(errno);
        fprintf(stderr, "dos2unix: %s: %s\n", path, errstr);
-       ipFlag->error = 1;
      }
      return(-1);
    }
@@ -673,9 +673,9 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag)
   {
     if (!ipFlag->Quiet)
     {
+      ipFlag->error = errno;
       errstr = strerror(errno);
       fprintf(stderr, "dos2unix: %s: %s\n", lFN, errstr);
-      ipFlag->error = 1;
     }
     RetVal = -1;
   }
@@ -803,9 +803,9 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   {
     if (!ipFlag->Quiet)
     {
+      ipFlag->error = errno;
       errstr = strerror(errno);
       fprintf(stderr, "dos2unix: %s: %s\n", ipInFN, errstr);
-      ipFlag->error = 1;
     }
     RetVal = -1;
   }
@@ -880,9 +880,9 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     {
       if (!ipFlag->Quiet)
       {
+        ipFlag->error = errno;
         errstr = strerror(errno);
         fprintf(stderr, "dos2unix: %s: %s\n", TempPath, errstr);
-        ipFlag->error = 1;
       }
       RetVal = -1;
     }
@@ -895,9 +895,9 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     {
       if (!ipFlag->Quiet)
       {
+        ipFlag->error = errno;
         errstr = strerror(errno);
         fprintf(stderr, "dos2unix: %s: %s\n", TempPath, errstr);
-        ipFlag->error = 1;
       }
       RetVal = -1;
     }
@@ -932,9 +932,9 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     {
       if (!ipFlag->Quiet)
       {
+        ipFlag->error = errno;
         errstr = strerror(errno);
         fprintf(stderr, "dos2unix: %s: %s\n", TargetFN, errstr);
-        ipFlag->error = 1;
       }
       RetVal = -1;
     }
@@ -943,6 +943,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     {
       if (!ipFlag->Quiet)
       {
+        ipFlag->error = errno;
         errstr = strerror(errno);
         fprintf(stderr, _("dos2unix: problems renaming '%s' to '%s': %s\n"), TempPath, TargetFN, errstr);
 #ifdef S_ISLNK
@@ -950,7 +951,6 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
           fprintf(stderr, _("          which is the target of symbolic link '%s'\n"), ipOutFN);
 #endif
         fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
-        ipFlag->error = 1;
       }
       RetVal = -1;
     }
@@ -1011,9 +1011,9 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
   {
     if (!ipFlag->Quiet)
     {
+      ipFlag->error = errno;
       errstr = strerror(errno);
       fprintf(stderr, "dos2unix: %s: %s\n", ipInFN, errstr);
-      ipFlag->error = 1;
     }
     RetVal = -1;
   }
@@ -1089,9 +1089,9 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
     {
       if (!ipFlag->Quiet)
       {
+        ipFlag->error = errno;
         errstr = strerror(errno);
         fprintf(stderr, "dos2unix: %s: %s\n", TempPath, errstr);
-        ipFlag->error = 1;
       }
       RetVal = -1;
     }
@@ -1104,9 +1104,9 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
     {
       if (!ipFlag->Quiet)
       {
+        ipFlag->error = errno;
         errstr = strerror(errno);
         fprintf(stderr, "dos2unix: %s: %s\n", TempPath, errstr);
-        ipFlag->error = 1;
       }
       RetVal = -1;
     }
@@ -1141,9 +1141,9 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
     {
       if (!ipFlag->Quiet)
       {
+        ipFlag->error = errno;
         errstr = strerror(errno);
         fprintf(stderr, "dos2unix: %s: %s\n", TargetFN, errstr);
-        ipFlag->error = 1;
       }
       RetVal = -1;
     }
@@ -1152,6 +1152,7 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
     {
       if (!ipFlag->Quiet)
       {
+        ipFlag->error = errno;
         errstr = strerror(errno);
         fprintf(stderr, _("dos2unix: problems renaming '%s' to '%s': %s\n"), TempPath, TargetFN, errstr);
 #ifdef S_ISLNK
@@ -1159,7 +1160,6 @@ int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
           fprintf(stderr, _("          which is the target of symbolic link '%s'\n"), ipInFN);
 #endif
         fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
-        ipFlag->error = 1;
       }
       RetVal = -1;
     }

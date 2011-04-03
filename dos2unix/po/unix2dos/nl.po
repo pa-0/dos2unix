@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unix2dos 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-03 17:00+0200\n"
+"POT-Creation-Date: 2011-04-03 17:59+0200\n"
 "PO-Revision-Date: 2009-12-09 17:20+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -154,17 +154,17 @@ msgstr "unix2dos: %s wordt als tijdelijk bestand gebruikt\n"
 msgid "unix2dos: problems resolving symbolic link '%s'\n"
 msgstr "unix2dos: problemen met het herleiden van symbolische koppeling '%s'\n"
 
-#: unix2dos.c:918 unix2dos.c:950 unix2dos.c:1127 unix2dos.c:1159
+#: unix2dos.c:918 unix2dos.c:951 unix2dos.c:1127 unix2dos.c:1160
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          uitvoerbestand blijft in '%s'\n"
 
-#: unix2dos.c:945 unix2dos.c:1154
+#: unix2dos.c:946 unix2dos.c:1155
 #, c-format
 msgid "unix2dos: problems renaming '%s' to '%s': %s\n"
 msgstr "unix2dos: problemen met hernoemen van '%s' naar '%s': %s\n"
 
-#: unix2dos.c:948 unix2dos.c:1157
+#: unix2dos.c:949 unix2dos.c:1158
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          welke het doel is van symbolische koppeling '%s'\n"

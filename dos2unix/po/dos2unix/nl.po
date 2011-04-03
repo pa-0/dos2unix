@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-03 16:49+0200\n"
+"POT-Creation-Date: 2011-04-03 17:47+0200\n"
 "PO-Revision-Date: 2009-12-08 21:59+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -156,17 +156,17 @@ msgstr "dos2unix: %s wordt als tijdelijk bestand gebruikt\n"
 msgid "dos2unix: problems resolving symbolic link '%s'\n"
 msgstr "dos2unix: problemen met het herleiden van symbolische koppeling '%s'\n"
 
-#: dos2unix.c:920 dos2unix.c:952 dos2unix.c:1129 dos2unix.c:1161
+#: dos2unix.c:920 dos2unix.c:953 dos2unix.c:1129 dos2unix.c:1162
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          uitvoerbestand blijft in '%s'\n"
 
-#: dos2unix.c:947 dos2unix.c:1156
+#: dos2unix.c:948 dos2unix.c:1157
 #, c-format
 msgid "dos2unix: problems renaming '%s' to '%s': %s\n"
 msgstr "dos2unix: problemen met hernoemen van '%s' naar '%s': %s\n"
 
-#: dos2unix.c:950 dos2unix.c:1159
+#: dos2unix.c:951 dos2unix.c:1160
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          welke het doel is van symbolische koppeling '%s'\n"

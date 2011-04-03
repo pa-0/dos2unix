@@ -1,5 +1,5 @@
 2011-04-03 Erwin Waterlander <waterlan@xs4all.nl>
-	* Improved error reporting. Return error when an error occurs.
+	* Improved error reporting. Return system error when an error occurs.
 	* Don't quit after first error.
 	* In quiet mode the return value is always zero.
 
