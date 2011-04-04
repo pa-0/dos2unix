@@ -76,6 +76,18 @@ character. Nowadays Mac OS uses Unix style (LF) line breaks.
 
 =over 4
 
+=item B<-->
+
+Treat all following options as file names. Use this option if you want to
+convert files whose names start with a dash. For instance to convert
+a file named "-foo", you can use this command:
+
+    dos2unix -- -foo
+
+Or in new file mode:
+
+    dos2unix -n -- -foo out.txt
+
 =item B<-ascii>
 
 Convert only line breaks. This is the default conversion mode.

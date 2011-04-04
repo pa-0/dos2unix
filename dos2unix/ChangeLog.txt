@@ -1,6 +1,7 @@
 2011-04-04 Erwin Waterlander <waterlan@xs4all.nl>
 	* Always print and return an error when wrong command-line
 	  options are used. Also in quiet mode.
+	* New option '--': Treat all following options as file names.
 
 2011-04-03 Erwin Waterlander <waterlan@xs4all.nl>
 	* Improved error reporting. Return system error when an error occurs.

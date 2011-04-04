@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-04 10:53+0200\n"
+"POT-Creation-Date: 2011-04-04 20:49+0200\n"
 "PO-Revision-Date: 2010-02-05 16:34+0100\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -201,7 +201,7 @@ msgstr "unix2dos: es gibt Probleme beim Umbenennen von »%s« zu »%s«: %s\n"
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          welche das Ziel der symbolischen Verknüpfung »%s« ist\n"
 
-#: unix2dos.c:1228
+#: unix2dos.c:1229
 msgid ""
 "unix2dos: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
 "long.\n"
@@ -209,47 +209,47 @@ msgstr ""
 "unix2dos: Fehler: Der Inhalt der Umgebungsvariablen DOS2UNIX_LOCALEDIR ist "
 "zu lang.\n"
 
-#: unix2dos.c:1312 unix2dos.c:1340
+#: unix2dos.c:1315 unix2dos.c:1343
 #, c-format
 msgid "unix2dos: active code page: %d\n"
 msgstr "unix2dos: aktive Codepage: %d\n"
 
-#: unix2dos.c:1348
+#: unix2dos.c:1351
 #, c-format
 msgid "unix2dos: invalid %s conversion mode specified\n"
 msgstr "unix2dos: der angegebene Konvertierungsmodus %s ist ungültig\n"
 
-#: unix2dos.c:1357
+#: unix2dos.c:1360
 #, c-format
 msgid "unix2dos: option '%s' requires an argument\n"
 msgstr "unix2dos: Die Option »%s« benötigt ein Argument\n"
 
-#: unix2dos.c:1369 unix2dos.c:1382 unix2dos.c:1498
+#: unix2dos.c:1372 unix2dos.c:1385 unix2dos.c:1501
 #, c-format
 msgid "unix2dos: target of file %s not specified in new file mode\n"
 msgstr ""
 "unix2dos: das Ziel von Datei %s wurde im neue Datei Modus nicht angegeben\n"
 
-#: unix2dos.c:1410 unix2dos.c:1454
+#: unix2dos.c:1413 unix2dos.c:1457
 #, c-format
 msgid "unix2dos: Skipping %s, not a regular file.\n"
 msgstr "unix2dos: %s wird übersprungen da es keine reguläre Datei ist.\n"
 
-#: unix2dos.c:1414
+#: unix2dos.c:1417
 #, c-format
 msgid "unix2dos: Skipping %s, output file %s is a symbolic link.\n"
 msgstr ""
 "unix2dos: %s wird übersprungen, Ausgabedatei %s ist eine symbolische "
 "Verknüpfung.\n"
 
-#: unix2dos.c:1418 unix2dos.c:1462
+#: unix2dos.c:1421 unix2dos.c:1465
 #, c-format
 msgid "unix2dos: Skipping symbolic link %s, target is not a regular file.\n"
 msgstr ""
 "unix2dos: Symbolische Verknüpfung %s wird übersprungen da das Ziel keine "
 "reguläre Datei ist.\n"
 
-#: unix2dos.c:1422
+#: unix2dos.c:1425
 #, c-format
 msgid ""
 "unix2dos: Skipping %s, target of symbolic link %s is not a regular file.\n"
@@ -257,49 +257,49 @@ msgstr ""
 "unix2dos: %s wird übersprungen, das Ziel der symbolischen Verknüpfung %s ist "
 "keine reguläre Datei.\n"
 
-#: unix2dos.c:1426 unix2dos.c:1466
+#: unix2dos.c:1429 unix2dos.c:1469
 #, c-format
 msgid "unix2dos: Skipping binary file %s\n"
 msgstr "unix2dos: die binäre Datei %s wird übersprungen\n"
 
-#: unix2dos.c:1430 unix2dos.c:1470
+#: unix2dos.c:1433 unix2dos.c:1473
 #, c-format
 msgid "unix2dos: code page %d is not supported.\n"
 msgstr "unix2dos: Codepage %d wird nicht unterstützt.\n"
 
-#: unix2dos.c:1435
+#: unix2dos.c:1438
 #, c-format
 msgid "unix2dos: converting file %s to file %s in Mac format ...\n"
 msgstr "unix2dos: Datei %s wird in Datei %s im Mac-Format konvertiert ...\n"
 
-#: unix2dos.c:1437
+#: unix2dos.c:1440
 #, c-format
 msgid "unix2dos: converting file %s to file %s in DOS format ...\n"
 msgstr "unix2dos: Datei %s wird in Datei %s im DOS-Format konvertiert ...\n"
 
-#: unix2dos.c:1442
+#: unix2dos.c:1445
 #, c-format
 msgid "unix2dos: problems converting file %s to file %s\n"
 msgstr ""
 "unix2dos: bei der Konvertierung von Datei %s in Datei %s sind Probleme "
 "aufgetreten\n"
 
-#: unix2dos.c:1458
+#: unix2dos.c:1461
 #, c-format
 msgid "unix2dos: Skipping symbolic link %s.\n"
 msgstr "unix2dos: Symbolische Verknüpfung %s wird übersprungen.\n"
 
-#: unix2dos.c:1475
+#: unix2dos.c:1478
 #, c-format
 msgid "unix2dos: converting file %s to Mac format ...\n"
 msgstr "unix2dos: Datei %s wird ins Mac-Format konvertiert ...\n"
 
-#: unix2dos.c:1477
+#: unix2dos.c:1480
 #, c-format
 msgid "unix2dos: converting file %s to DOS format ...\n"
 msgstr "unix2dos: Datei %s wird ins DOS-Format konvertiert ...\n"
 
-#: unix2dos.c:1482
+#: unix2dos.c:1485
 #, c-format
 msgid "unix2dos: problems converting file %s\n"
 msgstr "unix2dos: beim Konvertieren von Datei %s sind Probleme aufgetreten\n"

@@ -76,6 +76,19 @@ Unix gebaseerd en heeft dezelfde regeleindes als Unix.
 
 =over 4
 
+=item B<-->
+
+Behandel alle volgende opties as bestandsnamen. Gebruik deze optie
+als je bestanden wil converteren wiens naam met een streepje begint.
+Bijvoorbeeld, om een bestand genaamd "-foo" om te zetten, gebruik je
+de volgende opdracht:
+
+    dos2unix -- -foo
+
+Of in nieuw-bestand-modus:
+
+    dos2unix -n -- -foo uit.txt
+
 =item B<-ascii>
 
 Converteer alleen regeleindes. Dit is de standaard conversiemodus.

@@ -1211,6 +1211,7 @@ int main (int argc, char *argv[])
   int CanSwitchFileMode;
   int ShouldExit;
   int RetVal = 0;
+  int process_options = 1;
   CFlag *pFlag;
   char *ptr;
 #ifdef ENABLE_NLS
@@ -1264,10 +1265,12 @@ int main (int argc, char *argv[])
   while ((++ArgIdx < argc) && (!ShouldExit))
   {
     /* is it an option? */
-    if (argv[ArgIdx][0] == '-')
+    if ((argv[ArgIdx][0] == '-') && process_options)
     {
       /* an option */
-      if ((strcmp(argv[ArgIdx],"-h") == 0) || (strcmp(argv[ArgIdx],"--help") == 0))
+      if (strcmp(argv[ArgIdx],"--") == 0)
+        process_options = 0;
+      else if ((strcmp(argv[ArgIdx],"-h") == 0) || (strcmp(argv[ArgIdx],"--help") == 0))
       {
         PrintUsage();
         return(pFlag->error);
