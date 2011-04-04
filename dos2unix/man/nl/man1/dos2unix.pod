@@ -159,6 +159,7 @@ Dit is de standaard modus. Jokertekens kunnen gebruikt worden.
 =item B<-q, --quiet>
 
 Stille werking. Onderdruk alle waarschuwingen. De teruggave waarde is nul.
+Behalve wanneer verkeerde opties worden gegeven.
 
 =item B<-s, --safe>
 
@@ -399,7 +400,8 @@ Voorbeeld (POSIX shell):
 Bij succes wordt nul terug gegeven. Wanneer een systeemfout optreedt wordt de
 het systeemfoutnummer terug gegeven. Bij andere fouten wordt 1 terug gegeven.
 
-De teruggave is altijd nul in de modus stille werking.
+De teruggave is altijd nul in de modus stille werking, behalve wanneer verkeerde
+opties worden gegeven.
 
 =head1 AUTEURS
 

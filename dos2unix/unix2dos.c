@@ -815,8 +815,8 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
 #endif
     if (!ipFlag->Quiet)
     {
+      ipFlag->error = errno;
       perror(_("unix2dos: Failed to open temporary output file"));
-      ipFlag->error = 1;
     }
     RetVal = -1;
   }
@@ -886,8 +886,8 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     }
   }
 
-  /* any error? */
-  if (RetVal)
+  /* any error? cleanup the temp file */
+  if (RetVal && (TempPath != NULL))
   {
     if (unlink(TempPath))
     {
@@ -1027,8 +1027,8 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
 #endif
     if (!ipFlag->Quiet)
     {
+      ipFlag->error = errno;
       perror(_("unix2dos: Failed to open temporary output file"));
-      ipFlag->error = 1;
     }
     RetVal = -1;
   }
@@ -1095,8 +1095,8 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
     }
   }
 
-  /* any error? */
-  if (RetVal)
+  /* any error? cleanup the temp file */
+  if (RetVal && (TempPath != NULL))
   {
     if (unlink(TempPath))
     {
@@ -1345,23 +1345,19 @@ int main (int argc, char *argv[])
             pFlag->FromToMode = FROMTO_UNIX2MAC;
           else
           {
-            if (!pFlag->Quiet)
-            {
-              fprintf(stderr, _("unix2dos: invalid %s conversion mode specified\n"),argv[ArgIdx]);
-              pFlag->error = 1;
-            }
+            fprintf(stderr, _("unix2dos: invalid %s conversion mode specified\n"),argv[ArgIdx]);
+            pFlag->error = 1;
             ShouldExit = 1;
+            pFlag->stdio_mode = 0;
           }
         }
         else
         {
           ArgIdx--;
-          if (!pFlag->Quiet)
-          {
-            fprintf(stderr,_("unix2dos: option '%s' requires an argument\n"),argv[ArgIdx]);
-            pFlag->error = 1;
-          }
+          fprintf(stderr,_("unix2dos: option '%s' requires an argument\n"),argv[ArgIdx]);
+          pFlag->error = 1;
           ShouldExit = 1;
+          pFlag->stdio_mode = 0;
         }
       }
 
@@ -1370,12 +1366,10 @@ int main (int argc, char *argv[])
         /* last convert not paired */
         if (!CanSwitchFileMode)
         {
-          if (!pFlag->Quiet)
-          {
-            fprintf(stderr, _("unix2dos: target of file %s not specified in new file mode\n"), argv[ArgIdx-1]);
-            pFlag->error = 1;
-          }
+          fprintf(stderr, _("unix2dos: target of file %s not specified in new file mode\n"), argv[ArgIdx-1]);
+          pFlag->error = 1;
           ShouldExit = 1;
+          pFlag->stdio_mode = 0;
         }
         pFlag->NewFile = 0;
       }
@@ -1385,20 +1379,18 @@ int main (int argc, char *argv[])
         /* last convert not paired */
         if (!CanSwitchFileMode)
         {
-          if (!pFlag->Quiet)
-          {
-            fprintf(stderr, _("unix2dos: target of file %s not specified in new file mode\n"), argv[ArgIdx-1]);
-            pFlag->error = 1;
-          }
+          fprintf(stderr, _("unix2dos: target of file %s not specified in new file mode\n"), argv[ArgIdx-1]);
+          pFlag->error = 1;
           ShouldExit = 1;
+          pFlag->stdio_mode = 0;
         }
         pFlag->NewFile = 1;
       }
       else { /* wrong option */
         PrintUsage();
         ShouldExit = 1;
-        if (!pFlag->Quiet)
-          pFlag->error = 1;
+        pFlag->error = 1;
+        pFlag->stdio_mode = 0;
       }
     }
     else
@@ -1501,7 +1493,7 @@ int main (int argc, char *argv[])
   }
 
 
-  if ((!pFlag->Quiet) && (!CanSwitchFileMode))
+  if (!CanSwitchFileMode)
   {
     fprintf(stderr, _("unix2dos: target of file %s not specified in new file mode\n"), argv[ArgIdx-1]);
     pFlag->error = 1;

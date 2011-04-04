@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-03 17:47+0200\n"
+"POT-Creation-Date: 2011-04-04 10:53+0200\n"
 "PO-Revision-Date: 2009-12-08 21:59+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -142,7 +142,7 @@ msgstr "dos2unix: kan niet schrijven naar uitvoerbestand\n"
 msgid "dos2unix: program error, invalid conversion mode %d\n"
 msgstr "dos2unix: programma fout, ongeldige conversie modus %d\n"
 
-#: dos2unix.c:820 dos2unix.c:1032
+#: dos2unix.c:821 dos2unix.c:1033
 msgid "dos2unix: Failed to open temporary output file"
 msgstr "dos2unix: Niet gelukt om tijdelijk uitvoerbestand te openen"
 
@@ -184,43 +184,43 @@ msgstr ""
 msgid "dos2unix: active code page: %d\n"
 msgstr "dos2unix: actieve code tabel: %d\n"
 
-#: dos2unix.c:1352
+#: dos2unix.c:1350
 #, c-format
 msgid "dos2unix: invalid %s conversion mode specified\n"
 msgstr "dos2unix: ongeldige %s conversie modus gespecificeerd\n"
 
-#: dos2unix.c:1363
+#: dos2unix.c:1359
 #, c-format
 msgid "dos2unix: option '%s' requires an argument\n"
 msgstr "dos2unix: optie '%s' heeft een argument nodig\n"
 
-#: dos2unix.c:1377 dos2unix.c:1392 dos2unix.c:1498
+#: dos2unix.c:1371 dos2unix.c:1384 dos2unix.c:1490
 #, c-format
 msgid "dos2unix: target of file %s not specified in new file mode\n"
 msgstr ""
 "dos2unix: doel van bestand %s is niet gespecificeerd in 'nieuw bestand "
 "modus'\n"
 
-#: dos2unix.c:1420 dos2unix.c:1459
+#: dos2unix.c:1412 dos2unix.c:1451
 #, c-format
 msgid "dos2unix: Skipping %s, not a regular file.\n"
 msgstr "dos2unix: %s wordt overgeslagen, omdat het geen regulier bestand is.\n"
 
-#: dos2unix.c:1424
+#: dos2unix.c:1416
 #, c-format
 msgid "dos2unix: Skipping %s, output file %s is a symbolic link.\n"
 msgstr ""
 "dos2unix: %s wordt overgeslagen, uitvoerbestand %s is een symbolische "
 "koppeling.\n"
 
-#: dos2unix.c:1428 dos2unix.c:1467
+#: dos2unix.c:1420 dos2unix.c:1459
 #, c-format
 msgid "dos2unix: Skipping symbolic link %s, target is not a regular file.\n"
 msgstr ""
 "dos2unix: Symbolische koppeling %s wordt overgeslagen, omdat het doel geen "
 "regulier bestand is.\n"
 
-#: dos2unix.c:1432
+#: dos2unix.c:1424
 #, c-format
 msgid ""
 "dos2unix: Skipping %s, target of symbolic link %s is not a regular file.\n"
@@ -228,37 +228,37 @@ msgstr ""
 "dos2unix: %s wordt overgeslagen, omdat het doel van symbolische koppeling %s "
 "geen regulier bestand is.\n"
 
-#: dos2unix.c:1436 dos2unix.c:1471
+#: dos2unix.c:1428 dos2unix.c:1463
 #, c-format
 msgid "dos2unix: Skipping binary file %s\n"
 msgstr "dos2unix: Binair bestand %s wordt overgeslagen\n"
 
-#: dos2unix.c:1440 dos2unix.c:1475
+#: dos2unix.c:1432 dos2unix.c:1467
 #, c-format
 msgid "dos2unix: code page %d is not supported.\n"
 msgstr "dos2unix: codetabel %d wordt niet ondersteund.\n"
 
-#: dos2unix.c:1443
+#: dos2unix.c:1435
 #, c-format
 msgid "dos2unix: converting file %s to file %s in Unix format ...\n"
 msgstr "dos2unix: converteren bestand %s naar bestand %s in Unix formaat ...\n"
 
-#: dos2unix.c:1447
+#: dos2unix.c:1439
 #, c-format
 msgid "dos2unix: problems converting file %s to file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s naar bestand %s\n"
 
-#: dos2unix.c:1463
+#: dos2unix.c:1455
 #, c-format
 msgid "dos2unix: Skipping symbolic link %s.\n"
 msgstr "dos2unix: Symbolische koppeling %s wordt overgeslagen.\n"
 
-#: dos2unix.c:1478
+#: dos2unix.c:1470
 #, c-format
 msgid "dos2unix: converting file %s to Unix format ...\n"
 msgstr "dos2unix: converteren bestand %s naar Unix formaat ...\n"
 
-#: dos2unix.c:1482
+#: dos2unix.c:1474
 #, c-format
 msgid "dos2unix: problems converting file %s\n"
 msgstr "dos2unix: problemen met conversie van bestand %s\n"

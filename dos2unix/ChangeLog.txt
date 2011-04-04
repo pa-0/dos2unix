@@ -1,6 +1,10 @@
+2011-04-04 Erwin Waterlander <waterlan@xs4all.nl>
+	* Always print and return an error when wrong command-line
+	  options are used. Also in quiet mode.
+
 2011-04-03 Erwin Waterlander <waterlan@xs4all.nl>
 	* Improved error reporting. Return system error when an error occurs.
-	* Don't quit after first error.
+	* Don't quit after first error (like rm, ls, tar).
 	* In quiet mode the return value is always zero.
 
 2011-03-27 Erwin Waterlander <waterlan@xs4all.nl>
