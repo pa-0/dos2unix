@@ -774,6 +774,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   if (regfile(ipInFN, 1, ipFlag))
   {
     ipFlag->status |= NO_REGFILE ;
+    /* Not a failure, skipping non-regular input file according spec. */
     return -1;
   }
 
@@ -781,6 +782,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   if (symbolic_link(ipInFN) && regfile_target(ipInFN, ipFlag))
   {
     ipFlag->status |= INPUT_TARGET_NO_REGFILE ;
+    /* Not a failure, skipping non-regular input file according spec. */
     return -1;
   }
 
@@ -788,6 +790,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   if (symbolic_link(ipOutFN) && !ipFlag->Follow)
   {
     ipFlag->status |= OUTPUTFILE_SYMLINK ;
+    /* Not a failure, skipping input file according spec. (keep symbolic link unchanged) */
     return -1;
   }
 
@@ -795,6 +798,8 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   if (symbolic_link(ipOutFN) && (ipFlag->Follow == 1) && regfile_target(ipOutFN, ipFlag))
   {
     ipFlag->status |= OUTPUT_TARGET_NO_REGFILE ;
+    /* Failure, input is regular, cannot produce output. */
+    if (!ipFlag->error) ipFlag->error = 1;
     return -1;
   }
 
