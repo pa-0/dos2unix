@@ -410,7 +410,7 @@ Voorbeeld (POSIX shell):
 
 =head1 TERUGGAVE WAARDE
 
-Bij succes wordt nul terug gegeven. Wanneer een systeemfout optreedt wordt de
+Bij succes wordt nul terug gegeven. Wanneer een systeemfout optreedt wordt
 het systeemfoutnummer terug gegeven. Bij andere fouten wordt 1 terug gegeven.
 
 De teruggave is altijd nul in de modus stille werking, behalve wanneer verkeerde
