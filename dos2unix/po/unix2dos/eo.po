@@ -47,7 +47,7 @@ msgid ""
 " -s, --safe            skip binary files (default)\n"
 msgstr ""
 "unix2dos %s (%s)\n"
-"Uzado: unix2dos [elektojn] [dosiero ...] [-n antaŭaĵo kreaĵo ...]\n"
+"Uzado: dos2unix [elektojn] [dosiero ...] [-n antaŭaĵo kreaĵo ...]\n"
 " -ascii                nur traduku linio-finojn (jam enŝaltita)\n"
 " -iso                  traduku inter DOS kaj ISO-8859-1 literaro\n"
 "   -1252               Uzu Vindozan kodpaĝon 1252 (Okcident-Eŭropa)\n"
@@ -58,8 +58,8 @@ msgstr ""
 "   -865                Uzu DOS kodpaĝon 865 (Nordlandaj)\n"
 " -7                    Traduku de 8-bitaj literoj en blankspacon\n"
 " -c, --convmode        modo de ŝanĝo\n"
-"   ŝanĝmodo           ascii, 7bit, iso, mac, provizore elektita ascii\n"
-" -f, --force           force conversion of binary files\n"
+"   ŝanĝmodo            ascii, 7bit, iso, mac, provizore elektita ascii\n"
+" -f, --force           forte konvertado de netekstaj dosieroj\n"
 " -h, --help            diri ĉi tiun mesaĝon\n"
 " -k, --keepdate        konservi dato-tempon dosieran\n"
 " -L, --license         eldiru permesilon tekstan\n"
@@ -71,7 +71,7 @@ msgstr ""
 "   dosiero...          dosiero(j)n por registri per malnova modo\n"
 " -q, --quiet           silente eviti avertojn\n"
 "                       ĉiam enŝaltata dum stdio modo\n"
-" -s, --safe            skip binary files (default)\n"
+" -s, --safe            evitu netekstajn dosierojn (jam ŝaltita)\n"
 
 #: unix2dos.c:336
 #, c-format
@@ -143,9 +143,9 @@ msgid "unix2dos: using %s as temporary file\n"
 msgstr "unix2dos: uzante %s kiel provizora dosiero\n"
 
 #: unix2dos.c:922 unix2dos.c:1131
-#, fuzzy, c-format
+#, c-format
 msgid "unix2dos: problems resolving symbolic link '%s'\n"
-msgstr "unix2dos: problemojn trovitajn renomigi '%s' al '%s'\n"
+msgstr "unix2dos: erarojn legante dosieran ĉeneron '%s'\n"
 
 #: unix2dos.c:923 unix2dos.c:956 unix2dos.c:1132 unix2dos.c:1165
 #, c-format
@@ -158,9 +158,9 @@ msgid "unix2dos: problems renaming '%s' to '%s': %s\n"
 msgstr "unix2dos: problemojn trovitajn renomigi '%s' al '%s': %s\n"
 
 #: unix2dos.c:954 unix2dos.c:1163
-#, fuzzy, c-format
+#, c-format
 msgid "          which is the target of symbolic link '%s'\n"
-msgstr "          kreatan dosieron restas en '%s'\n"
+msgstr "          kiu estas la atingon de dosiera ĉenero '%s'\n"
 
 #: unix2dos.c:1234
 msgid ""
@@ -194,20 +194,20 @@ msgid "unix2dos: Skipping %s, not a regular file.\n"
 msgstr "unix2dos: Pasante %s, dosiero ne tauĝa.\n"
 
 #: unix2dos.c:1422
-#, fuzzy, c-format
+#, c-format
 msgid "unix2dos: Skipping %s, output file %s is a symbolic link.\n"
-msgstr "unix2dos: Pasante %s, dosiero ne tauĝa.\n"
+msgstr "unix2dos: Evitante %s, atingan dosieron %s jam estas dosiera ĉenero.\n"
 
 #: unix2dos.c:1426 unix2dos.c:1470
-#, fuzzy, c-format
+#, c-format
 msgid "unix2dos: Skipping symbolic link %s, target is not a regular file.\n"
-msgstr "unix2dos: Pasante %s, dosiero ne tauĝa.\n"
+msgstr "unix2dos: Evitante dosieran ĉeneron %s, atingon ne estas normala dosiero.\n"
 
 #: unix2dos.c:1430
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "unix2dos: Skipping %s, target of symbolic link %s is not a regular file.\n"
-msgstr "unix2dos: Pasante %s, dosiero ne tauĝa.\n"
+msgstr "unix2dos: Evitante %s, atingon de dosiera ĉenero %s ne estas normala dosiero.\n"
 
 #: unix2dos.c:1434 unix2dos.c:1474
 #, c-format
@@ -235,9 +235,9 @@ msgid "unix2dos: problems converting file %s to file %s\n"
 msgstr "unix2dos: problemojn trovitajn dum ŝanĝi dosiero %s al dosiero %s\n"
 
 #: unix2dos.c:1466
-#, fuzzy, c-format
+#, c-format
 msgid "unix2dos: Skipping symbolic link %s.\n"
-msgstr "unix2dos: Pasante %s, dosiero ne tauĝa.\n"
+msgstr "unix2dos: Evitante dosieran ĉeneron %s.\n"
 
 #: unix2dos.c:1483
 #, c-format
@@ -254,7 +254,3 @@ msgstr "unix2dos: ŝanĝante dosiero %s DOS-en ...\n"
 msgid "unix2dos: problems converting file %s\n"
 msgstr "unix2dos: problemojn dum ŝanĝi %s\n"
 
-#, fuzzy
-#~ msgid ""
-#~ "unix2dos: Skipping symbolic link %s, target of %s is not a regular file.\n"
-#~ msgstr "unix2dos: Pasante %s, dosiero ne tauĝa.\n"
