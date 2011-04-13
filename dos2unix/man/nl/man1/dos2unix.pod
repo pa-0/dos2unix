@@ -59,11 +59,7 @@ dos2unix - DOS/Mac naar Unix en vice versa tekstbestand formaat omzetter
 
 Het Dos2unix pakket bevat toepassingen C<dos2unix> en C<unix2dos> om 
 platte tekstbestanden in DOS of Mac formaat naar Unix om te zetten en
-vice versa. Binaire bestanden en niet-reguliere bestanden, zoals
-snelkoppelingen, worden automatisch overgeslagen, behalve als de omzetting
-geforceerd wordt.
-
-Dos2unix is gemodelleerd naar dos2unix onder SunOS/Solaris en heeft gelijke conversiemodi.
+vice versa.
 
 In DOS/Windows tekstbestanden bestaat een regeleinde uit een combinatie van
 twee tekens: een 'Carriage Return' (CR) gevolgd door een 'Line Feed' (LF). In
@@ -71,6 +67,17 @@ Unix tekstbestanden bestaat een regeleinde uit een enkel 'Newline' teken die
 gelijk is aan een DOS 'Line Feed' (LF) teken.  In Mac tekst bestanden, voor Mac
 OS X, bestaan regeleindes uit een enkel 'Carriage Return' teken. Mac OS X is
 Unix gebaseerd en heeft dezelfde regeleindes als Unix. 
+
+Binaire bestanden worden automatisch overgeslagen, behalve als de omzetting
+geforceerd wordt.
+
+Niet-reguliere bestanden, zoals mappen en FIFOs, worden automatisch overgeslagen.
+
+Op Unix blijven symbolische koppelingen en hun doelen standaard onaangeroerd.
+Optioneel kunnen symbolische worden vervangen, of de uitvoer kan naar het doel
+van de symbolische koppeling worden geschreven.
+
+Dos2unix is gemodelleerd naar dos2unix onder SunOS/Solaris en heeft gelijke conversiemodi.
 
 =head1 OPTIES
 

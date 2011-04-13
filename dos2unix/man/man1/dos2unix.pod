@@ -59,18 +59,24 @@ dos2unix - DOS/Mac to Unix and vice versa text file format converter
 =head1 DESCRIPTION
 
 The Dos2unix package includes utilities C<dos2unix> and C<unix2dos> to convert
-plain text files in DOS or Mac format to Unix format and vice versa. Binary files
-and non-regular files, such as soft links, are automatically skipped, unless
-conversion is forced.
-
-Dos2unix was modelled after dos2unix under SunOS/Solaris and has similar
-conversion modes.
+plain text files in DOS or Mac format to Unix format and vice versa.
 
 In DOS/Windows text files a line break, also known as newline, is a combination
 of two characters: a Carriage Return (CR) followed by a Line Feed (LF). In Unix
 text files a line break is a single character: the Line Feed (LF). In Mac text
 files, prior to Mac OS X, a line break was single Carriage Return (CR)
 character. Nowadays Mac OS uses Unix style (LF) line breaks.
+
+Binary files are automatically skipped, unless conversion is forced.
+
+Non-regular files, such as directories and FIFOs, are automatically skipped.
+
+On Unix symbolic links and their targets are by default kept untouched.
+Optionally symbolic links can be replaced, or the output can be written to the
+symbolic link target.
+
+Dos2unix was modelled after dos2unix under SunOS/Solaris and has similar
+conversion modes.
 
 =head1 OPTIONS
 
