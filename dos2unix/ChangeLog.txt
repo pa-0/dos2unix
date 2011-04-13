@@ -1,3 +1,7 @@
+2011-04-13 Erwin Waterlander <waterlan@xs4all.nl>
+	* Print system error when input file can't be openened.
+	  For instance "Permission denied"
+
 2011-04-04 Erwin Waterlander <waterlan@xs4all.nl>
 	* Always print and return an error when wrong command-line
 	  options are used. Also in quiet mode.

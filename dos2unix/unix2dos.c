@@ -831,19 +831,35 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
 #endif
 
   /* can open in file? */
-  if ((!RetVal) && ((InF=OpenInFile(ipInFN)) == NULL))
-    RetVal = -1;
+  if (!RetVal)
+  {
+    InF=OpenInFile(ipInFN);
+    if (InF == NULL)
+    {
+      ipFlag->error = errno;
+      errstr = strerror(errno);
+      fprintf(stderr, "dos2unix: %s: %s\n", ipInFN, errstr);
+      RetVal = -1;
+    }
+  }
 
   /* can open output file? */
-#ifdef NO_MKSTEMP
-  if ((!RetVal) && (InF) && ((TempF=fd) == NULL))
-#else
-  if ((!RetVal) && (InF) && ((TempF=OpenOutFile(fd)) == NULL))
-#endif
+  if ((!RetVal) && (InF))
   {
-    fclose (InF);
-    InF = NULL;
-    RetVal = -1;
+#ifdef NO_MKSTEMP
+    if ((TempF=fd) == NULL)
+    {
+#else
+    if ((TempF=OpenOutFile(fd)) == NULL)
+    {
+      ipFlag->error = errno;
+      errstr = strerror(errno);
+      fprintf(stderr, "dos2unix: %s\n", errstr);
+#endif
+      fclose (InF);
+      InF = NULL;
+      RetVal = -1;
+    }
   }
 
 #ifndef NO_FCHMOD
@@ -1048,19 +1064,35 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
 #endif
 
   /* can open in file? */
-  if ((!RetVal) && ((InF=OpenInFile(ipInFN)) == NULL))
-    RetVal = -1;
+  if (!RetVal)
+  {
+    InF=OpenInFile(ipInFN);
+    if (InF == NULL)
+    {
+      ipFlag->error = errno;
+      errstr = strerror(errno);
+      fprintf(stderr, "dos2unix: %s: %s\n", ipInFN, errstr);
+      RetVal = -1;
+    }
+  }
 
   /* can open output file? */
-#ifdef NO_MKSTEMP
-  if ((!RetVal) && (InF) && ((TempF=fd) == NULL))
-#else
-  if ((!RetVal) && (InF) && ((TempF=OpenOutFile(fd)) == NULL))
-#endif
+  if ((!RetVal) && (InF))
   {
-    fclose (InF);
-    InF = NULL;
-    RetVal = -1;
+#ifdef NO_MKSTEMP
+    if ((TempF=fd) == NULL)
+    {
+#else
+    if ((TempF=OpenOutFile(fd)) == NULL)
+    {
+      ipFlag->error = errno;
+      errstr = strerror(errno);
+      fprintf(stderr, "dos2unix: %s\n", errstr);
+#endif
+      fclose (InF);
+      InF = NULL;
+      RetVal = -1;
+    }
   }
 
   /* conversion sucessful? */
