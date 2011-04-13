@@ -838,7 +838,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     {
       ipFlag->error = errno;
       errstr = strerror(errno);
-      fprintf(stderr, "dos2unix: %s: %s\n", ipInFN, errstr);
+      fprintf(stderr, "unix2dos: %s: %s\n", ipInFN, errstr);
       RetVal = -1;
     }
   }
@@ -854,7 +854,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
     {
       ipFlag->error = errno;
       errstr = strerror(errno);
-      fprintf(stderr, "dos2unix: %s\n", errstr);
+      fprintf(stderr, "unix2dos: %s\n", errstr);
 #endif
       fclose (InF);
       InF = NULL;
@@ -1071,7 +1071,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
     {
       ipFlag->error = errno;
       errstr = strerror(errno);
-      fprintf(stderr, "dos2unix: %s: %s\n", ipInFN, errstr);
+      fprintf(stderr, "unix2dos: %s: %s\n", ipInFN, errstr);
       RetVal = -1;
     }
   }
@@ -1087,7 +1087,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
     {
       ipFlag->error = errno;
       errstr = strerror(errno);
-      fprintf(stderr, "dos2unix: %s\n", errstr);
+      fprintf(stderr, "unix2dos: %s\n", errstr);
 #endif
       fclose (InF);
       InF = NULL;
