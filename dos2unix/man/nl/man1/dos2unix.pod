@@ -74,8 +74,8 @@ geforceerd wordt.
 Niet-reguliere bestanden, zoals mappen en FIFOs, worden automatisch overgeslagen.
 
 Op Unix blijven symbolische koppelingen en hun doelen standaard onaangeroerd.
-Optioneel kunnen symbolische worden vervangen, of de uitvoer kan naar het doel
-van de symbolische koppeling worden geschreven.
+Optioneel kunnen symbolische koppelingen worden vervangen, of de uitvoer kan
+naar het doel van de symbolische koppeling worden geschreven.
 
 Dos2unix is gemodelleerd naar dos2unix onder SunOS/Solaris en heeft gelijke conversiemodi.
 
@@ -85,7 +85,7 @@ Dos2unix is gemodelleerd naar dos2unix onder SunOS/Solaris en heeft gelijke conv
 
 =item B<-->
 
-Behandel alle volgende opties as bestandsnamen. Gebruik deze optie
+Behandel alle volgende opties als bestandsnamen. Gebruik deze optie
 als je bestanden wil converteren wiens naam met een streepje begint.
 Bijvoorbeeld, om een bestand genaamd "-foo" om te zetten, gebruik je
 de volgende opdracht:
