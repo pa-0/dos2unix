@@ -1,3 +1,6 @@
+2011-04-23 Erwin Waterlander <waterlan@xs4all.nl>
+	* Don't report an error when removing a non-existant file.
+
 2011-04-13 Erwin Waterlander <waterlan@xs4all.nl>
 	* Print system error when input file can't be openened.
 	  For instance "Permission denied"

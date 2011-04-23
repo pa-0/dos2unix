@@ -910,7 +910,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   /* any error? cleanup the temp file */
   if (RetVal && (TempPath != NULL))
   {
-    if (unlink(TempPath))
+    if (unlink(TempPath) && (errno != ENOENT))
     {
       if (!ipFlag->Quiet)
       {
@@ -947,7 +947,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   if (!RetVal)
   {
 #ifdef NEED_REMOVE
-    if (unlink(TargetFN))
+    if (unlink(TargetFN) && (errno != ENOENT))
     {
       if (!ipFlag->Quiet)
       {
@@ -1135,7 +1135,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   /* any error? cleanup the temp file */
   if (RetVal && (TempPath != NULL))
   {
-    if (unlink(TempPath))
+    if (unlink(TempPath) && (errno != ENOENT))
     {
       if (!ipFlag->Quiet)
       {
@@ -1172,7 +1172,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
   if (!RetVal)
   {
 #ifdef NEED_REMOVE
-    if (unlink(TargetFN))
+    if (unlink(TargetFN) && (errno != ENOENT))
     {
       if (!ipFlag->Quiet)
       {
