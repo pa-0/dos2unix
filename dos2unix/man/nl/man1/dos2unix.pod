@@ -73,9 +73,9 @@ geforceerd wordt.
 
 Niet-reguliere bestanden, zoals mappen en FIFOs, worden automatisch overgeslagen.
 
-Op Unix blijven symbolische koppelingen en hun doelen standaard onaangeroerd.
-Optioneel kunnen symbolische koppelingen worden vervangen, of de uitvoer kan
-naar het doel van de symbolische koppeling worden geschreven.
+POSIX symbolische koppelingen en hun doelen blijven standaard onaangeroerd.
+Optioneel kunnen POSIX symbolische koppelingen worden vervangen, of de uitvoer
+kan naar het doel van de symbolische koppeling worden geschreven.
 
 Dos2unix is gemodelleerd naar dos2unix onder SunOS/Solaris en heeft gelijke conversiemodi.
 

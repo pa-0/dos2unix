@@ -71,9 +71,9 @@ Binary files are automatically skipped, unless conversion is forced.
 
 Non-regular files, such as directories and FIFOs, are automatically skipped.
 
-On Unix symbolic links and their targets are by default kept untouched.
-Optionally symbolic links can be replaced, or the output can be written to the
-symbolic link target.
+POSIX symbolic links and their targets are by default kept untouched.
+Optionally POSIX symbolic links can be replaced, or the output can be written
+to the symbolic link target.
 
 Dos2unix was modelled after dos2unix under SunOS/Solaris and has similar
 conversion modes.
