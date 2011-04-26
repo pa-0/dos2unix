@@ -1,6 +1,6 @@
-2011-0?-??: Version 5.3
+2011-04-26: Version 5.3
 
-  * Improved handling of POSIX symbolic links. New options -F, -R, -S.
+  * Improved handling of symbolic links. New options -F, -R, -S.
   * Improved handling and reporting of errors.
   * Source code improvements for Cygwin. Behave exactly as on Linux.
   * New option --. Treat all following options as file names.
