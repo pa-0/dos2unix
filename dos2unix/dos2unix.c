@@ -770,6 +770,14 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
 
   ipFlag->status = 0 ;
 
+  /* Test if output file is a symbolic link */
+  if (symbolic_link(ipOutFN) && !ipFlag->Follow)
+  {
+    ipFlag->status |= OUTPUTFILE_SYMLINK ;
+    /* Not a failure, skipping input file according spec. (keep symbolic link unchanged) */
+    return -1;
+  }
+
   /* Test if input file is a regular file or symbolic link */
   if (regfile(ipInFN, 1, ipFlag))
   {
@@ -783,14 +791,6 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   {
     ipFlag->status |= INPUT_TARGET_NO_REGFILE ;
     /* Not a failure, skipping non-regular input file according spec. */
-    return -1;
-  }
-
-  /* Test if output file is a symbolic link */
-  if (symbolic_link(ipOutFN) && !ipFlag->Follow)
-  {
-    ipFlag->status |= OUTPUTFILE_SYMLINK ;
-    /* Not a failure, skipping input file according spec. (keep symbolic link unchanged) */
     return -1;
   }
 
@@ -982,232 +982,6 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
   free(TempPath);
   return RetVal;
 }
-
-
-/* convert file ipInFN to UNIX format text
- * RetVal: 0 if success
- *         -1 otherwise
- */
-int ConvertDosToUnixOldFile(char* ipInFN, CFlag *ipFlag)
-{
-  int RetVal = 0;
-  FILE *InF = NULL;
-  FILE *TempF = NULL;
-  char *TempPath;
-  char *errstr;
-  struct stat StatBuf;
-  struct utimbuf UTimeBuf;
-#ifndef NO_FCHMOD
-  mode_t mode = S_IRUSR | S_IWUSR;
-#endif
-#ifdef NO_MKSTEMP
-  FILE* fd;
-#else
-  int fd;
-#endif
-  char *TargetFN = NULL;
-  int ResolveSymlinkResult = 0;
-
-  ipFlag->status = 0 ;
-
-  /* test if file is a regular file or symbolic link */
-  if (regfile(ipInFN, ipFlag->Follow, ipFlag))
-  {
-    if (symbolic_link(ipInFN))
-      ipFlag->status |= OUTPUTFILE_SYMLINK ;
-    else
-      ipFlag->status |= NO_REGFILE ;
-    return -1;
-  }
-
-  /* Test if input file target is a regular file */
-  if (symbolic_link(ipInFN) && regfile_target(ipInFN, ipFlag))
-  {
-    ipFlag->status |= INPUT_TARGET_NO_REGFILE ;
-    return -1;
-  }
-
-  /* retrieve ipInFN file date stamp */
-  if (stat(ipInFN, &StatBuf))
-  {
-    if (!ipFlag->Quiet)
-    {
-      ipFlag->error = errno;
-      errstr = strerror(errno);
-      fprintf(stderr, "dos2unix: %s: %s\n", ipInFN, errstr);
-    }
-    RetVal = -1;
-  }
-#ifndef NO_FCHMOD
-  else
-    mode = StatBuf.st_mode;
-#endif
-
-#ifdef NO_MKSTEMP
-  if((fd = MakeTempFileFrom(ipInFN, &TempPath))==NULL) {
-#else
-  if((fd = MakeTempFileFrom(ipInFN, &TempPath)) < 0) {
-#endif
-    if (!ipFlag->Quiet)
-    {
-      ipFlag->error = errno;
-      perror(_("dos2unix: Failed to open temporary output file"));
-    }
-    RetVal = -1;
-  }
-
-#ifndef NO_FCHMOD
-  if (!RetVal && fchmod (fd, mode) && fchmod (fd, S_IRUSR | S_IWUSR))
-    RetVal = -1;
-#endif
-
-#if DEBUG
-  fprintf(stderr, _("dos2unix: using %s as temporary file\n"), TempPath);
-#endif
-
-  /* can open in file? */
-  if (!RetVal)
-  {
-    InF=OpenInFile(ipInFN);
-    if (InF == NULL)
-    {
-      ipFlag->error = errno;
-      errstr = strerror(errno);
-      fprintf(stderr, "dos2unix: %s: %s\n", ipInFN, errstr);
-      RetVal = -1;
-    }
-  }
-
-  /* can open output file? */
-  if ((!RetVal) && (InF))
-  {
-#ifdef NO_MKSTEMP
-    if ((TempF=fd) == NULL)
-    {
-#else
-    if ((TempF=OpenOutFile(fd)) == NULL)
-    {
-      ipFlag->error = errno;
-      errstr = strerror(errno);
-      fprintf(stderr, "dos2unix: %s\n", errstr);
-#endif
-      fclose (InF);
-      InF = NULL;
-      RetVal = -1;
-    }
-  }
-
-  /* conversion sucessful? */
-  if ((!RetVal) && (ConvertDosToUnix(InF, TempF, ipFlag)))
-    RetVal = -1;
-
-   /* can close in file? */
-  if ((InF) && (fclose(InF) == EOF))
-    RetVal = -1;
-
-  /* can close output file? */
-  if ((TempF) && (fclose(TempF) == EOF))
-    RetVal = -1;
-
-#ifdef NO_MKSTEMP
-  if(fd!=NULL)
-    fclose(fd);
-#else
-  if(fd>=0)
-    close(fd);
-#endif
-
-  if ((!RetVal) && (ipFlag->KeepDate))
-  {
-    UTimeBuf.actime = StatBuf.st_atime;
-    UTimeBuf.modtime = StatBuf.st_mtime;
-    /* can change output file time to in file time? */
-    if (utime(TempPath, &UTimeBuf) == -1)
-    {
-      if (!ipFlag->Quiet)
-      {
-        ipFlag->error = errno;
-        errstr = strerror(errno);
-        fprintf(stderr, "dos2unix: %s: %s\n", TempPath, errstr);
-      }
-      RetVal = -1;
-    }
-  }
-
-  /* any error? cleanup the temp file */
-  if (RetVal && (TempPath != NULL))
-  {
-    if (unlink(TempPath) && (errno != ENOENT))
-    {
-      if (!ipFlag->Quiet)
-      {
-        ipFlag->error = errno;
-        errstr = strerror(errno);
-        fprintf(stderr, "dos2unix: %s: %s\n", TempPath, errstr);
-      }
-      RetVal = -1;
-    }
-  }
-
-  /* If input file is a symbolic link, optional resolve the link and modify  */
-  /* the target, instead of removing the link and creating a new regular file */
-  TargetFN = ipInFN;
-  if (symbolic_link(ipInFN) && !RetVal)
-  {
-    ResolveSymlinkResult = 0; /* indicates that TargetFN need not be freed */
-    if (ipFlag->Follow == 1)
-    {
-      ResolveSymlinkResult = ResolveSymbolicLink(ipInFN, &TargetFN, ipFlag);
-      if (ResolveSymlinkResult < 0)
-      {
-        if (!ipFlag->Quiet)
-        {
-          fprintf(stderr, _("dos2unix: problems resolving symbolic link '%s'\n"), ipInFN);
-          fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
-        }
-        RetVal = -1;
-      }
-    }
-  }
-
-  /* can rename output file to in file? */
-  if (!RetVal)
-  {
-#ifdef NEED_REMOVE
-    if (unlink(TargetFN) && (errno != ENOENT))
-    {
-      if (!ipFlag->Quiet)
-      {
-        ipFlag->error = errno;
-        errstr = strerror(errno);
-        fprintf(stderr, "dos2unix: %s: %s\n", TargetFN, errstr);
-      }
-      RetVal = -1;
-    }
-#endif
-    if (rename(TempPath, TargetFN) == -1)
-    {
-      if (!ipFlag->Quiet)
-      {
-        ipFlag->error = errno;
-        errstr = strerror(errno);
-        fprintf(stderr, _("dos2unix: problems renaming '%s' to '%s': %s\n"), TempPath, TargetFN, errstr);
-#ifdef S_ISLNK
-        if (ResolveSymlinkResult > 0)
-          fprintf(stderr, _("          which is the target of symbolic link '%s'\n"), ipInFN);
-#endif
-        fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
-      }
-      RetVal = -1;
-    }
-
-    if (ResolveSymlinkResult > 0)
-      free(TargetFN);
-  }
-  free(TempPath);
-  return RetVal;
-}
-
 
 /* convert stdin to UNIX format text and write to stdout
  * RetVal: 0 if success
@@ -1484,7 +1258,7 @@ int main (int argc, char *argv[])
       }
       else
       {
-        RetVal = ConvertDosToUnixOldFile(argv[ArgIdx], pFlag);
+        RetVal = ConvertDosToUnixNewFile(argv[ArgIdx], argv[ArgIdx], pFlag);
         if (pFlag->status & NO_REGFILE)
         {
           if (!pFlag->Quiet)

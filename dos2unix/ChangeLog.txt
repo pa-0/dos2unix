@@ -1,3 +1,7 @@
+2011-05-04 Erwin Waterlander <waterlan@xs4all.nl>
+	* dos2unix.c: Removed redundant ConvertDosToUnixOldFile().
+	* unix2dos.c: Removed redundant ConvertUnixToDosOldFile().
+
 2011-04-26 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 5.3
 
