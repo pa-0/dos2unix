@@ -86,12 +86,9 @@ ifdef ENABLE_NLS
 	DOS2UNIX_POT		= po/dos2unix/$(PACKAGE).pot
 	DOS2UNIX_POFILES	= $(wildcard po/dos2unix/??.po)
 	DOS2UNIX_MOFILES	= $(patsubst %.po,%.mo,$(DOS2UNIX_POFILES))
-	UNIX2DOS_POT		= po/unix2dos/$(UNIX2DOS).pot
-	UNIX2DOS_POFILES	= $(wildcard po/unix2dos/??.po)
-	UNIX2DOS_MOFILES	= $(patsubst %.po,%.mo,$(UNIX2DOS_POFILES))
-	POFILES			= $(DOS2UNIX_POFILES) $(UNIX2DOS_POFILES)
-	EOX_POFILES		= po/dos2unix/eo-x.po po/unix2dos/eo-x.po
-	MOFILES			= $(DOS2UNIX_MOFILES) $(UNIX2DOS_MOFILES)
+	POFILES			= $(DOS2UNIX_POFILES)
+	EOX_POFILES		= po/dos2unix/eo-x.po
+	MOFILES			= $(DOS2UNIX_MOFILES)
 endif
 
 DOCFILES	= $(PACKAGE).txt $(PACKAGE).htm
@@ -109,7 +106,6 @@ MKDIR           = mkdir
 
 ifdef ENABLE_NLS
 	DOS2UNIX_NLSDEFS = -DENABLE_NLS -DLOCALEDIR=\"$(localedir)\" -DPACKAGE=\"$(PACKAGE)\"
-	UNIX2DOS_NLSDEFS = -DENABLE_NLS -DLOCALEDIR=\"$(localedir)\" -DPACKAGE=\"$(UNIX2DOS)\"
 endif
 
 # ......................................................... OS flags ...
@@ -226,7 +222,7 @@ dos2unix.o : dos2unix.c dos2unix.h querycp.h
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
 
 unix2dos.o : unix2dos.c unix2dos.h querycp.h
-	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(UNIX2DOS_NLSDEFS) $(CFLAGS) -c $< -o $@
+	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
 
 $(BIN): dos2unix.o querycp.o
 	$(CC) $+ $(LDFLAGS) -o $@
@@ -264,25 +260,14 @@ po/dos2unix/%.po : $(DOS2UNIX_POT)
 	# change timestamp in case .po file was not updated.
 	touch $@
 
-po/unix2dos/%.po : $(UNIX2DOS_POT)
-	msgmerge -U $@ $(UNIX2DOS_POT) --backup=numbered
-	# change timestamp in case .po file was not updated.
-	touch $@
-
 %.mo : %.po
 	msgfmt -c $< -o $@
 
 po/dos2unix/eo.mo : po/dos2unix/eo$(EO_NOTATION).po
 	msgfmt -c $< -o $@
 
-po/unix2dos/eo.mo : po/unix2dos/eo$(EO_NOTATION).po
-	msgfmt -c $< -o $@
-
-$(DOS2UNIX_POT) : dos2unix.c
+$(DOS2UNIX_POT) : dos2unix.c unix2dos.c
 	xgettext -C --keyword=_ $+ -o $(DOS2UNIX_POT)
-
-$(UNIX2DOS_POT) : unix2dos.c
-	xgettext -C --keyword=_ $+ -o $(UNIX2DOS_POT)
 
 %.txt : man/man1/%.pod
 	LC_CTYPE=C pod2text $< > $@
@@ -327,7 +312,6 @@ ifdef ENABLE_NLS
 	@echo "-- install-mo"
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
 	$(foreach mofile, $(DOS2UNIX_MOFILES), $(INSTALL) -m 644 $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
-	$(foreach mofile, $(UNIX2DOS_MOFILES), $(INSTALL) -m 644 $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(UNIX2DOS).mo ;)
 endif
 	@echo "-- install-doc"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
@@ -341,7 +325,6 @@ uninstall:
 	-rm -f $(DESTDIR)$(bindir)/$(UNIX2MAC_BIN)
 ifdef ENABLE_NLS
 	$(foreach mofile, $(DOS2UNIX_MOFILES), rm -f $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
-	$(foreach mofile, $(UNIX2DOS_MOFILES), rm -f $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(UNIX2DOS).mo ;)
 endif
 	-rm -f $(DESTDIR)$(mandir)/man1/$(PACKAGE).1
 	-rm -f $(DESTDIR)$(mandir)/man1/$(MAC2UNIX).1
@@ -386,7 +369,6 @@ ZIPOBJ	= bin/$(BIN) \
 
 ifdef ENABLE_NLS
 ZIPOBJ += share/locale/*/LC_MESSAGES/$(PACKAGE).mo
-ZIPOBJ += share/locale/*/LC_MESSAGES/$(UNIX2DOS).mo
 endif
 
 VERSIONSUFFIX	= -bin

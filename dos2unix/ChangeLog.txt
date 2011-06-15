@@ -1,3 +1,6 @@
+2011-06-15 Erwin Waterlander <waterlan@xs4all.nl>
+	* Dos2unix and Unix2dos share the same language files.
+
 2011-05-04 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c: Removed redundant ConvertDosToUnixOldFile().
 	* unix2dos.c: Removed redundant ConvertUnixToDosOldFile().
