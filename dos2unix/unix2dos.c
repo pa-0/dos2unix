@@ -1050,6 +1050,9 @@ int main (int argc, char *argv[])
   char localedir[1024];
 #endif
 
+  progname[8] = '\0';
+  strcpy(progname,"unix2dos");
+
 #ifdef ENABLE_NLS
    ptr = getenv("DOS2UNIX_LOCALEDIR");
    if (ptr == NULL)
@@ -1060,7 +1063,8 @@ int main (int argc, char *argv[])
          strcpy(localedir,ptr);
       else
       {
-         fprintf(stderr, "%s", _("unix2dos: error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"));
+         fprintf(stderr,"%s: ",progname);
+         fprintf(stderr, "%s", _("error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"));
          strcpy(localedir,LOCALEDIR);
       }
    }
@@ -1072,7 +1076,6 @@ int main (int argc, char *argv[])
 
 
   /* variable initialisations */
-  progname[8] = '\0';
   ArgIdx = 0;
   CanSwitchFileMode = 1;
   ShouldExit = 0;
@@ -1098,10 +1101,6 @@ int main (int argc, char *argv[])
   {
     pFlag->FromToMode = FROMTO_UNIX2MAC;
     strcpy(progname,"unix2mac");
-  }
-  else
-  {
-    strcpy(progname,"unix2dos");
   }
 
   while ((++ArgIdx < argc) && (!ShouldExit))

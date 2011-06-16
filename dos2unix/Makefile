@@ -337,8 +337,8 @@ clean:
 	rm -f *.bak *~
 	rm -f *.tmp
 	rm -f man/man1/*.bak man/man1/*~
-	rm -f po/*/*.bak po/*/*~
-	rm -f po/*/*.mo
+	rm -f po/*.bak po/*~
+	rm -f po/*.mo
 
 distclean: clean
 

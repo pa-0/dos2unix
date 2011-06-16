@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-16 00:03+0200\n"
+"POT-Creation-Date: 2011-06-16 17:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -139,84 +139,82 @@ msgstr ""
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr ""
 
-#: dos2unix.c:1062
-msgid ""
-"dos2unix: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
-"long.\n"
+#: dos2unix.c:1066 unix2dos.c:1067
+msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr ""
 
-#: dos2unix.c:1158 dos2unix.c:1189 unix2dos.c:1159 unix2dos.c:1190
+#: dos2unix.c:1157 dos2unix.c:1188 unix2dos.c:1158 unix2dos.c:1189
 #, c-format
 msgid "active code page: %d\n"
 msgstr ""
 
-#: dos2unix.c:1199 unix2dos.c:1200
+#: dos2unix.c:1198 unix2dos.c:1199
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr ""
 
-#: dos2unix.c:1209 unix2dos.c:1210
+#: dos2unix.c:1208 unix2dos.c:1209
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr ""
 
-#: dos2unix.c:1222 dos2unix.c:1236 dos2unix.c:1388 unix2dos.c:1223
-#: unix2dos.c:1237 unix2dos.c:1395
+#: dos2unix.c:1221 dos2unix.c:1235 dos2unix.c:1387 unix2dos.c:1222
+#: unix2dos.c:1236 unix2dos.c:1394
 #, c-format
 msgid "target of file %s not specified in new file mode\n"
 msgstr ""
 
-#: dos2unix.c:1266 dos2unix.c:1329 unix2dos.c:1267 unix2dos.c:1333
+#: dos2unix.c:1265 dos2unix.c:1328 unix2dos.c:1266 unix2dos.c:1332
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr ""
 
-#: dos2unix.c:1273 unix2dos.c:1274
+#: dos2unix.c:1272 unix2dos.c:1273
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr ""
 
-#: dos2unix.c:1280 dos2unix.c:1343 unix2dos.c:1281 unix2dos.c:1347
+#: dos2unix.c:1279 dos2unix.c:1342 unix2dos.c:1280 unix2dos.c:1346
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr ""
 
-#: dos2unix.c:1287 unix2dos.c:1288
+#: dos2unix.c:1286 unix2dos.c:1287
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr ""
 
-#: dos2unix.c:1294 dos2unix.c:1350 unix2dos.c:1295 unix2dos.c:1354
+#: dos2unix.c:1293 dos2unix.c:1349 unix2dos.c:1294 unix2dos.c:1353
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr ""
 
-#: dos2unix.c:1301 dos2unix.c:1357 unix2dos.c:1302 unix2dos.c:1361
+#: dos2unix.c:1300 dos2unix.c:1356 unix2dos.c:1301 unix2dos.c:1360
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr ""
 
-#: dos2unix.c:1307
+#: dos2unix.c:1306
 #, c-format
 msgid "converting file %s to file %s in Unix format ...\n"
 msgstr ""
 
-#: dos2unix.c:1314 unix2dos.c:1318
+#: dos2unix.c:1313 unix2dos.c:1317
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr ""
 
-#: dos2unix.c:1336 unix2dos.c:1340
+#: dos2unix.c:1335 unix2dos.c:1339
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr ""
 
-#: dos2unix.c:1363
+#: dos2unix.c:1362
 #, c-format
 msgid "converting file %s to Unix format ...\n"
 msgstr ""
 
-#: dos2unix.c:1370 unix2dos.c:1377
+#: dos2unix.c:1369 unix2dos.c:1376
 #, c-format
 msgid "problems converting file %s\n"
 msgstr ""
@@ -249,28 +247,22 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: unix2dos.c:1063
-msgid ""
-"unix2dos: error: Value of environment variable DOS2UNIX_LOCALEDIR is too "
-"long.\n"
-msgstr ""
-
-#: unix2dos.c:1309
+#: unix2dos.c:1308
 #, c-format
 msgid "converting file %s to file %s in Mac format ...\n"
 msgstr ""
 
-#: unix2dos.c:1311
+#: unix2dos.c:1310
 #, c-format
 msgid "converting file %s to file %s in DOS format ...\n"
 msgstr ""
 
-#: unix2dos.c:1368
+#: unix2dos.c:1367
 #, c-format
 msgid "converting file %s to Mac format ...\n"
 msgstr ""
 
-#: unix2dos.c:1370
+#: unix2dos.c:1369
 #, c-format
 msgid "converting file %s to DOS format ...\n"
 msgstr ""
