@@ -83,12 +83,10 @@ EO_NOTATION = -x
 endif
 
 ifdef ENABLE_NLS
-	DOS2UNIX_POT		= po/dos2unix/$(PACKAGE).pot
-	DOS2UNIX_POFILES	= $(wildcard po/dos2unix/??.po)
-	DOS2UNIX_MOFILES	= $(patsubst %.po,%.mo,$(DOS2UNIX_POFILES))
-	POFILES			= $(DOS2UNIX_POFILES)
-	EOX_POFILES		= po/dos2unix/eo-x.po
-	MOFILES			= $(DOS2UNIX_MOFILES)
+	POT		= po/$(PACKAGE).pot
+	POFILES		= $(wildcard po/??.po)
+	MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
+	EOX_POFILES	= po/eo-x.po
 endif
 
 DOCFILES	= $(PACKAGE).txt $(PACKAGE).htm
@@ -251,23 +249,23 @@ pdf: $(PACKAGE).pdf
 
 doc: $(DOCFILES)
 
-tags: $(DOS2UNIX_POT)
+tags: $(POT)
 
 merge: $(POFILES) $(EOX_POFILES)
 
-po/dos2unix/%.po : $(DOS2UNIX_POT)
-	msgmerge -U $@ $(DOS2UNIX_POT) --backup=numbered
+po/%.po : $(POT)
+	msgmerge -U $@ $(POT) --backup=numbered
 	# change timestamp in case .po file was not updated.
 	touch $@
 
 %.mo : %.po
 	msgfmt -c $< -o $@
 
-po/dos2unix/eo.mo : po/dos2unix/eo$(EO_NOTATION).po
+po/eo.mo : po/eo$(EO_NOTATION).po
 	msgfmt -c $< -o $@
 
-$(DOS2UNIX_POT) : dos2unix.c unix2dos.c
-	xgettext -C --keyword=_ $+ -o $(DOS2UNIX_POT)
+$(POT) : dos2unix.c unix2dos.c
+	xgettext -C --keyword=_ $+ -o $(POT)
 
 %.txt : man/man1/%.pod
 	LC_CTYPE=C pod2text $< > $@
@@ -311,7 +309,7 @@ endif
 ifdef ENABLE_NLS
 	@echo "-- install-mo"
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
-	$(foreach mofile, $(DOS2UNIX_MOFILES), $(INSTALL) -m 644 $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+	$(foreach mofile, $(MOFILES), $(INSTALL) -m 644 $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 endif
 	@echo "-- install-doc"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
@@ -324,7 +322,7 @@ uninstall:
 	-rm -f $(DESTDIR)$(bindir)/$(UNIX2DOS_BIN)
 	-rm -f $(DESTDIR)$(bindir)/$(UNIX2MAC_BIN)
 ifdef ENABLE_NLS
-	$(foreach mofile, $(DOS2UNIX_MOFILES), rm -f $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+	$(foreach mofile, $(MOFILES), rm -f $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 endif
 	-rm -f $(DESTDIR)$(mandir)/man1/$(PACKAGE).1
 	-rm -f $(DESTDIR)$(mandir)/man1/$(MAC2UNIX).1
