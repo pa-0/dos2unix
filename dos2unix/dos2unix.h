@@ -1,6 +1,3 @@
-#ifndef __DOS2UNIX_H
-#define __DOS2UNIX_H
-
 /*
  *  Copyright (C) 2009-2011 Erwin Waterlander
  *  Copyright (C) 1994-1995 Benjamin Lin.
@@ -27,6 +24,9 @@
  *  OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
  *  IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
+#ifndef __DOS2UNIX_H
+#define __DOS2UNIX_H
 
 #ifdef __GNUC__
 #ifndef strcmpi
@@ -220,22 +220,5 @@ static int D2UIso1252Table[256] =
   '\xe0', '\xe1', '\xe2', '\xe3', '\xe4', '\xe5', '\xe6', '\xe7', '\xe8', '\xe9', '\xea', '\xeb', '\xec', '\xed', '\xee', '\xef',
   '\xf0', '\xf1', '\xf2', '\xf3', '\xf4', '\xf5', '\xf6', '\xf7', '\xf8', '\xf9', '\xfa', '\xfb', '\xfc', '\xfd', '\xfe', '\xff',
 };
-
-#ifdef ENABLE_NLS
-
-#include <libintl.h>
-#define _(String) gettext (String)
-#define gettext_noop(String) String
-#define N_(String) gettext_noop (String)
-
-#else
-
-#define _(String) (String)
-#define N_(String) String
-#define textdomain(Domain)
-#define bindtextdomain(Package, Directory)
-
-#endif
-
 
 #endif

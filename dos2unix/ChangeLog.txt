@@ -1,3 +1,7 @@
+2011-06-16 Erwin Waterlander <waterlan@xs4all.nl>
+	* Identical functions from dos2unix.c and unix2dos.c
+	  are moved to common.c.
+
 2011-06-15 Erwin Waterlander <waterlan@xs4all.nl>
 	* Dos2unix and Unix2dos share the same language files.
 

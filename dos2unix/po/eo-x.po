@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-16 17:42+0200\n"
+"POT-Creation-Date: 2011-06-16 22:26+0200\n"
 "PO-Revision-Date: 2010-03-07 19:50+0100\n"
 "Last-Translator: Rugxulo <rugxulo@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -16,7 +16,209 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: dos2unix.c:317 unix2dos.c:307
+#: dos2unix.c:74
+msgid ""
+"Copyright (C) 2009-2011 Erwin Waterlander\n"
+"Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
+"Copyright (C) 1998      Bernd Johannes Wuebben (Version 3.0)\n"
+"Copyright (C) 1994-1995 Benjamin Lin\n"
+"All rights reserved.\n"
+"\n"
+"Redistribution and use in source and binary forms, with or without\n"
+"modification, are permitted provided that the following conditions\n"
+"are met:\n"
+"1. Redistributions of source code must retain the above copyright\n"
+"   notice, this list of conditions and the following disclaimer.\n"
+"2. Redistributions in binary form must reproduce the above copyright\n"
+"   notice in the documentation and/or other materials provided with\n"
+"   the distribution.\n"
+"\n"
+"THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n"
+"EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
+"IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR\n"
+"PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE\n"
+"FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR\n"
+"CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT\n"
+"OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR\n"
+"BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,\n"
+"WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE\n"
+"OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN\n"
+"IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+msgstr ""
+
+#: dos2unix.c:171 unix2dos.c:150
+#, c-format
+msgid "using code page %d.\n"
+msgstr "uzante kodpagxon %d.\n"
+
+#: dos2unix.c:201 dos2unix.c:229 dos2unix.c:250 unix2dos.c:193 unix2dos.c:221
+#: unix2dos.c:237 unix2dos.c:251
+msgid "can not write to output file\n"
+msgstr "ne povas registri dosieren\n"
+
+#: dos2unix.c:264 unix2dos.c:265
+#, c-format
+msgid "program error, invalid conversion mode %d\n"
+msgstr "programa eraro, negxustan sxangxmodon %d\n"
+
+#: dos2unix.c:351 unix2dos.c:352
+msgid "Failed to open temporary output file"
+msgstr "malsukcesis malfermi provizoran dosieron registran"
+
+#: dos2unix.c:358 unix2dos.c:359
+#, c-format
+msgid "using %s as temporary file\n"
+msgstr "uzante %s kiel provizora dosiero\n"
+
+#: dos2unix.c:467 unix2dos.c:468
+#, c-format
+msgid "problems resolving symbolic link '%s'\n"
+msgstr "erarojn legante dosieran cxeneron '%s'\n"
+
+#: dos2unix.c:468 dos2unix.c:502 unix2dos.c:469 unix2dos.c:503
+#, c-format
+msgid "          output file remains in '%s'\n"
+msgstr "          kreatan dosieron restas en '%s'\n"
+
+#: dos2unix.c:497 unix2dos.c:498
+#, c-format
+msgid "problems renaming '%s' to '%s': %s\n"
+msgstr "problemojn trovitajn renomigi '%s' al '%s': %s\n"
+
+#: dos2unix.c:500 unix2dos.c:501
+#, c-format
+msgid "          which is the target of symbolic link '%s'\n"
+msgstr "          kiu estas la atingon de dosiera cxenero '%s'\n"
+
+#: dos2unix.c:577 unix2dos.c:578
+msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
+msgstr "eraro: DOS2UNIX_LOCALEDIR tro longigxis.\n"
+
+#: dos2unix.c:668 dos2unix.c:699 unix2dos.c:669 unix2dos.c:700
+#, c-format
+msgid "active code page: %d\n"
+msgstr "nuntempa kodpagxo: %d\n"
+
+#: dos2unix.c:709 unix2dos.c:710
+#, c-format
+msgid "invalid %s conversion mode specified\n"
+msgstr "neuzebla %s sxangxmodo menciita\n"
+
+#: dos2unix.c:719 unix2dos.c:720
+#, c-format
+msgid "option '%s' requires an argument\n"
+msgstr "elekto '%s' bezonas elekto-vorton\n"
+
+#: dos2unix.c:732 dos2unix.c:746 dos2unix.c:898 unix2dos.c:733 unix2dos.c:747
+#: unix2dos.c:905
+#, c-format
+msgid "target of file %s not specified in new file mode\n"
+msgstr "ejon de dosiero %s ne menciita en novmodo dosiera\n"
+
+#: dos2unix.c:776 dos2unix.c:839 unix2dos.c:777 unix2dos.c:843
+#, c-format
+msgid "Skipping %s, not a regular file.\n"
+msgstr "Pasante %s, dosiero ne taugxa.\n"
+
+#: dos2unix.c:783 unix2dos.c:784
+#, c-format
+msgid "Skipping %s, output file %s is a symbolic link.\n"
+msgstr "Evitante %s, atingan dosieron %s jam estas dosiera cxenero.\n"
+
+#: dos2unix.c:790 dos2unix.c:853 unix2dos.c:791 unix2dos.c:857
+#, c-format
+msgid "Skipping symbolic link %s, target is not a regular file.\n"
+msgstr "Evitante dosieran cxeneron %s, atingon ne estas normala dosiero.\n"
+
+#: dos2unix.c:797 unix2dos.c:798
+#, c-format
+msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
+msgstr "Evitante %s, atingon de dosiera cxenero %s ne estas normala dosiero.\n"
+
+#: dos2unix.c:804 dos2unix.c:860 unix2dos.c:805 unix2dos.c:864
+#, c-format
+msgid "Skipping binary file %s\n"
+msgstr "Pasante ne-tekstan dosieron %s\n"
+
+#: dos2unix.c:811 dos2unix.c:867 unix2dos.c:812 unix2dos.c:871
+#, c-format
+msgid "code page %d is not supported.\n"
+msgstr "kodpagxo %d ne estas konvertebla.\n"
+
+#: dos2unix.c:817
+#, c-format
+msgid "converting file %s to file %s in Unix format ...\n"
+msgstr "sxangxante dosieron %s al dosiero %s Unix-en ...\n"
+
+#: dos2unix.c:824 unix2dos.c:828
+#, c-format
+msgid "problems converting file %s to file %s\n"
+msgstr "problemojn trovitajn dum sxangxi dosiero %s al dosiero %s\n"
+
+#: dos2unix.c:846 unix2dos.c:850
+#, c-format
+msgid "Skipping symbolic link %s.\n"
+msgstr "Evitante dosieran cxeneron %s.\n"
+
+#: dos2unix.c:873
+#, c-format
+msgid "converting file %s to Unix format ...\n"
+msgstr "sxangxante dosiero %s Unix-en ...\n"
+
+#: dos2unix.c:880 unix2dos.c:887
+#, c-format
+msgid "problems converting file %s\n"
+msgstr "problemojn dum sxangxi dosiero %s\n"
+
+#: unix2dos.c:64
+msgid ""
+"Copyright (C) 2009-2011 Erwin Waterlander\n"
+"Copyright (C) 1994-1995 Benjamin Lin\n"
+"All rights reserved.\n"
+"\n"
+"Redistribution and use in source and binary forms, with or without\n"
+"modification, are permitted provided that the following conditions\n"
+"are met:\n"
+"1. Redistributions of source code must retain the above copyright\n"
+"   notice, this list of conditions and the following disclaimer.\n"
+"2. Redistributions in binary form must reproduce the above copyright\n"
+"   notice in the documentation and/or other materials provided with\n"
+"   the distribution.\n"
+"\n"
+"THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n"
+"EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
+"IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR\n"
+"PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE\n"
+"FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR\n"
+"CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT\n"
+"OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR\n"
+"BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,\n"
+"WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE\n"
+"OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN\n"
+"IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+msgstr ""
+
+#: unix2dos.c:819
+#, c-format
+msgid "converting file %s to file %s in Mac format ...\n"
+msgstr "sxangxante dosiero %s al dosiero %s Mac-en ...\n"
+
+#: unix2dos.c:821
+#, c-format
+msgid "converting file %s to file %s in DOS format ...\n"
+msgstr "sxangxante dosiero %s al dosiero %s DOS-en ...\n"
+
+#: unix2dos.c:878
+#, c-format
+msgid "converting file %s to Mac format ...\n"
+msgstr "sxangxante dosiero %s Mac-en ...\n"
+
+#: unix2dos.c:880
+#, c-format
+msgid "converting file %s to DOS format ...\n"
+msgstr "sxangxante dosiero %s DOS-en ...\n"
+
+#: common.c:162
 #, c-format
 msgid ""
 "%s %s (%s)\n"
@@ -73,7 +275,7 @@ msgstr ""
 "                       cxiam ensxaltata dum stdio modo\n"
 " -s, --safe            evitu netekstajn dosierojn (jam sxaltita)\n"
 
-#: dos2unix.c:346 unix2dos.c:336
+#: common.c:191
 #, c-format
 msgid ""
 " -F, --follow-symlink  follow symbolic links and convert the targets\n"
@@ -88,213 +290,11 @@ msgstr ""
 " -S, --skip-symlink    retenu dosierajn cxenerojn kaj atingojn nesxangxataj "
 "(jam sxaltita)\n"
 
-#: dos2unix.c:352 unix2dos.c:342
+#: common.c:197
 #, c-format
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         diri eldono-numeron\n"
 
-#: dos2unix.c:358
-msgid ""
-"Copyright (C) 2009-2011 Erwin Waterlander\n"
-"Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
-"Copyright (C) 1998      Bernd Johannes Wuebben (Version 3.0)\n"
-"Copyright (C) 1994-1995 Benjamin Lin\n"
-"All rights reserved.\n"
-"\n"
-"Redistribution and use in source and binary forms, with or without\n"
-"modification, are permitted provided that the following conditions\n"
-"are met:\n"
-"1. Redistributions of source code must retain the above copyright\n"
-"   notice, this list of conditions and the following disclaimer.\n"
-"2. Redistributions in binary form must reproduce the above copyright\n"
-"   notice in the documentation and/or other materials provided with\n"
-"   the distribution.\n"
-"\n"
-"THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n"
-"EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
-"IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR\n"
-"PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE\n"
-"FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR\n"
-"CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT\n"
-"OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR\n"
-"BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,\n"
-"WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE\n"
-"OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN\n"
-"IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
-msgstr ""
-
-#: dos2unix.c:392 unix2dos.c:380
+#: common.c:206
 msgid "With native language support.\n"
 msgstr "Uzante denaskan lingvon sistemon.\n"
-
-#: dos2unix.c:494 unix2dos.c:473
-#, c-format
-msgid "using code page %d.\n"
-msgstr "uzante kodpagxon %d.\n"
-
-#: dos2unix.c:524 dos2unix.c:552 dos2unix.c:573 unix2dos.c:516 unix2dos.c:544
-#: unix2dos.c:560 unix2dos.c:574
-msgid "can not write to output file\n"
-msgstr "ne povas registri dosieren\n"
-
-#: dos2unix.c:587 unix2dos.c:588
-#, c-format
-msgid "program error, invalid conversion mode %d\n"
-msgstr "programa eraro, negxustan sxangxmodon %d\n"
-
-#: dos2unix.c:840 unix2dos.c:841
-msgid "Failed to open temporary output file"
-msgstr "malsukcesis malfermi provizoran dosieron registran"
-
-#: dos2unix.c:847 unix2dos.c:848
-#, c-format
-msgid "using %s as temporary file\n"
-msgstr "uzante %s kiel provizora dosiero\n"
-
-#: dos2unix.c:956 unix2dos.c:957
-#, c-format
-msgid "problems resolving symbolic link '%s'\n"
-msgstr "erarojn legante dosieran cxeneron '%s'\n"
-
-#: dos2unix.c:957 dos2unix.c:991 unix2dos.c:958 unix2dos.c:992
-#, c-format
-msgid "          output file remains in '%s'\n"
-msgstr "          kreatan dosieron restas en '%s'\n"
-
-#: dos2unix.c:986 unix2dos.c:987
-#, c-format
-msgid "problems renaming '%s' to '%s': %s\n"
-msgstr "problemojn trovitajn renomigi '%s' al '%s': %s\n"
-
-#: dos2unix.c:989 unix2dos.c:990
-#, c-format
-msgid "          which is the target of symbolic link '%s'\n"
-msgstr "          kiu estas la atingon de dosiera cxenero '%s'\n"
-
-#: dos2unix.c:1066 unix2dos.c:1067
-msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
-msgstr "eraro: DOS2UNIX_LOCALEDIR tro longigxis.\n"
-
-#: dos2unix.c:1157 dos2unix.c:1188 unix2dos.c:1158 unix2dos.c:1189
-#, c-format
-msgid "active code page: %d\n"
-msgstr "nuntempa kodpagxo: %d\n"
-
-#: dos2unix.c:1198 unix2dos.c:1199
-#, c-format
-msgid "invalid %s conversion mode specified\n"
-msgstr "neuzebla %s sxangxmodo menciita\n"
-
-#: dos2unix.c:1208 unix2dos.c:1209
-#, c-format
-msgid "option '%s' requires an argument\n"
-msgstr "elekto '%s' bezonas elekto-vorton\n"
-
-#: dos2unix.c:1221 dos2unix.c:1235 dos2unix.c:1387 unix2dos.c:1222
-#: unix2dos.c:1236 unix2dos.c:1394
-#, c-format
-msgid "target of file %s not specified in new file mode\n"
-msgstr "ejon de dosiero %s ne menciita en novmodo dosiera\n"
-
-#: dos2unix.c:1265 dos2unix.c:1328 unix2dos.c:1266 unix2dos.c:1332
-#, c-format
-msgid "Skipping %s, not a regular file.\n"
-msgstr "Pasante %s, dosiero ne taugxa.\n"
-
-#: dos2unix.c:1272 unix2dos.c:1273
-#, c-format
-msgid "Skipping %s, output file %s is a symbolic link.\n"
-msgstr "Evitante %s, atingan dosieron %s jam estas dosiera cxenero.\n"
-
-#: dos2unix.c:1279 dos2unix.c:1342 unix2dos.c:1280 unix2dos.c:1346
-#, c-format
-msgid "Skipping symbolic link %s, target is not a regular file.\n"
-msgstr "Evitante dosieran cxeneron %s, atingon ne estas normala dosiero.\n"
-
-#: dos2unix.c:1286 unix2dos.c:1287
-#, c-format
-msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
-msgstr "Evitante %s, atingon de dosiera cxenero %s ne estas normala dosiero.\n"
-
-#: dos2unix.c:1293 dos2unix.c:1349 unix2dos.c:1294 unix2dos.c:1353
-#, c-format
-msgid "Skipping binary file %s\n"
-msgstr "Pasante ne-tekstan dosieron %s\n"
-
-#: dos2unix.c:1300 dos2unix.c:1356 unix2dos.c:1301 unix2dos.c:1360
-#, c-format
-msgid "code page %d is not supported.\n"
-msgstr "kodpagxo %d ne estas konvertebla.\n"
-
-#: dos2unix.c:1306
-#, c-format
-msgid "converting file %s to file %s in Unix format ...\n"
-msgstr "sxangxante dosieron %s al dosiero %s Unix-en ...\n"
-
-#: dos2unix.c:1313 unix2dos.c:1317
-#, c-format
-msgid "problems converting file %s to file %s\n"
-msgstr "problemojn trovitajn dum sxangxi dosiero %s al dosiero %s\n"
-
-#: dos2unix.c:1335 unix2dos.c:1339
-#, c-format
-msgid "Skipping symbolic link %s.\n"
-msgstr "Evitante dosieran cxeneron %s.\n"
-
-#: dos2unix.c:1362
-#, c-format
-msgid "converting file %s to Unix format ...\n"
-msgstr "sxangxante dosiero %s Unix-en ...\n"
-
-#: dos2unix.c:1369 unix2dos.c:1376
-#, c-format
-msgid "problems converting file %s\n"
-msgstr "problemojn dum sxangxi dosiero %s\n"
-
-#: unix2dos.c:348
-msgid ""
-"Copyright (C) 2009-2011 Erwin Waterlander\n"
-"Copyright (C) 1994-1995 Benjamin Lin\n"
-"All rights reserved.\n"
-"\n"
-"Redistribution and use in source and binary forms, with or without\n"
-"modification, are permitted provided that the following conditions\n"
-"are met:\n"
-"1. Redistributions of source code must retain the above copyright\n"
-"   notice, this list of conditions and the following disclaimer.\n"
-"2. Redistributions in binary form must reproduce the above copyright\n"
-"   notice in the documentation and/or other materials provided with\n"
-"   the distribution.\n"
-"\n"
-"THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n"
-"EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
-"IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR\n"
-"PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE\n"
-"FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR\n"
-"CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT\n"
-"OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR\n"
-"BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,\n"
-"WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE\n"
-"OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN\n"
-"IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
-msgstr ""
-
-#: unix2dos.c:1308
-#, c-format
-msgid "converting file %s to file %s in Mac format ...\n"
-msgstr "sxangxante dosiero %s al dosiero %s Mac-en ...\n"
-
-#: unix2dos.c:1310
-#, c-format
-msgid "converting file %s to file %s in DOS format ...\n"
-msgstr "sxangxante dosiero %s al dosiero %s DOS-en ...\n"
-
-#: unix2dos.c:1367
-#, c-format
-msgid "converting file %s to Mac format ...\n"
-msgstr "sxangxante dosiero %s Mac-en ...\n"
-
-#: unix2dos.c:1369
-#, c-format
-msgid "converting file %s to DOS format ...\n"
-msgstr "sxangxante dosiero %s DOS-en ...\n"

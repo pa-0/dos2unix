@@ -8,7 +8,5 @@ TO DO
   if you want to help (waterlan@xs4all.nl). Programming skills
   are not required.
 
-* Combine dos2unix and unix2dos in a single binary.
-
 * Support Windows native symbolic links (Windows Vista and up).
 

@@ -213,19 +213,22 @@ DEFS		= $(EXTRA_DEFS)
 
 all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES) $(EOX_POFILES) $(MANFILES) man/man1/dos2unix.1
 
+common.o : common.c common.h
+	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
+
 querycp.o : querycp.c querycp.h
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
 
-dos2unix.o : dos2unix.c dos2unix.h querycp.h
+dos2unix.o : dos2unix.c dos2unix.h querycp.h common.h
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
 
-unix2dos.o : unix2dos.c unix2dos.h querycp.h
+unix2dos.o : unix2dos.c unix2dos.h querycp.h common.h
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
 
-$(BIN): dos2unix.o querycp.o
+$(BIN): dos2unix.o querycp.o common.o
 	$(CC) $+ $(LDFLAGS) -o $@
 
-$(UNIX2DOS_BIN): unix2dos.o querycp.o
+$(UNIX2DOS_BIN): unix2dos.o querycp.o common.o
 	$(CC) $+ $(LDFLAGS) -o $@
 
 $(MAC2UNIX_BIN) : $(BIN)
@@ -264,7 +267,7 @@ po/%.po : $(POT)
 po/eo.mo : po/eo$(EO_NOTATION).po
 	msgfmt -c $< -o $@
 
-$(POT) : dos2unix.c unix2dos.c
+$(POT) : dos2unix.c unix2dos.c common.c
 	xgettext -C --keyword=_ $+ -o $(POT)
 
 %.txt : man/man1/%.pod

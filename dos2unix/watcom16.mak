@@ -13,27 +13,30 @@ cflags.cfg:
 	@%create cflags.cfg
 	@%append cflags.cfg $(CFLAGS)
 
-dos2unix.exe: dos2unix.obj querycp.obj
+dos2unix.exe: dos2unix.obj querycp.obj common.obj
 	@%create dos2unix.lnk
-	@%append dos2unix.lnk FIL dos2unix.obj,querycp.obj
+	@%append dos2unix.lnk FIL dos2unix.obj,querycp.obj,common.obj
 	wlink name dos2unix d all SYS $(TARGET) op m op st=32k op maxe=25 op q op symf @dos2unix.lnk
 	del dos2unix.lnk
 
-unix2dos.exe: unix2dos.obj querycp.obj
+unix2dos.exe: unix2dos.obj querycp.obj common.obj
 	@%create unix2dos.lnk
-	@%append unix2dos.lnk FIL unix2dos.obj,querycp.obj
+	@%append unix2dos.lnk FIL unix2dos.obj,querycp.obj,common.obj
 	wlink name unix2dos d all SYS $(TARGET) op m op st=32k op maxe=25 op q op symf @unix2dos.lnk
 	del unix2dos.lnk
 
 
-dos2unix.obj :  $(SRCDIR)\dos2unix.c cflags.cfg
+dos2unix.obj :  $(SRCDIR)\dos2unix.c $(SRCDIR)\querycp.h $(SRCDIR)\common.h cflags.cfg
 	$(CC) @cflags.cfg $(SRCDIR)\dos2unix.c
 
-unix2dos.obj :  $(SRCDIR)\unix2dos.c cflags.cfg
+unix2dos.obj :  $(SRCDIR)\unix2dos.c $(SRCDIR)\querycp.h $(SRCDIR)\common.h cflags.cfg
 	$(CC) @cflags.cfg $(SRCDIR)\unix2dos.c
 
-querycp.obj :  $(SRCDIR)\querycp.c cflags.cfg
+querycp.obj :  $(SRCDIR)\querycp.c $(SRCDIR)\querycp.h cflags.cfg
 	$(CC) @cflags.cfg $(SRCDIR)\querycp.c
+
+common.obj :  $(SRCDIR)\common.c $(SRCDIR)\common.h cflags.cfg
+	$(CC) @cflags.cfg $(SRCDIR)\common.c
 
 mac2unix.exe : dos2unix.exe
 	copy /v dos2unix.exe mac2unix.exe
