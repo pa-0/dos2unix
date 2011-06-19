@@ -164,6 +164,7 @@ int symbolic_link(char *path);
 int regfile(char *path, int allowSymlinks, CFlag *ipFlag, char *progname);
 int regfile_target(char *path, CFlag *ipFlag, char *progname);
 void PrintUsage(char *progname);
+void PrintBSDLicense(void);
 void PrintVersion(char *progname);
 #ifdef ENABLE_NLS
 void PrintLocaledir(char *localedir);

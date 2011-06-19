@@ -1,14 +1,14 @@
 # German messages for dos2unix
-# Copyright (C) 2009, 2010
+# Copyright (C) 2009, 2010, 2011
 # This file is distributed under the same license as the dos2unix package.
 # 
-# Philipp Thomas <pth@suse.de>, 2009, 2010.
-# Philipp Thomas <psmt@opensuse.org>, 2009,2010.
+# Philipp Thomas <pth@suse.de>, 2009, 2010, 2011.
+# Philipp Thomas <psmt@opensuse.org>, 2009,2010, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-16 22:26+0200\n"
+"POT-Creation-Date: 2011-06-19 20:02+0200\n"
 "PO-Revision-Date: 2010-01-24 09:00+0100\n"
 "Last-Translator: Philipp Thomas <psmt@opensuse.org>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -26,26 +26,6 @@ msgid ""
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
-"Redistribution and use in source and binary forms, with or without\n"
-"modification, are permitted provided that the following conditions\n"
-"are met:\n"
-"1. Redistributions of source code must retain the above copyright\n"
-"   notice, this list of conditions and the following disclaimer.\n"
-"2. Redistributions in binary form must reproduce the above copyright\n"
-"   notice in the documentation and/or other materials provided with\n"
-"   the distribution.\n"
-"\n"
-"THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n"
-"EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
-"IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR\n"
-"PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE\n"
-"FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR\n"
-"CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT\n"
-"OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR\n"
-"BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,\n"
-"WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE\n"
-"OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN\n"
-"IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 "Copyright © 2009-2011 Erwin Waterlander\n"
 "Copyright © 1998      Christian Wurll (Version 3.1)\n"
@@ -53,157 +33,133 @@ msgstr ""
 "Copyright © 1994,1995 Benjamin Lin\n"
 "Alle Rechte vorbehalten.\n"
 "\n"
-"Verbreitung und Verwendung als Quelltext oder Binärdatei, in geänderter\n"
-"oder ungeänderter Form sind gestattet, soweit die folgenden Bedingungen\n"
-"eingehalten werden:\n"
-"1. Weiterverbreitung des Quellcodes muss den obigen Copyrightshinweis,\n"
-"   Diese Liste von Bedingungen sowie den folgenden Haftungsausschlus\n"
-"   beibehalten.\n"
-"2. Weiterverbreitung in binärer Form muss den obigen Copyright-Hinweis\n"
-"   in der Dokumentation oder anderem der Distribution beiliegenden\n"
-"   Material wiedergeben.\n"
-"\n"
-"DIESE SOFTWARE WIRD VOM AUTHOR WIE VORLIEGT ZUR VERFÜGUNG GESTELLT\n"
-"UND JEGLICHE AUSDRÜCKLICH GENANNTEN ODER IMPLIZITEN GARANTIEN,\n"
-"EINSCHLIESLICH, ABER NICHT DARAUF BESCHRÄNKT, DER GARANTIE DER\n"
-"HANDELBARKEIT UND DER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK WERDEN\n"
-"HIERMIT AUSGESCHLOSSEN. IN KEINEM WIE AUCH IMMER GELAGERTEN FALL KANN\n"
-"DER AUTHOR FÜR IRGENDWELCHE DIREKTEN ODER INDIREKTEN, ZUFÄLLIGEN,\n"
-"BESONDEREN ODER BEISPIELHAFTEN SCHÄDEN (EINSCHLIESSLICH ABER NICHT\n"
-"AUSSCHLIESSLICH DER LIEFERUNG VON ERSATZGÜTERN ODER DIENSTEN;VERLUST\n"
-"DER NUTZBARKEIT, DER DATEN ODER DER GEWINNE ODER ETWAIGEN VERDIENST-\n"
-"AUSFALL-ENTSCHÄDIGUNGEN) HAFTBAR GEMACHT WERDEN, WIE AUCH IMMER SIE\n"
-"VERURSACHT WURDEN UND WELCHE HAFTUNGSMÖGLICHKEIT ZUGRUNDE GELEGT WIRD,\n"
-"SEI ES DURCH VERTRAG, VERBINDLICHKEIT ODER SCHADEN (EINSCHLIESSLICH\n"
-"FAHRLÄSSIGKEIT), DIE AUS DER VERWENDUNG DIESER SOFTWARE ERWÄCHST,\n"
-"SELBST WENN AUF DIE MÖGLICHKIET SOLCHER SCHÄDEN HINGEWIESEN WURDE.\n"
 
-#: dos2unix.c:171 unix2dos.c:150
+#: dos2unix.c:150 unix2dos.c:129
 #, c-format
 msgid "using code page %d.\n"
 msgstr "Codepage %d wird verwendet.\n"
 
-#: dos2unix.c:201 dos2unix.c:229 dos2unix.c:250 unix2dos.c:193 unix2dos.c:221
-#: unix2dos.c:237 unix2dos.c:251
+#: dos2unix.c:180 dos2unix.c:208 dos2unix.c:229 unix2dos.c:172 unix2dos.c:200
+#: unix2dos.c:216 unix2dos.c:230
 msgid "can not write to output file\n"
 msgstr "In die Ausgabedatei kann nicht geschrieben werden\n"
 
-#: dos2unix.c:264 unix2dos.c:265
+#: dos2unix.c:243 unix2dos.c:244
 #, c-format
 msgid "program error, invalid conversion mode %d\n"
 msgstr "Programmfehler, der Konvertierungsmodus %d ist unzulässig\n"
 
-#: dos2unix.c:351 unix2dos.c:352
+#: dos2unix.c:330 unix2dos.c:331
 msgid "Failed to open temporary output file"
 msgstr "Die temporäre Ausgabedatei konnte nicht geöffnet werden"
 
-#: dos2unix.c:358 unix2dos.c:359
+#: dos2unix.c:337 unix2dos.c:338
 #, c-format
 msgid "using %s as temporary file\n"
 msgstr "%s wird als temporäre Datei verwendet\n"
 
-#: dos2unix.c:467 unix2dos.c:468
+#: dos2unix.c:446 unix2dos.c:447
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
 msgstr "es gab Probleme beim Auflösen der symbolischen Verknüpfung »%s«\n"
 
-#: dos2unix.c:468 dos2unix.c:502 unix2dos.c:469 unix2dos.c:503
+#: dos2unix.c:447 dos2unix.c:481 unix2dos.c:448 unix2dos.c:482
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          Die Ausgabedatei verbleibt in »%s«\n"
 
-#: dos2unix.c:497 unix2dos.c:498
+#: dos2unix.c:476 unix2dos.c:477
 #, c-format
 msgid "problems renaming '%s' to '%s': %s\n"
 msgstr "Beim Umbenennen von »%s« zu »%s« sind Probleme aufgetreten: %s\n"
 
-#: dos2unix.c:500 unix2dos.c:501
+#: dos2unix.c:479 unix2dos.c:480
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          welche das Ziel der symbolischen Verknüpfung »%s« ist\n"
 
-#: dos2unix.c:577 unix2dos.c:578
+#: dos2unix.c:556 unix2dos.c:557
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr ""
 "Fehler: Der Inhalt der Umgebungsvariablen DOS2UNIX_LOCALEDIR ist zu lang.\n"
 
-#: dos2unix.c:668 dos2unix.c:699 unix2dos.c:669 unix2dos.c:700
+#: dos2unix.c:647 dos2unix.c:678 unix2dos.c:648 unix2dos.c:679
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktive Codepage: %d\n"
 
-#: dos2unix.c:709 unix2dos.c:710
+#: dos2unix.c:688 unix2dos.c:689
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "Der angegebene Konvertierungsmodus %s ist unzulässig\n"
 
-#: dos2unix.c:719 unix2dos.c:720
+#: dos2unix.c:698 unix2dos.c:699
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "Die Option »%s« benötigt ein Argument\n"
 
-#: dos2unix.c:732 dos2unix.c:746 dos2unix.c:898 unix2dos.c:733 unix2dos.c:747
-#: unix2dos.c:905
+#: dos2unix.c:711 dos2unix.c:725 dos2unix.c:877 unix2dos.c:712 unix2dos.c:726
+#: unix2dos.c:884
 #, c-format
 msgid "target of file %s not specified in new file mode\n"
 msgstr "Das Ziel der Datei %s wurde für den Neudatei-Modus nicht angegeben\n"
 
-#: dos2unix.c:776 dos2unix.c:839 unix2dos.c:777 unix2dos.c:843
+#: dos2unix.c:755 dos2unix.c:818 unix2dos.c:756 unix2dos.c:822
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "%s wird übersprungen, da es keine reguläre Datei ist\n"
 
-#: dos2unix.c:783 unix2dos.c:784
+#: dos2unix.c:762 unix2dos.c:763
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr ""
 "%s wird übersprungen, Ausgabedatei %s ist eine symbolische Verknüpfung.\n"
 
-#: dos2unix.c:790 dos2unix.c:853 unix2dos.c:791 unix2dos.c:857
+#: dos2unix.c:769 dos2unix.c:832 unix2dos.c:770 unix2dos.c:836
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr ""
 "Symbolische Verknüpfung %s wird übersprungen da das Ziel keine reguläre "
 "Datei ist.\n"
 
-#: dos2unix.c:797 unix2dos.c:798
+#: dos2unix.c:776 unix2dos.c:777
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr ""
 "%s wird übersprungen, das Ziel der symbolischen Verknüpfung %s ist keine "
 "reguläre Datei.\n"
 
-#: dos2unix.c:804 dos2unix.c:860 unix2dos.c:805 unix2dos.c:864
+#: dos2unix.c:783 dos2unix.c:839 unix2dos.c:784 unix2dos.c:843
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "binäre Datei %s wird übersprungen\n"
 
-#: dos2unix.c:811 dos2unix.c:867 unix2dos.c:812 unix2dos.c:871
+#: dos2unix.c:790 dos2unix.c:846 unix2dos.c:791 unix2dos.c:850
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "Codepage %d wird nicht unterstützt.\n"
 
-#: dos2unix.c:817
+#: dos2unix.c:796
 #, c-format
 msgid "converting file %s to file %s in Unix format ...\n"
 msgstr "Datei %s wird zu Datei %s im Unix-Format umgewandelt ...\n"
 
-#: dos2unix.c:824 unix2dos.c:828
+#: dos2unix.c:803 unix2dos.c:807
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "Beim Konvertieren von Datei %s zu Datei %s sind Probleme aufgetreten\n"
 
-#: dos2unix.c:846 unix2dos.c:850
+#: dos2unix.c:825 unix2dos.c:829
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "Symbolische Verknüpfung %s wird übersprungen.\n"
 
-#: dos2unix.c:873
+#: dos2unix.c:852
 #, c-format
 msgid "converting file %s to Unix format ...\n"
 msgstr "Datei %s wird ins Unix-Format umgewandelt ...\n"
 
-#: dos2unix.c:880 unix2dos.c:887
+#: dos2unix.c:859 unix2dos.c:866
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "Beim Umwandeln von Datei %s sind Probleme aufgetreten\n"
@@ -214,6 +170,34 @@ msgid ""
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
+msgstr ""
+"Copyright © 2009-2011 Erwin Waterlander\n"
+"Copyright © 1994,1995 Benjamin Lin\n"
+"Alle Rechte vorbehalten.\n"
+"\n"
+
+#: unix2dos.c:798
+#, c-format
+msgid "converting file %s to file %s in Mac format ...\n"
+msgstr "Datei %s wird in Datei %s im Mac-Format konvertiert ...\n"
+
+#: unix2dos.c:800
+#, c-format
+msgid "converting file %s to file %s in DOS format ...\n"
+msgstr "Datei %s wird in Datei %s im DOS-Format konvertiert ...\n"
+
+#: unix2dos.c:857
+#, c-format
+msgid "converting file %s to Mac format ...\n"
+msgstr "Datei %s wird ins Mac-Format konvertiert ...\n"
+
+#: unix2dos.c:859
+#, c-format
+msgid "converting file %s to DOS format ...\n"
+msgstr "Datei %s wird ins DOS-Format konvertiert ...\n"
+
+#: common.c:162
+msgid ""
 "Redistribution and use in source and binary forms, with or without\n"
 "modification, are permitted provided that the following conditions\n"
 "are met:\n"
@@ -235,10 +219,6 @@ msgid ""
 "OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN\n"
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
-"Copyright © 2009-2011 Erwin Waterlander\n"
-"Copyright © 1994,1995 Benjamin Lin\n"
-"Alle Rechte vorbehalten.\n"
-"\n"
 "Verbreitung und Verwendung als Quelltext oder Binärdatei, in geänderter\n"
 "oder ungeänderter Form sind gestattet, soweit die folgenden Bedingungen\n"
 "eingehalten werden:\n"
@@ -264,27 +244,7 @@ msgstr ""
 "FAHRLÄSSIGKEIT), DIE AUS DER VERWENDUNG DIESER SOFTWARE ERWÄCHST,\n"
 "SELBST WENN AUF DIE MÖGLICHKIET SOLCHER SCHÄDEN HINGEWIESEN WURDE.\n"
 
-#: unix2dos.c:819
-#, c-format
-msgid "converting file %s to file %s in Mac format ...\n"
-msgstr "Datei %s wird in Datei %s im Mac-Format konvertiert ...\n"
-
-#: unix2dos.c:821
-#, c-format
-msgid "converting file %s to file %s in DOS format ...\n"
-msgstr "Datei %s wird in Datei %s im DOS-Format konvertiert ...\n"
-
-#: unix2dos.c:878
-#, c-format
-msgid "converting file %s to Mac format ...\n"
-msgstr "Datei %s wird ins Mac-Format konvertiert ...\n"
-
-#: unix2dos.c:880
-#, c-format
-msgid "converting file %s to DOS format ...\n"
-msgstr "Datei %s wird ins DOS-Format konvertiert ...\n"
-
-#: common.c:162
+#: common.c:188
 #, c-format
 msgid ""
 "%s %s (%s)\n"
@@ -343,7 +303,7 @@ msgstr ""
 "                       ist im stdio Modus immer aktiv\n"
 " -s, --safe            überspringt binäre Dateien (Vorgabe)\n"
 
-#: common.c:191
+#: common.c:217
 #, c-format
 msgid ""
 " -F, --follow-symlink  follow symbolic links and convert the targets\n"
@@ -359,11 +319,11 @@ msgstr ""
 " -S, --skip-symlink    symbolische Verknüpfungen und deren Ziele bleiben\n"
 "                       unangetastet (Vorgabe)\n"
 
-#: common.c:197
+#: common.c:223
 #, c-format
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         gibt die Versionsnummer aus\n"
 
-#: common.c:206
+#: common.c:232
 msgid "With native language support.\n"
 msgstr "Mit Unterstützung von Landessprachen.\n"
