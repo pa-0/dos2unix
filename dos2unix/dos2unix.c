@@ -326,8 +326,9 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
     if (!ipFlag->Quiet)
     {
       ipFlag->error = errno;
+      errstr = strerror(errno);
       fprintf(stderr, "%s: ", progname);
-      perror(_("Failed to open temporary output file"));
+      fprintf(stderr, _("Failed to open temporary output file: %s\n"), errstr);
     }
     RetVal = -1;
   }
@@ -374,7 +375,34 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   mask = umask(0);
   umask(mask);
   if (!RetVal && fchmod(fd, StatBuf.st_mode & ~mask))
-    RetVal = -1;
+  {
+     if (!ipFlag->Quiet)
+     {
+       ipFlag->error = errno;
+       errstr = strerror(errno);
+       fprintf(stderr, "%s: ", progname);
+       fprintf(stderr, _("Failed to change the permissions of the temporary output file: %s\n"), errstr);
+     }
+     RetVal = -1;
+  }
+
+  if (!RetVal && (strcmp(ipInFN,ipOutFN) == 0)) /* old file mode */
+  {
+     /* Change owner and group of the the tempory output file to the original file's uid and gid. */
+     /* Required when a different user (e.g. root) has write permission on the original file. */
+     /* Make sure that the original owner can still access the file. */
+     if (fchown(fd, StatBuf.st_uid, StatBuf.st_gid))
+     {
+        if (!ipFlag->Quiet)
+        {
+          ipFlag->error = errno;
+          errstr = strerror(errno);
+          fprintf(stderr, "%s: ", progname);
+          fprintf(stderr, _("Failed to change the owner and group of the temporary output file: %s\n"), errstr);
+        }
+        RetVal = -1;
+     }
+  }
 #endif
 
   /* conversion sucessful? */
