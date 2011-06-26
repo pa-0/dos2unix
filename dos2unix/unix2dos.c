@@ -261,7 +261,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   char *errstr;
   struct stat StatBuf;
   struct utimbuf UTimeBuf;
-#ifndef NO_FCHMOD
+#ifndef NO_CHMOD
   mode_t mask;
 #endif
 #ifdef NO_MKSTEMP
@@ -371,52 +371,6 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
     }
   }
 
-#ifndef NO_FCHMOD
-  /* preserve original mode as modified by umask */
-  if (!RetVal)
-  {
-    if (strcmp(ipInFN,ipOutFN) == 0) /* old file mode */
-    {
-       RetVal = fchmod (fd, StatBuf.st_mode); /* set original permissions */
-    } 
-    else
-    {
-       mask = umask(0); /* get process's umask */
-       umask(mask); /* set umask back to original */
-       RetVal = fchmod(fd, StatBuf.st_mode & ~mask); /* set original permissions, minus umask */
-    }
-    
-    if (RetVal)
-    {
-       if (!ipFlag->Quiet)
-       {
-         ipFlag->error = errno;
-         errstr = strerror(errno);
-         fprintf(stderr, "%s: ", progname);
-         fprintf(stderr, _("Failed to change the permissions of the temporary output file: %s\n"), errstr);
-       }
-    }
-  }
-
-  if (!RetVal && (strcmp(ipInFN,ipOutFN) == 0)) /* old file mode */
-  {
-     /* Change owner and group of the the tempory output file to the original file's uid and gid. */
-     /* Required when a different user (e.g. root) has write permission on the original file. */
-     /* Make sure that the original owner can still access the file. */
-     if (fchown(fd, StatBuf.st_uid, StatBuf.st_gid))
-     {
-        if (!ipFlag->Quiet)
-        {
-          ipFlag->error = errno;
-          errstr = strerror(errno);
-          fprintf(stderr, "%s: ", progname);
-          fprintf(stderr, _("Failed to change the owner and group of the temporary output file: %s\n"), errstr);
-        }
-        RetVal = -1;
-     }
-  }
-#endif
-
   /* conversion sucessful? */
   if ((!RetVal) && (ConvertUnixToDos(InF, TempF, ipFlag, progname)))
     RetVal = -1;
@@ -435,6 +389,53 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 #else
   if(fd>=0)
     close(fd);
+#endif
+
+#ifndef NO_CHMOD
+  if (!RetVal)
+  {
+    if (strcmp(ipInFN,ipOutFN) == 0) /* old file mode */
+    {
+       RetVal = chmod (TempPath, StatBuf.st_mode); /* set original permissions */
+    } 
+    else
+    {
+       mask = umask(0); /* get process's umask */
+       umask(mask); /* set umask back to original */
+       RetVal = chmod(TempPath, StatBuf.st_mode & ~mask); /* set original permissions, minus umask */
+    }
+    
+    if (RetVal)
+    {
+       if (!ipFlag->Quiet)
+       {
+         ipFlag->error = errno;
+         errstr = strerror(errno);
+         fprintf(stderr, "%s: ", progname);
+         fprintf(stderr, _("Failed to change the permissions of the temporary output file: %s\n"), errstr);
+       }
+    }
+  }
+#endif
+
+#ifndef NO_CHOWN
+  if (!RetVal && (strcmp(ipInFN,ipOutFN) == 0)) /* old file mode */
+  {
+     /* Change owner and group of the the tempory output file to the original file's uid and gid. */
+     /* Required when a different user (e.g. root) has write permission on the original file. */
+     /* Make sure that the original owner can still access the file. */
+     if (chown(TempPath, StatBuf.st_uid, StatBuf.st_gid))
+     {
+        if (!ipFlag->Quiet)
+        {
+          ipFlag->error = errno;
+          errstr = strerror(errno);
+          fprintf(stderr, "%s: ", progname);
+          fprintf(stderr, _("Failed to change the owner and group of the temporary output file: %s\n"), errstr);
+        }
+        RetVal = -1;
+     }
+  }
 #endif
 
   if ((!RetVal) && (ipFlag->KeepDate))

@@ -4,6 +4,7 @@
 	  on the input file, dos2unix changes owner, group and umask in old
 	  file mode to the other user's owner, group and umask who runs
 	  dos2unix. Thanks to Christopher Williams.
+	* Keep permissions also on Windows. Use chmod() i.s.o. fchmod().
 
 2011-06-16 Erwin Waterlander <waterlan@xs4all.nl>
 	* Identical functions from dos2unix.c and unix2dos.c

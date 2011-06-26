@@ -85,10 +85,9 @@
 #define NO_MKSTEMP 1
 #endif
 
-#ifdef MSDOS
-/* Some compilers have no fchmod().
- * BORLANDC, DJGPP, MINGW32, OPENWATCOM */
-#define NO_FCHMOD 1
+#if  defined(__TURBOC__) || defined(DJGPP) || defined(__MINGW32__) || defined(__WATCOMC__)
+/* Some compilers have no chown(). */
+#define NO_CHOWN 1
 #endif
 
 /* Watcom C defines S_ISLNK */
