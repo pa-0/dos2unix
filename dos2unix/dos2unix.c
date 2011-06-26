@@ -372,18 +372,29 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 
 #ifndef NO_FCHMOD
   /* preserve original mode as modified by umask */
-  mask = umask(0);
-  umask(mask);
-  if (!RetVal && fchmod(fd, StatBuf.st_mode & ~mask))
+  if (!RetVal)
   {
-     if (!ipFlag->Quiet)
-     {
-       ipFlag->error = errno;
-       errstr = strerror(errno);
-       fprintf(stderr, "%s: ", progname);
-       fprintf(stderr, _("Failed to change the permissions of the temporary output file: %s\n"), errstr);
-     }
-     RetVal = -1;
+    if (strcmp(ipInFN,ipOutFN) == 0) /* old file mode */
+    {
+       RetVal = fchmod (fd, StatBuf.st_mode); /* set original permissions */
+    } 
+    else
+    {
+       mask = umask(0); /* get process's umask */
+       umask(mask); /* set umask back to original */
+       RetVal = fchmod(fd, StatBuf.st_mode & ~mask); /* set original permissions, minus umask */
+    }
+    
+    if (RetVal)
+    {
+       if (!ipFlag->Quiet)
+       {
+         ipFlag->error = errno;
+         errstr = strerror(errno);
+         fprintf(stderr, "%s: ", progname);
+         fprintf(stderr, _("Failed to change the permissions of the temporary output file: %s\n"), errstr);
+       }
+    }
   }
 
   if (!RetVal && (strcmp(ipInFN,ipOutFN) == 0)) /* old file mode */
