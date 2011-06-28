@@ -61,14 +61,14 @@ msgid "using %s as temporary file\n"
 msgstr "%s wird als temporäre Datei verwendet\n"
 
 #: dos2unix.c:395 unix2dos.c:396
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to change the permissions of the temporary output file: %s\n"
-msgstr "Die temporäre Ausgabedatei konnte nicht geöffnet werden"
+msgstr "Das Ändern der Rechte der temporären Ausgabedatei scheiterte: %s\n"
 
 #: dos2unix.c:412 unix2dos.c:413
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to change the owner and group of the temporary output file: %s\n"
-msgstr "Die temporäre Ausgabedatei konnte nicht geöffnet werden"
+msgstr "Das Ändern des Eigentümers und der Gruppe der temporären Ausgabedatei scheiterte: %s\n"
 
 #: dos2unix.c:485 unix2dos.c:486
 #, c-format
