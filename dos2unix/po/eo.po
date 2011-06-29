@@ -30,7 +30,7 @@ msgstr ""
 #: dos2unix.c:150 unix2dos.c:129
 #, c-format
 msgid "using code page %d.\n"
-msgstr "dos2unix: uzante kodpaĝon %d.\n"
+msgstr "uzante kodpaĝon %d.\n"
 
 #: dos2unix.c:180 dos2unix.c:208 dos2unix.c:229 unix2dos.c:172 unix2dos.c:200
 #: unix2dos.c:216 unix2dos.c:230
@@ -53,14 +53,14 @@ msgid "using %s as temporary file\n"
 msgstr "uzante %s kiel provizora dosiero\n"
 
 #: dos2unix.c:395 unix2dos.c:396
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to change the permissions of the temporary output file: %s\n"
-msgstr "malsukcesis malfermi provizoran dosieron registran"
+msgstr "Malsukcesis ŝanĝi la permesaĵojn de la provizora eldona dosiero: %s\n"
 
 #: dos2unix.c:412 unix2dos.c:413
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to change the owner and group of the temporary output file: %s\n"
-msgstr "malsukcesis malfermi provizoran dosieron registran"
+msgstr "Malsukcesis ŝanĝi la proprietulon kaj grupon de la provizora eldona dosiero: %s\n"
 
 #: dos2unix.c:485 unix2dos.c:486
 #, c-format
@@ -280,8 +280,8 @@ msgid ""
 " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr ""
 " -F, --follow-symlink  legu dosierajn ĉenerojn kaj konverti la atingojn\n"
-" -R, --replace-symlink anstataŭe registru dosierajn ĉenerojn per konvertotaj "
-"dosieroj\n"
+" -R, --replace-symlink anstataŭe registru dosierajn ĉenerojn per "
+"konvertotaj dosieroj\n"
 "                       (ne-ĉeneraj atingaj dosieroj restas neŝanĝitaj)\n"
 " -S, --skip-symlink    retenu dosierajn ĉenerojn kaj atingojn neŝanĝataj "
 "(jam ŝaltita)\n"
