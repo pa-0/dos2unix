@@ -45,7 +45,7 @@
  *
  * int symbolic_link(char *path)
  *
- * test if *path points to a that exists and is a symbolic link
+ * test if *path points to a file that exists and is a symbolic link
  *
  * returns 1 on success, 0 when it fails.
  *

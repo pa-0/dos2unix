@@ -142,6 +142,9 @@
 #define FROMTO_UNIX2DOS 0
 #define FROMTO_UNIX2MAC 1
 
+#define SYMLINK_SKIP 0
+#define SYMLINK_FOLLOW 1
+#define SYMLINK_REPLACE 2
 
 typedef struct
 {

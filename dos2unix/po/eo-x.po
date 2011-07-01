@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-26 10:34+0200\n"
+"POT-Creation-Date: 2011-07-01 16:12+0200\n"
 "PO-Revision-Date: 2010-03-07 19:50+0100\n"
 "Last-Translator: Rugxulo <rugxulo@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
-"Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: eo\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: dos2unix.c:74
@@ -42,122 +42,125 @@ msgstr "ne povas registri dosieren\n"
 msgid "program error, invalid conversion mode %d\n"
 msgstr "programa eraro, negxustan sxangxmodon %d\n"
 
-#: dos2unix.c:331 unix2dos.c:332
+#: dos2unix.c:348 unix2dos.c:349
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
 msgstr "malsukcesis malfermi provizoran dosieron registran: %s\n"
 
-#: dos2unix.c:338 unix2dos.c:339
+#: dos2unix.c:355 unix2dos.c:356
 #, c-format
 msgid "using %s as temporary file\n"
 msgstr "uzante %s kiel provizora dosiero\n"
 
-#: dos2unix.c:395 unix2dos.c:396
+#: dos2unix.c:431 unix2dos.c:432
 #, c-format
-msgid "Failed to change the permissions of the temporary output file: %s\n"
-msgstr "Malsukcesis sxangxi la permesajxojn de la provizora eldona dosiero: %s\n"
+msgid "Failed to change the permissions of temporary output file %s: %s\n"
+msgstr ""
+"Malsukcesis sxangxi la permesajxojn de la provizora eldona dosiero %s: %s\n"
 
-#: dos2unix.c:412 unix2dos.c:413
+#: dos2unix.c:454 dos2unix.c:469 unix2dos.c:455 unix2dos.c:470
 #, c-format
-msgid "Failed to change the owner and group of the temporary output file: %s\n"
-msgstr "Malsukcesis sxangxi la proprietulon kaj grupon de la provizora eldona dosiero: %s\n"
+msgid "Failed to change the owner and group of temporary output file %s: %s\n"
+msgstr ""
+"Malsukcesis sxangxi la proprietulon kaj grupon de la provizora eldona "
+"dosiero %s: %s\n"
 
-#: dos2unix.c:485 unix2dos.c:486
+#: dos2unix.c:524 unix2dos.c:525
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
 msgstr "erarojn legante dosieran cxeneron '%s'\n"
 
-#: dos2unix.c:486 dos2unix.c:520 unix2dos.c:487 unix2dos.c:521
+#: dos2unix.c:525 dos2unix.c:559 unix2dos.c:526 unix2dos.c:560
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          kreatan dosieron restas en '%s'\n"
 
-#: dos2unix.c:515 unix2dos.c:516
+#: dos2unix.c:554 unix2dos.c:555
 #, c-format
 msgid "problems renaming '%s' to '%s': %s\n"
 msgstr "problemojn trovitajn renomigi '%s' al '%s': %s\n"
 
-#: dos2unix.c:518 unix2dos.c:519
+#: dos2unix.c:557 unix2dos.c:558
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          kiu estas la atingon de dosiera cxenero '%s'\n"
 
-#: dos2unix.c:595 unix2dos.c:596
+#: dos2unix.c:634 unix2dos.c:635
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "eraro: DOS2UNIX_LOCALEDIR tro longigxis.\n"
 
-#: dos2unix.c:686 dos2unix.c:717 unix2dos.c:687 unix2dos.c:718
+#: dos2unix.c:725 dos2unix.c:756 unix2dos.c:726 unix2dos.c:757
 #, c-format
 msgid "active code page: %d\n"
 msgstr "nuntempa kodpagxo: %d\n"
 
-#: dos2unix.c:727 unix2dos.c:728
+#: dos2unix.c:766 unix2dos.c:767
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "neuzebla %s sxangxmodo menciita\n"
 
-#: dos2unix.c:737 unix2dos.c:738
+#: dos2unix.c:776 unix2dos.c:777
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "elekto '%s' bezonas elekto-vorton\n"
 
-#: dos2unix.c:750 dos2unix.c:764 dos2unix.c:916 unix2dos.c:751 unix2dos.c:765
-#: unix2dos.c:923
+#: dos2unix.c:789 dos2unix.c:803 dos2unix.c:955 unix2dos.c:790 unix2dos.c:804
+#: unix2dos.c:962
 #, c-format
 msgid "target of file %s not specified in new file mode\n"
 msgstr "ejon de dosiero %s ne menciita en novmodo dosiera\n"
 
-#: dos2unix.c:794 dos2unix.c:857 unix2dos.c:795 unix2dos.c:861
+#: dos2unix.c:833 dos2unix.c:896 unix2dos.c:834 unix2dos.c:900
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "Pasante %s, dosiero ne taugxa.\n"
 
-#: dos2unix.c:801 unix2dos.c:802
+#: dos2unix.c:840 unix2dos.c:841
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "Evitante %s, atingan dosieron %s jam estas dosiera cxenero.\n"
 
-#: dos2unix.c:808 dos2unix.c:871 unix2dos.c:809 unix2dos.c:875
+#: dos2unix.c:847 dos2unix.c:910 unix2dos.c:848 unix2dos.c:914
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr "Evitante dosieran cxeneron %s, atingon ne estas normala dosiero.\n"
 
-#: dos2unix.c:815 unix2dos.c:816
+#: dos2unix.c:854 unix2dos.c:855
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr "Evitante %s, atingon de dosiera cxenero %s ne estas normala dosiero.\n"
 
-#: dos2unix.c:822 dos2unix.c:878 unix2dos.c:823 unix2dos.c:882
+#: dos2unix.c:861 dos2unix.c:917 unix2dos.c:862 unix2dos.c:921
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "Pasante ne-tekstan dosieron %s\n"
 
-#: dos2unix.c:829 dos2unix.c:885 unix2dos.c:830 unix2dos.c:889
+#: dos2unix.c:868 dos2unix.c:924 unix2dos.c:869 unix2dos.c:928
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "kodpagxo %d ne estas konvertebla.\n"
 
-#: dos2unix.c:835
+#: dos2unix.c:874
 #, c-format
 msgid "converting file %s to file %s in Unix format ...\n"
 msgstr "sxangxante dosieron %s al dosiero %s Unix-en ...\n"
 
-#: dos2unix.c:842 unix2dos.c:846
+#: dos2unix.c:881 unix2dos.c:885
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "problemojn trovitajn dum sxangxi dosiero %s al dosiero %s\n"
 
-#: dos2unix.c:864 unix2dos.c:868
+#: dos2unix.c:903 unix2dos.c:907
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "Evitante dosieran cxeneron %s.\n"
 
-#: dos2unix.c:891
+#: dos2unix.c:930
 #, c-format
 msgid "converting file %s to Unix format ...\n"
 msgstr "sxangxante dosiero %s Unix-en ...\n"
 
-#: dos2unix.c:898 unix2dos.c:905
+#: dos2unix.c:937 unix2dos.c:944
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "problemojn dum sxangxi dosiero %s\n"
@@ -170,22 +173,22 @@ msgid ""
 "\n"
 msgstr ""
 
-#: unix2dos.c:837
+#: unix2dos.c:876
 #, c-format
 msgid "converting file %s to file %s in Mac format ...\n"
 msgstr "sxangxante dosiero %s al dosiero %s Mac-en ...\n"
 
-#: unix2dos.c:839
+#: unix2dos.c:878
 #, c-format
 msgid "converting file %s to file %s in DOS format ...\n"
 msgstr "sxangxante dosiero %s al dosiero %s DOS-en ...\n"
 
-#: unix2dos.c:896
+#: unix2dos.c:935
 #, c-format
 msgid "converting file %s to Mac format ...\n"
 msgstr "sxangxante dosiero %s Mac-en ...\n"
 
-#: unix2dos.c:898
+#: unix2dos.c:937
 #, c-format
 msgid "converting file %s to DOS format ...\n"
 msgstr "sxangxante dosiero %s DOS-en ...\n"

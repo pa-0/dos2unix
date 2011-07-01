@@ -260,6 +260,9 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   char *TempPath;
   char *errstr;
   struct stat StatBuf;
+#ifdef S_ISLNK
+  struct stat StatBufSymlink;
+#endif
   struct utimbuf UTimeBuf;
 #ifndef NO_CHMOD
   mode_t mask;
@@ -299,7 +302,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   }
 
   /* Test if output file target is a regular file */
-  if (symbolic_link(ipOutFN) && (ipFlag->Follow == 1) && regfile_target(ipOutFN, ipFlag,progname))
+  if (symbolic_link(ipOutFN) && (ipFlag->Follow == SYMLINK_FOLLOW) && regfile_target(ipOutFN, ipFlag,progname))
   {
     ipFlag->status |= OUTPUT_TARGET_NO_REGFILE ;
     /* Failure, input is regular, cannot produce output. */
@@ -318,6 +321,20 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
     }
     RetVal = -1;
   }
+  
+#ifdef S_ISLNK
+  /* retrieve ipInFN file owner symbolic link */
+  if (symbolic_link(ipInFN) && lstat(ipInFN, &StatBufSymlink))
+  {
+    if (!ipFlag->Quiet)
+    {
+      ipFlag->error = errno;
+      errstr = strerror(errno);
+      fprintf(stderr, "%s: %s: %s\n", progname, ipInFN, errstr);
+    }
+    RetVal = -1;
+  }
+#endif
 
 #ifdef NO_MKSTEMP
   if((fd = MakeTempFileFrom(ipOutFN, &TempPath))==NULL) {
@@ -412,29 +429,50 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
          ipFlag->error = errno;
          errstr = strerror(errno);
          fprintf(stderr, "%s: ", progname);
-         fprintf(stderr, _("Failed to change the permissions of the temporary output file: %s\n"), errstr);
+         fprintf(stderr, _("Failed to change the permissions of temporary output file %s: %s\n"), TempPath, errstr);
        }
     }
   }
 #endif
 
 #ifndef NO_CHOWN
-  if (!RetVal && (strcmp(ipInFN,ipOutFN) == 0)) /* old file mode */
+  if (!RetVal && (strcmp(ipInFN,ipOutFN) == 0))  /* old file mode */
   {
-     /* Change owner and group of the the tempory output file to the original file's uid and gid. */
-     /* Required when a different user (e.g. root) has write permission on the original file. */
-     /* Make sure that the original owner can still access the file. */
-     if (chown(TempPath, StatBuf.st_uid, StatBuf.st_gid))
+     if ((regfile(ipInFN, 0, ipFlag, progname)==0) || /* input file is not a symbolic link */
+          (ipFlag->Follow == SYMLINK_FOLLOW)  /* symbolic link is followed */
+        )
      {
-        if (!ipFlag->Quiet)
+        /* Change owner and group of the the tempory output file to the original file's uid and gid. */
+        /* Required when a different user (e.g. root) has write permission on the original file. */
+        /* Make sure that the original owner can still access the file. */
+        if (chown(TempPath, StatBuf.st_uid, StatBuf.st_gid))
         {
-          ipFlag->error = errno;
-          errstr = strerror(errno);
-          fprintf(stderr, "%s: ", progname);
-          fprintf(stderr, _("Failed to change the owner and group of the temporary output file: %s\n"), errstr);
+           if (!ipFlag->Quiet)
+           {
+             ipFlag->error = errno;
+             errstr = strerror(errno);
+             fprintf(stderr, "%s: ", progname);
+             fprintf(stderr, _("Failed to change the owner and group of temporary output file %s: %s\n"), TempPath, errstr);
+           }
+           RetVal = -1;
         }
-        RetVal = -1;
      }
+#ifdef S_ISLNK
+     else {
+        /* When a symbolic link is replaced, change owner of the new file to the owner of the link */
+        if (chown(TempPath, StatBufSymlink.st_uid, StatBufSymlink.st_gid))
+        {
+           if (!ipFlag->Quiet)
+           {
+             ipFlag->error = errno;
+             errstr = strerror(errno);
+             fprintf(stderr, "%s: ", progname);
+             fprintf(stderr, _("Failed to change the owner and group of temporary output file %s: %s\n"), TempPath, errstr);
+           }
+           RetVal = -1;
+        }
+     }
+#endif
   }
 #endif
 
@@ -476,7 +514,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   if (symbolic_link(ipOutFN) && !RetVal)
   {
     ResolveSymlinkResult = 0; /* indicates that TargetFN need not be freed */
-    if (ipFlag->Follow == 1)
+    if (ipFlag->Follow == SYMLINK_FOLLOW)
     {
       ResolveSymlinkResult = ResolveSymbolicLink(ipOutFN, &TargetFN, ipFlag, progname);
       if (ResolveSymlinkResult < 0)
@@ -617,7 +655,7 @@ int main (int argc, char *argv[])
   pFlag->FromToMode = FROMTO_UNIX2DOS;  /* default unix2dos */
   pFlag->NewLine = 0;
   pFlag->Force = 0;
-  pFlag->Follow = 0;
+  pFlag->Follow = SYMLINK_SKIP;
   pFlag->status = 0;
   pFlag->stdio_mode = 1;
   pFlag->error = 0;
@@ -657,11 +695,11 @@ int main (int argc, char *argv[])
       else if ((strcmp(argv[ArgIdx],"-l") == 0) || (strcmp(argv[ArgIdx],"--newline") == 0))
         pFlag->NewLine = 1;
       else if ((strcmp(argv[ArgIdx],"-S") == 0) || (strcmp(argv[ArgIdx],"--skip-symlink") == 0))
-        pFlag->Follow = 0;
+        pFlag->Follow = SYMLINK_SKIP;
       else if ((strcmp(argv[ArgIdx],"-F") == 0) || (strcmp(argv[ArgIdx],"--follow-symlink") == 0))
-        pFlag->Follow = 1;
+        pFlag->Follow = SYMLINK_FOLLOW;
       else if ((strcmp(argv[ArgIdx],"-R") == 0) || (strcmp(argv[ArgIdx],"--replace-symlink") == 0))
-        pFlag->Follow = 2;
+        pFlag->Follow = SYMLINK_REPLACE;
       else if ((strcmp(argv[ArgIdx],"-V") == 0) || (strcmp(argv[ArgIdx],"--version") == 0))
       {
         PrintVersion(progname);
