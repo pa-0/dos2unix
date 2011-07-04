@@ -260,9 +260,6 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   char *TempPath;
   char *errstr;
   struct stat StatBuf;
-#ifdef S_ISLNK
-  struct stat StatBufSymlink;
-#endif
   struct utimbuf UTimeBuf;
 #ifndef NO_CHMOD
   mode_t mask;
@@ -322,20 +319,6 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
     RetVal = -1;
   }
   
-#ifdef S_ISLNK
-  /* retrieve ipInFN file owner symbolic link */
-  if (symbolic_link(ipInFN) && lstat(ipInFN, &StatBufSymlink))
-  {
-    if (!ipFlag->Quiet)
-    {
-      ipFlag->error = errno;
-      errstr = strerror(errno);
-      fprintf(stderr, "%s: %s: %s\n", progname, ipInFN, errstr);
-    }
-    RetVal = -1;
-  }
-#endif
-
 #ifdef NO_MKSTEMP
   if((fd = MakeTempFileFrom(ipOutFN, &TempPath))==NULL) {
 #else
@@ -438,41 +421,20 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 #ifndef NO_CHOWN
   if (!RetVal && (strcmp(ipInFN,ipOutFN) == 0))  /* old file mode */
   {
-     if ((regfile(ipInFN, 0, ipFlag, progname)==0) || /* input file is not a symbolic link */
-          (ipFlag->Follow == SYMLINK_FOLLOW)  /* symbolic link is followed */
-        )
+     /* Change owner and group of the the tempory output file to the original file's uid and gid. */
+     /* Required when a different user (e.g. root) has write permission on the original file. */
+     /* Make sure that the original owner can still access the file. */
+     if (chown(TempPath, StatBuf.st_uid, StatBuf.st_gid))
      {
-        /* Change owner and group of the the tempory output file to the original file's uid and gid. */
-        /* Required when a different user (e.g. root) has write permission on the original file. */
-        /* Make sure that the original owner can still access the file. */
-        if (chown(TempPath, StatBuf.st_uid, StatBuf.st_gid))
+        if (!ipFlag->Quiet)
         {
-           if (!ipFlag->Quiet)
-           {
-             ipFlag->error = errno;
-             errstr = strerror(errno);
-             fprintf(stderr, "%s: ", progname);
-             fprintf(stderr, _("Failed to change the owner and group of temporary output file %s: %s\n"), TempPath, errstr);
-           }
-           RetVal = -1;
+          ipFlag->error = errno;
+          errstr = strerror(errno);
+          fprintf(stderr, "%s: ", progname);
+          fprintf(stderr, _("Failed to change the owner and group of temporary output file %s: %s\n"), TempPath, errstr);
         }
+        RetVal = -1;
      }
-#ifdef S_ISLNK
-     else {
-        /* When a symbolic link is replaced, change owner of the new file to the owner of the link */
-        if (chown(TempPath, StatBufSymlink.st_uid, StatBufSymlink.st_gid))
-        {
-           if (!ipFlag->Quiet)
-           {
-             ipFlag->error = errno;
-             errstr = strerror(errno);
-             fprintf(stderr, "%s: ", progname);
-             fprintf(stderr, _("Failed to change the owner and group of temporary output file %s: %s\n"), TempPath, errstr);
-           }
-           RetVal = -1;
-        }
-     }
-#endif
   }
 #endif
 
