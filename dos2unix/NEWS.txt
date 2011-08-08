@@ -1,3 +1,10 @@
+2011-08-??: Version 5.3.1
+
+  * Spanish tranlation of messages and manual.
+  * File ownership is maintained in old file mode (Unix only).
+  * Dos2unix and Unix2dos share the same language files.
+  * Code cleanup.
+
 2011-04-26: Version 5.3
 
   * Improved handling of symbolic links. New options -F, -R, -S.

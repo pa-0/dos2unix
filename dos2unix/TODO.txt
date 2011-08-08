@@ -10,3 +10,5 @@ TO DO
 
 * Support Windows native symbolic links (Windows Vista and up).
 
+* Keep original owner in old file mode, on Windows.
+

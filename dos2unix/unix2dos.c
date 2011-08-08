@@ -394,7 +394,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 #ifndef NO_CHMOD
   if (!RetVal)
   {
-    if (strcmp(ipInFN,ipOutFN) == 0) /* old file mode */
+    if (ipFlag->NewFile == 0) /* old file mode */
     {
        RetVal = chmod (TempPath, StatBuf.st_mode); /* set original permissions */
     } 
@@ -419,7 +419,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 #endif
 
 #ifndef NO_CHOWN
-  if (!RetVal && (strcmp(ipInFN,ipOutFN) == 0))  /* old file mode */
+  if (!RetVal && (ipFlag->NewFile == 0))  /* old file mode */
   {
      /* Change owner and group of the the tempory output file to the original file's uid and gid. */
      /* Required when a different user (e.g. root) has write permission on the original file. */

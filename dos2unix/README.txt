@@ -44,7 +44,7 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2-5.3    2009-2011 
+        Erwin Waterlander       version 3.2-5.3.1  2009-2011 
         Christian Wurll         version 3.1        1998
         Bernd Johannes Wuebben  version 3.0        1998
         Benjamin Lin            version 1.1-2.3    1994-1995
@@ -55,24 +55,25 @@ TRANSLATORS
         Dutch           Erwin Waterlander <waterlan@xs4all.nl>
         Esperanto       Rugxulo <rugxulo@gmail.com>
         German          Philipp Thomas <psmt@opensuse.org>
+        Spanish         Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>
 
 ACKNOWLEDGEMENTS
 
-        Rugxulo         query_con_codepage(), code page detection in DOS.
-        Rugxulo         DJGPP stubs for mac2unix and unix2mac.
-        Jari Aalto      Improvements man page.
-        Jari Aalto      Improvments Makefile.
-        Ben Pfaff       Treat form feeds as valid text.
-        Marc Gianzero   Darwin OS port.
-        Elbert Pol      OS/2 port.
-        Tim Waugh       Various patches.
-        Mike Harris     Man page update.
-        Bernard RosenKraenzer  segfault patch.
-        Tim Powers      mkstemp patch.
-        Miloslav Trmac  safeconv patch.
-        Charles Wilson  Follow symbolic links.
-        Charles Wilson  Makefile and code cleanup for Cygwin.
-
+        Rugxulo               query_con_codepage(), code page detection in DOS.
+        Rugxulo               DJGPP stubs for mac2unix and unix2mac.
+        Jari Aalto            Improvements man page.
+        Jari Aalto            Improvments Makefile.
+        Ben Pfaff             Treat form feeds as valid text.
+        Marc Gianzero         Darwin OS port.
+        Elbert Pol            OS/2 port.
+        Tim Waugh             Various patches.
+        Mike Harris           Man page update.
+        Bernard RosenKraenzer segfault patch.
+        Tim Powers            mkstemp patch.
+        Miloslav Trmac        safeconv patch.
+        Charles Wilson        Follow symbolic links.
+        Charles Wilson        Makefile and code cleanup for Cygwin.
+        Christopher Williams  Maintain file ownership in old file mode.
 
 CONTACT INFORMATION
 

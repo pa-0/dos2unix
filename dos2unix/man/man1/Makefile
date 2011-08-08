@@ -83,6 +83,16 @@ all: $(MAN_OBJECTS)
 	rm -f pod*.tmp
 # fix for bug http://rt.perl.org/rt3//Public/Bug/Display.html?id=79410 
 # "Pod2man creates wrong ROFF esc sequences for Latin-1 characters."
-	perl -pli.bak -e s/e\\\\\\*:/\\\\[:e]/ $@
+	perl -pli.bak \
+		-e s/A\\\\\\*\'/\\\\[\'A]/g\; \
+		-e s/a\\\\\\*\'/\\\\[\'a]/g\; \
+		-e s/E\\\\\\*\'/\\\\[\'E]/g\; \
+		-e s/e\\\\\\*:/\\\\[:e]/g\; \
+		-e s/e\\\\\\*\'/\\\\[\'e]/g\; \
+		-e s/i\\\\\\*\'/\\\\[\'i]/g\; \
+		-e s/n\\\\\\*~/\\\\[~n]/g\; \
+		-e s/o\\\\\\*\'/\\\\[\'o]/g\; \
+		-e s/u\\\\\\*\'/\\\\[\'u]/g\; \
+		$@
 
 # End of of Makefile part

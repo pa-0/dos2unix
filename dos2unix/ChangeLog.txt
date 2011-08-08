@@ -1,9 +1,12 @@
+2011-08-08 Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>
+	* Spanish translation of messages and manual.
+
 2011-06-26 Erwin Waterlander <waterlan@xs4all.nl>
 	* bugfix: dos2unix changes ownership and permissions on file.
 	  When an other user (e.g. root) than the owner has write permission
 	  on the input file, dos2unix changes owner, group and umask in old
 	  file mode to the other user's owner, group and umask who runs
-	  dos2unix. Thanks to Christopher Williams.
+	  dos2unix. Fixed only for Unix. Thanks to Christopher Williams.
 	* Keep permissions also on Windows. Use chmod() i.s.o. fchmod().
 
 2011-06-16 Erwin Waterlander <waterlan@xs4all.nl>
