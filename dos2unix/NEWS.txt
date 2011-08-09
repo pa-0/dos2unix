@@ -1,4 +1,4 @@
-2011-08-??: Version 5.3.1
+2011-08-09: Version 5.3.1
 
   * Spanish tranlation of messages and manual.
   * File ownership is maintained in old file mode (Unix only).
