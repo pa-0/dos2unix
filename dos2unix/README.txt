@@ -35,7 +35,7 @@ HISTORY
 
         Features
 
-        * Native language support: Dutch, English, Esperanto, German.
+        * Native language support: Dutch, English, Esperanto, German, Spanish.
         * Automatically skips binary and non-regular files
         * In-place, paired, or stdio mode conversion.
         * Keep original file dates option.
