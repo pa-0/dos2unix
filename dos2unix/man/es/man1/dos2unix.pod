@@ -451,7 +451,7 @@ Bernd Johannes Wuebben (modo mac2unix) - <wuebben@kde.org>,
 Christian Wurll (añadió el salto de línea extra) - <wurll@ira.uka.de>,
 Erwin Waterlander - <waterlan@xs4all.nl> (Mantenimiento)
 
-Página del proyecto: L<http://www.xs4all.nl/~waterlan/dos2unix.html>
+Página del proyecto: L<http://waterlan.home.xs4all.nl/dos2unix.html>
 
 Página de SourceForge: L<http://sourceforge.net/projects/dos2unix/>
 
