@@ -10,7 +10,7 @@ FILE LIST
         NEWS.txt        : Basic change log for users.
         ChangeLog.txt   : Detailed change log for programmers.
         TODO.txt        : Things to do.
-	BUGS.txt        : Known bugs and instructions on reporting new ones.
+        BUGS.txt        : Known bugs and instructions on reporting new ones.
         dos2unix.txt    : Dos2unix manual, text format.
         dos2unix.ps     : Dos2unix manual, PostScript format.
         dos2unix.pdf    : Dos2unix manual, PDF format.
@@ -26,12 +26,12 @@ HISTORY
         other problems.  Internationalization has been added and ports to DOS,
         Windows, Cygwin and OS/2 Warp have been made. 
 
-	These implementations of dos2unix and unix2dos have been modelled after
-	dos2unix/unix2dos under SunOS/Solaris.  They have similar conversion
-	modes, namely ascii, 7bit and iso.  The first versions were made by
-	John Birchfield in 1989, and in 1995 rewritten from scratch by Benjamin
-	Lin. Mac to Unix conversion was added by Bernd Johannes Wuebben in
-	1998, Unix to Mac conversion by Erwin Waterlander in 2010.
+        These implementations of dos2unix and unix2dos have been modelled after
+        dos2unix/unix2dos under SunOS/Solaris.  They have similar conversion
+        modes, namely ascii, 7bit and iso.  The first versions were made by
+        John Birchfield in 1989, and in 1995 rewritten from scratch by Benjamin
+        Lin. Mac to Unix conversion was added by Bernd Johannes Wuebben in
+        1998, Unix to Mac conversion by Erwin Waterlander in 2010.
 
         Features
 
