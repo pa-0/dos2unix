@@ -76,6 +76,12 @@ WINDOWS PORT
 
         make -f mingw.mak clean install
 
+    Or get the Open Watcom C compiler <http://www.openwatcom.org>
+    and type:
+
+        wmake -f wccwin32.mak clean
+        wmake -f wccwin32.mak
+
 WINDOWS 64 BIT PORT
 
     To compile a version for Windows, get the Mingw-w64 compiler
@@ -100,8 +106,8 @@ DOS PORT, 16 BIT
 
     Or use the OpenWatcom compiler <http://www.openwatcom.org>.
 
-        wmake -f watcom16.mak clean
-        wmake -f watcom16.mak
+        wmake -f wccdos16.mak clean
+        wmake -f wccdos16.mak
 
 OS/2 PORT
 

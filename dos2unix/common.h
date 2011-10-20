@@ -74,7 +74,11 @@
 #endif
 #include <errno.h>
 
-#if defined(WIN32) && !defined(__CYGWIN__) /* MINGW32 */
+#if (defined(__WATCOMC__) && defined(__NT__))  /* Watcom */
+#  define WIN32
+#endif
+
+#if defined(WIN32) && !defined(__CYGWIN__) /* Windows */
 #define MSDOS
 #endif
 

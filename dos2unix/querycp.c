@@ -109,7 +109,7 @@ unsigned short query_con_codepage(void) {
 
 #include <windows.h>
 unsigned short query_con_codepage(void) {
-
+  /* Get the DOS console's code page */
    return((unsigned short)GetConsoleOutputCP());
 }
 
@@ -122,7 +122,7 @@ unsigned short query_con_codepage(void) {
   ULONG cp[3];
   ULONG cplen;
 
-  DosQueryCP(sizeof(cp), cp, &cplen);
+  DosQueryCp(sizeof(cp), cp, &cplen);
   return((unsigned short)cp[0]);
 }
 

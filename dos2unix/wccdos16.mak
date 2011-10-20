@@ -54,4 +54,6 @@ clean
 	-del *.obj
 	-del *.exe
 	-del *.SYM
-	-del *.MAP
+	-del *.map
+	-del *.ilk
+	-del cflags.cfg

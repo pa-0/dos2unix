@@ -1,5 +1,6 @@
 2011-10-20 Erwin Waterlander <waterlan@xs4all.nl>
 	* querycp.c: Support OS/2, and Watcom C for Win32.
+	* wccwin32.mak: New makefile for Open Watcom for Win32.
 
 2011-08-22 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Added RPM_OPT_FLAGS to LDFLAGS. Required for
