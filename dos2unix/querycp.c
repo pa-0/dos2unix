@@ -109,8 +109,21 @@ unsigned short query_con_codepage(void) {
 
 #include <windows.h>
 unsigned short query_con_codepage(void) {
-  /* Get the DOS console's code page */
+
+  /* Dos2unix is modelled after dos2unix under SunOS/Solaris.
+   * The original dos2unix ISO mode on SunOS supported code
+   * pages CP437, CP850, CP860, CP863, and CP865, which
+   * are DOS code pages. Therefore we request here the DOS
+   * code page of the Console. The DOS code page is used
+   * by DOS programs, for instance text editor 'edit'.
+   */
+
+  /* Get the console's DOS code page */
    return((unsigned short)GetConsoleOutputCP());
+
+   /* Get the system's ANSI code page */
+   /* return((unsigned short)GetACP()); */
+
 }
 
 #elif defined (__OS2__) /* OS/2 Warp */
