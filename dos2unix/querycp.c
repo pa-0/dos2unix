@@ -109,11 +109,8 @@ unsigned short query_con_codepage(void) {
 
 #include <windows.h>
 unsigned short query_con_codepage(void) {
-#ifdef WCD_UNICODE
-   return(0);
-#else
-   return((unsigned short)GetACP());
-#endif
+
+   return((unsigned short)GetConsoleOutputCP());
 }
 
 #elif defined (__OS2__) /* OS/2 Warp */
