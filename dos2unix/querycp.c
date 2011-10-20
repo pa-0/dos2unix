@@ -1,5 +1,9 @@
 /* The code in this file is Public Domain */
 
+#if (defined(__WATCOMC__) && defined(__NT__))
+#  define WIN32
+#endif
+
 #ifdef DJGPP
 
 #include <dpmi.h>
@@ -63,7 +67,7 @@ unsigned short query_con_codepage(void) {
 
    return param_block[1];
 }
-#elif defined(__WATCOMC__) && defined(MSDOS)
+#elif defined(__WATCOMC__) && defined(__I86__) /* Watcom C, 16 bit Intel */
 
 /* rugxulo _AT_ gmail _DOT_ com */
 
@@ -99,16 +103,33 @@ unsigned short query_con_codepage(void) {
 
 
 
-#elif defined (WIN32) && !defined(__CYGWIN__)
+#elif defined (WIN32) && !defined(__CYGWIN__) /* Windows, not Cygwin */
 
 /* Erwin Waterlander */
 
 #include <windows.h>
 unsigned short query_con_codepage(void) {
-   return((unsigned short)GetConsoleOutputCP());
-}
+#ifdef WCD_UNICODE
+   return(0);
 #else
+   return((unsigned short)GetACP());
+#endif
+}
 
+#elif defined (__OS2__) /* OS/2 Warp */
+
+#define INCL_DOS
+#include <os2.h>
+
+unsigned short query_con_codepage(void) {
+  ULONG cp[3];
+  ULONG cplen;
+
+  DosQueryCP(sizeof(cp), cp, &cplen);
+  return((unsigned short)cp[0]);
+}
+
+#else  /* Unix, other */
 unsigned short query_con_codepage(void) {
    return(0);
 }
