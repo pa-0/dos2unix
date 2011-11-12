@@ -1,3 +1,6 @@
+2011-11-12 Erwin Waterlander <waterlan@xs4all.nl>
+	* querycp.c: Fix for MSYS.
+
 2011-10-20 Erwin Waterlander <waterlan@xs4all.nl>
 	* querycp.c: Support OS/2, and Watcom C for Win32.
 	* wccwin32.mak: New makefile for Open Watcom for Win32.
