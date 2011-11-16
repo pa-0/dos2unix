@@ -1,3 +1,6 @@
+2011-11-16 Erwin Waterlander <waterlan@xs4all.nl>
+	* README.txt, man/man1/dos2unix.pod: Freshmeat changed name to Freecode.
+
 2011-11-12 Erwin Waterlander <waterlan@xs4all.nl>
 	* querycp.c: Fix for MSYS.
 

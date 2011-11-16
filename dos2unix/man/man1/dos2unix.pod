@@ -445,7 +445,7 @@ Project page: L<http://waterlan.home.xs4all.nl/dos2unix.html>
 
 SourceForge page: L<http://sourceforge.net/projects/dos2unix/>
 
-Freshmeat: L<http://freshmeat.net/projects/dos2unix>
+Freecode: L<http://freecode.com/projects/dos2unix>
 
 =head1 SEE ALSO
 

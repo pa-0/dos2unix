@@ -79,7 +79,7 @@ CONTACT INFORMATION
 
         Project page             : http://waterlan.home.xs4all.nl/dos2unix.html
         SourceForge project page : http://sourceforge.net/projects/dos2unix/
-        Freshmeat project page   : http://freshmeat.net/projects/dos2unix/
+        Freecode project page    : http://freecode.com/projects/dos2unix/
 
         Erwin Waterlander
         waterlan@xs4all.nl
