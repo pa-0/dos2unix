@@ -156,7 +156,7 @@ endif
 ifeq (Darwin, $(shell uname -s))
 	OS = Darwin
 ifdef ENABLE_NLS
-	CFLAGS_OS     = -I/usr/local/include
+	CFLAGS_OS     = -DNO_CHOWN -I/usr/local/include
 	LDFLAGS_EXTRA = -lintl -L/usr/local/lib
 endif
 endif
