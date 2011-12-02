@@ -5,6 +5,7 @@
 	  the caller is not a member of the group! Chowning *from* the group is ok,
 	  chowning *to* the group is not - and this will make unix2dos fail when it
 	  tries to restore the permissions.
+	  Thanks to Wolf Geldmacher.
 	  See bug report 3444337, https://sourceforge.net/tracker/?func=detail&atid=1234808&aid=3444337&group_id=292083
 
 2011-11-16 Erwin Waterlander <waterlan@xs4all.nl>
