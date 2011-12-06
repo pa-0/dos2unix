@@ -106,6 +106,8 @@ ifdef ENABLE_NLS
 	DOS2UNIX_NLSDEFS = -DENABLE_NLS -DLOCALEDIR=\"$(localedir)\" -DPACKAGE=\"$(PACKAGE)\"
 endif
 
+VERSIONSUFFIX	= -bin
+
 # ......................................................... OS flags ...
 
 OS =
@@ -136,27 +138,34 @@ endif
 	# Cygwin packaging standard avoids version numbers on
 	# documentation directories.
 	docsubdir	= $(PACKAGE)
+	VERSIONSUFFIX	= -cygwin
+endif
+
+ifndef OS
+ifeq ($(findstring MSYS,$(shell uname)),MSYS)
+	OS = msys
+	VERSIONSUFFIX	= -msys
+ifdef ENABLE_NLS
+	LDFLAGS_EXTRA = -lintl -liconv
+endif
+endif
 endif
 
 
 ifndef OS
 ifeq (FreeBSD, $(shell uname -s))
 	OS = freebsd
-endif
-endif
-
-ifeq (freebsd,$(OS))
-	# Running under FreeBSD
 ifdef ENABLE_NLS
 	CFLAGS_OS     = -I/usr/local/include
 	LDFLAGS_EXTRA = -lintl -L/usr/local/lib
+endif
 endif
 endif
 
 ifeq (Darwin, $(shell uname -s))
 	OS = Darwin
 ifdef ENABLE_NLS
-	CFLAGS_OS     = -DNO_CHOWN -I/usr/local/include
+	CFLAGS_OS     = -I/usr/local/include
 	LDFLAGS_EXTRA = -lintl -L/usr/local/lib
 endif
 endif
@@ -373,7 +382,6 @@ ifdef ENABLE_NLS
 ZIPOBJ += share/locale/*/LC_MESSAGES/$(PACKAGE).mo
 endif
 
-VERSIONSUFFIX	= -bin
 ZIPFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX).zip
 TGZFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX).tar.gz
 TBZFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX).tar.bz2

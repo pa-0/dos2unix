@@ -55,7 +55,9 @@
 #if defined(DJGPP) || defined(__TURBOC__) /* DJGPP */
 #  include <dir.h>
 #else
-#  include <libgen.h>
+#  ifndef __MSYS__
+#    include <libgen.h>
+#  endif
 #endif
 #ifndef __TURBOC__
 #include <unistd.h>
@@ -177,7 +179,7 @@ void PrintLocaledir(char *localedir);
 #endif
 FILE* OpenInFile(char *ipFN);
 FILE* OpenOutFile(int fd);
-#ifdef __TURBOC__
+#if defined(__TURBOC__) || defined(__MSYS__)
 char *dirname(char *path);
 #endif
 #ifdef NO_MKSTEMP

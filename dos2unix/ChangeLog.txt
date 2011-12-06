@@ -1,3 +1,8 @@
+2011-12-06 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Undo previous change for Darwin. Not restoring group and
+	  owner may be destructive or a security risk.
+	* Makefile, common.[ch]: Dos2unix builds on MSYS now.
+
 2011-12-02 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: For MacOS the option -DNO_CHOWN has been be added to the compile time flags.
 	  This is necessary because Darwin will create files with the

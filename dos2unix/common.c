@@ -31,7 +31,7 @@
 # if __GNUC_PREREQ (2,4)
 #  define USE_CANONICALIZE_FILE_NAME 1
 # endif
-#elif defined(__CYGWIN__)
+#elif defined(__CYGWIN__) && !defined(__MSYS__)
 /* on cygwin, canonicalize_file_name() available since api 0/213 */
 /* (1.7.0beta61, 25-Sep-09) */
 # include <cygwin/version.h>
@@ -264,7 +264,7 @@ FILE* OpenOutFile(int fd)
   return (fdopen(fd, W_CNTRL));
 }
 
-#ifdef __TURBOC__
+#if defined(__TURBOC__) || defined(__MSYS__)
 char *dirname(char *path)
 {
   char *ptr;
