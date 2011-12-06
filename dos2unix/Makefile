@@ -144,6 +144,7 @@ endif
 ifndef OS
 ifeq ($(findstring MSYS,$(shell uname)),MSYS)
 	OS = msys
+	EXE = .exe
 	VERSIONSUFFIX	= -msys
 ifdef ENABLE_NLS
 	LDFLAGS_EXTRA = -lintl -liconv
