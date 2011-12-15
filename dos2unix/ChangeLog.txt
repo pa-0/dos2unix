@@ -1,3 +1,6 @@
+2011-12-15 Erwin Waterlander <waterlan@xs4all.nl>
+	* wccdos32.mak: New makefile for Open Watcom for DOS32.
+
 2011-12-06 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Undo previous change for Darwin. Not restoring group and
 	  owner may be destructive or a security risk.

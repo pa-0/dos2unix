@@ -105,6 +105,39 @@ unsigned short query_con_codepage(void) {
 
 }
 
+#elif defined(__WATCOMC__) && defined(__DOS__) /* Watcom C, 32 bit DOS */
+
+/* rugxulo _AT_ gmail _DOT_ com */
+
+#include <stdio.h>
+#include <dos.h>
+#include <i86.h>
+
+unsigned short query_con_codepage(void) {
+   union REGS regs;
+   unsigned short param_block[2] = { 0, 437 };
+
+   regs.x.eax = 0x440C;           // GENERIC IO FOR HANDLES
+   regs.x.ebx = 1;                // STDOUT
+   regs.x.ecx = 0x036A;           // 3 = CON, 0x6A = QUERY SELECTED CP
+   regs.x.edx = (unsigned short)param_block;
+   regs.x.cflag |= 1;            // preset carry for potential failure
+   int386(0x21, &regs, &regs);
+
+   if (regs.x.cflag)             // if not succeed (carry flag set)
+   {
+     regs.x.eax = 0xAD02;         // 440C -> MS-DOS or DR-DOS only
+     regs.x.ebx = 0xFFFE;         // AD02 -> MS-DOS or FreeDOS only
+     regs.x.cflag |= 1;
+     int386(0x2F, &regs, &regs);
+   }
+
+     if ((!(regs.x.cflag)) && (regs.x.ebx < 0xFFFE))
+       param_block[1] = regs.x.ebx;
+
+   return param_block[1];
+
+}
 
 
 #elif defined (WIN32) && !defined(__CYGWIN__) /* Windows, not Cygwin */
