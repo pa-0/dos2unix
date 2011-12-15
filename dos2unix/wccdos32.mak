@@ -9,9 +9,9 @@ TARGET = causeway
 
 all: dos2unix.exe unix2dos.exe mac2unix.exe unix2mac.exe
 
-cflagsD32.cfg:
-	@%create cflagsD32.cfg
-	@%append cflagsD32.cfg $(CFLAGS)
+cflagsDS.cfg:
+	@%create cflagsDS.cfg
+	@%append cflagsDS.cfg $(CFLAGS)
 
 dos2unix.exe: dos2unix.obj querycp.obj common.obj
 	@%create dos2unix.lnk
@@ -26,17 +26,17 @@ unix2dos.exe: unix2dos.obj querycp.obj common.obj
 	del unix2dos.lnk
 
 
-dos2unix.obj :  $(SRCDIR)\dos2unix.c $(SRCDIR)\querycp.h $(SRCDIR)\common.h cflagsD32.cfg
-	$(CC) @cflagsD32.cfg $(SRCDIR)\dos2unix.c
+dos2unix.obj :  $(SRCDIR)\dos2unix.c $(SRCDIR)\querycp.h $(SRCDIR)\common.h cflagsDS.cfg
+	$(CC) @cflagsDS.cfg $(SRCDIR)\dos2unix.c
 
-unix2dos.obj :  $(SRCDIR)\unix2dos.c $(SRCDIR)\querycp.h $(SRCDIR)\common.h cflagsD32.cfg
-	$(CC) @cflagsD32.cfg $(SRCDIR)\unix2dos.c
+unix2dos.obj :  $(SRCDIR)\unix2dos.c $(SRCDIR)\querycp.h $(SRCDIR)\common.h cflagsDS.cfg
+	$(CC) @cflagsDS.cfg $(SRCDIR)\unix2dos.c
 
-querycp.obj :  $(SRCDIR)\querycp.c $(SRCDIR)\querycp.h cflagsD32.cfg
-	$(CC) @cflagsD32.cfg $(SRCDIR)\querycp.c
+querycp.obj :  $(SRCDIR)\querycp.c $(SRCDIR)\querycp.h cflagsDS.cfg
+	$(CC) @cflagsDS.cfg $(SRCDIR)\querycp.c
 
-common.obj :  $(SRCDIR)\common.c $(SRCDIR)\common.h cflagsD32.cfg
-	$(CC) @cflagsD32.cfg $(SRCDIR)\common.c
+common.obj :  $(SRCDIR)\common.c $(SRCDIR)\common.h cflagsDS.cfg
+	$(CC) @cflagsDS.cfg $(SRCDIR)\common.c
 
 mac2unix.exe : dos2unix.exe
 	copy /v dos2unix.exe mac2unix.exe
@@ -56,4 +56,4 @@ clean
 	-del *.SYM
 	-del *.map
 	-del *.ilk 
-	-del cflagsD32.cfg
+	-del cflagsDS.cfg
