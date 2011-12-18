@@ -18,7 +18,7 @@
 // Tuesday, May 5, 2009    1:40pm
 // rugxulo _AT_ gmail _DOT_ com
 //
-// This file is (obviously?) not copyrighted, "nenies propraüo" !!
+// This file is (obviously?) not copyrighted, "nenies proprajxo" !!
 //
 // Tested successfully on DR-DOS 7.03, FreeDOS 1.0++, and MS-DOS 6.22.
 // (Doesn't work on XP or Vista, though.)
@@ -39,7 +39,7 @@
 //    (which doesn't work in DR-DOS!). But DR-DOS' DISPLAY doesn't respond
 //    to the typical install check i.d. anyways. FreeDOS currently only
 //    supports COUNTRY.SYS in their "unstable" kernel 2037, but at least
-//    their KEYB, "õoje", supports cp853 too (thanks, Henrique!).
+//    their KEYB, "gxoje", supports cp853 too (thanks, Henrique!).
 //
 // P.S. For MS or DR: ren ega.cpx *.com ; upx -d ega.com ; ren ega.com *.cpi
 // ----------------------------------------------------------------------
