@@ -1,3 +1,10 @@
+20??-??-??: Version 5.3.2
+
+  * New homepage URL: http://waterlan.home.xs4all.nl/dos2unix.html
+  * Compiles for native MSYS.
+  * Compile with OpenWatcom for DOS32 and Win32.
+  * Detect code page on OS/2.
+
 2011-08-09: Version 5.3.1
 
   * Spanish translation of messages and manual.
