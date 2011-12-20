@@ -3,10 +3,6 @@
 #if (defined(__WATCOMC__) && defined(__NT__))
 #  define WIN32
 #endif
-#ifdef __MSYS__
-#  define WIN32
-#  undef __CYGWIN__
-#endif
 
 #ifdef DJGPP
 
@@ -42,6 +38,13 @@
 //    their KEYB, "gxoje", supports cp853 too (thanks, Henrique!).
 //
 // P.S. For MS or DR: ren ega.cpx *.com ; upx -d ega.com ; ren ega.com *.cpi
+//
+// ADDENDUM (2011):
+// Latest "stable" FreeDOS kernel is 2040, it now includes COUNTRY.SYS
+// support by default, but NLSFUNC (CHCP) 'system code page' support is
+// partially unimplemented (lacking some int 2Fh calls, yet Eduardo
+// Casino didn't seem too worried, so I dunno, nag him if necessary,
+// heh).
 // ----------------------------------------------------------------------
 
 unsigned short query_con_codepage(void) {

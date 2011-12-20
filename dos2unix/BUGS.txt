@@ -1,8 +1,8 @@
 KNOWN BUGS
 
     querycp.c: query_con_codepage()
-    The DOS 16 version compiled with OpenWatcom reports a wrong active
-    code page under Windows 98.
+    The DOS 16 and 32 bit versions compiled with OpenWatcom report
+    a wrong active code page under Windows 98.
     A correct code page is reported under FreeDOS.
 
 

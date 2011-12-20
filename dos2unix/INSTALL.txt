@@ -96,6 +96,11 @@ DOS PORT, 32 BIT
 
         make -f djgpp.mak clean install
 
+    Or use the OpenWatcom compiler <http://www.openwatcom.org>.
+
+        wmake -f wccdos32.mak clean
+        wmake -f wccdos32.mak
+
 DOS PORT, 16 BIT
 
     To compile a version for DOS, use the Borland C compiler 3.1 or 4.0,
