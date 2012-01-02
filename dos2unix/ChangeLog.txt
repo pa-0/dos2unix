@@ -1,3 +1,7 @@
+2012-01-02 Erwin Waterlander <waterlan@xs4all.nl>
+	* os2.mak: Enable support for wild cards (-Zargs-wild).
+	  Thanks to Steven H. Levine and Elbert Pol.
+
 2011-12-20 Erwin Waterlander <waterlan@xs4all.nl>
 	* querycp.c: Extra comment from Rugxulo.
 	* querycp.c: Undid change of 2011-11-12. Behave as Cygwin version.

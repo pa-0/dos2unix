@@ -1,13 +1,14 @@
 
 # Author: Erwin Waterlander
-# Copyright (C) 2009 Erwin Waterlander
+# Copyright (C) 2009-2011 Erwin Waterlander
 # This file is distributed under the same license as the dos2unix package.
 
 prefix=c:/usr
 ENABLE_NLS=1
+LDFLAGS_EXTRA = -Zargs-wild
 
 ifdef ENABLE_NLS
-LDFLAGS_EXTRA = -lintl -liconv
+LDFLAGS_EXTRA += -lintl -liconv
 endif
 ZIPOBJ_EXTRA =
 
