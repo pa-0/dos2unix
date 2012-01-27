@@ -13,7 +13,7 @@ LDFLAGS_EXTRA = -lintl -liconv
 endif
 
 all:
-	c:/bc4/bin/make -f bcc.mak
+	wmake -f wccdos16.mak
 
 install:
 	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" docsubdir=dos2unix
@@ -28,5 +28,5 @@ dist:
 	$(MAKE) dist-zip EXE=.exe prefix=$(prefix) ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" ENABLE_NLS=$(ENABLE_NLS) docsubdir=dos2unix ZIPFILE=d2u$(DOS2UNIX_VERSION_SHORT)b.zip
 
 strip:
-	c:/bc4/bin/make -f bcc.mak strip
+	wmake -f wccdos16.mak strip
 
