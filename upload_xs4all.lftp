@@ -1,6 +1,6 @@
 open ftp://waterlan@ftp.xs4all.nl
 cd WWW/dos2unix
-mput dos2unix-5.3.1.tar.gz dos2unix-5.3.1-doc.tar.gz d2u531s.zip d2u531b.zip dos2unix-5.3.1-dos32-nls.zip dos2unix-5.3.1-dos32.zip dos2unix-5.3.1-win32.zip dos2unix-5.3.1-win64.zip
+mput dos2unix-5.3.2.tar.gz dos2unix-5.3.2-doc.tar.gz d2u532s.zip d2u532b.zip dos2unix-5.3.2-dos32-nls.zip dos2unix-5.3.2-dos32.zip dos2unix-5.3.2-win32.zip dos2unix-5.3.2-win64.zip dos2unix-5.3.2-msys.tar.gz
 lcd trunk/dos2unix
 mput ChangeLog.txt NEWS.txt dos2unix.txt dos2unix.htm dos2unix.ps dos2unix.pdf
 exit

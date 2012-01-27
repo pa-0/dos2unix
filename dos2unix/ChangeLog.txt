@@ -1,10 +1,14 @@
+2012-01-27 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 5.3.2
+
 2012-01-02 Erwin Waterlander <waterlan@xs4all.nl>
 	* os2.mak: Enable support for wild cards (-Zargs-wild).
 	  Thanks to Steven H. Levine and Elbert Pol.
 
 2011-12-20 Erwin Waterlander <waterlan@xs4all.nl>
 	* querycp.c: Extra comment from Rugxulo.
-	* querycp.c: Undid change of 2011-11-12. Behave as Cygwin version.
+	* querycp.c: Undid change of 2011-11-12. MSYS version
+	  behaves as Cygwin version.
 
 2011-12-15 Erwin Waterlander <waterlan@xs4all.nl>
 	* wccdos32.mak: New makefile for Open Watcom for DOS32.

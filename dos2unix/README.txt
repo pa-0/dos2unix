@@ -44,7 +44,7 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2-5.3.1  2009-2011 
+        Erwin Waterlander       version 3.2-5.3.2  2009-2012 
         Christian Wurll         version 3.1        1998
         Bernd Johannes Wuebben  version 3.0        1998
         Benjamin Lin            version 1.1-2.3    1994-1995
@@ -74,6 +74,7 @@ ACKNOWLEDGEMENTS
         Charles Wilson        Follow symbolic links.
         Charles Wilson        Makefile and code cleanup for Cygwin.
         Christopher Williams  Maintain file ownership in old file mode.
+        Steven H. Levine      Support wildcards on OS/2.
 
 CONTACT INFORMATION
 
