@@ -83,6 +83,8 @@ all: $(MAN_OBJECTS)
 	rm -f pod*.tmp
 # fix for bug http://rt.perl.org/rt3//Public/Bug/Display.html?id=79410 
 # "Pod2man creates wrong ROFF esc sequences for Latin-1 characters."
+# Create groff (specific) escape sequences which work also on DOS/Windows.
+# See also: https://rt.cpan.org/Public/Bug/Display.html?id=73804
 	perl -pli.bak \
 		-e s/A\\\\\\*\'/\\\\[\'A]/g\; \
 		-e s/a\\\\\\*\'/\\\\[\'a]/g\; \
