@@ -432,7 +432,7 @@ Ejemplo (intérprete de comandos POSIX):
 =head1 VALOR DE RETORNO
 
 Se regresa cero cuando el programa termina exitosamente. Cuando ocurre un error
-del sistema se regresará el número de error del sistema. Para otros errores se
+del sistema se regresará el último número de error del sistema. Para otros errores se
 regresa 1.
 
 El valor de retorno es siempre cero en modo silencioso, excepto cuando se

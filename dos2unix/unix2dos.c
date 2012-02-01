@@ -50,8 +50,6 @@
  */
 
 
-#define VER_AUTHOR   "Erwin Waterlander"
-
 /* #define DEBUG 1 */
 
 #include "common.h"

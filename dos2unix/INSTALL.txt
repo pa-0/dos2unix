@@ -32,6 +32,16 @@ INSTALLATION NAMES
         make prefix=$HOME clean all
         make prefix=$HOME install
 
+DEBUG
+
+    A debug enabled build can be made by adding DEBUG=1
+    to the make command. Example:
+
+        make clean install DEBUG=1
+
+    With debug enabled dos2unix will print extra information
+    and you can debug the source code in gdb.
+
 NATIVE LANGUAGE SUPPORT
 
     Native Language Support (NLS) is by default enabled.

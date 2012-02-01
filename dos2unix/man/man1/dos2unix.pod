@@ -422,7 +422,7 @@ Example (POSIX shell):
 
 =head1 RETURN VALUE
 
-On success, zero is returned.  When a system error occurs the system error will be
+On success, zero is returned.  When a system error occurs the last system error will be
 returned. For other errors 1 is returned.
 
 The return value is always zero in quiet mode, except when wrong command-line options

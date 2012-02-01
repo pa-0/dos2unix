@@ -204,8 +204,13 @@ CFLAGS	= -O2 -Wall $(RPM_OPT_FLAGS)
 
 EXTRA_CFLAGS	= -DVER_REVISION=\"$(DOS2UNIX_VERSION)\" \
 		  -DVER_DATE=\"$(DOS2UNIX_DATE)\" \
+		  -DVER_AUTHOR=\"$(DOS2UNIX_AUTHOR)\" \
 		  -DDEBUG=$(DEBUG) \
 		  $(CFLAGS_OS)
+
+ifeq ($(DEBUG), 1)
+	EXTRA_CFLAGS += -g
+endif
 
 ifdef STATIC
 	EXTRA_CFLAGS += -static
