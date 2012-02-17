@@ -152,9 +152,7 @@ static int D2UIso860Table[256] =
 
 /* CP863 -> ISO-8859-1 */
 /* Non-convertable characters are converted to a dot (\x2e) */
-// 84>c2, 86>b6, 8d>., 8e>c0, 8f>a7
-// 91>c8, 92>ca, 94>cb, 95>cf, 98>a4, 99>d4, 9d>d9, 9e>db
-// a0>a6, a1>b4, a4>a8, a5>b8, a6>b3, a7>af, a8>ce, ad>be
+
 static int D2UIso863Table[256] =
 {
   '\x00', '\x01', '\x02', '\x03', '\x04', '\x05', '\x06', '\x07', '\x08', '\x09', '\x0a', '\x0b', '\x0c', '\x0d', '\x0e', '\x0f',
