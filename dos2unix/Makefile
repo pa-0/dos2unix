@@ -1,6 +1,6 @@
 # Author: Erwin Waterlander
 #
-#   Copyright (C) 2009-2011 Erwin Waterlander
+#   Copyright (C) 2009-2012 Erwin Waterlander
 #   All rights reserved.
 # 
 #   Redistribution and use in source and binary forms, with or without
@@ -349,7 +349,7 @@ endif
 	$(foreach manfile, $(MANFILES), rm -f $(DESTDIR)$(datarootdir)/$(manfile) ;)
 	-rm -rf $(DESTDIR)$(docdir)
 
-clean:
+mostlyclean:
 	rm -f *.o
 	rm -f $(BIN) $(UNIX2DOS_BIN) $(MAC2UNIX_BIN) $(UNIX2MAC_BIN)
 	rm -f *.bak *~
@@ -359,12 +359,14 @@ clean:
 	rm -f po/*.bak po/*~
 	rm -f po/*.mo
 
-distclean: clean
-
-maintainer-clean: distclean
+clean: mostlyclean
 	rm -f $(DOCFILES) $(PACKAGE).ps $(PACKAGE).pdf
 	rm -f man/man1/*.1
 	rm -f man/*/man1/*.1
+
+distclean: clean
+
+maintainer-clean: distclean
 
 realclean: maintainer-clean
 

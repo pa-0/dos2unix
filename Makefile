@@ -25,7 +25,7 @@ dist:
 	# Make sure .po files are up to date.
 	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) merge
 	# cleanup.
-	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) clean
+	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) mostlyclean
 	# fix some file mods.
 	cd ../${RELEASE_DIR_DOS2UNIX} ; chmod -x Makefile *.txt *.c *.h *.mak *.mk po/*.* man/nl/man1/*.*
 	# Create DOS source package.
