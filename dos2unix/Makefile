@@ -89,7 +89,8 @@ ifdef ENABLE_NLS
 	EOX_POFILES	= po/eo-x.po
 endif
 
-DOCFILES	= $(PACKAGE).txt $(PACKAGE).htm
+HTMLEXT = htm
+DOCFILES	= $(PACKAGE).txt $(PACKAGE).$(HTMLEXT)
 INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt $(DOCFILES)
 
 #PODFILES	= man/man1/dos2unix.pod $(wildcard man/*/man1/dos2unix.pod)
@@ -257,7 +258,7 @@ $(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
 
 mofiles: $(MOFILES)
 
-html: $(PACKAGE).htm
+html: $(PACKAGE).$(HTMLEXT)
 
 txt: $(PACKAGE).txt
 
@@ -294,7 +295,7 @@ $(POT) : dos2unix.c unix2dos.c common.c
 %.pdf: %.ps
 	ps2pdf $< $@
 
-%.htm : man/man1/%.pod
+%.$(HTMLEXT) : man/man1/%.pod
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
 
 install: all
@@ -397,7 +398,7 @@ TBZFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX).tar.bz2
 dist-zip:
 	rm -f $(prefix)/$(ZIPFILE)
 	cd $(prefix) ; unix2dos share/doc/$(docsubdir)/*.txt share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1 share/man/man1/$(UNIX2DOS).1 share/man/man1/$(UNIX2MAC).1
-	cd $(prefix) ; unix2dos share/doc/$(docsubdir)/*.htm
+	cd $(prefix) ; unix2dos share/doc/$(docsubdir)/*.$(HTMLEXT)
 	cd $(prefix) ; unix2dos share/man/*/man1/$(PACKAGE).1 share/man/*/man1/$(MAC2UNIX).1 share/man/*/man1/$(UNIX2DOS).1 share/man/*/man1/$(UNIX2MAC).1
 	cd $(prefix) ; zip -r $(ZIPFILE) $(ZIPOBJ)
 	mv -f $(prefix)/$(ZIPFILE) ..

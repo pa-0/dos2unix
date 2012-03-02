@@ -2,6 +2,8 @@
 	* Makefile: New target 'mostlyclean' that preserves the manual
 	  files. Target 'clean' removes all built files, it restores the
 	  Unix source package to its original state.
+	* Makefile: New variable HTMLEXT to override the default 'htm'
+	  extension for the manual in HTML format.
 
 2012-02-01 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile, version.mk: Fix a compile error when debug
