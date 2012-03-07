@@ -1,5 +1,5 @@
 2012-03-07 Erwin Waterlander <waterlan@xs4all.nl>
-	* dos2unix.c, unix2dos.c: Enable wildcard support for Win64.
+	* dos2unix.c, unix2dos.c: Enable wildcard support for Win64 (MinGW-w64).
 	  Thanks to Steve Hay.
 
 2012-03-02 Erwin Waterlander <waterlan@xs4all.nl>

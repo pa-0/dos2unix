@@ -5,6 +5,7 @@
 
 CC = x86_64-w64-mingw32-gcc
 STRIP = x86_64-w64-mingw32-strip
+CRT_GLOB_OBJ = C:/mingw64/mingw/lib/CRT_glob.o
 
 prefix=c:/usr/local64
 ENABLE_NLS=
@@ -16,10 +17,10 @@ LDFLAGS_EXTRA = -lintl -liconv
 endif
 
 all:
-	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) EO_XNOTATION=1
+	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) EO_XNOTATION=1 CRT_GLOB_OBJ=$(CRT_GLOB_OBJ)
 
 install:
-	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) EO_XNOTATION=1
+	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) EO_XNOTATION=1 CRT_GLOB_OBJ=$(CRT_GLOB_OBJ)
 
 uninstall:
 	$(MAKE) uninstall EXE=.exe prefix=$(prefix)
