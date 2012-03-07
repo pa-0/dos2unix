@@ -1,6 +1,7 @@
 2012-??-??: Version 5.3.3
 
-  * Enabled wildcard expansion for MinGW-w64 and Watcom compilers.
+  * Enabled wildcard expansion for Windows 64 bit version
+    and OpenWatcom built versions for DOS16/DOS32/Win32.
   * Fixed a compilation error when debug was enabled.
 
 2012-01-27: Version 5.3.2
