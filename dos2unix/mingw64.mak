@@ -11,10 +11,11 @@ prefix=c:/usr/local64
 ENABLE_NLS=
 
 ifdef ENABLE_NLS
-LDFLAGS_EXTRA = -lintl -liconv $(CRT_GLOB_OBJ)
+LDFLAGS_EXTRA = -lintl -liconv
 # Using MinGW gettext,iconv
 #ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
 endif
+LDFLAGS_EXTRA += $(CRT_GLOB_OBJ)
 
 all:
 	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) EO_XNOTATION=1
