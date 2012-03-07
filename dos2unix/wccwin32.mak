@@ -4,6 +4,7 @@ CC      = wcc386
 SRCDIR = .
 DEFINES = -DVER_REVISION="$(DOS2UNIX_VERSION)" -DVER_DATE="$(DOS2UNIX_DATE)"
 CFLAGS  = $(DEFINES) -i=$(SRCDIR) -w4 -e25 -zq -od -d2 -5r -bt=nt -mf
+WATCOMSRC = $(%WATCOM)\src\startup
 
 TARGET = nt
 
@@ -13,16 +14,16 @@ cflags32.cfg:
 	@%create cflags32.cfg
 	@%append cflags32.cfg $(CFLAGS)
 
-dos2unix.exe: dos2unix.obj querycp.obj common.obj
+dos2unix.exe: dos2unix.obj querycp.obj common.obj wildargv.obj
 	@%create dos2unix.lnk
-	@%append dos2unix.lnk FIL dos2unix.obj,querycp.obj,common.obj
+	@%append dos2unix.lnk FIL dos2unix.obj,querycp.obj,common.obj,wildargv.obj
 	@%append dos2unix.lnk library mpr.lib
 	wlink name dos2unix d all SYS $(TARGET) op inc op m op st=64k op maxe=25 op q op symf @dos2unix.lnk
 	del dos2unix.lnk
 
-unix2dos.exe: unix2dos.obj querycp.obj common.obj
+unix2dos.exe: unix2dos.obj querycp.obj common.obj wildargv.obj
 	@%create unix2dos.lnk
-	@%append unix2dos.lnk FIL unix2dos.obj,querycp.obj,common.obj
+	@%append unix2dos.lnk FIL unix2dos.obj,querycp.obj,common.obj,wildargv.obj
 	@%append unix2dos.lnk library mpr.lib
 	wlink name unix2dos d all SYS $(TARGET) op inc op m op st=64k op maxe=25 op q op symf @unix2dos.lnk
 	del unix2dos.lnk
@@ -39,6 +40,9 @@ querycp.obj :  $(SRCDIR)\querycp.c $(SRCDIR)\querycp.h cflags32.cfg
 
 common.obj :  $(SRCDIR)\common.c $(SRCDIR)\common.h cflags32.cfg
 	$(CC) @cflags32.cfg $(SRCDIR)\common.c
+
+wildargv.obj : $(WATCOMSRC)\wildargv.c
+	$(CC) @cflags32.cfg $(WATCOMSRC)\wildargv.c
 
 mac2unix.exe : dos2unix.exe
 	copy /v dos2unix.exe mac2unix.exe

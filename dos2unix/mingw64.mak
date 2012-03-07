@@ -1,6 +1,6 @@
 
 # Author: Erwin Waterlander
-# Copyright (C) 2009 Erwin Waterlander
+# Copyright (C) 2012 Erwin Waterlander
 # This file is distributed under the same license as the dos2unix package.
 
 CC = x86_64-w64-mingw32-gcc
@@ -11,16 +11,16 @@ prefix=c:/usr/local64
 ENABLE_NLS=
 
 ifdef ENABLE_NLS
-LDFLAGS_EXTRA = -lintl -liconv
+LDFLAGS_EXTRA = -lintl -liconv $(CRT_GLOB_OBJ)
 # Using MinGW gettext,iconv
 #ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
 endif
 
 all:
-	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) EO_XNOTATION=1 CRT_GLOB_OBJ=$(CRT_GLOB_OBJ)
+	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) EO_XNOTATION=1
 
 install:
-	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) EO_XNOTATION=1 CRT_GLOB_OBJ=$(CRT_GLOB_OBJ)
+	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) EO_XNOTATION=1
 
 uninstall:
 	$(MAKE) uninstall EXE=.exe prefix=$(prefix)

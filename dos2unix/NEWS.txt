@@ -1,3 +1,8 @@
+2012-??-??: Version 5.3.3
+
+  * Enabled wildcard expansion for MinGW-w64 and Watcom compilers.
+  * Fixed a compilation error when debug was enabled.
+
 2012-01-27: Version 5.3.2
 
   * New homepage URL: http://waterlan.home.xs4all.nl/dos2unix.html
