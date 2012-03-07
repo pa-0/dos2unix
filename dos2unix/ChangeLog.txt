@@ -1,9 +1,10 @@
 2012-03-07 Erwin Waterlander <waterlan@xs4all.nl>
-	* dos2unix.c, unix2dos.c, mingw64.mak: Enable wildcard
+	* dos2unix.c, unix2dos.c, mingw64.mak: Enabled wildcard
 	  expansion for Win64 (MinGW-w64). Thanks to Steve Hay.
-	* wccdos16.mak: Enable wildcard expansion.
-	* wccdos32.mak: Enable wildcard expansion.
-	* wccwin32.mak: Enable wildcard expansion.
+	* wccdos16.mak: Enabled wildcard expansion.
+	* wccdos32.mak: Enabled wildcard expansion.
+	* wccwin32.mak: Enabled wildcard expansion.
+	* bcc.mak: Enabled wildcard expansion.
 
 2012-03-02 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: New target 'mostlyclean' that preserves the manual
