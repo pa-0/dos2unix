@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-29 09:08+0100\n"
+"POT-Creation-Date: 2012-03-07 18:57+0100\n"
 "PO-Revision-Date: 2009-12-08 21:59+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -86,87 +86,87 @@ msgstr "problemen met hernoemen van '%s' naar '%s': %s\n"
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          welke het doel is van symbolische koppeling '%s'\n"
 
-#: dos2unix.c:594 unix2dos.c:595
+#: dos2unix.c:598 unix2dos.c:598
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "fout: Waarde van omgevingsvariabele DOS2UNIX_LOCALEDIR is te lang.\n"
 
-#: dos2unix.c:685 dos2unix.c:716 unix2dos.c:686 unix2dos.c:717
+#: dos2unix.c:689 dos2unix.c:720 unix2dos.c:689 unix2dos.c:720
 #, c-format
 msgid "active code page: %d\n"
 msgstr "actieve code tabel: %d\n"
 
-#: dos2unix.c:726 unix2dos.c:727
+#: dos2unix.c:730 unix2dos.c:730
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "ongeldige %s conversie modus gespecificeerd\n"
 
-#: dos2unix.c:736 unix2dos.c:737
+#: dos2unix.c:740 unix2dos.c:740
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "optie '%s' heeft een argument nodig\n"
 
-#: dos2unix.c:749 dos2unix.c:763 dos2unix.c:915 unix2dos.c:750 unix2dos.c:764
-#: unix2dos.c:922
+#: dos2unix.c:753 dos2unix.c:767 dos2unix.c:919 unix2dos.c:753 unix2dos.c:767
+#: unix2dos.c:925
 #, c-format
 msgid "target of file %s not specified in new file mode\n"
 msgstr "doel van bestand %s is niet gespecificeerd in 'nieuw bestand modus'\n"
 
-#: dos2unix.c:793 dos2unix.c:856 unix2dos.c:794 unix2dos.c:860
+#: dos2unix.c:797 dos2unix.c:860 unix2dos.c:797 unix2dos.c:863
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "%s wordt overgeslagen, omdat het geen regulier bestand is.\n"
 
-#: dos2unix.c:800 unix2dos.c:801
+#: dos2unix.c:804 unix2dos.c:804
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr ""
 "%s wordt overgeslagen, uitvoerbestand %s is een symbolische koppeling.\n"
 
-#: dos2unix.c:807 dos2unix.c:870 unix2dos.c:808 unix2dos.c:874
+#: dos2unix.c:811 dos2unix.c:874 unix2dos.c:811 unix2dos.c:877
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr ""
 "Symbolische koppeling %s wordt overgeslagen, omdat het doel geen regulier "
 "bestand is.\n"
 
-#: dos2unix.c:814 unix2dos.c:815
+#: dos2unix.c:818 unix2dos.c:818
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr ""
 "%s wordt overgeslagen, omdat het doel van symbolische koppeling %s geen "
 "regulier bestand is.\n"
 
-#: dos2unix.c:821 dos2unix.c:877 unix2dos.c:822 unix2dos.c:881
+#: dos2unix.c:825 dos2unix.c:881 unix2dos.c:825 unix2dos.c:884
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "Binair bestand %s wordt overgeslagen\n"
 
-#: dos2unix.c:828 dos2unix.c:884 unix2dos.c:829 unix2dos.c:888
+#: dos2unix.c:832 dos2unix.c:888 unix2dos.c:832 unix2dos.c:891
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "codetabel %d wordt niet ondersteund.\n"
 
-#: dos2unix.c:834
+#: dos2unix.c:838
 #, c-format
 msgid "converting file %s to file %s in Unix format ...\n"
 msgstr "converteren bestand %s naar bestand %s in Unix formaat ...\n"
 
-#: dos2unix.c:841 unix2dos.c:845
+#: dos2unix.c:845 unix2dos.c:848
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "problemen met conversie van bestand %s naar bestand %s\n"
 
-#: dos2unix.c:863 unix2dos.c:867
+#: dos2unix.c:867 unix2dos.c:870
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "Symbolische koppeling %s wordt overgeslagen.\n"
 
-#: dos2unix.c:890
+#: dos2unix.c:894
 #, c-format
 msgid "converting file %s to Unix format ...\n"
 msgstr "converteren bestand %s naar Unix formaat ...\n"
 
-#: dos2unix.c:897 unix2dos.c:904
+#: dos2unix.c:901 unix2dos.c:907
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "problemen met conversie van bestand %s\n"
@@ -179,22 +179,22 @@ msgid ""
 "\n"
 msgstr ""
 
-#: unix2dos.c:836
+#: unix2dos.c:839
 #, c-format
 msgid "converting file %s to file %s in Mac format ...\n"
 msgstr "converteren bestand %s naar bestand %s in Mac formaat ...\n"
 
-#: unix2dos.c:838
+#: unix2dos.c:841
 #, c-format
 msgid "converting file %s to file %s in DOS format ...\n"
 msgstr "converteren bestand %s naar bestand %s in DOS formaat ...\n"
 
-#: unix2dos.c:895
+#: unix2dos.c:898
 #, c-format
 msgid "converting file %s to Mac format ...\n"
 msgstr "converteren bestand %s naar Mac formaat ...\n"
 
-#: unix2dos.c:897
+#: unix2dos.c:900
 #, c-format
 msgid "converting file %s to DOS format ...\n"
 msgstr "converteren bestand %s naar DOS formaat ...\n"

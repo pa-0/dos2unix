@@ -1,3 +1,7 @@
+2012-03-07 Erwin Waterlander <waterlan@xs4all.nl>
+	* dos2unix.c, unix2dos.c: Enable wildcard support for Win64.
+	  Thanks to Steve Hay.
+
 2012-03-02 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: New target 'mostlyclean' that preserves the manual
 	  files. Target 'clean' removes all built files, it restores the
