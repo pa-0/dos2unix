@@ -74,7 +74,8 @@ ACKNOWLEDGEMENTS
         Charles Wilson        Follow symbolic links.
         Charles Wilson        Makefile and code cleanup for Cygwin.
         Christopher Williams  Maintain file ownership in old file mode.
-        Steven H. Levine      Support wildcards on OS/2.
+        Steven H. Levine      Support wildcard expansion on OS/2.
+        Steve Hay             Support wildcard expansion on win64.
 
 CONTACT INFORMATION
 
