@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-07 18:57+0100\n"
+"POT-Creation-Date: 2012-03-08 21:14+0100\n"
 "PO-Revision-Date: 2010-03-07 19:50+0100\n"
 "Last-Translator: Ruĝulo <ruĝulo@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -297,3 +297,43 @@ msgstr " -V, --version         diri eldono-numeron\n"
 #: common.c:232
 msgid "With native language support.\n"
 msgstr "Uzante denaskan lingvon sistemon.\n"
+
+#: common.c:240
+msgid "DOS 16 bit version (WATCOMC).\n"
+msgstr ""
+
+#: common.c:242
+msgid "DOS 16 bit version (TURBOC).\n"
+msgstr ""
+
+#: common.c:244
+msgid "DOS 32 bit version (WATCOMC).\n"
+msgstr ""
+
+#: common.c:246
+msgid "DOS 32 bit version (DJGPP).\n"
+msgstr ""
+
+#: common.c:248
+msgid "MSYS version.\n"
+msgstr ""
+
+#: common.c:250
+msgid "Cygwin version.\n"
+msgstr ""
+
+#: common.c:252
+msgid "Windows 64 bit version (MinGW-w64).\n"
+msgstr ""
+
+#: common.c:254
+msgid "Windows 32 bit version (WATCOMC).\n"
+msgstr ""
+
+#: common.c:256
+msgid "Windows 32 bit version (MinGW).\n"
+msgstr ""
+
+#: common.c:258
+msgid "OS/2 version.\n"
+msgstr ""

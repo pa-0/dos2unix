@@ -1,3 +1,6 @@
+2012-03-08 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Option -V prints target OS on DOS/Windows/OS2.
+
 2012-03-07 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c, unix2dos.c, mingw64.mak: Enabled wildcard
 	  expansion for Win64 (MinGW-w64). Thanks to Steve Hay.

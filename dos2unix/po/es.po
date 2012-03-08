@@ -3,12 +3,12 @@
 # Copyright (C) 2011 THE dos2unix'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the dos2unix package.
 # Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>, 2011.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-07 18:57+0100\n"
+"POT-Creation-Date: 2012-03-08 21:14+0100\n"
 "PO-Revision-Date: 2011-06-20 09:13+0200\n"
 "Last-Translator:  <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish\n"
@@ -307,3 +307,43 @@ msgstr " -V, --version         despliega el número de versión\n"
 #: common.c:232
 msgid "With native language support.\n"
 msgstr "Con soporte de idioma materno.\n"
+
+#: common.c:240
+msgid "DOS 16 bit version (WATCOMC).\n"
+msgstr "Versión DOS de 16 bit (WATCOMC).\n"
+
+#: common.c:242
+msgid "DOS 16 bit version (TURBOC).\n"
+msgstr "Versión DOS de 16 bit (TURBOC).\n"
+
+#: common.c:244
+msgid "DOS 32 bit version (WATCOMC).\n"
+msgstr "Versión DOS de 32 bit (WATCOMC).\n"
+
+#: common.c:246
+msgid "DOS 32 bit version (DJGPP).\n"
+msgstr "Versión DOS de 32 bit (DJGPP).\n"
+
+#: common.c:248
+msgid "MSYS version.\n"
+msgstr "Versión para MSYS.\n"
+
+#: common.c:250
+msgid "Cygwin version.\n"
+msgstr "Versión para Cygwin.\n"
+
+#: common.c:252
+msgid "Windows 64 bit version (MinGW-w64).\n"
+msgstr "Versión Windows de 64 bit (MinGW-w64).\n"
+
+#: common.c:254
+msgid "Windows 32 bit version (WATCOMC).\n"
+msgstr "Versión Windows de 32 bit (WATCOMC).\n"
+
+#: common.c:256
+msgid "Windows 32 bit version (MinGW).\n"
+msgstr "Versión Windows de 32 bit (MinGW).\n"
+
+#: common.c:258
+msgid "OS/2 version.\n"
+msgstr "Versión para OS/2.\n"

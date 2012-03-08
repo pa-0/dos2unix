@@ -236,6 +236,27 @@ void PrintVersion(char *progname)
 #if DEBUG
   fprintf(stderr, "VER_AUTHOR: %s\n", VER_AUTHOR);
 #endif
+#if defined(__WATCOMC__) && defined(__I86__)
+  fprintf(stderr, "%s", _("DOS 16 bit version (WATCOMC).\n"));
+#elif defined(__TURBOC__)
+  fprintf(stderr, "%s", _("DOS 16 bit version (TURBOC).\n"));
+#elif defined(__WATCOMC__) && defined(__DOS__)
+  fprintf(stderr, "%s", _("DOS 32 bit version (WATCOMC).\n"));
+#elif defined(DJGPP)
+  fprintf(stderr, "%s", _("DOS 32 bit version (DJGPP).\n"));
+#elif defined(__MSYS__)
+  fprintf(stderr, "%s", _("MSYS version.\n"));
+#elif defined(__CYGWIN__)
+  fprintf(stderr, "%s", _("Cygwin version.\n"));
+#elif defined(__WIN64__)
+  fprintf(stderr, "%s", _("Windows 64 bit version (MinGW-w64).\n"));
+#elif defined(__WATCOMC__) && defined(__NT__)
+  fprintf(stderr, "%s", _("Windows 32 bit version (WATCOMC).\n"));
+#elif defined(__WIN32__)
+  fprintf(stderr, "%s", _("Windows 32 bit version (MinGW).\n"));
+#elif defined (__OS2__) /* OS/2 Warp */
+  fprintf(stderr, "%s", _("OS/2 version.\n"));
+#endif
 }
 
 #ifdef ENABLE_NLS
