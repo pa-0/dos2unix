@@ -1,6 +1,6 @@
 # Spanish translations for dos2unix package
 # Traducciones al español para el paquete dos2unix.
-# Copyright (C) 2011 THE dos2unix'S COPYRIGHT HOLDER
+# Copyright (C) 2011,2012 THE dos2unix'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the dos2unix package.
 # Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>, 2011.
 # 

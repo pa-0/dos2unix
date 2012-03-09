@@ -1,7 +1,7 @@
 # Esperanto translations for dos2unix package.
-# Copyright (C) 2009-2011 THE dos2unix's COPYRIGHT HOLDER
+# Copyright (C) 2009-2012 THE dos2unix's COPYRIGHT HOLDER
 # This file is distributed under the same license as the dos2unix package.
-# waterlan <waterlan@xs4all.nl>, 2009-2011.
+# waterlan <waterlan@xs4all.nl>, 2009-2012.
 #
 msgid ""
 msgstr ""
@@ -300,40 +300,40 @@ msgstr "Uzante denaskan lingvon sistemon.\n"
 
 #: common.c:240
 msgid "DOS 16 bit version (WATCOMC).\n"
-msgstr ""
+msgstr "DOS-16 eldono (WATCOMC).\n"
 
 #: common.c:242
 msgid "DOS 16 bit version (TURBOC).\n"
-msgstr ""
+msgstr "DOS-16 eldono (TURBOC).\n"
 
 #: common.c:244
 msgid "DOS 32 bit version (WATCOMC).\n"
-msgstr ""
+msgstr "DOS-32 eldono (WATCOMC).\n"
 
 #: common.c:246
 msgid "DOS 32 bit version (DJGPP).\n"
-msgstr ""
+msgstr "DOS-32 eldono (DJGPP).\n"
 
 #: common.c:248
 msgid "MSYS version.\n"
-msgstr ""
+msgstr "MSYS eldono.\n"
 
 #: common.c:250
 msgid "Cygwin version.\n"
-msgstr ""
+msgstr "Cygwin eldono.\n"
 
 #: common.c:252
 msgid "Windows 64 bit version (MinGW-w64).\n"
-msgstr ""
+msgstr "Windows-64 eldono (MinGW-w64).\n"
 
 #: common.c:254
 msgid "Windows 32 bit version (WATCOMC).\n"
-msgstr ""
+msgstr "Windows-32 eldono (WATCOMC).\n"
 
 #: common.c:256
 msgid "Windows 32 bit version (MinGW).\n"
-msgstr ""
+msgstr "Windows-32 eldono (MinGW).\n"
 
 #: common.c:258
 msgid "OS/2 version.\n"
-msgstr ""
+msgstr "OS/2 eldono.\n"
