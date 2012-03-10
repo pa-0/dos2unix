@@ -1,4 +1,5 @@
 2012-03-10 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 5.3.3
 	* Makefile: Binary packages with native language support
 	  get "-nls" suffix.
 

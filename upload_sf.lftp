@@ -1,6 +1,6 @@
 open sftp://waterlan,dos2unix@frs.sourceforge.net
 cd /home/frs/project/d/do/dos2unix/dos2unix
-mkdir 5.3.2
-cd 5.3.2
-mput dos2unix-5.3.2.tar.gz dos2unix-5.3.2-doc.tar.gz d2u532s.zip d2u532b.zip dos2unix-5.3.2-dos32-nls.zip dos2unix-5.3.2-dos32.zip dos2unix-5.3.2-win32.zip dos2unix-5.3.2-win64.zip dos2unix-5.3.2-msys.tar.gz trunk/dos2unix/ChangeLog.txt
+mkdir 5.3.3
+cd 5.3.3
+mput dos2unix-5.3.3.tar.gz dos2unix-5.3.3-doc.tar.gz d2u533s.zip d2u533b.zip dos2unix-5.3.3-dos32-nls.zip dos2unix-5.3.3-dos32.zip dos2unix-5.3.3-win32.zip dos2unix-5.3.3-win32-nls.zip dos2unix-5.3.3-win64.zip dos2unix-5.3.3-msys-nls.tar.gz trunk/dos2unix/ChangeLog.txt
 exit
