@@ -1,3 +1,7 @@
+2012-03-10 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Binary packages with native language support
+	  get "-nls" suffix.
+
 2012-03-08 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Option -V prints target OS on DOS/Windows/OS2.
 
