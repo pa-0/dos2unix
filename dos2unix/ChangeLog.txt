@@ -1,3 +1,6 @@
+2012-03-16 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Make it compile on Cygwin 1.5.
+
 2012-03-10 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 5.3.3
 	* Makefile: Binary packages with native language support

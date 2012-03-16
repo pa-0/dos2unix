@@ -31,11 +31,11 @@
 # if __GNUC_PREREQ (2,4)
 #  define USE_CANONICALIZE_FILE_NAME 1
 # endif
-#elif defined(__CYGWIN__) && !defined(__MSYS__)
+#elif defined(__CYGWIN__)
 /* on cygwin, canonicalize_file_name() available since api 0/213 */
 /* (1.7.0beta61, 25-Sep-09) */
 # include <cygwin/version.h>
-# if (CYGWIN_VERSION_DLL_COMBINED >= 213)
+# if (CYGWIN_VERSION_DLL_COMBINED >= 213) && (CYGWIN_VERSION_DLL_MAJOR >= 1007)
 #  define USE_CANONICALIZE_FILE_NAME 1
 # endif
 #endif
