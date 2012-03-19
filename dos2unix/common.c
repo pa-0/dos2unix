@@ -451,3 +451,88 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, char *progname)
   return RetVal;
 }
 
+FILE *read_bom (FILE *f, int *bomtype)
+{
+  int bom[3];
+  /* BOMs
+   * UTF16-LE  ff fe
+   * UTF16-BE  fe ff
+   * UTF-8     ef bb bf
+   */
+
+  *bomtype = FILE_MBS;
+
+   /* Check for BOM */
+   if  (f != NULL)
+   {
+      if ((bom[0] = fgetc(f)) == EOF)
+      {
+         ungetc(bom[0], f);
+         *bomtype = FILE_MBS;
+         return(f);
+      }
+      if ((bom[0] != 0xff) && (bom[0] != 0xfe) && (bom[0] != 0xef))
+      {
+         ungetc(bom[0], f);
+         *bomtype = FILE_MBS;
+         return(f);
+      }
+      if ((bom[1] = fgetc(f)) == EOF)
+      {
+         ungetc(bom[1], f);
+         ungetc(bom[0], f);
+         *bomtype = FILE_MBS;
+         return(f);
+      }
+      if ((bom[0] == 0xff) && (bom[1] == 0xfe)) /* UTF16-LE */
+      {
+         *bomtype = FILE_UTF16LE;
+         return(f);
+      }
+      if ((bom[0] == 0xfe) && (bom[1] == 0xff)) /* UTF16-BE */
+      {
+         *bomtype = FILE_UTF16BE;
+         return(f);
+      }
+      if ((bom[2] = fgetc(f)) == EOF)
+      {
+         ungetc(bom[2], f);
+         ungetc(bom[1], f);
+         ungetc(bom[0], f);
+         *bomtype = FILE_MBS;
+         return(f);
+      }
+      if ((bom[0] == 0xef) && (bom[1] == 0xbb) && (bom[2]== 0xbf)) /* UTF-8 */
+      {
+         *bomtype = FILE_UTF8;
+         return(f);
+      }
+      ungetc(bom[2], f);
+      ungetc(bom[1], f);
+      ungetc(bom[0], f);
+      *bomtype = FILE_MBS;
+      return(f);
+   }
+  return(f);
+}
+
+/* UTF16 little endian */
+wint_t d2u_getwc(FILE *f, CFlag *ipFlag)
+{
+   int c_high, c_low;
+   wchar_t wc;
+
+   if (((c_low=fgetc(f)) != EOF)  && ((c_high=fgetc(f)) != EOF))
+   {
+      if (ipFlag->bomtype == FILE_UTF16LE) {
+         c_high <<=8;
+         wc = (wchar_t)(c_high + c_low) ;
+      } else {
+         c_low <<=8;
+         wc = (wchar_t)(c_high + c_low) ;
+      }
+      return(wc);
+   } else {
+      return(WEOF);
+   }
+}

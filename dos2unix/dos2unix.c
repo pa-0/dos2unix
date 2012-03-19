@@ -103,6 +103,117 @@ void StripDelimiter(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar)
  * RetVal: 0  if success
  *         -1  otherwise
  */
+#ifdef D2U_UNICODE
+int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
+{
+    int RetVal = 0;
+    wint_t TempChar;
+    wint_t TempNextChar;
+
+    ipFlag->status = 0;
+
+    /* CR-LF -> LF */
+    /* LF    -> LF, in case the input file is a Unix text file */
+    /* CR    -> CR, in dos2unix mode (don't modify Mac file) */
+    /* CR    -> LF, in Mac mode */
+    /* \x0a = Newline/Line Feed (LF) */
+    /* \x0d = Carriage Return (CR) */
+
+    switch (ipFlag->FromToMode)
+    {
+      case FROMTO_DOS2UNIX: /* dos2unix */
+        while ((TempChar = d2u_getwc(ipInF, ipFlag)) != WEOF) {  /* get character */
+          if ((ipFlag->Force == 0) &&
+              (TempChar < 32) &&
+              (TempChar != 0x0a) &&  /* Not an LF */
+              (TempChar != 0x0d) &&  /* Not a CR */
+              (TempChar != 0x09) &&  /* Not a TAB */
+              (TempChar != 0x0c)) {  /* Not a form feed */
+            RetVal = -1;
+            ipFlag->status |= BINARY_FILE ;
+            break;
+          }
+          if (TempChar != 0x0d) {
+            if (putc(TempChar, ipOutF) == EOF) {
+              RetVal = -1;
+              if (!ipFlag->Quiet)
+              {
+                fprintf(stderr, "%s: ", progname);
+                fprintf(stderr, "%s", _("can not write to output file\n"));
+              }
+              break;
+            } 
+          } else {
+            StripDelimiter( ipInF, ipOutF, ipFlag, TempChar );
+          }
+        }
+        break;
+      case FROMTO_MAC2UNIX: /* mac2unix */
+        while ((TempChar = d2u_getwc(ipInF, ipFlag)) != WEOF) {
+          if ((ipFlag->Force == 0) &&
+              (TempChar < 32) &&
+              (TempChar != 0x0a) &&  /* Not an LF */
+              (TempChar != 0x0d) &&  /* Not a CR */
+              (TempChar != 0x09) &&  /* Not a TAB */
+              (TempChar != 0x0c)) {  /* Not a form feed */
+            RetVal = -1;
+            ipFlag->status |= BINARY_FILE ;
+            break;
+          }
+          if ((TempChar != 0x0d))
+            {
+              if(putc(TempChar, ipOutF) == WEOF){
+                RetVal = -1;
+                if (!ipFlag->Quiet)
+                {
+                  fprintf(stderr, "%s: ", progname);
+                  fprintf(stderr, "%s", _("can not write to output file\n"));
+                }
+                break;
+              }
+            }
+          else{
+            /* TempChar is a CR */
+            if ( (TempNextChar = d2u_getwc(ipInF)) != WEOF) {
+              ungetc( TempNextChar, ipInF );  /* put back peek char */
+              /* Don't touch this delimiter if it's a CR,LF pair. */
+              if ( TempNextChar == '\x0a' ) {
+                putc('\x0d', ipOutF); /* put CR, part of DOS CR-LF */
+                continue;
+              }
+            }
+            if (putc('\x0a', ipOutF) == EOF) /* MAC line end (CR). Put LF */
+              {
+                RetVal = -1;
+                if (!ipFlag->Quiet)
+                {
+                  fprintf(stderr, "%s: ", progname);
+                  fprintf(stderr, "%s", _("can not write to output file\n"));
+                }
+                break;
+              }
+            if (ipFlag->NewLine) {  /* add additional LF? */
+              putc('\x0a', ipOutF);
+            }
+          }
+        }
+        break;
+      default: /* unknown FromToMode */
+      ;
+#if DEBUG
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("program error, invalid conversion mode %d\n"),ipFlag->FromToMode);
+      exit(1);
+#endif
+    }
+    return RetVal;
+}
+#endif
+
+/* converts stream ipInF to UNIX format text and write to stream ipOutF
+ * RetVal: 0  if success
+ *         -1  otherwise
+ */
 int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
 {
     int RetVal = 0;
@@ -367,6 +478,8 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
       RetVal = -1;
     }
   }
+
+  InF = read_bom(InF, &ipFlag->bomtype);
 
   /* conversion sucessful? */
   if ((!RetVal) && (ConvertDosToUnix(InF, TempF, ipFlag, progname)))

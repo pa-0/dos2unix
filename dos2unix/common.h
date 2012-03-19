@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2009-2011 Erwin Waterlander
+ *   Copyright (C) 2009-2012 Erwin Waterlander
  *   All rights reserved.
  * 
  *   Redistribution and use in source and binary forms, with or without
@@ -75,6 +75,7 @@
 #include <locale.h>
 #endif
 #include <errno.h>
+#include <wchar.h>
 
 #if (defined(__WATCOMC__) && defined(__NT__))  /* Watcom */
 #  define WIN32
@@ -152,6 +153,11 @@
 #define SYMLINK_FOLLOW 1
 #define SYMLINK_REPLACE 2
 
+#define FILE_MBS     0  /* Multi-byte string or 8-bit char */
+#define FILE_UTF16LE 1  /* UTF-16 Little Endian */
+#define FILE_UTF16BE 2  /* UTF-16 Big Endian */
+#define FILE_UTF8    3  /* UTF-8 */
+
 typedef struct
 {
   int NewFile;                          /* is in new file mode? */
@@ -165,6 +171,8 @@ typedef struct
   int status;
   int stdio_mode;                       /* if TRUE, stdio mode */
   int error;                            /* an error occurred */
+  int bomtype;                          /* byte order mark */
+  int write_bom;                       /* 1: write BOM */
 } CFlag;
 
 
@@ -188,4 +196,6 @@ FILE* MakeTempFileFrom(const char *OutFN, char **fname_ret);
 int MakeTempFileFrom(const char *OutFN, char **fname_ret);
 #endif
 int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, char *progname);
+FILE *read_bom (FILE *f, int *bomtype);
+wint_t d2u_getwc(FILE *f, CFlag *ipFlag);
 
