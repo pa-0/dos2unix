@@ -66,6 +66,18 @@ All rights reserved.\n\n"));
   PrintBSDLicense();
 }
 
+#ifdef D2U_UNICODE
+void AddDOSNewLineW(FILE* ipOutF, CFlag *ipFlag, wint_t CurChar, wint_t PrevChar)
+{
+  if (ipFlag->NewLine) {  /* add additional CR-LF? */
+    /* Don't add line ending if it is a DOS line ending. Only in case of Unix line ending. */
+    if ((CurChar == 0x0a) && (PrevChar != 0x0d)) {
+      d2u_putwc(0x0d, ipOutF);
+      d2u_putwc(0x0a, ipOutF);
+    }
+  }
+}
+#endif
 
 void AddDOSNewLine(FILE* ipOutF, CFlag *ipFlag, int CurChar, int PrevChar)
 {
@@ -77,6 +89,139 @@ void AddDOSNewLine(FILE* ipOutF, CFlag *ipFlag, int CurChar, int PrevChar)
     }
   }
 }
+
+/* converts stream ipInF to DOS format text and write to stream ipOutF
+ * RetVal: 0  if success
+ *         -1  otherwise
+ */
+#ifdef D2U_UNICODE
+int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
+{
+    int RetVal = 0;
+    wint_t TempChar;
+    wint_t PreviousChar = 0;
+
+    ipFlag->status = 0;
+
+    /* LF    -> CR-LF */
+    /* CR-LF -> CR-LF, in case the input file is a DOS text file */
+    /* \x0a = Newline/Line Feed (LF) */
+    /* \x0d = Carriage Return (CR) */
+
+    switch (ipFlag->FromToMode)
+    {
+      case FROMTO_UNIX2DOS: /* unix2dos */
+        while ((TempChar = d2u_getwc(ipInF, ipFlag->bomtype)) != WEOF) {  /* get character */
+          if ((ipFlag->Force == 0) &&
+              (TempChar < 32) &&
+              (TempChar != 0x0a) &&  /* Not an LF */
+              (TempChar != 0x0d) &&  /* Not a CR */
+              (TempChar != 0x09) &&  /* Not a TAB */
+              (TempChar != 0x0c)) {  /* Not a form feed */
+            RetVal = -1;
+            ipFlag->status |= BINARY_FILE ;
+            break;
+          }
+          if (TempChar == 0x0a)
+          {
+            d2u_putwc(0x0d, ipOutF); /* got LF, put CR */
+          } else {
+             if (TempChar == 0x0d) /* got CR */
+             {
+               if ((TempChar = d2u_getwc(ipInF, ipFlag->bomtype)) == WEOF) /* get next char */
+                 TempChar = 0x0d;  /* Read error, or end of file. */
+               else
+               {
+                 d2u_putwc(0x0d, ipOutF); /* put CR */
+                 PreviousChar = 0x0d;
+               }
+             }
+          }
+          if (d2u_putwc(TempChar, ipOutF) == WEOF)
+          {
+              RetVal = -1;
+              if (!ipFlag->Quiet)
+              {
+                fprintf(stderr, "%s: ", progname);
+                fprintf(stderr, "%s", _("can not write to output file\n"));
+              }
+              break;
+          } else {
+            AddDOSNewLineW( ipOutF, ipFlag, TempChar, PreviousChar);
+          }
+          PreviousChar = TempChar;
+        }
+        break;
+      case FROMTO_UNIX2MAC: /* unix2mac */
+        while ((TempChar = d2u_getwc(ipInF, ipFlag->bomtype)) != WEOF) {
+          if ((ipFlag->Force == 0) &&
+              (TempChar < 32) &&
+              (TempChar != 0x0a) &&  /* Not an LF */
+              (TempChar != 0x0d) &&  /* Not a CR */
+              (TempChar != 0x09) &&  /* Not a TAB */
+              (TempChar != 0x0c)) {  /* Not a form feed */
+            RetVal = -1;
+            ipFlag->status |= BINARY_FILE ;
+            break;
+          }
+          if ((TempChar != 0x0a)) /* Not an LF */
+            {
+              if(d2u_putwc(TempChar, ipOutF) == WEOF){
+                RetVal = -1;
+                if (!ipFlag->Quiet)
+                {
+                  fprintf(stderr, "%s: ", progname);
+                  fprintf(stderr, "%s", _("can not write to output file\n"));
+                }
+                break;
+              }
+              PreviousChar = TempChar;
+            }
+          else{
+            /* TempChar is an LF */
+            /* Don't touch this delimiter if it's a CR,LF pair. */
+            if ( PreviousChar == 0x0d ) {
+              if (d2u_putwc(0x0a, ipOutF) == WEOF)  /* CR,LF pair. Put LF */
+                {
+                  RetVal = -1;
+                  if (!ipFlag->Quiet)
+                  {
+                    fprintf(stderr, "%s: ", progname);
+                    fprintf(stderr, "%s", _("can not write to output file\n"));
+                  }
+                  break;
+                }
+              PreviousChar = TempChar;
+              continue;
+            }
+            PreviousChar = TempChar;
+            if (d2u_putwc(0x0d, ipOutF) == WEOF) /* Unix line end (LF). Put CR */
+              {
+                RetVal = -1;
+                if (!ipFlag->Quiet)
+                {
+                  fprintf(stderr, "%s: ", progname);
+                  fprintf(stderr, "%s", _("can not write to output file\n"));
+                }
+                break;
+              }
+            if (ipFlag->NewLine) {  /* add additional CR? */
+              d2u_putwc(0x0d, ipOutF);
+            }
+          }
+        }
+        break;
+      default: /* unknown FromToMode */
+      ;
+#if DEBUG
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("program error, invalid conversion mode %d\n"),ipFlag->FromToMode);
+      exit(1);
+#endif
+    }
+    return RetVal;
+}
+#endif
 
 /* converts stream ipInF to DOS format text and write to stream ipOutF
  * RetVal: 0  if success
@@ -369,9 +514,25 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
     }
   }
 
+  InF = read_bom(InF, &ipFlag->bomtype);
+
+  if ((ipFlag->add_bom) || (ipFlag->bomtype > 0))
+    fprintf(TempF, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
+
   /* conversion sucessful? */
+#ifdef D2U_UNICODE
+  if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))
+  {
+    if ((!RetVal) && (ConvertUnixToDosW(InF, TempF, ipFlag, progname)))
+      RetVal = -1;
+  } else {
+    if ((!RetVal) && (ConvertUnixToDos(InF, TempF, ipFlag, progname)))
+      RetVal = -1;
+  }
+#else
   if ((!RetVal) && (ConvertUnixToDos(InF, TempF, ipFlag, progname)))
     RetVal = -1;
+#endif
 
    /* can close in file? */
   if ((InF) && (fclose(InF) == EOF))
@@ -622,6 +783,10 @@ int main (int argc, char *argv[])
   pFlag->status = 0;
   pFlag->stdio_mode = 1;
   pFlag->error = 0;
+#ifdef D2U_UNICODE
+  pFlag->bomtype = FILE_MBS;
+#endif
+  pFlag->add_bom = 0;
 
   if ( ((ptr=strrchr(argv[0],'/')) == NULL) && ((ptr=strrchr(argv[0],'\\')) == NULL) )
     ptr = argv[0];
@@ -657,6 +822,8 @@ int main (int argc, char *argv[])
         pFlag->Quiet = 1;
       else if ((strcmp(argv[ArgIdx],"-l") == 0) || (strcmp(argv[ArgIdx],"--newline") == 0))
         pFlag->NewLine = 1;
+      else if ((strcmp(argv[ArgIdx],"-m") == 0) || (strcmp(argv[ArgIdx],"--add-bom") == 0))
+        pFlag->add_bom = 1;
       else if ((strcmp(argv[ArgIdx],"-S") == 0) || (strcmp(argv[ArgIdx],"--skip-symlink") == 0))
         pFlag->Follow = SYMLINK_SKIP;
       else if ((strcmp(argv[ArgIdx],"-F") == 0) || (strcmp(argv[ArgIdx],"--follow-symlink") == 0))

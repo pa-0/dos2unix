@@ -171,8 +171,10 @@ typedef struct
   int status;
   int stdio_mode;                       /* if TRUE, stdio mode */
   int error;                            /* an error occurred */
+#ifdef D2U_UNICODE
   int bomtype;                          /* byte order mark */
-  int write_bom;                       /* 1: write BOM */
+#endif
+  int add_bom;                          /* 1: write BOM */
 } CFlag;
 
 
@@ -197,5 +199,9 @@ int MakeTempFileFrom(const char *OutFN, char **fname_ret);
 #endif
 int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, char *progname);
 FILE *read_bom (FILE *f, int *bomtype);
-wint_t d2u_getwc(FILE *f, CFlag *ipFlag);
+#ifdef D2U_UNICODE
+wint_t d2u_getwc(FILE *f, int bomtype);
+wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype);
+wint_t d2u_putwc(wint_t wc, FILE *f);
+#endif
 

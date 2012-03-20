@@ -1,3 +1,6 @@
+2012-03-20 Erwin Waterlander <waterlan@xs4all.nl>
+	* Support conversion of Unicode UTF-16 encoded files.
+
 2012-03-16 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Make it compile on Cygwin 1.5.
 

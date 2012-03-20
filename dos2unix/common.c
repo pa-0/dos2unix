@@ -25,6 +25,9 @@
  */
 
 #include "common.h"
+#if defined(__WIN32__) && !defined(__CYGWIN__)
+#include <windows.h>
+#endif
 
 #if defined(__GLIBC__)
 /* on glibc, canonicalize_file_name() broken prior to 2.4 (06-Mar-2006) */
@@ -204,6 +207,7 @@ Usage: %s [options] [file ...] [-n infile outfile ...]\n\
  -k, --keepdate        keep output file date\n\
  -L, --license         display software license\n\
  -l, --newline         add additional newline\n\
+ -m, --add-bom         add UTF-8 Byte Order Mark\n\
  -n, --newfile         write to new file\n\
    infile              original file in new file mode\n\
    outfile             output file in new file mode\n\
@@ -256,6 +260,9 @@ void PrintVersion(char *progname)
   fprintf(stderr, "%s", _("Windows 32 bit version (MinGW).\n"));
 #elif defined (__OS2__) /* OS/2 Warp */
   fprintf(stderr, "%s", _("OS/2 version.\n"));
+#endif
+#ifdef D2U_UNICODE
+  fprintf(stderr, "%s", _("With Unicode support.\n"));
 #endif
 }
 
@@ -516,23 +523,77 @@ FILE *read_bom (FILE *f, int *bomtype)
   return(f);
 }
 
-/* UTF16 little endian */
-wint_t d2u_getwc(FILE *f, CFlag *ipFlag)
+
+#ifdef D2U_UNICODE
+wint_t d2u_getwc(FILE *f, int bomtype)
 {
    int c_high, c_low;
-   wchar_t wc;
+   wint_t wc;
 
-   if (((c_low=fgetc(f)) != EOF)  && ((c_high=fgetc(f)) != EOF))
-   {
-      if (ipFlag->bomtype == FILE_UTF16LE) {
-         c_high <<=8;
-         wc = (wchar_t)(c_high + c_low) ;
-      } else {
-         c_low <<=8;
-         wc = (wchar_t)(c_high + c_low) ;
-      }
-      return(wc);
-   } else {
+   if (((c_low=fgetc(f)) == EOF)  || ((c_high=fgetc(f)) == EOF))
       return(WEOF);
+
+   if (bomtype == FILE_UTF16LE)  /* UTF16 little endian */
+   {
+      c_high <<=8;
+      wc = (wint_t)(c_high + c_low) ;
+   } else {                              /* UTF16 big endian */
+      c_low <<=8;
+      wc = (wint_t)(c_high + c_low) ;
    }
+   return(wc);
 }
+
+wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype)
+{
+   int c_high, c_low;
+
+   if (bomtype == FILE_UTF16LE)  /* UTF16 little endian */
+   {
+      c_high = (int)(wc & 0xff00);
+      c_high >>=8;
+      c_low  = (int)(wc & 0xff);
+   } else {                              /* UTF16 big endian */
+      c_low = (int)(wc & 0xff00);
+      c_low >>=8;
+      c_high  = (int)(wc & 0xff);
+   }
+
+   /* push back in reverse order */
+   if ((ungetc(c_high,f) == EOF)  || (ungetc(c_low,f) == EOF))
+      return(WEOF);
+   return(wc);
+}
+
+/* Put wide character */
+wint_t d2u_putwc(wint_t wc, FILE *f)
+{
+   static char mbs[8];
+   int i,len;
+
+#if defined(__WIN32__) && !defined(__CYGWIN__)
+   /* On Windows we convert UTF-16 always to UTF-8 */
+   wchar_t wstr[2];
+   
+   wstr[0] = (wchar_t)wc;
+   wstr[1] = L'\0';
+
+   len = WideCharToMultiByte(CP_UTF8, 0, wstr, -1, mbs, sizeof(mbs), NULL, NULL) -1;
+#else
+   /* On Unix we convert UTF-16 to the locale encoding */
+   len = wctomb(mbs, (wchar_t)wc);
+#endif
+
+   if ( len < 0 )
+   {  /* Character cannot be represented in current locale. Put a dot `.' */
+      putc(0x2e, f);
+   } else {
+      for (i=0; i<len; i++)
+      {
+         if (putc(mbs[i], f) == EOF)
+            return(WEOF);
+      }
+   }
+   return(wc);
+}
+#endif

@@ -1,7 +1,7 @@
 /*
 #  Copyright and License
 #
-#   Copyright (C) 2009-2011 Erwin Waterlander
+#   Copyright (C) 2009-2012 Erwin Waterlander
 #   All rights reserved.
 # 
 #   Redistribution and use in source and binary forms, with or without
@@ -166,6 +166,10 @@ line breaks.
 B<unix2dos>: Only Unix line breaks are changed to two DOS line breaks.
 In Mac mode Unix line breaks are changed to two Mac line breaks.
 
+=item B<-m, --add-bom>
+
+Write an UTF-8 Byte Order Mark in the output file.
+
 =item B<-n, --newfile INFILE OUTFILE ...>
 
 New file mode. Convert file INFILE and write output to file OUTFILE.
@@ -302,12 +306,37 @@ and L<http://czyborra.com/charsets/iso8859.html>.
 
 =head1 UNICODE
 
-There exist different Unicode encodings. On Unix/Linux Unicode files are mostly
-encoded in UTF-8 encoding. UTF-8 is ASCII compatible. UTF-8 files can have DOS,
-Unix or Mac line breaks. It is safe to run dos2unix/unix2dos on UTF-8 encoded
-files. On Windows mostly UTF-16 encoding is used for Unicode files.
-Dos2unix/unix2dos should not be run on UTF-16 files. UTF-16 files are
-automatically skipped, because they are considered binary.
+=head2 Encodings
+
+There exist different Unicode encodings. On Unix/Linux Unicode files are
+typically encoded in UTF-8 encoding. On Windows Unicode text files can be
+encoded in UTF-8, UTF-16, or UTF-16 big endian, but are mostly encoded in
+UTF-16 format.
+
+=head2 Conversion
+
+Unicode text files can have DOS, Unix or Mac line breaks, like 8-bit text
+files.
+
+All versions of dos2unix/unix2dos can convert UTF-8 encoded files.  When
+dos2unix/unix2dos was built with Unicode support, it can convert also UTF-16
+encoded text files. To see if dos2unix was built with Unicode support type
+C<dos2unix -V>.
+
+The Windows versions of dos2unix/unix2dos will convert UTF-16 files always to
+UTF-8 files. Unix versions of dos2unix/unix2dos convert UTF-16 files to the
+locale encoding.
+
+=head2 Byte Order Mark
+
+On Windows Unicode text files typically have a Byte Order Mark (BOM),
+see also L<http://en.wikipedia.org/wiki/Byte_order_mark>.
+On Unix Unicode files typically don't have a BOM.
+
+Dos2unix never writes a BOM in the output file, unless you use option C<-m>.
+
+Unix2dos writes a BOM in the output file when the input file has a BOM, or
+when option C<-m> is used.
 
 =head1 EXAMPLES
 

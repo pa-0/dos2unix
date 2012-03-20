@@ -60,6 +60,14 @@ LARGE FILE SUPPORT
         Disable LFS:
         make clean install LFS=
 
+UNICODE SUPPORT
+
+    Unicode is by default enabled. This enables
+    conversion of UTF-16 encoded text files.
+
+        Disable Unicode:
+        make clean install UCS=
+
 ESPERANTO X-NOTATION
 
     For systems that don't support the Unicode or Latin-3 character set,

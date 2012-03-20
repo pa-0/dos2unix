@@ -47,6 +47,7 @@ ENABLE_NLS	= 1
 # Large File Support (LFS)
 LFS             = 1
 DEBUG = 0
+UCS = 1
 
 EXE=
 
@@ -216,6 +217,10 @@ endif
 
 ifdef STATIC
 	EXTRA_CFLAGS += -static
+endif
+
+ifdef UCS
+	EXTRA_CFLAGS += -DD2U_UNICODE
 endif
 
 ifdef LFS

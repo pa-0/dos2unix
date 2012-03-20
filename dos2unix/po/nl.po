@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-08 21:14+0100\n"
+"POT-Creation-Date: 2012-03-20 22:50+0100\n"
 "PO-Revision-Date: 2009-12-08 21:59+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -27,146 +27,147 @@ msgid ""
 "\n"
 msgstr ""
 
-#: dos2unix.c:148 unix2dos.c:127
-#, c-format
-msgid "using code page %d.\n"
-msgstr "codetabel %d wordt gebruikt.\n"
-
-#: dos2unix.c:178 dos2unix.c:206 dos2unix.c:227 unix2dos.c:170 unix2dos.c:198
-#: unix2dos.c:214 unix2dos.c:228
+#: dos2unix.c:164 dos2unix.c:192 dos2unix.c:213 dos2unix.c:311 dos2unix.c:339
+#: dos2unix.c:360 unix2dos.c:146 unix2dos.c:174 unix2dos.c:190 unix2dos.c:204
+#: unix2dos.c:315 unix2dos.c:343 unix2dos.c:359 unix2dos.c:373
 msgid "can not write to output file\n"
 msgstr "kan niet schrijven naar uitvoerbestand\n"
 
-#: dos2unix.c:241 unix2dos.c:242
+#: dos2unix.c:227 dos2unix.c:374 unix2dos.c:218 unix2dos.c:387
 #, c-format
 msgid "program error, invalid conversion mode %d\n"
 msgstr "programma fout, ongeldige conversie modus %d\n"
 
-#: dos2unix.c:329 unix2dos.c:330
+#: dos2unix.c:281 unix2dos.c:272
+#, c-format
+msgid "using code page %d.\n"
+msgstr "codetabel %d wordt gebruikt.\n"
+
+#: dos2unix.c:462 unix2dos.c:475
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
 msgstr "Niet gelukt om tijdelijk uitvoerbestand te openen: %s\n"
 
-#: dos2unix.c:336 unix2dos.c:337
+#: dos2unix.c:469 unix2dos.c:482
 #, c-format
 msgid "using %s as temporary file\n"
 msgstr "%s wordt als tijdelijk bestand gebruikt\n"
 
-#: dos2unix.c:412 unix2dos.c:413
+#: dos2unix.c:561 unix2dos.c:574
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s: %s\n"
 msgstr ""
 "Niet gelukt om de permissies van tijdelijk uitvoerbestand %s te wijzigen: "
 "%s\n"
 
-#: dos2unix.c:431 unix2dos.c:432
+#: dos2unix.c:580 unix2dos.c:593
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
 msgstr ""
 "Niet gelukt om de eigenaar en groep van tijdelijk uitvoerbestand %s te "
 "wijzigen: %s\n"
 
-#: dos2unix.c:484 unix2dos.c:485
+#: dos2unix.c:633 unix2dos.c:646
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
 msgstr "problemen met het herleiden van symbolische koppeling '%s'\n"
 
-#: dos2unix.c:485 dos2unix.c:519 unix2dos.c:486 unix2dos.c:520
+#: dos2unix.c:634 dos2unix.c:668 unix2dos.c:647 unix2dos.c:681
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          uitvoerbestand blijft in '%s'\n"
 
-#: dos2unix.c:514 unix2dos.c:515
+#: dos2unix.c:663 unix2dos.c:676
 #, c-format
 msgid "problems renaming '%s' to '%s': %s\n"
 msgstr "problemen met hernoemen van '%s' naar '%s': %s\n"
 
-#: dos2unix.c:517 unix2dos.c:518
+#: dos2unix.c:666 unix2dos.c:679
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          welke het doel is van symbolische koppeling '%s'\n"
 
-#: dos2unix.c:598 unix2dos.c:598
+#: dos2unix.c:747 unix2dos.c:759
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "fout: Waarde van omgevingsvariabele DOS2UNIX_LOCALEDIR is te lang.\n"
 
-#: dos2unix.c:689 dos2unix.c:720 unix2dos.c:689 unix2dos.c:720
+#: dos2unix.c:844 dos2unix.c:875 unix2dos.c:856 unix2dos.c:887
 #, c-format
 msgid "active code page: %d\n"
 msgstr "actieve code tabel: %d\n"
 
-#: dos2unix.c:730 unix2dos.c:730
+#: dos2unix.c:885 unix2dos.c:897
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "ongeldige %s conversie modus gespecificeerd\n"
 
-#: dos2unix.c:740 unix2dos.c:740
+#: dos2unix.c:895 unix2dos.c:907
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "optie '%s' heeft een argument nodig\n"
 
-#: dos2unix.c:753 dos2unix.c:767 dos2unix.c:919 unix2dos.c:753 unix2dos.c:767
-#: unix2dos.c:925
+#: dos2unix.c:908 dos2unix.c:922 dos2unix.c:1074 unix2dos.c:920 unix2dos.c:934
+#: unix2dos.c:1092
 #, c-format
 msgid "target of file %s not specified in new file mode\n"
 msgstr "doel van bestand %s is niet gespecificeerd in 'nieuw bestand modus'\n"
 
-#: dos2unix.c:797 dos2unix.c:860 unix2dos.c:797 unix2dos.c:863
+#: dos2unix.c:952 dos2unix.c:1015 unix2dos.c:964 unix2dos.c:1030
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "%s wordt overgeslagen, omdat het geen regulier bestand is.\n"
 
-#: dos2unix.c:804 unix2dos.c:804
+#: dos2unix.c:959 unix2dos.c:971
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr ""
 "%s wordt overgeslagen, uitvoerbestand %s is een symbolische koppeling.\n"
 
-#: dos2unix.c:811 dos2unix.c:874 unix2dos.c:811 unix2dos.c:877
+#: dos2unix.c:966 dos2unix.c:1029 unix2dos.c:978 unix2dos.c:1044
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr ""
 "Symbolische koppeling %s wordt overgeslagen, omdat het doel geen regulier "
 "bestand is.\n"
 
-#: dos2unix.c:818 unix2dos.c:818
+#: dos2unix.c:973 unix2dos.c:985
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr ""
 "%s wordt overgeslagen, omdat het doel van symbolische koppeling %s geen "
 "regulier bestand is.\n"
 
-#: dos2unix.c:825 dos2unix.c:881 unix2dos.c:825 unix2dos.c:884
+#: dos2unix.c:980 dos2unix.c:1036 unix2dos.c:992 unix2dos.c:1051
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "Binair bestand %s wordt overgeslagen\n"
 
-#: dos2unix.c:832 dos2unix.c:888 unix2dos.c:832 unix2dos.c:891
+#: dos2unix.c:987 dos2unix.c:1043 unix2dos.c:999 unix2dos.c:1058
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "codetabel %d wordt niet ondersteund.\n"
 
-#: dos2unix.c:838
+#: dos2unix.c:993
 #, c-format
 msgid "converting file %s to file %s in Unix format ...\n"
 msgstr "converteren bestand %s naar bestand %s in Unix formaat ...\n"
 
-#: dos2unix.c:845 unix2dos.c:848
+#: dos2unix.c:1000 unix2dos.c:1015
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "problemen met conversie van bestand %s naar bestand %s\n"
 
-#: dos2unix.c:867 unix2dos.c:870
+#: dos2unix.c:1022 unix2dos.c:1037
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "Symbolische koppeling %s wordt overgeslagen.\n"
 
-#: dos2unix.c:894
+#: dos2unix.c:1049
 #, c-format
 msgid "converting file %s to Unix format ...\n"
 msgstr "converteren bestand %s naar Unix formaat ...\n"
 
-#: dos2unix.c:901 unix2dos.c:907
+#: dos2unix.c:1056 unix2dos.c:1074
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "problemen met conversie van bestand %s\n"
@@ -179,27 +180,27 @@ msgid ""
 "\n"
 msgstr ""
 
-#: unix2dos.c:839
+#: unix2dos.c:1006
 #, c-format
 msgid "converting file %s to file %s in Mac format ...\n"
 msgstr "converteren bestand %s naar bestand %s in Mac formaat ...\n"
 
-#: unix2dos.c:841
+#: unix2dos.c:1008
 #, c-format
 msgid "converting file %s to file %s in DOS format ...\n"
 msgstr "converteren bestand %s naar bestand %s in DOS formaat ...\n"
 
-#: unix2dos.c:898
+#: unix2dos.c:1065
 #, c-format
 msgid "converting file %s to Mac format ...\n"
 msgstr "converteren bestand %s naar Mac formaat ...\n"
 
-#: unix2dos.c:900
+#: unix2dos.c:1067
 #, c-format
 msgid "converting file %s to DOS format ...\n"
 msgstr "converteren bestand %s naar DOS formaat ...\n"
 
-#: common.c:162
+#: common.c:165
 msgid ""
 "Redistribution and use in source and binary forms, with or without\n"
 "modification, are permitted provided that the following conditions\n"
@@ -223,8 +224,8 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: common.c:188
-#, c-format
+#: common.c:191
+#, fuzzy, c-format
 msgid ""
 "%s %s (%s)\n"
 "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
@@ -244,6 +245,7 @@ msgid ""
 " -k, --keepdate        keep output file date\n"
 " -L, --license         display software license\n"
 " -l, --newline         add additional newline\n"
+" -m, --add-bom         add UTF-8 Byte Order Mark\n"
 " -n, --newfile         write to new file\n"
 "   infile              original file in new file mode\n"
 "   outfile             output file in new file mode\n"
@@ -280,7 +282,7 @@ msgstr ""
 "                       altijd aan in stdio modus\n"
 " -s, --safe            sla binaire bestanden over (standaard)\n"
 
-#: common.c:217
+#: common.c:221
 #, c-format
 msgid ""
 " -F, --follow-symlink  follow symbolic links and convert the targets\n"
@@ -295,51 +297,56 @@ msgstr ""
 " -S, --skip-symlink    laat symbolische koppelingen en doelen ongewijzigd "
 "(standaard)\n"
 
-#: common.c:223
+#: common.c:227
 #, c-format
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         toon versie nummer\n"
 
-#: common.c:232
+#: common.c:236
 msgid "With native language support.\n"
 msgstr "Met moedertaal ondersteuning.\n"
 
-#: common.c:240
+#: common.c:244
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "DOS 16 bit versie (WATCOMC).\n"
 
-#: common.c:242
+#: common.c:246
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "DOS 16 bit versie (TURBOC).\n"
 
-#: common.c:244
+#: common.c:248
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "DOS 32 bit versie (WATCOMC).\n"
 
-#: common.c:246
+#: common.c:250
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "DOS 32 bit versie (DJGPP).\n"
 
-#: common.c:248
+#: common.c:252
 msgid "MSYS version.\n"
 msgstr "MSYS versie.\n"
 
-#: common.c:250
+#: common.c:254
 msgid "Cygwin version.\n"
 msgstr "Cygwin versie.\n"
 
-#: common.c:252
+#: common.c:256
 msgid "Windows 64 bit version (MinGW-w64).\n"
 msgstr "Windows 64 bit versie (MinGW-w64).\n"
 
-#: common.c:254
+#: common.c:258
 msgid "Windows 32 bit version (WATCOMC).\n"
 msgstr "Windows 32 bit versie (WATCOMC).\n"
 
-#: common.c:256
+#: common.c:260
 msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Windows 32 bit versie (MinGW).\n"
 
-#: common.c:258
+#: common.c:262
 msgid "OS/2 version.\n"
 msgstr "OS/2 versie.\n"
+
+#: common.c:265
+#, fuzzy
+msgid "With Unicode support.\n"
+msgstr "Met moedertaal ondersteuning.\n"

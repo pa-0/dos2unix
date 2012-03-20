@@ -79,6 +79,28 @@ All rights reserved.\n\n"));
 }
 
 
+#ifdef D2U_UNICODE
+void StripDelimiterW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, wint_t CurChar)
+{
+  wint_t TempNextChar;
+  /* CurChar is always CR (x0d) */
+  /* In normal dos2unix mode put nothing (skip CR). */
+  /* Don't modify Mac files when in dos2unix mode. */
+  if ( (TempNextChar = d2u_getwc(ipInF, ipFlag->bomtype)) != WEOF) {
+    d2u_ungetwc( TempNextChar, ipInF, ipFlag->bomtype);  /* put back peek char */
+    if ( TempNextChar != 0x0a ) {
+      d2u_putwc( CurChar, ipOutF);  /* Mac line, put back CR */
+    }
+  }
+  else if ( CurChar == 0x0d ) {  /* EOF: last Mac line delimiter (CR)? */
+    d2u_putwc( CurChar, ipOutF);
+  }
+  if (ipFlag->NewLine) {  /* add additional LF? */
+    d2u_putwc(0x0a, ipOutF);
+  }
+}
+#endif
+
 void StripDelimiter(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar)
 {
   int TempNextChar;
@@ -122,7 +144,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
     switch (ipFlag->FromToMode)
     {
       case FROMTO_DOS2UNIX: /* dos2unix */
-        while ((TempChar = d2u_getwc(ipInF, ipFlag)) != WEOF) {  /* get character */
+        while ((TempChar = d2u_getwc(ipInF, ipFlag->bomtype)) != WEOF) {  /* get character */
           if ((ipFlag->Force == 0) &&
               (TempChar < 32) &&
               (TempChar != 0x0a) &&  /* Not an LF */
@@ -134,7 +156,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
             break;
           }
           if (TempChar != 0x0d) {
-            if (putc(TempChar, ipOutF) == EOF) {
+            if (d2u_putwc(TempChar, ipOutF) == EOF) {
               RetVal = -1;
               if (!ipFlag->Quiet)
               {
@@ -144,12 +166,12 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               break;
             } 
           } else {
-            StripDelimiter( ipInF, ipOutF, ipFlag, TempChar );
+            StripDelimiterW( ipInF, ipOutF, ipFlag, TempChar );
           }
         }
         break;
       case FROMTO_MAC2UNIX: /* mac2unix */
-        while ((TempChar = d2u_getwc(ipInF, ipFlag)) != WEOF) {
+        while ((TempChar = d2u_getwc(ipInF, ipFlag->bomtype)) != WEOF) {
           if ((ipFlag->Force == 0) &&
               (TempChar < 32) &&
               (TempChar != 0x0a) &&  /* Not an LF */
@@ -162,7 +184,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
           }
           if ((TempChar != 0x0d))
             {
-              if(putc(TempChar, ipOutF) == WEOF){
+              if(d2u_putwc(TempChar, ipOutF) == WEOF){
                 RetVal = -1;
                 if (!ipFlag->Quiet)
                 {
@@ -174,15 +196,15 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
             }
           else{
             /* TempChar is a CR */
-            if ( (TempNextChar = d2u_getwc(ipInF)) != WEOF) {
+            if ( (TempNextChar = d2u_getwc(ipInF, ipFlag->bomtype)) != WEOF) {
               ungetc( TempNextChar, ipInF );  /* put back peek char */
               /* Don't touch this delimiter if it's a CR,LF pair. */
-              if ( TempNextChar == '\x0a' ) {
-                putc('\x0d', ipOutF); /* put CR, part of DOS CR-LF */
+              if ( TempNextChar == 0x0a ) {
+                d2u_putwc(0x0d, ipOutF); /* put CR, part of DOS CR-LF */
                 continue;
               }
             }
-            if (putc('\x0a', ipOutF) == EOF) /* MAC line end (CR). Put LF */
+            if (d2u_putwc(0x0a, ipOutF) == WEOF) /* MAC line end (CR). Put LF */
               {
                 RetVal = -1;
                 if (!ipFlag->Quiet)
@@ -193,7 +215,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                 break;
               }
             if (ipFlag->NewLine) {  /* add additional LF? */
-              putc('\x0a', ipOutF);
+              d2u_putwc(0x0a, ipOutF);
             }
           }
         }
@@ -481,9 +503,23 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 
   InF = read_bom(InF, &ipFlag->bomtype);
 
+  if (ipFlag->add_bom)
+    fprintf(TempF, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
+
   /* conversion sucessful? */
+#ifdef D2U_UNICODE
+  if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))
+  {
+    if ((!RetVal) && (ConvertDosToUnixW(InF, TempF, ipFlag, progname)))
+      RetVal = -1;
+  } else {
+    if ((!RetVal) && (ConvertDosToUnix(InF, TempF, ipFlag, progname)))
+      RetVal = -1;
+  }
+#else
   if ((!RetVal) && (ConvertDosToUnix(InF, TempF, ipFlag, progname)))
     RetVal = -1;
+#endif
 
    /* can close in file? */
   if ((InF) && (fclose(InF) == EOF))
@@ -735,6 +771,10 @@ int main (int argc, char *argv[])
   pFlag->status = 0;
   pFlag->stdio_mode = 1;
   pFlag->error = 0;
+#ifdef D2U_UNICODE
+  pFlag->bomtype = FILE_MBS;
+#endif
+  pFlag->add_bom = 0;
 
   if ( ((ptr=strrchr(argv[0],'/')) == NULL) && ((ptr=strrchr(argv[0],'\\')) == NULL) )
     ptr = argv[0];
@@ -770,6 +810,8 @@ int main (int argc, char *argv[])
         pFlag->Quiet = 1;
       else if ((strcmp(argv[ArgIdx],"-l") == 0) || (strcmp(argv[ArgIdx],"--newline") == 0))
         pFlag->NewLine = 1;
+      else if ((strcmp(argv[ArgIdx],"-m") == 0) || (strcmp(argv[ArgIdx],"--add-bom") == 0))
+        pFlag->add_bom = 1;
       else if ((strcmp(argv[ArgIdx],"-S") == 0) || (strcmp(argv[ArgIdx],"--skip-symlink") == 0))
         pFlag->Follow = SYMLINK_SKIP;
       else if ((strcmp(argv[ArgIdx],"-F") == 0) || (strcmp(argv[ArgIdx],"--follow-symlink") == 0))
