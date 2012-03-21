@@ -1,14 +1,14 @@
 # German messages for dos2unix
 # Copyright (C) 2009-2012
 # This file is distributed under the same license as the dos2unix package.
-#
+# 
 # Philipp Thomas <pth@suse.de>, 2009, 2010, 2011.
 # Philipp Thomas <psmt@opensuse.org>, 2009,2010, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-21 09:09+0100\n"
+"POT-Creation-Date: 2012-03-21 20:21+0000\n"
 "PO-Revision-Date: 2010-01-24 09:00+0100\n"
 "Last-Translator: Philipp Thomas <psmt@opensuse.org>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -340,51 +340,56 @@ msgstr ""
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         gibt die Versionsnummer aus\n"
 
-#: common.c:236
-msgid "With native language support.\n"
-msgstr "Mit Unterstützung von Landessprachen.\n"
-
-#: common.c:244
+#: common.c:239
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "DOS 16 bit Version (WATCOMC).\n"
 
-#: common.c:246
+#: common.c:241
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "DOS 16 bit Version (TURBOC).\n"
 
-#: common.c:248
+#: common.c:243
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "DOS 32 bit Version (WATCOMC).\n"
 
-#: common.c:250
+#: common.c:245
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "DOS 32 bit Version (DJGPP).\n"
 
-#: common.c:252
+#: common.c:247
 msgid "MSYS version.\n"
 msgstr "MSYS Version.\n"
 
-#: common.c:254
+#: common.c:249
 msgid "Cygwin version.\n"
 msgstr "Cygwin Version.\n"
 
-#: common.c:256
+#: common.c:251
 msgid "Windows 64 bit version (MinGW-w64).\n"
 msgstr "Windows 64 bit Version (MinGW-w64).\n"
 
-#: common.c:258
+#: common.c:253
 msgid "Windows 32 bit version (WATCOMC).\n"
 msgstr "Windows 32 bit Version (WATCOMC).\n"
 
-#: common.c:260
+#: common.c:255
 msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Windows 32 bit Version (MinGW).\n"
 
-#: common.c:262
+#: common.c:257
 msgid "OS/2 version.\n"
 msgstr "OS/2 Version.\n"
 
-#: common.c:265
+#: common.c:260
 #, fuzzy
-msgid "With Unicode support.\n"
+msgid "With Unicode UTF-16 support.\n"
+msgstr "Mit Unterstützung von Landessprachen.\n"
+
+#: common.c:262
+#, fuzzy
+msgid "Without Unicode UTF-16 support.\n"
+msgstr "Mit Unterstützung von Landessprachen.\n"
+
+#: common.c:265
+msgid "With native language support.\n"
 msgstr "Mit Unterstützung von Landessprachen.\n"

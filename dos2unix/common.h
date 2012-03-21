@@ -171,9 +171,7 @@ typedef struct
   int status;
   int stdio_mode;                       /* if TRUE, stdio mode */
   int error;                            /* an error occurred */
-#ifdef D2U_UNICODE
   int bomtype;                          /* byte order mark */
-#endif
   int add_bom;                          /* 1: write BOM */
 } CFlag;
 

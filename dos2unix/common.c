@@ -25,7 +25,7 @@
  */
 
 #include "common.h"
-#if defined(__WIN32__) && !defined(__CYGWIN__)
+#if defined(D2U_UNICODE) && defined(WIN32) && !defined(__CYGWIN__)
 #include <windows.h>
 #endif
 
@@ -232,11 +232,6 @@ Usage: %s [options] [file ...] [-n infile outfile ...]\n\
 void PrintVersion(char *progname)
 {
   fprintf(stderr, "%s %s (%s)\n", progname, VER_REVISION, VER_DATE);
-#ifdef ENABLE_NLS
-  fprintf(stderr, "%s", _("With native language support.\n"));
-#else
-  fprintf(stderr, "%s", "Without native language support.\n");
-#endif
 #if DEBUG
   fprintf(stderr, "VER_AUTHOR: %s\n", VER_AUTHOR);
 #endif
@@ -262,7 +257,14 @@ void PrintVersion(char *progname)
   fprintf(stderr, "%s", _("OS/2 version.\n"));
 #endif
 #ifdef D2U_UNICODE
-  fprintf(stderr, "%s", _("With Unicode support.\n"));
+  fprintf(stderr, "%s", _("With Unicode UTF-16 support.\n"));
+#else
+  fprintf(stderr, "%s", _("Without Unicode UTF-16 support.\n"));
+#endif
+#ifdef ENABLE_NLS
+  fprintf(stderr, "%s", _("With native language support.\n"));
+#else
+  fprintf(stderr, "%s", "Without native language support.\n");
 #endif
 }
 
@@ -571,7 +573,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f)
    static char mbs[8];
    int i,len;
 
-#if defined(__WIN32__) && !defined(__CYGWIN__)
+#if defined(WIN32) && !defined(__CYGWIN__)
    /* On Windows we convert UTF-16 always to UTF-8 */
    wchar_t wstr[2];
    
