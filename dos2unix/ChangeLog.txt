@@ -1,3 +1,7 @@
+2012-03-21 Erwin Waterlander <waterlan@xs4all.nl>
+	* Support conversion of Unicode UTF-16 from stdin.
+	* Update English manual.
+
 2012-03-20 Erwin Waterlander <waterlan@xs4all.nl>
 	* Support conversion of Unicode UTF-16 encoded files.
 

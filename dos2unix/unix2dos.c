@@ -713,11 +713,23 @@ int ConvertUnixToDosStdio(CFlag *ipFlag, char *progname)
 
     _setmode(fileno(stdout), O_BINARY);
     _setmode(fileno(stdin), O_BINARY);
-    return (ConvertUnixToDos(stdin, stdout, ipFlag, progname));
 #elif defined(MSDOS) || defined(__CYGWIN__) || defined(__OS2__)
     setmode(fileno(stdout), O_BINARY);
     setmode(fileno(stdin), O_BINARY);
-    return (ConvertUnixToDos(stdin, stdout, ipFlag, progname));
+#endif
+
+    read_bom(stdin, &ipFlag->bomtype);
+
+    if ((ipFlag->add_bom) || (ipFlag->bomtype > 0))
+       fprintf(stdout, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
+
+#ifdef D2U_UNICODE
+    if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))
+    {
+       return (ConvertUnixToDosW(stdin, stdout, ipFlag, progname));
+	 } else {
+       return (ConvertUnixToDos(stdin, stdout, ipFlag, progname));
+	 }
 #else
     return (ConvertUnixToDos(stdin, stdout, ipFlag, progname));
 #endif
