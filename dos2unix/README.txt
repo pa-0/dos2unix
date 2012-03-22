@@ -40,11 +40,12 @@ HISTORY
         * In-place, paired, or stdio mode conversion.
         * Keep original file dates option.
         * 7-bit and iso conversion modes like SunOS dos2unix.
+        * Conversion of Unicode UTF-16 files.
 
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2-5.3.3  2009-2012 
+        Erwin Waterlander       version 3.2-6.0    2009-2012 
         Christian Wurll         version 3.1        1998
         Bernd Johannes Wuebben  version 3.0        1998
         Benjamin Lin            version 1.1-2.3    1994-1995
