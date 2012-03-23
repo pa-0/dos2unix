@@ -1,3 +1,11 @@
+2012-03-23 Erwin Waterlander <waterlan@xs4all.nl>
+	* Turn off ISO and 7-bit mode if an Unicode text file is detected,
+	  to prevent corruption of UTF-8 files.
+	* Update English manual.
+	* Fix compilation for WatcomC, DJGPP, MSYS, OS/2.
+	* Makefile: Support CFLAGS_USER, LDFLAGS_USER, and DEFS_USER for
+	  Debian Linux. Thanks to Jari Aalto.
+
 2012-03-21 Erwin Waterlander <waterlan@xs4all.nl>
 	* Support conversion of Unicode UTF-16 from stdin.
 	* Update English manual.

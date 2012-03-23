@@ -29,6 +29,9 @@
 #	This is a GNU Makefile that uses GNU compilers, linkers and cpp. The
 #	platform specific issues are determined by the various OS teets that
 #	rely on the uname(1) command and directory locations.
+#
+#	Set additional flags for the build with variables CFLAGS_USER,
+#	DEFS_USER and LDFLAGS_USER.
 
 include version.mk
 
@@ -204,7 +207,8 @@ endif
 
 # ............................................................ flags ...
 
-CFLAGS	= -O2 -Wall $(RPM_OPT_FLAGS)
+CFLAGS_USER	=
+CFLAGS		= -O2 -Wall $(RPM_OPT_FLAGS) $(CPPFLAGS) $(CFLAGS_USER)
 
 EXTRA_CFLAGS	= -DVER_REVISION=\"$(DOS2UNIX_VERSION)\" \
 		  -DVER_DATE=\"$(DOS2UNIX_DATE)\" \
@@ -228,9 +232,11 @@ ifdef LFS
 	EXTRA_CFLAGS += -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
 endif
 
-LDFLAGS		= $(RPM_OPT_FLAGS) $(LDFLAGS_EXTRA)
+LDFLAGS_USER	=
+LDFLAGS = $(RPM_OPT_FLAGS) $(LDFLAGS_EXTRA) $(LDFLAGS_USER)
 
-DEFS		= $(EXTRA_DEFS)
+DEFS_USER	=
+DEFS		= $(EXTRA_DEFS) $(DEFS_USER)
 
 # .......................................................... targets ...
 

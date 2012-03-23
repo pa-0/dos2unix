@@ -1,6 +1,6 @@
 
 # Author: Erwin Waterlander
-# Copyright (C) 2009-2011 Erwin Waterlander
+# Copyright (C) 2009-2012 Erwin Waterlander
 # This file is distributed under the same license as the dos2unix package.
 
 prefix=c:/usr
@@ -13,10 +13,10 @@ endif
 ZIPOBJ_EXTRA =
 
 all:
-	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" EO_XNOTATION=1
+	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" EO_XNOTATION=1 UCS=
 
 install:
-	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" EO_XNOTATION=1
+	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" EO_XNOTATION=1 UCS=
 
 uninstall:
 	$(MAKE) uninstall EXE=.exe prefix=$(prefix)

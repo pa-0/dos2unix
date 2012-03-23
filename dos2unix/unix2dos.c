@@ -519,6 +519,10 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   if ((ipFlag->add_bom) || (ipFlag->bomtype > 0))
     fprintf(TempF, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 
+  /* Turn off ISO and 7-bit conversion for Unicode text files */
+  if (ipFlag->bomtype > 0)
+    ipFlag->ConvMode = CONVMODE_ASCII;
+
   /* conversion sucessful? */
 #ifdef D2U_UNICODE
   if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))
