@@ -1,3 +1,7 @@
+2012-03-24 Erwin Waterlander <waterlan@xs4all.nl>
+	* On Unix, convert UTF-16 files only when the locale encoding
+	  is UTF-8 to prevent accidental loss of text.
+
 2012-03-23 Erwin Waterlander <waterlan@xs4all.nl>
 	* Turn off ISO and 7-bit mode if an Unicode text file is detected,
 	  to prevent corruption of UTF-8 files.

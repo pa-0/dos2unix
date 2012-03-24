@@ -1,6 +1,6 @@
 
 # Author: Erwin Waterlander
-# Copyright (C) 2009 Erwin Waterlander
+# Copyright (C) 2009-2012 Erwin Waterlander
 # This file is distributed under the same license as the dos2unix package.
 
 prefix=c:/djgpp

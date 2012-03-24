@@ -81,6 +81,14 @@
 #  define WIN32
 #endif
 
+#if defined(__WATCOMC__) && defined(__I86__) /* Watcom C, 16 bit Intel */
+#define MSDOS
+#endif
+
+#if defined(__WATCOMC__) && defined(__DOS__) /* Watcom C, 32 bit DOS */
+#define MSDOS
+#endif
+
 #if defined(WIN32) && !defined(__CYGWIN__) /* Windows */
 #define MSDOS
 #endif
@@ -134,6 +142,7 @@
 #define OUTPUTFILE_SYMLINK 0x8
 #define INPUT_TARGET_NO_REGFILE 0x10
 #define OUTPUT_TARGET_NO_REGFILE 0x20
+#define LOCALE_NOT_UTF8 0x40
 
 #define CONVMODE_ASCII  0
 #define CONVMODE_7BIT   1

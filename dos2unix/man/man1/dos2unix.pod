@@ -322,11 +322,14 @@ support type C<dos2unix -V>.
 
 The Windows versions of dos2unix/unix2dos will convert UTF-16 encoded files
 always to UTF-8 encoded files. Unix versions of dos2unix/unix2dos convert
-UTF-16 encoded files to the locale encoding. Because UTF-8 formatted text files
-are well supported on both Windows and Unix, dos2unix/unix2dos has no option to
-convert to UTF-16. All UTF-16 characters can be encoded in UTF-8. Conversion
-from UTF-16 to UTF-8 is without loss. On Unix, when the locale encoding is not
-UTF-8, non-convertable characters are converted to a dot.
+UTF-16 encoded files to the locale encoding when it is set to UTF-8.
+Use the locale(1) command to find out what the locale encoding is.
+
+Because UTF-8 formatted text files are well supported on both Windows and Unix,
+dos2unix/unix2dos has no option to convert to UTF-16. All UTF-16 characters can
+be encoded in UTF-8. Conversion from UTF-16 to UTF-8 is without loss. On Unix,
+when the locale encoding is not UTF-8, the UTF-16 file will be skipped to
+prevent accidental loss of text.
 
 ISO and 7-bit mode conversion do not work on UTF-16 files.
 

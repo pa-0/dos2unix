@@ -65,7 +65,11 @@
 #include "common.h"
 #include "dos2unix.h"
 #include "querycp.h"
-
+#ifdef D2U_UNICODE
+#ifndef MSDOS  /* Unix, Cygwin */
+# include <langinfo.h>
+#endif
+#endif
 
 void PrintLicense(void)
 {
@@ -77,7 +81,6 @@ Copyright (C) 1994-1995 Benjamin Lin\n\
 All rights reserved.\n\n"));
   PrintBSDLicense();
 }
-
 
 #ifdef D2U_UNICODE
 void StripDelimiterW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, wint_t CurChar)
@@ -503,6 +506,21 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 
   InF = read_bom(InF, &ipFlag->bomtype);
 
+#ifdef D2U_UNICODE
+#ifndef MSDOS  /* Unix, Cygwin */
+  if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))
+  {
+    if (strcmp(nl_langinfo(CODESET), "UTF-8") != 0)
+    {
+      /* Don't convert UTF-16 files when the locale encoding is not UTF-8
+       * to prevent loss of characters. */
+      ipFlag->status |= LOCALE_NOT_UTF8 ;
+      RetVal = -1;
+    }
+  }
+#endif
+#endif
+
   if (ipFlag->add_bom)
     fprintf(TempF, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 
@@ -745,7 +763,6 @@ int main (int argc, char *argv[])
 # ifdef __MINGW64__
   int _dowildcard = -1; /* enable wildcard expansion for Win64 */
 # endif
-
 
   progname[8] = '\0';
   strcpy(progname,"dos2unix");
@@ -1003,6 +1020,13 @@ int main (int argc, char *argv[])
               fprintf(stderr,"%s: ",progname);
               fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
             }
+          } else if (pFlag->status & LOCALE_NOT_UTF8)
+          {
+            if (!pFlag->Quiet)
+            {
+              fprintf(stderr,"%s: ",progname);
+              fprintf(stderr, _("Skipping UTF-16 file %s, the current locale encoding is not UTF-8.\n"), argv[ArgIdx-1]);
+            }
           } else {
             if (!pFlag->Quiet)
             {
@@ -1058,6 +1082,13 @@ int main (int argc, char *argv[])
           {
             fprintf(stderr,"%s: ",progname);
             fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
+          }
+        } else if (pFlag->status & LOCALE_NOT_UTF8)
+        {
+          if (!pFlag->Quiet)
+          {
+            fprintf(stderr,"%s: ",progname);
+            fprintf(stderr, _("Skipping UTF-16 file %s, the current locale encoding is not UTF-8.\n"), argv[ArgIdx]);
           }
         } else {
           if (!pFlag->Quiet)
