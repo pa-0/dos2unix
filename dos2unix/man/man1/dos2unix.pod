@@ -313,23 +313,23 @@ UTF-16 format.
 Unicode text files can have DOS, Unix or Mac line breaks, like regular text
 files.
 
-All versions of dos2unix/unix2dos can convert UTF-8 encoded files, because
+All versions of dos2unix and unix2dos can convert UTF-8 encoded files, because
 UTF-8 was designed for backward compatiblity with ASCII.
 
 Dos2unix/unix2dos with Unicode UTF-16 support, can convert little and big
 endian UTF-16 encoded text files. To see if dos2unix was built with UTF-16
 support type C<dos2unix -V>.
 
-The Windows versions of dos2unix/unix2dos will convert UTF-16 encoded files
+The Windows versions of dos2unix and unix2dos convert UTF-16 encoded files
 always to UTF-8 encoded files. Unix versions of dos2unix/unix2dos convert
-UTF-16 encoded files to the locale encoding when it is set to UTF-8.
-Use the locale(1) command to find out what the locale encoding is.
+UTF-16 encoded files to the locale character encoding when it is set to UTF-8.
+Use the locale(1) command to find out what the locale character encoding is.
 
 Because UTF-8 formatted text files are well supported on both Windows and Unix,
-dos2unix/unix2dos has no option to convert to UTF-16. All UTF-16 characters can
-be encoded in UTF-8. Conversion from UTF-16 to UTF-8 is without loss. On Unix,
-when the locale encoding is not UTF-8, the UTF-16 file will be skipped to
-prevent accidental loss of text.
+dos2unix and unix2dos have no option to convert to UTF-16. All UTF-16
+characters can be encoded in UTF-8. Conversion from UTF-16 to UTF-8 is without
+loss. UTF-16 files will be skipped on Unix when the locale character encoding
+is not UTF-8, to prevent accidental loss of text.
 
 ISO and 7-bit mode conversion do not work on UTF-16 files.
 
@@ -340,7 +340,7 @@ many Windows programs (including Notepad) add BOMs by default. See also
 L<http://en.wikipedia.org/wiki/Byte_order_mark>.
 
 On Unix Unicode files typically don't have a BOM. It is assumed that text files
-are encoded in the locale(1) encoding.
+are encoded in the locale character encoding.
 
 Dos2unix can only detect if a file is in UTF-16 format if the file has a BOM.
 When an UTF-16 file doesn't have a BOM, dos2unix will see the file as a binary

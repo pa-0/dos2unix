@@ -1038,7 +1038,7 @@ int main (int argc, char *argv[])
             if (!pFlag->Quiet)
             {
               fprintf(stderr,"%s: ",progname);
-              fprintf(stderr, _("Skipping UTF-16 file %s, the current locale encoding is not UTF-8.\n"), argv[ArgIdx-1]);
+              fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), argv[ArgIdx-1]);
             }
           } else {
             if (!pFlag->Quiet)
@@ -1104,7 +1104,7 @@ int main (int argc, char *argv[])
           if (!pFlag->Quiet)
           {
             fprintf(stderr,"%s: ",progname);
-            fprintf(stderr, _("Skipping UTF-16 file %s, the current locale encoding is not UTF-8.\n"), argv[ArgIdx]);
+            fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), argv[ArgIdx]);
           }
         } else {
           if (!pFlag->Quiet)

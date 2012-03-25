@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-24 08:49+0100\n"
+"POT-Creation-Date: 2012-03-25 18:20+0200\n"
 "PO-Revision-Date: 2010-01-24 09:00+0100\n"
 "Last-Translator: Philipp Thomas <psmt@opensuse.org>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -156,7 +156,9 @@ msgstr "Codepage %d wird nicht unterstützt.\n"
 
 #: dos2unix.c:1028 dos2unix.c:1091 unix2dos.c:1041 unix2dos.c:1107
 #, c-format
-msgid "Skipping UTF-16 file %s, the current locale encoding is not UTF-8.\n"
+msgid ""
+"Skipping UTF-16 file %s, the current locale character encoding is not "
+"UTF-8.\n"
 msgstr ""
 
 #: dos2unix.c:1034
