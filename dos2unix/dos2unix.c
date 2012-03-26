@@ -110,17 +110,17 @@ void StripDelimiter(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar)
   /* CurChar is always CR (x0d) */
   /* In normal dos2unix mode put nothing (skip CR). */
   /* Don't modify Mac files when in dos2unix mode. */
-  if ( (TempNextChar = getc(ipInF)) != EOF) {
+  if ( (TempNextChar = fgetc(ipInF)) != EOF) {
     ungetc( TempNextChar, ipInF );  /* put back peek char */
     if ( TempNextChar != '\x0a' ) {
-      putc( CurChar, ipOutF );  /* Mac line, put back CR */
+      fputc( CurChar, ipOutF );  /* Mac line, put back CR */
     }
   }
   else if ( CurChar == '\x0d' ) {  /* EOF: last Mac line delimiter (CR)? */
-    putc( CurChar, ipOutF );
+    fputc( CurChar, ipOutF );
   }
   if (ipFlag->NewLine) {  /* add additional LF? */
-    putc('\x0a', ipOutF);
+    fputc('\x0a', ipOutF);
   }
 }
 
@@ -294,7 +294,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
     switch (ipFlag->FromToMode)
     {
       case FROMTO_DOS2UNIX: /* dos2unix */
-        while ((TempChar = getc(ipInF)) != EOF) {  /* get character */
+        while ((TempChar = fgetc(ipInF)) != EOF) {  /* get character */
           if ((ipFlag->Force == 0) &&
               (TempChar < 32) &&
               (TempChar != '\x0a') &&  /* Not an LF */
@@ -306,7 +306,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
             break;
           }
           if (TempChar != '\x0d') {
-            if (putc(ConvTable[TempChar], ipOutF) == EOF) {
+            if (fputc(ConvTable[TempChar], ipOutF) == EOF) {
               RetVal = -1;
               if (!ipFlag->Quiet)
               {
@@ -321,7 +321,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
         }
         break;
       case FROMTO_MAC2UNIX: /* mac2unix */
-        while ((TempChar = getc(ipInF)) != EOF) {
+        while ((TempChar = fgetc(ipInF)) != EOF) {
           if ((ipFlag->Force == 0) &&
               (TempChar < 32) &&
               (TempChar != '\x0a') &&  /* Not an LF */
@@ -334,7 +334,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
           }
           if ((TempChar != '\x0d'))
             {
-              if(putc(ConvTable[TempChar], ipOutF) == EOF){
+              if(fputc(ConvTable[TempChar], ipOutF) == EOF){
                 RetVal = -1;
                 if (!ipFlag->Quiet)
                 {
@@ -346,15 +346,15 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
             }
           else{
             /* TempChar is a CR */
-            if ( (TempNextChar = getc(ipInF)) != EOF) {
+            if ( (TempNextChar = fgetc(ipInF)) != EOF) {
               ungetc( TempNextChar, ipInF );  /* put back peek char */
               /* Don't touch this delimiter if it's a CR,LF pair. */
               if ( TempNextChar == '\x0a' ) {
-                putc('\x0d', ipOutF); /* put CR, part of DOS CR-LF */
+                fputc('\x0d', ipOutF); /* put CR, part of DOS CR-LF */
                 continue;
               }
             }
-            if (putc('\x0a', ipOutF) == EOF) /* MAC line end (CR). Put LF */
+            if (fputc('\x0a', ipOutF) == EOF) /* MAC line end (CR). Put LF */
               {
                 RetVal = -1;
                 if (!ipFlag->Quiet)
@@ -365,7 +365,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                 break;
               }
             if (ipFlag->NewLine) {  /* add additional LF? */
-              putc('\x0a', ipOutF);
+              fputc('\x0a', ipOutF);
             }
           }
         }

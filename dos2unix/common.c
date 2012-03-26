@@ -588,11 +588,11 @@ wint_t d2u_putwc(wint_t wc, FILE *f)
 
    if ( len < 0 )
    {  /* Character cannot be represented in current locale. Put a dot `.' */
-      putc(0x2e, f);
+      fputc(0x2e, f);
    } else {
       for (i=0; i<len; i++)
       {
-         if (putc(mbs[i], f) == EOF)
+         if (fputc(mbs[i], f) == EOF)
             return(WEOF);
       }
    }

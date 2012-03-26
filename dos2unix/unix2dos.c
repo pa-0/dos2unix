@@ -88,8 +88,8 @@ void AddDOSNewLine(FILE* ipOutF, CFlag *ipFlag, int CurChar, int PrevChar)
   if (ipFlag->NewLine) {  /* add additional CR-LF? */
     /* Don't add line ending if it is a DOS line ending. Only in case of Unix line ending. */
     if ((CurChar == '\x0a') && (PrevChar != '\x0d')) {
-      putc('\x0d', ipOutF);
-      putc('\x0a', ipOutF);
+      fputc('\x0d', ipOutF);
+      fputc('\x0a', ipOutF);
     }
   }
 }
@@ -284,7 +284,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
     switch (ipFlag->FromToMode)
     {
       case FROMTO_UNIX2DOS: /* unix2dos */
-        while ((TempChar = getc(ipInF)) != EOF) {  /* get character */
+        while ((TempChar = fgetc(ipInF)) != EOF) {  /* get character */
           if ((ipFlag->Force == 0) &&
               (TempChar < 32) &&
               (TempChar != '\x0a') &&  /* Not an LF */
@@ -297,20 +297,20 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
           }
           if (TempChar == '\x0a')
           {
-            putc('\x0d', ipOutF); /* got LF, put CR */
+            fputc('\x0d', ipOutF); /* got LF, put CR */
           } else {
              if (TempChar == '\x0d') /* got CR */
              {
-               if ((TempChar = getc(ipInF)) == EOF) /* get next char */
+               if ((TempChar = fgetc(ipInF)) == EOF) /* get next char */
                  TempChar = '\x0d';  /* Read error, or end of file. */
                else
                {
-                 putc('\x0d', ipOutF); /* put CR */
+                 fputc('\x0d', ipOutF); /* put CR */
                  PreviousChar = '\x0d';
                }
              }
           }
-          if (putc(ConvTable[TempChar], ipOutF) == EOF)
+          if (fputc(ConvTable[TempChar], ipOutF) == EOF)
           {
               RetVal = -1;
               if (!ipFlag->Quiet)
@@ -326,7 +326,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
         }
         break;
       case FROMTO_UNIX2MAC: /* unix2mac */
-        while ((TempChar = getc(ipInF)) != EOF) {
+        while ((TempChar = fgetc(ipInF)) != EOF) {
           if ((ipFlag->Force == 0) &&
               (TempChar < 32) &&
               (TempChar != '\x0a') &&  /* Not an LF */
@@ -339,7 +339,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
           }
           if ((TempChar != '\x0a')) /* Not an LF */
             {
-              if(putc(ConvTable[TempChar], ipOutF) == EOF){
+              if(fputc(ConvTable[TempChar], ipOutF) == EOF){
                 RetVal = -1;
                 if (!ipFlag->Quiet)
                 {
@@ -354,7 +354,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
             /* TempChar is an LF */
             /* Don't touch this delimiter if it's a CR,LF pair. */
             if ( PreviousChar == '\x0d' ) {
-              if (putc('\x0a', ipOutF) == EOF)  /* CR,LF pair. Put LF */
+              if (fputc('\x0a', ipOutF) == EOF)  /* CR,LF pair. Put LF */
                 {
                   RetVal = -1;
                   if (!ipFlag->Quiet)
@@ -368,7 +368,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               continue;
             }
             PreviousChar = TempChar;
-            if (putc('\x0d', ipOutF) == EOF) /* Unix line end (LF). Put CR */
+            if (fputc('\x0d', ipOutF) == EOF) /* Unix line end (LF). Put CR */
               {
                 RetVal = -1;
                 if (!ipFlag->Quiet)
@@ -379,7 +379,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                 break;
               }
             if (ipFlag->NewLine) {  /* add additional CR? */
-              putc('\x0d', ipOutF);
+              fputc('\x0d', ipOutF);
             }
           }
         }

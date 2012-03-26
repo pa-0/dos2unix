@@ -1,3 +1,6 @@
+2012-03-26 Erwin Waterlander <waterlan@xs4all.nl>
+	* *.c: Use fgetc/fputc instead of getc/putc.
+
 2012-03-25 Erwin Waterlander <waterlan@xs4all.nl>
 	* po, man: Update Dutch translations.
 
