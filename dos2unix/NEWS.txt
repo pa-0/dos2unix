@@ -1,6 +1,6 @@
 2012-??-??: Version 6.0
 
-  * Conversion of Unicode UTF-16 files.
+  * The Windows and Unix versions can read Unicode UTF-16 files.
 
 2012-03-10: Version 5.3.3
 

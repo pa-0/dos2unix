@@ -317,9 +317,9 @@ als reguliere tekst bestanden.
 Alle versies van dos2unix en unix2dos kunnen UTF-8 gecodeerde bestanden
 omzetten, want UTF-8 is ontworpen op compatibiliteit met ASCII.
 
-Dos2unix/unix2dos met Unicode UTF-16 ondersteuning, kan little en big endian
-UTF-16 gecodeerde tekst bestanden omzetten. Om er achter te komen of dos2unix
-gebouwd is met UTF-16 ondersteuning type C<dos2unix -V>.
+Dos2unix en unix2dos met Unicode UTF-16 ondersteuning, kunnen little en big
+endian UTF-16 gecodeerde tekst bestanden lezen. Om er achter te komen of
+dos2unix gebouwd is met UTF-16 ondersteuning type C<dos2unix -V>.
 
 De Windows versies van dos2unix en unix2dos converteren UTF-16 gecodeerde
 bestanden altijd naar UTF-8 gecondeerde bestanden. Unix versies van
@@ -328,11 +328,11 @@ karakter codering als die gelijk is aan UTF-8. Gebruik de opdracht
 locale(1) om uit te vinden wat de lokale karakter codering is.
 
 Omdat UTF-8 geformateerde tekstbestanden zowel op Windows en Unix goed
-ondersteund worden, hebben dos2unix en unix2dos geen optie om naar UTF-16
-te converteren. Alle UTF-16 karakters kunnen worden omgezet naar UTF-8. De
-omzetting van UTF-16 naar UTF-8 is verliesvrij. Op Unix worden UTF-16
-bestanden overgeslagen als de locale karakter codering ongelijk is aan UTF-8,
-om te voorkomen dat er per ongeluk tekst verloren gaat.
+ondersteund worden, hebben dos2unix en unix2dos geen optie om UTF-16 bestanden
+te schrijven. Alle UTF-16 karakters kunnen worden omgezet naar UTF-8. De
+omzetting van UTF-16 naar UTF-8 is verliesvrij. Op Unix worden UTF-16 bestanden
+overgeslagen als de locale karakter codering ongelijk is aan UTF-8, om te
+voorkomen dat er per ongeluk tekst verloren gaat.
 
 ISO en 7-bit conversie werkt niet op UTF-16 bestanden.
 
@@ -350,8 +350,8 @@ Dos2unix kan alleen detecteren of een bestand in UTF-16 formaat is als het
 bestand een BOM heeft. Wanneer een UTF-16 bestand geen BOM heeft, ziet
 dos2unix het bestand als een binair bestand.
 
-Om een UTF-16 bestand zonder BOM om te zetten, kan dos2unix in combinatie met
-iconv(1) gebruikt worden.
+Gebruik dos2unix in combinatie met iconv(1) om een UTF-16 bestand zonder BOM om
+te zetten.
 
 Dos2unix schrijft nooit een BOM in het uitvoerbestand, tenzij optie C<-m>
 gebruikt wordt.
@@ -432,6 +432,15 @@ Omzetten c.txt en schrijf naar e.txt. Omzetten en vervangen a.txt.
 Omzetten en vervangen b.txt. Omzetten d.txt en schrijf naar f.txt.
 
     dos2unix -n c.txt e.txt -o a.txt b.txt -n d.txt f.txt
+
+=head1 RECURSIEVE CONVERSIE
+
+Gebruik dos2unix in combinatie met de find(1) en xargs(1) opdrachten om
+tekstbestanden in een directoryboomstructuur recursief om te zetten.
+Bijvoorbeeld om alle .txt bestanden in de directoryboom onder de huidige
+map te converteren type:
+
+    find . -name *.txt |xargs dos2unix
 
 =head1 LOKALISATIE
 
