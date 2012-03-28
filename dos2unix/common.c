@@ -25,8 +25,10 @@
  */
 
 #include "common.h"
-#if defined(D2U_UNICODE) && defined(WIN32) && !defined(__CYGWIN__)
+#if defined(D2U_UNICODE)
+#if defined(WIN32) || defined(__CYGWIN__)
 #include <windows.h>
+#endif
 #endif
 
 #if defined(__GLIBC__)
@@ -529,40 +531,40 @@ FILE *read_bom (FILE *f, int *bomtype)
 #ifdef D2U_UNICODE
 wint_t d2u_getwc(FILE *f, int bomtype)
 {
-   int c_high, c_low;
+   int c_trail, c_lead;
    wint_t wc;
 
-   if (((c_low=fgetc(f)) == EOF)  || ((c_high=fgetc(f)) == EOF))
+   if (((c_lead=fgetc(f)) == EOF)  || ((c_trail=fgetc(f)) == EOF))
       return(WEOF);
 
    if (bomtype == FILE_UTF16LE)  /* UTF16 little endian */
    {
-      c_high <<=8;
-      wc = (wint_t)(c_high + c_low) ;
-   } else {                              /* UTF16 big endian */
-      c_low <<=8;
-      wc = (wint_t)(c_high + c_low) ;
+      c_trail <<=8;
+      wc = (wint_t)(c_trail + c_lead) ;
+   } else {                      /* UTF16 big endian */
+      c_lead <<=8;
+      wc = (wint_t)(c_trail + c_lead) ;
    }
    return(wc);
 }
 
 wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype)
 {
-   int c_high, c_low;
+   int c_trail, c_lead;
 
    if (bomtype == FILE_UTF16LE)  /* UTF16 little endian */
    {
-      c_high = (int)(wc & 0xff00);
-      c_high >>=8;
-      c_low  = (int)(wc & 0xff);
-   } else {                              /* UTF16 big endian */
-      c_low = (int)(wc & 0xff00);
-      c_low >>=8;
-      c_high  = (int)(wc & 0xff);
+      c_trail = (int)(wc & 0xff00);
+      c_trail >>=8;
+      c_lead  = (int)(wc & 0xff);
+   } else {                      /* UTF16 big endian */
+      c_lead = (int)(wc & 0xff00);
+      c_lead >>=8;
+      c_trail  = (int)(wc & 0xff);
    }
 
    /* push back in reverse order */
-   if ((ungetc(c_high,f) == EOF)  || (ungetc(c_low,f) == EOF))
+   if ((ungetc(c_trail,f) == EOF)  || (ungetc(c_lead,f) == EOF))
       return(WEOF);
    return(wc);
 }
@@ -571,22 +573,58 @@ wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype)
 wint_t d2u_putwc(wint_t wc, FILE *f)
 {
    static char mbs[8];
-   int i,len;
+   static wchar_t lead, trail;
+   static wchar_t wstr[3];
+   size_t i,len;
 
-#if defined(WIN32) && !defined(__CYGWIN__)
+   if ((wc >= 0xd800) && (wc < 0xdc00))
+   {
+      /* fprintf(stderr, "UTF-16 lead %x\n",wc); */
+      lead = (wchar_t)wc; /* lead (high) surrogate */
+      return(wc);
+   }
+   if ((wc >= 0xdc00) && (wc < 0xe000))
+   {
+      /* fprintf(stderr, "UTF-16 trail %x\n",wc); */
+      trail = (wchar_t)wc; /* trail (low) surrogate */
+#if defined(WIN32) || defined(__CYGWIN__)
+      /* On Windows (including Cygwin) wchar_t is 16 bit */
+      wstr[0] = lead;
+      wstr[1] = trail;
+      wstr[2] = L'\0';
+#else      
+      /* On Unix wchar_t is 32 bit */
+      /* When we don't decode the UTF-16 surrogate pair, some versions of
+       * wcstombs() do not produce the same UTF-8 as WideCharToMultiByte().
+       * The UTF-8 output file produced by wcstombs() is bigger, but looks
+       * correct in some viewers (eg. Total Commander lister). However the
+       * UTF-8 is not readable by Windows Notepad. This was seen on Suse Linux
+       * Enterprise Server 10 (x86_64) VERSION = 10 PATCHLEVEL = 3, using gcc
+       * 4.5.2. I don't understand yet why this is happening.  When we decode
+       * the UTF-16 surrogate pairs ourselves the wcstombs() UTF-8 output is
+       * identical to what WideCharToMultiByte() produces, and is readable by
+       * Notepad.
+       */ 
+      /* Decode UTF-16 surrogate pair */
+      wstr[0] = 0x10000;
+      wstr[0] += (lead & 0x03FF) << 10;
+      wstr[0] += (trail & 0x03FF);
+      wstr[1] = L'\0';
+#endif
+   } else {
+      wstr[0] = (wchar_t)wc;
+      wstr[1] = L'\0';
+   }
+
+#if defined(WIN32) || defined(__CYGWIN__)
    /* On Windows we convert UTF-16 always to UTF-8 */
-   wchar_t wstr[2];
-   
-   wstr[0] = (wchar_t)wc;
-   wstr[1] = L'\0';
-
-   len = WideCharToMultiByte(CP_UTF8, 0, wstr, -1, mbs, sizeof(mbs), NULL, NULL) -1;
+   len = (size_t)(WideCharToMultiByte(CP_UTF8, 0, wstr, -1, mbs, sizeof(mbs), NULL, NULL) -1);
 #else
    /* On Unix we convert UTF-16 to the locale encoding */
-   len = wctomb(mbs, (wchar_t)wc);
+   len = wcstombs(mbs, wstr, sizeof(mbs));
 #endif
 
-   if ( len < 0 )
+   if ( len == (size_t)(-1) )
    {  /* Character cannot be represented in current locale. Put a dot `.' */
       fputc(0x2e, f);
    } else {

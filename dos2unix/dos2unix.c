@@ -519,6 +519,17 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
     }
   }
 #endif
+#if !defined(WIN32) && !defined(__CYGWIN__) /* Not Windows or Cygwin */
+  if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))
+  {
+    if (sizeof(wchar_t) < 4)
+    {
+      /* A decoded UTF-16 surrogate pair must fit in a wchar_t */
+      ipFlag->status |= WCHAR_T_TOO_SMALL ;
+      RetVal = -1;
+    }
+  }
+#endif
 #endif
 
   if (ipFlag->add_bom)
@@ -1027,6 +1038,13 @@ int main (int argc, char *argv[])
               fprintf(stderr,"%s: ",progname);
               fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), argv[ArgIdx-1]);
             }
+          } else if (pFlag->status & WCHAR_T_TOO_SMALL)
+          {
+            if (!pFlag->Quiet)
+            {
+              fprintf(stderr,"%s: ",progname);
+              fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), argv[ArgIdx-1], sizeof(wchar_t));
+            }
           } else {
             if (!pFlag->Quiet)
             {
@@ -1089,6 +1107,13 @@ int main (int argc, char *argv[])
           {
             fprintf(stderr,"%s: ",progname);
             fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), argv[ArgIdx]);
+          }
+        } else if (pFlag->status & WCHAR_T_TOO_SMALL)
+        {
+          if (!pFlag->Quiet)
+          {
+            fprintf(stderr,"%s: ",progname);
+            fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), argv[ArgIdx], sizeof(wchar_t));
           }
         } else {
           if (!pFlag->Quiet)

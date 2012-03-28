@@ -1,3 +1,7 @@
+2012-03-28 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Support UTF-16 surrogate pairs.
+	* dos2unix.c, unix2dos.c: Check wchar_t size.
+
 2012-03-26 Erwin Waterlander <waterlan@xs4all.nl>
 	* *.c: Use fgetc/fputc instead of getc/putc.
 
