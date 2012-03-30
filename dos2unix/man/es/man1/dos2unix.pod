@@ -1,7 +1,10 @@
 /*
+#
+#  Spanish tranlation by: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com> 2011, 2012
+#
 #  Copyright and License
 #
-#   Copyright (C) 2009-2011 Erwin Waterlander
+#   Copyright (C) 2009-2012 Erwin Waterlander
 #   All rights reserved.
 # 
 #   Redistribution and use in source and binary forms, with or without
@@ -172,6 +175,11 @@ B<unix2dos>: Sólo los saltos de línea Unix son cambiados por dos saltos de línea
 DOS.
 En modo Mac los saltos de línea Unix son cambiados por dos saltos de línea Mac.
 
+=item B<-m, --add-bom>
+
+Write an UTF-8 Byte Order Mark in the output file. Never use this option when
+the output encoding is other than UTF-8. See also section UNICODE.
+
 =item B<-n, --newfile ARCH_DE_ENTRADA ARCH_DE_SALIDA ...>
 
 Modo de archivo nuevo. Convierte el archivo ARCH_DE_ENTRADA y escribe la salida
@@ -261,6 +269,8 @@ C<-863> (Francocanadiense), o C<-865> (Nórdico). La página de códigos Windows
 acceder a otras páginas de códigos use dos2unix en combinación con iconv(1).
 Iconv puede convertir entre una larga lista de codificaciones de caracteres.
 
+Never use ISO converion on Unicode text files. It will corrupt UTF-8 encoded files.
+
 Algunos ejemplos:
 
 Convierte de la página de códigos por defecto de DOS a Latín-1 de Unix.
@@ -279,10 +289,6 @@ Convierte de Windows 1252 a Unix UTF-8 (Unicode).
 
     iconv -f CP1252 -t UTF-8 in.txt | dos2unix > out.txt
 
-Convierte de Windows UTF-16 (Unicode) a Unix UTF-8 (Unicode).
-
-    iconv -f UTF-16 -t UTF-8 in.txt | dos2unix > out.txt
-
 Convierte de Unix Latín-1 a la página de códigos por defecto de DOS.
 
     unix2dos -iso -n in.txt out.txt
@@ -299,10 +305,6 @@ Convierte de Unix UTF-8 (Unicode) a Windows 1252.
 
     unix2dos < in.txt | iconv -f UTF-8 -t CP1252 > out.txt
 
-Convierte de Unix UTF-8 (Unicode) a Windows UTF-16 (Unicode).
-
-    unix2dos < in.txt | iconv -f UTF-8 -t UTF-16 > out.txt
-
 Véase también L<http://czyborra.com/charsets/codepages.html>
 y L<http://czyborra.com/charsets/iso8859.html>.
 
@@ -310,13 +312,78 @@ y L<http://czyborra.com/charsets/iso8859.html>.
 
 =head1 UNICODE
 
-Existen diferentes codificaciones Unicode. En Unix/Linux los archivos Unicode
-están en su mayoría codificados en UTF-8. UTF-8 es compatible con ASCII. Los
-archivos UTF-8 pueden tener saltos de línea DOS, Unix o Mac. Es seguro ejecutar
-dos2unix/unix2dos en archivos codificados con UTF-8. En Windows la codificación
-UTF-16 es mayormente empleada para los archivos Unicode.
-Dos2unix/unix2dos no deberá ser ejecutado en archivos UTF-16. Los archivos
-UTF-16 son ignorados automáticamente, dado que se consideran binarios.
+=head2 Encodings
+
+There exist different Unicode encodings. On Unix and Linux Unicode files are
+typically encoded in UTF-8 encoding. On Windows Unicode text files can be
+encoded in UTF-8, UTF-16, or UTF-16 big endian, but are mostly encoded in
+UTF-16 format.
+
+=head2 Conversion
+
+Unicode text files can have DOS, Unix or Mac line breaks, like regular text
+files.
+
+All versions of dos2unix and unix2dos can convert UTF-8 encoded files, because
+UTF-8 was designed for backward compatiblity with ASCII.
+
+Dos2unix and unix2dos with Unicode UTF-16 support, can read little and big
+endian UTF-16 encoded text files. To see if dos2unix was built with UTF-16
+support type C<dos2unix -V>.
+
+The Windows versions of dos2unix and unix2dos convert UTF-16 encoded files
+always to UTF-8 encoded files. Unix versions of dos2unix/unix2dos convert
+UTF-16 encoded files to the locale character encoding when it is set to UTF-8.
+Use the locale(1) command to find out what the locale character encoding is.
+
+Because UTF-8 formatted text files are well supported on both Windows and Unix,
+dos2unix and unix2dos have no option to write UTF-16 files. All UTF-16
+characters can be encoded in UTF-8. Conversion from UTF-16 to UTF-8 is without
+loss. UTF-16 files will be skipped on Unix when the locale character encoding
+is not UTF-8, to prevent accidental loss of text. When an UTF-16 to UTF-8
+conversion error occurs, for instance when the UTF-16 input file contains
+an error, the file will be skipped.
+
+ISO and 7-bit mode conversion do not work on UTF-16 files.
+
+=head2 Byte Order Mark
+
+On Windows Unicode text files typically have a Byte Order Mark (BOM), because
+many Windows programs (including Notepad) add BOMs by default. See also
+L<http://en.wikipedia.org/wiki/Byte_order_mark>.
+
+On Unix Unicode files typically don't have a BOM. It is assumed that text files
+are encoded in the locale character encoding.
+
+Dos2unix can only detect if a file is in UTF-16 format if the file has a BOM.
+When an UTF-16 file doesn't have a BOM, dos2unix will see the file as a binary
+file.
+
+Use dos2unix in combination with iconv(1) to convert an UTF-16 file without
+BOM.
+
+Dos2unix never writes a BOM in the output file, unless you use option C<-m>.
+
+Unix2dos writes a BOM in the output file when the input file has a BOM, or
+when option C<-m> is used.
+
+=head2 Unicode examples
+
+Convert from Windows UTF-16 (with BOM) to Unix UTF-8
+
+    dos2unix -n in.txt out.txt
+
+Convert from Windows UTF-16 (without BOM) to Unix UTF-8
+
+    iconv -f UTF-16 -t UTF-8 in.txt | dos2unix > out.txt
+
+Convert from Unix UTF-8 to Windows UTF-8
+
+    unix2dos -m -n in.txt out.txt
+
+Convert from Unix UTF-8 to Windows UTF-16
+
+    unix2dos < in.txt | iconv -f UTF-8 -t UTF-16 > out.txt
 
 =head1 EJEMPLOS
 
@@ -374,6 +441,15 @@ Convierte c.txt y escribe a e.txt. Convierte y reemplaza a.txt.
 Convierte y reemplaza b.txt. Convierte d.txt y escribe a f.txt.
 
     dos2unix -n c.txt e.txt -o a.txt b.txt -n d.txt f.txt
+
+=head1 RECURSIVE CONVERSION
+
+Use dos2unix in combination with the find(1) and xargs(1) commands to
+recursively convert text files in a directory tree structure. For instance to
+convert all .txt files in the directory tree under the current directory type:
+
+    find . -name *.txt |xargs dos2unix
+
 
 =head1 INTERNACIONALIZACIÓN
 
@@ -440,9 +516,13 @@ emplean parámetros incorrectos.
 
 =head1 ESTÁNDARES
 
-http://es.wikipedia.org/wiki/Documento_de_texto
-http://es.wikipedia.org/wiki/Retorno_de_carro
-http://es.wikipedia.org/wiki/Nueva_l%C3%ADnea
+L<http://es.wikipedia.org/wiki/Documento_de_texto>
+
+L<http://es.wikipedia.org/wiki/Retorno_de_carro>
+
+L<http://es.wikipedia.org/wiki/Nueva_l%C3%ADnea>
+
+L<http://es.wikipedia.org/wiki/Unicode>
 
 =head1 AUTORES
 
@@ -460,6 +540,9 @@ Freshmeat: L<http://freshmeat.net/projects/dos2unix>
 =head1 VÉASE TAMBIÉN
 
 file(1)
+find(1)
 iconv(1)
+locale(1)
+xargs(1)
 
 =cut

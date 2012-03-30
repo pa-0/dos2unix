@@ -589,21 +589,26 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
       trail = (wchar_t)wc; /* trail (low) surrogate */
 #if defined(WIN32) || defined(__CYGWIN__)
       /* On Windows (including Cygwin) wchar_t is 16 bit */
+      /* We cannot decode an UTF-16 surrogate pair, because it will
+         not fit in a 16 bit wchar_t. */
       wstr[0] = lead;
       wstr[1] = trail;
       wstr[2] = L'\0';
 #else      
       /* On Unix wchar_t is 32 bit */
-      /* When we don't decode the UTF-16 surrogate pair, some versions of
-       * wcstombs() do not produce the same UTF-8 as WideCharToMultiByte().
-       * The UTF-8 output file produced by wcstombs() is bigger, but looks
-       * correct in some viewers (eg. Total Commander lister). However the
-       * UTF-8 is not readable by Windows Notepad. This was seen on Suse Linux
-       * Enterprise Server 10 (x86_64) VERSION = 10 PATCHLEVEL = 3, using gcc
-       * 4.5.2. I don't understand yet why this is happening.  When we decode
-       * the UTF-16 surrogate pairs ourselves the wcstombs() UTF-8 output is
-       * identical to what WideCharToMultiByte() produces, and is readable by
-       * Notepad.
+      /* When we don't decode the UTF-16 surrogate pair, wcstombs() does not
+       * produce the same UTF-8 as WideCharToMultiByte().  The UTF-8 output
+       * produced by wcstombs() is bigger, because it just translates the wide
+       * characters in the range 0xD800..0xDBFF individually to UTF-8 sequences
+       * (although these code points are reserved for use only as surrogate
+       * pairs in UTF-16). Probably because on Unix the size of wide char
+       * (wchar_t) is 32 bit, wcstombs assumes the encoding is UTF-32, and
+       * ignores UTF-16 surrogates all together.  Some smart viewers can still
+       * display this UTF-8 correctly (like Total Commander lister), however
+       * the UTF-8 is not readable by Windows Notepad (on Windows 7).  When we
+       * decode the UTF-16 surrogate pairs ourselves the wcstombs() UTF-8
+       * output is identical to what WideCharToMultiByte() produces, and is
+       * readable by Notepad.
        */ 
       /* Decode UTF-16 surrogate pair */
       wstr[0] = 0x10000;

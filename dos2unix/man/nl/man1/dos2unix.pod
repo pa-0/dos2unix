@@ -530,6 +530,10 @@ Freshmeat: L<http://freshmeat.net/projects/dos2unix>
 
 =head1 ZIE OOK
 
+file(1)
+find(1)
 iconv(1)
+locale(1)
+xargs(1)
 
 =cut
