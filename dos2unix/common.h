@@ -144,6 +144,7 @@
 #define OUTPUT_TARGET_NO_REGFILE 0x20
 #define LOCALE_NOT_UTF8 0x40
 #define WCHAR_T_TOO_SMALL 0x80
+#define UNICODE_CONVERSION_ERROR 0x100
 
 #define CONVMODE_ASCII  0
 #define CONVMODE_7BIT   1
@@ -210,6 +211,6 @@ FILE *read_bom (FILE *f, int *bomtype);
 #ifdef D2U_UNICODE
 wint_t d2u_getwc(FILE *f, int bomtype);
 wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype);
-wint_t d2u_putwc(wint_t wc, FILE *f);
+wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag);
 #endif
 

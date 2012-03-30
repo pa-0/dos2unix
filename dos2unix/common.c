@@ -570,7 +570,7 @@ wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype)
 }
 
 /* Put wide character */
-wint_t d2u_putwc(wint_t wc, FILE *f)
+wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
 {
    static char mbs[8];
    static wchar_t lead, trail;
@@ -625,8 +625,9 @@ wint_t d2u_putwc(wint_t wc, FILE *f)
 #endif
 
    if ( len == (size_t)(-1) )
-   {  /* Character cannot be represented in current locale. Put a dot `.' */
-      fputc(0x2e, f);
+   {  /* Stop when there is a conversion error */
+      ipFlag->status |= UNICODE_CONVERSION_ERROR ;
+      return(WEOF);
    } else {
       for (i=0; i<len; i++)
       {

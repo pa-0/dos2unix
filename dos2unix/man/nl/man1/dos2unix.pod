@@ -332,7 +332,9 @@ ondersteund worden, hebben dos2unix en unix2dos geen optie om UTF-16 bestanden
 te schrijven. Alle UTF-16 karakters kunnen worden omgezet naar UTF-8. De
 omzetting van UTF-16 naar UTF-8 is verliesvrij. Op Unix worden UTF-16 bestanden
 overgeslagen als de locale karakter codering ongelijk is aan UTF-8, om te
-voorkomen dat er per ongeluk tekst verloren gaat.
+voorkomen dat er per ongeluk tekst verloren gaat. Wanneer een UTF-16 naar
+UTF-8 conversiefout optreedt, bijvoorbeeld wanneer het UTF-16 invoerbestand
+een fout bevat, wordt het bestand overgeslagen.
 
 ISO en 7-bit conversie werkt niet op UTF-16 bestanden.
 
@@ -502,6 +504,16 @@ het laatste systeemfoutnummer terug gegeven. Bij andere fouten wordt 1 terug geg
 
 De teruggave is altijd nul in de modus stille werking, behalve wanneer verkeerde
 opties worden gegeven.
+
+=head1 STANDAARDEN
+
+L<http://nl.wikipedia.org/wiki/Tekstbestand>
+
+L<http://nl.wikipedia.org/wiki/Carriage_Return>
+
+L<http://nl.wikipedia.org/wiki/Linefeed>
+
+L<http://nl.wikipedia.org/wiki/Unicode>
 
 =head1 AUTEURS
 

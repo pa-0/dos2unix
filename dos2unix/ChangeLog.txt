@@ -1,3 +1,7 @@
+2012-03-30 Erwin Waterlander <waterlan@xs4all.nl>
+	* Skip UTF-16 file when conversion to UTF-8 goes wrong.
+	* Update English and Dutch manual.
+
 2012-03-28 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Support UTF-16 surrogate pairs.
 	* dos2unix.c, unix2dos.c: Check wchar_t size.

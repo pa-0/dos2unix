@@ -76,8 +76,8 @@ void AddDOSNewLineW(FILE* ipOutF, CFlag *ipFlag, wint_t CurChar, wint_t PrevChar
   if (ipFlag->NewLine) {  /* add additional CR-LF? */
     /* Don't add line ending if it is a DOS line ending. Only in case of Unix line ending. */
     if ((CurChar == 0x0a) && (PrevChar != 0x0d)) {
-      d2u_putwc(0x0d, ipOutF);
-      d2u_putwc(0x0a, ipOutF);
+      d2u_putwc(0x0d, ipOutF, ipFlag);
+      d2u_putwc(0x0a, ipOutF, ipFlag);
     }
   }
 }
@@ -128,7 +128,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
           }
           if (TempChar == 0x0a)
           {
-            d2u_putwc(0x0d, ipOutF); /* got LF, put CR */
+            d2u_putwc(0x0d, ipOutF, ipFlag); /* got LF, put CR */
           } else {
              if (TempChar == 0x0d) /* got CR */
              {
@@ -136,18 +136,21 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                  TempChar = 0x0d;  /* Read error, or end of file. */
                else
                {
-                 d2u_putwc(0x0d, ipOutF); /* put CR */
+                 d2u_putwc(0x0d, ipOutF, ipFlag); /* put CR */
                  PreviousChar = 0x0d;
                }
              }
           }
-          if (d2u_putwc(TempChar, ipOutF) == WEOF)
+          if (d2u_putwc(TempChar, ipOutF, ipFlag) == WEOF)
           {
               RetVal = -1;
               if (!ipFlag->Quiet)
               {
-                fprintf(stderr, "%s: ", progname);
-                fprintf(stderr, "%s", _("can not write to output file\n"));
+                if (!(ipFlag->status & UNICODE_CONVERSION_ERROR))
+                {
+                  fprintf(stderr, "%s: ", progname);
+                  fprintf(stderr, "%s", _("can not write to output file\n"));
+                }
               }
               break;
           } else {
@@ -170,12 +173,15 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
           }
           if ((TempChar != 0x0a)) /* Not an LF */
             {
-              if(d2u_putwc(TempChar, ipOutF) == WEOF){
+              if(d2u_putwc(TempChar, ipOutF, ipFlag) == WEOF){
                 RetVal = -1;
                 if (!ipFlag->Quiet)
                 {
-                  fprintf(stderr, "%s: ", progname);
-                  fprintf(stderr, "%s", _("can not write to output file\n"));
+                  if (!(ipFlag->status & UNICODE_CONVERSION_ERROR))
+                  {
+                    fprintf(stderr, "%s: ", progname);
+                    fprintf(stderr, "%s", _("can not write to output file\n"));
+                  }
                 }
                 break;
               }
@@ -185,13 +191,16 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
             /* TempChar is an LF */
             /* Don't touch this delimiter if it's a CR,LF pair. */
             if ( PreviousChar == 0x0d ) {
-              if (d2u_putwc(0x0a, ipOutF) == WEOF)  /* CR,LF pair. Put LF */
+              if (d2u_putwc(0x0a, ipOutF, ipFlag) == WEOF)  /* CR,LF pair. Put LF */
                 {
                   RetVal = -1;
                   if (!ipFlag->Quiet)
                   {
-                    fprintf(stderr, "%s: ", progname);
-                    fprintf(stderr, "%s", _("can not write to output file\n"));
+                    if (!(ipFlag->status & UNICODE_CONVERSION_ERROR))
+                    {
+                      fprintf(stderr, "%s: ", progname);
+                      fprintf(stderr, "%s", _("can not write to output file\n"));
+                    }
                   }
                   break;
                 }
@@ -199,18 +208,21 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               continue;
             }
             PreviousChar = TempChar;
-            if (d2u_putwc(0x0d, ipOutF) == WEOF) /* Unix line end (LF). Put CR */
+            if (d2u_putwc(0x0d, ipOutF, ipFlag) == WEOF) /* Unix line end (LF). Put CR */
               {
                 RetVal = -1;
                 if (!ipFlag->Quiet)
                 {
-                  fprintf(stderr, "%s: ", progname);
-                  fprintf(stderr, "%s", _("can not write to output file\n"));
+                  if (!(ipFlag->status & UNICODE_CONVERSION_ERROR))
+                  {
+                    fprintf(stderr, "%s: ", progname);
+                    fprintf(stderr, "%s", _("can not write to output file\n"));
+                  }
                 }
                 break;
               }
             if (ipFlag->NewLine) {  /* add additional CR? */
-              d2u_putwc(0x0d, ipOutF);
+              d2u_putwc(0x0d, ipOutF, ipFlag);
             }
           }
         }
@@ -529,6 +541,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
       /* Don't convert UTF-16 files when the locale encoding is not UTF-8
        * to prevent loss of characters. */
       ipFlag->status |= LOCALE_NOT_UTF8 ;
+      if (!ipFlag->error) ipFlag->error = 1;
       RetVal = -1;
     }
   }
@@ -540,6 +553,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
     {
       /* A decoded UTF-16 surrogate pair must fit in a wchar_t */
       ipFlag->status |= WCHAR_T_TOO_SMALL ;
+      if (!ipFlag->error) ipFlag->error = 1;
       RetVal = -1;
     }
   }
@@ -559,6 +573,11 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   {
     if ((!RetVal) && (ConvertUnixToDosW(InF, TempF, ipFlag, progname)))
       RetVal = -1;
+    if (ipFlag->status & UNICODE_CONVERSION_ERROR)
+    {
+      if (!ipFlag->error) ipFlag->error = 1;
+      RetVal = -1;
+    }
   } else {
     if ((!RetVal) && (ConvertUnixToDos(InF, TempF, ipFlag, progname)))
       RetVal = -1;
@@ -761,9 +780,9 @@ int ConvertUnixToDosStdio(CFlag *ipFlag, char *progname)
     if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))
     {
        return (ConvertUnixToDosW(stdin, stdout, ipFlag, progname));
-	 } else {
+    } else {
        return (ConvertUnixToDos(stdin, stdout, ipFlag, progname));
-	 }
+    }
 #else
     return (ConvertUnixToDos(stdin, stdout, ipFlag, progname));
 #endif
@@ -1056,7 +1075,14 @@ int main (int argc, char *argv[])
             if (!pFlag->Quiet)
             {
               fprintf(stderr,"%s: ",progname);
-              fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), argv[ArgIdx-1], sizeof(wchar_t));
+              fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), argv[ArgIdx-1], (int)sizeof(wchar_t));
+            }
+          } else if (pFlag->status & UNICODE_CONVERSION_ERROR)
+          {
+            if (!pFlag->Quiet)
+            {
+              fprintf(stderr,"%s: ",progname);
+              fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), argv[ArgIdx-1]);
             }
           } else {
             if (!pFlag->Quiet)
@@ -1129,7 +1155,14 @@ int main (int argc, char *argv[])
           if (!pFlag->Quiet)
           {
             fprintf(stderr,"%s: ",progname);
-            fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), argv[ArgIdx], sizeof(wchar_t));
+            fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), argv[ArgIdx], (int)sizeof(wchar_t));
+          }
+        } else if (pFlag->status & UNICODE_CONVERSION_ERROR)
+        {
+          if (!pFlag->Quiet)
+          {
+            fprintf(stderr,"%s: ",progname);
+            fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), argv[ArgIdx]);
           }
         } else {
           if (!pFlag->Quiet)

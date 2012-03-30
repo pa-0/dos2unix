@@ -329,7 +329,9 @@ Because UTF-8 formatted text files are well supported on both Windows and Unix,
 dos2unix and unix2dos have no option to write UTF-16 files. All UTF-16
 characters can be encoded in UTF-8. Conversion from UTF-16 to UTF-8 is without
 loss. UTF-16 files will be skipped on Unix when the locale character encoding
-is not UTF-8, to prevent accidental loss of text.
+is not UTF-8, to prevent accidental loss of text. When an UTF-16 to UTF-8
+conversion error occurs, for instance when the UTF-16 input file contains
+an error, the file will be skipped.
 
 ISO and 7-bit mode conversion do not work on UTF-16 files.
 
