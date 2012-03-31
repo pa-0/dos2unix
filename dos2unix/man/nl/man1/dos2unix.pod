@@ -371,7 +371,7 @@ Omzetten van Windows UTF-16 (zonder BOM) naar Unix UTF-8
 
     iconv -f UTF-16 -t UTF-8 in.txt | dos2unix > uit.txt
 
-Omzetten van Unix UTF-8 naar Windows UTF-8
+Omzetten van Unix UTF-8 naar Windows UTF-8 met BOM
 
     unix2dos -m -n in.txt uit.txt
 

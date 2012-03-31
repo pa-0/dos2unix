@@ -1,6 +1,8 @@
 2012-??-??: Version 6.0
 
-  * The Windows and Unix versions can read Unicode UTF-16 files.
+  * Windows UTF-16 files can be converted to Unix UTF-8 files, and
+    Unix UTF-8 files can be converted to Windows UTF-8 files with byte
+	 order mark.
 
 2012-03-10: Version 5.3.3
 

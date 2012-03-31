@@ -366,7 +366,7 @@ Convert from Windows UTF-16 (without BOM) to Unix UTF-8
 
     iconv -f UTF-16 -t UTF-8 in.txt | dos2unix > out.txt
 
-Convert from Unix UTF-8 to Windows UTF-8
+Convert from Unix UTF-8 to Windows UTF-8 with BOM
 
     unix2dos -m -n in.txt out.txt
 
