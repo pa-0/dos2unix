@@ -277,7 +277,7 @@ msgstr ""
 "SELBST WENN AUF DIE MÖGLICHKIET SOLCHER SCHÄDEN HINGEWIESEN WURDE.\n"
 
 #: common.c:193
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s %s (%s)\n"
 "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
@@ -327,6 +327,7 @@ msgstr ""
 " -k, --keepdate        Datum der Ausgabedatei bleibt erhalten\n"
 " -L, --license         Ausgabe der Software-Lizenz\n"
 " -l, --newline         fügt einen Zeilenumbruch hinzu\n"
+" -m, --add-bom         add UTF-8 Byte Order Mark\n"
 " -n, --newfile         eine neue Datei wird erzeugt\n"
 "   Eingabedatei        Originaldatei im neue Datei Modus\n"
 "   Ausgabedatei        Ausgabedatei im neue Datei Modus\n"
