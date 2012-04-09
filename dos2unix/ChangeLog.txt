@@ -1,5 +1,9 @@
+2012-04-09 Erwin Waterlander <waterlan@xs4all.nl>
+	* INSTALL.txt: List the prerequisites.
+	* Makefile: Friendlier for DJGPP/MinGW/MSYS.
+
 2012-04-04 Erwin Waterlander <waterlan@xs4all.nl>
-	* po/eo.po: Update Esperanto translations.
+	* po/eo.po: Update Esperanto translations. Thanks to Rugxulo.
 
 2012-03-30 Erwin Waterlander <waterlan@xs4all.nl>
 	* Skip UTF-16 file when conversion to UTF-8 goes wrong.

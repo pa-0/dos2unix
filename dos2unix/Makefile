@@ -79,13 +79,6 @@ man1dir		= $(mandir)/man1
 manext		= .1
 man1ext		= .1
 
-# For systems that don't support Unicode or Latin-3, select
-# Esperanto in X-notation format: EO_XNOTATION=1
-
-ifdef EO_XNOTATION
-EO_NOTATION = -x
-endif
-
 ifdef ENABLE_NLS
 	POT		= po/$(PACKAGE).pot
 	POFILES		= $(wildcard po/??.po)
@@ -152,6 +145,7 @@ ifeq ($(findstring MSYS,$(shell uname)),MSYS)
 	OS = msys
 	EXE = .exe
 	VERSIONSUFFIX	= -msys
+	EO_XNOTATION=1
 	UCS =
 ifdef ENABLE_NLS
 	LDFLAGS_EXTRA = -lintl -liconv
@@ -159,6 +153,37 @@ endif
 endif
 endif
 
+ifndef OS
+ifeq ($(findstring MINGW32,$(shell uname)),MINGW32)
+	OS = mingw32
+	prefix=c:/usr/local
+	EXE = .exe
+	VERSIONSUFFIX	= -win32
+	LINK = cp -f
+	EO_XNOTATION=1
+ifdef ENABLE_NLS
+	LDFLAGS_EXTRA = -lintl -liconv
+	ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
+endif
+endif
+endif
+
+ifndef OS
+ifeq ($(shell uname),MS-DOS)
+	OS = msdos
+	prefix=c:/djgpp
+	EXE = .exe
+	VERSIONSUFFIX	= -dos32
+	LINK_MAN = cp -f
+	docsubdir = dos2unix
+	EO_XNOTATION=1
+	UCS =
+	ZIPOBJ_EXTRA = bin/cwsdpmi.exe
+ifdef ENABLE_NLS
+	LDFLAGS_EXTRA = -lintl -liconv
+endif
+endif
+endif
 
 ifndef OS
 ifeq (FreeBSD, $(shell uname -s))
@@ -206,6 +231,13 @@ ifndef OS
 endif
 
 # ............................................................ flags ...
+
+# For systems that don't support Unicode or Latin-3, select
+# Esperanto in X-notation format: EO_XNOTATION=1
+
+ifdef EO_XNOTATION
+EO_NOTATION = -x
+endif
 
 CFLAGS_USER	=
 CFLAGS		= -O2 -Wall $(RPM_OPT_FLAGS) $(CPPFLAGS) $(CFLAGS_USER)

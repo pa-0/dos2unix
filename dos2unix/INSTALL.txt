@@ -1,9 +1,37 @@
+PREREQUISITES
+
+    Using GCC:
+        Required
+            * gcc          : GNU C compiler
+            * GNU binutils : A collection of binary tools
+            * GNU make     : make
+            * sh           : POSIX type shell
+            * GNU coreutils: Core utilities package (chmod, install, mkdir, mv, rm, uname)
+            * sed          : Stream editor
+            * perl         : Practical Extraction and Report Language (perlpod)
+
+        Optional (depending on build targets):
+            * gettext     : Framework to help GNU packages produce multi-lingual messages.
+            * groff       : GNU troff text formatting system.
+            * ghostscript : An interpreter for the PostScript language and for PDF (ps2pdf)
+
+    Alternative for Windows/DOS:
+        * Open Watcom : http://www.openwatcom.org/
+
+    Required for DOS16 bit:
+        * Open Watcom : http://www.openwatcom.org/
+
 
 BASIC INSTALLATION
 
     To build the program type:
 
         make
+
+
+    To strip the executables:
+
+        make strip
 
 
     To install:
@@ -16,9 +44,10 @@ BASIC INSTALLATION
         make clean
 
 
-    Maintainer clean (for developers):
+        Mostly clean. The target mostlyclean will preserve the generated
+        documentation files.
 
-        make maintainer-clean
+        make mostlyclean
 
 
 INSTALLATION NAMES
@@ -62,11 +91,14 @@ LARGE FILE SUPPORT
 
 UNICODE SUPPORT
 
-    Unicode is by default enabled. This enables
-    conversion of UTF-16 encoded text files.
+    Unicode UTF-16 support is by default enabled for Windows and Unix.  To
+    disable make the UCS variable (Universal Character Set) empty.
 
         Disable Unicode:
         make clean install UCS=
+
+    Unicode UTF-16 is not supported by the DOS versions.
+
 
 ESPERANTO X-NOTATION
 
@@ -92,7 +124,10 @@ WINDOWS PORT
     To compile a version for Windows, get the Mingw compiler
     <http://www.mingw.org>, and use makefile mingw.mak:
 
-        make -f mingw.mak clean install
+        make -f mingw.mak clean
+        make -f mingw.mak
+        make -f mingw.mak strip
+        make -f mingw.mak install
 
     Or get the Open Watcom C compiler <http://www.openwatcom.org>
     and type:
@@ -105,14 +140,20 @@ WINDOWS 64 BIT PORT
     To compile a version for Windows, get the Mingw-w64 compiler
     <http://mingw-w64.sourceforge.net>, and use makefile mingw64.mak:
 
-        make -f mingw64.mak clean install
+        make -f mingw64.mak clean
+        make -f mingw64.mak
+        make -f mingw64.mak strip
+        make -f mingw64.mak install
 
 DOS PORT, 32 BIT
 
     To compile a version for DOS, get the DJGPP compiler
     <http://www.delorie.com/djgpp/>, and use makefile djgpp.mak:
 
-        make -f djgpp.mak clean install
+        make -f djgpp.mak clean
+        make -f djgpp.mak
+        make -f djgpp.mak strip
+        make -f djgpp.mak install
 
     Or use the OpenWatcom compiler <http://www.openwatcom.org>.
 
@@ -134,5 +175,11 @@ DOS PORT, 16 BIT
 
 OS/2 PORT
 
-        make -f os2.mak clean install
+    Using Paul Smedley's build environment, available
+    at <http://os2ports.smedley.info>
+
+        make -f os2.mak clean
+        make -f os2.mak
+        make -f os2.mak strip
+        make -f os2.mak install
 
