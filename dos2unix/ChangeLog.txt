@@ -1,3 +1,6 @@
+2012-04-12 Erwin Waterlander <waterlan@xs4all.nl>
+	* po/de.po: Update German translations. Thanks to Philipp Thomas.
+
 2012-04-09 Erwin Waterlander <waterlan@xs4all.nl>
 	* INSTALL.txt: List the prerequisites.
 	* Makefile: Friendlier for DJGPP/MinGW/MSYS.

@@ -159,17 +159,17 @@ msgstr "Codepage %d wird nicht unterstützt.\n"
 msgid ""
 "Skipping UTF-16 file %s, the current locale character encoding is not "
 "UTF-8.\n"
-msgstr ""
+msgstr "UTF-16 Datei %s wird übersprungen, da die derzeitige Zeichenkodierung nicht UTF-8 ist.\n"
 
 #: dos2unix.c:1061 dos2unix.c:1138 unix2dos.c:1078 unix2dos.c:1158
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
-msgstr ""
+msgstr "UTF-16 Datei %s wird übersprungen, da wchar_t %d Bytes groß ist.\n"
 
 #: dos2unix.c:1068 dos2unix.c:1145 unix2dos.c:1085 unix2dos.c:1165
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
-msgstr ""
+msgstr "UTF-16 Datei %s wird übersprungen, da beim Umwandeln ein Fehler auftrat.\n"
 
 #: dos2unix.c:1074
 #, c-format
@@ -327,7 +327,7 @@ msgstr ""
 " -k, --keepdate        Datum der Ausgabedatei bleibt erhalten\n"
 " -L, --license         Ausgabe der Software-Lizenz\n"
 " -l, --newline         fügt einen Zeilenumbruch hinzu\n"
-" -m, --add-bom         add UTF-8 Byte Order Mark\n"
+" -m, --add-bom         UTF-8 Byte Order Mark hinzufügen\n"
 " -n, --newfile         eine neue Datei wird erzeugt\n"
 "   Eingabedatei        Originaldatei im neue Datei Modus\n"
 "   Ausgabedatei        Ausgabedatei im neue Datei Modus\n"
@@ -399,14 +399,12 @@ msgid "OS/2 version.\n"
 msgstr "OS/2 Version.\n"
 
 #: common.c:262
-#, fuzzy
 msgid "With Unicode UTF-16 support.\n"
-msgstr "Mit Unterstützung von Landessprachen.\n"
+msgstr "Mit Unterstützung für Unicode UTF-16.\n"
 
 #: common.c:264
-#, fuzzy
 msgid "Without Unicode UTF-16 support.\n"
-msgstr "Mit Unterstützung von Landessprachen.\n"
+msgstr "Ohne Unterstützung für Unicode UTF-16.\n"
 
 #: common.c:267
 msgid "With native language support.\n"
