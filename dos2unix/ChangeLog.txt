@@ -1,3 +1,7 @@
+2012-04-20 Erwin Waterlander <waterlan@xs4all.nl>
+	* man/*/man1/*.pod: Set encoding explicitly to Latin-1.
+	* Makefile: Target 'doc' makes all man pages.
+
 2012-04-12 Erwin Waterlander <waterlan@xs4all.nl>
 	* po/de.po: Update German translations. Thanks to Philipp Thomas.
 

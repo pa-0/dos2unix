@@ -46,6 +46,8 @@
 */
 =pod
 
+=encoding iso-8859-1
+
 =head1 NAAM
 
 dos2unix - DOS/Mac naar Unix en vice versa tekstbestand formaat omzetter

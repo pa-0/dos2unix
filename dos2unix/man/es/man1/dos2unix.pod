@@ -50,6 +50,8 @@
 
 =pod
 
+=encoding iso-8859-1
+
 =head1 NOMBRE
 
 dos2unix - Convertidor de archivos de texto de formato DOS/Mac a Unix y viceversa

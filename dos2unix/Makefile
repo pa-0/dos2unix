@@ -311,7 +311,7 @@ ps: $(PACKAGE).ps
 
 pdf: $(PACKAGE).pdf
 
-doc: $(DOCFILES)
+doc: $(DOCFILES) $(MANFILES) man/man1/dos2unix.1
 
 tags: $(POT)
 
