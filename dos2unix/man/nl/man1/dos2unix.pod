@@ -344,7 +344,7 @@ ISO en 7-bit conversie werkt niet op UTF-16 bestanden.
 
 Op Windows hebben Unicode tekstbestanden typisch een Byte Order Mark (BOM),
 omdat veel Windows programma's (inclusief Kladblok) standaard een BOM
-toevoegd. Zie ook L<http://en.wikipedia.org/wiki/Byte_order_mark>.
+toevoegen. Zie ook L<http://en.wikipedia.org/wiki/Byte_order_mark>.
 
 Op Unix hebben Unicode tekstbestanden typisch geen BOM. Er wordt aangenomen
 dat de codering van tekstbestanden gelijk is aan de lokale karakter
