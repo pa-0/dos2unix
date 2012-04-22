@@ -40,7 +40,7 @@ HISTORY
         * In-place, paired, or stdio mode conversion.
         * Keep original file dates option.
         * 7-bit and iso conversion modes like SunOS dos2unix.
-        * Conversion of Unicode UTF-16 files.
+        * Conversion of Windows UTF-16 files to Unix UTF-8.
 
 
 AUTHORS
