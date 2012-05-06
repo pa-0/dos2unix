@@ -1,6 +1,6 @@
 open ftp://waterlan@ftp.xs4all.nl
 cd WWW/dos2unix
-mput dos2unix-6.0.tar.gz dos2unix-6.0-doc.tar.gz d2u60s.zip d2u60b.zip dos2unix-6.0-dos32-nls.zip dos2unix-6.0-dos32.zip dos2unix-6.0-win32.zip dos2unix-6.0-win32-nls.zip dos2unix-6.0-win64.zip dos2unix-6.0-msys-nls.tar.gz
+mput dos2unix-6.0.tar.gz dos2unix-6.0-doc.tar.gz d2u60s.zip d2u60b.zip dos2unix-6.0-dos32-nls.zip dos2unix-6.0-dos32.zip dos2unix-6.0-win32.zip dos2unix-6.0-win32-nls.zip dos2unix-6.0-win64.zip
 lcd trunk/dos2unix
 mput ChangeLog.txt NEWS.txt dos2unix.txt dos2unix.htm dos2unix.ps dos2unix.pdf
 exit
