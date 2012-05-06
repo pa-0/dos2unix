@@ -75,7 +75,9 @@
 #include <locale.h>
 #endif
 #include <errno.h>
+#ifdef D2U_UNICODE
 #include <wchar.h>
+#endif
 
 #if (defined(__WATCOMC__) && defined(__NT__))  /* Watcom */
 #  define WIN32 1
