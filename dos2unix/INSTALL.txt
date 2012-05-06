@@ -6,14 +6,17 @@ PREREQUISITES
             * GNU binutils : A collection of binary tools
             * GNU make     : make
             * sh           : POSIX type shell
-            * GNU coreutils: Core utilities package (chmod, install, mkdir, mv, rm, uname)
+            * GNU coreutils: Core utilities package (chmod, install, mkdir,
+                             mv, rm, uname)
             * sed          : Stream editor
             * perl         : Practical Extraction and Report Language (perlpod)
 
         Optional (depending on build targets):
-            * gettext     : Framework to help GNU packages produce multi-lingual messages.
+            * gettext     : Framework to help GNU packages produce multi-
+                            lingual messages.
             * groff       : GNU troff text formatting system.
-            * ghostscript : An interpreter for the PostScript language and for PDF (ps2pdf)
+            * ghostscript : An interpreter for the PostScript language and
+                            for PDF (ps2pdf)
 
     Alternative for Windows/DOS:
         * Open Watcom : http://www.openwatcom.org/
