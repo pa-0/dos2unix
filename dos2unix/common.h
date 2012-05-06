@@ -78,19 +78,19 @@
 #include <wchar.h>
 
 #if (defined(__WATCOMC__) && defined(__NT__))  /* Watcom */
-#  define WIN32
+#  define WIN32 1
 #endif
 
 #if defined(__WATCOMC__) && defined(__I86__) /* Watcom C, 16 bit Intel */
-#define MSDOS
+#define MSDOS 1
 #endif
 
 #if defined(__WATCOMC__) && defined(__DOS__) /* Watcom C, 32 bit DOS */
-#define MSDOS
+#define MSDOS 1
 #endif
 
 #if defined(WIN32) && !defined(__CYGWIN__) /* Windows */
-#define MSDOS
+#define MSDOS 1
 #endif
 
 #if  defined(__TURBOC__) || defined(DJGPP) || defined(__MINGW32__)
