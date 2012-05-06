@@ -1,5 +1,7 @@
 2012-05-06 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 6.0
+	* man/*/man1/*.pod: Removed =encoding. It is not supported
+	  by perl 5.8.8, which is shipped with MinGW and DJGPP.
 
 2012-04-20 Erwin Waterlander <waterlan@xs4all.nl>
 	* man/*/man1/*.pod: Set encoding explicitly to Latin-1.
