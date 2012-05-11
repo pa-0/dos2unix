@@ -150,17 +150,17 @@ msgstr "La página de códigos %d no está soportada.\n"
 msgid ""
 "Skipping UTF-16 file %s, the current locale character encoding is not "
 "UTF-8.\n"
-msgstr ""
+msgstr "Ignorando archivo UTF-16 %s, la codificación actual no es UTF-8.\n"
 
 #: dos2unix.c:1061 dos2unix.c:1138 unix2dos.c:1078 unix2dos.c:1158
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
-msgstr ""
+msgstr "Ignorando archivo UTF-16 %s, el tamaño de wchar_t es %d bytes.\n"
 
 #: dos2unix.c:1068 dos2unix.c:1145 unix2dos.c:1085 unix2dos.c:1165
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
-msgstr ""
+msgstr "Ignorando archivo UTF-16 %s, ocurrió un error de conversión a UTF-16.\n"
 
 #: dos2unix.c:1074
 #, c-format
@@ -240,7 +240,7 @@ msgid ""
 msgstr ""
 
 #: common.c:193
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s %s (%s)\n"
 "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
@@ -293,6 +293,7 @@ msgstr ""
 " -k, --keepdate        conserva la fecha en el archivo de salida\n"
 " -L, --license         muestra la licencia del programa\n"
 " -l, --newline         añade salto de línea adicional\n"
+" -m, --add-bom         añade marca de orden de bytes para UTF-8\n"
 " -n, --newfile         escribe a un nuevo archivo\n"
 "   archivo_de_entrada  archivo original en el modo de archivo nuevo\n"
 "   archivo_de_salida   archivo de salida en el modo de archivo nuevo\n"
@@ -364,14 +365,12 @@ msgid "OS/2 version.\n"
 msgstr "Versión para OS/2.\n"
 
 #: common.c:262
-#, fuzzy
 msgid "With Unicode UTF-16 support.\n"
-msgstr "Con soporte de idioma materno.\n"
+msgstr "Con soporte Unicode UTF-16.\n"
 
 #: common.c:264
-#, fuzzy
 msgid "Without Unicode UTF-16 support.\n"
-msgstr "Con soporte de idioma materno.\n"
+msgstr "Sin soporte Unicode UTF-16.\n"
 
 #: common.c:267
 msgid "With native language support.\n"

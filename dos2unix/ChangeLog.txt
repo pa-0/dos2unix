@@ -1,3 +1,6 @@
+2012-05-11 Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>
+	* Update Spanish messages and manual.
+
 2012-05-06 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 6.0
 	* man/*/man1/*.pod: Removed =encoding. It is not supported
