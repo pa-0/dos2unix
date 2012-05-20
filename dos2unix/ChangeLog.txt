@@ -1,3 +1,8 @@
+2012-05-20 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.h: Fix compiler warnings "implicit declaration of function
+	  'strcasecmp'". Thanks to Michael Schindler
+	  <k-m_schindler@sourceforge.net>.
+
 2012-05-11 Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>
 	* Update Spanish messages and manual.
 

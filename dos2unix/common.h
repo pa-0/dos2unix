@@ -65,6 +65,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifdef __GNUC__
+#ifndef strcmpi
+#  include <strings.h>
+#  define strcmpi(s1, s2) strcasecmp(s1, s2)
+#endif
+#endif
 #include <utime.h>
 #include <limits.h>
 #ifdef __TURBOC__
