@@ -1,3 +1,8 @@
+2012-07-??: Version 6.0.1
+
+  * Update Spanish translations.
+  * Update manual.
+
 2012-05-06: Version 6.0
 
   * Conversion of Windows UTF-16 files to Unix UTF-8 files.

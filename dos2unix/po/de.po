@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-30 09:25+0200\n"
+"POT-Creation-Date: 2012-05-20 18:54+0200\n"
 "PO-Revision-Date: 2010-01-24 09:00+0100\n"
 "Last-Translator: Philipp Thomas <psmt@opensuse.org>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -159,7 +159,9 @@ msgstr "Codepage %d wird nicht unterstützt.\n"
 msgid ""
 "Skipping UTF-16 file %s, the current locale character encoding is not "
 "UTF-8.\n"
-msgstr "UTF-16 Datei %s wird übersprungen, da die derzeitige Zeichenkodierung nicht UTF-8 ist.\n"
+msgstr ""
+"UTF-16 Datei %s wird übersprungen, da die derzeitige Zeichenkodierung nicht "
+"UTF-8 ist.\n"
 
 #: dos2unix.c:1061 dos2unix.c:1138 unix2dos.c:1078 unix2dos.c:1158
 #, c-format
@@ -169,7 +171,8 @@ msgstr "UTF-16 Datei %s wird übersprungen, da wchar_t %d Bytes groß ist.\n"
 #: dos2unix.c:1068 dos2unix.c:1145 unix2dos.c:1085 unix2dos.c:1165
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
-msgstr "UTF-16 Datei %s wird übersprungen, da beim Umwandeln ein Fehler auftrat.\n"
+msgstr ""
+"UTF-16 Datei %s wird übersprungen, da beim Umwandeln ein Fehler auftrat.\n"
 
 #: dos2unix.c:1074
 #, c-format

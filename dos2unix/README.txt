@@ -41,11 +41,12 @@ HISTORY
         * Keep original file dates option.
         * 7-bit and iso conversion modes like SunOS dos2unix.
         * Conversion of Windows UTF-16 files to Unix UTF-8.
+        * Secure.
 
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2-6.0    2009-2012 
+        Erwin Waterlander       version 3.2-6.0.1  2009-2012 
         Christian Wurll         version 3.1        1998
         Bernd Johannes Wuebben  version 3.0        1998
         Benjamin Lin            version 1.1-2.3    1994-1995
@@ -77,6 +78,16 @@ ACKNOWLEDGEMENTS
         Christopher Williams  Maintain file ownership in old file mode.
         Steven H. Levine      Support wildcard expansion on OS/2.
         Steve Hay             Support wildcard expansion on win64.
+        Michael Schindler     Fixed compiler warning.
+
+FINDUTILS
+
+        Windows users who are looking for the Unix 'find' and 'xargs' commands can
+        find them in the findutils package for Windows at the ezwinports project
+        page at: http://sourceforge.net/projects/ezwinports/files/
+
+        A DOS version of the findutils package can be obtained from the DJGPP project
+        (http://www.delorie.com/djgpp/) at ftp://ftp.delorie.com/pub/djgpp/current/v2gnu/
 
 CONTACT INFORMATION
 

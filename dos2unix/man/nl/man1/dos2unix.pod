@@ -181,10 +181,26 @@ Nieuw-bestand-modus. Converteer bestand INVOERBESTAND en schrijf naar bestand
 UITVOERBESTAND. Bestandsnamen moeten opgegeven worden in paren. Jokertekens
 moeten NIET gebruikt worden, anders verlies je bestanden.
 
+De persoon die de conversie start in nieuw-bestand (gepaarde) modus wordt
+de eigenaar van het geconverteerde bestand. De lees/schrijf permissies van
+het nieuwe bestand worden de permissies van het originele bestand minus de
+umask(1) van de persoon die de conversie draait.
+
 =item B<-o, --oldfile BESTAND ...>
 
 Oud-bestand-modus. Converteer bestand BESTAND en overschrijf het.
 Dit is de standaard modus. Jokertekens kunnen gebruikt worden.
+
+In oud-bestand (plaatsvervangende) modus krijgt het geconverteerde bestand
+dezelfde eigenaar, groep en lees/schrijf rechten als het originele
+bestand. Ook wanneer het bestand wordt omgezet door een andere gebruiker
+die schrijfrechten heeft op het bestand (b.v. gebruiker root). De
+omzetting wordt afgebroken wanneer het niet mogelijk is de originele
+waardes te behouden.  Verandering van eigenaar kan betekenen dat de
+originele eigenaar het bestand niet meer kan lezen. Verandering van groep
+zou een veiligheidsrisico kunnen zijn, het bestand zou leesbaar kunnen
+worden voor personen voor wie het niet bestemd is. Behoud van eigenaar,
+groep en lees/schrijf rechten is alleen ondersteund op Unix.
 
 =item B<-q, --quiet>
 

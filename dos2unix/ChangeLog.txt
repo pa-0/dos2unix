@@ -1,3 +1,9 @@
+2012-07-18 Erwin Waterlander <waterlan@xs4all.nl>
+	* manual: Update for options -n and -o. Describe the new permissions of
+	  the output file in new-file and old-file mode.
+	* README.txt: Added references for the findutils package for Windows
+	  and DOS to enable recursive conversions on those platforms.
+
 2012-05-20 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.h: Fix compiler warnings "implicit declaration of function
 	  'strcasecmp'". Thanks to Michael Schindler
