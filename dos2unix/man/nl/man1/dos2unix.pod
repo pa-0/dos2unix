@@ -275,7 +275,7 @@ codetabellen dos2unix in combinatie met iconv(1). Iconv kan omzetten tussen een
 lange lijst letterteken-coderingen.
 
 Gebruik ISO conversie nooit op Unicode tekst bestanden. Het zal UTF-8
-gecodeerde bestanden verminken.
+gecodeerde bestanden beschadigen.
 
 Enkele voorbeelden:
 
