@@ -560,7 +560,7 @@ Página del proyecto: L<http://waterlan.home.xs4all.nl/dos2unix.html>
 
 Página de SourceForge: L<http://sourceforge.net/projects/dos2unix/>
 
-Freshmeat: L<http://freshmeat.net/projects/dos2unix>
+Freecode: L<http://freecode.com/projects/dos2unix>
 
 =head1 VÉASE TAMBIÉN
 

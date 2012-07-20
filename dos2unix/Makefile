@@ -303,7 +303,7 @@ $(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
 
 mofiles: $(MOFILES)
 
-html: $(PACKAGE).$(HTMLEXT)
+html: $(PACKAGE).$(HTMLEXT) $(PACKAGE)-nl.$(HTMLEXT) $(PACKAGE)-es.$(HTMLEXT)
 
 txt: $(PACKAGE).txt
 
@@ -342,6 +342,17 @@ $(POT) : dos2unix.c unix2dos.c common.c
 
 %.$(HTMLEXT) : man/man1/%.pod
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
+
+# The POD files are encoded in Latin-1. See also man/man1/Makefile
+# For HTML it is best to use UTF-8.
+
+%-nl.$(HTMLEXT) : man/nl/man1/%.pod
+	iconv -f ISO-8859-1 -t UTF-8 $< > $(patsubst %.pod,%.ut8,$<)
+	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/Mac naar Unix en vice versa tekstbestand formaat omzetter" $(patsubst %.pod,%.ut8,$<) > $@
+
+%-es.$(HTMLEXT) : man/es/man1/%.pod
+	iconv -f ISO-8859-1 -t UTF-8 $< > $(patsubst %.pod,%.ut8,$<)
+	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Convertidor de archivos de texto de formato DOS/Mac a Unix y viceversa" $(patsubst %.pod,%.ut8,$<) > $@
 
 install: all
 	$(MKDIR) -p -m 755 $(DESTDIR)$(bindir)
@@ -401,7 +412,7 @@ mostlyclean:
 	rm -f *.bak *~
 	rm -f *.tmp
 	rm -f man/man1/*.bak man/man1/*~
-	rm -f man/*/man1/*.bak man/*/man1/*~
+	rm -f man/*/man1/*.bak man/*/man1/*~ man/*/man1/*.ut8
 	rm -f po/*.bak po/*~
 	rm -f po/*.mo
 
@@ -409,6 +420,7 @@ clean: mostlyclean
 	rm -f $(DOCFILES) $(PACKAGE).ps $(PACKAGE).pdf
 	rm -f man/man1/*.1
 	rm -f man/*/man1/*.1
+	rm -f *.$(HTMLEXT)
 
 distclean: clean
 

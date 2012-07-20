@@ -1,3 +1,6 @@
+2012-07-20 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Target 'html' makes also Dutch and Spanish HTML manuals.
+
 2012-07-18 Erwin Waterlander <waterlan@xs4all.nl>
 	* manual: Update for options -n and -o. Describe the new permissions of
 	  the output file in new-file and old-file mode.
