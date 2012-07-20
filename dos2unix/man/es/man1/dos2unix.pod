@@ -187,10 +187,27 @@ al archivo ARCH_DE_SALIDA.
 Los nombres de archivo deben ser dados en pares y los comodines I<no> deben ser
 usados o I<perderá> sus archivos.
 
+La persona que inicia la conversión en el modo de archivo nuevo
+(pareado) será el propietario del archivo convertido.  Los permisos de
+lectura/escritura del archivo nuevo serán los permisos del archivo
+original menos la umask(1) de la persona que ejecute la conversión.
+
 =item B<-o, --oldfile ARCHIVO ...>
 
 Modo de archivo viejo. Convierte el archivo ARCHIVO y lo sobrescribe con la salida.
 El programa por defecto se ejecuta en este modo. Sí se pueden emplear comodines.
+
+En modo de archivo antiguo (in situ), el archivo convertido obtiene el
+mismo propietario, grupo, y permisos de lectura/escritura que el
+archivo original.  Lo mismo aplica cuando el archivo es convertido por
+otro usuario quien tiene permiso de lectura en el archivo (p.e. usuario
+root).  La conversión será abortada cuando no sea posible preservar
+los valores originales.  Cambiar el propietario implicaría que el
+propietario original ya no podrá leer el archivo. Cambiar el grupo
+podría ser un riesgo de seguridad, ya que el archivo podría ser
+accesible a personas inadecuadas.  La preservación del propietario,
+grupo, y permisos de lectura/escritura sólo está soportada bajo Unix.
+
 
 =item B<-q, --quiet>
 
