@@ -1,3 +1,6 @@
+2012-07-25 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 6.0.1
+
 2012-07-20 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Target 'html' makes also Dutch and Spanish HTML manuals.
 
