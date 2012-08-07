@@ -30,7 +30,8 @@ dist:
 	cd ../${RELEASE_DIR_DOS2UNIX} ; chmod -x Makefile *.txt *.c *.h *.mak *.mk po/*.* man/nl/man1/*.*
 	# Create DOS source package.
 	cd .. ; cp -Rp $(RELEASE_DIR_DOS2UNIX) $(RELEASE_DIR_D2U)
-	cd ../$(RELEASE_DIR_D2U) ; unix2dos --keepdate Makefile *.mak *.mk *.txt *.c *.h *.htm man/man1/*.* man/*/man1/*.*
+	# DJGPP's GNU make 3.79 has trouble with makefiles in DOS format.
+	cd ../$(RELEASE_DIR_D2U) ; unix2dos --keepdate w*.mak *.txt *.c *.h *.htm man/man1/*.* man/*/man1/*.*
 	cd ../$(RELEASE_DIR_D2U) ; unix2dos --keepdate po/*.*
 	# Create doc package for people who are not able to create it.
 	cd .. ; tar cvzf ${RELEASE_DIR_DOS2UNIX}-doc.tar.gz \

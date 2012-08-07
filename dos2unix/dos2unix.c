@@ -134,6 +134,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
     int RetVal = 0;
     wint_t TempChar;
     wint_t TempNextChar;
+    int line_nr = 1;
 
     ipFlag->status = 0;
 
@@ -156,9 +157,16 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               (TempChar != 0x0c)) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
+            if (!ipFlag->Quiet)
+            {
+              fprintf(stderr, "%s: ", progname);
+              fprintf(stderr, _("Binary char found at line %d\n"), line_nr);
+            }
             break;
           }
           if (TempChar != 0x0d) {
+            if (TempChar == 0x0a) /* Count all DOS and Unix line breaks */
+              ++line_nr;
             if (d2u_putwc(TempChar, ipOutF, ipFlag) == WEOF) {
               RetVal = -1;
               if (!ipFlag->Quiet)
@@ -186,10 +194,17 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               (TempChar != 0x0c)) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
+            if (!ipFlag->Quiet)
+            {
+              fprintf(stderr, "%s: ", progname);
+              fprintf(stderr, _("Binary char found at line %d\n"), line_nr);
+            }
             break;
           }
           if ((TempChar != 0x0d))
             {
+              if (TempChar == 0x0a) /* Count all DOS and Unix line breaks */
+                ++line_nr;
               if(d2u_putwc(TempChar, ipOutF, ipFlag) == WEOF){
                 RetVal = -1;
                 if (!ipFlag->Quiet)
@@ -226,6 +241,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                 }
                 break;
               }
+            line_nr++; /* Count all Mac line breaks */
             if (ipFlag->NewLine) {  /* add additional LF? */
               d2u_putwc(0x0a, ipOutF, ipFlag);
             }
@@ -254,6 +270,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
     int TempChar;
     int TempNextChar;
     int *ConvTable;
+    int line_nr = 1;
 
     ipFlag->status = 0;
 
@@ -312,9 +329,16 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               (TempChar != '\x0c')) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
+            if (!ipFlag->Quiet)
+            {
+              fprintf(stderr, "%s: ", progname);
+              fprintf(stderr, _("Binary char found at line %d\n"), line_nr);
+            }
             break;
           }
           if (TempChar != '\x0d') {
+            if (TempChar == '\x0a') /* Count all DOS and Unix line breaks */
+              ++line_nr;
             if (fputc(ConvTable[TempChar], ipOutF) == EOF) {
               RetVal = -1;
               if (!ipFlag->Quiet)
@@ -339,10 +363,17 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               (TempChar != '\x0c')) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
+            if (!ipFlag->Quiet)
+            {
+              fprintf(stderr, "%s: ", progname);
+              fprintf(stderr, _("Binary char found at line %d\n"), line_nr);
+            }
             break;
           }
           if ((TempChar != '\x0d'))
             {
+              if (TempChar == '\x0a') /* Count all DOS and Unix line breaks */
+                ++line_nr;
               if(fputc(ConvTable[TempChar], ipOutF) == EOF){
                 RetVal = -1;
                 if (!ipFlag->Quiet)
@@ -373,6 +404,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                 }
                 break;
               }
+            line_nr++; /* Count all Mac line breaks */
             if (ipFlag->NewLine) {  /* add additional LF? */
               fputc('\x0a', ipOutF);
             }
@@ -808,8 +840,14 @@ int main (int argc, char *argv[])
          strcpy(localedir,LOCALEDIR);
       }
    }
+#endif
 
+#if defined(ENABLE_NLS) || (defined(D2U_UNICODE) && !defined(MSDOS))
+/* setlocale() is also needed for nl_langinfo() */
    setlocale (LC_ALL, "");
+#endif
+
+#ifdef ENABLE_NLS
    bindtextdomain (PACKAGE, localedir);
    textdomain (PACKAGE);
 #endif

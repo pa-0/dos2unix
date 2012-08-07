@@ -1,3 +1,12 @@
+2012-08-07 Erwin Waterlander <waterlan@xs4all.nl>
+	* dos2unix/unix2dos: Print line number when binary char is found.
+	* Makefile: By default install text and html manuals of all languages.
+
+2012-08-06 Erwin Waterlander <waterlan@xs4all.nl>
+	* dos2unix/unix2dos: Fix. Locale encoding was not detected when NLS
+	  was disabled.
+	* common.c: Update comments. Surrogate halves in UTF-8 are invalid.
+
 2012-07-25 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 6.0.1
 

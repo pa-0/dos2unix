@@ -88,12 +88,16 @@ ifdef ENABLE_NLS
 endif
 
 HTMLEXT = htm
-DOCFILES	= $(PACKAGE).txt $(PACKAGE).$(HTMLEXT)
-INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt $(DOCFILES)
+DOCFILES	= $(TXTFILES) $(HTMLFILES)
+INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt man/man1/$(PACKAGE).txt man/man1/$(PACKAGE).$(HTMLEXT)
 
-#PODFILES	= man/man1/dos2unix.pod $(wildcard man/*/man1/dos2unix.pod)
+PODFILES_ALL	= man/man1/dos2unix.pod $(wildcard man/*/man1/dos2unix.pod)
 PODFILES	= $(wildcard man/*/man1/dos2unix.pod)
 MANFILES	= $(patsubst %.pod,%.1,$(PODFILES))
+TXTFILES	= $(patsubst %.pod,%.txt,$(PODFILES_ALL))
+HTMLFILES	= $(patsubst %.pod,%.$(HTMLEXT),$(PODFILES_ALL))
+PSFILES 	= $(patsubst %.pod,%.ps,$(PODFILES_ALL))
+PDFFILES	= $(patsubst %.pod,%.pdf,$(PODFILES_ALL))
 
 # On some systems (e.g. FreeBSD 4.10) GNU install is installed as `ginstall'.
 INSTALL		= install
@@ -303,13 +307,13 @@ $(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
 
 mofiles: $(MOFILES)
 
-html: $(PACKAGE).$(HTMLEXT) $(PACKAGE)-nl.$(HTMLEXT) $(PACKAGE)-es.$(HTMLEXT)
+html: $(HTMLFILES)
 
-txt: $(PACKAGE).txt
+txt: $(TXTFILES)
 
-ps: $(PACKAGE).ps
+ps: $(PSFILES)
 
-pdf: $(PACKAGE).pdf
+pdf: $(PDFFILES)
 
 doc: $(DOCFILES) $(MANFILES) man/man1/dos2unix.1
 
@@ -331,28 +335,28 @@ po/eo.mo : po/eo$(EO_NOTATION).po
 $(POT) : dos2unix.c unix2dos.c common.c
 	xgettext -C --keyword=_ $+ -o $(POT)
 
-%.txt : man/man1/%.pod
-	LC_CTYPE=C pod2text $< > $@
+%.txt : %.ut8
+	pod2text $< > $@
 
-%.ps : man/man1/%.1
+%.ps : %.1
 	groff -man $< -T ps > $@
 
 %.pdf: %.ps
 	ps2pdf $< $@
 
-%.$(HTMLEXT) : man/man1/%.pod
-	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
-
 # The POD files are encoded in Latin-1. See also man/man1/Makefile
 # For HTML it is best to use UTF-8.
+%.ut8 : %.pod
+	iconv -f ISO-8859-1 -t UTF-8 $< > $@
 
-%-nl.$(HTMLEXT) : man/nl/man1/%.pod
-	iconv -f ISO-8859-1 -t UTF-8 $< > $(patsubst %.pod,%.ut8,$<)
-	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/Mac naar Unix en vice versa tekstbestand formaat omzetter" $(patsubst %.pod,%.ut8,$<) > $@
+%.$(HTMLEXT) : %.ut8
+	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
 
-%-es.$(HTMLEXT) : man/es/man1/%.pod
-	iconv -f ISO-8859-1 -t UTF-8 $< > $(patsubst %.pod,%.ut8,$<)
-	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Convertidor de archivos de texto de formato DOS/Mac a Unix y viceversa" $(patsubst %.pod,%.ut8,$<) > $@
+man/nl/man1/%.$(HTMLEXT) : man/nl/man1/%.ut8
+	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/Mac naar Unix en vice versa tekstbestand formaat omzetter" $< > $@
+
+man/es/man1/%.$(HTMLEXT) : man/es/man1/%.ut8
+	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Convertidor de archivos de texto de formato DOS/Mac a Unix y viceversa" $< > $@
 
 install: all
 	$(MKDIR) -p -m 755 $(DESTDIR)$(bindir)
@@ -388,7 +392,11 @@ ifdef ENABLE_NLS
 endif
 	@echo "-- install-doc"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
-	$(INSTALL) -m 644 $(INSTALL_OBJS_DOC) $(wildcard $(PACKAGE).ps) $(wildcard $(PACKAGE).pdf) $(DESTDIR)$(docdir)
+	$(INSTALL) -m 644 $(INSTALL_OBJS_DOC) $(DESTDIR)$(docdir)
+	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
+	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(INSTALL) -m 644 $(txtfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
+	$(foreach htmlfile, $(wildcard man/*/man1/*.$(HTMLEXT)), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
+	$(foreach htmlfile, $(wildcard man/*/man1/*.$(HTMLEXT)), $(INSTALL) -m 644 $(htmlfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
 
 uninstall:
 	@echo "-- target: uninstall"
@@ -417,10 +425,13 @@ mostlyclean:
 	rm -f po/*.mo
 
 clean: mostlyclean
-	rm -f $(DOCFILES) $(PACKAGE).ps $(PACKAGE).pdf
+	rm -f $(DOCFILES)
 	rm -f man/man1/*.1
+	rm -f man/man1/*.ps
+	rm -f man/man1/*.pdf
 	rm -f man/*/man1/*.1
-	rm -f *.$(HTMLEXT)
+	rm -f man/*/man1/*.ps
+	rm -f man/*/man1/*.pdf
 
 distclean: clean
 
@@ -454,21 +465,33 @@ TBZFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX)$(NLSSUFFIX).tar.bz2
 
 dist-zip:
 	rm -f $(prefix)/$(ZIPFILE)
-	cd $(prefix) ; unix2dos share/doc/$(docsubdir)/*.txt share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1 share/man/man1/$(UNIX2DOS).1 share/man/man1/$(UNIX2MAC).1
+	cd $(prefix) ; unix2dos share/man/man1/*.1
+	cd $(prefix) ; unix2dos share/man/*/man1/*.1
+	cd $(prefix) ; unix2dos share/doc/$(docsubdir)/*.txt
+	cd $(prefix) ; unix2dos share/doc/$(docsubdir)/*/*.txt
 	cd $(prefix) ; unix2dos share/doc/$(docsubdir)/*.$(HTMLEXT)
+	cd $(prefix) ; unix2dos share/doc/$(docsubdir)/*/*.$(HTMLEXT)
 	cd $(prefix) ; unix2dos share/man/*/man1/$(PACKAGE).1 share/man/*/man1/$(MAC2UNIX).1 share/man/*/man1/$(UNIX2DOS).1 share/man/*/man1/$(UNIX2MAC).1
 	cd $(prefix) ; zip -r $(ZIPFILE) $(ZIPOBJ)
 	mv -f $(prefix)/$(ZIPFILE) ..
 
 dist-tgz:
-	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*.txt share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1 share/man/man1/$(UNIX2DOS).1 share/man/man1/$(UNIX2MAC).1
-	cd $(prefix) ; dos2unix share/man/*/man1/$(PACKAGE).1 share/man/*/man1/$(MAC2UNIX).1 share/man/*/man1/$(UNIX2DOS).1 share/man/*/man1/$(UNIX2MAC).1
+	cd $(prefix) ; dos2unix share/man/man1/*.1
+	cd $(prefix) ; dos2unix share/man/*/man1/*.1
+	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*.txt
+	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*/*.txt
+	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*.$(HTMLEXT)
+	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*/*.$(HTMLEXT)
 	cd $(prefix) ; tar cvzf $(TGZFILE) $(ZIPOBJ)
 	mv $(prefix)/$(TGZFILE) ..
 
 dist-tbz:
-	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*.txt share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1 share/man/man1/$(UNIX2DOS).1 share/man/man1/$(UNIX2MAC).1
-	cd $(prefix) ; dos2unix share/man/*/man1/$(PACKAGE).1 share/man/*/man1/$(MAC2UNIX).1 share/man/*/man1/$(UNIX2DOS).1 share/man/*/man1/$(UNIX2MAC).1
+	cd $(prefix) ; dos2unix share/man/man1/*.1
+	cd $(prefix) ; dos2unix share/man/*/man1/*.1
+	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*.txt
+	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*/*.txt
+	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*.$(HTMLEXT)
+	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*/*.$(HTMLEXT)
 	cd $(prefix) ; tar cvjf $(TBZFILE) $(ZIPOBJ)
 	mv $(prefix)/$(TBZFILE) ..
 

@@ -104,6 +104,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
     int RetVal = 0;
     wint_t TempChar;
     wint_t PreviousChar = 0;
+    int line_nr = 1;
 
     ipFlag->status = 0;
 
@@ -124,15 +125,20 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               (TempChar != 0x0c)) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
+            if (!ipFlag->Quiet)
+            {
+              fprintf(stderr, "%s: ", progname);
+              fprintf(stderr, _("Binary char found at line %d\n"), line_nr);
+            }
             break;
           }
           if (TempChar == 0x0a)
           {
-            d2u_putwc(0x0d, ipOutF, ipFlag); /* got LF, put CR */
+            d2u_putwc(0x0d, ipOutF, ipFlag); /* got LF, put extra CR */
           } else {
              if (TempChar == 0x0d) /* got CR */
              {
-               if ((TempChar = d2u_getwc(ipInF, ipFlag->bomtype)) == WEOF) /* get next char */
+               if ((TempChar = d2u_getwc(ipInF, ipFlag->bomtype)) == WEOF) /* get next char (possibly LF) */
                  TempChar = 0x0d;  /* Read error, or end of file. */
                else
                {
@@ -141,6 +147,8 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                }
              }
           }
+          if (TempChar == 0x0a) /* Count all DOS and Unix line breaks */
+            ++line_nr;
           if (d2u_putwc(TempChar, ipOutF, ipFlag) == WEOF)
           {
               RetVal = -1;
@@ -169,6 +177,11 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               (TempChar != 0x0c)) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
+            if (!ipFlag->Quiet)
+            {
+              fprintf(stderr, "%s: ", progname);
+              fprintf(stderr, _("Binary char found at line %d\n"), line_nr);
+            }
             break;
           }
           if ((TempChar != 0x0a)) /* Not an LF */
@@ -189,6 +202,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
             }
           else{
             /* TempChar is an LF */
+            ++line_nr;
             /* Don't touch this delimiter if it's a CR,LF pair. */
             if ( PreviousChar == 0x0d ) {
               if (d2u_putwc(0x0a, ipOutF, ipFlag) == WEOF)  /* CR,LF pair. Put LF */
@@ -249,6 +263,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
     int TempChar;
     int PreviousChar = 0;
     int *ConvTable;
+    int line_nr = 1;
 
     ipFlag->status = 0;
 
@@ -305,15 +320,20 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               (TempChar != '\x0c')) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
+            if (!ipFlag->Quiet)
+            {
+              fprintf(stderr, "%s: ", progname);
+              fprintf(stderr, _("Binary char found at line %d\n"), line_nr);
+            }
             break;
           }
           if (TempChar == '\x0a')
           {
-            fputc('\x0d', ipOutF); /* got LF, put CR */
+            fputc('\x0d', ipOutF); /* got LF, put extra CR */
           } else {
              if (TempChar == '\x0d') /* got CR */
              {
-               if ((TempChar = fgetc(ipInF)) == EOF) /* get next char */
+               if ((TempChar = fgetc(ipInF)) == EOF) /* get next char (possibly LF) */
                  TempChar = '\x0d';  /* Read error, or end of file. */
                else
                {
@@ -322,7 +342,9 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                }
              }
           }
-          if (fputc(ConvTable[TempChar], ipOutF) == EOF)
+          if (TempChar == '\x0a') /* Count all DOS and Unix line breaks */
+            ++line_nr;
+          if (fputc(ConvTable[TempChar], ipOutF) == EOF) /* put LF or other char */
           {
               RetVal = -1;
               if (!ipFlag->Quiet)
@@ -347,6 +369,11 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               (TempChar != '\x0c')) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
+            if (!ipFlag->Quiet)
+            {
+              fprintf(stderr, "%s: ", progname);
+              fprintf(stderr, _("Binary char found at line %d\n"), line_nr);
+            }
             break;
           }
           if ((TempChar != '\x0a')) /* Not an LF */
@@ -364,6 +391,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
             }
           else{
             /* TempChar is an LF */
+            ++line_nr;
             /* Don't touch this delimiter if it's a CR,LF pair. */
             if ( PreviousChar == '\x0d' ) {
               if (fputc('\x0a', ipOutF) == EOF)  /* CR,LF pair. Put LF */
@@ -825,8 +853,14 @@ int main (int argc, char *argv[])
          strcpy(localedir,LOCALEDIR);
       }
    }
+#endif
 
+#if defined(ENABLE_NLS) || (defined(D2U_UNICODE) && !defined(MSDOS))
+/* setlocale() is also needed for nl_langinfo() */
    setlocale (LC_ALL, "");
+#endif
+
+#ifdef ENABLE_NLS
    bindtextdomain (PACKAGE, localedir);
    textdomain (PACKAGE);
 #endif

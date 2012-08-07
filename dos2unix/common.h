@@ -77,9 +77,6 @@
 #define __FLAT__
 #endif
 #include <sys/stat.h>
-#ifdef ENABLE_NLS
-#include <locale.h>
-#endif
 #include <errno.h>
 #ifdef D2U_UNICODE
 #include <wchar.h>
@@ -99,6 +96,11 @@
 
 #if defined(WIN32) && !defined(__CYGWIN__) /* Windows */
 #define MSDOS 1
+#endif
+
+#if defined(ENABLE_NLS) || (defined(D2U_UNICODE) && !defined(MSDOS))
+/* setlocale() is also needed for nl_langinfo() */
+#include <locale.h>
 #endif
 
 #if  defined(__TURBOC__) || defined(DJGPP) || defined(__MINGW32__)

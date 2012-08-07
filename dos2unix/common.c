@@ -601,20 +601,26 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
        * produced by wcstombs() is bigger, because it just translates the wide
        * characters in the range 0xD800..0xDBFF individually to UTF-8 sequences
        * (although these code points are reserved for use only as surrogate
-       * pairs in UTF-16). Probably because on Unix the size of wide char
-       * (wchar_t) is 32 bit, wcstombs assumes the encoding is UTF-32, and
-       * ignores UTF-16 surrogates all together.  Some smart viewers can still
-       * display this UTF-8 correctly (like Total Commander lister), however
-       * the UTF-8 is not readable by Windows Notepad (on Windows 7).  When we
-       * decode the UTF-16 surrogate pairs ourselves the wcstombs() UTF-8
-       * output is identical to what WideCharToMultiByte() produces, and is
-       * readable by Notepad.
+       * pairs in UTF-16).
+       * 
+       * Some smart viewers can still display this UTF-8 correctly (like Total
+       * Commander lister), however the UTF-8 is not readable by Windows
+       * Notepad (on Windows 7).  When we decode the UTF-16 surrogate pairs
+       * ourselves the wcstombs() UTF-8 output is identical to what
+       * WideCharToMultiByte() produces, and is readable by Notepad.
+       *
+       * Surrogate halves in UTF-8 are invalid. See also
+       * http://en.wikipedia.org/wiki/UTF-8#Invalid_code_points
+       * http://tools.ietf.org/html/rfc3629#page-5
+       * It is a bug in (some implemenatations of) wcstombs().
+       * On Cygwin 1.7 wcstombs() produces correct UTF-8 from UTF-16 surrogate pairs.
        */ 
       /* Decode UTF-16 surrogate pair */
       wstr[0] = 0x10000;
       wstr[0] += (lead & 0x03FF) << 10;
       wstr[0] += (trail & 0x03FF);
       wstr[1] = L'\0';
+      /* fprintf(stderr, "UTF-32  %x\n",wstr[0]); */
 #endif
    } else {
       wstr[0] = (wchar_t)wc;
@@ -627,6 +633,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
 #else
    /* On Unix we convert UTF-16 to the locale encoding */
    len = wcstombs(mbs, wstr, sizeof(mbs));
+   /* fprintf(stderr, "len  %d\n",len); */
 #endif
 
    if ( len == (size_t)(-1) )
