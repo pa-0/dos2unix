@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-07 11:26+0100\n"
+"POT-Creation-Date: 2012-08-07 15:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgstr ""
 #: dos2unix.c:163 dos2unix.c:200 dos2unix.c:335 dos2unix.c:369 unix2dos.c:131
 #: unix2dos.c:183 unix2dos.c:326 unix2dos.c:375
 #, c-format
-msgid "Binary char found at line %d\n"
+msgid "Binary symbol found at line %d\n"
 msgstr ""
 
 #: dos2unix.c:177 dos2unix.c:215 dos2unix.c:239 dos2unix.c:347 dos2unix.c:382

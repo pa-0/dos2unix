@@ -128,7 +128,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
             if (!ipFlag->Quiet)
             {
               fprintf(stderr, "%s: ", progname);
-              fprintf(stderr, _("Binary char found at line %d\n"), line_nr);
+              fprintf(stderr, _("Binary symbol found at line %d\n"), line_nr);
             }
             break;
           }
@@ -180,7 +180,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
             if (!ipFlag->Quiet)
             {
               fprintf(stderr, "%s: ", progname);
-              fprintf(stderr, _("Binary char found at line %d\n"), line_nr);
+              fprintf(stderr, _("Binary symbol found at line %d\n"), line_nr);
             }
             break;
           }
@@ -323,7 +323,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
             if (!ipFlag->Quiet)
             {
               fprintf(stderr, "%s: ", progname);
-              fprintf(stderr, _("Binary char found at line %d\n"), line_nr);
+              fprintf(stderr, _("Binary symbol found at line %d\n"), line_nr);
             }
             break;
           }
@@ -372,7 +372,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
             if (!ipFlag->Quiet)
             {
               fprintf(stderr, "%s: ", progname);
-              fprintf(stderr, _("Binary char found at line %d\n"), line_nr);
+              fprintf(stderr, _("Binary symbol found at line %d\n"), line_nr);
             }
             break;
           }
