@@ -352,10 +352,10 @@ $(POT) : dos2unix.c unix2dos.c common.c
 %.$(HTMLEXT) : %.ut8
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
 
-man/nl/man1/%.$(HTMLEXT) : man/nl/man1/%.ut8
+man/nl/man1/$(PACKAGE).$(HTMLEXT) : man/nl/man1/$(PACKAGE).ut8
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/Mac naar Unix en vice versa tekstbestand formaat omzetter" $< > $@
 
-man/es/man1/%.$(HTMLEXT) : man/es/man1/%.ut8
+man/es/man1/$(PACKAGE).$(HTMLEXT) : man/es/man1/$(PACKAGE).ut8
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Convertidor de archivos de texto de formato DOS/Mac a Unix y viceversa" $< > $@
 
 install: all
