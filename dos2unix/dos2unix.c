@@ -66,7 +66,7 @@
 #include "dos2unix.h"
 #include "querycp.h"
 #ifdef D2U_UNICODE
-#ifndef MSDOS  /* Unix, Cygwin */
+#ifndef __MSDOS__  /* Unix, Cygwin */
 # include <langinfo.h>
 #endif
 #endif
@@ -548,7 +548,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   InF = read_bom(InF, &ipFlag->bomtype);
 
 #ifdef D2U_UNICODE
-#ifndef MSDOS  /* Unix, Cygwin */
+#ifndef __MSDOS__  /* Unix, Cygwin */
   if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))
   {
     if (strcmp(nl_langinfo(CODESET), "UTF-8") != 0)
@@ -561,7 +561,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
     }
   }
 #endif
-#if !defined(WIN32) && !defined(__CYGWIN__) /* Not Windows or Cygwin */
+#if !defined(__WIN32__) && !defined(__CYGWIN__) /* Not Windows or Cygwin */
   if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))
   {
     if (sizeof(wchar_t) < 4)
@@ -769,7 +769,7 @@ int ConvertDosToUnixStdio(CFlag *ipFlag, char *progname)
     ipFlag->KeepDate = 0;
     ipFlag->Force = 1;
 
-#if defined(WIN32) && !defined(__CYGWIN__)
+#if defined(__WIN32__) && !defined(__CYGWIN__)
 
     /* stdin and stdout are by default text streams. We need
      * to set them to binary mode. Otherwise an LF will
@@ -781,7 +781,7 @@ int ConvertDosToUnixStdio(CFlag *ipFlag, char *progname)
 
     _setmode(fileno(stdout), O_BINARY);
     _setmode(fileno(stdin), O_BINARY);
-#elif defined(MSDOS) || defined(__CYGWIN__) || defined(__OS2__)
+#elif defined(__MSDOS__) || defined(__CYGWIN__) || defined(__OS2__)
     setmode(fileno(stdout), O_BINARY);
     setmode(fileno(stdin), O_BINARY);
 #endif
@@ -842,7 +842,7 @@ int main (int argc, char *argv[])
    }
 #endif
 
-#if defined(ENABLE_NLS) || (defined(D2U_UNICODE) && !defined(MSDOS))
+#if defined(ENABLE_NLS) || (defined(D2U_UNICODE) && !defined(__MSDOS__))
 /* setlocale() is also needed for nl_langinfo() */
    setlocale (LC_ALL, "");
 #endif

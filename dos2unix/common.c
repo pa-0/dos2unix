@@ -26,7 +26,7 @@
 
 #include "common.h"
 #if defined(D2U_UNICODE)
-#if defined(WIN32) || defined(__CYGWIN__)
+#if defined(__WIN32__) || defined(__CYGWIN__)
 #include <windows.h>
 #endif
 #endif
@@ -243,7 +243,7 @@ void PrintVersion(char *progname)
   fprintf(stderr, "%s", _("DOS 16 bit version (TURBOC).\n"));
 #elif defined(__WATCOMC__) && defined(__DOS__)
   fprintf(stderr, "%s", _("DOS 32 bit version (WATCOMC).\n"));
-#elif defined(DJGPP)
+#elif defined(__DJGPP__)
   fprintf(stderr, "%s", _("DOS 32 bit version (DJGPP).\n"));
 #elif defined(__MSYS__)
   fprintf(stderr, "%s", _("MSYS version.\n"));
@@ -587,7 +587,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
    {
       /* fprintf(stderr, "UTF-16 trail %x\n",wc); */
       trail = (wchar_t)wc; /* trail (low) surrogate */
-#if defined(WIN32) || defined(__CYGWIN__)
+#if defined(__WIN32__) || defined(__CYGWIN__)
       /* On Windows (including Cygwin) wchar_t is 16 bit */
       /* We cannot decode an UTF-16 surrogate pair, because it will
          not fit in a 16 bit wchar_t. */
@@ -627,7 +627,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
       wstr[1] = L'\0';
    }
 
-#if defined(WIN32) || defined(__CYGWIN__)
+#if defined(__WIN32__) || defined(__CYGWIN__)
    /* On Windows we convert UTF-16 always to UTF-8 */
    len = (size_t)(WideCharToMultiByte(CP_UTF8, 0, wstr, -1, mbs, sizeof(mbs), NULL, NULL) -1);
 #else
