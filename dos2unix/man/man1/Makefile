@@ -70,20 +70,26 @@ MAN_OBJECTS = dos2unix.1 $(patsubst %.pod,%.1,$(PODFILES))
 
 all: $(MAN_OBJECTS)
 
-# For now the .pod files are still encoded in Latin-1, because the perl version of
-# MinGW and DJGPP is 5.8.8. The pod2man command of perl 5.8.8 does not yet support UTF-8
-# and does not have the options -u, --utf8.
-# Another issue is poor UTF-8 support in Windows Command Prompt.
+
+# The .pod files are encoded in Latin-1.  UTF-8 man pages are not properly
+# displayed in a Windows Command Prompt, therefore we keep them in Latin-1
+# (CP1252) format.
+
+# Cygwin 1.7 expects man pages to be in Latin-1 format.
+
+# The perl version of MinGW and DJGPP is 5.8.8. The pod2man command of perl
+# 5.8.8 does not yet have the options -u, --utf8.
 
 # There are different *roff implementations. For now I assume we are using
-# groff (GNU-roff) which is wide spread, default on Linux, Cygwin, MinGW,
-# and DJGPP.
-# The groff specific escape sequences may not work with other *roff implementations,
-# but they display OK when used in a Windows Command Prompt using DJGPP's or MinGW's
-# groff. Although sometimes characters are displayed without their diacritics.
+# groff (GNU-roff) which is wide spread, default on Linux, Cygwin, MinGW, and
+# DJGPP.  The groff specific escape sequences may not work with other *roff
+# implementations, but they display OK when used in a Windows Command Prompt
+# using DJGPP's or MinGW's groff. Although sometimes characters are displayed
+# without their diacritics.
 
 # One day everything will be in UTF-8...
-# For the English manual it all makes no difference, because the English text is plain ASCII.
+# For the English manual it all makes no difference, because the English text
+# is plain ASCII.
 
 %.1 : %.pod
 	# make target - create manual page from a *.pod page

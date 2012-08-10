@@ -35,6 +35,7 @@
 
 include version.mk
 
+
 CC		= gcc
 CPP		= cpp
 CPP_FLAGS_POD	= ALL
@@ -88,7 +89,9 @@ ifdef ENABLE_NLS
 endif
 
 HTMLEXT = htm
-DOCFILES	= $(TXTFILES) $(HTMLFILES)
+# By default we generate only English text and html manuals.
+# Then we have no dependency on iconv.
+DOCFILES	= man/man1/$(PACKAGE).txt man/man1/$(PACKAGE).$(HTMLEXT)
 INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt man/man1/$(PACKAGE).txt man/man1/$(PACKAGE).$(HTMLEXT)
 
 PODFILES_ALL	= man/man1/dos2unix.pod $(wildcard man/*/man1/dos2unix.pod)
@@ -98,6 +101,7 @@ TXTFILES	= $(patsubst %.pod,%.txt,$(PODFILES_ALL))
 HTMLFILES	= $(patsubst %.pod,%.$(HTMLEXT),$(PODFILES_ALL))
 PSFILES 	= $(patsubst %.pod,%.ps,$(PODFILES_ALL))
 PDFFILES	= $(patsubst %.pod,%.pdf,$(PODFILES_ALL))
+UTF8FILES	= $(patsubst %.pod,%.ut8,$(PODFILES_ALL))
 
 # On some systems (e.g. FreeBSD 4.10) GNU install is installed as `ginstall'.
 INSTALL		= install
@@ -113,21 +117,21 @@ VERSIONSUFFIX	= -bin
 
 # ......................................................... OS flags ...
 
-OS =
+D2U_OS =
 
-ifndef OS
-ifneq (, $(wildcard /boot/vmlinuz*))
-	OS = linux
+ifndef D2U_OS
+ifeq (Linux, $(shell uname -s))
+	D2U_OS = linux
 endif
 endif
 
-ifndef OS
+ifndef D2U_OS
 ifeq ($(findstring CYGWIN,$(shell uname)),CYGWIN)
-	OS = cygwin
+	D2U_OS = cygwin
 endif
 endif
 
-ifeq (cygwin,$(OS))
+ifeq (cygwin,$(D2U_OS))
 ifdef ENABLE_NLS
 	LDFLAGS_EXTRA = -lintl -liconv -Wl,--enable-auto-import
 endif
@@ -144,9 +148,9 @@ endif
 	VERSIONSUFFIX	= -cygwin
 endif
 
-ifndef OS
+ifndef D2U_OS
 ifeq ($(findstring MSYS,$(shell uname)),MSYS)
-	OS = msys
+	D2U_OS = msys
 	EXE = .exe
 	VERSIONSUFFIX	= -msys
 	EO_XNOTATION=1
@@ -157,9 +161,9 @@ endif
 endif
 endif
 
-ifndef OS
+ifndef D2U_OS
 ifeq ($(findstring MINGW32,$(shell uname)),MINGW32)
-	OS = mingw32
+	D2U_OS = mingw32
 	prefix=c:/usr/local
 	EXE = .exe
 	VERSIONSUFFIX	= -win32
@@ -172,9 +176,9 @@ endif
 endif
 endif
 
-ifndef OS
+ifndef D2U_OS
 ifeq ($(shell uname),MS-DOS)
-	OS = msdos
+	D2U_OS = msdos
 	prefix=c:/djgpp
 	EXE = .exe
 	VERSIONSUFFIX	= -dos32
@@ -189,9 +193,9 @@ endif
 endif
 endif
 
-ifndef OS
+ifndef D2U_OS
 ifeq (FreeBSD, $(shell uname -s))
-	OS = freebsd
+	D2U_OS = freebsd
 ifdef ENABLE_NLS
 	CFLAGS_OS     = -I/usr/local/include
 	LDFLAGS_EXTRA = -lintl -L/usr/local/lib
@@ -200,7 +204,7 @@ endif
 endif
 
 ifeq (Darwin, $(shell uname -s))
-	OS = Darwin
+	D2U_OS = Darwin
 ifdef ENABLE_NLS
 	CFLAGS_OS     = -I/usr/local/include
 	LDFLAGS_EXTRA = -lintl -L/usr/local/lib
@@ -208,30 +212,30 @@ endif
 endif
 
 
-ifndef OS
+ifndef D2U_OS
 ifneq (, $(wildcard /opt/csw))
-	OS = sun
+	D2U_OS = sun
 endif
 endif
 
-ifeq (sun,$(OS))
+ifeq (sun,$(D2U_OS))
 	# Running under SunOS/Solaris
 	LDFLAGS_EXTRA = -lintl
 endif
 
-ifndef OS
+ifndef D2U_OS
 ifeq (HP-UX, $(shell uname -s))
-	OS = hpux
+	D2U_OS = hpux
 endif
 endif
 
-ifeq (hpux,$(OS))
+ifeq (hpux,$(D2U_OS))
 	# Running under HP-UX
 	EXTRA_DEFS += -Dhpux -D_HPUX_SOURCE
 endif
 
-ifndef OS
-	OS = unknown
+ifndef D2U_OS
+	D2U_OS = $(shell uname -s)
 endif
 
 # ............................................................ flags ...
@@ -277,6 +281,12 @@ DEFS		= $(EXTRA_DEFS) $(DEFS_USER)
 # .......................................................... targets ...
 
 all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES) $(EOX_POFILES) $(MANFILES) man/man1/dos2unix.1
+
+status:
+	@echo "D2U_OS       = $(D2U_OS)"
+	@echo "UCS          = $(UCS)"
+	@echo "CFLAGS       = $(CFLAGS)"
+	@echo "EXTRA_CFLAGS = $(EXTRA_CFLAGS)"
 
 common.o : common.c common.h
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
@@ -335,7 +345,13 @@ po/eo.mo : po/eo$(EO_NOTATION).po
 $(POT) : dos2unix.c unix2dos.c common.c
 	xgettext -C --keyword=_ $+ -o $(POT)
 
+# Convert text files to UTF-8. Notepad has no problem with UTF-8.
 %.txt : %.ut8
+	pod2text $< > $@
+
+# Create the English txt manual straight from the .pod file. It contains only ASCII.
+# This saves dependency on iconv.
+man/man1/$(PACKAGE).txt : man/man1/$(PACKAGE).pod
 	pod2text $< > $@
 
 %.ps : %.1
@@ -345,11 +361,17 @@ $(POT) : dos2unix.c unix2dos.c common.c
 	ps2pdf $< $@
 
 # The POD files are encoded in Latin-1. See also man/man1/Makefile
-# For HTML it is best to use UTF-8.
+# For non-English HTML it is best to use UTF-8.
 %.ut8 : %.pod
 	iconv -f ISO-8859-1 -t UTF-8 $< > $@
 
+# Generic rule.
 %.$(HTMLEXT) : %.ut8
+	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
+
+# Create the English html manual straight from the .pod file. It contains only ASCII.
+# This saves dependency on iconv.
+man/man1/$(PACKAGE).$(HTMLEXT) : man/man1/$(PACKAGE).pod
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
 
 man/nl/man1/$(PACKAGE).$(HTMLEXT) : man/nl/man1/$(PACKAGE).ut8
@@ -393,6 +415,7 @@ endif
 	@echo "-- install-doc"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
 	$(INSTALL) -m 644 $(INSTALL_OBJS_DOC) $(DESTDIR)$(docdir)
+	# Install translated manuals when they have been generated.
 	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
 	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(INSTALL) -m 644 $(txtfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
 	$(foreach htmlfile, $(wildcard man/*/man1/*.$(HTMLEXT)), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
@@ -420,22 +443,29 @@ mostlyclean:
 	rm -f *.bak *~
 	rm -f *.tmp
 	rm -f man/man1/*.bak man/man1/*~
-	rm -f man/*/man1/*.bak man/*/man1/*~ man/*/man1/*.ut8
+	rm -f man/*/man1/*.bak man/*/man1/*~
 	rm -f po/*.bak po/*~
 	rm -f po/*.mo
 
 clean: mostlyclean
-	rm -f $(DOCFILES)
 	rm -f man/man1/*.1
+	rm -f man/man1/*.txt
+	rm -f man/man1/*.$(HTMLEXT)
 	rm -f man/man1/*.ps
 	rm -f man/man1/*.pdf
+	rm -f man/man1/*.ut8
 	rm -f man/*/man1/*.1
+	rm -f man/*/man1/*.txt
+	rm -f man/*/man1/*.$(HTMLEXT)
 	rm -f man/*/man1/*.ps
 	rm -f man/*/man1/*.pdf
+	rm -f man/*/man1/*.ut8
 
 distclean: clean
 
 maintainer-clean: distclean
+	@echo 'This command is intended for maintainers to use; it'
+	@echo 'deletes files that may need special tools to rebuild.'
 
 realclean: maintainer-clean
 
@@ -465,33 +495,24 @@ TBZFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX)$(NLSSUFFIX).tar.bz2
 
 dist-zip:
 	rm -f $(prefix)/$(ZIPFILE)
-	cd $(prefix) ; unix2dos share/man/man1/*.1
-	cd $(prefix) ; unix2dos share/man/*/man1/*.1
-	cd $(prefix) ; unix2dos share/doc/$(docsubdir)/*.txt
-	cd $(prefix) ; unix2dos share/doc/$(docsubdir)/*/*.txt
-	cd $(prefix) ; unix2dos share/doc/$(docsubdir)/*.$(HTMLEXT)
-	cd $(prefix) ; unix2dos share/doc/$(docsubdir)/*/*.$(HTMLEXT)
+	cd $(prefix) ; unix2dos share/man/man1/*.1 share/man/*/man1/*.1
+	cd $(prefix) ; unix2dos $(wildcard share/doc/$(docsubdir)/*.txt share/doc/$(docsubdir)/*/*.txt)
+	cd $(prefix) ; unix2dos $(wildcard share/doc/$(docsubdir)/*.$(HTMLEXT) share/doc/$(docsubdir)/*/*.$(HTMLEXT))
 	cd $(prefix) ; unix2dos share/man/*/man1/$(PACKAGE).1 share/man/*/man1/$(MAC2UNIX).1 share/man/*/man1/$(UNIX2DOS).1 share/man/*/man1/$(UNIX2MAC).1
 	cd $(prefix) ; zip -r $(ZIPFILE) $(ZIPOBJ)
 	mv -f $(prefix)/$(ZIPFILE) ..
 
 dist-tgz:
-	cd $(prefix) ; dos2unix share/man/man1/*.1
-	cd $(prefix) ; dos2unix share/man/*/man1/*.1
-	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*.txt
-	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*/*.txt
-	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*.$(HTMLEXT)
-	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*/*.$(HTMLEXT)
+	cd $(prefix) ; dos2unix share/man/man1/*.1 share/man/*/man1/*.1
+	cd $(prefix) ; dos2unix $(wildcard share/doc/$(docsubdir)/*.txt share/doc/$(docsubdir)/*/*.txt)
+	cd $(prefix) ; dos2unix $(wildcard share/doc/$(docsubdir)/*.$(HTMLEXT) share/doc/$(docsubdir)/*/*.$(HTMLEXT))
 	cd $(prefix) ; tar cvzf $(TGZFILE) $(ZIPOBJ)
 	mv $(prefix)/$(TGZFILE) ..
 
 dist-tbz:
-	cd $(prefix) ; dos2unix share/man/man1/*.1
-	cd $(prefix) ; dos2unix share/man/*/man1/*.1
-	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*.txt
-	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*/*.txt
-	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*.$(HTMLEXT)
-	cd $(prefix) ; dos2unix share/doc/$(docsubdir)/*/*.$(HTMLEXT)
+	cd $(prefix) ; dos2unix share/man/man1/*.1 share/man/*/man1/*.1
+	cd $(prefix) ; dos2unix $(wildcard share/doc/$(docsubdir)/*.txt dos2unix share/doc/$(docsubdir)/*/*.txt)
+	cd $(prefix) ; dos2unix $(wildcard share/doc/$(docsubdir)/*.$(HTMLEXT) dos2unix share/doc/$(docsubdir)/*/*.$(HTMLEXT))
 	cd $(prefix) ; tar cvjf $(TBZFILE) $(ZIPOBJ)
 	mv $(prefix)/$(TBZFILE) ..
 

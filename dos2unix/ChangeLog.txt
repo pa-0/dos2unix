@@ -1,8 +1,16 @@
+2012-08-10 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Change variable OS to D2U_OS. OS is used by Windows.
+	* Makefile: By default install only English text and html manuals.
+	  This saves a dependency on iconv. Non-English text and html manuals
+	  will be installed when they have been explicitly generated with
+	  targets 'txt' and 'html'.
+
 2012-08-09 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix/unix2dos: Use only C99 compliant predefined macros.
 
 2012-08-07 Erwin Waterlander <waterlan@xs4all.nl>
-	* dos2unix/unix2dos: Print line number when binary char is found.
+	* dos2unix/unix2dos: Print line number when binary symbol is found.
+	  Thanks to Somsak Pattanaprateep.
 	* Makefile: By default install text and html manuals of all languages.
 
 2012-08-06 Erwin Waterlander <waterlan@xs4all.nl>
