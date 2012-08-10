@@ -90,7 +90,7 @@ endif
 
 HTMLEXT = htm
 # By default we generate only English text and html manuals.
-# Then we have no dependency on iconv.
+# Then we don't need "pod2text --utf8" and we have no dependency on iconv.
 DOCFILES	= man/man1/$(PACKAGE).txt man/man1/$(PACKAGE).$(HTMLEXT)
 INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt man/man1/$(PACKAGE).txt man/man1/$(PACKAGE).$(HTMLEXT)
 
@@ -346,11 +346,11 @@ $(POT) : dos2unix.c unix2dos.c common.c
 	xgettext -C --keyword=_ $+ -o $(POT)
 
 # Convert text files to UTF-8. Notepad has no problem with UTF-8.
-%.txt : %.ut8
-	pod2text $< > $@
+%.txt : %.pod
+	pod2text --utf8 $< > $@
 
-# Create the English txt manual straight from the .pod file. It contains only ASCII.
-# This saves dependency on iconv.
+# Create the English txt manual wihtout --utf8. It contains only ASCII.
+# pod2text 5.8.8 (shipped with DJGPP/MinGW) does not have --utf8 option.
 man/man1/$(PACKAGE).txt : man/man1/$(PACKAGE).pod
 	pod2text $< > $@
 
@@ -412,6 +412,12 @@ ifdef ENABLE_NLS
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
 	$(foreach mofile, $(MOFILES), $(INSTALL) -m 644 $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 endif
+	# Run a new instance of 'make' otherwise the $$(wildcard ) function my not have been expanded,
+	# because the files may not have been there when make was started.
+	$(MAKE) install-doc
+
+
+install-doc:
 	@echo "-- install-doc"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
 	$(INSTALL) -m 644 $(INSTALL_OBJS_DOC) $(DESTDIR)$(docdir)
