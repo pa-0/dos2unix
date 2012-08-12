@@ -422,7 +422,7 @@ endif
 	$(MAKE) install-doc
 
 
-install-doc:
+install-doc: $(INSTALL_OBJS_DOC)
 	@echo "-- install-doc"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
 	$(INSTALL) -m 644 $(INSTALL_OBJS_DOC) $(DESTDIR)$(docdir)
@@ -431,6 +431,12 @@ install-doc:
 	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(INSTALL) -m 644 $(txtfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
 	$(foreach htmlfile, $(wildcard man/*/man1/*.$(HTMLEXT)), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
 	$(foreach htmlfile, $(wildcard man/*/man1/*.$(HTMLEXT)), $(INSTALL) -m 644 $(htmlfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
+	$(foreach pdffile, $(wildcard man/*/man1/*.pdf), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(pdffile),)) ;)
+	$(foreach pdffile, $(wildcard man/*/man1/*.pdf), $(INSTALL) -m 644 $(pdffile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(pdffile),)) ;)
+	$(foreach pdffile, $(wildcard man/man1/*.pdf), $(INSTALL) -m 644 $(pdffile) $(DESTDIR)$(docdir) ;)
+	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
+	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(INSTALL) -m 644 $(psfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
+	$(foreach psfile, $(wildcard man/man1/*.ps), $(INSTALL) -m 644 $(psfile) $(DESTDIR)$(docdir) ;)
 
 uninstall:
 	@echo "-- target: uninstall"

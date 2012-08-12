@@ -17,6 +17,7 @@ PREREQUISITES
             * groff       : GNU troff text formatting system.
             * ghostscript : An interpreter for the PostScript language and
                             for PDF (ps2pdf)
+            * iconv       : Character set conversion utility.
 
     Alternative for Windows/DOS:
         * Open Watcom : http://www.openwatcom.org/
@@ -114,9 +115,24 @@ ESPERANTO X-NOTATION
 
 DOCUMENTATION
 
-    Manual pages are generated from Perl POD files. By default
-    the manual pages are are created in text and html format.
-    To create a manual in PDF format type:
+    Manual pages are generated from Perl POD files.
+
+    The manual pages in text and html format are by default only
+    created in English language. To create text and html manuals
+    for other languages type:
+
+        make txt
+        make html
+
+    Once the manuals in non-English languages have been created,
+    they will also be installed under share/doc/ when you type
+    'make install'
+
+    Creation of non-English manuals in text or html format require
+    an installation of iconv.
+
+    Manuals in PDF format are by default not created.
+    To create manuals in PDF format type:
 
         make pdf
 

@@ -1,6 +1,8 @@
 2012-08-12 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Don't use pod2text option --utf8. There are too many
 	  old pod2text versions around that don't support this option.
+	* Makefile: Install PDF and PostScript files of all languages when
+	  they have been created.
 	* po/eo*.po: Update Esperanto translations. Thanks to Rugxulo.
 
 2012-08-10 Erwin Waterlander <waterlan@xs4all.nl>
