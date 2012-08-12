@@ -346,11 +346,16 @@ $(POT) : dos2unix.c unix2dos.c common.c
 	xgettext -C --keyword=_ $+ -o $(POT)
 
 # Convert text files to UTF-8. Notepad has no problem with UTF-8.
-%.txt : %.pod
-	pod2text --utf8 $< > $@
+# Use iconv to convert to UTF-8. There are many old pod2text versions
+# around that don't have the --utf8 option yet.
+%.tx1 : %.pod
+	pod2text $< > $@
 
-# Create the English txt manual wihtout --utf8. It contains only ASCII.
-# pod2text 5.8.8 (shipped with DJGPP/MinGW) does not have --utf8 option.
+%.txt : %.tx1
+	iconv -f ISO-8859-1 -t UTF-8 $< > $@
+
+# Create the English txt manual straight from the .pod file. It contains only ASCII.
+# This saves a dependency on iconv.
 man/man1/$(PACKAGE).txt : man/man1/$(PACKAGE).pod
 	pod2text $< > $@
 
@@ -370,7 +375,7 @@ man/man1/$(PACKAGE).txt : man/man1/$(PACKAGE).pod
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
 
 # Create the English html manual straight from the .pod file. It contains only ASCII.
-# This saves dependency on iconv.
+# This saves a dependency on iconv.
 man/man1/$(PACKAGE).$(HTMLEXT) : man/man1/$(PACKAGE).pod
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
 

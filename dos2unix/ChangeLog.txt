@@ -1,3 +1,8 @@
+2012-08-12 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Don't use pod2text option --utf8. There are too many
+	  old pod2text versions around that don't support this option.
+	* po/eo*.po: Update Esperanto translations. Thanks to Rugxulo.
+
 2012-08-10 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Change variable OS to D2U_OS. OS is used by Windows.
 	* Makefile: By default install only English text and html manuals.
@@ -9,7 +14,7 @@
 	* dos2unix/unix2dos: Use only C99 compliant predefined macros.
 
 2012-08-07 Erwin Waterlander <waterlan@xs4all.nl>
-	* dos2unix/unix2dos: Print line number when binary symbol is found.
+	* dos2unix/unix2dos: Print line number when a binary symbol is found.
 	  Thanks to Somsak Pattanaprateep.
 	* Makefile: By default install text and html manuals of all languages.
 

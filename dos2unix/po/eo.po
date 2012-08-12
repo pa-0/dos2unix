@@ -31,7 +31,7 @@ msgstr ""
 #: unix2dos.c:183 unix2dos.c:326 unix2dos.c:375
 #, c-format
 msgid "Binary symbol found at line %d\n"
-msgstr ""
+msgstr "Netekstan signon troviĝis ĉe linio %d\n"
 
 #: dos2unix.c:177 dos2unix.c:215 dos2unix.c:239 dos2unix.c:347 dos2unix.c:382
 #: dos2unix.c:403 unix2dos.c:160 unix2dos.c:196 unix2dos.c:216 unix2dos.c:233

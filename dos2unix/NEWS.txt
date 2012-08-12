@@ -1,3 +1,7 @@
+2012-??-??: Version 6.0.2
+  * Print line number when a binary symbol is found.
+  * The locale encoding detection has been fixed when NLS was disabled.
+
 2012-07-25: Version 6.0.1
 
   * Update Spanish translations.
