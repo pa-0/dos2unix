@@ -4,6 +4,7 @@
 	* Makefile: Install PDF and PostScript files of all languages when
 	  they have been created.
 	* po/eo*.po: Update Esperanto translations. Thanks to Rugxulo.
+	* dos2unix/unix2dos: Don't use __MSDOS__ macro for Windows.
 
 2012-08-10 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Change variable OS to D2U_OS. OS is used by Windows.
