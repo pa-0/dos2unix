@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-09 21:53+0200\n"
+"POT-Creation-Date: 2012-08-13 13:47+0100\n"
 "PO-Revision-Date: 2010-01-24 09:00+0100\n"
 "Last-Translator: Philipp Thomas <psmt@opensuse.org>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
-"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
@@ -39,7 +39,7 @@ msgstr ""
 #: unix2dos.c:183 unix2dos.c:326 unix2dos.c:375
 #, c-format
 msgid "Binary symbol found at line %d\n"
-msgstr ""
+msgstr "Ein binäres Symbol wurde in Zeile %d gefunden\n"
 
 #: dos2unix.c:177 dos2unix.c:215 dos2unix.c:239 dos2unix.c:347 dos2unix.c:382
 #: dos2unix.c:403 unix2dos.c:160 unix2dos.c:196 unix2dos.c:216 unix2dos.c:233
@@ -163,8 +163,8 @@ msgstr "Codepage %d wird nicht unterstützt.\n"
 #: dos2unix.c:1092 dos2unix.c:1169 unix2dos.c:1105 unix2dos.c:1185
 #, c-format
 msgid ""
-"Skipping UTF-16 file %s, the current locale character encoding is not "
-"UTF-8.\n"
+"Skipping UTF-16 file %s, the current locale character encoding is not UTF-"
+"8.\n"
 msgstr ""
 "UTF-16 Datei %s wird übersprungen, da die derzeitige Zeichenkodierung nicht "
 "UTF-8 ist.\n"
