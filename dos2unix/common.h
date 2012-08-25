@@ -94,7 +94,7 @@
 #define __MSDOS__ 1
 #endif
 
-#if defined(ENABLE_NLS) || (defined(D2U_UNICODE) && !defined(__MSDOS__) && !defined(__WIN32__))
+#if defined(ENABLE_NLS) || (defined(D2U_UNICODE) && !defined(__MSDOS__) && !defined(__WIN32__) && !defined(__OS2__))
 /* setlocale() is also needed for nl_langinfo() */
 #include <locale.h>
 #endif

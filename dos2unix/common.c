@@ -255,8 +255,10 @@ void PrintVersion(char *progname)
   fprintf(stderr, "%s", _("Windows 32 bit version (WATCOMC).\n"));
 #elif defined(__WIN32__) && defined(__MINGW32__)
   fprintf(stderr, "%s", _("Windows 32 bit version (MinGW).\n"));
-#elif defined (__OS2__) /* OS/2 Warp */
-  fprintf(stderr, "%s", _("OS/2 version.\n"));
+#elif defined (__OS2__) && defined(__WATCOMC__) /* OS/2 Warp */
+  fprintf(stderr, "%s", _("OS/2 version (WATCOMC).\n"));
+#elif defined (__OS2__) && defined(__EMX__) /* OS/2 Warp */
+  fprintf(stderr, "%s", _("OS/2 version (EMX).\n"));
 #endif
 #ifdef D2U_UNICODE
   fprintf(stderr, "%s", _("With Unicode UTF-16 support.\n"));

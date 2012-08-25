@@ -1,0 +1,114 @@
+dos2unix.obj :  $(SRCDIR)\dos2unix.c $(SRCDIR)\querycp.h $(SRCDIR)\common.h
+	$(CC) $(CFLAGS) $(SRCDIR)\dos2unix.c
+
+unix2dos.obj :  $(SRCDIR)\unix2dos.c $(SRCDIR)\querycp.h $(SRCDIR)\common.h
+	$(CC) $(CFLAGS) $(SRCDIR)\unix2dos.c
+
+querycp.obj :  $(SRCDIR)\querycp.c $(SRCDIR)\querycp.h
+	$(CC) $(CFLAGS) $(SRCDIR)\querycp.c
+
+common.obj :  $(SRCDIR)\common.c $(SRCDIR)\common.h
+	$(CC) $(CFLAGS) $(SRCDIR)\common.c
+
+wildargv.obj : $(WATCOMSRC)\wildargv.c
+	$(CC) $(CFLAGS) $(WATCOMSRC)\wildargv.c
+
+mac2unix.exe : dos2unix.exe
+	copy /v dos2unix.exe mac2unix.exe
+
+unix2mac.exe : unix2dos.exe
+	copy /v unix2dos.exe unix2mac.exe
+
+strip
+	wstrip dos2unix.exe
+	wstrip unix2dos.exe
+	wstrip mac2unix.exe
+	wstrip unix2mac.exe
+
+PACKAGE     = dos2unix
+exec_prefix = $(prefix)
+bindir      = $(exec_prefix)\bin
+datarootdir = $(prefix)\share
+datadir     = $(datarootdir)
+!ifndef docsubdir
+docsubdir   = $(PACKAGE)-$(VERSION)
+!endif
+docdir      = $(datarootdir)\doc\$(docsubdir)
+
+
+$(prefix): .EXISTSONLY
+	mkdir $@
+
+$(bindir): $(prefix) .EXISTSONLY
+	mkdir $@
+
+$(datarootdir): $(prefix) .EXISTSONLY
+	mkdir $@
+
+$(datarootdir)\doc: $(datarootdir) .EXISTSONLY
+	mkdir $@
+
+$(docdir): $(datarootdir)\doc .EXISTSONLY
+	mkdir $@
+
+install: $(PROGRAM) $(DOCFILES) $(bindir) $(docdir) .SYMBOLIC
+	copy $(PROGRAM) $(bindir)
+	copy $(SRCDIR)\..\doc\*.txt $(docdir)
+	copy $(SRCDIR)\..\doc\*.$(HTMLEXT) $(docdir)
+
+$(SRCDIR)\man\man1\dos2unix.txt : $(SRCDIR)\man\man1\dos2unix.pod
+	pod2text $< > $@
+
+$(SRCDIR)\man\man1\dos2unix.$(HTMLEXT) : $(SRCDIR)\man\man1\dos2unix.pod
+	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
+
+doc : $(DOCFILES) .SYMBOLIC
+
+install-doc: $(docdir) $(DOCFILES) .SYMBOLIC
+	copy $(SRCDIR)\..\doc\*.txt $(docdir)
+	copy $(SRCDIR)\..\doc\*.$(HTMLEXT) $(docdir)
+
+uninstall: .SYMBOLIC
+	-del $(bindir)\$(PROGRAM)
+	-rmdir /s /q $(docdir)
+
+!ifndef VERSIONSUFFIX
+VERSIONSUFFIX	= -bin
+!endif
+
+!ifndef ZIPFILE
+ZIPFILE = $(PACKAGE)$(VERSION)$(VERSIONSUFFIX).zip
+!endif
+ZIPOBJ = bin\$(PROGRAM) share\doc\$(docsubdir)
+
+CURDISK = $+ $(%cdrive): $-
+CURDIR = $+ $(%cwd) $-
+
+!ifdef __OS2__
+DISTCMD = dist.cmd
+!else
+DISTCMD = dist.bat
+!endif
+
+dist : .SYMBOLIC
+	@%create $(DISTCMD)
+	@%append $(DISTCMD) set PREFIX=$(prefix)
+	@%append $(DISTCMD) set PREFIXDISK=%PREFIX:~0,2%
+	@%append $(DISTCMD) %PREFIXDISK%
+	@%append $(DISTCMD) cd $(prefix)
+	@%append $(DISTCMD) unix2dos -k share\doc\$(docsubdir)\*.txt
+	@%append $(DISTCMD) unix2dos -k share\doc\$(docsubdir)\*.$(HTMLEXT)
+	@%append $(DISTCMD) zip -r $(ZIPFILE) $(ZIPOBJ)
+	@%append $(DISTCMD) $(CURDISK)
+	@%append $(DISTCMD) cd $(CURDIR)
+	@%append $(DISTCMD) move $(prefix)\$(ZIPFILE) ..\..\..
+	.\$(DISTCMD)
+
+
+clean
+	-del *.obj
+	-del *.exe
+	-del *.SYM
+	-del *.map
+	-del *.ilk 
+

@@ -19,11 +19,12 @@ PREREQUISITES
                             for PDF (ps2pdf)
             * iconv       : Character set conversion utility.
 
-    Alternative for Windows/DOS:
-        * Open Watcom : http://www.openwatcom.org/
 
-    Required for DOS16 bit:
-        * Open Watcom : http://www.openwatcom.org/
+    Using Watcom C:
+        Required
+            * Open Watcom  : http://www.openwatcom.org/
+            * perl         : Practical Extraction and Report Language (perlpod)
+
 
 
 BASIC INSTALLATION
@@ -148,8 +149,7 @@ WINDOWS PORT
         make -f mingw.mak strip
         make -f mingw.mak install
 
-    Or get the Open Watcom C compiler <http://www.openwatcom.org>
-    and type:
+    Or use Open Watcom and type:
 
         wmake -f wccwin32.mak clean
         wmake -f wccwin32.mak
@@ -181,7 +181,7 @@ DOS PORT, 32 BIT
         make -f djgpp.mak strip
         make -f djgpp.mak install
 
-    Or use the OpenWatcom compiler <http://www.openwatcom.org>.
+    Or use Open Watcom
 
         wmake -f wccdos32.mak clean
         wmake -f wccdos32.mak
@@ -194,18 +194,22 @@ DOS PORT, 16 BIT
         make -f bcc.mak clean
         make -f bcc.mak
 
-    Or use the OpenWatcom compiler <http://www.openwatcom.org>.
+    Or use Open Watcom
 
         wmake -f wccdos16.mak clean
         wmake -f wccdos16.mak
 
 OS/2 PORT
 
-    Using Paul Smedley's build environment, available
-    at <http://os2ports.smedley.info>
+    Using EMX
 
-        make -f os2.mak clean
-        make -f os2.mak
-        make -f os2.mak strip
-        make -f os2.mak install
+        make -f emx.mak clean
+        make -f emx.mak
+        make -f emx.mak strip
+        make -f emx.mak install
+
+    Open Watcom
+
+        wmake -f wccos2.mak clean
+        wmake -f wccos2.mak
 
