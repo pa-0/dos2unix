@@ -92,7 +92,7 @@ HTMLEXT = htm
 # By default we generate only English text and html manuals.
 # Then we don't need "pod2text --utf8" and we have no dependency on iconv.
 DOCFILES	= man/man1/$(PACKAGE).txt man/man1/$(PACKAGE).$(HTMLEXT)
-INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt man/man1/$(PACKAGE).txt man/man1/$(PACKAGE).$(HTMLEXT)
+INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt $(DOCFILES)
 
 PODFILES_ALL	= man/man1/dos2unix.pod $(wildcard man/*/man1/dos2unix.pod)
 PODFILES	= $(wildcard man/*/man1/dos2unix.pod)

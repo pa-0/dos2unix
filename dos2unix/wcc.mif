@@ -25,15 +25,15 @@ strip
 	wstrip mac2unix.exe
 	wstrip unix2mac.exe
 
-PACKAGE     = dos2unix
 exec_prefix = $(prefix)
 bindir      = $(exec_prefix)\bin
 datarootdir = $(prefix)\share
 datadir     = $(datarootdir)
 !ifndef docsubdir
-docsubdir   = $(PACKAGE)-$(VERSION)
+docsubdir   = $(PACKAGE)-$(DOS2UNIX_VERSION)
 !endif
 docdir      = $(datarootdir)\doc\$(docsubdir)
+INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt $(DOCFILES)
 
 
 $(prefix): .EXISTSONLY
@@ -51,25 +51,33 @@ $(datarootdir)\doc: $(datarootdir) .EXISTSONLY
 $(docdir): $(datarootdir)\doc .EXISTSONLY
 	mkdir $@
 
-install: $(PROGRAM) $(DOCFILES) $(bindir) $(docdir) .SYMBOLIC
-	copy $(PROGRAM) $(bindir)
-	copy $(SRCDIR)\..\doc\*.txt $(docdir)
-	copy $(SRCDIR)\..\doc\*.$(HTMLEXT) $(docdir)
+install: $(PROGRAMS) $(DOCFILES) $(bindir) $(docdir) .SYMBOLIC
+	copy dos2unix.exe $(bindir)
+	copy mac2unix.exe $(bindir)
+	copy unix2dos.exe $(bindir)
+	copy unix2mac.exe $(bindir)
+	copy README.txt $(docdir)
+	copy NEWS.txt $(docdir)
+	copy ChangeLog.txt $(docdir)
+	copy COPYING.txt $(docdir)
+	copy TODO.txt $(docdir)
+	copy BUGS.txt $(docdir)
+	copy man\man1\dos2unix.txt $(docdir)
+	copy man\man1\dos2unix.$(HTMLEXT) $(docdir)
 
-$(SRCDIR)\man\man1\dos2unix.txt : $(SRCDIR)\man\man1\dos2unix.pod
+man\man1\dos2unix.txt : man\man1\dos2unix.pod
 	pod2text $< > $@
 
-$(SRCDIR)\man\man1\dos2unix.$(HTMLEXT) : $(SRCDIR)\man\man1\dos2unix.pod
+man\man1\dos2unix.$(HTMLEXT) : man\man1\dos2unix.pod
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
 
 doc : $(DOCFILES) .SYMBOLIC
 
-install-doc: $(docdir) $(DOCFILES) .SYMBOLIC
-	copy $(SRCDIR)\..\doc\*.txt $(docdir)
-	copy $(SRCDIR)\..\doc\*.$(HTMLEXT) $(docdir)
-
 uninstall: .SYMBOLIC
-	-del $(bindir)\$(PROGRAM)
+	-del $(bindir)\dos2unix.exe
+	-del $(bindir)\mac2unix.exe
+	-del $(bindir)\unix2dos.exe
+	-del $(bindir)\unix2mac.exe
 	-rmdir /s /q $(docdir)
 
 !ifndef VERSIONSUFFIX
@@ -101,14 +109,18 @@ dist : .SYMBOLIC
 	@%append $(DISTCMD) zip -r $(ZIPFILE) $(ZIPOBJ)
 	@%append $(DISTCMD) $(CURDISK)
 	@%append $(DISTCMD) cd $(CURDIR)
-	@%append $(DISTCMD) move $(prefix)\$(ZIPFILE) ..\..\..
+	@%append $(DISTCMD) move $(prefix)\$(ZIPFILE) ..
 	.\$(DISTCMD)
 
 
-clean
+clean : .SYMBOLIC
 	-del *.obj
 	-del *.exe
 	-del *.SYM
 	-del *.map
 	-del *.ilk 
+	-del *.tmp 
+
+maintainer-clean : .SYMBOLIC
+	-del $(DOCFILES)
 

@@ -1,3 +1,13 @@
+2012-08-26 Erwin Waterlander <waterlan@xs4all.nl>
+	* os2.mak: Renamed to emx.mak.
+	* wccos2.mak: New Watcom C makefile for OS/2 target.
+	* wcc.mif: Watcom C makefile with generic parts. This new
+	  makefile containts new targets 'install', 'uninstall',
+	  'doc', 'dist', and 'maintainer-clean'.
+	* djgpp.mak: Default prefix is now c:\dos32
+	* dos16_gnu.mak: Removed. Installation is now done with Watcom
+	  makefiles.
+
 2012-08-13 Erwin Waterlander <waterlan@xs4all.nl>
 	* po/de.po: Update German translations. Thanks to Philipp.
 	* po/es.po: Update Spanish translations. Thanks to Julio.
