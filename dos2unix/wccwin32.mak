@@ -2,7 +2,7 @@
 
 CC      = wcc386
 SRCDIR = .
-DEFINES = -DVER_REVISION="$(DOS2UNIX_VERSION)" -DVER_DATE="$(DOS2UNIX_DATE)" -DD2U_UNICODE
+DEFINES = -DVER_REVISION="$(DOS2UNIX_VERSION)" -DVER_DATE="$(DOS2UNIX_DATE)"
 CFLAGS  = $(DEFINES) -i=$(SRCDIR) -w4 -e25 -zq -od -d2 -5r -bt=nt -mf
 WATCOMSRC = $(%WATCOM)\src\startup
 PROGRAMS = dos2unix.exe unix2dos.exe mac2unix.exe unix2mac.exe
@@ -10,6 +10,7 @@ HTMLEXT = htm
 PACKAGE = dos2unix
 DOCFILES = man\man1\$(PACKAGE).txt man\man1\$(PACKAGE).$(HTMLEXT)
 VERSIONSUFFIX = -win32
+UCS = 1
 
 prefix = c:\usr\local
 

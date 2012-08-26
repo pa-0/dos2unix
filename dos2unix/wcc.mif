@@ -1,3 +1,7 @@
+!ifeq UCS 1
+CFLAGS += -DD2U_UNICODE
+!endif
+
 dos2unix.obj :  $(SRCDIR)\dos2unix.c $(SRCDIR)\querycp.h $(SRCDIR)\common.h
 	$(CC) $(CFLAGS) $(SRCDIR)\dos2unix.c
 
@@ -113,7 +117,7 @@ dist : .SYMBOLIC
 	.\$(DISTCMD)
 
 
-clean : .SYMBOLIC
+mostlyclean : .SYMBOLIC
 	-del *.obj
 	-del *.exe
 	-del *.SYM
@@ -121,6 +125,6 @@ clean : .SYMBOLIC
 	-del *.ilk 
 	-del *.tmp 
 
-maintainer-clean : .SYMBOLIC
+clean : mostlyclean .SYMBOLIC
 	-del $(DOCFILES)
 

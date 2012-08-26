@@ -66,6 +66,7 @@ INSTALLATION NAMES
         make prefix=$HOME clean all
         make prefix=$HOME install
 
+
 DEBUG
 
     A debug enabled build can be made by adding DEBUG=1
@@ -76,12 +77,14 @@ DEBUG
     With debug enabled dos2unix will print extra information
     and you can debug the source code in gdb.
 
+
 NATIVE LANGUAGE SUPPORT
 
     Native Language Support (NLS) is by default enabled.
     To disable NLS add ENABLE_NLS=. Example:
 
         make clean install ENABLE_NLS=
+
 
 LARGE FILE SUPPORT
 
@@ -93,6 +96,7 @@ LARGE FILE SUPPORT
 
         Disable LFS:
         make clean install LFS=
+
 
 UNICODE SUPPORT
 
@@ -113,6 +117,7 @@ ESPERANTO X-NOTATION
     normal dos2unix 'eo' locale from Unicode to ASCII x-notation.
 
         make clean install EO_XNOTATION=1
+
 
 DOCUMENTATION
 
@@ -139,6 +144,7 @@ DOCUMENTATION
 
     PDF generation requires GhostScript to be installed.
 
+
 WINDOWS PORT
 
     To compile a version for Windows, get the Mingw compiler
@@ -153,6 +159,7 @@ WINDOWS PORT
 
         wmake -f wccwin32.mak clean
         wmake -f wccwin32.mak
+        wmake -f wccwin32.mak install
 
 
     The win32 binaries built with MinGW32 are packed with a patched version of
@@ -171,6 +178,7 @@ WINDOWS 64 BIT PORT
         make -f mingw64.mak strip
         make -f mingw64.mak install
 
+
 DOS PORT, 32 BIT
 
     To compile a version for DOS, get the DJGPP compiler
@@ -185,6 +193,8 @@ DOS PORT, 32 BIT
 
         wmake -f wccdos32.mak clean
         wmake -f wccdos32.mak
+        wmake -f wccdos32.mak install
+
 
 DOS PORT, 16 BIT
 
@@ -198,6 +208,8 @@ DOS PORT, 16 BIT
 
         wmake -f wccdos16.mak clean
         wmake -f wccdos16.mak
+        wmake -f wccdos16.mak install
+
 
 OS/2 PORT
 
@@ -212,4 +224,5 @@ OS/2 PORT
 
         wmake -f wccos2.mak clean
         wmake -f wccos2.mak
+        wmake -f wccos2.mak install
 
