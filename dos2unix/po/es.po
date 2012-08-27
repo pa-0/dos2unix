@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-13 22:44+0200\n"
+"POT-Creation-Date: 2012-08-27 21:28+0200\n"
 "PO-Revision-Date: 2011-06-20 09:13+0200\n"
 "Last-Translator:  <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish\n"
@@ -368,17 +368,23 @@ msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Versión Windows de 32 bit (MinGW).\n"
 
 #: common.c:259
-msgid "OS/2 version.\n"
+#, fuzzy
+msgid "OS/2 version (WATCOMC).\n"
+msgstr "Versión DOS de 32 bit (WATCOMC).\n"
+
+#: common.c:261
+#, fuzzy
+msgid "OS/2 version (EMX).\n"
 msgstr "Versión para OS/2.\n"
 
-#: common.c:262
+#: common.c:264
 msgid "With Unicode UTF-16 support.\n"
 msgstr "Con soporte Unicode UTF-16.\n"
 
-#: common.c:264
+#: common.c:266
 msgid "Without Unicode UTF-16 support.\n"
 msgstr "Sin soporte Unicode UTF-16.\n"
 
-#: common.c:267
+#: common.c:269
 msgid "With native language support.\n"
 msgstr "Con soporte de idioma materno.\n"

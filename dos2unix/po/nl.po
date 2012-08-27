@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-13 22:44+0200\n"
+"POT-Creation-Date: 2012-08-27 21:28+0200\n"
 "PO-Revision-Date: 2009-12-08 21:59+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -368,17 +368,23 @@ msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Windows 32 bit versie (MinGW).\n"
 
 #: common.c:259
-msgid "OS/2 version.\n"
+#, fuzzy
+msgid "OS/2 version (WATCOMC).\n"
+msgstr "DOS 32 bit versie (WATCOMC).\n"
+
+#: common.c:261
+#, fuzzy
+msgid "OS/2 version (EMX).\n"
 msgstr "OS/2 versie.\n"
 
-#: common.c:262
+#: common.c:264
 msgid "With Unicode UTF-16 support.\n"
 msgstr "Met Unicode UTF-16 ondersteuning.\n"
 
-#: common.c:264
+#: common.c:266
 msgid "Without Unicode UTF-16 support.\n"
 msgstr "Zonder Unicode UTF-16 ondersteuning.\n"
 
-#: common.c:267
+#: common.c:269
 msgid "With native language support.\n"
 msgstr "Met moedertaal ondersteuning.\n"

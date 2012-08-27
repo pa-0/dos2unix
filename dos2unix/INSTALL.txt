@@ -49,8 +49,9 @@ BASIC INSTALLATION
         make clean
 
 
-        Mostly clean. The target mostlyclean will preserve the generated
-        documentation files.
+    Mostly clean.
+
+        The target mostlyclean will preserve the generated documentation files.
 
         make mostlyclean
 
@@ -106,14 +107,14 @@ UNICODE SUPPORT
         Disable Unicode:
         make clean install UCS=
 
-    Unicode UTF-16 is not supported by the DOS versions.
+    Unicode UTF-16 is not supported by the DOS and OS/2 versions.
 
 
 ESPERANTO X-NOTATION
 
     For systems that don't support the Unicode or Latin-3 character set,
     Esperanto messages in ASCII x-notation format can be selected. Add
-    EO_XNOTATION=1 tot the make command-line.  It will change the format of the
+    EO_XNOTATION=1 to the make command-line.  It will change the format of the
     normal dos2unix 'eo' locale from Unicode to ASCII x-notation.
 
         make clean install EO_XNOTATION=1

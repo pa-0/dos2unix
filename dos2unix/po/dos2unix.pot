@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-13 22:44+0200\n"
+"POT-Creation-Date: 2012-08-27 21:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -321,17 +321,21 @@ msgid "Windows 32 bit version (MinGW).\n"
 msgstr ""
 
 #: common.c:259
-msgid "OS/2 version.\n"
+msgid "OS/2 version (WATCOMC).\n"
 msgstr ""
 
-#: common.c:262
-msgid "With Unicode UTF-16 support.\n"
+#: common.c:261
+msgid "OS/2 version (EMX).\n"
 msgstr ""
 
 #: common.c:264
+msgid "With Unicode UTF-16 support.\n"
+msgstr ""
+
+#: common.c:266
 msgid "Without Unicode UTF-16 support.\n"
 msgstr ""
 
-#: common.c:267
+#: common.c:269
 msgid "With native language support.\n"
 msgstr ""
