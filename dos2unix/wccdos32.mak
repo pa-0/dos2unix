@@ -9,7 +9,10 @@ PROGRAMS = dos2unix.exe unix2dos.exe mac2unix.exe unix2mac.exe
 HTMLEXT = htm
 PACKAGE = dos2unix
 DOCFILES = man\man1\$(PACKAGE).txt man\man1\$(PACKAGE).$(HTMLEXT)
-VERSIONSUFFIX = -dos32
+VERSIONSUFFIX = pm
+ZIPFILE = d2u$(DOS2UNIX_VERSION_SHORT)$(VERSIONSUFFIX).zip
+ZIPOBJ_EXTRA = bin\cwstub.exe
+docsubdir = dos2unix
 
 prefix = c:\dos32
 

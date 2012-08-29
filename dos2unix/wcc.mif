@@ -23,11 +23,6 @@ mac2unix.exe : dos2unix.exe
 unix2mac.exe : unix2dos.exe
 	copy /v unix2dos.exe unix2mac.exe
 
-strip
-	wstrip dos2unix.exe
-	wstrip unix2dos.exe
-	wstrip mac2unix.exe
-	wstrip unix2mac.exe
 
 exec_prefix = $(prefix)
 bindir      = $(exec_prefix)\bin
@@ -89,9 +84,9 @@ VERSIONSUFFIX	= -bin
 !endif
 
 !ifndef ZIPFILE
-ZIPFILE = $(PACKAGE)$(VERSION)$(VERSIONSUFFIX).zip
+ZIPFILE = $(PACKAGE)$(DOS2UNIX_VERSION)$(VERSIONSUFFIX).zip
 !endif
-ZIPOBJ = bin\$(PROGRAM) share\doc\$(docsubdir)
+ZIPOBJ = bin\dos2unix.exe bin\mac2unix.exe bin\unix2dos.exe bin\unix2mac.exe share\doc\$(docsubdir) $(ZIPOBJ_EXTRA)
 
 CURDISK = $+ $(%cdrive): $-
 CURDIR = $+ $(%cwd) $-

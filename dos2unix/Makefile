@@ -179,9 +179,9 @@ endif
 ifndef D2U_OS
 ifeq ($(shell uname),MS-DOS)
 	D2U_OS = msdos
-	prefix=c:/djgpp
+	prefix=c:/dos32
 	EXE = .exe
-	VERSIONSUFFIX	= -dos32
+	VERSIONSUFFIX	= pm
 	LINK_MAN = cp -f
 	docsubdir = dos2unix
 	EO_XNOTATION=1

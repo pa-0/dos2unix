@@ -10,6 +10,7 @@ HTMLEXT = htm
 PACKAGE = dos2unix
 DOCFILES = man\man1\$(PACKAGE).txt man\man1\$(PACKAGE).$(HTMLEXT)
 VERSIONSUFFIX = b
+ZIPFILE = d2u$(DOS2UNIX_VERSION_SHORT)$(VERSIONSUFFIX).zip
 docsubdir = dos2unix
 
 prefix = c:\dos

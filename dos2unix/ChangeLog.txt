@@ -1,3 +1,7 @@
+2012-08-29 Erwin Waterlander <waterlan@xs4all.nl>
+	* wcc*: Fix target 'dist' in Watcom makefiles.
+	* djgpp.mak: Use 8.3 filename for dos32 binary package.
+
 2012-08-26 Erwin Waterlander <waterlan@xs4all.nl>
 	* os2.mak: Renamed to emx.mak.
 	* wccos2.mak: New Watcom C makefile for OS/2 target.
