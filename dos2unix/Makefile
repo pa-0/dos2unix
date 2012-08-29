@@ -181,7 +181,7 @@ ifeq ($(shell uname),MS-DOS)
 	D2U_OS = msdos
 	prefix=c:/dos32
 	EXE = .exe
-	VERSIONSUFFIX	= pm
+	VERSIONSUFFIX = pm
 	LINK_MAN = cp -f
 	docsubdir = dos2unix
 	EO_XNOTATION=1
@@ -189,6 +189,22 @@ ifeq ($(shell uname),MS-DOS)
 	ZIPOBJ_EXTRA = bin/cwsdpmi.exe
 ifdef ENABLE_NLS
 	LDFLAGS_EXTRA = -lintl -liconv
+endif
+endif
+endif
+
+ifndef D2U_OS
+ifeq ($(shell uname),OS/2)
+	D2U_OS = os/2
+	prefix=c:/usr
+	EXE = .exe
+	VERSIONSUFFIX = -os2
+	LINK_MAN = cp -f
+	EO_XNOTATION=1
+	UCS =
+	LDFLAGS_EXTRA = -Zargs-wild
+ifdef ENABLE_NLS
+	LDFLAGS_EXTRA += -lintl -liconv
 endif
 endif
 endif
