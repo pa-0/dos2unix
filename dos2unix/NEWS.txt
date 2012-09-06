@@ -1,4 +1,5 @@
 2012-09-06: Version 6.0.2
+
   * The locale encoding detection has been fixed when NLS was disabled.
   * Print line number when a binary symbol is found.
   * Updated makefiles for Watcom C, and added a new one for OS/2.
