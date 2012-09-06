@@ -140,8 +140,8 @@ mostlyclean : .SYMBOLIC
 	-del *.exe
 	-del *.SYM
 	-del *.map
-	-del *.ilk 
-	-del *.tmp 
+	-del *.ilk
+	-del *.tmp
 
 clean : mostlyclean .SYMBOLIC
 	-del $(DOCFILES)

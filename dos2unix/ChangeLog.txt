@@ -1,3 +1,6 @@
+2012-09-06 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 6.0.2
+
 2012-08-29 Erwin Waterlander <waterlan@xs4all.nl>
 	* wcc*: Fix target 'dist' in Watcom makefiles.
 	* djgpp.mak: Use 8.3 filename for dos32 binary package.
@@ -437,7 +440,7 @@
 	  to Mac line endings.
 
 2010-02-10 Erwin Waterlander <waterlan@xs4all.nl>
-	* unix2dos: Makefile : 
+	* unix2dos: Makefile :
 	  - Use GNU standard directory variables everywhere.
 	  - New target 'dist-tbz' creates bzip2 compressed archive.
 
@@ -449,7 +452,7 @@
 	    this is more common practice).
 
 2010-02-03 Erwin Waterlander <waterlan@xs4all.nl>
-	* dos2unix: Makefile : 
+	* dos2unix: Makefile :
 	  - Use GNU standard directory variables everywhere.
 
 2010-02-03 Philipp Thomas <psmt@opensuse.org>
@@ -529,7 +532,7 @@
 	* dos2unix/unix2dos: Makefile: Makefile according GNU standards.
 	* unix2dos: INSTALL: New file.
 	* dos2unix: Applied all patches from RedHat:
-	  - use mkstemp i.s.o. mktemp: Nov 17 2000 Tim Powers <timp@redhat.com> 
+	  - use mkstemp i.s.o. mktemp: Nov 17 2000 Tim Powers <timp@redhat.com>
 	  - segfault: Jan 17 2002 Bernhard Rosenkraenzer <bero@redhat.com>
 	  - safeconv: Oct 20 2004 Miloslav Trmac <mitr@redhat.com>
 	  - manpage-update: Oct  6 2004 Mike A. Harris <mharris@redhat.com>
@@ -538,12 +541,12 @@
 	  - c-missing-arg: Jan 18 2008 Tim Waugh <twaugh@redhat.com>
 	  - Remove trailing white space.
 	* unix2dos: Applied all patches from RedHat:
-	  - use mkstemp i.s.o. mktemp: Nov 17 2000 Tim Powers <timp@redhat.com> 
+	  - use mkstemp i.s.o. mktemp: Nov 17 2000 Tim Powers <timp@redhat.com>
 	  - segfault: Jan 17 2002 Bernhard Rosenkraenzer <bero@redhat.com>
 	  - manpage-update: Oct  6 2004 Mike A. Harris <mharris@redhat.com>
 	  - preserve-file-modes: Oct 11 2004 Tim Waugh <twaugh@redhat.com>
 	  - tmppath: Apr 13 2005 Tim Waugh <twaugh@redhat.com>
-	  - Remove trailing white space. 
+	  - Remove trailing white space.
 
 1998-11-19 Christian Wurll <wurll@ira.uka.de>
 	* dos2unix: version 3.1

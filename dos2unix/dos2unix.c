@@ -6,7 +6,7 @@
  *  The dos2unix package is distributed under FreeBSD style license.
  *  See also http://www.freebsd.org/copyright/freebsd-license.html
  *  --------
- * 
+ *
  *  Copyright (C) 2009-2012 Erwin Waterlander
  *  Copyright (C) 1998 Christian Wurll
  *  Copyright (C) 1998 Bernd Johannes Wuebben
@@ -49,12 +49,12 @@
  *
  * Added Mac text file translation, i.e. \r to \n conversion
  * Bernd Johannes Wuebben, wuebben@kde.org
- * Wed Feb  4 19:12:58 EST 1998      
+ * Wed Feb  4 19:12:58 EST 1998
  *
  * Added extra newline if ^M occurs
  * Christian Wurll, wurll@ira.uka.de
- * Thu Nov 19 1998 
- * 
+ * Thu Nov 19 1998
+ *
  *  See ChangeLog.txt for complete version history.
  *
  */
@@ -178,7 +178,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                 }
               }
               break;
-            } 
+            }
           } else {
             StripDelimiterW( ipInF, ipOutF, ipFlag, TempChar );
           }
@@ -347,7 +347,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                 fprintf(stderr, "%s", _("can not write to output file\n"));
               }
               break;
-            } 
+            }
           } else {
             StripDelimiter( ipInF, ipOutF, ipFlag, TempChar );
           }
@@ -492,7 +492,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
     }
     RetVal = -1;
   }
-  
+
 #ifdef NO_MKSTEMP
   if((fd = MakeTempFileFrom(ipOutFN, &TempPath))==NULL) {
 #else
@@ -624,14 +624,14 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
     if (ipFlag->NewFile == 0) /* old file mode */
     {
        RetVal = chmod (TempPath, StatBuf.st_mode); /* set original permissions */
-    } 
+    }
     else
     {
        mask = umask(0); /* get process's umask */
        umask(mask); /* set umask back to original */
        RetVal = chmod(TempPath, StatBuf.st_mode & ~mask); /* set original permissions, minus umask */
     }
-    
+
     if (RetVal)
     {
        if (!ipFlag->Quiet)
@@ -857,7 +857,7 @@ int main (int argc, char *argv[])
   ArgIdx = 0;
   CanSwitchFileMode = 1;
   ShouldExit = 0;
-  pFlag = (CFlag*)malloc(sizeof(CFlag));  
+  pFlag = (CFlag*)malloc(sizeof(CFlag));
   pFlag->NewFile = 0;
   pFlag->Quiet = 0;
   pFlag->KeepDate = 0;

@@ -24,7 +24,7 @@ HISTORY
         part of several Linux distributions such as RedHat, Fedora, Suse and
         others.  This update includes all RedHat patches and fixes several
         other problems.  Internationalization has been added and ports to DOS,
-        Windows, Cygwin and OS/2 Warp have been made. 
+        Windows, Cygwin and OS/2 Warp have been made.
 
         These implementations of dos2unix and unix2dos have been modelled after
         dos2unix/unix2dos under SunOS/Solaris.  They have similar conversion
@@ -46,7 +46,7 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2-6.0.2  2009-2012 
+        Erwin Waterlander       version 3.2-6.0.2  2009-2012
         Christian Wurll         version 3.1        1998
         Bernd Johannes Wuebben  version 3.0        1998
         Benjamin Lin            version 1.1-2.3    1994-1995
@@ -83,12 +83,13 @@ ACKNOWLEDGEMENTS
 
 FINDUTILS
 
-        Windows users who are looking for the Unix 'find' and 'xargs' commands can
-        find them in the findutils package for Windows at the ezwinports project
-        page at: http://sourceforge.net/projects/ezwinports/files/
+        Windows users who are looking for the Unix 'find' and 'xargs' commands
+        can find them in the findutils package for Windows at the ezwinports
+        project page at: http://sourceforge.net/projects/ezwinports/files/
 
-        A DOS version of the findutils package can be obtained from the DJGPP project
-        (http://www.delorie.com/djgpp/) at ftp://ftp.delorie.com/pub/djgpp/current/v2gnu/
+        A DOS version of the findutils package can be obtained from the DJGPP
+        project (http://www.delorie.com/djgpp/) at
+        ftp://ftp.delorie.com/pub/djgpp/current/v2gnu/
 
 CONTACT INFORMATION
 

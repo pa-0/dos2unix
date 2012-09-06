@@ -1,7 +1,7 @@
 /*
  *   Copyright (C) 2009-2012 Erwin Waterlander
  *   All rights reserved.
- * 
+ *
  *   Redistribution and use in source and binary forms, with or without
  *   modification, are permitted provided that the following conditions
  *   are met:
@@ -10,7 +10,7 @@
  *   2. Redistributions in binary form must reproduce the above copyright
  *      notice in the documentation and/or other materials provided with
  *      the distribution.
- * 
+ *
  *   THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY
  *   EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  *   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
@@ -180,8 +180,8 @@ typedef struct
   int NewFile;                          /* is in new file mode? */
   int Quiet;                            /* is in quiet mode? */
   int KeepDate;                         /* should keep date stamp? */
-  int ConvMode;                         /* 0: ascii, 1: 7bit, 2: iso */  
-  int FromToMode;                       /* 0: dos2unix/unix2dos, 1: mac2unix/unix2mac */  
+  int ConvMode;                         /* 0: ascii, 1: 7bit, 2: iso */
+  int FromToMode;                       /* 0: dos2unix/unix2dos, 1: mac2unix/unix2mac */
   int NewLine;                          /* if TRUE, then additional newline */
   int Force;                            /* if TRUE, force conversion of all files. */
   int Follow;                           /* 0: skip symlink, 1: follow symbolic link, 2: replace symlink. */

@@ -1,19 +1,19 @@
-int SetPrivilege(char *privilege, int enable) 
+int SetPrivilege(char *privilege, int enable)
 {
     TOKEN_PRIVILEGES tp;
     LUID luid;
     HANDLE token;
 
     if (!OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES, &token)) return 0;
-    if (!LookupPrivilegeValue(NULL, privilege, &luid)) return 0; 
-    
+    if (!LookupPrivilegeValue(NULL, privilege, &luid)) return 0;
+
     tp.PrivilegeCount = 1;
     tp.Privileges[0].Luid = luid;
     if (enable) tp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
     else tp.Privileges[0].Attributes = 0;
-    
+
     // Enable the privilege or disable all privileges.
-    return AdjustTokenPrivileges(token, 0, &tp, NULL, NULL, NULL); 
+    return AdjustTokenPrivileges(token, 0, &tp, NULL, NULL, NULL);
 }
 
 

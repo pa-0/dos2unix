@@ -1,7 +1,7 @@
 /*
  *   Copyright (C) 2009-2012 Erwin Waterlander
  *   All rights reserved.
- * 
+ *
  *   Redistribution and use in source and binary forms, with or without
  *   modification, are permitted provided that the following conditions
  *   are met:
@@ -10,7 +10,7 @@
  *   2. Redistributions in binary form must reproduce the above copyright
  *      notice in the documentation and/or other materials provided with
  *      the distribution.
- * 
+ *
  *   THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY
  *   EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  *   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
@@ -329,14 +329,14 @@ int MakeTempFileFrom(const char *OutFN, char **fname_ret)
 #else
   int fd = -1;
 #endif
-  
+
   *fname_ret = NULL;
 
   if (!cpy)
     goto make_failed;
-  
+
   dir = dirname(cpy);
-  
+
   fname_len = strlen(dir) + strlen("/d2utmpXXXXXX") + sizeof (char);
   if (!(fname_str = malloc(fname_len)))
     goto make_failed;
@@ -354,9 +354,9 @@ int MakeTempFileFrom(const char *OutFN, char **fname_ret)
   if ((fd = mkstemp(fname_str)) == -1)
     goto make_failed;
 #endif
-  
+
   return (fd);
-  
+
  make_failed:
   free(*fname_ret);
   *fname_ret = NULL;
@@ -596,7 +596,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
       wstr[0] = lead;
       wstr[1] = trail;
       wstr[2] = L'\0';
-#else      
+#else
       /* On Unix wchar_t is 32 bit */
       /* When we don't decode the UTF-16 surrogate pair, wcstombs() does not
        * produce the same UTF-8 as WideCharToMultiByte().  The UTF-8 output
@@ -604,7 +604,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
        * characters in the range 0xD800..0xDBFF individually to UTF-8 sequences
        * (although these code points are reserved for use only as surrogate
        * pairs in UTF-16).
-       * 
+       *
        * Some smart viewers can still display this UTF-8 correctly (like Total
        * Commander lister), however the UTF-8 is not readable by Windows
        * Notepad (on Windows 7).  When we decode the UTF-16 surrogate pairs
@@ -616,7 +616,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
        * http://tools.ietf.org/html/rfc3629#page-5
        * It is a bug in (some implemenatations of) wcstombs().
        * On Cygwin 1.7 wcstombs() produces correct UTF-8 from UTF-16 surrogate pairs.
-       */ 
+       */
       /* Decode UTF-16 surrogate pair */
       wstr[0] = 0x10000;
       wstr[0] += (lead & 0x03FF) << 10;

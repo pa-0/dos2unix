@@ -7,7 +7,7 @@
  *  The dos2unix package is distributed under FreeBSD style license.
  *  See also http://www.freebsd.org/copyright/freebsd-license.html
  *  --------
- * 
+ *
  *  Copyright (C) 2009-2012 Erwin Waterlander
  *  Copyright (C) 1994-1995 Benjamin Lin.
  *  All rights reserved.
@@ -505,7 +505,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
     }
     RetVal = -1;
   }
-  
+
 #ifdef NO_MKSTEMP
   if((fd = MakeTempFileFrom(ipOutFN, &TempPath))==NULL) {
 #else
@@ -637,14 +637,14 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
     if (ipFlag->NewFile == 0) /* old file mode */
     {
        RetVal = chmod (TempPath, StatBuf.st_mode); /* set original permissions */
-    } 
+    }
     else
     {
        mask = umask(0); /* get process's umask */
        umask(mask); /* set umask back to original */
        RetVal = chmod(TempPath, StatBuf.st_mode & ~mask); /* set original permissions, minus umask */
     }
-    
+
     if (RetVal)
     {
        if (!ipFlag->Quiet)
@@ -870,7 +870,7 @@ int main (int argc, char *argv[])
   ArgIdx = 0;
   CanSwitchFileMode = 1;
   ShouldExit = 0;
-  pFlag = (CFlag*)malloc(sizeof(CFlag));  
+  pFlag = (CFlag*)malloc(sizeof(CFlag));
   pFlag->NewFile = 0;
   pFlag->Quiet = 0;
   pFlag->KeepDate = 0;
