@@ -1,3 +1,8 @@
+2012-09-15 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Better check for DJGPP. DJGPP 2.04 returns "FreeDOS"
+	  on Freedos, 2.03 returns always MS-DOS. Thanks to Rugxulo.
+	* man/man1/dos2unix.pod: Fixed a typo. Thanks to Jari Aalto.
+
 2012-09-06 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 6.0.2
 

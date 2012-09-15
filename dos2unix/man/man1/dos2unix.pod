@@ -189,7 +189,7 @@ defaults to run in this mode. Wildcard names may be used.
 
 In old file (in-place) mode the converted file gets the same owner, group, and
 read/write permissions as the original file. Also when the file is converted by
-an other user who has write permissions on the file (e.g. user root).  The
+another user who has write permissions on the file (e.g. user root).  The
 conversion will be aborted when it is not possible to preserve the original
 values.  Change of owner could mean that the original owner is not able to read
 the file any more. Change of group could be a security risk, the file could be

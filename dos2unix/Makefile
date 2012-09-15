@@ -177,7 +177,7 @@ endif
 endif
 
 ifndef D2U_OS
-ifeq ($(shell uname),MS-DOS)
+ifneq ($(DJGPP),)
 	D2U_OS = msdos
 	prefix=c:/dos32
 	EXE = .exe
