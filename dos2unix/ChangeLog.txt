@@ -1,3 +1,6 @@
+2012-09-16 Erwin Waterlander <waterlan@xs4all.nl>
+	* Dos2unix compiles with Microsoft Visual C++
+
 2012-09-15 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Better check for DJGPP. DJGPP 2.04 returns "FreeDOS"
 	  on Freedos, 2.03 returns always MS-DOS. Thanks to Rugxulo.

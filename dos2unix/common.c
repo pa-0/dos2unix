@@ -26,7 +26,7 @@
 
 #include "common.h"
 #if defined(D2U_UNICODE)
-#if defined(__WIN32__) || defined(__CYGWIN__)
+#if defined(_WIN32) || defined(__CYGWIN__)
 #include <windows.h>
 #endif
 #endif
@@ -98,8 +98,10 @@ int regfile(char *path, int allowSymlinks, CFlag *ipFlag, char *progname)
 #endif
       if (S_ISREG(buf.st_mode))
          fprintf(stderr, " (regular file)");
+#ifdef S_ISBLK
       if (S_ISBLK(buf.st_mode))
          fprintf(stderr, " (block device)");
+#endif
       if (S_ISDIR(buf.st_mode))
          fprintf(stderr, " (directory)");
       if (S_ISCHR(buf.st_mode))
@@ -253,8 +255,12 @@ void PrintVersion(char *progname)
   fprintf(stderr, "%s", _("Windows 64 bit version (MinGW-w64).\n"));
 #elif defined(__WATCOMC__) && defined(__NT__)
   fprintf(stderr, "%s", _("Windows 32 bit version (WATCOMC).\n"));
-#elif defined(__WIN32__) && defined(__MINGW32__)
+#elif defined(_WIN32) && defined(__MINGW32__)
   fprintf(stderr, "%s", _("Windows 32 bit version (MinGW).\n"));
+#elif defined(_WIN64) && defined(_MSC_VER)
+  fprintf(stderr,_("Windows 64 bit version (MSVC %d).\n"),_MSC_VER);
+#elif defined(_WIN32) && defined(_MSC_VER)
+  fprintf(stderr,_("Windows 32 bit version (MSVC %d).\n"),_MSC_VER);
 #elif defined (__OS2__) && defined(__WATCOMC__) /* OS/2 Warp */
   fprintf(stderr, "%s", _("OS/2 version (WATCOMC).\n"));
 #elif defined (__OS2__) && defined(__EMX__) /* OS/2 Warp */
@@ -298,7 +304,7 @@ FILE* OpenOutFile(int fd)
   return (fdopen(fd, W_CNTRL));
 }
 
-#if defined(__TURBOC__) || defined(__MSYS__)
+#if defined(__TURBOC__) || defined(__MSYS__) || defined(_MSC_VER)
 char *dirname(char *path)
 {
   char *ptr;
@@ -589,7 +595,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
    {
       /* fprintf(stderr, "UTF-16 trail %x\n",wc); */
       trail = (wchar_t)wc; /* trail (low) surrogate */
-#if defined(__WIN32__) || defined(__CYGWIN__)
+#if defined(_WIN32) || defined(__CYGWIN__)
       /* On Windows (including Cygwin) wchar_t is 16 bit */
       /* We cannot decode an UTF-16 surrogate pair, because it will
          not fit in a 16 bit wchar_t. */
@@ -629,7 +635,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
       wstr[1] = L'\0';
    }
 
-#if defined(__WIN32__) || defined(__CYGWIN__)
+#if defined(_WIN32) || defined(__CYGWIN__)
    /* On Windows we convert UTF-16 always to UTF-8 */
    len = (size_t)(WideCharToMultiByte(CP_UTF8, 0, wstr, -1, mbs, sizeof(mbs), NULL, NULL) -1);
 #else

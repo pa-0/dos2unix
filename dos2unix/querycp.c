@@ -1,7 +1,7 @@
 /* The code in this file is Public Domain */
 
 #if (defined(__WATCOMC__) && defined(__NT__))
-#  define __WIN32__ 1
+#  define _WIN32 1
 #endif
 
 #ifdef __DJGPP__
@@ -145,7 +145,7 @@ unsigned short query_con_codepage(void) {
 }
 
 
-#elif defined (__WIN32__) && !defined(__CYGWIN__) /* Windows, not Cygwin */
+#elif defined (_WIN32) && !defined(__CYGWIN__) /* Windows, not Cygwin */
 
 /* Erwin Waterlander */
 

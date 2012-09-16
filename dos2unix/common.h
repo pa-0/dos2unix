@@ -55,11 +55,11 @@
 #if defined(__DJGPP__) || defined(__TURBOC__) /* DJGPP */
 #  include <dir.h>
 #else
-#  ifndef __MSYS__
+#  if !defined(__MSYS__) && !defined(_MSC_VER)
 #    include <libgen.h>
 #  endif
 #endif
-#ifndef __TURBOC__
+#if !defined(__TURBOC__) && !defined(_MSC_VER)
 #include <unistd.h>
 #endif
 #include <stdio.h>
@@ -71,7 +71,11 @@
 #  define strcmpi(s1, s2) strcasecmp(s1, s2)
 #endif
 #endif
-#include <utime.h>
+#ifdef _MSC_VER
+#  include <sys/utime.h>
+#else
+#  include <utime.h>
+#endif
 #include <limits.h>
 #ifdef __TURBOC__
 #define __FLAT__
@@ -83,7 +87,7 @@
 #endif
 
 #if (defined(__WATCOMC__) && defined(__NT__))  /* Watcom */
-#  define __WIN32__ 1
+#  define _WIN32 1
 #endif
 
 #if defined(__WATCOMC__) && defined(__I86__) /* Watcom C, 16 bit Intel */
@@ -94,19 +98,19 @@
 #define __MSDOS__ 1
 #endif
 
-#if defined(ENABLE_NLS) || (defined(D2U_UNICODE) && !defined(__MSDOS__) && !defined(__WIN32__) && !defined(__OS2__))
+#if defined(ENABLE_NLS) || (defined(D2U_UNICODE) && !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__))
 /* setlocale() is also needed for nl_langinfo() */
 #include <locale.h>
 #endif
 
-#if  defined(__TURBOC__) || defined(__DJGPP__) || defined(__MINGW32__)
+#if  defined(__TURBOC__) || defined(__DJGPP__) || defined(__MINGW32__) || defined(_MSC_VER)
 /* Some compilers have no mkstemp().
  * Use mktemp() instead.
  * BORLANDC, DJGPP, MINGW32 */
 #define NO_MKSTEMP 1
 #endif
 
-#if  defined(__TURBOC__) || defined(__DJGPP__) || defined(__MINGW32__) || defined(__WATCOMC__)
+#if  defined(__TURBOC__) || defined(__DJGPP__) || defined(__MINGW32__) || defined(__WATCOMC__) || defined(_MSC_VER)
 /* Some compilers have no chown(). */
 #define NO_CHOWN 1
 #endif
@@ -116,25 +120,34 @@
 #undef S_ISLNK
 #endif
 
-#if defined(__MSDOS__) || defined(__WIN32__) || defined(__OS2__)
+/* Microsoft Visual C++ */
+#ifdef _MSC_VER
+#define S_ISCHR( m )    (((m) & _S_IFMT) == _S_IFCHR)
+#define S_ISDIR( m )    (((m) & _S_IFMT) == _S_IFDIR)
+#define S_ISFIFO( m )   (((m) & _S_IFMT) == _S_IFIFO)
+#define S_ISREG( m )    (((m) & _S_IFMT) == _S_IFREG)
+#define NO_CHMOD 1  /* no chmod() available */
+#endif
+
+#if defined(__MSDOS__) || defined(_WIN32) || defined(__OS2__)
 /* Systems without soft links use 'stat' instead of 'lstat'. */
 #define STAT stat
 #else
 #define STAT lstat
 #endif
 
-#if defined(__MSDOS__) || defined(__WIN32__) || defined(__OS2__)
+#if defined(__MSDOS__) || defined(_WIN32) || defined(__OS2__)
 /* On some systems rename() will always fail if target file already exists. */
 #define NEED_REMOVE 1
 #endif
 
-#if defined(__MSDOS__) || defined(__WIN32__) || defined(__CYGWIN__) || defined(__OS2__) /* DJGPP, MINGW32 and OS/2 */
+#if defined(__MSDOS__) || defined(_WIN32) || defined(__CYGWIN__) || defined(__OS2__) /* DJGPP, MINGW32 and OS/2 */
 /* required for setmode() and O_BINARY */
 #include <fcntl.h>
 #include <io.h>
 #endif
 
-#if defined(__MSDOS__) || defined(__WIN32__) || defined(__CYGWIN__) || defined(__OS2__)
+#if defined(__MSDOS__) || defined(_WIN32) || defined(__CYGWIN__) || defined(__OS2__)
   #define R_CNTRL   "rb"
   #define W_CNTRL   "wb"
 #else

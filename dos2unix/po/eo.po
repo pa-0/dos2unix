@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-27 21:28+0200\n"
+"POT-Creation-Date: 2012-09-16 11:27+0200\n"
 "PO-Revision-Date: 2010-03-07 19:50+0100\n"
 "Last-Translator: Ruĝulo <ruĝulo@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -219,7 +219,7 @@ msgstr "ŝanĝante dosiero %s Mac-en ...\n"
 msgid "converting file %s to DOS format ...\n"
 msgstr "ŝanĝante dosiero %s DOS-en ...\n"
 
-#: common.c:167
+#: common.c:169
 msgid ""
 "Redistribution and use in source and binary forms, with or without\n"
 "modification, are permitted provided that the following conditions\n"
@@ -243,7 +243,7 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: common.c:193
+#: common.c:195
 #, c-format
 msgid ""
 "%s %s (%s)\n"
@@ -302,7 +302,7 @@ msgstr ""
 "                       ĉiam enŝaltata dum stdio modo\n"
 " -s, --safe            evitu netekstajn dosierojn (jam ŝaltita)\n"
 
-#: common.c:223
+#: common.c:225
 #, c-format
 msgid ""
 " -F, --follow-symlink  follow symbolic links and convert the targets\n"
@@ -317,65 +317,75 @@ msgstr ""
 " -S, --skip-symlink    retenu dosierajn ĉenerojn kaj atingojn neŝanĝataj "
 "(jam ŝaltita)\n"
 
-#: common.c:229
+#: common.c:231
 #, c-format
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         diri eldono-numeron\n"
 
-#: common.c:241
+#: common.c:243
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "DOS-16 eldono (WATCOMC).\n"
 
-#: common.c:243
+#: common.c:245
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "DOS-16 eldono (TURBOC).\n"
 
-#: common.c:245
+#: common.c:247
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "DOS-32 eldono (WATCOMC).\n"
 
-#: common.c:247
+#: common.c:249
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "DOS-32 eldono (DJGPP).\n"
 
-#: common.c:249
+#: common.c:251
 msgid "MSYS version.\n"
 msgstr "MSYS eldono.\n"
 
-#: common.c:251
+#: common.c:253
 msgid "Cygwin version.\n"
 msgstr "Cygwin eldono.\n"
 
-#: common.c:253
+#: common.c:255
 msgid "Windows 64 bit version (MinGW-w64).\n"
 msgstr "Windows-64 eldono (MinGW-w64).\n"
 
-#: common.c:255
+#: common.c:257
 msgid "Windows 32 bit version (WATCOMC).\n"
 msgstr "Windows-32 eldono (WATCOMC).\n"
 
-#: common.c:257
+#: common.c:259
 msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Windows-32 eldono (MinGW).\n"
 
-#: common.c:259
+#: common.c:261
+#, fuzzy, c-format
+msgid "Windows 64 bit version (MSVC %d).\n"
+msgstr "Windows-64 eldono (MinGW-w64).\n"
+
+#: common.c:263
+#, fuzzy, c-format
+msgid "Windows 32 bit version (MSVC %d).\n"
+msgstr "Windows-32 eldono (WATCOMC).\n"
+
+#: common.c:265
 #, fuzzy
 msgid "OS/2 version (WATCOMC).\n"
 msgstr "DOS-32 eldono (WATCOMC).\n"
 
-#: common.c:261
+#: common.c:267
 #, fuzzy
 msgid "OS/2 version (EMX).\n"
 msgstr "OS/2 eldono.\n"
 
-#: common.c:264
+#: common.c:270
 msgid "With Unicode UTF-16 support.\n"
 msgstr "Kun subteno de Unikodo da UTF-16.\n"
 
-#: common.c:266
+#: common.c:272
 msgid "Without Unicode UTF-16 support.\n"
 msgstr "Sen subteno de Unikodo da UTF-16.\n"
 
-#: common.c:269
+#: common.c:275
 msgid "With native language support.\n"
 msgstr "Uzante denaskan lingvon sistemon.\n"

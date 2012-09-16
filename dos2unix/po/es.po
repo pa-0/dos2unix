@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-27 21:28+0200\n"
+"POT-Creation-Date: 2012-09-16 11:27+0200\n"
 "PO-Revision-Date: 2011-06-20 09:13+0200\n"
 "Last-Translator:  <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish\n"
@@ -222,7 +222,7 @@ msgstr "convirtiendo archivo %s a formato Mac ...\n"
 msgid "converting file %s to DOS format ...\n"
 msgstr "convirtiendo archivo %s a formato DOS ...\n"
 
-#: common.c:167
+#: common.c:169
 msgid ""
 "Redistribution and use in source and binary forms, with or without\n"
 "modification, are permitted provided that the following conditions\n"
@@ -246,7 +246,7 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: common.c:193
+#: common.c:195
 #, c-format
 msgid ""
 "%s %s (%s)\n"
@@ -310,7 +310,7 @@ msgstr ""
 "                       siempre en modo stdio\n"
 " -s, --safe            ignora archivos binarios (por defecto)\n"
 
-#: common.c:223
+#: common.c:225
 #, c-format
 msgid ""
 " -F, --follow-symlink  follow symbolic links and convert the targets\n"
@@ -326,65 +326,75 @@ msgstr ""
 " -S, --skip-symlink    no altera los enlaces simbólicos ni sus destinos (por "
 "defecto)\n"
 
-#: common.c:229
+#: common.c:231
 #, c-format
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         despliega el número de versión\n"
 
-#: common.c:241
+#: common.c:243
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "Versión DOS de 16 bit (WATCOMC).\n"
 
-#: common.c:243
+#: common.c:245
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "Versión DOS de 16 bit (TURBOC).\n"
 
-#: common.c:245
+#: common.c:247
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "Versión DOS de 32 bit (WATCOMC).\n"
 
-#: common.c:247
+#: common.c:249
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "Versión DOS de 32 bit (DJGPP).\n"
 
-#: common.c:249
+#: common.c:251
 msgid "MSYS version.\n"
 msgstr "Versión para MSYS.\n"
 
-#: common.c:251
+#: common.c:253
 msgid "Cygwin version.\n"
 msgstr "Versión para Cygwin.\n"
 
-#: common.c:253
+#: common.c:255
 msgid "Windows 64 bit version (MinGW-w64).\n"
 msgstr "Versión Windows de 64 bit (MinGW-w64).\n"
 
-#: common.c:255
+#: common.c:257
 msgid "Windows 32 bit version (WATCOMC).\n"
 msgstr "Versión Windows de 32 bit (WATCOMC).\n"
 
-#: common.c:257
+#: common.c:259
 msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Versión Windows de 32 bit (MinGW).\n"
 
-#: common.c:259
+#: common.c:261
+#, fuzzy, c-format
+msgid "Windows 64 bit version (MSVC %d).\n"
+msgstr "Versión Windows de 64 bit (MinGW-w64).\n"
+
+#: common.c:263
+#, fuzzy, c-format
+msgid "Windows 32 bit version (MSVC %d).\n"
+msgstr "Versión Windows de 32 bit (WATCOMC).\n"
+
+#: common.c:265
 #, fuzzy
 msgid "OS/2 version (WATCOMC).\n"
 msgstr "Versión DOS de 32 bit (WATCOMC).\n"
 
-#: common.c:261
+#: common.c:267
 #, fuzzy
 msgid "OS/2 version (EMX).\n"
 msgstr "Versión para OS/2.\n"
 
-#: common.c:264
+#: common.c:270
 msgid "With Unicode UTF-16 support.\n"
 msgstr "Con soporte Unicode UTF-16.\n"
 
-#: common.c:266
+#: common.c:272
 msgid "Without Unicode UTF-16 support.\n"
 msgstr "Sin soporte Unicode UTF-16.\n"
 
-#: common.c:269
+#: common.c:275
 msgid "With native language support.\n"
 msgstr "Con soporte de idioma materno.\n"

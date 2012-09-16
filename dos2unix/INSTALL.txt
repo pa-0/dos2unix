@@ -162,6 +162,11 @@ WINDOWS PORT
         wmake -f wccwin32.mak
         wmake -f wccwin32.mak install
 
+    Or use Microsoft Visual C++ and type:
+
+        nmake /f vc.mak clean
+        nmake /f vc.mak
+
 
     The win32 binaries built with MinGW32 are packed with a patched version of
     MinGW's libintl-8.dll that has builtin support for relocation. See also
