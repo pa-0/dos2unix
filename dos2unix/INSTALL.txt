@@ -24,6 +24,7 @@ PREREQUISITES
         Required
             * Open Watcom  : http://www.openwatcom.org/
             * perl         : Practical Extraction and Report Language (perlpod)
+                             http://strawberryperl.com/
 
 
     Using Microsoft Visual C++:
@@ -31,6 +32,7 @@ PREREQUISITES
             * Visual C++   : You can get a free express version via this web page:
                              http://www.microsoft.com/visualstudio/eng/downloads#d-2010-express
             * perl         : Practical Extraction and Report Language (perlpod)
+                             http://strawberryperl.com/
 
 
 

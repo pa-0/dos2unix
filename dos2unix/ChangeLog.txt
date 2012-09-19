@@ -1,5 +1,8 @@
-2012-09-16 Erwin Waterlander <waterlan@xs4all.nl>
-	* Dos2unix compiles with Microsoft Visual C++
+2012-09-19 Erwin Waterlander <waterlan@xs4all.nl>
+	* vc.mak: Visual C++ version supports wildcard expansion.
+	  Added targets 'install', 'uninstall', 'doc', 'dist',
+	  'txt', 'html', and 'mostlyclean'.
+	* INSTALL.txt: Update for Visual C++.
 
 2012-09-15 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Better check for DJGPP. DJGPP 2.04 uname returns "FreeDOS"
