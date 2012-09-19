@@ -26,6 +26,13 @@ PREREQUISITES
             * perl         : Practical Extraction and Report Language (perlpod)
 
 
+    Using Microsoft Visual C++:
+        Required
+            * Visual C++   : You can get a free express version via this web page:
+                             http://www.microsoft.com/visualstudio/eng/downloads#d-2010-express
+            * perl         : Practical Extraction and Report Language (perlpod)
+
+
 
 BASIC INSTALLATION
 
@@ -166,6 +173,7 @@ WINDOWS PORT
 
         nmake /f vc.mak clean
         nmake /f vc.mak
+        nmake /f vc.mak install
 
 
     The win32 binaries built with MinGW32 are packed with a patched version of
