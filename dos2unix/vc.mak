@@ -23,6 +23,8 @@ DOCFILES = man\man1\$(PACKAGE).txt man\man1\$(PACKAGE).$(HTMLEXT)
 VERSIONSUFFIX = -win32
 UCS = 1
 
+prefix = c:\usr\local
+
 all: $(PROGRAMS) $(DOCFILES)
 
 
@@ -96,26 +98,26 @@ install: $(PROGRAMS) $(DOCFILES) $(bindir) $(docdir)
 	copy man\man1\$(PACKAGE).$(HTMLEXT) $(docdir)
 
 man\es\man1\dos2unix.txt : man\es\man1\dos2unix.pod
-	pod2text $< > $(@R).tx1
+	pod2text $** > $(@R).tx1
 	iconv -f ISO-8859-1 -t UTF-8 $(@R).tx1 > $@
 
 man\nl\man1\dos2unix.txt : man\nl\man1\dos2unix.pod
-	pod2text $< > $(@R).tx1
+	pod2text $** > $(@R).tx1
 	iconv -f ISO-8859-1 -t UTF-8 $(@R).tx1 > $@
 
 man\man1\dos2unix.txt : man\man1\dos2unix.pod
-	pod2text $< > $@
+	pod2text $** > $@
 
 man\es\man1\dos2unix.$(HTMLEXT) : man\es\man1\dos2unix.pod
-	iconv -f ISO-8859-1 -t UTF-8 $< > $(@R).ut8
+	iconv -f ISO-8859-1 -t UTF-8 $** > $(@R).ut8
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Convertidor de archivos de texto de formato DOS/Mac a Unix y viceversa" $(@R).ut8 > $@
 
 man\nl\man1\dos2unix.$(HTMLEXT) : man\nl\man1\dos2unix.pod
-	iconv -f ISO-8859-1 -t UTF-8 $< > $(@R).ut8
+	iconv -f ISO-8859-1 -t UTF-8 $** > $(@R).ut8
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/Mac naar Unix en vice versa tekstbestand formaat omzetter" $(@R).ut8 > $@
 
 man\man1\dos2unix.$(HTMLEXT) : man\man1\dos2unix.pod
-	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
+	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $** > $@
 
 TXTFILES = man\man1\$(PACKAGE).txt man\es\man1\$(PACKAGE).txt man\nl\man1\$(PACKAGE).txt
 HTMLFILES = man\man1\$(PACKAGE).$(HTMLEXT) man\es\man1\$(PACKAGE).$(HTMLEXT) man\nl\man1\$(PACKAGE).$(HTMLEXT)
@@ -159,7 +161,7 @@ mostlyclean :
 	-del *.exe
 	-del *.tmp
 
-clean :
+clean : mostlyclean
 	-del $(DOCFILES)
 	-del man\es\man1\*.txt
 	-del man\nl\man1\*.txt
