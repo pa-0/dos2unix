@@ -368,24 +368,22 @@ msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Versión Windows de 32 bit (MinGW).\n"
 
 #: common.c:261
-#, fuzzy, c-format
+#, c-format
 msgid "Windows 64 bit version (MSVC %d).\n"
-msgstr "Versión Windows de 64 bit (MinGW-w64).\n"
+msgstr "Versión Windows de 64 bit (MSVC %d).\n"
 
 #: common.c:263
-#, fuzzy, c-format
+#, c-format
 msgid "Windows 32 bit version (MSVC %d).\n"
-msgstr "Versión Windows de 32 bit (WATCOMC).\n"
+msgstr "Versión Windows de 32 bit (MSVC %d).\n"
 
 #: common.c:265
-#, fuzzy
 msgid "OS/2 version (WATCOMC).\n"
-msgstr "Versión DOS de 32 bit (WATCOMC).\n"
+msgstr "Versión para OS/2 (WATCOMC).\n"
 
 #: common.c:267
-#, fuzzy
 msgid "OS/2 version (EMX).\n"
-msgstr "Versión para OS/2.\n"
+msgstr "Versión para OS/2 (EMX).\n"
 
 #: common.c:270
 msgid "With Unicode UTF-16 support.\n"
