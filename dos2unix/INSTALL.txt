@@ -8,7 +8,6 @@ PREREQUISITES
             * sh           : POSIX type shell
             * GNU coreutils: Core utilities package (chmod, install, mkdir,
                              mv, rm, uname)
-            * sed          : Stream editor
             * perl         : Practical Extraction and Report Language (perlpod)
 
         Optional (depending on build targets):

@@ -1,3 +1,6 @@
+2012-09-20 Erwin Waterlander <waterlan@xs4all.nl>
+	* man/man1/Makefile: Removed dependency on 'sed' program.
+
 2012-09-19 Erwin Waterlander <waterlan@xs4all.nl>
 	* vc.mak: Visual C++ version supports wildcard expansion.
 	  Added targets 'install', 'uninstall', 'doc', 'dist',

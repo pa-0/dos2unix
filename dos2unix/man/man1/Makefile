@@ -99,7 +99,7 @@ all: $(MAN_OBJECTS)
 		--name="$(PACKAGE)" \
 		--section="$(MANSECT)" \
 		$< \
-	| sed 's,[Pp]erl v[0-9.]\+,$(PACKAGE),' \
+	| perl -p -e 's/[Pp]erl v[0-9.]+/$(PACKAGE)/;' \
 	  > $@ && \
 	rm -f pod*.tmp
 # fix for bug http://rt.perl.org/rt3//Public/Bug/Display.html?id=79410
