@@ -1,5 +1,7 @@
 include dos2unix/version.mk
 
+SVNREPO = svn://svn.code.sf.net/p/dos2unix/code
+
 all: help
 
 # Target: help - Display available make targets
@@ -19,7 +21,7 @@ RELEASE_DIR_D2U = d2u$(DOS2UNIX_VERSION_SHORT)
 dist:
 	rm -rf ../${RELEASE_DIR_DOS2UNIX}
 	rm -rf ../${RELEASE_DIR_D2U}
-	svn export https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/trunk/dos2unix ../${RELEASE_DIR_DOS2UNIX}
+	svn export ${SVNREPO}/trunk/dos2unix ../${RELEASE_DIR_DOS2UNIX}
 	# Include doc files, to make it easier to build dos2unix.
 	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) doc txt html pdf
 	# Make sure .po files are up to date.
@@ -57,30 +59,30 @@ dist:
 
 # Target: tag - Create a tag copy of trunk
 tag:
-	svn copy https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/trunk \
-	         https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/tags/dos2unix-${DOS2UNIX_VERSION} \
+	svn copy ${SVNREPO}/trunk \
+	         ${SVNREPO}/tags/dos2unix-${DOS2UNIX_VERSION} \
 	    -m "Tagging dos2unix release ${DOS2UNIX_VERSION}."
 
 BRANCH=dos2unix-60
 
 branch:
-	svn copy https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/trunk \
-	         https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/branches/${BRANCH} \
+	svn copy ${SVNREPO}/trunk \
+	         ${SVNREPO}/branches/${BRANCH} \
 	    -m "Branching ${BRANCH}."
 
 
 # Get latest changes of trunk into branch.
 merge_from_trunk:
-	svn merge https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/trunk
+	svn merge ${SVNREPO}/trunk
 
 # Merge branch into trunk.
 # After this the branch is unusable for further work.
 # Copy a new branch if needed.
 merge_to_trunk:
-	svn merge --reintegrate https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/branches/${BRANCH}
+	svn merge --reintegrate ${SVNREPO}/branches/${BRANCH}
 
 # Delete branch
 delete_branch:
-	svn delete https://dos2unix.svn.sourceforge.net/svnroot/dos2unix/branches/${BRANCH} -m "Delete branch ${BRANCH}"
+	svn delete ${SVNREPO}/branches/${BRANCH} -m "Delete branch ${BRANCH}"
 
 
