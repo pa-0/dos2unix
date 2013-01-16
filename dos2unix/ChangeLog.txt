@@ -1,3 +1,7 @@
+2013-01-16 Erwin Waterlander <waterlan@xs4all.nl>
+	* dos2unix.c/unix2dos.c: Print system error when closing of
+	  temporary output file fails. E.g. "No space left on device".
+
 2012-12-25 Erwin Waterlander <waterlan@xs4all.nl>
 	* querycp.c/h: Added public domain phrase for Debian
 	  license check.

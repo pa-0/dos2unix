@@ -620,8 +620,20 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
     RetVal = -1;
 
   /* can close output file? */
-  if ((TempF) && (fclose(TempF) == EOF))
-    RetVal = -1;
+  if (TempF)
+  {
+    if (fclose(TempF) == EOF)
+    {
+       if (!ipFlag->Quiet)
+       {
+         ipFlag->error = errno;
+         errstr = strerror(errno);
+         fprintf(stderr, "%s: ", progname);
+         fprintf(stderr, _("Failed to write to temporary output file %s: %s\n"), TempPath, errstr);
+       }
+      RetVal = -1;
+    }
+  }
 
 #ifdef NO_MKSTEMP
   if(fd!=NULL)
