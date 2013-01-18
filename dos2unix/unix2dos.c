@@ -105,6 +105,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
     wint_t TempChar;
     wint_t PreviousChar = 0;
     int line_nr = 1;
+    char *errstr;
 
     ipFlag->status = 0;
 
@@ -156,8 +157,9 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               {
                 if (!(ipFlag->status & UNICODE_CONVERSION_ERROR))
                 {
+                  errstr = strerror(errno);
                   fprintf(stderr, "%s: ", progname);
-                  fprintf(stderr, "%s", _("can not write to output file\n"));
+                  fprintf(stderr, _("can not write to output file: %s\n"), errstr);
                 }
               }
               break;
@@ -192,8 +194,9 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                 {
                   if (!(ipFlag->status & UNICODE_CONVERSION_ERROR))
                   {
+                    errstr = strerror(errno);
                     fprintf(stderr, "%s: ", progname);
-                    fprintf(stderr, "%s", _("can not write to output file\n"));
+                    fprintf(stderr, _("can not write to output file: %s\n"), errstr);
                   }
                 }
                 break;
@@ -212,8 +215,9 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                   {
                     if (!(ipFlag->status & UNICODE_CONVERSION_ERROR))
                     {
+                      errstr = strerror(errno);
                       fprintf(stderr, "%s: ", progname);
-                      fprintf(stderr, "%s", _("can not write to output file\n"));
+                      fprintf(stderr, _("can not write to output file: %s\n"), errstr);
                     }
                   }
                   break;
@@ -229,8 +233,9 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                 {
                   if (!(ipFlag->status & UNICODE_CONVERSION_ERROR))
                   {
+                    errstr = strerror(errno);
                     fprintf(stderr, "%s: ", progname);
-                    fprintf(stderr, "%s", _("can not write to output file\n"));
+                    fprintf(stderr, _("can not write to output file: %s\n"), errstr);
                   }
                 }
                 break;
@@ -264,6 +269,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
     int PreviousChar = 0;
     int *ConvTable;
     int line_nr = 1;
+    char *errstr;
 
     ipFlag->status = 0;
 
@@ -349,8 +355,9 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               RetVal = -1;
               if (!ipFlag->Quiet)
               {
+                errstr = strerror(errno);
                 fprintf(stderr, "%s: ", progname);
-                fprintf(stderr, "%s", _("can not write to output file\n"));
+                fprintf(stderr, _("can not write to output file: %s\n"), errstr);
               }
               break;
           } else {
@@ -382,8 +389,9 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                 RetVal = -1;
                 if (!ipFlag->Quiet)
                 {
+                  errstr = strerror(errno);
                   fprintf(stderr, "%s: ", progname);
-                  fprintf(stderr, "%s", _("can not write to output file\n"));
+                  fprintf(stderr, _("can not write to output file: %s\n"), errstr);
                 }
                 break;
               }
@@ -399,8 +407,9 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                   RetVal = -1;
                   if (!ipFlag->Quiet)
                   {
+                    errstr = strerror(errno);
                     fprintf(stderr, "%s: ", progname);
-                    fprintf(stderr, "%s", _("can not write to output file\n"));
+                    fprintf(stderr, _("can not write to output file: %s\n"), errstr);
                   }
                   break;
                 }
@@ -413,8 +422,9 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                 RetVal = -1;
                 if (!ipFlag->Quiet)
                 {
+                  errstr = strerror(errno);
                   fprintf(stderr, "%s: ", progname);
-                  fprintf(stderr, "%s", _("can not write to output file\n"));
+                  fprintf(stderr, _("can not write to output file: %s\n"), errstr);
                 }
                 break;
               }

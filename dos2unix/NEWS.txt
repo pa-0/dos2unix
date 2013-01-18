@@ -1,3 +1,8 @@
+2013-??-??: Version 6.0.3
+
+  * Source code compiles with Microsoft Visual C.
+  * Print system error when writing output fails.
+
 2012-09-06: Version 6.0.2
 
   * The locale encoding detection has been fixed when NLS was disabled.

@@ -1,3 +1,7 @@
+2013-01-18 Erwin Waterlander <waterlan@xs4all.nl>
+	* dos2unix.c/unix2dos.c: Print system error when writing to
+	  temporary output file fails.
+
 2013-01-16 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c/unix2dos.c: Print system error when closing of
 	  temporary output file fails. E.g. "No space left on device".
