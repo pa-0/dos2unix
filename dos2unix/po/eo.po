@@ -61,9 +61,9 @@ msgid "using %s as temporary file\n"
 msgstr "uzante %s kiel provizora dosiero\n"
 
 #: dos2unix.c:627 unix2dos.c:642
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to write to temporary output file %s: %s\n"
-msgstr "malsukcesis malfermi provizoran dosieron registran: %s\n"
+msgstr "Ne sukcesis registri provizoran eligitan dosieron %s: %s\n"
 
 #: dos2unix.c:662 unix2dos.c:677
 #, c-format
