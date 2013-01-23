@@ -811,11 +811,11 @@ int ConvertUnixToDosStdio(CFlag *ipFlag, char *progname)
      * automatically be converted to CR-LF on DOS/Windows.
      * Erwin */
 
-    /* 'setmode' was deprecated by MicroSoft
-     * since Visual C++ 2005. Use '_setmode' instead. */
+    /* POSIX 'setmode' was deprecated by MicroSoft since
+     * Visual C++ 2005. Use ISO C++ conformant '_setmode' instead. */
 
-    _setmode(fileno(stdout), O_BINARY);
-    _setmode(fileno(stdin), O_BINARY);
+    _setmode(_fileno(stdout), _O_BINARY);
+    _setmode(_fileno(stdin), _O_BINARY);
 #elif defined(__MSDOS__) || defined(__CYGWIN__) || defined(__OS2__)
     setmode(fileno(stdout), O_BINARY);
     setmode(fileno(stdin), O_BINARY);
