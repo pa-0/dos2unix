@@ -1,3 +1,6 @@
+2013-01-25 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 6.0.3
+
 2013-01-18 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c/unix2dos.c: Print system error when writing to
 	  temporary output file fails.

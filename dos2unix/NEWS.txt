@@ -1,4 +1,4 @@
-2013-??-??: Version 6.0.3
+2013-01-25: Version 6.0.3
 
   * Source code compiles with Microsoft Visual C.
   * Print system error when writing output fails.
