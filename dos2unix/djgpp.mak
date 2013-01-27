@@ -11,7 +11,7 @@ ENABLE_NLS=
 VERSIONSUFFIX=-dos32
 
 ifdef ENABLE_NLS
-LDFLAGS_EXTRA = -lintl -liconv
+LIBS_EXTRA = -lintl -liconv
 NLS_SUFFIX = -nls
 endif
 VERSIONSUFFIX = pm
@@ -20,10 +20,10 @@ ZIPOBJ_EXTRA = bin/cwsdpmi.exe
 docsubdir = dos2unix
 
 all:
-	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f" docsubdir=$(docsubdir) EO_XNOTATION=1 UCS=
+	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f" docsubdir=$(docsubdir) EO_XNOTATION=1 UCS=
 
 install:
-	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f" docsubdir=$(docsubdir) EO_XNOTATION=1 UCS=
+	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f" docsubdir=$(docsubdir) EO_XNOTATION=1 UCS=
 
 uninstall:
 	$(MAKE) uninstall EXE=.exe prefix=$(prefix) docsubdir=$(docsubdir)

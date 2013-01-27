@@ -7,7 +7,7 @@ prefix=c:/usr/local
 ENABLE_NLS=1
 
 ifdef ENABLE_NLS
-LDFLAGS_EXTRA = -lintl -liconv
+LIBS_EXTRA = -lintl -liconv
 # Using GnuWin32 gettext,iconv
 #ZIPOBJ_EXTRA = bin/libintl3.dll bin/libiconv2.dll
 # Using MinGW gettext,iconv
@@ -15,10 +15,10 @@ ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
 endif
 
 all:
-	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" EO_XNOTATION=1
+	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" EO_XNOTATION=1
 
 install:
-	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" prefix=$(prefix) LINK="cp -f" EO_XNOTATION=1
+	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" EO_XNOTATION=1
 
 uninstall:
 	$(MAKE) uninstall EXE=.exe prefix=$(prefix)

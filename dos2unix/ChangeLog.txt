@@ -1,3 +1,9 @@
+2013-01-27 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile:
+	  - CC and CPP can be overridden by environment.
+	  - CFLAGS optimization flags can be overridden by environment.
+	  - Separate LIBS from LDFLAGS.
+
 2013-01-25 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 6.0.3
 

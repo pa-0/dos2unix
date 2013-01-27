@@ -36,8 +36,8 @@
 include version.mk
 
 
-CC		= gcc
-CPP		= cpp
+CC		?= gcc
+CPP		?= cpp
 CPP_FLAGS_POD	= ALL
 STRIP		= strip
 
@@ -133,8 +133,9 @@ endif
 
 ifeq (cygwin,$(D2U_OS))
 ifdef ENABLE_NLS
-	LDFLAGS_EXTRA = -lintl -liconv -Wl,--enable-auto-import
+	LIBS_EXTRA = -lintl -liconv
 endif
+	LDFLAGS_EXTRA = -Wl,--enable-auto-import
 	EXE = .exe
 	# allow non-cygwin clients which do not understand cygwin
 	# symbolic links to launch applications...
@@ -156,7 +157,7 @@ ifeq ($(findstring MSYS,$(shell uname)),MSYS)
 	EO_XNOTATION=1
 	UCS =
 ifdef ENABLE_NLS
-	LDFLAGS_EXTRA = -lintl -liconv
+	LIBS_EXTRA = -lintl -liconv
 endif
 endif
 endif
@@ -170,7 +171,7 @@ ifeq ($(findstring MINGW32,$(shell uname)),MINGW32)
 	LINK = cp -f
 	EO_XNOTATION=1
 ifdef ENABLE_NLS
-	LDFLAGS_EXTRA = -lintl -liconv
+	LIBS_EXTRA = -lintl -liconv
 	ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
 endif
 endif
@@ -188,7 +189,7 @@ ifneq ($(DJGPP),)
 	UCS =
 	ZIPOBJ_EXTRA = bin/cwsdpmi.exe
 ifdef ENABLE_NLS
-	LDFLAGS_EXTRA = -lintl -liconv
+	LIBS_EXTRA = -lintl -liconv
 endif
 endif
 endif
@@ -204,7 +205,7 @@ ifeq ($(shell uname),OS/2)
 	UCS =
 	LDFLAGS_EXTRA = -Zargs-wild
 ifdef ENABLE_NLS
-	LDFLAGS_EXTRA += -lintl -liconv
+	LIBS_EXTRA += -lintl -liconv
 endif
 endif
 endif
@@ -214,7 +215,8 @@ ifeq (FreeBSD, $(shell uname -s))
 	D2U_OS = freebsd
 ifdef ENABLE_NLS
 	CFLAGS_OS     = -I/usr/local/include
-	LDFLAGS_EXTRA = -lintl -L/usr/local/lib
+	LDFLAGS_EXTRA = -L/usr/local/lib
+	LIBS_EXTRA    = -lintl
 endif
 endif
 endif
@@ -223,7 +225,8 @@ ifeq (Darwin, $(shell uname -s))
 	D2U_OS = Darwin
 ifdef ENABLE_NLS
 	CFLAGS_OS     = -I/usr/local/include
-	LDFLAGS_EXTRA = -lintl -L/usr/local/lib
+	LDFLAGS_EXTRA = -L/usr/local/lib
+	LIBS_EXTRA    = -lintl
 endif
 endif
 
@@ -236,7 +239,7 @@ endif
 
 ifeq (sun,$(D2U_OS))
 	# Running under SunOS/Solaris
-	LDFLAGS_EXTRA = -lintl
+	LIBS_EXTRA = -lintl
 endif
 
 ifndef D2U_OS
@@ -264,7 +267,8 @@ EO_NOTATION = -x
 endif
 
 CFLAGS_USER	=
-CFLAGS		= -O2 -Wall $(RPM_OPT_FLAGS) $(CPPFLAGS) $(CFLAGS_USER)
+CFLAGS		?= -O2
+CFLAGS		+= -Wall $(RPM_OPT_FLAGS) $(CPPFLAGS) $(CFLAGS_USER)
 
 EXTRA_CFLAGS	= -DVER_REVISION=\"$(DOS2UNIX_VERSION)\" \
 		  -DVER_DATE=\"$(DOS2UNIX_DATE)\" \
@@ -290,6 +294,7 @@ endif
 
 LDFLAGS_USER	=
 LDFLAGS = $(RPM_OPT_FLAGS) $(LDFLAGS_EXTRA) $(LDFLAGS_USER)
+LIBS    = $(LIBS_EXTRA)
 
 DEFS_USER	=
 DEFS		= $(EXTRA_DEFS) $(DEFS_USER)
@@ -303,6 +308,8 @@ status:
 	@echo "UCS          = $(UCS)"
 	@echo "CFLAGS       = $(CFLAGS)"
 	@echo "EXTRA_CFLAGS = $(EXTRA_CFLAGS)"
+	@echo "LDFLAGS      = $(LDFLAGS)"
+	@echo "LIBS         = $(LIBS)"
 
 common.o : common.c common.h
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
@@ -317,10 +324,10 @@ unix2dos.o : unix2dos.c unix2dos.h querycp.h common.h
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
 
 $(BIN): dos2unix.o querycp.o common.o
-	$(CC) $+ $(LDFLAGS) -o $@
+	$(CC) $+ $(LDFLAGS) $(LIBS) -o $@
 
 $(UNIX2DOS_BIN): unix2dos.o querycp.o common.o
-	$(CC) $+ $(LDFLAGS) -o $@
+	$(CC) $+ $(LDFLAGS) $(LIBS) -o $@
 
 $(MAC2UNIX_BIN) : $(BIN)
 	$(LINK) $< $@
