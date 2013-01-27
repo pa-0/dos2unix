@@ -1,6 +1,7 @@
 include dos2unix/version.mk
 
 SVNREPO = svn://svn.code.sf.net/p/dos2unix/code
+SVNSSHREPO = svn+ssh://svn.code.sf.net/p/dos2unix/code
 
 all: help
 
@@ -59,30 +60,30 @@ dist:
 
 # Target: tag - Create a tag copy of trunk
 tag:
-	svn copy ${SVNREPO}/trunk \
-	         ${SVNREPO}/tags/dos2unix-${DOS2UNIX_VERSION} \
+	svn copy ${SVNSSHREPO}/trunk \
+	         ${SVNSSHREPO}/tags/dos2unix-${DOS2UNIX_VERSION} \
 	    -m "Tagging dos2unix release ${DOS2UNIX_VERSION}."
 
 BRANCH=dos2unix-60
 
 branch:
-	svn copy ${SVNREPO}/trunk \
-	         ${SVNREPO}/branches/${BRANCH} \
+	svn copy ${SVNSSHREPO}/trunk \
+	         ${SVNSSHREPO}/branches/${BRANCH} \
 	    -m "Branching ${BRANCH}."
 
 
 # Get latest changes of trunk into branch.
 merge_from_trunk:
-	svn merge ${SVNREPO}/trunk
+	svn merge ${SVNSSHREPO}/trunk
 
 # Merge branch into trunk.
 # After this the branch is unusable for further work.
 # Copy a new branch if needed.
 merge_to_trunk:
-	svn merge --reintegrate ${SVNREPO}/branches/${BRANCH}
+	svn merge --reintegrate ${SVNSSHREPO}/branches/${BRANCH}
 
 # Delete branch
 delete_branch:
-	svn delete ${SVNREPO}/branches/${BRANCH} -m "Delete branch ${BRANCH}"
+	svn delete ${SVNSSHREPO}/branches/${BRANCH} -m "Delete branch ${BRANCH}"
 
 
