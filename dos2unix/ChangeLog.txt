@@ -3,6 +3,7 @@
 	  - CC and CPP can be overridden by environment.
 	  - CFLAGS optimization flags can be overridden by environment.
 	  - Separate LIBS from LDFLAGS.
+	  Thanks to Justin Lecher <jlec@gentoo.org>
 
 2013-01-25 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 6.0.3
