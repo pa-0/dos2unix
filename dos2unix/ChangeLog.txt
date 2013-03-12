@@ -1,3 +1,7 @@
+2013-03-12 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Set CC to gcc for MSYS target. Otherwise
+	  /mingw/bin/cc is used.
+
 2013-01-27 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile:
 	  - CC and CPP can be overridden by environment.

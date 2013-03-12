@@ -151,6 +151,7 @@ endif
 
 ifndef D2U_OS
 ifeq ($(findstring MSYS,$(shell uname)),MSYS)
+	CC=gcc
 	D2U_OS = msys
 	EXE = .exe
 	VERSIONSUFFIX	= -msys
