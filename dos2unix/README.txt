@@ -64,7 +64,7 @@ ACKNOWLEDGEMENTS
         Rugxulo               query_con_codepage(), code page detection in DOS.
         Rugxulo               DJGPP stubs for mac2unix and unix2mac.
         Jari Aalto            Improvements man page.
-        Jari Aalto            Improvments Makefile.
+        Jari Aalto            Improvements Makefile.
         Ben Pfaff             Treat form feeds as valid text.
         Marc Gianzero         Darwin OS port.
         Elbert Pol            OS/2 port.
@@ -80,6 +80,7 @@ ACKNOWLEDGEMENTS
         Steve Hay             Support wildcard expansion on win64.
         Michael Schindler     Fixed compiler warning.
 	Somsak Pattanaprateep Print line number when binary symbol is found.
+	Justin Lecher         Makefile improvement.
 
 FINDUTILS
 

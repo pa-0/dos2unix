@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-23 20:51+0100\n"
+"POT-Creation-Date: 2013-06-11 21:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,10 +27,9 @@ msgid ""
 "\n"
 msgstr ""
 
-#: dos2unix.c:164 dos2unix.c:202 dos2unix.c:340 dos2unix.c:375 unix2dos.c:132
-#: unix2dos.c:185 unix2dos.c:332 unix2dos.c:382
+#: dos2unix.c:164 dos2unix.c:202 unix2dos.c:132 unix2dos.c:185
 #, c-format
-msgid "Binary symbol found at line %d\n"
+msgid "Binary symbol 0x00%02X found at line %d\n"
 msgstr ""
 
 #: dos2unix.c:179 dos2unix.c:218 dos2unix.c:243 dos2unix.c:353 dos2unix.c:389
@@ -48,6 +47,11 @@ msgstr ""
 #: dos2unix.c:315 unix2dos.c:309
 #, c-format
 msgid "using code page %d.\n"
+msgstr ""
+
+#: dos2unix.c:340 dos2unix.c:375 unix2dos.c:332 unix2dos.c:382
+#, c-format
+msgid "Binary symbol 0x%02X found at line %d\n"
 msgstr ""
 
 #: dos2unix.c:514 unix2dos.c:529

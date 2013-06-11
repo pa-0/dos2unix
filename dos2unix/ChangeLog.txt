@@ -1,3 +1,7 @@
+2013-06-11 Erwin Waterlander <waterlan@xs4all.nl>
+	* dos2unix.c/unix2dos.c: Print value of binary symbol
+	  when found.
+
 2013-03-12 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Set CC to gcc for MSYS target. Otherwise
 	  /mingw/bin/cc is used.

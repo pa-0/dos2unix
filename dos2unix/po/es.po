@@ -3,12 +3,12 @@
 # Copyright (C) 2011,2012 THE dos2unix'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the dos2unix package.
 # Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>, 2011,2012.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-18 11:09+0100\n"
+"POT-Creation-Date: 2013-06-11 21:07+0200\n"
 "PO-Revision-Date: 2011-06-20 09:13+0200\n"
 "Last-Translator:  <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish\n"
@@ -28,11 +28,10 @@ msgid ""
 "\n"
 msgstr ""
 
-#: dos2unix.c:164 dos2unix.c:202 dos2unix.c:340 dos2unix.c:375 unix2dos.c:132
-#: unix2dos.c:185 unix2dos.c:332 unix2dos.c:382
+#: dos2unix.c:164 dos2unix.c:202 unix2dos.c:132 unix2dos.c:185
 #, c-format
-msgid "Binary symbol found at line %d\n"
-msgstr "Símbolo binario encontrado en la línea %d\n"
+msgid "Binary symbol 0x00%02X found at line %d\n"
+msgstr "Símbolo binario 0x00%02X encontrado en la línea %d\n"
 
 #: dos2unix.c:179 dos2unix.c:218 dos2unix.c:243 dos2unix.c:353 dos2unix.c:389
 #: dos2unix.c:411 unix2dos.c:162 unix2dos.c:199 unix2dos.c:220 unix2dos.c:238
@@ -50,6 +49,11 @@ msgstr "error, modo de conversión %d inválido\n"
 #, c-format
 msgid "using code page %d.\n"
 msgstr "usando página de códigos %d.\n"
+
+#: dos2unix.c:340 dos2unix.c:375 unix2dos.c:332 unix2dos.c:382
+#, c-format
+msgid "Binary symbol 0x%02X found at line %d\n"
+msgstr "Símbolo binario 0x%02X encontrado en la línea %d\n"
 
 #: dos2unix.c:514 unix2dos.c:529
 #, c-format
