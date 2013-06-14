@@ -205,6 +205,16 @@ Except when wrong command-line options are used.
 
 Skip binary files (default).
 
+=item B<-ul, --assume-utf16le>
+
+Assume that the input file format is UTF-16LE.  Use this option with care. When
+the input format is not UTF-16LE, the file may get damaged.
+
+=item B<-ub, --assume-utf16be>
+
+Assume that the input file format is UTF-16BE.  Use this option with care. When
+the input format is not UTF-16BE, the file may get damaged.
+
 =item B<-F, --follow-symlink>
 
 Follow symbolic links and convert the targets.
@@ -362,8 +372,7 @@ Dos2unix can only detect if a file is in UTF-16 format if the file has a BOM.
 When an UTF-16 file doesn't have a BOM, dos2unix will see the file as a binary
 file.
 
-Use dos2unix in combination with iconv(1) to convert an UTF-16 file without
-BOM.
+Use option C<-ul> or C<-ub> to convert an UTF-16 file without BOM.
 
 Dos2unix never writes a BOM in the output file, unless you use option C<-m>.
 
@@ -376,9 +385,9 @@ Convert from Windows UTF-16 (with BOM) to Unix UTF-8
 
     dos2unix -n in.txt out.txt
 
-Convert from Windows UTF-16 (without BOM) to Unix UTF-8
+Convert from Windows UTF-16LE (without BOM) to Unix UTF-8
 
-    iconv -f UTF-16 -t UTF-8 in.txt | dos2unix > out.txt
+    dos2unix -ul -n in.txt out.txt
 
 Convert from Unix UTF-8 to Windows UTF-8 with BOM
 

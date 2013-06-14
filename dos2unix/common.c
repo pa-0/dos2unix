@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2009-2012 Erwin Waterlander
+ *   Copyright (C) 2009-2013 Erwin Waterlander
  *   All rights reserved.
  *
  *   Redistribution and use in source and binary forms, with or without
@@ -221,6 +221,11 @@ Usage: %s [options] [file ...] [-n infile outfile ...]\n\
                        always on in stdio mode\n\
  -s, --safe            skip binary files (default)\n"),
  progname, VER_REVISION, VER_DATE, progname);
+#ifdef D2U_UNICODE
+  fprintf(stderr, _("\
+ -ul, --assume-utf16le Assume that the input format is UTF-16LE\n\
+ -ub, --assume-utf16be Assume that the input format is UTF-16BE\n"));
+#endif
 #ifdef S_ISLNK
   fprintf(stderr, _("\
  -F, --follow-symlink  follow symbolic links and convert the targets\n\

@@ -282,6 +282,8 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
     switch (ipFlag->ConvMode)
     {
       case CONVMODE_ASCII: /* ascii */
+      case CONVMODE_UTF16LE: /* Assume UTF-16LE */
+      case CONVMODE_UTF16BE: /* Assume UTF-16BE */
         ConvTable = D2UAsciiTable;
         break;
       case CONVMODE_7BIT: /* 7bit */
@@ -554,6 +556,12 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   }
 
   InF = read_bom(InF, &ipFlag->bomtype);
+#ifdef D2U_UNICODE
+  if ((ipFlag->bomtype == FILE_MBS) && (ipFlag->ConvMode == CONVMODE_UTF16LE))
+    ipFlag->bomtype = FILE_UTF16LE;
+  if ((ipFlag->bomtype == FILE_MBS) && (ipFlag->ConvMode == CONVMODE_UTF16BE))
+    ipFlag->bomtype = FILE_UTF16BE;
+#endif
 
 #ifdef D2U_UNICODE
 #if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
@@ -587,7 +595,8 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
     fprintf(TempF, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
 
   /* Turn off ISO and 7-bit conversion for Unicode text files */
-  if (ipFlag->bomtype > 0)
+  /* When we assume UTF16, don't change the conversion mode. We need to remember it. */
+  if ((ipFlag->bomtype > 0) && (ipFlag->ConvMode != CONVMODE_UTF16LE) && (ipFlag->ConvMode != CONVMODE_UTF16BE))
     ipFlag->ConvMode = CONVMODE_ASCII;
 
   /* conversion sucessful? */
@@ -807,6 +816,12 @@ int ConvertDosToUnixStdio(CFlag *ipFlag, char *progname)
 #endif
 
     read_bom(stdin, &ipFlag->bomtype);
+#ifdef D2U_UNICODE
+    if ((ipFlag->bomtype == FILE_MBS) && (ipFlag->ConvMode == CONVMODE_UTF16LE))
+      ipFlag->bomtype = FILE_UTF16LE;
+    if ((ipFlag->bomtype == FILE_MBS) && (ipFlag->ConvMode == CONVMODE_UTF16BE))
+      ipFlag->bomtype = FILE_UTF16BE;
+#endif
 
     if (ipFlag->add_bom)
        fprintf(stdout, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
@@ -976,6 +991,12 @@ int main (int argc, char *argv[])
         pFlag->ConvMode = CONVMODE_865;
       else if (strcmp(argv[ArgIdx],"-1252") == 0)
         pFlag->ConvMode = CONVMODE_1252;
+#ifdef D2U_UNICODE
+      else if ((strcmp(argv[ArgIdx],"-ul") == 0) || (strcmp(argv[ArgIdx],"--assume-utf16le") == 0))
+        pFlag->ConvMode = CONVMODE_UTF16LE;
+      else if ((strcmp(argv[ArgIdx],"-ub") == 0) || (strcmp(argv[ArgIdx],"--assume-utf16be") == 0))
+        pFlag->ConvMode = CONVMODE_UTF16BE;
+#endif
       else if ((strcmp(argv[ArgIdx],"-c") == 0) || (strcmp(argv[ArgIdx],"--convmode") == 0))
       {
         if (++ArgIdx < argc)
