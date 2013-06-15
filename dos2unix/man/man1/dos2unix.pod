@@ -207,13 +207,22 @@ Skip binary files (default).
 
 =item B<-ul, --assume-utf16le>
 
-Assume that the input file format is UTF-16LE.  Use this option with care. When
-the input format is not UTF-16LE, the file may get damaged.
+Assume that the input file format is UTF-16LE.
+
+When there is a Byte Order Mark in the input file the BOM has priority over
+this option.
+
+When you made the wrong assumption (the file was actually UTF-16BE) and the
+conversion succeeded, you will get an UTF-8 output file with wrong text.  You
+can undo the wrong conversion with iconv(1) by converting the output file back
+to UTF-16LE. The double wrong UTF-16LE conversion will bring back the original
+(UTF-16BE) file.
 
 =item B<-ub, --assume-utf16be>
 
-Assume that the input file format is UTF-16BE.  Use this option with care. When
-the input format is not UTF-16BE, the file may get damaged.
+Assume that the input file format is UTF-16BE.
+
+This option works the same as C<-ul>.
 
 =item B<-F, --follow-symlink>
 
