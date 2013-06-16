@@ -4,7 +4,7 @@
 #
 #  Copyright and License
 #
-#   Copyright (C) 2009-2012 Erwin Waterlander
+#   Copyright (C) 2009-2013 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -218,6 +218,25 @@ es cero. Excepto cuando se emplean parámetros incorrectos.
 
 Ignora los archivos binarios (por defecto).
 
+=item B<-ul, --assume-utf16le>
+
+Assume that the input file format is UTF-16LE.
+
+When there is a Byte Order Mark in the input file the BOM has priority over
+this option.
+
+When you made the wrong assumption (the file was actually UTF-16BE) and the
+conversion succeeded, you will get an UTF-8 output file with wrong text.  You
+can undo the wrong conversion with iconv(1) by converting the output file back
+to UTF-16LE. The double wrong UTF-16LE conversion will bring back the original
+(UTF-16BE) file.
+
+=item B<-ub, --assume-utf16be>
+
+Assume that the input file format is UTF-16BE.
+
+This option works the same as option C<-ul>.
+
 =item B<-F, --follow-symlink>
 
 Sigue los enlaces simbólicos y convierte los destinos.
@@ -382,8 +401,7 @@ tiene una BOM.
 Cuando un archivo UTF-16 no tiene una BOM, dos2unix tratará el archivo como un
 archivo binario.
 
-Emplee dos2unix en combinación con iconv(1) para convertir un archivo UTF-16 sin
-una BOM.
+Use option C<-ul> or C<-ub> to convert an UTF-16 file without BOM.
 
 Dos2unix nunca escribe una BOM en el archivo de salida, a menos que emplee la
 opción C<-m>.
@@ -397,9 +415,9 @@ Convertir de Windows UTF-16 (con una BOM) a Unix UTF-8
 
     dos2unix -n in.txt out.txt
 
-Convertir de Windows UTF-16 (sin una BOM) a Unix UTF-8
+Convertir de Windows UTF-16LE (sin una BOM) a Unix UTF-8
 
-    iconv -f UTF-16 -t UTF-8 in.txt | dos2unix > out.txt
+    dos2unix -ul -n in.txt out.txt
 
 Convertir de Unix UTF-8 a Windows UTF-8 sin una BOM
 

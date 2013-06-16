@@ -318,10 +318,10 @@ common.o : common.c common.h
 querycp.o : querycp.c querycp.h
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
 
-dos2unix.o : dos2unix.c dos2unix.h querycp.h common.h
+dos2unix.o : dos2unix.c dos2unix.h querycp.h common.h version.mk
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
 
-unix2dos.o : unix2dos.c unix2dos.h querycp.h common.h
+unix2dos.o : unix2dos.c unix2dos.h querycp.h common.h version.mk
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
 
 $(BIN): dos2unix.o querycp.o common.o

@@ -1,7 +1,7 @@
 /*
 #  Copyright and License
 #
-#   Copyright (C) 2009-2012 Erwin Waterlander
+#   Copyright (C) 2009-2013 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -222,7 +222,7 @@ to UTF-16LE. The double wrong UTF-16LE conversion will bring back the original
 
 Assume that the input file format is UTF-16BE.
 
-This option works the same as C<-ul>.
+This option works the same as option C<-ul>.
 
 =item B<-F, --follow-symlink>
 

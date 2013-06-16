@@ -1,7 +1,7 @@
 /*
 #  Copyright and License
 #
-#   Copyright (C) 2009-2012 Erwin Waterlander
+#   Copyright (C) 2009-2013 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -211,6 +211,26 @@ Behalve wanneer verkeerde opties worden gegeven.
 
 Sla binaire bestanden over (standaard).
 
+=item B<-ul, --assume-utf16le>
+
+Veronderstel dat het formaat van het invoerbestand UTF-16LE is.
+
+Wanneer er een Byte Order Mark (BOM) in het invoerbestand zit dan gaat de BOM
+voor op deze optie.
+
+Wanneer een verkeerde aanname is gemaakt (het bestand was eigenlijk UTF-16BE)
+en de conversie verliep met succes, dan krijgt u een UTF-8 bestand met
+verkeerde tekst. De verkeerde conversie kan ongedaan worden gemaakt door met
+iconv(1) het uitvoerbestand terug om te zetten naar UTF-16LE. De dubbele
+verkeerde UTF-16LE conversie zal het originele (UTF-16BE) bestand terug
+brengen.
+
+=item B<-ub, --assume-utf16be>
+
+Veronderstel dat het formaat van het invoerbestand UTF-16BE is.
+
+Deze optie werkt hetzelfde als optie C<-ul>.
+
 =item B<-F, --follow-symlink>
 
 Volg symbolische koppelingen en coverteer de doelen.
@@ -368,8 +388,7 @@ Dos2unix kan alleen detecteren of een bestand in UTF-16 formaat is als het
 bestand een BOM heeft. Wanneer een UTF-16 bestand geen BOM heeft, ziet
 dos2unix het bestand als een binair bestand.
 
-Gebruik dos2unix in combinatie met iconv(1) om een UTF-16 bestand zonder BOM om
-te zetten.
+Gebruik optie C<-ul> of C<-ub> om een UTF-16 bestand zonder BOM om te zetten.
 
 Dos2unix schrijft nooit een BOM in het uitvoerbestand, tenzij optie C<-m>
 gebruikt wordt.
@@ -383,9 +402,9 @@ Omzetten van Windows UTF-16 (met BOM) naar Unix UTF-8
 
     dos2unix -n in.txt uit.txt
 
-Omzetten van Windows UTF-16 (zonder BOM) naar Unix UTF-8
+Omzetten van Windows UTF-16LE (zonder BOM) naar Unix UTF-8
 
-    iconv -f UTF-16 -t UTF-8 in.txt | dos2unix > uit.txt
+    dos2unix -ul -n in.txt uit.txt
 
 Omzetten van Unix UTF-8 naar Windows UTF-8 met BOM
 
