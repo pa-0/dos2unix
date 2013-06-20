@@ -67,6 +67,10 @@ text files a line break is a single character: the Line Feed (LF). In Mac text
 files, prior to Mac OS X, a line break was single Carriage Return (CR)
 character. Nowadays Mac OS uses Unix style (LF) line breaks.
 
+Besides line breaks Dos2unix can also convert the encoding of files. A few 8
+bit DOS code pages can be converted to Unix Latin-1. And Windows Unicode files
+can be converted to Unix Unicode files.
+
 Binary files are automatically skipped, unless conversion is forced.
 
 Non-regular files, such as directories and FIFOs, are automatically skipped.
@@ -212,11 +216,13 @@ Assume that the input file format is UTF-16LE.
 When there is a Byte Order Mark in the input file the BOM has priority over
 this option.
 
-When you made the wrong assumption (the file was actually UTF-16BE) and the
-conversion succeeded, you will get an UTF-8 output file with wrong text.  You
-can undo the wrong conversion with iconv(1) by converting the output file back
-to UTF-16LE. The double wrong UTF-16LE conversion will bring back the original
-(UTF-16BE) file.
+When you made a wrong assumption (the input file was not in UTF-16LE format) and
+the conversion succeeded, you will get an UTF-8 output file with wrong text.
+You can undo the wrong conversion with iconv(1) by converting the UTF-8 output
+file back to UTF-16LE. This will bring back the original file.
+
+The assumption of UTF-16LE works as a I<conversion mode>. By switching to the default
+I<ascii> mode the UTF-16LE assumption is turned off.
 
 =item B<-ub, --assume-utf16be>
 

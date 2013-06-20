@@ -68,10 +68,15 @@ gelijk is aan een DOS 'Line Feed' (LF) teken.  In Mac tekst bestanden, voor Mac
 OS X, bestaan regeleindes uit een enkel 'Carriage Return' teken. Mac OS X is
 Unix gebaseerd en heeft dezelfde regeleindes als Unix.
 
+Naast regeleindes kan Dos2unix ook de codering van bestanden omzetten. Enkele 8
+bit DOS code tabellen kunnen omgezet worden naar Unix Latin-1. En Windows
+Unicode bestanden kunnen geconverteerd worden naar Unix Unicode bestanden.
+
 Binaire bestanden worden automatisch overgeslagen, behalve als de omzetting
 geforceerd wordt.
 
-Niet-reguliere bestanden, zoals mappen en FIFOs, worden automatisch overgeslagen.
+Niet-reguliere bestanden, zoals mappen en FIFO's, worden automatisch
+overgeslagen.
 
 Symbolische koppelingen en hun doelen blijven standaard onaangeroerd.
 Optioneel kunnen symbolische koppelingen worden vervangen, of de uitvoer
@@ -81,7 +86,8 @@ symbolische koppelingen worden altijd vervangen, de doelen onaangeroerd
 gelaten.
 
 
-Dos2unix is gemodelleerd naar dos2unix onder SunOS/Solaris en heeft gelijke conversiemodi.
+Dos2unix is gemodelleerd naar dos2unix onder SunOS/Solaris en heeft gelijke
+conversiemodi.
 
 =head1 OPTIES
 
@@ -218,12 +224,14 @@ Veronderstel dat het formaat van het invoerbestand UTF-16LE is.
 Wanneer er een Byte Order Mark (BOM) in het invoerbestand zit dan gaat de BOM
 voor op deze optie.
 
-Wanneer een verkeerde aanname is gemaakt (het bestand was eigenlijk UTF-16BE)
-en de conversie verliep met succes, dan krijgt u een UTF-8 bestand met
+Wanneer een verkeerde aanname is gemaakt (het invoerbestand was geen UTF-16LE
+formaat) en de conversie verliep met succes, dan krijgt u een UTF-8 bestand met
 verkeerde tekst. De verkeerde conversie kan ongedaan worden gemaakt door met
-iconv(1) het uitvoerbestand terug om te zetten naar UTF-16LE. De dubbele
-verkeerde UTF-16LE conversie zal het originele (UTF-16BE) bestand terug
-brengen.
+iconv(1) het UTF-8 uitvoerbestand terug om te zetten naar UTF-16LE. Dit zal het
+originele bestand terug brengen.
+
+De aanname van UTF-16LE werkt als een I<conversie modus>. Door the schakelen
+naar I<ascii> modus wordt the UTF-16LE veronderstelling uitgeschakeld.
 
 =item B<-ub, --assume-utf16be>
 
