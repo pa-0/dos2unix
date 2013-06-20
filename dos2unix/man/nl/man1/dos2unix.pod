@@ -230,8 +230,8 @@ verkeerde tekst. De verkeerde conversie kan ongedaan worden gemaakt door met
 iconv(1) het UTF-8 uitvoerbestand terug om te zetten naar UTF-16LE. Dit zal het
 originele bestand terug brengen.
 
-De aanname van UTF-16LE werkt als een I<conversie modus>. Door the schakelen
-naar I<ascii> modus wordt the UTF-16LE veronderstelling uitgeschakeld.
+De aanname van UTF-16LE werkt als een I<conversie modus>. Door te schakelen
+naar I<ascii> modus wordt de UTF-16LE veronderstelling uitgeschakeld.
 
 =item B<-ub, --assume-utf16be>
 
