@@ -71,6 +71,11 @@ solamente un carácter: el salto de línea (LF). En archivos de texto Mac, antes
 de Mac OS X, un salto de línea era sólo un carácter retorno de carro (CR).
 Actualmente, Mac OS usa el estilo Unix de saltos de línea (LF).
 
+Además de saltos de línea, Dos2unix puede también convertir la
+codificación de archivos. Unas cuantas páginas de códigos DOS pueden ser
+convertidas a Unix Latin-1. Y archivos Unicode de Windows pueden ser
+convertidos a archivos Unicode de Unix.
+
 Los archivos binarios son ignorados automáticamente, a menos que se fuerce su
 conversión.
 
@@ -220,22 +225,27 @@ Ignora los archivos binarios (por defecto).
 
 =item B<-ul, --assume-utf16le>
 
-Assume that the input file format is UTF-16LE.
+Supone que el formato de archivo de entrada es UTF-16LE.
 
-When there is a Byte Order Mark in the input file the BOM has priority over
-this option.
+Cuando existe una marca de orden de bytes (BOM) en el archivo de
+entrada, la BOM tiene prioridad sobre esta opción.
 
-When you made the wrong assumption (the file was actually UTF-16BE) and the
-conversion succeeded, you will get an UTF-8 output file with wrong text.  You
-can undo the wrong conversion with iconv(1) by converting the output file back
-to UTF-16LE. The double wrong UTF-16LE conversion will bring back the original
-(UTF-16BE) file.
+Cuando se hace un supuesto incorrecto (el archivo de entrada no estaba
+en formato UTF-16LE) y la conversión tiene éxito, obtendrá un archivo
+UTF-8 de salida con el texto erróneo.
+
+La conversión errónea puede ser deshecha con iconv(1) mediante convertir
+el archivo UTF-8 de salida de vuelta a UTF-16LE. Esto restaurará el
+archivo original.
+
+El supuesto de UTF-16LE funciona como un I<modo de conversión>. Al
+cambiar al modo por defecto I<ascii> el supuesto UTF-16LE es deshabilitado.
 
 =item B<-ub, --assume-utf16be>
 
-Assume that the input file format is UTF-16BE.
+Supone que el formato del archivo de entrada es UTF-16BE.
 
-This option works the same as option C<-ul>.
+Esta opción funciona igual que la opción C<-ul>.
 
 =item B<-F, --follow-symlink>
 
@@ -401,7 +411,7 @@ tiene una BOM.
 Cuando un archivo UTF-16 no tiene una BOM, dos2unix tratará el archivo como un
 archivo binario.
 
-Use option C<-ul> or C<-ub> to convert an UTF-16 file without BOM.
+Emplee la opción C<-ul> o C<-ub> para convertir un archivo UTF-16 sin BOM.
 
 Dos2unix nunca escribe una BOM en el archivo de salida, a menos que emplee la
 opción C<-m>.
