@@ -73,8 +73,8 @@ Actualmente, Mac OS usa el estilo Unix de saltos de línea (LF).
 
 Además de saltos de línea, Dos2unix puede también convertir la
 codificación de archivos. Unas cuantas páginas de códigos DOS pueden ser
-convertidas a Unix Latin-1. Y archivos Unicode de Windows pueden ser
-convertidos a archivos Unicode de Unix.
+convertidas a Unix Latin-1. Y archivos Unicode de Windows (UTF-16) pueden ser
+convertidos a archivos Unicode de Unix (UTF-8).
 
 Los archivos binarios son ignorados automáticamente, a menos que se fuerce su
 conversión.

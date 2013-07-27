@@ -67,9 +67,9 @@ text files a line break is a single character: the Line Feed (LF). In Mac text
 files, prior to Mac OS X, a line break was single Carriage Return (CR)
 character. Nowadays Mac OS uses Unix style (LF) line breaks.
 
-Besides line breaks Dos2unix can also convert the encoding of files. A few 8
-bit DOS code pages can be converted to Unix Latin-1. And Windows Unicode files
-can be converted to Unix Unicode files.
+Besides line breaks Dos2unix can also convert the encoding of files. A few
+DOS code pages can be converted to Unix Latin-1. And Windows Unicode (UTF-16)
+files can be converted to Unix Unicode (UTF-8) files.
 
 Binary files are automatically skipped, unless conversion is forced.
 

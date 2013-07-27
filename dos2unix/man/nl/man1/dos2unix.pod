@@ -68,9 +68,10 @@ gelijk is aan een DOS 'Line Feed' (LF) teken.  In Mac tekst bestanden, voor Mac
 OS X, bestaan regeleindes uit een enkel 'Carriage Return' teken. Mac OS X is
 Unix gebaseerd en heeft dezelfde regeleindes als Unix.
 
-Naast regeleindes kan Dos2unix ook de codering van bestanden omzetten. Enkele 8
-bit DOS code tabellen kunnen omgezet worden naar Unix Latin-1. En Windows
-Unicode bestanden kunnen geconverteerd worden naar Unix Unicode bestanden.
+Naast regeleindes kan Dos2unix ook de codering van bestanden omzetten. Enkele
+DOS code tabellen kunnen omgezet worden naar Unix Latin-1. En Windows
+Unicode (UTF-16) bestanden kunnen geconverteerd worden naar Unix Unicode
+(UTF-8) bestanden.
 
 Binaire bestanden worden automatisch overgeslagen, behalve als de omzetting
 geforceerd wordt.
