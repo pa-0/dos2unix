@@ -1,9 +1,10 @@
 # German messages for dos2unix
-# Copyright (C) 2009-2012
+# Copyright (C) 2009-2013
 # This file is distributed under the same license as the dos2unix package.
 # 
 # Philipp Thomas <pth@suse.de>, 2009, 2010, 2011.
 # Philipp Thomas <psmt@opensuse.org>, 2009,2010, 2011.
+# Lars Wendler <polynomial-c@gentoo.org> 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
@@ -362,6 +363,9 @@ msgid ""
 " -ul, --assume-utf16le Assume that the input format is UTF-16LE\n"
 " -ub, --assume-utf16be Assume that the input format is UTF-16BE\n"
 msgstr ""
+" -ul, --assume-utf16le setze UTF-16LE als Eingabeformat voraus\n"
+" -ub, --assume-utf16be setze UTF-16BE als Eingabeformat voraus\n"
+
 
 #: common.c:230
 #, c-format

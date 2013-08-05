@@ -57,6 +57,7 @@ TRANSLATORS
         Dutch           Erwin Waterlander <waterlan@xs4all.nl>
         Esperanto       Rugxulo <rugxulo@gmail.com>
         German          Philipp Thomas <psmt@opensuse.org>
+        German          Lars Wendler <polynomial-c@gentoo.org> Version 6.0.4.
         Spanish         Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>
 
 ACKNOWLEDGEMENTS

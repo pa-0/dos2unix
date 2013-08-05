@@ -1,3 +1,6 @@
+2013-08-05 Erwin Waterlander <waterlan@xs4all.nl>
+	* po/de.po: Update German translations. Thanks to Lars Wendler.
+
 2013-06-14 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c/unix2dos.c: New options -ul and -ub to convert
 	  UTF-16 files without BOM.
