@@ -215,7 +215,7 @@ Usage: %s [options] [file ...] [-n infile outfile ...]\n\
  -n, --newfile         write to new file\n\
    infile              original file in new file mode\n\
    outfile             output file in new file mode\n\
- -o, --oldfile         write to old file\n\
+ -o, --oldfile         write to old file (default)\n\
    file ...            files to convert in old file mode\n\
  -q, --quiet           quiet mode, suppress all warnings\n\
                        always on in stdio mode\n\

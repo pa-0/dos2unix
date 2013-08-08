@@ -1,7 +1,7 @@
 # German messages for dos2unix
 # Copyright (C) 2009-2013
 # This file is distributed under the same license as the dos2unix package.
-# 
+#
 # Philipp Thomas <pth@suse.de>, 2009, 2010, 2011.
 # Philipp Thomas <psmt@opensuse.org>, 2009,2010, 2011.
 # Lars Wendler <polynomial-c@gentoo.org> 2013
@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-14 23:02+0200\n"
+"POT-Creation-Date: 2013-08-08 07:55+0200\n"
 "PO-Revision-Date: 2010-01-24 09:00+0100\n"
 "Last-Translator: Philipp Thomas <psmt@opensuse.org>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -321,7 +321,7 @@ msgid ""
 " -n, --newfile         write to new file\n"
 "   infile              original file in new file mode\n"
 "   outfile             output file in new file mode\n"
-" -o, --oldfile         write to old file\n"
+" -o, --oldfile         write to old file (default)\n"
 "   file ...            files to convert in old file mode\n"
 " -q, --quiet           quiet mode, suppress all warnings\n"
 "                       always on in stdio mode\n"
@@ -351,7 +351,7 @@ msgstr ""
 " -n, --newfile         eine neue Datei wird erzeugt\n"
 "   Eingabedatei        Originaldatei im neue Datei Modus\n"
 "   Ausgabedatei        Ausgabedatei im neue Datei Modus\n"
-" -o, --oldfile         überschreibt die alte Datei\n"
+" -o, --oldfile         überschreibt die alte Datei (Vorgabe)\n"
 "   Datei ...           Die im alte Datei Modus zu konvertierenden Dateien\n"
 " -q, --quiet           ruhiger Modus, unterdrückt alle Warnungen\n"
 "                       ist im stdio Modus immer aktiv\n"
@@ -365,7 +365,6 @@ msgid ""
 msgstr ""
 " -ul, --assume-utf16le setze UTF-16LE als Eingabeformat voraus\n"
 " -ub, --assume-utf16be setze UTF-16BE als Eingabeformat voraus\n"
-
 
 #: common.c:230
 #, c-format
