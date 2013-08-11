@@ -318,6 +318,9 @@ msgid ""
 " -ul, --assume-utf16le Assume that the input format is UTF-16LE\n"
 " -ub, --assume-utf16be Assume that the input format is UTF-16BE\n"
 msgstr ""
+" -ul, --assume-utf16le trakti enmeton kvazaux UTF-16LE\n"
+" -ub, --assume-utf16be trakti enmeton kvazaux UTF-16BE\n"
+
 
 #: common.c:230
 #, c-format

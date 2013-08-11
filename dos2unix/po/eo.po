@@ -2,7 +2,7 @@
 # Copyright (C) 2009-2012 THE dos2unix's COPYRIGHT HOLDER
 # This file is distributed under the same license as the dos2unix package.
 # waterlan <waterlan@xs4all.nl>, 2009-2012.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.3.1\n"
@@ -79,8 +79,8 @@ msgstr ""
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
 msgstr ""
-"Malsukcesis ŝanĝi la proprietulon kaj grupon de la provizora eldona dosiero "
-"%s: %s\n"
+"Malsukcesis ŝanĝi la proprietulon kaj grupon de la provizora eldona "
+"dosiero %s: %s\n"
 
 #: dos2unix.c:743 unix2dos.c:758
 #, c-format
@@ -318,6 +318,9 @@ msgid ""
 " -ul, --assume-utf16le Assume that the input format is UTF-16LE\n"
 " -ub, --assume-utf16be Assume that the input format is UTF-16BE\n"
 msgstr ""
+" -ul, --assume-utf16le trakti enmeton kvazaŭ UTF-16LE\n"
+" -ub, --assume-utf16be trakti enmeton kvazaŭ UTF-16BE\n"
+
 
 #: common.c:230
 #, c-format
@@ -328,8 +331,8 @@ msgid ""
 " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr ""
 " -F, --follow-symlink  legu dosierajn ĉenerojn kaj konverti la atingojn\n"
-" -R, --replace-symlink anstataŭe registru dosierajn ĉenerojn per konvertotaj "
-"dosieroj\n"
+" -R, --replace-symlink anstataŭe registru dosierajn ĉenerojn per "
+"konvertotaj dosieroj\n"
 "                       (ne-ĉeneraj atingaj dosieroj restas neŝanĝitaj)\n"
 " -S, --skip-symlink    retenu dosierajn ĉenerojn kaj atingojn neŝanĝataj "
 "(jam ŝaltita)\n"
