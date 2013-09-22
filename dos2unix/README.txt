@@ -58,8 +58,8 @@ TRANSLATORS
         Esperanto       Rugxulo <rugxulo@gmail.com>
         German          Philipp Thomas <psmt@opensuse.org>
         German          Lars Wendler <polynomial-c@gentoo.org> Version 6.0.4.
-        Spanish         Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>
         Russian         Андрей Углик (Andrei Uhlik) <uglika@gmail.com>
+        Spanish         Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>
 
 ACKNOWLEDGEMENTS
 
