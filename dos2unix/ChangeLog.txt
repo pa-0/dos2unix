@@ -1,3 +1,6 @@
+2013-09-13 Андрей Углик (Andrei Uhlik) <uglika@gmail.com>
+	* po/ru.po: New Russian translation of the messages.
+
 2013-08-05 Erwin Waterlander <waterlan@xs4all.nl>
 	* po/de.po: Update German translations. Thanks to Lars Wendler.
 
