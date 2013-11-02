@@ -64,21 +64,28 @@ MANPAGE		= $(MANDEST)$(PACKAGE).$(MANSECT)
 
 POD2MAN		= pod2man
 POD2MAN_FLAGS	=
+MAN_NONLATIN    ?= 1
 
 PODFILES = $(wildcard ../*/man1/dos2unix.pod)
 MAN_OBJECTS = dos2unix.1 $(patsubst %.pod,%.1,$(PODFILES))
+ifeq ($(MAN_NONLATIN),1)
+PODFILES_NONLATIN = $(wildcard ../nonlatin/*/man1/dos2unix.pod)
+MAN_OBJECTS_NONLATIN = dos2unix.1 $(patsubst %.pod,%.1,$(PODFILES_NONLATIN))
+endif
 
-all: $(MAN_OBJECTS)
+all: $(MAN_OBJECTS) $(MAN_OBJECTS_NONLATIN)
 
+MAN_OBJECTS_NONLATIN = $(patsubst %.pod,%.1,$(PODFILES_NONLATIN))
 
-# The .pod files are encoded in Latin-1.  UTF-8 man pages are not properly
-# displayed in a Windows Command Prompt, therefore we keep them in Latin-1
-# (CP1252) format.
+# The .pod files for Latin scripts are encoded in Latin-1 (ISO-8859-1/CP1252).
+# UTF-8 man pages are not properly displayed in a Windows Command Prompt,
+# therefore we keep them in Latin-1 format.
 
 # Cygwin 1.7 expects man pages to be in Latin-1 format.
 
 # The perl version of MinGW and DJGPP is 5.8.8. The pod2man command of perl
-# 5.8.8 does not yet have the options -u, --utf8.
+# 5.8.8 does not yet have the options -u, --utf8, and does support the =encoding
+# command.
 
 # There are different *roff implementations. For now I assume we are using
 # groff (GNU-roff) which is wide spread, default on Linux, Cygwin, MinGW, and
@@ -118,5 +125,33 @@ all: $(MAN_OBJECTS)
 		-e s/o\\\\\\*\'/\\\\[\'o]/g\; \
 		-e s/u\\\\\\*\'/\\\\[\'u]/g\; \
 		$@
+
+
+
+# The .pod files under the 'nonlatin' folder are encoded in UTF-8.
+# For these manuals pod2man needs to support the =encoding command
+# and the --utf8 option.
+# I believe this is supported from perl 5.10.
+# Erwin W.
+
+nonlatin: $(MAN_OBJECTS_NONLATIN)
+
+
+../nonlatin/ru/%.1 : ../nonlatin/ru/%.pod
+	# make target - create manual page from a *.pod page
+	podchecker $<
+	$(POD2MAN) $(POD2MAN_FLAGS) \
+                --utf8 \
+		--center="$(PODCENTER)" \
+		--name="$(PACKAGE)" \
+		--section="$(MANSECT)" \
+		$< \
+	| perl -p -e 's/[Pp]erl v[0-9.]+/$(PACKAGE)/;' \
+	  > $@ && \
+	rm -f pod*.tmp
+
+clean:
+	rm -f $(MAN_OBJECTS)
+	rm -f $(MAN_OBJECTS_NONLATIN)
 
 # End of of Makefile part

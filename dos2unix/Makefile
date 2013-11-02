@@ -52,6 +52,7 @@ ENABLE_NLS	= 1
 LFS             = 1
 DEBUG = 0
 UCS = 1
+MAN_NONLATIN = 1
 
 EXE=
 
@@ -157,6 +158,7 @@ ifeq ($(findstring MSYS,$(shell uname)),MSYS)
 	VERSIONSUFFIX	= -msys
 	EO_XNOTATION=1
 	UCS =
+	MAN_NONLATIN =
 ifdef ENABLE_NLS
 	LIBS_EXTRA = -lintl -liconv
 endif
@@ -171,6 +173,7 @@ ifeq ($(findstring MINGW32,$(shell uname)),MINGW32)
 	VERSIONSUFFIX	= -win32
 	LINK = cp -f
 	EO_XNOTATION=1
+	MAN_NONLATIN =
 ifdef ENABLE_NLS
 	LIBS_EXTRA = -lintl -liconv
 	ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
@@ -188,6 +191,7 @@ ifneq ($(DJGPP),)
 	docsubdir = dos2unix
 	EO_XNOTATION=1
 	UCS =
+	MAN_NONLATIN =
 	ZIPOBJ_EXTRA = bin/cwsdpmi.exe
 ifdef ENABLE_NLS
 	LIBS_EXTRA = -lintl -liconv
@@ -204,6 +208,7 @@ ifeq ($(shell uname),OS/2)
 	LINK_MAN = cp -f
 	EO_XNOTATION=1
 	UCS =
+	MAN_NONLATIN =
 	LDFLAGS_EXTRA = -Zargs-wild
 ifdef ENABLE_NLS
 	LIBS_EXTRA += -lintl -liconv
@@ -267,6 +272,11 @@ ifdef EO_XNOTATION
 EO_NOTATION = -x
 endif
 
+ifeq ($(MAN_NONLATIN),1)
+PODFILES_NONLATIN = $(wildcard man/nonlatin/*/man1/dos2unix.pod)
+MANFILES_NONLATIN = $(patsubst %.pod,%.1,$(PODFILES_NONLATIN))
+endif
+
 CFLAGS_USER	=
 CFLAGS		?= -O2
 CFLAGS		+= -Wall $(RPM_OPT_FLAGS) $(CPPFLAGS) $(CFLAGS_USER)
@@ -302,7 +312,7 @@ DEFS		= $(EXTRA_DEFS) $(DEFS_USER)
 
 # .......................................................... targets ...
 
-all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES) $(EOX_POFILES) $(MANFILES) man/man1/dos2unix.1
+all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES) $(EOX_POFILES) $(MANFILES) man/man1/dos2unix.1 $(MANFILES_NONLATIN)
 
 status:
 	@echo "D2U_OS       = $(D2U_OS)"
@@ -334,7 +344,7 @@ $(MAC2UNIX_BIN) : $(BIN)
 	$(LINK) $< $@
 
 %.1 : %.pod
-	$(MAKE) -C man/man1
+	$(MAKE) -C man/man1 MAN_NONLATIN=$(MAN_NONLATIN)
 
 $(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
 	$(LINK) $< $@
@@ -436,6 +446,11 @@ endif
 	$(foreach manfile, $(MANFILES), cd $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ; $(LINK_MAN) $(PACKAGE).1 $(MAC2UNIX).1 ;)
 	$(foreach manfile, $(MANFILES), cd $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ; $(LINK_MAN) $(PACKAGE).1 $(UNIX2DOS).1 ;)
 	$(foreach manfile, $(MANFILES), cd $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ; $(LINK_MAN) $(PACKAGE).1 $(UNIX2MAC).1 ;)
+	$(foreach manfile, $(MANFILES_NONLATIN), $(MKDIR) -p -m 755 $(DESTDIR)$(datarootdir)/$(subst nonlatin/,,$(dir $(manfile))) ;)
+	$(foreach manfile, $(MANFILES_NONLATIN), $(INSTALL) -m 644 $(manfile) $(DESTDIR)$(datarootdir)/$(subst nonlatin/,,$(dir $(manfile))) ;)
+	$(foreach manfile, $(MANFILES_NONLATIN), cd $(DESTDIR)$(datarootdir)/$(subst nonlatin/,,$(dir $(manfile))) ; $(LINK_MAN) $(PACKAGE).1 $(MAC2UNIX).1 ;)
+	$(foreach manfile, $(MANFILES_NONLATIN), cd $(DESTDIR)$(datarootdir)/$(subst nonlatin/,,$(dir $(manfile))) ; $(LINK_MAN) $(PACKAGE).1 $(UNIX2DOS).1 ;)
+	$(foreach manfile, $(MANFILES_NONLATIN), cd $(DESTDIR)$(datarootdir)/$(subst nonlatin/,,$(dir $(manfile))) ; $(LINK_MAN) $(PACKAGE).1 $(UNIX2MAC).1 ;)
 ifdef ENABLE_NLS
 	@echo "-- install-mo"
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
@@ -476,6 +491,7 @@ endif
 	-rm -f $(DESTDIR)$(mandir)/man1/$(UNIX2DOS).1
 	-rm -f $(DESTDIR)$(mandir)/man1/$(UNIX2MAC).1
 	$(foreach manfile, $(MANFILES), rm -f $(DESTDIR)$(datarootdir)/$(manfile) ;)
+	$(foreach manfile, $(MANFILES_NONLATIN), rm -f $(DESTDIR)$(datarootdir)/$(subst nonlatin/,,$(manfile)) ;)
 	-rm -rf $(DESTDIR)$(docdir)
 
 mostlyclean:
@@ -501,6 +517,7 @@ clean: mostlyclean
 	rm -f man/*/man1/*.ps
 	rm -f man/*/man1/*.pdf
 	rm -f man/*/man1/*.ut8
+	rm -f man/nonlatin/*/man1/*.1
 
 distclean: clean
 
