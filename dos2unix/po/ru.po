@@ -35,9 +35,9 @@ msgstr ""
 "\n"
 
 #: dos2unix.c:164 dos2unix.c:202 unix2dos.c:132 unix2dos.c:185
-#, fuzzy, c-format
+#, c-format
 msgid "Binary symbol 0x00%02X found at line %d\n"
-msgstr "Бинарный символ, обнаруженный в строке %d\n"
+msgstr "Бинарный символ 0x00%02X, обнаруженный в строке %d\n"
 
 #: dos2unix.c:179 dos2unix.c:218 dos2unix.c:243 dos2unix.c:355 dos2unix.c:391
 #: dos2unix.c:413 unix2dos.c:162 unix2dos.c:199 unix2dos.c:220 unix2dos.c:238
@@ -57,9 +57,9 @@ msgid "using code page %d.\n"
 msgstr "используется кодировка %d.\n"
 
 #: dos2unix.c:342 dos2unix.c:377 unix2dos.c:334 unix2dos.c:384
-#, fuzzy, c-format
+#, c-format
 msgid "Binary symbol 0x%02X found at line %d\n"
-msgstr "Бинарный символ, обнаруженный в строке %d\n"
+msgstr "Бинарный символ 0x%02X, обнаруженный в строке %d\n"
 
 #: dos2unix.c:516 unix2dos.c:531
 #, c-format
@@ -349,6 +349,8 @@ msgid ""
 " -ul, --assume-utf16le Assume that the input format is UTF-16LE\n"
 " -ub, --assume-utf16be Assume that the input format is UTF-16BE\n"
 msgstr ""
+" -ul, --assume-utf16le Предположить что входной формат UTF-16LE\n"
+" -ub, --assume-utf16be Предположить что входной формат UTF-16BE\n"
 
 #: common.c:230
 #, c-format
