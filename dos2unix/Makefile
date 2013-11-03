@@ -1,6 +1,6 @@
 # Author: Erwin Waterlander
 #
-#   Copyright (C) 2009-2012 Erwin Waterlander
+#   Copyright (C) 2009-2013 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -93,7 +93,7 @@ HTMLEXT = htm
 # By default we generate only English text and html manuals.
 # Then we don't need "pod2text --utf8" and we have no dependency on iconv.
 DOCFILES	= man/man1/$(PACKAGE).txt man/man1/$(PACKAGE).$(HTMLEXT)
-INSTALL_OBJS_DOC = README.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt $(DOCFILES)
+INSTALL_OBJS_DOC = README.txt INSTALL.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt $(DOCFILES)
 
 PODFILES_ALL	= man/man1/dos2unix.pod $(wildcard man/*/man1/dos2unix.pod)
 PODFILES	= $(wildcard man/*/man1/dos2unix.pod)
@@ -273,8 +273,12 @@ EO_NOTATION = -x
 endif
 
 ifeq ($(MAN_NONLATIN),1)
-PODFILES_NONLATIN = $(wildcard man/nonlatin/*/man1/dos2unix.pod)
-MANFILES_NONLATIN = $(patsubst %.pod,%.1,$(PODFILES_NONLATIN))
+PODFILES_NONLATIN  = $(wildcard man/nonlatin/*/man1/dos2unix.pod)
+MANFILES_NONLATIN  = $(patsubst %.pod,%.1,$(PODFILES_NONLATIN))
+TXTFILES_NONLATIN  = $(patsubst %.pod,%.txt,$(PODFILES_NONLATIN))
+HTMLFILES_NONLATIN = $(patsubst %.pod,%.$(HTMLEXT),$(PODFILES_NONLATIN))
+PSFILES_NONLATIN   = $(patsubst %.pod,%.ps,$(PODFILES_NONLATIN))
+PDFFILES_NONLATIN  = $(patsubst %.pod,%.pdf,$(PODFILES_NONLATIN))
 endif
 
 CFLAGS_USER	=
@@ -351,13 +355,13 @@ $(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
 
 mofiles: $(MOFILES)
 
-html: $(HTMLFILES)
+html: $(HTMLFILES) $(HTMLFILES_NONLATIN)
 
-txt: $(TXTFILES)
+txt: $(TXTFILES) $(TXTFILES_NONLATIN)
 
-ps: $(PSFILES)
+ps: $(PSFILES) $(PSFILES_NONLATIN)
 
-pdf: $(PDFFILES)
+pdf: $(PDFFILES) $(PDFFILES_NONLATIN)
 
 doc: $(DOCFILES) $(MANFILES) man/man1/dos2unix.1
 
@@ -393,6 +397,10 @@ $(POT) : dos2unix.c unix2dos.c common.c
 man/man1/$(PACKAGE).txt : man/man1/$(PACKAGE).pod
 	pod2text $< > $@
 
+# Non-Latin1 script manuals are already in UTF-8 format.
+man/nonlatin/ru/man1/$(PACKAGE).txt : man/nonlatin/ru/man1/$(PACKAGE).pod
+	pod2text $< > $@
+
 %.ps : %.1
 	groff -man $< -T ps > $@
 
@@ -418,6 +426,9 @@ man/nl/man1/$(PACKAGE).$(HTMLEXT) : man/nl/man1/$(PACKAGE).ut8
 
 man/es/man1/$(PACKAGE).$(HTMLEXT) : man/es/man1/$(PACKAGE).ut8
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Convertidor de archivos de texto de formato DOS/Mac a Unix y viceversa" $< > $@
+
+man/nonlatin/ru/man1/$(PACKAGE).$(HTMLEXT) : man/nonlatin/ru/man1/$(PACKAGE).pod
+	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
 
 install: all
 	$(MKDIR) -p -m 755 $(DESTDIR)$(bindir)
@@ -518,6 +529,10 @@ clean: mostlyclean
 	rm -f man/*/man1/*.pdf
 	rm -f man/*/man1/*.ut8
 	rm -f man/nonlatin/*/man1/*.1
+	rm -f man/nonlatin/*/man1/*.txt
+	rm -f man/nonlatin/*/man1/*.$(HTMLEXT)
+	rm -f man/nonlatin/*/man1/*.ps
+	rm -f man/nonlatin/*/man1/*.pdf
 
 distclean: clean
 

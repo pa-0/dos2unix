@@ -95,6 +95,58 @@ NATIVE LANGUAGE SUPPORT
         make clean install ENABLE_NLS=
 
 
+INTERNATIONAL MAN PAGES
+
+    Man pages for Latin1 (Western European) scripts are supported
+    on all systems.
+
+    Man pages for non-Latin1 scripts are only supported on modern
+    Unix (like) systems. This is controlled via the make variable
+    MAN_NONLATIN. When the value of MAN_NONLATIN is equal to 1
+    (default for Unix) non-Latin manual pages are built. For DOS,
+    Windows, OS/2 this variable is default empty.
+
+    Enable non-Latin man pages:
+
+        make install MAN_NONLATIN=1
+
+    Disable non-Latin man pages:
+
+        make install MAN_NONLATIN=
+
+
+    Originally the Unix man system supported only man pages in Latin1
+    format (ISO-8859-1). Although the world is moving to Unicode format
+    (UTF-8) there is still a lot of Latin1 legacy around.
+
+    The English man page is a pure ASCII file and is readable on all
+    platforms.
+
+    The non-English Latin script man pages are ASCII files and use GNU
+    groff extension codes (see man groff_char) for the non-ASCII Latin1
+    characters. This way the man pages show properly in UTF-8 environments
+    (modern Linuxes) and legacy Latin1 (DJGPP, MinGW, Cygwin, old Unixes).
+    GNU groff is wide spread, but there are old roff implementations
+    around that don't support the GNU extensions.
+
+    Man pages for non-Latin1 scripts are encoded in UTF-8. These do not
+    show properly on old systems. Therefore these are not built for DOS,
+    and Windows by default. Man pages in UTF-8 format are shown properly
+    on Linux.
+
+    In order to show UTF-8 man pages properly on Cygwin you need to do the
+    following:
+
+    In /etc/man.conf, change the NROFF definition to use 'preconv'.
+
+        NROFF        /usr/bin/preconv | /usr/bin/nroff -c -mandoc 2>/dev/null
+
+    To view the man page set the correct locale. E.g. for Russian:
+
+        export LANG=ru_RU.UTF-8
+        man dos2unix
+
+
 LARGE FILE SUPPORT
 
     Large File Support (LFS) is by default enabled. This enables

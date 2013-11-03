@@ -81,8 +81,8 @@ ACKNOWLEDGEMENTS
         Steven H. Levine      Support wildcard expansion on OS/2.
         Steve Hay             Support wildcard expansion on win64.
         Michael Schindler     Fixed compiler warning.
-	Somsak Pattanaprateep Print line number when binary symbol is found.
-	Justin Lecher         Makefile improvement.
+        Somsak Pattanaprateep Print line number when binary symbol is found.
+        Justin Lecher         Makefile improvement.
 
 FINDUTILS
 
