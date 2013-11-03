@@ -277,8 +277,10 @@ PODFILES_NONLATIN  = $(wildcard man/nonlatin/*/man1/dos2unix.pod)
 MANFILES_NONLATIN  = $(patsubst %.pod,%.1,$(PODFILES_NONLATIN))
 TXTFILES_NONLATIN  = $(patsubst %.pod,%.txt,$(PODFILES_NONLATIN))
 HTMLFILES_NONLATIN = $(patsubst %.pod,%.$(HTMLEXT),$(PODFILES_NONLATIN))
-PSFILES_NONLATIN   = $(patsubst %.pod,%.ps,$(PODFILES_NONLATIN))
-PDFFILES_NONLATIN  = $(patsubst %.pod,%.pdf,$(PODFILES_NONLATIN))
+# PostScript and PDF generation from UTF-8 manuals is not working,
+# or I don't know how to do it.
+#PSFILES_NONLATIN   = $(patsubst %.pod,%.ps,$(PODFILES_NONLATIN))
+#PDFFILES_NONLATIN  = $(patsubst %.pod,%.pdf,$(PODFILES_NONLATIN))
 endif
 
 CFLAGS_USER	=
@@ -487,6 +489,10 @@ install-doc: $(INSTALL_OBJS_DOC)
 	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
 	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(INSTALL) -m 644 $(psfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
 	$(foreach psfile, $(wildcard man/man1/*.ps), $(INSTALL) -m 644 $(psfile) $(DESTDIR)$(docdir) ;)
+	$(foreach txtfile, $(wildcard man/nonlatin/*/man1/*.txt), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 3,$(subst /, ,$(txtfile),)) ;)
+	$(foreach txtfile, $(wildcard man/nonlatin/*/man1/*.txt), $(INSTALL) -m 644 $(txtfile) $(DESTDIR)$(docdir)/$(word 3,$(subst /, ,$(txtfile),)) ;)
+	$(foreach htmlfile, $(wildcard man/nonlatin/*/man1/*.$(HTMLEXT)), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 3,$(subst /, ,$(htmlfile),)) ;)
+	$(foreach htmlfile, $(wildcard man/nonlatin/*/man1/*.$(HTMLEXT)), $(INSTALL) -m 644 $(htmlfile) $(DESTDIR)$(docdir)/$(word 3,$(subst /, ,$(htmlfile),)) ;)
 
 uninstall:
 	@echo "-- target: uninstall"

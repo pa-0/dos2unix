@@ -38,19 +38,25 @@ dist:
 	cd ../$(RELEASE_DIR_D2U) ; unix2dos --keepdate man/man1/*.txt man/*/man1/*.txt
 	cd ../$(RELEASE_DIR_D2U) ; unix2dos --keepdate man/man1/*.pod man/*/man1/*.pod
 	cd ../$(RELEASE_DIR_D2U) ; unix2dos --keepdate man/man1/*.htm* man/*/man1/*.htm*
+	cd ../$(RELEASE_DIR_D2U) ; unix2dos --keepdate man/nonlatin/man1/*.txt man/*/man1/*.txt
+	cd ../$(RELEASE_DIR_D2U) ; unix2dos --keepdate man/nonlatin/man1/*.pod man/*/man1/*.pod
+	cd ../$(RELEASE_DIR_D2U) ; unix2dos --keepdate man/nonlatin/man1/*.htm* man/*/man1/*.htm*
 	cd ../$(RELEASE_DIR_D2U) ; unix2dos --keepdate po/*.*
 	# Create doc package for people who are not able to create it.
 	cd .. ; tar cvzf ${RELEASE_DIR_DOS2UNIX}-doc.tar.gz \
 		${RELEASE_DIR_DOS2UNIX}/man/man1/*.txt \
-		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.txt \
 		${RELEASE_DIR_DOS2UNIX}/man/man1/*.htm* \
-		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.htm* \
 		${RELEASE_DIR_DOS2UNIX}/man/man1/*.ps \
-		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.ps \
 		${RELEASE_DIR_DOS2UNIX}/man/man1/*.pdf \
-		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.pdf \
 		${RELEASE_DIR_DOS2UNIX}/man/man1/*.1 \
-		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.1
+		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.txt \
+		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.htm* \
+		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.ps \
+		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.pdf \
+		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.1 \
+		${RELEASE_DIR_DOS2UNIX}/man/nonlatin/*/man1/*.txt \
+		${RELEASE_DIR_DOS2UNIX}/man/nonlatin/*/man1/*.htm* \
+		${RELEASE_DIR_DOS2UNIX}/man/nonlatin/*/man1/*.1
 	# Remove generated doc files from Unix package.
 	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) clean
 	# Create the package.
