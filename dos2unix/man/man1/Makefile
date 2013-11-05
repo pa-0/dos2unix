@@ -130,8 +130,7 @@ MAN_OBJECTS_NONLATIN = $(patsubst %.pod,%.1,$(PODFILES_NONLATIN))
 
 # The .pod files under the 'nonlatin' folder are encoded in UTF-8.
 # For these manuals pod2man needs to support the =encoding command
-# and the --utf8 option.
-# I believe this is supported from perl 5.10.
+# and the --utf8 option. This is supported since perl 5.10.1.
 # Erwin W.
 
 nonlatin: $(MAN_OBJECTS_NONLATIN)

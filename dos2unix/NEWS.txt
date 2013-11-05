@@ -1,3 +1,8 @@
+2013-xx-xx: Version 6.0.4
+
+  * New options to convert UTF-16 files without BOM.
+  * New Russian translation of the messages.
+
 2013-01-25: Version 6.0.3
 
   * Source code compiles with Microsoft Visual C.

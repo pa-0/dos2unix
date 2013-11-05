@@ -1,3 +1,8 @@
+2013-10-05 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: By default don't build non-Latin1 manuals. There are
+	  still too many old perl/pod2man versions around (perl < 5.10.1).
+	  Add MAN_NONLATIN=1 to enable non-Latin1 manuals.
+
 2013-10-01 Erwin Waterlander <waterlan@xs4all.nl>
 	* man/man1/Makefile: Support non-Latin1 man pages.
 	* Makefile: Support non-Latin1 man pages.

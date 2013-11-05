@@ -52,7 +52,7 @@ ENABLE_NLS	= 1
 LFS             = 1
 DEBUG = 0
 UCS = 1
-MAN_NONLATIN = 1
+MAN_NONLATIN =
 
 EXE=
 
@@ -148,6 +148,7 @@ endif
 	# documentation directories.
 	docsubdir	= $(PACKAGE)
 	VERSIONSUFFIX	= -cygwin
+	MAN_NONLATIN = 1
 endif
 
 ifndef D2U_OS
