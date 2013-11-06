@@ -35,6 +35,7 @@
 
 include version.mk
 
+.PHONY: man txt html pdf mofiles tags merge
 
 CC		?= gcc
 CPP		?= cpp
@@ -319,7 +320,7 @@ DEFS		= $(EXTRA_DEFS) $(DEFS_USER)
 
 # .......................................................... targets ...
 
-all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES) $(EOX_POFILES) $(MANFILES) man/man1/dos2unix.1 $(MANFILES_NONLATIN)
+all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES) $(EOX_POFILES) man/man1/dos2unix.1 $(MANFILES) $(MANFILES_NONLATIN)
 
 status:
 	@echo "D2U_OS       = $(D2U_OS)"
@@ -366,7 +367,9 @@ ps: $(PSFILES) $(PSFILES_NONLATIN)
 
 pdf: $(PDFFILES) $(PDFFILES_NONLATIN)
 
-doc: $(DOCFILES) $(MANFILES) man/man1/dos2unix.1
+man: man/man1/dos2unix.1 $(MANFILES) $(MANFILES_NONLATIN)
+
+doc: $(DOCFILES)
 
 tags: $(POT)
 
