@@ -1,3 +1,9 @@
+2013-10-07 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Set MAN_NONLATIN back to 1. Include non-Latin
+	  manuals in source package to prevent compilation troubles.
+	  Target 'clean' keeps non-Latin manuals. Use 'maintainer-clean'
+	  to erase them.
+
 2013-10-05 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: By default don't build non-Latin1 manuals. There are
 	  still too many old perl/pod2man versions around (perl < 5.10.1).

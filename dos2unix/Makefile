@@ -53,7 +53,10 @@ ENABLE_NLS	= 1
 LFS             = 1
 DEBUG = 0
 UCS = 1
-MAN_NONLATIN =
+# I can set MAN_NONLATIN to 1, despite the compilation issues with old Perl
+# versions, because I'm going to include the non-Latin1 manual files into the
+# source package.
+MAN_NONLATIN = 1
 
 EXE=
 
@@ -538,17 +541,24 @@ clean: mostlyclean
 	rm -f man/*/man1/*.ps
 	rm -f man/*/man1/*.pdf
 	rm -f man/*/man1/*.ut8
-	rm -f man/nonlatin/*/man1/*.1
-	rm -f man/nonlatin/*/man1/*.txt
-	rm -f man/nonlatin/*/man1/*.$(HTMLEXT)
 	rm -f man/nonlatin/*/man1/*.ps
 	rm -f man/nonlatin/*/man1/*.pdf
 
 distclean: clean
 
+# Because there is so much trouble with generating non-Latin1 man pages with
+# pod2man, due to old Perl versions (< 5.10.1) on many systems, I include the
+# non-Latin1 man pages in the source tar file.
+# I don't include PDF files, because packagers don't like to put binary files
+# in their file versioning systems. At the moment .ps and .pdf are not
+# generated anyway for non-Latin1 languages.
+
 maintainer-clean: distclean
 	@echo 'This command is intended for maintainers to use; it'
 	@echo 'deletes files that may need special tools to rebuild.'
+	rm -f man/nonlatin/*/man1/*.1
+	rm -f man/nonlatin/*/man1/*.txt
+	rm -f man/nonlatin/*/man1/*.$(HTMLEXT)
 
 realclean: maintainer-clean
 
