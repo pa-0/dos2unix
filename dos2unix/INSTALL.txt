@@ -210,15 +210,21 @@ DOCUMENTATION
     PDF generation requires GhostScript to be installed.
 
 
-WINDOWS PORT
+WINDOWS 32 BIT PORT
 
-    To compile a version for Windows, get the Mingw compiler
-    <http://www.mingw.org>, and use makefile mingw.mak:
+    Using Mingw compiler <http://www.mingw.org>:
 
         make -f mingw.mak clean
         make -f mingw.mak
         make -f mingw.mak strip
         make -f mingw.mak install
+
+    Using Mingw-w64 compiler <http://mingw-w64.sourceforge.net>:
+
+        make -f mingw32.mak clean
+        make -f mingw32.mak
+        make -f mingw32.mak strip
+        make -f mingw32.mak install
 
     Or use Open Watcom and type:
 
@@ -241,7 +247,7 @@ WINDOWS PORT
 
 WINDOWS 64 BIT PORT
 
-    To compile a version for Windows, get the Mingw-w64 compiler
+    To compile a version for 64 bit Windows, get the Mingw-w64 compiler
     <http://mingw-w64.sourceforge.net>, and use makefile mingw64.mak:
 
         make -f mingw64.mak clean
