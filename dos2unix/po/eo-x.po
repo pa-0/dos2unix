@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-08 07:55+0200\n"
-"PO-Revision-Date: 2010-03-07 19:50+0100\n"
+"POT-Creation-Date: 2013-11-26 23:08+-0100\n"
+"PO-Revision-Date: 2010-03-07 19:50+-0100\n"
 "Last-Translator: Rugxulo <rugxulo@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
 "Language: eo\n"
@@ -79,8 +79,8 @@ msgstr ""
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
 msgstr ""
-"Malsukcesis sxangxi la proprietulon kaj grupon de la provizora eldona "
-"dosiero %s: %s\n"
+"Malsukcesis sxangxi la proprietulon kaj grupon de la provizora eldona dosiero "
+"%s: %s\n"
 
 #: dos2unix.c:743 unix2dos.c:758
 #, c-format
@@ -296,7 +296,7 @@ msgstr ""
 "   -865                Uzu DOS kodpagxon 865 (Nordlandaj)\n"
 " -7                    Traduku de 8-bitaj literoj en blankspacon\n"
 " -c, --convmode        modo de sxangxo\n"
-"   sxangxmodo          ascii, 7bit, iso, mac, provizore elektita ascii\n"
+"   sxangxmodo            ascii, 7bit, iso, mac, provizore elektita ascii\n"
 " -f, --force           forte konvertado de netekstaj dosieroj\n"
 " -h, --help            diri cxi tiun mesagxon\n"
 " -k, --keepdate        konservi dato-tempon dosieran\n"
@@ -304,8 +304,8 @@ msgstr ""
 " -l, --newline         aldoni markon linian finan\n"
 " -m, --aldoni-bom      aldoni UTF-8 internan ordo-markon\n"
 " -n, --newfile         registri novan dosieron\n"
-"   antauxajxo          al antauxa dosiero metita novmoden\n"
-"   kreajxo             al dosiero registrita novmoden\n"
+"   antauxajxo            al antauxa dosiero metita novmoden\n"
+"   kreajxo              al dosiero registrita novmoden\n"
 " -o, --oldfile         registri malnovan dosieron (jam sxaltita)\n"
 "   dosiero...          dosiero(j)n por registri per malnova modo\n"
 " -q, --quiet           silente eviti avertojn\n"
@@ -321,7 +321,6 @@ msgstr ""
 " -ul, --assume-utf16le trakti enmeton kvazaux UTF-16LE\n"
 " -ub, --assume-utf16be trakti enmeton kvazaux UTF-16BE\n"
 
-
 #: common.c:230
 #, c-format
 msgid ""
@@ -331,8 +330,8 @@ msgid ""
 " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr ""
 " -F, --follow-symlink  legu dosierajn cxenerojn kaj konverti la atingojn\n"
-" -R, --replace-symlink anstatauxe registru dosierajn cxenerojn per "
-"konvertotaj dosieroj\n"
+" -R, --replace-symlink anstatauxe registru dosierajn cxenerojn per konvertotaj "
+"dosieroj\n"
 "                       (ne-cxeneraj atingaj dosieroj restas nesxangxitaj)\n"
 " -S, --skip-symlink    retenu dosierajn cxenerojn kaj atingojn nesxangxataj "
 "(jam sxaltita)\n"
@@ -342,68 +341,72 @@ msgstr ""
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         diri eldono-numeron\n"
 
-#: common.c:248
+#: common.c:249
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "DOS-16 eldono (WATCOMC).\n"
 
-#: common.c:250
+#: common.c:251
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "DOS-16 eldono (TURBOC).\n"
 
-#: common.c:252
+#: common.c:253
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "DOS-32 eldono (WATCOMC).\n"
 
-#: common.c:254
+#: common.c:255
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "DOS-32 eldono (DJGPP).\n"
 
-#: common.c:256
+#: common.c:257
 msgid "MSYS version.\n"
 msgstr "MSYS eldono.\n"
 
-#: common.c:258
+#: common.c:259
 msgid "Cygwin version.\n"
 msgstr "Cygwin eldono.\n"
 
-#: common.c:260
+#: common.c:261
 msgid "Windows 64 bit version (MinGW-w64).\n"
 msgstr "Windows-64 eldono (MinGW-w64).\n"
 
-#: common.c:262
+#: common.c:263
 msgid "Windows 32 bit version (WATCOMC).\n"
 msgstr "Windows-32 eldono (WATCOMC).\n"
 
-#: common.c:264
+#: common.c:265
+msgid "Windows 32 bit version (MinGW-w64).\n"
+msgstr "Windows-32 eldono (MinGW-w64).\n"
+
+#: common.c:267
 msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Windows-32 eldono (MinGW).\n"
 
-#: common.c:266
+#: common.c:269
 #, c-format
 msgid "Windows 64 bit version (MSVC %d).\n"
 msgstr "Windows-64 eldono (MSVC %d).\n"
 
-#: common.c:268
+#: common.c:271
 #, c-format
 msgid "Windows 32 bit version (MSVC %d).\n"
 msgstr "Windows-32 eldono (MSVC %d).\n"
 
-#: common.c:270
+#: common.c:273
 msgid "OS/2 version (WATCOMC).\n"
 msgstr "OS/2 eldono (WATCOMC).\n"
 
-#: common.c:272
+#: common.c:275
 msgid "OS/2 version (EMX).\n"
 msgstr "OS/2 eldono (EMX).\n"
 
-#: common.c:275
+#: common.c:278
 msgid "With Unicode UTF-16 support.\n"
 msgstr "Kun subteno de Unikodo da UTF-16.\n"
 
-#: common.c:277
+#: common.c:280
 msgid "Without Unicode UTF-16 support.\n"
 msgstr "Sen subteno de Unikodo da UTF-16.\n"
 
-#: common.c:280
+#: common.c:283
 msgid "With native language support.\n"
 msgstr "Uzante denaskan lingvon sistemon.\n"

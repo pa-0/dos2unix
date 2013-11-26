@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-08 07:55+0200\n"
+"POT-Creation-Date: 2013-11-26 23:08+0100\n"
 "PO-Revision-Date: 2010-01-24 09:00+0100\n"
 "Last-Translator: Philipp Thomas <psmt@opensuse.org>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -387,68 +387,72 @@ msgstr ""
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         gibt die Versionsnummer aus\n"
 
-#: common.c:248
+#: common.c:249
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "DOS 16 bit Version (WATCOMC).\n"
 
-#: common.c:250
+#: common.c:251
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "DOS 16 bit Version (TURBOC).\n"
 
-#: common.c:252
+#: common.c:253
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "DOS 32 bit Version (WATCOMC).\n"
 
-#: common.c:254
+#: common.c:255
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "DOS 32 bit Version (DJGPP).\n"
 
-#: common.c:256
+#: common.c:257
 msgid "MSYS version.\n"
 msgstr "MSYS Version.\n"
 
-#: common.c:258
+#: common.c:259
 msgid "Cygwin version.\n"
 msgstr "Cygwin Version.\n"
 
-#: common.c:260
+#: common.c:261
 msgid "Windows 64 bit version (MinGW-w64).\n"
 msgstr "Windows 64 bit Version (MinGW-w64).\n"
 
-#: common.c:262
+#: common.c:263
 msgid "Windows 32 bit version (WATCOMC).\n"
 msgstr "Windows 32 bit Version (WATCOMC).\n"
 
-#: common.c:264
+#: common.c:265
+msgid "Windows 32 bit version (MinGW-w64).\n"
+msgstr "Windows 32 bit Version (MinGW-w64).\n"
+
+#: common.c:267
 msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Windows 32 bit Version (MinGW).\n"
 
-#: common.c:266
+#: common.c:269
 #, c-format
 msgid "Windows 64 bit version (MSVC %d).\n"
 msgstr "Windows 64 bit Version (MSVC %d).\n"
 
-#: common.c:268
+#: common.c:271
 #, c-format
 msgid "Windows 32 bit version (MSVC %d).\n"
 msgstr "Windows 32 bit Version (MSVC %d).\n"
 
-#: common.c:270
+#: common.c:273
 msgid "OS/2 version (WATCOMC).\n"
 msgstr "OS/2 Version (WATCOMC).\n"
 
-#: common.c:272
+#: common.c:275
 msgid "OS/2 version (EMX).\n"
 msgstr "OS/2 Version (EMX).\n"
 
-#: common.c:275
+#: common.c:278
 msgid "With Unicode UTF-16 support.\n"
 msgstr "Mit Unterstützung für Unicode UTF-16.\n"
 
-#: common.c:277
+#: common.c:280
 msgid "Without Unicode UTF-16 support.\n"
 msgstr "Ohne Unterstützung für Unicode UTF-16.\n"
 
-#: common.c:280
+#: common.c:283
 msgid "With native language support.\n"
 msgstr "Mit Unterstützung von Landessprachen.\n"

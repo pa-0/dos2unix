@@ -183,6 +183,9 @@ ifdef ENABLE_NLS
 	LIBS_EXTRA = -lintl -liconv
 	ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
 endif
+ifeq ($(findstring w64-mingw32,$(shell gcc -dumpmachine)),w64-mingw32)
+	CFLAGS_COMPILER = -DD2U_COMPILER=MINGW32_W64
+endif
 endif
 endif
 
@@ -296,7 +299,8 @@ EXTRA_CFLAGS	= -DVER_REVISION=\"$(DOS2UNIX_VERSION)\" \
 		  -DVER_DATE=\"$(DOS2UNIX_DATE)\" \
 		  -DVER_AUTHOR=\"$(DOS2UNIX_AUTHOR)\" \
 		  -DDEBUG=$(DEBUG) \
-		  $(CFLAGS_OS)
+		  $(CFLAGS_OS) \
+		  $(CFLAGS_COMPILER)
 
 ifeq ($(DEBUG), 1)
 	EXTRA_CFLAGS += -g

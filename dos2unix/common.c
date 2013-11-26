@@ -237,6 +237,7 @@ Usage: %s [options] [file ...] [-n infile outfile ...]\n\
  -V, --version         display version number\n"));
 }
 
+#define MINGW32_W64 1
 
 void PrintVersion(char *progname)
 {
@@ -260,6 +261,8 @@ void PrintVersion(char *progname)
   fprintf(stderr, "%s", _("Windows 64 bit version (MinGW-w64).\n"));
 #elif defined(__WATCOMC__) && defined(__NT__)
   fprintf(stderr, "%s", _("Windows 32 bit version (WATCOMC).\n"));
+#elif defined(_WIN32) && defined(__MINGW32__) && (D2U_COMPILER == MINGW32_W64)
+  fprintf(stderr, "%s", _("Windows 32 bit version (MinGW-w64).\n"));
 #elif defined(_WIN32) && defined(__MINGW32__)
   fprintf(stderr, "%s", _("Windows 32 bit version (MinGW).\n"));
 #elif defined(_WIN64) && defined(_MSC_VER)

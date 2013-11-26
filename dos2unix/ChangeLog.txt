@@ -1,7 +1,14 @@
+2013-11-26 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile, common.c: When mingw-w64 is used for 32 bit, option
+	  -V prints (MinGW-w64) for used compiler name.
+
 2013-11-24 Erwin Waterlander <waterlan@xs4all.nl>
 	* mingw32.mak: New makefile for mingw-w64 targeting win32.
 	mingw-w64 supports Large File Support (LFS) while mingw.org
-	doesn't.
+	doesn't. A user reported failures when concurrent dos2unix
+	processes processed huge files on Windows network share drives.
+	Using MinGW-w64 with LFS support fixed the problem.
+
 
 2013-10-07 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Set MAN_NONLATIN back to 1. Include non-Latin
