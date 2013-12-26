@@ -5,10 +5,11 @@
 2013-11-24 Erwin Waterlander <waterlan@xs4all.nl>
 	* mingw32.mak: New makefile for MinGW-w64 targeting win32.
 	  MinGW-w64 supports Large File Support (LFS) with
-          -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 while mingw.org
-	  doesn't. A user reported failures when concurrent dos2unix
-	  processes processed huge files on Windows network share drives.
+	  -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 while mingw.org
+	  doesn't. Dos2unix failed when concurrent dos2unix processes
+	  processed huge files on Windows network share drives.
 	  Using MinGW-w64 with LFS support fixed the problem.
+	  Thanks to report of report of F.J. Brandelik.
 
 
 2013-10-07 Erwin Waterlander <waterlan@xs4all.nl>

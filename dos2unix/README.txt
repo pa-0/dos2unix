@@ -83,6 +83,8 @@ ACKNOWLEDGEMENTS
         Michael Schindler     Fixed compiler warning.
         Somsak Pattanaprateep Print line number when binary symbol is found.
         Justin Lecher         Makefile improvement.
+        F.J. Brandelik        Reported problems when win32 version processes
+                              huge files on a network drive.
 
 FINDUTILS
 
