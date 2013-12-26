@@ -9,7 +9,7 @@
 	  doesn't. Dos2unix failed when concurrent dos2unix processes
 	  processed huge files on Windows network share drives.
 	  Using MinGW-w64 with LFS support fixed the problem.
-	  Thanks to report of report of F.J. Brandelik.
+	  Thanks to report by F.J. Brandelik.
 
 
 2013-10-07 Erwin Waterlander <waterlan@xs4all.nl>
