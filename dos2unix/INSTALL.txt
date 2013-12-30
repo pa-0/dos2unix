@@ -162,6 +162,10 @@ LARGE FILE SUPPORT
         Disable LFS:
         make clean install LFS=
 
+    The gcc compiler from the mingw.org project does not support LFS.
+    It is advised to use the mingw-w64 compiler tool chain for LFS on
+    32 bit Windows.
+
 
 UNICODE SUPPORT
 
@@ -220,6 +224,8 @@ WINDOWS 32 BIT PORT
         make -f mingw.mak install
 
     Using Mingw-w64 compiler <http://mingw-w64.sourceforge.net>:
+    I used Ruben van Boxem release installed in c:\mingw32
+    32 bit host, 32 bit target: i686-w64-mingw32-gcc-4.6.3-2-release-win32_rubenvb.7z
 
         make -f mingw32.mak clean
         make -f mingw32.mak
@@ -249,6 +255,8 @@ WINDOWS 64 BIT PORT
 
     To compile a version for 64 bit Windows, get the Mingw-w64 compiler
     <http://mingw-w64.sourceforge.net>, and use makefile mingw64.mak:
+    I used Ruben van Boxem release installed in c:\mingw64
+    32 bit host, 64 bit target: x86_64-w64-mingw32-gcc-4.6.3-2-release-win32_rubenvb.7z
 
         make -f mingw64.mak clean
         make -f mingw64.mak

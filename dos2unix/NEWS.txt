@@ -1,6 +1,6 @@
-2013-xx-xx: Version 6.0.4
+2013-12-30: Version 6.0.4
 
-  * New options to convert UTF-16 files without BOM.
+  * New options -ul and -ub to convert UTF-16 files without BOM.
   * New Russian translation of the messages.
   * Build 32 bit Windows binaries with Large File Support (LFS)
     by using mingw-w64 for 32 bit Windows.

@@ -35,7 +35,8 @@ HISTORY
 
         Features
 
-        * Native language support: Dutch, English, Esperanto, German, Spanish.
+        * Native language support: Dutch, English, Esperanto, German, Russian,
+          Spanish.
         * Automatically skips binary and non-regular files
         * In-place, paired, or stdio mode conversion.
         * Keep original file dates option.
@@ -46,7 +47,7 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2-6.0.3  2009-2013
+        Erwin Waterlander       version 3.2-6.0.4  2009-2013
         Christian Wurll         version 3.1        1998
         Bernd Johannes Wuebben  version 3.0        1998
         Benjamin Lin            version 1.1-2.3    1994-1995

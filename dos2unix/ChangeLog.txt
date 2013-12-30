@@ -1,6 +1,7 @@
 2013-12-30 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 6.0.4
 	* man/nonlatin/man1/ru/dos2unix.pod: Removed. Russian
-	  translation takes a long time.
+	  translation of manual moved to later release.
 
 2013-11-26 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile, common.c: When MinGW-w64 is used for 32 bit, option
