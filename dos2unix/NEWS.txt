@@ -2,8 +2,8 @@
 
   * New options to convert UTF-16 files without BOM.
   * New Russian translation of the messages.
-  * Build 32 bit Windows binaries with Large File Support (LFS).
-  * Switched to mingw-w64 for 32 bit Windows versions.
+  * Build 32 bit Windows binaries with Large File Support (LFS)
+    by using mingw-w64 for 32 bit Windows.
   * When a binary symbol is encountered the value is printed.
 
 2013-01-25: Version 6.0.3
