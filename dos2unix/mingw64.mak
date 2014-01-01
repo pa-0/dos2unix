@@ -1,6 +1,6 @@
 
 # Author: Erwin Waterlander
-# Copyright (C) 2012 Erwin Waterlander
+# Copyright (C) 2012-2014 Erwin Waterlander
 # This file is distributed under the same license as the dos2unix package.
 
 CC = x86_64-w64-mingw32-gcc
@@ -12,8 +12,7 @@ ENABLE_NLS=
 
 ifdef ENABLE_NLS
 LIBS_EXTRA = -lintl -liconv
-# Using MinGW gettext,iconv
-#ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
+ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
 endif
 LIBS_EXTRA += $(CRT_GLOB_OBJ)
 

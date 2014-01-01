@@ -1,16 +1,13 @@
 
 # Author: Erwin Waterlander
-# Copyright (C) 2009 Erwin Waterlander
+# Copyright (C) 2009-2014 Erwin Waterlander
 # This file is distributed under the same license as the dos2unix package.
 
 prefix=c:/usr/local
-ENABLE_NLS=1
+ENABLE_NLS=
 
 ifdef ENABLE_NLS
 LIBS_EXTRA = -lintl -liconv
-# Using GnuWin32 gettext,iconv
-#ZIPOBJ_EXTRA = bin/libintl3.dll bin/libiconv2.dll
-# Using MinGW gettext,iconv
 ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
 endif
 
