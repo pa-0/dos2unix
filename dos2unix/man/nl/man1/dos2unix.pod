@@ -1,7 +1,7 @@
 /*
 #  Copyright and License
 #
-#   Copyright (C) 2009-2013 Erwin Waterlander
+#   Copyright (C) 2009-2014 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -45,6 +45,8 @@
 #           pod2man PAGE.N.pod > PAGE.N
 */
 =pod
+
+=encoding latin1
 
 =head1 NAAM
 

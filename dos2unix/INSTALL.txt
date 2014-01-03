@@ -9,8 +9,7 @@ PREREQUISITES
             * GNU coreutils: Core utilities package (chmod, install, mkdir,
                              mv, rm, uname)
             * perl         : Practical Extraction and Report Language (perlpod)
-                             For manuals in non-Latin1 (non-Western-European)
-                             languages perl >= 5.10.1 is required.
+                             perl >= 5.10.1 is required.
 
         Optional (depending on build targets):
             * gettext     : Framework to help GNU packages produce multi-
