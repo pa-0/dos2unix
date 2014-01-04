@@ -101,7 +101,7 @@ MAN_OBJECTS_NONLATIN = $(patsubst %.pod,%.1,$(PODFILES_NONLATIN))
 %.1 : %.pod
 	# make target - create manual page from a *.pod page
 	podchecker $<
-	LC_CTYPE=C $(POD2MAN) $(POD2MAN_FLAGS) \
+	$(POD2MAN) $(POD2MAN_FLAGS) \
 		--center="$(PODCENTER)" \
 		--name="$(PACKAGE)" \
 		--section="$(MANSECT)" \

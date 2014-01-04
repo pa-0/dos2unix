@@ -1,3 +1,8 @@
+2014-01-04 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Also include English manuals in source the package. Newer
+	  perl/pod2man versions produce better output. Distribute good quality
+	  man files.
+
 2014-01-03 Erwin Waterlander <waterlan@xs4all.nl>
 	* man/nl/man1/dos2unix.pod, man/es/man1/dos2unix.pod: Add =encoding
 	  latin1 command. Perl 5.18 requires =encoding for all non-ASCII pod

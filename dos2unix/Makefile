@@ -532,10 +532,12 @@ mostlyclean:
 	rm -f po/*.bak po/*~
 	rm -f po/*.mo
 
+# Don't distribute PostScript and PDF manuals in the source package.
+# We don't want binary PDF files in the source package, because
+# some packagers check in the source files. PostScript is not used
+# a lot.
+
 clean: mostlyclean
-	rm -f man/man1/*.1
-	rm -f man/man1/*.txt
-	rm -f man/man1/*.$(HTMLEXT)
 	rm -f man/man1/*.ps
 	rm -f man/man1/*.pdf
 	rm -f man/man1/*.ut8
@@ -553,10 +555,17 @@ distclean: clean
 # Old pod2man versions do not have the --utf8 option. Old pod2man, pod2text,
 # and pod2html do not support the =encoding command.
 # Perl 5.18 pod2man demands an =encoding command for Latin-1 encoded POD files.
+#
+# Newer perl/pod2man versions produce better output. It is better to include
+# man pages in the source package, than that people generate them themselves
+# with old perl versions.
 
 maintainer-clean: distclean
 	@echo 'This command is intended for maintainers to use; it'
 	@echo 'deletes files that may need special tools to rebuild.'
+	rm -f man/man1/*.1
+	rm -f man/man1/*.txt
+	rm -f man/man1/*.$(HTMLEXT)
 	rm -f man/*/man1/*.1
 	rm -f man/*/man1/*.txt
 	rm -f man/*/man1/*.$(HTMLEXT)
