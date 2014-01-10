@@ -1,11 +1,19 @@
-
 # Author: Erwin Waterlander
 # Copyright (C) 2012-2014 Erwin Waterlander
 # This file is distributed under the same license as the dos2unix package.
 
-CC = x86_64-w64-mingw32-gcc
-STRIP = x86_64-w64-mingw32-strip
-CRT_GLOB_OBJ = C:/mingw64/mingw/lib/CRT_glob.o
+# This makefile is for use with MSYS2 and MinGW-w64 target 64 bit (x86_64)
+# http://sourceforge.net/projects/msys2/
+
+# Ruben van Boxem x86_64-w64-mingw32
+#CC = x86_64-w64-mingw32-gcc
+#STRIP = x86_64-w64-mingw32-strip
+#CRT_GLOB_OBJ = C:/mingw64/mingw/lib/CRT_glob.o
+
+# MSYS2
+CC = gcc
+STRIP = strip
+CRT_GLOB_OBJ = C:/msys2/msys32/mingw64/x86_64-w64-mingw32/lib/CRT_glob.o
 
 prefix=c:/usr/local64
 ENABLE_NLS=
@@ -17,10 +25,10 @@ endif
 LIBS_EXTRA += $(CRT_GLOB_OBJ)
 
 all:
-	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) EO_XNOTATION=1 MAN_NONLATIN=
+	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) EO_XNOTATION=1 MAN_NONLATIN= CFLAGS_OS=-I/mingw64/include
 
 install:
-	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) EO_XNOTATION=1 MAN_NONLATIN=
+	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) EO_XNOTATION=1 MAN_NONLATIN= CFLAGS_OS=-I/mingw64/include
 
 uninstall:
 	$(MAKE) uninstall EXE=.exe prefix=$(prefix) MAN_NONLATIN=

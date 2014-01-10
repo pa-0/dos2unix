@@ -1,3 +1,7 @@
+2014-01-10 Erwin Waterlander <waterlan@xs4all.nl>
+	* mingw32.mak, mingw64.mak: Update for easier use in MSYS2. Added
+	  extra include path to find libintl.h.
+
 2014-01-04 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Also include English manuals in source the package. Newer
 	  perl/pod2man versions produce better output. Distribute good quality

@@ -3,6 +3,9 @@
 # Copyright (C) 2009-2014 Erwin Waterlander
 # This file is distributed under the same license as the dos2unix package.
 
+# This makefile is for use with MSYS and MinGW (mingw.org) target 32 bit (i686)
+# http://www.mingw.org/
+
 prefix=c:/usr/local
 ENABLE_NLS=
 
