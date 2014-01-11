@@ -3,9 +3,13 @@
 	  extra include path to find libintl.h.
 
 2014-01-04 Erwin Waterlander <waterlan@xs4all.nl>
-	* Makefile: Also include English manuals in source the package. Newer
-	  perl/pod2man versions produce better output. Distribute good quality
-	  man files.
+	* Makefile: Also include English manuals in source the package.
+	  Adding man files to the source package, which have been generated with
+	  a high version of perl/pod2man, is a favour to users, because newer
+	  perl/pod2man versions produce better output (also for old systems).
+	  Tip from pod2man maintainer Russ Allbery.
+	  When you want to generate man pages yourself just run firt 'make
+	  maintainer-clean'.
 
 2014-01-03 Erwin Waterlander <waterlan@xs4all.nl>
 	* man/nl/man1/dos2unix.pod, man/es/man1/dos2unix.pod: Add =encoding
