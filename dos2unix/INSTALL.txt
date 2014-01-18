@@ -102,21 +102,7 @@ INTERNATIONAL MAN PAGES
     on all systems.
 
     Man pages for non-Latin1 scripts are only supported on modern
-    Unix (like) systems. This is controlled via the make variable
-    MAN_NONLATIN. When the value of MAN_NONLATIN is equal to 1
-    (default for Unix) non-Latin manual pages are built. For DOS,
-    Windows, OS/2 this variable is default empty.
-
-    Enable non-Latin man pages:
-
-        make install MAN_NONLATIN=1
-
-    Disable non-Latin man pages:
-
-        make install MAN_NONLATIN=
-
-    Generation of non-Latin1 manuals requires Perl >= 5.10.1.
-
+    Unix (like) systems.
 
     Originally the Unix man system supported only man pages in Latin1
     format (ISO-8859-1). Although the world is moving to Unicode format
@@ -132,10 +118,9 @@ INTERNATIONAL MAN PAGES
     GNU groff is wide spread, but there are also roff implementations
     around that don't support the GNU extensions.
 
-    Man pages for non-Latin1 scripts are encoded in UTF-8. These do not
-    show properly on old systems. Therefore these are not built for DOS,
-    and Windows by default. Man pages in UTF-8 format are shown properly
-    on Linux. Not all roff implementations support UTF-8.
+    Man pages for non-Latin1 scripts are encoded in UTF-8. These do not show
+    properly on old systems.  Man pages in UTF-8 format are shown properly on
+    Linux. Not all roff implementations support UTF-8.
 
     In order to show UTF-8 man pages properly on Cygwin you need to do the
     following:

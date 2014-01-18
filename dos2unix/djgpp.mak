@@ -19,13 +19,13 @@ ZIPOBJ_EXTRA = bin/cwsdpmi.exe
 docsubdir = dos2unix
 
 all:
-	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f" docsubdir=$(docsubdir) EO_XNOTATION=1 UCS= MAN_NONLATIN=
+	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f" docsubdir=$(docsubdir) EO_XNOTATION=1 UCS=
 
 install:
-	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f" docsubdir=$(docsubdir) EO_XNOTATION=1 UCS= MAN_NONLATIN=
+	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f" docsubdir=$(docsubdir) EO_XNOTATION=1 UCS=
 
 uninstall:
-	$(MAKE) uninstall EXE=.exe prefix=$(prefix) docsubdir=$(docsubdir) MAN_NONLATIN=
+	$(MAKE) uninstall EXE=.exe prefix=$(prefix) docsubdir=$(docsubdir)
 
 clean:
 	$(MAKE) clean EXE=.exe ENABLE_NLS=$(ENABLE_NLS) prefix=$(prefix)

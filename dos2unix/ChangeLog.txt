@@ -1,3 +1,7 @@
+2014-01-18 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile, *.mak: Remove MAN_NONLATIN variable.
+	* INSTALL.txt: Update section INTERNATIONAL MAN PAGES.
+
 2014-01-10 Erwin Waterlander <waterlan@xs4all.nl>
 	* mingw32.mak, mingw64.mak: Update for easier use in MSYS2. Added
 	  extra include path to find libintl.h.
@@ -8,7 +12,7 @@
 	  a high version of perl/pod2man, is a favour to users, because newer
 	  perl/pod2man versions produce better output (also for old systems).
 	  Tip from pod2man maintainer Russ Allbery.
-	  When you want to generate man pages yourself just run firt 'make
+	  When you want to generate man pages yourself just run first 'make
 	  maintainer-clean'.
 
 2014-01-03 Erwin Waterlander <waterlan@xs4all.nl>

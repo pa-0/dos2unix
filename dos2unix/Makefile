@@ -53,10 +53,6 @@ ENABLE_NLS	= 1
 LFS             = 1
 DEBUG = 0
 UCS = 1
-# I can set MAN_NONLATIN to 1, despite the compilation issues with old Perl
-# versions, because I'm going to include the non-Latin1 manual files into the
-# source package.
-MAN_NONLATIN = 1
 
 EXE=
 
@@ -152,7 +148,6 @@ endif
 	# documentation directories.
 	docsubdir	= $(PACKAGE)
 	VERSIONSUFFIX	= -cygwin
-	MAN_NONLATIN = 1
 endif
 
 ifndef D2U_OS
@@ -163,7 +158,6 @@ ifeq ($(findstring MSYS,$(shell uname)),MSYS)
 	VERSIONSUFFIX	= -msys
 	EO_XNOTATION=1
 	UCS =
-	MAN_NONLATIN =
 ifdef ENABLE_NLS
 	LIBS_EXTRA = -lintl -liconv
 endif
@@ -178,7 +172,6 @@ ifeq ($(findstring MINGW32,$(shell uname)),MINGW32)
 	VERSIONSUFFIX	= -win32
 	LINK = cp -f
 	EO_XNOTATION=1
-	MAN_NONLATIN =
 ifdef ENABLE_NLS
 	LIBS_EXTRA = -lintl -liconv
 	ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
@@ -199,7 +192,6 @@ ifneq ($(DJGPP),)
 	docsubdir = dos2unix
 	EO_XNOTATION=1
 	UCS =
-	MAN_NONLATIN =
 	ZIPOBJ_EXTRA = bin/cwsdpmi.exe
 ifdef ENABLE_NLS
 	LIBS_EXTRA = -lintl -liconv
@@ -216,7 +208,6 @@ ifeq ($(shell uname),OS/2)
 	LINK_MAN = cp -f
 	EO_XNOTATION=1
 	UCS =
-	MAN_NONLATIN =
 	LDFLAGS_EXTRA = -Zargs-wild
 ifdef ENABLE_NLS
 	LIBS_EXTRA += -lintl -liconv
@@ -280,7 +271,6 @@ ifdef EO_XNOTATION
 EO_NOTATION = -x
 endif
 
-ifeq ($(MAN_NONLATIN),1)
 PODFILES_NONLATIN  = $(wildcard man/nonlatin/*/man1/dos2unix.pod)
 MANFILES_NONLATIN  = $(patsubst %.pod,%.1,$(PODFILES_NONLATIN))
 TXTFILES_NONLATIN  = $(patsubst %.pod,%.txt,$(PODFILES_NONLATIN))
@@ -289,7 +279,6 @@ HTMLFILES_NONLATIN = $(patsubst %.pod,%.$(HTMLEXT),$(PODFILES_NONLATIN))
 # or I don't know how to do it.
 #PSFILES_NONLATIN   = $(patsubst %.pod,%.ps,$(PODFILES_NONLATIN))
 #PDFFILES_NONLATIN  = $(patsubst %.pod,%.pdf,$(PODFILES_NONLATIN))
-endif
 
 CFLAGS_USER	=
 CFLAGS		?= -O2
@@ -359,7 +348,7 @@ $(MAC2UNIX_BIN) : $(BIN)
 	$(LINK) $< $@
 
 %.1 : %.pod
-	$(MAKE) -C man/man1 MAN_NONLATIN=$(MAN_NONLATIN)
+	$(MAKE) -C man/man1
 
 $(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
 	$(LINK) $< $@
