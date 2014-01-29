@@ -8,7 +8,7 @@
  *  See also http://www.freebsd.org/copyright/freebsd-license.html
  *  --------
  *
- *  Copyright (C) 2009-2013 Erwin Waterlander
+ *  Copyright (C) 2009-2014 Erwin Waterlander
  *  Copyright (C) 1994-1995 Benjamin Lin.
  *  All rights reserved.
  *
@@ -64,7 +64,7 @@
 void PrintLicense(void)
 {
   fprintf(stderr, "%s", _("\
-Copyright (C) 2009-2013 Erwin Waterlander\n\
+Copyright (C) 2009-2014 Erwin Waterlander\n\
 Copyright (C) 1994-1995 Benjamin Lin\n\
 All rights reserved.\n\n"));
   PrintBSDLicense();

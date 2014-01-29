@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2009-2013 Erwin Waterlander
+ *   Copyright (C) 2009-2014 Erwin Waterlander
  *   All rights reserved.
  *
  *   Redistribution and use in source and binary forms, with or without
@@ -175,7 +175,8 @@ are met:\n\
 2. Redistributions in binary form must reproduce the above copyright\n\
    notice in the documentation and/or other materials provided with\n\
    the distribution.\n\n\
-\
+"));
+  fprintf(stderr, "%s", _("\
 THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n\
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n\
 IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR\n\
@@ -192,46 +193,42 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n\
 
 void PrintUsage(char *progname)
 {
-  fprintf(stderr, _("\
-%s %s (%s)\n\
-Usage: %s [options] [file ...] [-n infile outfile ...]\n\
- -ascii                convert only line breaks (default)\n\
- -iso                  conversion between DOS and ISO-8859-1 character set\n\
-   -1252               Use Windows code page 1252 (Western European)\n\
-   -437                Use DOS code page 437 (US) (default)\n\
-   -850                Use DOS code page 850 (Western European)\n\
-   -860                Use DOS code page 860 (Portuguese)\n\
-   -863                Use DOS code page 863 (French Canadian)\n\
-   -865                Use DOS code page 865 (Nordic)\n\
- -7                    Convert 8 bit characters to 7 bit space\n\
- -c, --convmode        conversion mode\n\
-   convmode            ascii, 7bit, iso, mac, default to ascii\n\
- -f, --force           force conversion of binary files\n\
- -h, --help            give this help\n\
- -k, --keepdate        keep output file date\n\
- -L, --license         display software license\n\
- -l, --newline         add additional newline\n\
- -m, --add-bom         add UTF-8 Byte Order Mark\n\
- -n, --newfile         write to new file\n\
+  fprintf(stderr, " %s %s (%s)\n", progname, VER_REVISION, VER_DATE);
+  fprintf(stderr, _("Usage: %s [options] [file ...] [-n infile outfile ...]\n"), progname);
+  fprintf(stderr, _(" -ascii                convert only line breaks (default)\n"));
+  fprintf(stderr, _(" -iso                  conversion between DOS and ISO-8859-1 character set\n"));
+  fprintf(stderr, _("   -1252               Use Windows code page 1252 (Western European)\n"));
+  fprintf(stderr, _("   -437                Use DOS code page 437 (US) (default)\n"));
+  fprintf(stderr, _("   -850                Use DOS code page 850 (Western European)\n"));
+  fprintf(stderr, _("   -860                Use DOS code page 860 (Portuguese)\n"));
+  fprintf(stderr, _("   -863                Use DOS code page 863 (French Canadian)\n"));
+  fprintf(stderr, _("   -865                Use DOS code page 865 (Nordic)\n"));
+  fprintf(stderr, _(" -7                    Convert 8 bit characters to 7 bit space\n"));
+  fprintf(stderr, _(" -c, --convmode        conversion mode\n\
+   convmode            ascii, 7bit, iso, mac, default to ascii\n"));
+  fprintf(stderr, _(" -f, --force           force conversion of binary files\n"));
+  fprintf(stderr, _(" -h, --help            give this help\n"));
+  fprintf(stderr, _(" -k, --keepdate        keep output file date\n"));
+  fprintf(stderr, _(" -L, --license         display software license\n"));
+  fprintf(stderr, _(" -l, --newline         add additional newline\n"));
+  fprintf(stderr, _(" -m, --add-bom         add UTF-8 Byte Order Mark\n"));
+  fprintf(stderr, _(" -n, --newfile         write to new file\n\
    infile              original file in new file mode\n\
-   outfile             output file in new file mode\n\
- -o, --oldfile         write to old file (default)\n\
-   file ...            files to convert in old file mode\n\
- -q, --quiet           quiet mode, suppress all warnings\n\
-                       always on in stdio mode\n\
- -s, --safe            skip binary files (default)\n"),
- progname, VER_REVISION, VER_DATE, progname);
+   outfile             output file in new file mode\n"));
+  fprintf(stderr, _(" -o, --oldfile         write to old file (default)\n\
+   file ...            files to convert in old file mode\n"));
+  fprintf(stderr, _(" -q, --quiet           quiet mode, suppress all warnings\n\
+                       always on in stdio mode\n"));
+  fprintf(stderr, _(" -s, --safe            skip binary files (default)\n"));
 #ifdef D2U_UNICODE
-  fprintf(stderr, _("\
- -ul, --assume-utf16le Assume that the input format is UTF-16LE\n\
- -ub, --assume-utf16be Assume that the input format is UTF-16BE\n"));
+  fprintf(stderr, _(" -ul, --assume-utf16le Assume that the input format is UTF-16LE\n"));
+  fprintf(stderr, _(" -ub, --assume-utf16be Assume that the input format is UTF-16BE\n"));
 #endif
 #ifdef S_ISLNK
-  fprintf(stderr, _("\
- -F, --follow-symlink  follow symbolic links and convert the targets\n\
- -R, --replace-symlink replace symbolic links with converted files\n\
-                       (original target files remain unchanged)\n\
- -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"));
+  fprintf(stderr, _(" -F, --follow-symlink  follow symbolic links and convert the targets\n"));
+  fprintf(stderr, _(" -R, --replace-symlink replace symbolic links with converted files\n\
+                       (original target files remain unchanged)\n"));
+  fprintf(stderr, _(" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"));
 #endif
   fprintf(stderr, _("\
  -V, --version         display version number\n"));

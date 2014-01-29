@@ -1,5 +1,9 @@
+2014-01-29 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c, po/*.po: Split large help text in smaller pieces.
+	  This is easier for the translators.
+
 2014-01-18 Erwin Waterlander <waterlan@xs4all.nl>
-	* Makefile, *.mak: Remove MAN_NONLATIN variable.
+	* Makefile, *.mak: Removed MAN_NONLATIN variable.
 	* INSTALL.txt: Update section INTERNATIONAL MAN PAGES.
 
 2014-01-10 Erwin Waterlander <waterlan@xs4all.nl>
