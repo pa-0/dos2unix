@@ -44,7 +44,7 @@
  *  == 2.1 == 1995.03.29 == Benjamin Lin (blin@socs.uts.edu.au)
  *     Conversion to SunOS charset implemented.
  *  == 2.2 == 1995.03.30 == Benjamin Lin (blin@socs.uts.edu.au)
- *     Fixed a bug in 2.1 where in new file mode, if outfile already exists
+ *     Fixed a bug in 2.1 where in new-file mode, if outfile already exists
  *     conversion can not be completed properly.
  *
  * Added Mac text file translation, i.e. \r to \n conversion
@@ -650,7 +650,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 #ifndef NO_CHMOD
   if (!RetVal)
   {
-    if (ipFlag->NewFile == 0) /* old file mode */
+    if (ipFlag->NewFile == 0) /* old-file mode */
     {
        RetVal = chmod (TempPath, StatBuf.st_mode); /* set original permissions */
     }
@@ -675,7 +675,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 #endif
 
 #ifndef NO_CHOWN
-  if (!RetVal && (ipFlag->NewFile == 0))  /* old file mode */
+  if (!RetVal && (ipFlag->NewFile == 0))  /* old-file mode */
   {
      /* Change owner and group of the the tempory output file to the original file's uid and gid. */
      /* Required when a different user (e.g. root) has write permission on the original file. */
@@ -1044,7 +1044,7 @@ int main (int argc, char *argv[])
         if (!CanSwitchFileMode)
         {
           fprintf(stderr,"%s: ",progname);
-          fprintf(stderr, _("target of file %s not specified in new file mode\n"), argv[ArgIdx-1]);
+          fprintf(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
           pFlag->error = 1;
           ShouldExit = 1;
           pFlag->stdio_mode = 0;
@@ -1058,7 +1058,7 @@ int main (int argc, char *argv[])
         if (!CanSwitchFileMode)
         {
           fprintf(stderr,"%s: ",progname);
-          fprintf(stderr, _("target of file %s not specified in new file mode\n"), argv[ArgIdx-1]);
+          fprintf(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
           pFlag->error = 1;
           ShouldExit = 1;
           pFlag->stdio_mode = 0;
@@ -1150,7 +1150,7 @@ int main (int argc, char *argv[])
             if (!pFlag->Quiet)
             {
               fprintf(stderr,"%s: ",progname);
-              fprintf(stderr, _("converting file %s to file %s in Unix format ...\n"), argv[ArgIdx-1], argv[ArgIdx]);
+              fprintf(stderr, _("converting file %s to file %s in Unix format...\n"), argv[ArgIdx-1], argv[ArgIdx]);
             }
             if (RetVal)
             {
@@ -1227,7 +1227,7 @@ int main (int argc, char *argv[])
           if (!pFlag->Quiet)
           {
             fprintf(stderr,"%s: ",progname);
-            fprintf(stderr, _("converting file %s to Unix format ...\n"), argv[ArgIdx]);
+            fprintf(stderr, _("converting file %s to Unix format...\n"), argv[ArgIdx]);
           }
           if (RetVal)
           {
@@ -1252,7 +1252,7 @@ int main (int argc, char *argv[])
   if (!CanSwitchFileMode)
   {
     fprintf(stderr,"%s: ",progname);
-    fprintf(stderr, _("target of file %s not specified in new file mode\n"), argv[ArgIdx-1]);
+    fprintf(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
     pFlag->error = 1;
   }
   return (pFlag->error);

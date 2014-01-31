@@ -193,45 +193,43 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n\
 
 void PrintUsage(char *progname)
 {
-  fprintf(stderr, " %s %s (%s)\n", progname, VER_REVISION, VER_DATE);
   fprintf(stderr, _("Usage: %s [options] [file ...] [-n infile outfile ...]\n"), progname);
   fprintf(stderr, _(" -ascii                convert only line breaks (default)\n"));
   fprintf(stderr, _(" -iso                  conversion between DOS and ISO-8859-1 character set\n"));
-  fprintf(stderr, _("   -1252               Use Windows code page 1252 (Western European)\n"));
-  fprintf(stderr, _("   -437                Use DOS code page 437 (US) (default)\n"));
-  fprintf(stderr, _("   -850                Use DOS code page 850 (Western European)\n"));
-  fprintf(stderr, _("   -860                Use DOS code page 860 (Portuguese)\n"));
-  fprintf(stderr, _("   -863                Use DOS code page 863 (French Canadian)\n"));
-  fprintf(stderr, _("   -865                Use DOS code page 865 (Nordic)\n"));
-  fprintf(stderr, _(" -7                    Convert 8 bit characters to 7 bit space\n"));
+  fprintf(stderr, _("   -1252               use Windows code page 1252 (Western European)\n"));
+  fprintf(stderr, _("   -437                use DOS code page 437 (US) (default)\n"));
+  fprintf(stderr, _("   -850                use DOS code page 850 (Western European)\n"));
+  fprintf(stderr, _("   -860                use DOS code page 860 (Portuguese)\n"));
+  fprintf(stderr, _("   -863                use DOS code page 863 (French Canadian)\n"));
+  fprintf(stderr, _("   -865                use DOS code page 865 (Nordic)\n"));
+  fprintf(stderr, _(" -7                    convert 8 bit characters to 7 bit space\n"));
   fprintf(stderr, _(" -c, --convmode        conversion mode\n\
    convmode            ascii, 7bit, iso, mac, default to ascii\n"));
   fprintf(stderr, _(" -f, --force           force conversion of binary files\n"));
-  fprintf(stderr, _(" -h, --help            give this help\n"));
+  fprintf(stderr, _(" -h, --help            display this help text\n"));
   fprintf(stderr, _(" -k, --keepdate        keep output file date\n"));
   fprintf(stderr, _(" -L, --license         display software license\n"));
   fprintf(stderr, _(" -l, --newline         add additional newline\n"));
   fprintf(stderr, _(" -m, --add-bom         add UTF-8 Byte Order Mark\n"));
   fprintf(stderr, _(" -n, --newfile         write to new file\n\
-   infile              original file in new file mode\n\
-   outfile             output file in new file mode\n"));
+   infile              original file in new-file mode\n\
+   outfile             output file in new-file mode\n"));
   fprintf(stderr, _(" -o, --oldfile         write to old file (default)\n\
-   file ...            files to convert in old file mode\n"));
+   file ...            files to convert in old-file mode\n"));
   fprintf(stderr, _(" -q, --quiet           quiet mode, suppress all warnings\n\
-                       always on in stdio mode\n"));
+                         (always on in stdio mode)\n"));
   fprintf(stderr, _(" -s, --safe            skip binary files (default)\n"));
 #ifdef D2U_UNICODE
-  fprintf(stderr, _(" -ul, --assume-utf16le Assume that the input format is UTF-16LE\n"));
-  fprintf(stderr, _(" -ub, --assume-utf16be Assume that the input format is UTF-16BE\n"));
+  fprintf(stderr, _(" -ul, --assume-utf16le assume that the input format is UTF-16LE\n"));
+  fprintf(stderr, _(" -ub, --assume-utf16be assume that the input format is UTF-16BE\n"));
 #endif
 #ifdef S_ISLNK
   fprintf(stderr, _(" -F, --follow-symlink  follow symbolic links and convert the targets\n"));
   fprintf(stderr, _(" -R, --replace-symlink replace symbolic links with converted files\n\
-                       (original target files remain unchanged)\n"));
+                         (original target files remain unchanged)\n"));
   fprintf(stderr, _(" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"));
 #endif
-  fprintf(stderr, _("\
- -V, --version         display version number\n"));
+  fprintf(stderr, _(" -V, --version         display version number\n"));
 }
 
 #define MINGW32_W64 1
