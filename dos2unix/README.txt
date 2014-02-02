@@ -62,6 +62,10 @@ TRANSLATORS
         Russian         Андрей Углик (Andrei Uhlik) <uglika@gmail.com>
         Spanish         Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>
 
+        Since verion 6.0.5 dos2unix is part of the Translation Project (TP).
+        All translations go via the Translation Project.
+        see http://translationproject.org/domain/dos2unix.html
+
 ACKNOWLEDGEMENTS
 
         Rugxulo               query_con_codepage(), code page detection in DOS.

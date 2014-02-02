@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos 2unix-6.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-30 20:41+0100\n"
+"POT-Creation-Date: 2014-02-02 21:35+0100\n"
 "PO-Revision-Date: 2013-02-24 19:53+0300\n"
 "Last-Translator: root <uglika@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -425,7 +425,8 @@ msgid ""
 msgstr ""
 " -R, --replace-symlink заменить символические ссылки преобразованными "
 "файлами\n"
-"                         (оригинальные целевые файлы останутся без изменений)\n"
+"                         (оригинальные целевые файлы останутся без "
+"изменений)\n"
 
 #: common.c:230
 #, c-format

@@ -73,7 +73,7 @@
 
 void PrintLicense(void)
 {
-  fprintf(stderr, "%s", _("\
+  printf("%s", _("\
 Copyright (C) 2009-2014 Erwin Waterlander\n\
 Copyright (C) 1998      Christian Wurll (Version 3.1)\n\
 Copyright (C) 1998      Bernd Johannes Wuebben (Version 3.0)\n\

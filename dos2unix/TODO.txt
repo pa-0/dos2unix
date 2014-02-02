@@ -4,9 +4,11 @@ TO DO
 
 * Translations.
 
-  Translate into more languages. Contact Erwin Waterlander
-  if you want to help (waterlan@xs4all.nl). Programming skills
-  are not required.
+  Translations of the messages are all going via the Translation Project.
+  See http://translationproject.org/domain/dos2unix.html
+
+  For translations of the manual contact Erwin Waterlander
+  <waterlan@xs4all.nl>
 
 * Support Windows native symbolic links (Windows Vista and up).
 

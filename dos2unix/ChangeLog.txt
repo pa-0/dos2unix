@@ -1,6 +1,9 @@
+2014-01-31 Erwin Waterlander <waterlan@xs4all.nl>
+	* *.c,po/*.po: cleanup messages. Thanks to Benno Schulenberg.
+
 2014-01-29 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c, po/*.po: Split large help text in smaller pieces.
-	  This is easier for the translators.
+	  This is easier for the translators. Thanks to Benno Schulenberg.
 
 2014-01-18 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile, *.mak: Removed MAN_NONLATIN variable.

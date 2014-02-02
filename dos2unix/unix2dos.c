@@ -63,7 +63,7 @@
 
 void PrintLicense(void)
 {
-  fprintf(stderr, "%s", _("\
+  printf("%s", _("\
 Copyright (C) 2009-2014 Erwin Waterlander\n\
 Copyright (C) 1994-1995 Benjamin Lin\n\
 All rights reserved.\n\n"));
