@@ -1,3 +1,7 @@
+2014-02-02 Erwin Waterlander <waterlan@xs4all.nl>
+	* *.c: Print help and version info to stdout iso stderr.
+	  Thanks to Benno Schulenberg.
+
 2014-01-31 Erwin Waterlander <waterlan@xs4all.nl>
 	* *.c,po/*.po: cleanup messages. Thanks to Benno Schulenberg.
 
