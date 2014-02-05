@@ -1,15 +1,15 @@
-# Russian messages for dos2unix
+# Russian messages for dos2unix.
 # Copyright (C) 2013 THE dos'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the dos2unix package.
-# Andrei Uhlik <uglika@gmail.com>, 2013.
 #
+# Andrei Uhlik <uglika@gmail.com>, 2013.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos 2unix-6.0.4\n"
+"Project-Id-Version: dos2unix-6.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-02 21:35+0100\n"
+"POT-Creation-Date: 2014-01-30 20:41+0100\n"
 "PO-Revision-Date: 2013-02-24 19:53+0300\n"
-"Last-Translator: root <uglika@gmail.com>\n"
+"Last-Translator: Andrei Uhlik <uglika@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -425,8 +425,7 @@ msgid ""
 msgstr ""
 " -R, --replace-symlink заменить символические ссылки преобразованными "
 "файлами\n"
-"                         (оригинальные целевые файлы останутся без "
-"изменений)\n"
+"                         (оригинальные целевые файлы останутся без изменений)\n"
 
 #: common.c:230
 #, c-format

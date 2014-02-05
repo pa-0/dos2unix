@@ -1,16 +1,16 @@
-# Spanish translations for dos2unix package
+# Spanish translations for the dos2unix package.
 # Traducciones al español para el paquete dos2unix.
 # Copyright (C) 2011,2014 THE dos2unix'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the dos2unix package.
-# Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>, 2011,2012,2013.
 #
+# Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>, 2011, 2012, 2013.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix\n"
+"Project-Id-Version: dos2unix 6.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-02 21:35+0100\n"
+"POT-Creation-Date: 2014-01-30 20:41+0100\n"
 "PO-Revision-Date: 2011-06-20 09:13+0200\n"
-"Last-Translator:  <jfreyreg@gmail.com>\n"
+"Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: \n"
 "MIME-Version: 1.0\n"

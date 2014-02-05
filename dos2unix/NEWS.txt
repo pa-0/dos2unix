@@ -1,3 +1,10 @@
+2014-??-??: Version 6.0.5-beta
+
+  * New translations of messages: Brazilian Portugues, Polish, Ukrainian,
+    Vietnamese.
+  * Generated man pages are included in the source package to prevent
+    compilation problems with very old or very new perl/pod2man versions.
+
 2013-12-30: Version 6.0.4
 
   * New options -ul and -ub to convert UTF-16 files without BOM.

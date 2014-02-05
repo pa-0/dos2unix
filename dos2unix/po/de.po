@@ -1,15 +1,13 @@
-# German messages for dos2unix
-# Copyright (C) 2009-2014
+# German messages for dos2unix.
 # This file is distributed under the same license as the dos2unix package.
 #
 # Philipp Thomas <pth@suse.de>, 2009, 2010, 2011.
-# Philipp Thomas <psmt@opensuse.org>, 2009,2010, 2011.
-# Lars Wendler <polynomial-c@gentoo.org> 2013
+# Lars Wendler <polynomial-c@gentoo.org>, 2013.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 6.0.5\n"
+"Project-Id-Version: dos2unix 6.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-02 21:35+0100\n"
+"POT-Creation-Date: 2014-01-30 20:41+0100\n"
 "PO-Revision-Date: 2010-01-24 09:00+0100\n"
 "Last-Translator: Philipp Thomas <psmt@opensuse.org>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -264,7 +262,7 @@ msgstr ""
 "oder ungeänderter Form sind gestattet, soweit die folgenden Bedingungen\n"
 "eingehalten werden:\n"
 "1. Weiterverbreitung des Quellcodes muss den obigen Copyrightshinweis,\n"
-"   Diese Liste von Bedingungen sowie den folgenden Haftungsausschlus\n"
+"   diese Liste von Bedingungen sowie den folgenden Haftungsausschluss\n"
 "   beibehalten.\n"
 "2. Weiterverbreitung in binärer Form muss den obigen Copyright-Hinweis\n"
 "   in der Dokumentation oder anderem der Distribution beiliegenden\n"
@@ -292,7 +290,7 @@ msgstr ""
 "HIERMIT AUSGESCHLOSSEN. IN KEINEM WIE AUCH IMMER GELAGERTEN FALL KANN\n"
 "DER AUTHOR FÜR IRGENDWELCHE DIREKTEN ODER INDIREKTEN, ZUFÄLLIGEN,\n"
 "BESONDEREN ODER BEISPIELHAFTEN SCHÄDEN (EINSCHLIESSLICH ABER NICHT\n"
-"AUSSCHLIESSLICH DER LIEFERUNG VON ERSATZGÜTERN ODER DIENSTEN;VERLUST\n"
+"AUSSCHLIESSLICH DER LIEFERUNG VON ERSATZGÜTERN ODER DIENSTEN; VERLUST\n"
 "DER NUTZBARKEIT, DER DATEN ODER DER GEWINNE ODER ETWAIGEN VERDIENST-\n"
 "AUSFALL-ENTSCHÄDIGUNGEN) HAFTBAR GEMACHT WERDEN, WIE AUCH IMMER SIE\n"
 "VERURSACHT WURDEN UND WELCHE HAFTUNGSMÖGLICHKEIT ZUGRUNDE GELEGT WIRD,\n"
@@ -414,7 +412,7 @@ msgid ""
 "   file ...            files to convert in old-file mode\n"
 msgstr ""
 " -o, --oldfile         überschreibt die alte-Datei (Vorgabe)\n"
-"   Datei ...           Die im alte Datei Modus zu konvertierenden Dateien\n"
+"   Datei ...           die im alte Datei Modus zu konvertierenden Dateien\n"
 
 #: common.c:219
 #, c-format

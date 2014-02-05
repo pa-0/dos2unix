@@ -1,22 +1,22 @@
-# Esperanto translations for the dos2unix converter programs.
+# Brazilian Portuguese Translation for dos2unix.
+# Copyright (C) 2014 THE dos2unix'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the dos2unix package.
+# Enrico Nicoletto <liverig@gmail.com>, 2014.
 #
-# Rugxulo <rugxulo@gmail.com>, 2010.
-# Benno Schulenberg <benno@vertaalt.nl>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-30 20:41+-0100\n"
-"PO-Revision-Date: 2014-02-01 19:14+-0100\n"
-"Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
-"Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
-"Language: eo\n"
+"POT-Creation-Date: 2014-01-30 20:41+0100\n"
+"PO-Revision-Date: 2014-02-01 17:35-0300\n"
+"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge.net>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.6.3\n"
 
 #: dos2unix.c:76
 msgid ""
@@ -28,178 +28,178 @@ msgid ""
 "\n"
 msgstr ""
 "Copyright (C) 2009-2014 Erwin Waterlander\n"
-"Copyright (C) 1998      Christian Wurll (versio 3.1)\n"
-"Copyright (C) 1998      Bernd Johannes Wuebben (versio 3.0)\n"
+"Copyright (C) 1998      Christian Wurll (Versão 3.1)\n"
+"Copyright (C) 1998      Bernd Johannes Wuebben (Versão 3.0)\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
-"Cxiuj rajtoj estas rezervitaj.\n"
+"Todos os direitos reservados.\n"
 "\n"
 
 #: dos2unix.c:164 dos2unix.c:202 unix2dos.c:132 unix2dos.c:185
 #, c-format
 msgid "Binary symbol 0x00%02X found at line %d\n"
-msgstr "Duuma signo 0x00%02X trovigxis en linio %d\n"
+msgstr "Símbolo binário 0x00%02X localizado na linha %d\n"
 
 #: dos2unix.c:179 dos2unix.c:218 dos2unix.c:243 dos2unix.c:355 dos2unix.c:391
 #: dos2unix.c:413 unix2dos.c:162 unix2dos.c:199 unix2dos.c:220 unix2dos.c:238
 #: unix2dos.c:362 unix2dos.c:396 unix2dos.c:414 unix2dos.c:429
 #, c-format
 msgid "can not write to output file: %s\n"
-msgstr "ne eblas skribi al eliga dosiero: %s\n"
+msgstr "não foi possível gravar no arquivo de saída: %s\n"
 
 #: dos2unix.c:259 dos2unix.c:428 unix2dos.c:253 unix2dos.c:443
 #, c-format
 msgid "program error, invalid conversion mode %d\n"
-msgstr "**programeraro**: malvalida konvertmoduso %d\n"
+msgstr "erro do programa, modo de conversão %d é inválido\n"
 
 #: dos2unix.c:317 unix2dos.c:311
 #, c-format
 msgid "using code page %d.\n"
-msgstr "uzigxas kodpagxo %d.\n"
+msgstr "usando a página de código %d.\n"
 
 #: dos2unix.c:342 dos2unix.c:377 unix2dos.c:334 unix2dos.c:384
 #, c-format
 msgid "Binary symbol 0x%02X found at line %d\n"
-msgstr "Duuma signo 0x%02X trovigxis en linio %d\n"
+msgstr "Símbolo binário 0x%02X localizado na linha %d\n"
 
 #: dos2unix.c:516 unix2dos.c:531
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
-msgstr "Malsukcesis malfermi provizoran eligan dosieron: %s\n"
+msgstr "Ocorreu falha ao abrir o arquivo de saída temporário: %s\n"
 
 #: dos2unix.c:523 unix2dos.c:538
 #, c-format
 msgid "using %s as temporary file\n"
-msgstr "uzigxas %s kiel provizora dosiero\n"
+msgstr "usando %s como arquivo de temporário\n"
 
 #: dos2unix.c:636 unix2dos.c:651
 #, c-format
 msgid "Failed to write to temporary output file %s: %s\n"
-msgstr "Malsukcesis skribi al provizora eliga dosiero %s: %s\n"
+msgstr "Ocorreu falha ao gravar no arquivo de saída temporário %s: %s\n"
 
 #: dos2unix.c:671 unix2dos.c:686
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s: %s\n"
-msgstr "Malsukcesis sxangxi la permesojn de provizora eliga dosiero %s: %s\n"
+msgstr "Ocorreu falha ao alterar as permissões do arquivo de saída temporário %s: %s\n"
 
 #: dos2unix.c:690 unix2dos.c:705
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
-msgstr "Malsukcesis sxangxi posedanton kaj grupon de provizora eliga dosiero %s: %s\n"
+msgstr "Ocorreu falha ao alterar o proprietário e o grupo do arquivo de saída temporário %s: %s\n"
 
 #: dos2unix.c:743 unix2dos.c:758
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
-msgstr "problemoj dum redukto de simbola ligo '%s'\n"
+msgstr "ocorreram problemas ao determinar o link simbólico '%s'\n"
 
 #: dos2unix.c:744 dos2unix.c:778 unix2dos.c:759 unix2dos.c:793
 #, c-format
 msgid "          output file remains in '%s'\n"
-msgstr "          eliga dosiero restas en '%s'\n"
+msgstr "          o arquivo de saída permanece em '%s'\n"
 
 #: dos2unix.c:773 unix2dos.c:788
 #, c-format
 msgid "problems renaming '%s' to '%s': %s\n"
-msgstr "problemoj dum alinomigo de '%s' al '%s': %s\n"
+msgstr "ocorreram problemas ao renomear '%s' para '%s': %s\n"
 
 #: dos2unix.c:776 unix2dos.c:791
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
-msgstr "          kiu estas la celo de simbola ligo '%s'\n"
+msgstr "          que é o destino do link simbólico '%s'\n"
 
 #: dos2unix.c:874 unix2dos.c:889
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
-msgstr "eraro: Valoro de cxirkauxajxa variablo DOS2UNIX_LOCALEDIR tro longas.\n"
+msgstr "erro: O valor da variável de ambiente DOS2UNIX_LOCALEDIR é muito comprido.\n"
 
 #: dos2unix.c:977 dos2unix.c:1014 unix2dos.c:992 unix2dos.c:1029
 #, c-format
 msgid "active code page: %d\n"
-msgstr "aktiva kodpagxo: %d\n"
+msgstr "página de código ativa: %d\n"
 
 #: dos2unix.c:1024 unix2dos.c:1039
 #, c-format
 msgid "invalid %s conversion mode specified\n"
-msgstr "malvalida konvertmoduso %s indikatas\n"
+msgstr "o modo de conversão %s especificado é inválido\n"
 
 #: dos2unix.c:1034 unix2dos.c:1049
 #, c-format
 msgid "option '%s' requires an argument\n"
-msgstr "opcio '%s' bezonas argumenton\n"
+msgstr "a opção '%s' requer um argumento\n"
 
 #: dos2unix.c:1047 dos2unix.c:1061 dos2unix.c:1255 unix2dos.c:1062
 #: unix2dos.c:1076 unix2dos.c:1276
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
-msgstr "celo de dosiero %s ne indikatas (en novdosiera moduso)\n"
+msgstr "o destino do arquivo %s não foi especificado no modo de novo arquivo\n"
 
 #: dos2unix.c:1091 dos2unix.c:1175 unix2dos.c:1106 unix2dos.c:1193
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
-msgstr "Preterpasigxas %s, gxi ne estas normala dosiero.\n"
+msgstr "Ignorando %s, não é um arquivo comum.\n"
 
 #: dos2unix.c:1098 unix2dos.c:1113
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
-msgstr "Preterpasigxas %s, eliga dosiero %s estas simbola ligo.\n"
+msgstr "Ignorando %s, o arquivo de saída %s é um link simbólico.\n"
 
 #: dos2unix.c:1105 dos2unix.c:1189 unix2dos.c:1120 unix2dos.c:1207
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
-msgstr "Preterpasigxas simbola ligo %s, la celo ne estas normala dosiero.\n"
+msgstr "Ignorando o link simbólico %s, o destino não é o de um arquivo comum.\n"
 
 #: dos2unix.c:1112 unix2dos.c:1127
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
-msgstr "Preterpasigxas %s, la celo de simbola ligo %s ne estas normala dosiero.\n"
+msgstr "Ignorando %s, o destino do link simbólico %s não é o de um arquivo comum.\n"
 
 #: dos2unix.c:1119 dos2unix.c:1196 unix2dos.c:1134 unix2dos.c:1214
 #, c-format
 msgid "Skipping binary file %s\n"
-msgstr "Preterpasigxas duuma dosiero %s\n"
+msgstr "Ignorando o arquivo binário %s\n"
 
 #: dos2unix.c:1126 dos2unix.c:1203 unix2dos.c:1141 unix2dos.c:1221
 #, c-format
 msgid "code page %d is not supported.\n"
-msgstr "kodpagxo %d ne subtenatas.\n"
+msgstr "não há suporte a página de código %d.\n"
 
 #: dos2unix.c:1133 dos2unix.c:1210 unix2dos.c:1148 unix2dos.c:1228
 #, c-format
 msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
-msgstr "Preterpasigxas UTF-16-a dosiero %s, la nuntempa lokajxa kodo ne estas UTF-8.\n"
+msgstr "Ignorando o arquivo UTF-16 %s, a atual codificação local de caractere não é UTF-8.\n"
 
 #: dos2unix.c:1140 dos2unix.c:1217 unix2dos.c:1155 unix2dos.c:1235
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
-msgstr "Preterpasigxas UTF-16-a dosiero %s, la grando de 'wchar_t' estas %d bajtoj.\n"
+msgstr "Ignorando o arquivo UTF-16 %s, o tamanho de wchar_t é de %d bytes.\n"
 
 #: dos2unix.c:1147 dos2unix.c:1224 unix2dos.c:1162 unix2dos.c:1242
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
-msgstr "Preterpasigxas UTF-16-a dosiero %s, okazis konverteraro de UTF-16.\n"
+msgstr "Ignorando o arquivo UTF-16 %s, ocorreu um erro de conversão para UTF-16.\n"
 
 #: dos2unix.c:1153
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
-msgstr "konvertigxas dosiero %s al dosiero %s Unix-en...\n"
+msgstr "convertendo o arquivo %s para arquivo %s em formato do Unix...\n"
 
 #: dos2unix.c:1160 unix2dos.c:1178
 #, c-format
 msgid "problems converting file %s to file %s\n"
-msgstr "problemoj dum konverto de dosiero %s al dosiero %s\n"
+msgstr "ocorreram problemas ao converter o arquivo %s para arquivo %s\n"
 
 #: dos2unix.c:1182 unix2dos.c:1200
 #, c-format
 msgid "Skipping symbolic link %s.\n"
-msgstr "Preterpasigxas simbola ligo %s.\n"
+msgstr "Ignorando o link simbólico %s.\n"
 
 #: dos2unix.c:1230
 #, c-format
 msgid "converting file %s to Unix format...\n"
-msgstr "konvertigxas dosiero %s Unix-en...\n"
+msgstr "convertendo o arquivo %s para formato do Unix...\n"
 
 #: dos2unix.c:1237 unix2dos.c:1258
 #, c-format
 msgid "problems converting file %s\n"
-msgstr "problemoj dum konverto de dosiero %s\n"
+msgstr "ocorreram problemas ao converter o arquivo %s\n"
 
 #: unix2dos.c:66
 msgid ""
@@ -210,28 +210,28 @@ msgid ""
 msgstr ""
 "Copyright (C) 2009-2014 Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
-"Cxiuj rajtoj estas rezervitaj.\n"
+"Todos os direitos reservados.\n"
 "\n"
 
 #: unix2dos.c:1169
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
-msgstr "konvertigxas dosiero %s al dosiero %s Mac-en...\n"
+msgstr "convertendo o arquivo %s para o arquivo %s em formato do Mac...\n"
 
 #: unix2dos.c:1171
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
-msgstr "konvertigxas dosiero %s al dosiero %s DOS-en...\n"
+msgstr "convertendo o arquivo %s para o arquivo %s em formato do DOS...\n"
 
 #: unix2dos.c:1249
 #, c-format
 msgid "converting file %s to Mac format...\n"
-msgstr "konvertigxas dosiero %s Mac-en...\n"
+msgstr "convertendo o arquivo %s para formato do Mac...\n"
 
 #: unix2dos.c:1251
 #, c-format
 msgid "converting file %s to DOS format...\n"
-msgstr "konvertigxas dosiero %s DOS-en...\n"
+msgstr "convertendo o arquivo %s para formato do DOS...\n"
 
 #: common.c:169
 msgid ""
@@ -245,12 +245,14 @@ msgid ""
 "   the distribution.\n"
 "\n"
 msgstr ""
-"Redistribuo kaj uzo en teksta kaj en duuma formo, sen aux kun modifoj,\n"
-"estas permesata se vi observas la jenajn kondicxojn:\n"
-"1. Redistribuoj de la programteksto devas reteni la supran kopirajtan afisxon,\n"
-"   kaj cxi tiun liston de kondicxoj, kaj la suban malgarantion.\n"
-"2. Redistribuoj en duuma formo devas prezenti la supran kopirajtan afisxon en\n"
-"   la manlibro kaj/aux en la aliaj materialoj kiuj akompanis la distribuon.\n"
+"A redistribuição e o uso nas formas de código e binária, com ou sem\n"
+"alterações, são permitidas desde que sejam atendidas as condições\n"
+"que se seguem:\n"
+"1. As redistribuições de código-fonte devem reter os avisos de direitos\n"
+"   autorais acima, a lista de condições e a renúncia a seguir.\n"
+"2. . As redistribuições na forma binária deve reproduzir o aviso de\n"
+"    direitos autorais acima na documentação e/ou outros materiais\n"
+"   fornecidos com a distribuição.\n"
 "\n"
 
 #: common.c:179
@@ -267,56 +269,67 @@ msgid ""
 "OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN\n"
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
+"ESTE SOFTWARE É FORNECIDO PELO AUTOR ``COMO ESTÁ'' E SEM\n"
+"QUAISQUER GARANTIAS EXPRESSAS OU IMPLÍCITAS, INCLUINDO, MAS NÃO LIMITADO A,\n"
+"IMPLICAR GARANTIAS DE COMERCIALIZAÇÃO E ADEQUAÇÃO A UM FIM ESPECÍFICO,\n"
+"ESTAS SÃO RENUNCIADAS.  SOB NENHUM CASO O AUTOR DEVE SER CONSIDERADO RESPONSÁVEL POR\n"
+"QUALQUER DANO DIRETO, INDIRETO, ACIDENTAL, ESPECIAL, EXEMPLAR, OU\n"
+"CONSEQUENCIAL (INCLUINDO, MAS NÃO LIMITADO A, AQUISIÇÃO\n"
+"DE BENS SUBSTITUTOS OU SERVIÇOS; PERDA DE USO, DADOS, OU LUCROS; OU\n"
+"INTERRUPÇÃO DE NEGÓCIOS) CAUSADOS E SOB QUALQUER TEORIA DE RESPONSABILIZAÇÃO,\n"
+"SEJA CONTRATUAL, RESPONSABILIZAÇÃO ESTRITA, OU AGRAVO (INCLUINDO NEGLIGÊNCIA\n"
+"OU OUTRAS FORMAS) LEVANTADAS EM QUALQUER FORMA FORA DO USO DESTE SOFTWARE, MESMO\n"
+"SE RESSALVADO DA POSSIBILIDADE DE TAL DANO.\n"
 
 #: common.c:196
 #, c-format
 msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
-msgstr "Uzmaniero:  %s [opcioj] [dosiero ...] [-n enigdosiero eligdosiero ...]\n"
+msgstr "Uso: %s [opções] [arquivo ...] [-n arquivo_entrada arquivo_saida ...]\n"
 
 #: common.c:197
 #, c-format
 msgid " -ascii                convert only line breaks (default)\n"
-msgstr " -ascii                 konverti nur linifinojn  (defauxlto)\n"
+msgstr " -ascii                converte-se apenas as quebras de linha (padrão)\n"
 
 #: common.c:198
 #, c-format
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
-msgstr " -iso                   konverti inter signaroj DOS kaj ISO-8859-1\n"
+msgstr " -iso                  conversão entre conjunto de caractere do DOS e ISO-8859-1\n"
 
 #: common.c:199
 #, c-format
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
-msgstr "   -1252                uzi Vindozan kodpagxon 1252 (Okcident-Euxropa)\n"
+msgstr "   -1252               usa a página de código 1252 do Windows (Europa ocidental)\n"
 
 #: common.c:200
 #, c-format
 msgid "   -437                use DOS code page 437 (US) (default)\n"
-msgstr "   -437                 uzi DOS-kodpagxon 437 (Usona)  (defauxlto)\n"
+msgstr "   -437                usa a página de código 437 do DOS (EUA) (padrão)\n"
 
 #: common.c:201
 #, c-format
 msgid "   -850                use DOS code page 850 (Western European)\n"
-msgstr "   -850                 uzi DOS-kodpagxon 850 (Okcident-Euxropa)\n"
+msgstr "   -850                usa a página de código 850 do DOS (Europa ocidental)\n"
 
 #: common.c:202
 #, c-format
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
-msgstr "   -860                 uzi DOS0-kodpagxon 860 (Portugala)\n"
+msgstr "   -860                usa a página de código 860 do DOS (Português)\n"
 
 #: common.c:203
 #, c-format
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
-msgstr "   -863                 uzi DOS-kodpagxon 863 (Kebekia)\n"
+msgstr "   -863                usa a página de código 863 do DOS (Francês do Canadá)\n"
 
 #: common.c:204
 #, c-format
 msgid "   -865                use DOS code page 865 (Nordic)\n"
-msgstr "   -865                 uzi DOS-kodpagxon 865 (Nordlandaj)\n"
+msgstr "   -865                usa a página de código 865 do DOS (Nórdico)\n"
 
 #: common.c:205
 #, c-format
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
-msgstr " -7                     konverti signojn kun jesa oka bito al spacetojn\n"
+msgstr " -7                    converte-se caracteres de 8 bit para espaço de 7 bit\n"
 
 #: common.c:206
 #, c-format
@@ -324,38 +337,38 @@ msgid ""
 " -c, --convmode        conversion mode\n"
 "   convmode            ascii, 7bit, iso, mac, default to ascii\n"
 msgstr ""
-" -c, --convmode         uzenda konvertmoduso\n"
-"   konvertmoduso        'ascii', '7bit', 'iso', aux 'mac'  (defauxltas al 'ascii')\n"
+" -c, --convmode        modo de conversão\n"
+"   convmode            ascii, 7bit, iso, mac, padrão para ascii\n"
 
 #: common.c:208
 #, c-format
 msgid " -f, --force           force conversion of binary files\n"
-msgstr " -f, --force            perforte konverti ankaux duumajn dosierojn\n"
+msgstr " -f, --force           força a conversão de arquivos binários\n"
 
 #: common.c:209
 #, c-format
 msgid " -h, --help            display this help text\n"
-msgstr " -h, --help             montri cxi tiun helptekston\n"
+msgstr " -h, --help            exibe este texto de ajuda\n"
 
 #: common.c:210
 #, c-format
 msgid " -k, --keepdate        keep output file date\n"
-msgstr " -k, --keepdate         konservi dattempon de eliga dosiero\n"
+msgstr " -k, --keepdate        mantém a data do arquivo de saída\n"
 
 #: common.c:211
 #, c-format
 msgid " -L, --license         display software license\n"
-msgstr " -L, --license          montri la permesilon de la programo\n"
+msgstr " -L, --license         exibe a licença do software\n"
 
 #: common.c:212
 #, c-format
 msgid " -l, --newline         add additional newline\n"
-msgstr " -l, --newline          aldoni aldonan linifinon\n"
+msgstr " -l, --newline         acrescenta nova linha adicional\n"
 
 #: common.c:213
 #, c-format
 msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"
-msgstr " -m, --add-bom          aldoni UTF-8-an bajtordo-markon\n"
+msgstr " -m, --add-bom         adiciona marca de ordem de byte (B.O.M.) UTF-8\n"
 
 #: common.c:214
 #, c-format
@@ -364,9 +377,9 @@ msgid ""
 "   infile              original file in new-file mode\n"
 "   outfile             output file in new-file mode\n"
 msgstr ""
-" -n, --newfile          skribi al nova dosiero\n"
-"   enigdosiero          eniga dosiero en novdosiera moduso\n"
-"   eligdosiero          eliga dosiero en novdosiera moduso\n"
+" -n, --newfile         grava em novo arquivo\n"
+"   infile              arquivo original no modo de novo arquivo\n"
+"   outfile             arquivo de saída no modo de novo arquivo\n"
 
 #: common.c:217
 #, c-format
@@ -374,35 +387,37 @@ msgid ""
 " -o, --oldfile         write to old file (default)\n"
 "   file ...            files to convert in old-file mode\n"
 msgstr ""
-" -o, --oldfile          skribi al ekzistanta dosiero  (defauxlto)\n"
-"   dosiero ...          konvertenda(j) dosiero(j) en olddosiera moduso\n"
+" -o, --oldfile         grava no arquivo antigo (padrão)\n"
+"   file ...            arquivos a converter no modo de arquivo antigo\n"
 
 #: common.c:219
 #, c-format
 msgid ""
 " -q, --quiet           quiet mode, suppress all warnings\n"
 "                         (always on in stdio mode)\n"
-msgstr " -q, --quiet           subpremi avertojn (cxiam dum uzo de cxefeligujo)\n"
+msgstr ""
+" -q, --quiet           modo silencioso, esconde todos os avisos\n"
+"                         (sempre ligado no modo padrão de e/s - stdio)\n"
 
 #: common.c:221
 #, c-format
 msgid " -s, --safe            skip binary files (default)\n"
-msgstr " -s, --safe             preterpasi duumajn dosierojn  (defauxlto)\n"
+msgstr " -s, --safe            ignora os arquivos binários (padrão)\n"
 
 #: common.c:223
 #, c-format
 msgid " -ul, --assume-utf16le assume that the input format is UTF-16LE\n"
-msgstr " -ul, --assume-utf16le  trakti enigon kvazaux UTF-16LE\n"
+msgstr " -ul, --assume-utf16le supõe que o formato de entrada é UTF-16LE\n"
 
 #: common.c:224
 #, c-format
 msgid " -ub, --assume-utf16be assume that the input format is UTF-16BE\n"
-msgstr " -ub, --assume-utf16be  trakti enigo kvazaux UTF-16BE\n"
+msgstr " -ub, --assume-utf16be supõe que o formato de entrada é UTF-16BE\n"
 
 #: common.c:227
 #, c-format
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
-msgstr " -F, --follow-symlink   sekvi simbolajn ligojn kaj konverti ties celojn\n"
+msgstr " -F, --follow-symlink  segue os links simbólicos e converte os destinos\n"
 
 #: common.c:228
 #, c-format
@@ -410,85 +425,85 @@ msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
 "                         (original target files remain unchanged)\n"
 msgstr ""
-" -R, --replace-symlink  anstatauxigi simbolajn ligojn per la konvertitaj dosieroj\n"
-"                          (la celaj dosieroj ne sxangxigxas)\n"
+" -R, --replace-symlink substitui os links simbólicos por arquivos convertidos\n"
+"                   (os arquivos originais de destino permanecem inalterados)\n"
 
 #: common.c:230
 #, c-format
 msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
-msgstr " -S, --skip-symlink     ne sxangxi simbolajn ligojn nek ties celojn  (defauxlto)\n"
+msgstr " -S, --skip-symlink    mantém os links simbólicos e os destinos inalterados (padrão)\n"
 
 #: common.c:232
 #, c-format
 msgid " -V, --version         display version number\n"
-msgstr " -V, --version          montri programversion\n"
+msgstr " -V, --version         exibe o número da versão\n"
 
 #: common.c:244
 msgid "DOS 16 bit version (WATCOMC).\n"
-msgstr "DOS 16-bita versio (WATCOMC).\n"
+msgstr "DOS versão de 16 bit (WATCOMC).\n"
 
 #: common.c:246
 msgid "DOS 16 bit version (TURBOC).\n"
-msgstr "DOS 16-bita versio (TURBOC).\n"
+msgstr "DOS versão de 16 bit (TURBOC).\n"
 
 #: common.c:248
 msgid "DOS 32 bit version (WATCOMC).\n"
-msgstr "DOS 32-bita versio (WATCOMC).\n"
+msgstr "DOS versão de 32 bit (WATCOMC).\n"
 
 #: common.c:250
 msgid "DOS 32 bit version (DJGPP).\n"
-msgstr "DOS 32-bita versio (DJGPP).\n"
+msgstr "DOS versão de 32 bit (DJGPP).\n"
 
 #: common.c:252
 msgid "MSYS version.\n"
-msgstr "MSYS-versio.\n"
+msgstr "Versão do MSYS.\n"
 
 #: common.c:254
 msgid "Cygwin version.\n"
-msgstr "Cygwin-versio.\n"
+msgstr "Versão do Cygwin.\n"
 
 #: common.c:256
 msgid "Windows 64 bit version (MinGW-w64).\n"
-msgstr "Windows 64-bita versio (MinGW-w64).\n"
+msgstr "Windows versão de 64 bit (MinGW-w64).\n"
 
 #: common.c:258
 msgid "Windows 32 bit version (WATCOMC).\n"
-msgstr "Windows 32-bita versio (WATCOMC).\n"
+msgstr "Windows versão de 32 bit (WATCOMC).\n"
 
 #: common.c:260
 msgid "Windows 32 bit version (MinGW-w64).\n"
-msgstr "Windows 32-bita versio (MinGW-w64).\n"
+msgstr "Windows versão de 32 bit (MinGW-w64).\n"
 
 #: common.c:262
 msgid "Windows 32 bit version (MinGW).\n"
-msgstr "Windows 32-bita versio (MinGW).\n"
+msgstr "Windows versão de 32 bit (MinGW).\n"
 
 #: common.c:264
 #, c-format
 msgid "Windows 64 bit version (MSVC %d).\n"
-msgstr "Windows 64-bita versio (MSVC %d).\n"
+msgstr "Windows versão de 64 bit (MSVC %d).\n"
 
 #: common.c:266
 #, c-format
 msgid "Windows 32 bit version (MSVC %d).\n"
-msgstr "Windows 32-bita versio (MSVC %d).\n"
+msgstr "Windows versão de 32 bit (MSVC %d).\n"
 
 #: common.c:268
 msgid "OS/2 version (WATCOMC).\n"
-msgstr "OS/2-versio (WATCOMC).\n"
+msgstr "Versão OS/2 (WATCOMC).\n"
 
 #: common.c:270
 msgid "OS/2 version (EMX).\n"
-msgstr "OS/2-versio (EMX).\n"
+msgstr "Versão OS/2 (EMX).\n"
 
 #: common.c:273
 msgid "With Unicode UTF-16 support.\n"
-msgstr "Kun subteno por Unikoda UTF-16.\n"
+msgstr "Com suporte a Unicode UTF-16.\n"
 
 #: common.c:275
 msgid "Without Unicode UTF-16 support.\n"
-msgstr "Sen subteno por Unikoda UTF-16.\n"
+msgstr "Sem suporte a Unicode UTF-16.\n"
 
 #: common.c:278
 msgid "With native language support.\n"
-msgstr "Kun subteno por lokajxoj.\n"
+msgstr "Com suporte ao idioma nativo.\n"

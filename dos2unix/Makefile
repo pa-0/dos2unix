@@ -1,6 +1,6 @@
 # Author: Erwin Waterlander
 #
-#   Copyright (C) 2009-2013 Erwin Waterlander
+#   Copyright (C) 2009-2014 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -83,7 +83,7 @@ man1ext		= .1
 
 ifdef ENABLE_NLS
 	POT		= po/$(PACKAGE).pot
-	POFILES		= $(wildcard po/??.po)
+	POFILES		= $(wildcard po/??.po) $(wildcard po/??_??.po)
 	MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
 	EOX_POFILES	= po/eo-x.po
 	NLSSUFFIX       = -nls
@@ -370,6 +370,14 @@ doc: $(DOCFILES)
 tags: $(POT)
 
 merge: $(POFILES) $(EOX_POFILES)
+
+# Get new po files from the Translation Project.
+getpo:
+	rsync -Lrtvz  translationproject.org::tp/latest/dos2unix/  po/incoming/
+
+po/eo-x.po: po/eo.po
+	eoconv.pl --from=UTF-8 --to=post-x $< > $@
+	sed -i.bak -e 's/\+AFw-n/\\n/g' -e 's/\+ACU-d/%d/g' -e 's/\+ACU-s/%s/g' -e 's/\+ACU-0/%0/g' $@
 
 po/%.po : $(POT)
 	msgmerge -U $@ $(POT) --backup=numbered

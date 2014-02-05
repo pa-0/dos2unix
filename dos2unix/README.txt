@@ -55,16 +55,30 @@ AUTHORS
 
 TRANSLATORS
 
-        Dutch           Erwin Waterlander <waterlan@xs4all.nl>
-        Esperanto       Rugxulo <rugxulo@gmail.com>
-        German          Philipp Thomas <psmt@opensuse.org>
-        German          Lars Wendler <polynomial-c@gentoo.org> Version 6.0.4.
-        Russian         Андрей Углик (Andrei Uhlik) <uglika@gmail.com>
-        Spanish         Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>
+        Translation of the messages:
 
         Since verion 6.0.5 dos2unix is part of the Translation Project (TP).
         All translations go via the Translation Project.
         see http://translationproject.org/domain/dos2unix.html
+
+        Brazilian Portuguese  Enrico Nicoletto <Tranlation Project>           Version 6.0.5
+        Dutch                 Erwin Waterlander <waterlan@xs4all.nl>          Version 4.0   - 6.0.4
+        Dutch                 Benno Schulenberg <Tranlation Project>          Version 6.0.5
+        Esperanto             Rugxulo <rugxulo@gmail.com>                     Version 5.1   - 6.0.4
+        Esperanto             Benno Schulenberg <Tranlation Project>          Version 6.0.5
+        German                Philipp Thomas <pth@suse.de>                    Version 5.0   - 6.0.3
+        German                Lars Wendler <polynomial-c@gentoo.org>          Version 6.0.4
+        Polish                Jakub Bogusz <Tranlation Project>               Version 6.0.5
+        Russian               Андрей Углик (Andrei Uhlik) <uglika@gmail.com>  Version 6.0.4
+        Spanish               Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>   Version 5.3.1 - 6.0.4
+        Ukrainian             Yuri Chornoivan <Tranlation Project>            Version 6.0.5
+        Vietnamese            Trần Ngọc Quân <Tranlation Project>             Version 6.0.5
+
+        Translation of the manual:
+
+        Dutch                 Erwin Waterlander <waterlan@xs4all.nl>          Version 5.1.1 - 6.0.5
+        Spanish               Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>   Version 5.3.1 - 6.0.5
+
 
 ACKNOWLEDGEMENTS
 
