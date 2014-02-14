@@ -42,6 +42,7 @@ HISTORY
         * Keep original file dates option.
         * 7-bit and iso conversion modes like SunOS dos2unix.
         * Conversion of Windows UTF-16 files to Unix UTF-8.
+        * Handles Unicode Byte Order Mark (BOM)
         * Secure.
 
 
