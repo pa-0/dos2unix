@@ -1,12 +1,27 @@
+2014-02-24 Frédéric Marchal <fmarchal@perso.be>
+	* po/fr.po: New French translation.
+
 2014-02-05 Erwin Waterlander <waterlan@xs4all.nl>
-	* po/pt_BR.po, po/pl.po, po/uk.po, po/vi.po: New translations
-	  of the messages in Brazilian Portuguese, Polish, Ukrainian,
-	  and Vietnamese.
-	* po/nl.po, po/eo.po: Updated translations for Dutch and Esperanto.
 	* README.txt: List all the new translators.
 	* Makefile: New target 'getpo' to get .po file from the
 	  Translation Project. New target po/eo-x.po to generate
 	  eo-x.po from eo.po.
+
+2014-02-05 Enrico Nicoletto <liverig@gmail.com>
+	* po/pt_BR.po: New Brazilian Portuguese translation
+
+2014-02-05 Jakub Bogusz <qboosh@pld-linux.org>
+	* po/pl.po: New Polish translation
+
+2014-02-05 Yuri Chornoivan <yurchor@ukr.net>
+	* po/uk.po: New Ukrainian translation
+
+2014-02-05 Trần Ngọc Quân <vnwildman@gmail.com>
+	* po/vi.po: New Vietnamese translation
+
+2014-02-05 Benno Schulenberg <benno@vertaalt.nl>
+	* po/nl.po: Updated Dutch translation
+	* po/eo.po: Updated Esperanto translation
 
 2014-02-02 Erwin Waterlander <waterlan@xs4all.nl>
 	* *.c: Print help and version info to stdout iso stderr.

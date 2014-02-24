@@ -67,6 +67,7 @@ TRANSLATORS
         Dutch                 Benno Schulenberg <Tranlation Project>          Version 6.0.5
         Esperanto             Rugxulo <rugxulo@gmail.com>                     Version 5.1   - 6.0.4
         Esperanto             Benno Schulenberg <Tranlation Project>          Version 6.0.5
+        French                Frédéric Marchal <fmarchal@perso.be>            Version 6.0.5
         German                Philipp Thomas <pth@suse.de>                    Version 5.0   - 6.0.3
         German                Lars Wendler <polynomial-c@gentoo.org>          Version 6.0.4
         Polish                Jakub Bogusz <Tranlation Project>               Version 6.0.5
