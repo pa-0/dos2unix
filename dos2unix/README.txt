@@ -60,9 +60,10 @@ TRANSLATORS
 
         Since verion 6.0.5 dos2unix is part of the Translation Project (TP).
         All translations go via the Translation Project.
-        see http://translationproject.org/domain/dos2unix.html
+        See http://translationproject.org/domain/dos2unix.html
 
         Brazilian Portuguese  Enrico Nicoletto <Tranlation Project>           Version 6.0.5
+        Danish                Thomas Pryds <thomas@pryds.eu>                  Version 6.0.5
         Dutch                 Erwin Waterlander <waterlan@xs4all.nl>          Version 4.0   - 6.0.4
         Dutch                 Benno Schulenberg <Tranlation Project>          Version 6.0.5
         Esperanto             Rugxulo <rugxulo@gmail.com>                     Version 5.1   - 6.0.4
@@ -72,6 +73,7 @@ TRANSLATORS
         German                Lars Wendler <polynomial-c@gentoo.org>          Version 6.0.4
         Polish                Jakub Bogusz <Tranlation Project>               Version 6.0.5
         Russian               Андрей Углик (Andrei Uhlik) <uglika@gmail.com>  Version 6.0.4
+        Serbian               Мирослав Николић <miroslavnikolic@rocketmail.com> Version 6.0.5
         Spanish               Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>   Version 5.3.1 - 6.0.4
         Ukrainian             Yuri Chornoivan <Tranlation Project>            Version 6.0.5
         Vietnamese            Trần Ngọc Quân <Tranlation Project>             Version 6.0.5
