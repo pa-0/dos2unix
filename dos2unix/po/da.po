@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-30 20:41+0100\n"
-"PO-Revision-Date: 2014-02-26 18:54+0100\n"
+"PO-Revision-Date: 2014-03-09 12:07+0100\n"
 "Last-Translator: Thomas Pryds <thomas@pryds.eu>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Vé 0.1.4-rc1\n"
+"X-Generator: Vé 0.1.4\n"
 
 #: dos2unix.c:76
 msgid ""
@@ -36,14 +36,14 @@ msgstr ""
 #: dos2unix.c:164 dos2unix.c:202 unix2dos.c:132 unix2dos.c:185
 #, c-format
 msgid "Binary symbol 0x00%02X found at line %d\n"
-msgstr "Binært symbol 0x00%02X fundet på linie %d\n"
+msgstr "Binært symbol 0x00%02X fundet på linje %d\n"
 
 #: dos2unix.c:179 dos2unix.c:218 dos2unix.c:243 dos2unix.c:355 dos2unix.c:391
 #: dos2unix.c:413 unix2dos.c:162 unix2dos.c:199 unix2dos.c:220 unix2dos.c:238
 #: unix2dos.c:362 unix2dos.c:396 unix2dos.c:414 unix2dos.c:429
 #, c-format
 msgid "can not write to output file: %s\n"
-msgstr "kan ikke skrive til output-fil: %s\n"
+msgstr "kan ikke skrive til outputfil: %s\n"
 
 #: dos2unix.c:259 dos2unix.c:428 unix2dos.c:253 unix2dos.c:443
 #, c-format
@@ -58,12 +58,12 @@ msgstr "bruger tegnkodningstabel %d.\n"
 #: dos2unix.c:342 dos2unix.c:377 unix2dos.c:334 unix2dos.c:384
 #, c-format
 msgid "Binary symbol 0x%02X found at line %d\n"
-msgstr "Binært symbol 0x%02X fundet på linie %d\n"
+msgstr "Binært symbol 0x%02X fundet på linje %d\n"
 
 #: dos2unix.c:516 unix2dos.c:531
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
-msgstr "Åbning af midlertidig output-fil mislykkedes: %s\n"
+msgstr "Åbning af midlertidig outputfil mislykkedes: %s\n"
 
 #: dos2unix.c:523 unix2dos.c:538
 #, c-format
@@ -73,17 +73,17 @@ msgstr "bruger %s som midlertidig fil\n"
 #: dos2unix.c:636 unix2dos.c:651
 #, c-format
 msgid "Failed to write to temporary output file %s: %s\n"
-msgstr "Skrivning til midlertidig output-fil %s mislykkedes: %s\n"
+msgstr "Skrivning til midlertidig outputfil %s mislykkedes: %s\n"
 
 #: dos2unix.c:671 unix2dos.c:686
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s: %s\n"
-msgstr "Ændring af tilladelser for midlertidig output-fil %s mislykkedes: %s\n"
+msgstr "Ændring af tilladelser for midlertidig outputfil %s mislykkedes: %s\n"
 
 #: dos2unix.c:690 unix2dos.c:705
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
-msgstr "Ændring af ejer og gruppe for midlertidig output-fil %s mislykkedes: %s\n"
+msgstr "Ændring af ejer og gruppe for midlertidig outputfil %s mislykkedes: %s\n"
 
 #: dos2unix.c:743 unix2dos.c:758
 #, c-format
@@ -138,7 +138,7 @@ msgstr "Springer %s over, ikke en almindelig fil.\n"
 #: dos2unix.c:1098 unix2dos.c:1113
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
-msgstr "Springer %s over. Output-fil %s er en symbolsk henvisning.\n"
+msgstr "Springer %s over. Outputfil %s er en symbolsk henvisning.\n"
 
 #: dos2unix.c:1105 dos2unix.c:1189 unix2dos.c:1120 unix2dos.c:1207
 #, c-format
@@ -249,7 +249,7 @@ msgstr ""
 "er opfyldt:\n"
 "1. Redistribuering af kildekode skal bibeholde ovenstående notits\n"
 "   om ophavsret, denne liste over betingelser og den følgende\n"
-"   frasigelse.\n"
+"   ansvarsfraskrivelse.\n"
 "2. Redistribuering i binær form skal indeholde ovenstående notits\n"
 "   om ophavsret i dokumentationen og/eller andre materialer, der\n"
 "   stilles til rådighed med distribueringen.\n"
@@ -269,19 +269,17 @@ msgid ""
 "OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN\n"
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
-"DENNE SOFTWARE STILLES TIL RÅDIGHED \"SOM DEN ER\" OG ENHVER FORM FOR\n"
-"UDTRYKT ELLER IMPLICIT GARANTI, INKLUSIVE MEN IKKE BEGRÆNSET TIL\n"
-"DE IMPLICITTE GARANTIER FOR SALGSEGNETHED OG EGNETHED FOR ET BESTEMT\n"
-"FORMÅL FRASIGES. PÅ INGEN MÅDE KAN FORFATTEREN VÆRE ANSVARLIG FOR\n"
-"NOGEN FORM FOR DIREKTE, INDIREKTE, UTILSIGTEDE, SPECIELLE, EKSEMPLARISKE\n"
-"ELLER FØLGENDE SKADER (INKLUSIVE MEN IKKE BEGRÆNSET TIL FORMIDLING AF\n"
-"SUBSTITUERENDE VARER ELLER YDELSER - TAB AF BRUGBARHED, DATA ELLER\n"
-"PROFIT - ELLER AFBRYDELSE AF VIRKSOMHED) UANSET HVORDAN DETTE ER\n"
-"FORÅRSAGET OG EFTER ENHVER TEORI OM FORPLIGTELSE, HVERKEN EFTER\n"
-"KONTRAKT, STRENG FORPLIGTELSE ELLER ERSTATNINGSRET (INKLUSIVE\n"
-"UAGTSOMHED ELLER ANDET), DER OPSTÅR PÅ NOGEN MÅDE AF BRUGEN AF DENNE\n"
-"SOFTWARE, SELV HVIS RÅDGIVNING OM RISIKOEN FOR SÅDAN SKADE ER\n"
-"FOREKOMMET.\n"
+"DENNE SOFTWARE LEVERES AF FORFATTEREN SOM DEN ER; ALLE UDTRYKTE ELLER\n"
+"ANTYDEDE GARANTIER, INKLUSIVE, MEN IKKE BEGRÆNSET TIL, DE UNDERFORSTÅEDE\n"
+"GARANTIER OMKRING SALGBARHED ELLER EGNETHED TIL ET BESTEMT FORMÅL, ER\n"
+"ANSVARSFRASKREVET. UNDER INGEN OMSTÆNDIGHEDER SKAL FORFATTEREN BLIVE\n"
+"HOLDT ANSVARLIG FOR DIREKTE, INDIREKTE, HÆNDELIGE, SPECIELLE,\n"
+"EKSEMPLARISKE ELLER FØLGESKADER (HERUNDER, MEN IKKE BEGRÆNSET TIL, KRAV\n"
+"OM UDSKIFTNING AF VARER ELLER TJENESTER; TAB AF FUNKTIONALITET, DATA\n"
+"ELLER FORTJENESTE; ELLER FORRETNINGSAFBRYDELSE) SKABT ELLER ANDET\n"
+"TEORETISK ERSTATNINGSANSVAR, BÅDE I KONTRAKT, RENT ANSVAR ELLER TORT\n"
+"(GÆLDER SELV VED IGNORERING ELLER ANDET) SOM KOMMER UD AF BRUGEN AF\n"
+"DENNE SOFTWARE, SELVOM INFORMATION ER GIVET, AT DET VIL MEDFØRE SKADE.\n"
 
 #: common.c:196
 #, c-format
@@ -296,12 +294,12 @@ msgstr " -ascii                omdan kun linjeskift (standard)\n"
 #: common.c:198
 #, c-format
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
-msgstr " -iso            omdannelse mellem DOS og ISO-8859-1 tegnsæt\n"
+msgstr " -iso            omdannelse mellem DOS- og ISO-8859-1-tegnsæt\n"
 
 #: common.c:199
 #, c-format
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
-msgstr "   -1252               brug Windows-tegnkodningstabel 1252  (Vesteuropa)\n"
+msgstr "   -1252               brug Windows-tegnkodningstabel 1252 (Vesteuropa)\n"
 
 #: common.c:200
 #, c-format
@@ -360,7 +358,7 @@ msgstr " -k, --keepdate        behold outputfils dato\n"
 #: common.c:211
 #, c-format
 msgid " -L, --license         display software license\n"
-msgstr " -L, --license         vis software-licens\n"
+msgstr " -L, --license         vis softwarelicens\n"
 
 #: common.c:212
 #, c-format
@@ -380,8 +378,8 @@ msgid ""
 "   outfile             output file in new-file mode\n"
 msgstr ""
 " -n, --newfile         skriv til ny fil\n"
-"   infile              original fil i ny-fil-tilstand\n"
-"   outfile             output-fil i ny-fil-tilstand\n"
+"   infile              originalfil i ny-fil-tilstand\n"
+"   outfile             outputfil i ny-fil-tilstand\n"
 
 #: common.c:217
 #, c-format
