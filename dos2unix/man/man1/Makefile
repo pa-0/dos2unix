@@ -103,7 +103,9 @@ dos2unix.pot : dos2unix.pod
 	po4a-updatepo -f pod -m $< -p $@
 
 %.pod : %.po
-	po4a-translate -f pod -m dos2unix.pod -p $< > $@
+	po4a-translate -f pod -m dos2unix.pod -p $< > $@.utf8
+	iconv -f UTF-8 -t ISO-8859-1 $@.utf8 > $@
+	sed -i 's/=encoding UTF-8/=encoding latin1/' $@
 
 %.1 : %.pod
 	# make target - create manual page from a *.pod page
