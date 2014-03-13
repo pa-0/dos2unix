@@ -95,7 +95,8 @@ HTMLEXT = htm
 DOCFILES	= man/man1/$(PACKAGE).txt man/man1/$(PACKAGE).$(HTMLEXT)
 INSTALL_OBJS_DOC = README.txt INSTALL.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt $(DOCFILES)
 
-PODFILES_ALL	= man/man1/dos2unix.pod $(wildcard man/*/man1/dos2unix.pod)
+MANPOFILES      = $(wildcard man/*/man1/dos2unix.po)
+PODFILES_ALL	= man/man1/dos2unix.pod $(patsubst %.po,%.pod,$(MANPOFILES))
 PODFILES	= $(wildcard man/*/man1/dos2unix.pod)
 MANFILES	= $(patsubst %.pod,%.1,$(PODFILES))
 TXTFILES	= $(patsubst %.pod,%.txt,$(PODFILES_ALL))
@@ -347,8 +348,11 @@ $(UNIX2DOS_BIN): unix2dos.o querycp.o common.o
 $(MAC2UNIX_BIN) : $(BIN)
 	$(LINK) $< $@
 
+%.pod : %.po
+	$(MAKE) -C man/man1 $(subst man/,../,$@)
+
 %.1 : %.pod
-	$(MAKE) -C man/man1
+	$(MAKE) -C man/man1 $(subst man/,../,$@)
 
 $(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
 	$(LINK) $< $@
@@ -569,6 +573,7 @@ maintainer-clean: distclean
 	rm -f man/nonlatin/*/man1/*.txt
 	rm -f man/nonlatin/*/man1/*.$(HTMLEXT)
 	rm -f man/nonlatin/*/man1/*.1
+	rm -f man/nonlatin/*/man1/*.pod
 
 realclean: maintainer-clean
 

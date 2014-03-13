@@ -102,10 +102,15 @@ MAN_OBJECTS_NONLATIN = $(patsubst %.pod,%.1,$(PODFILES_NONLATIN))
 dos2unix.pot : dos2unix.pod
 	po4a-updatepo -f pod -m $< -p $@
 
+
+# Create pod files form po.
+# For latin1 scripts change encoding to latin1.
+# Fix problem that =encoding is before =pod command.
 %.pod : %.po
-	po4a-translate -f pod -m dos2unix.pod -p $< > $@.utf8
-	iconv -f UTF-8 -t ISO-8859-1 $@.utf8 > $@
-	sed -i 's/=encoding UTF-8/=encoding latin1/' $@
+	po4a-translate -f pod -m dos2unix.pod -p $< > $@.ut8
+	iconv -f UTF-8 -t ISO-8859-1 $@.ut8 > $@
+	sed -i '/=encoding UTF-8/d' $@
+	sed -i 's/=pod/=pod\n\n=encoding latin1/' $@
 
 %.1 : %.pod
 	# make target - create manual page from a *.pod page

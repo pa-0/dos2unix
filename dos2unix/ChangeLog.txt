@@ -1,3 +1,18 @@
+2014-03-14 Erwin Waterlander <waterlan@xs4all.nl>
+	* man/man1/Makefile: Generate pod files from gettext
+	  po files with po4a, for easier translation. Thanks to
+	  Mario Blätterman.
+	  See also http://po4a.alioth.debian.org/
+	* man/nl/man1/dos2unix.po, man/es/man/dos2unix.po:
+	  New po files, created from original pod.
+	  Thanks to Mario Blätterman.
+	* man/nl/man1/dos2unix.pod, man/es/man/dos2unix.pod:
+	  Deleted. These are generated now.
+	* Makefile: Update for manual generation from .po files.
+
+2014-03-14 mail6543210 <mail6543210@yahoo.com.tw>
+	* po/zh_TW.po: New Chinese (traditional) translation.
+
 2014-03-06 Thomas Pryds <thomas@pryds.eu>
 	* po/da.po: New Danish translation.
 
