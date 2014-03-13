@@ -37,6 +37,8 @@ include version.mk
 
 .PHONY: man txt html pdf mofiles tags merge
 
+.PRECIOUS: %.1
+
 CC		?= gcc
 CPP		?= cpp
 CPP_FLAGS_POD	= ALL
