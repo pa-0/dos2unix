@@ -66,7 +66,8 @@ POD2MAN		= pod2man
 POD2MAN_FLAGS	=
 MAN_NONLATIN    ?= 1
 
-PODFILES = $(wildcard ../*/man1/dos2unix.pod)
+POFILES = $(wildcard ../*/man1/dos2unix.po)
+PODFILES = $(patsubst %.po,%.pod,$(POFILES))
 MAN_OBJECTS = dos2unix.1 $(patsubst %.pod,%.1,$(PODFILES))
 ifeq ($(MAN_NONLATIN),1)
 PODFILES_NONLATIN = $(wildcard ../nonlatin/*/man1/dos2unix.pod)
@@ -97,6 +98,12 @@ MAN_OBJECTS_NONLATIN = $(patsubst %.pod,%.1,$(PODFILES_NONLATIN))
 # One day everything will be in UTF-8...
 # For the English manual it all makes no difference, because the English text
 # is plain ASCII.
+
+dos2unix.pot : dos2unix.pod
+	po4a-updatepo -f pod -m $< -p $@
+
+%.pod : %.po
+	po4a-translate -f pod -m dos2unix.pod -p $< > $@
 
 %.1 : %.pod
 	# make target - create manual page from a *.pod page
