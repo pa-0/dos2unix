@@ -13,10 +13,10 @@ endif
 ZIPOBJ_EXTRA =
 
 all:
-	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" EO_XNOTATION=1 UCS=
+	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" UCS=
 
 install:
-	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" EO_XNOTATION=1 UCS=
+	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LDFLAGS_EXTRA="$(LDFLAGS_EXTRA)" LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" UCS=
 
 uninstall:
 	$(MAKE) uninstall EXE=.exe prefix=$(prefix)

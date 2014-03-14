@@ -87,16 +87,15 @@ ifdef ENABLE_NLS
 	POT		= po/$(PACKAGE).pot
 	POFILES		= $(wildcard po/??.po) $(wildcard po/??_??.po)
 	MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
-	EOX_POFILES	= po/eo-x.po
 	NLSSUFFIX       = -nls
 endif
 
 HTMLEXT = htm
 # By default we generate only English text and html manuals.
-# Then we don't need "pod2text --utf8" and we have no dependency on iconv.
 DOCFILES	= man/man1/$(PACKAGE).txt man/man1/$(PACKAGE).$(HTMLEXT)
 INSTALL_OBJS_DOC = README.txt INSTALL.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt $(DOCFILES)
 
+MANPOTFILE      = man/man1/dos2unix-man.pot
 MANPOFILES      = $(wildcard man/*/man1/dos2unix.po)
 PODFILES_ALL	= man/man1/dos2unix.pod $(patsubst %.po,%.pod,$(MANPOFILES))
 PODFILES	= $(wildcard man/*/man1/dos2unix.pod)
@@ -105,7 +104,6 @@ TXTFILES	= $(patsubst %.pod,%.txt,$(PODFILES_ALL))
 HTMLFILES	= $(patsubst %.pod,%.$(HTMLEXT),$(PODFILES_ALL))
 PSFILES 	= $(patsubst %.pod,%.ps,$(PODFILES_ALL))
 PDFFILES	= $(patsubst %.pod,%.pdf,$(PODFILES_ALL))
-UTF8FILES	= $(patsubst %.pod,%.ut8,$(PODFILES_ALL))
 
 # On some systems (e.g. FreeBSD 4.10) GNU install is installed as `ginstall'.
 INSTALL		= install
@@ -159,7 +157,6 @@ ifeq ($(findstring MSYS,$(shell uname)),MSYS)
 	D2U_OS = msys
 	EXE = .exe
 	VERSIONSUFFIX	= -msys
-	EO_XNOTATION=1
 	UCS =
 ifdef ENABLE_NLS
 	LIBS_EXTRA = -lintl -liconv
@@ -174,7 +171,6 @@ ifeq ($(findstring MINGW32,$(shell uname)),MINGW32)
 	EXE = .exe
 	VERSIONSUFFIX	= -win32
 	LINK = cp -f
-	EO_XNOTATION=1
 ifdef ENABLE_NLS
 	LIBS_EXTRA = -lintl -liconv
 	ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
@@ -193,7 +189,6 @@ ifneq ($(DJGPP),)
 	VERSIONSUFFIX = pm
 	LINK_MAN = cp -f
 	docsubdir = dos2unix
-	EO_XNOTATION=1
 	UCS =
 	ZIPOBJ_EXTRA = bin/cwsdpmi.exe
 ifdef ENABLE_NLS
@@ -209,7 +204,6 @@ ifeq ($(shell uname),OS/2)
 	EXE = .exe
 	VERSIONSUFFIX = -os2
 	LINK_MAN = cp -f
-	EO_XNOTATION=1
 	UCS =
 	LDFLAGS_EXTRA = -Zargs-wild
 ifdef ENABLE_NLS
@@ -267,21 +261,8 @@ endif
 
 # ............................................................ flags ...
 
-# For systems that don't support Unicode or Latin-3, select
-# Esperanto in X-notation format: EO_XNOTATION=1
-
-ifdef EO_XNOTATION
-EO_NOTATION = -x
-endif
-
-PODFILES_NONLATIN  = $(wildcard man/nonlatin/*/man1/dos2unix.pod)
-MANFILES_NONLATIN  = $(patsubst %.pod,%.1,$(PODFILES_NONLATIN))
-TXTFILES_NONLATIN  = $(patsubst %.pod,%.txt,$(PODFILES_NONLATIN))
-HTMLFILES_NONLATIN = $(patsubst %.pod,%.$(HTMLEXT),$(PODFILES_NONLATIN))
 # PostScript and PDF generation from UTF-8 manuals is not working,
 # or I don't know how to do it.
-#PSFILES_NONLATIN   = $(patsubst %.pod,%.ps,$(PODFILES_NONLATIN))
-#PDFFILES_NONLATIN  = $(patsubst %.pod,%.pdf,$(PODFILES_NONLATIN))
 
 CFLAGS_USER	=
 CFLAGS		?= -O2
@@ -319,7 +300,7 @@ DEFS		= $(EXTRA_DEFS) $(DEFS_USER)
 
 # .......................................................... targets ...
 
-all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES) $(EOX_POFILES) man/man1/dos2unix.1 $(MANFILES) $(MANFILES_NONLATIN)
+all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES) man/man1/dos2unix.1 $(MANFILES) $(MANPOTFILE)
 
 status:
 	@echo "D2U_OS       = $(D2U_OS)"
@@ -350,6 +331,9 @@ $(UNIX2DOS_BIN): unix2dos.o querycp.o common.o
 $(MAC2UNIX_BIN) : $(BIN)
 	$(LINK) $< $@
 
+$(MANPOTFILE) : man/man1/dos2unix.pod
+	$(MAKE) -C man/man1 $(notdir $@)
+
 %.pod : %.po
 	$(MAKE) -C man/man1 $(subst man/,../,$@)
 
@@ -361,29 +345,25 @@ $(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
 
 mofiles: $(MOFILES)
 
-html: $(HTMLFILES) $(HTMLFILES_NONLATIN)
+html: $(HTMLFILES)
 
-txt: $(TXTFILES) $(TXTFILES_NONLATIN)
+txt: $(TXTFILES)
 
-ps: $(PSFILES) $(PSFILES_NONLATIN)
+ps: $(PSFILES)
 
-pdf: $(PDFFILES) $(PDFFILES_NONLATIN)
+pdf: $(PDFFILES)
 
-man: man/man1/dos2unix.1 $(MANFILES) $(MANFILES_NONLATIN)
+man: man/man1/dos2unix.1 $(MANFILES)
 
 doc: $(DOCFILES)
 
 tags: $(POT)
 
-merge: $(POFILES) $(EOX_POFILES)
+merge: $(POFILES)
 
 # Get new po files from the Translation Project.
 getpo:
 	rsync -Lrtvz  translationproject.org::tp/latest/dos2unix/  po/incoming/
-
-po/eo-x.po: po/eo.po
-	eoconv.pl --from=UTF-8 --to=post-x $< > $@
-	sed -i.bak -e 's/\+AFw-n/\\n/g' -e 's/\+ACU-d/%d/g' -e 's/\+ACU-s/%s/g' -e 's/\+ACU-0/%0/g' $@
 
 po/%.po : $(POT)
 	msgmerge -U $@ $(POT) --backup=numbered
@@ -399,22 +379,7 @@ po/eo.mo : po/eo$(EO_NOTATION).po
 $(POT) : dos2unix.c unix2dos.c common.c
 	xgettext -C --keyword=_ $+ -o $(POT)
 
-# Convert text files to UTF-8. Notepad has no problem with UTF-8.
-# Use iconv to convert to UTF-8. There are many old pod2text versions
-# around that don't have the --utf8 option yet.
-%.tx1 : %.pod
-	pod2text $< > $@
-
-%.txt : %.tx1
-	iconv -f ISO-8859-1 -t UTF-8 $< > $@
-
-# Create the English txt manual straight from the .pod file. It contains only ASCII.
-# This saves a dependency on iconv.
-man/man1/$(PACKAGE).txt : man/man1/$(PACKAGE).pod
-	pod2text $< > $@
-
-# Non-Latin1 script manuals are already in UTF-8 format.
-man/nonlatin/ru/man1/$(PACKAGE).txt : man/nonlatin/ru/man1/$(PACKAGE).pod
+%.txt : %.pod
 	pod2text $< > $@
 
 %.ps : %.1
@@ -423,28 +388,15 @@ man/nonlatin/ru/man1/$(PACKAGE).txt : man/nonlatin/ru/man1/$(PACKAGE).pod
 %.pdf: %.ps
 	ps2pdf $< $@
 
-# The POD files are encoded in Latin-1. See also man/man1/Makefile
-# For non-English HTML it is best to use UTF-8.
-%.ut8 : %.pod
-	iconv -f ISO-8859-1 -t UTF-8 $< > $@
-
 # Generic rule.
-%.$(HTMLEXT) : %.ut8
+%.$(HTMLEXT) : %.pod
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
 
-# Create the English html manual straight from the .pod file. It contains only ASCII.
-# This saves a dependency on iconv.
-man/man1/$(PACKAGE).$(HTMLEXT) : man/man1/$(PACKAGE).pod
-	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
-
-man/nl/man1/$(PACKAGE).$(HTMLEXT) : man/nl/man1/$(PACKAGE).ut8
+man/nl/man1/$(PACKAGE).$(HTMLEXT) : man/nl/man1/$(PACKAGE).pod
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/Mac naar Unix en vice versa tekstbestand formaat omzetter" $< > $@
 
-man/es/man1/$(PACKAGE).$(HTMLEXT) : man/es/man1/$(PACKAGE).ut8
+man/es/man1/$(PACKAGE).$(HTMLEXT) : man/es/man1/$(PACKAGE).pod
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Convertidor de archivos de texto de formato DOS/Mac a Unix y viceversa" $< > $@
-
-man/nonlatin/ru/man1/$(PACKAGE).$(HTMLEXT) : man/nonlatin/ru/man1/$(PACKAGE).pod
-	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
 
 install: all
 	$(MKDIR) -p -m 755 $(DESTDIR)$(bindir)
@@ -473,11 +425,6 @@ endif
 	$(foreach manfile, $(MANFILES), cd $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ; $(LINK_MAN) $(PACKAGE).1 $(MAC2UNIX).1 ;)
 	$(foreach manfile, $(MANFILES), cd $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ; $(LINK_MAN) $(PACKAGE).1 $(UNIX2DOS).1 ;)
 	$(foreach manfile, $(MANFILES), cd $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ; $(LINK_MAN) $(PACKAGE).1 $(UNIX2MAC).1 ;)
-	$(foreach manfile, $(MANFILES_NONLATIN), $(MKDIR) -p -m 755 $(DESTDIR)$(datarootdir)/$(subst nonlatin/,,$(dir $(manfile))) ;)
-	$(foreach manfile, $(MANFILES_NONLATIN), $(INSTALL) -m 644 $(manfile) $(DESTDIR)$(datarootdir)/$(subst nonlatin/,,$(dir $(manfile))) ;)
-	$(foreach manfile, $(MANFILES_NONLATIN), cd $(DESTDIR)$(datarootdir)/$(subst nonlatin/,,$(dir $(manfile))) ; $(LINK_MAN) $(PACKAGE).1 $(MAC2UNIX).1 ;)
-	$(foreach manfile, $(MANFILES_NONLATIN), cd $(DESTDIR)$(datarootdir)/$(subst nonlatin/,,$(dir $(manfile))) ; $(LINK_MAN) $(PACKAGE).1 $(UNIX2DOS).1 ;)
-	$(foreach manfile, $(MANFILES_NONLATIN), cd $(DESTDIR)$(datarootdir)/$(subst nonlatin/,,$(dir $(manfile))) ; $(LINK_MAN) $(PACKAGE).1 $(UNIX2MAC).1 ;)
 ifdef ENABLE_NLS
 	@echo "-- install-mo"
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
@@ -503,10 +450,6 @@ install-doc: $(INSTALL_OBJS_DOC)
 	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
 	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(INSTALL) -m 644 $(psfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
 	$(foreach psfile, $(wildcard man/man1/*.ps), $(INSTALL) -m 644 $(psfile) $(DESTDIR)$(docdir) ;)
-	$(foreach txtfile, $(wildcard man/nonlatin/*/man1/*.txt), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 3,$(subst /, ,$(txtfile),)) ;)
-	$(foreach txtfile, $(wildcard man/nonlatin/*/man1/*.txt), $(INSTALL) -m 644 $(txtfile) $(DESTDIR)$(docdir)/$(word 3,$(subst /, ,$(txtfile),)) ;)
-	$(foreach htmlfile, $(wildcard man/nonlatin/*/man1/*.$(HTMLEXT)), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 3,$(subst /, ,$(htmlfile),)) ;)
-	$(foreach htmlfile, $(wildcard man/nonlatin/*/man1/*.$(HTMLEXT)), $(INSTALL) -m 644 $(htmlfile) $(DESTDIR)$(docdir)/$(word 3,$(subst /, ,$(htmlfile),)) ;)
 
 uninstall:
 	@echo "-- target: uninstall"
@@ -522,7 +465,6 @@ endif
 	-rm -f $(DESTDIR)$(mandir)/man1/$(UNIX2DOS).1
 	-rm -f $(DESTDIR)$(mandir)/man1/$(UNIX2MAC).1
 	$(foreach manfile, $(MANFILES), rm -f $(DESTDIR)$(datarootdir)/$(manfile) ;)
-	$(foreach manfile, $(MANFILES_NONLATIN), rm -f $(DESTDIR)$(datarootdir)/$(subst nonlatin/,,$(manfile)) ;)
 	-rm -rf $(DESTDIR)$(docdir)
 
 mostlyclean:
@@ -543,18 +485,14 @@ mostlyclean:
 clean: mostlyclean
 	rm -f man/man1/*.ps
 	rm -f man/man1/*.pdf
-	rm -f man/man1/*.ut8
 	rm -f man/*/man1/*.ps
 	rm -f man/*/man1/*.pdf
-	rm -f man/*/man1/*.ut8
-	rm -f man/nonlatin/*/man1/*.ps
-	rm -f man/nonlatin/*/man1/*.pdf
 
 distclean: clean
 
 # Because there is so much trouble with generating man pages with
 # pod2man, due to old Perl versions (< 5.10.1) on many systems, I include the
-# non-English man pages in the source tar file.
+# man pages in the source tar file.
 # Old pod2man versions do not have the --utf8 option. Old pod2man, pod2text,
 # and pod2html do not support the =encoding command.
 # Perl 5.18 pod2man demands an =encoding command for Latin-1 encoded POD files.
@@ -572,10 +510,6 @@ maintainer-clean: distclean
 	rm -f man/*/man1/*.1
 	rm -f man/*/man1/*.txt
 	rm -f man/*/man1/*.$(HTMLEXT)
-	rm -f man/nonlatin/*/man1/*.txt
-	rm -f man/nonlatin/*/man1/*.$(HTMLEXT)
-	rm -f man/nonlatin/*/man1/*.1
-	rm -f man/nonlatin/*/man1/*.pod
 
 realclean: maintainer-clean
 

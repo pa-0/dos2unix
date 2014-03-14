@@ -9,6 +9,10 @@
 	* man/nl/man1/dos2unix.pod, man/es/man/dos2unix.pod:
 	  Deleted. These are generated now.
 	* Makefile: Update for manual generation from .po files.
+	* Makefile, man/man1/Makefile: All man pages are now in
+	  UTF-8 format.
+	* Makefile: EO_XNOTATION no longer supported.
+	* po/eo-x.po: Deleted.
 
 2014-03-14 mail6543210 <mail6543210@yahoo.com.tw>
 	* po/zh_TW.po: New Chinese (traditional) translation.

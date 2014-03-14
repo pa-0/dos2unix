@@ -3,6 +3,7 @@
 #   Copyright information
 #
 #	Copyright (C) 2010 Jari Aalto
+#	Copyright (C) 2010-2014 Erwin Waterlander
 #
 #   License
 #
@@ -64,93 +65,38 @@ MANPAGE		= $(MANDEST)$(PACKAGE).$(MANSECT)
 
 POD2MAN		= pod2man
 POD2MAN_FLAGS	=
-MAN_NONLATIN    ?= 1
 
 POFILES = $(wildcard ../*/man1/dos2unix.po)
 PODFILES = $(patsubst %.po,%.pod,$(POFILES))
 MAN_OBJECTS = dos2unix.1 $(patsubst %.pod,%.1,$(PODFILES))
-ifeq ($(MAN_NONLATIN),1)
-PODFILES_NONLATIN = $(wildcard ../nonlatin/*/man1/dos2unix.pod)
-MAN_OBJECTS_NONLATIN = dos2unix.1 $(patsubst %.pod,%.1,$(PODFILES_NONLATIN))
-endif
 
-all: $(MAN_OBJECTS) $(MAN_OBJECTS_NONLATIN)
+all: $(MAN_OBJECTS) dos2unix-man.pot
 
-MAN_OBJECTS_NONLATIN = $(patsubst %.pod,%.1,$(PODFILES_NONLATIN))
 
-# The .pod files for Latin scripts are encoded in Latin-1 (ISO-8859-1/CP1252).
-# UTF-8 man pages are not properly displayed in a Windows Command Prompt,
-# therefore we keep them in Latin-1 format.
+# Issues:
 
 # Cygwin 1.7 expects man pages to be in Latin-1 format.
 
 # The perl version of MinGW and DJGPP is 5.8.8. The pod2man command of perl
-# 5.8.8 does not yet have the options -u, --utf8, and does support the =encoding
-# command.
+# 5.8.8 does not yet have the options -u, --utf8, and does support the
+# =encoding command.  The =encoding command and the --utf8 option are supported
+# since perl 5.10.1.
+# Erwin W.
 
-# There are different *roff implementations. For now I assume we are using
-# groff (GNU-roff) which is wide spread, default on Linux, Cygwin, MinGW, and
-# DJGPP.  The groff specific escape sequences may not work with other *roff
-# implementations, but they display OK when used in a Windows Command Prompt
-# using DJGPP's or MinGW's groff. Although sometimes characters are displayed
-# without their diacritics.
+# Dos2unix 6.0.5: Forget Latin-1, we do now only UTF-8.
 
-# One day everything will be in UTF-8...
-# For the English manual it all makes no difference, because the English text
-# is plain ASCII.
-
-dos2unix.pot : dos2unix.pod
+dos2unix-man.pot : dos2unix.pod
 	po4a-updatepo -f pod -m $< -p $@
 
 
-# Create pod files form po.
-# For latin1 scripts change encoding to latin1.
+# Create pod files from po.
 # Fix problem that =encoding is before =pod command.
 %.pod : %.po
-	po4a-translate -f pod -m dos2unix.pod -p $< > $@.ut8
-	iconv -f UTF-8 -t ISO-8859-1 $@.ut8 > $@
+	po4a-translate -f pod -m dos2unix.pod -p $< > $@
 	sed -i '/=encoding UTF-8/d' $@
-	sed -i 's/=pod/=pod\n\n=encoding latin1/' $@
+	sed -i 's/=pod/=pod\n\n=encoding UTF-8/' $@
 
 %.1 : %.pod
-	# make target - create manual page from a *.pod page
-	podchecker $<
-	$(POD2MAN) $(POD2MAN_FLAGS) \
-		--center="$(PODCENTER)" \
-		--name="$(PACKAGE)" \
-		--section="$(MANSECT)" \
-		$< \
-	| perl -p -e 's/[Pp]erl v[0-9.]+/$(PACKAGE)/;' \
-	  > $@ && \
-	rm -f pod*.tmp
-# fix for bug http://rt.perl.org/rt3//Public/Bug/Display.html?id=79410
-# "Pod2man creates wrong ROFF esc sequences for Latin-1 characters."
-# Create groff (specific) escape sequences which work also on DOS/Windows.
-# See also: https://rt.cpan.org/Public/Bug/Display.html?id=73804
-	perl -pli.bak \
-		-e s/A\\\\\\*\'/\\\\[\'A]/g\; \
-		-e s/a\\\\\\*\'/\\\\[\'a]/g\; \
-		-e s/E\\\\\\*\'/\\\\[\'E]/g\; \
-		-e s/e\\\\\\*:/\\\\[:e]/g\; \
-		-e s/e\\\\\\*\'/\\\\[\'e]/g\; \
-		-e s/i\\\\\\*\'/\\\\[\'i]/g\; \
-		-e s/n\\\\\\*~/\\\\[~n]/g\; \
-		-e s/O\\\\\\*\'/\\\\[\'O]/g\; \
-		-e s/o\\\\\\*\'/\\\\[\'o]/g\; \
-		-e s/u\\\\\\*\'/\\\\[\'u]/g\; \
-		$@
-
-
-
-# The .pod files under the 'nonlatin' folder are encoded in UTF-8.
-# For these manuals pod2man needs to support the =encoding command
-# and the --utf8 option. This is supported since perl 5.10.1.
-# Erwin W.
-
-nonlatin: $(MAN_OBJECTS_NONLATIN)
-
-
-../nonlatin/ru/%.1 : ../nonlatin/ru/%.pod
 	# make target - create manual page from a *.pod page
 	podchecker $<
 	$(POD2MAN) $(POD2MAN_FLAGS) \
@@ -163,8 +109,11 @@ nonlatin: $(MAN_OBJECTS_NONLATIN)
 	  > $@ && \
 	rm -f pod*.tmp
 
+
+
 clean:
 	rm -f $(MAN_OBJECTS)
-	rm -f $(MAN_OBJECTS_NONLATIN)
+	rm -f dos2unix-man.pot
+	rm -f $(PODFILES)
 
 # End of of Makefile part
