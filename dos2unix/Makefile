@@ -353,7 +353,7 @@ ps: $(PSFILES)
 
 pdf: $(PDFFILES)
 
-man: man/man1/dos2unix.1 $(MANFILES)
+man: man/man1/dos2unix.1 $(MANFILES) $(MANPOTFILE)
 
 doc: $(DOCFILES)
 

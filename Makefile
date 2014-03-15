@@ -43,6 +43,7 @@ dist:
 		${RELEASE_DIR_DOS2UNIX}/man/man1/*.txt \
 		${RELEASE_DIR_DOS2UNIX}/man/man1/*.htm* \
 		${RELEASE_DIR_DOS2UNIX}/man/man1/*.1 \
+		${RELEASE_DIR_DOS2UNIX}/man/man1/*.pot \
 		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.txt \
 		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.htm* \
 		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.1
