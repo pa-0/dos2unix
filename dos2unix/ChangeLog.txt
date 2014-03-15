@@ -1,3 +1,7 @@
+2014-03-15 Mario Blättermann <mario.blaettermann@gmail.com>
+	* man/de/man1/dos2unix.po: New German translation of the
+	  manual.
+
 2014-03-14 Erwin Waterlander <waterlan@xs4all.nl>
 	* man/man1/Makefile: Generate pod files from gettext
 	  po files with po4a, for easier translation. Thanks to
@@ -11,7 +15,10 @@
 	* Makefile: Update for manual generation from .po files.
 	* Makefile, man/man1/Makefile: All man pages are now in
 	  UTF-8 format.
-	* Makefile: EO_XNOTATION no longer supported.
+	* Makefile: Esperanto x notation no longer supported.
+	  Conversion from UTF-8 is troublesome and gettext will
+	  automatically translate to caret (^) notation when UTF-8
+	  is not supported by the system.
 	* po/eo-x.po: Deleted.
 
 2014-03-14 mail6543210 <mail6543210@yahoo.com.tw>

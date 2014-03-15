@@ -97,8 +97,8 @@ INSTALL_OBJS_DOC = README.txt INSTALL.txt NEWS.txt ChangeLog.txt COPYING.txt TOD
 
 MANPOTFILE      = man/man1/dos2unix-man.pot
 MANPOFILES      = $(wildcard man/*/man1/dos2unix.po)
-PODFILES_ALL	= man/man1/dos2unix.pod $(patsubst %.po,%.pod,$(MANPOFILES))
-PODFILES	= $(wildcard man/*/man1/dos2unix.pod)
+PODFILES	= $(patsubst %.po,%.pod,$(MANPOFILES))
+PODFILES_ALL	= man/man1/dos2unix.pod $(PODFILES)
 MANFILES	= $(patsubst %.pod,%.1,$(PODFILES))
 TXTFILES	= $(patsubst %.pod,%.txt,$(PODFILES_ALL))
 HTMLFILES	= $(patsubst %.pod,%.$(HTMLEXT),$(PODFILES_ALL))

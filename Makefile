@@ -24,7 +24,7 @@ dist:
 	rm -rf ../${RELEASE_DIR_D2U}
 	svn export ${SVNREPO}/trunk/dos2unix ../${RELEASE_DIR_DOS2UNIX}
 	# Include doc files, to make it easier to build dos2unix.
-	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) man txt html pdf MAN_NONLATIN=1
+	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) man txt html
 	# Make sure .po files are up to date.
 	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) merge
 	# cleanup.
@@ -35,20 +35,16 @@ dist:
 	cd .. ; cp -Rp $(RELEASE_DIR_DOS2UNIX) $(RELEASE_DIR_D2U)
 	# DJGPP's GNU make 3.79 has trouble with makefiles in DOS format.
 	cd ../$(RELEASE_DIR_D2U) ; unix2dos --keepdate w*.mak *.txt *.c *.h
+	cd ../$(RELEASE_DIR_D2U) ; unix2dos --keepdate --add-bom ChangeLog.txt README.txt
 	cd ../$(RELEASE_DIR_D2U) ; unix2dos --keepdate man/man1/*.txt  man/*/man1/*.txt  $(wildcard man/nonlatin/*/man1/*.txt)
 	cd ../$(RELEASE_DIR_D2U) ; unix2dos --keepdate man/man1/*.htm* man/*/man1/*.htm* $(wildcard man/nonlatin/*/man1/*.htm*)
-	cd ../$(RELEASE_DIR_D2U) ; unix2dos --keepdate po/*.*
 	# Create doc package for people who are not able to create it.
 	cd .. ; tar cvzf ${RELEASE_DIR_DOS2UNIX}-doc.tar.gz \
 		${RELEASE_DIR_DOS2UNIX}/man/man1/*.txt \
 		${RELEASE_DIR_DOS2UNIX}/man/man1/*.htm* \
-		${RELEASE_DIR_DOS2UNIX}/man/man1/*.ps \
-		${RELEASE_DIR_DOS2UNIX}/man/man1/*.pdf \
 		${RELEASE_DIR_DOS2UNIX}/man/man1/*.1 \
 		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.txt \
 		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.htm* \
-		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.ps \
-		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.pdf \
 		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.1 \
 		$(wildcard ${RELEASE_DIR_DOS2UNIX}/man/nonlatin/*/man1/*.txt) \
 		$(wildcard ${RELEASE_DIR_DOS2UNIX}/man/nonlatin/*/man1/*.htm*) \

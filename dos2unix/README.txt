@@ -63,6 +63,7 @@ TRANSLATORS
         See http://translationproject.org/domain/dos2unix.html
 
         Brazilian Portuguese  Enrico Nicoletto <Tranlation Project>           Version 6.0.5
+        Chinese (traditional) mail6543210 <mail6543210@yahoo.com.tw>          Version 6.0.5
         Danish                Thomas Pryds <thomas@pryds.eu>                  Version 6.0.5
         Dutch                 Erwin Waterlander <waterlan@xs4all.nl>          Version 4.0   - 6.0.4
         Dutch                 Benno Schulenberg <Tranlation Project>          Version 6.0.5
@@ -80,8 +81,9 @@ TRANSLATORS
 
         Translation of the manual:
 
-        Dutch                 Erwin Waterlander <waterlan@xs4all.nl>          Version 5.1.1 - 6.0.5
-        Spanish               Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>   Version 5.3.1 - 6.0.5
+        Dutch                 Erwin Waterlander <waterlan@xs4all.nl>           Version 5.1.1 - 6.0.5
+	German                Mario Blättermann <mario.blaettermann@gmail.com> Version 6.0.5
+        Spanish               Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>    Version 5.3.1 - 6.0.5
 
 
 ACKNOWLEDGEMENTS
