@@ -37,7 +37,7 @@ include version.mk
 
 .PHONY: man txt html pdf mofiles tags merge
 
-.PRECIOUS: %.1
+.PRECIOUS: %.1 %.pod
 
 CC		?= gcc
 CPP		?= cpp
@@ -365,6 +365,9 @@ merge: $(POFILES)
 getpo:
 	rsync -Lrtvz  translationproject.org::tp/latest/dos2unix/  po/incoming/
 
+getpoman:
+	rsync -Lrtvz  translationproject.org::tp/latest/dos2unix-man/  man/incoming/
+
 po/%.po : $(POT)
 	msgmerge -U $@ $(POT) --backup=numbered
 	# change timestamp in case .po file was not updated.
@@ -507,8 +510,10 @@ maintainer-clean: distclean
 	rm -f man/man1/*.1
 	rm -f man/man1/*.txt
 	rm -f man/man1/*.$(HTMLEXT)
+	rm -f man/man1/dos2unix-man.pot
 	rm -f man/*/man1/*.1
 	rm -f man/*/man1/*.txt
+	rm -f man/*/man1/*.pod
 	rm -f man/*/man1/*.$(HTMLEXT)
 
 realclean: maintainer-clean

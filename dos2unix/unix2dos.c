@@ -692,7 +692,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 #ifndef NO_CHOWN
   if (!RetVal && (ipFlag->NewFile == 0))  /* old-file mode */
   {
-     /* Change owner and group of the the tempory output file to the original file's uid and gid. */
+     /* Change owner and group of the temporary output file to the original file's uid and gid. */
      /* Required when a different user (e.g. root) has write permission on the original file. */
      /* Make sure that the original owner can still access the file. */
      if (chown(TempPath, StatBuf.st_uid, StatBuf.st_gid))

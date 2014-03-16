@@ -1,3 +1,10 @@
+2014-03-16 Yuri Chornoivan <yurchor@ukr.net>
+	* man/uk/man1/dos2unix.po: New Ukrainian translation of the manual.
+
+2014-03-16 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: New target 'getpoman' to get .po files for the manuals
+	  from the Translation Project.
+
 2014-03-15 Mario Blättermann <mario.blaettermann@gmail.com>
 	* man/de/man1/dos2unix.po: New German translation of the
 	  manual.

@@ -4,11 +4,14 @@ TO DO
 
 * Translations.
 
-  Translations of the messages are all going via the Translation Project.
+  All translations are going via the Translation Project.
+
+  User interface messages:
   See http://translationproject.org/domain/dos2unix.html
 
-  For translations of the manual contact Erwin Waterlander
-  <waterlan@xs4all.nl>
+  Manual:
+  See http://translationproject.org/domain/dos2unix-man.html
+
 
 * Support Windows native symbolic links (Windows Vista and up).
 

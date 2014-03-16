@@ -56,10 +56,10 @@ AUTHORS
 
 TRANSLATORS
 
-        Translation of the messages:
-
         Since verion 6.0.5 dos2unix is part of the Translation Project (TP).
         All translations go via the Translation Project.
+
+        Translation of the messages.
         See http://translationproject.org/domain/dos2unix.html
 
         Brazilian Portuguese  Enrico Nicoletto <Tranlation Project>           Version 6.0.5
@@ -79,11 +79,13 @@ TRANSLATORS
         Ukrainian             Yuri Chornoivan <Tranlation Project>            Version 6.0.5
         Vietnamese            Trần Ngọc Quân <Tranlation Project>             Version 6.0.5
 
-        Translation of the manual:
+        Translation of the manual.
+        See http://translationproject.org/domain/dos2unix-man.html
 
         Dutch                 Erwin Waterlander <waterlan@xs4all.nl>           Version 5.1.1 - 6.0.5
 	German                Mario Blättermann <mario.blaettermann@gmail.com> Version 6.0.5
         Spanish               Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>    Version 5.3.1 - 6.0.5
+        Ukrainian             Yuri Chornoivan <Tranlation Project>             Version 6.0.5
 
 
 ACKNOWLEDGEMENTS

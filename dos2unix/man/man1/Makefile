@@ -49,6 +49,8 @@ ifneq (,)
     This makefile requires GNU Make.
 endif
 
+.PRECIOUS: %.pod
+
 # This variable *must* be set when calling
 PACKAGE		?= dos2unix
 
