@@ -90,6 +90,8 @@ all: $(MAN_OBJECTS) dos2unix-man.pot
 dos2unix-man.pot : dos2unix.pod
 	po4a-updatepo -f pod -m $< -p $@
 
+%.po : dos2unix.pod
+	po4a-updatepo -f pod -m $< -p $@ --msgmerge-opt --backup=numbered
 
 # Create pod files from po.
 # Fix problem that =encoding is before =pod command.
@@ -97,6 +99,9 @@ dos2unix-man.pot : dos2unix.pod
 	po4a-translate -f pod -m dos2unix.pod -p $< > $@
 	sed -i '/=encoding UTF-8/d' $@
 	sed -i 's/=pod/=pod\n\n=encoding UTF-8/' $@
+
+# An empty rule for dos2unix.pod to break circular dependency.
+dos2unix.pod : ;
 
 %.1 : %.pod
 	# make target - create manual page from a *.pod page
