@@ -1,3 +1,10 @@
+2014-03-18 Rafael Ferreira <rafael.f.f1@gmail.com>
+	* man/pt_BR/man1/dos2unix.po: New Brazilian Portuguese
+	  translation of the manual.
+
+2014-03-18 Frédéric Marchal <fmarchal@perso.be>
+	* man/fr/man1/dos2unix.po: New French translation of the manual.
+
 2014-03-16 Yuri Chornoivan <yurchor@ukr.net>
 	* man/uk/man1/dos2unix.po: New Ukrainian translation of the manual.
 

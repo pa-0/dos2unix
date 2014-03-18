@@ -82,7 +82,9 @@ TRANSLATORS
         Translation of the manual.
         See http://translationproject.org/domain/dos2unix-man.html
 
+        Brazilian Portuguese  Rafael Ferreira <rafael.f.f1@gmail.com>          Version 6.0.5
         Dutch                 Erwin Waterlander <waterlan@xs4all.nl>           Version 5.1.1 - 6.0.5
+        French                Frédéric Marchal <fmarchal@perso.be>             Version 6.0.5
 	German                Mario Blättermann <mario.blaettermann@gmail.com> Version 6.0.5
         Spanish               Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>    Version 5.3.1 - 6.0.5
         Ukrainian             Yuri Chornoivan <Tranlation Project>             Version 6.0.5
