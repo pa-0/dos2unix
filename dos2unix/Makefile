@@ -376,9 +376,6 @@ po/%.po : $(POT)
 %.mo : %.po
 	msgfmt -c $< -o $@
 
-po/eo.mo : po/eo$(EO_NOTATION).po
-	msgfmt -c $< -o $@
-
 $(POT) : dos2unix.c unix2dos.c common.c
 	xgettext -C --keyword=_ $+ -o $(POT)
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-6.0.5-beta9\n"
 "POT-Creation-Date: 2014-03-16 20:04+0100\n"
-"PO-Revision-Date: 2014-03-17 22:24+0100\n"
+"PO-Revision-Date: 2014-03-19 14:19+0100\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -40,6 +40,7 @@ msgid ""
 msgstr ""
 "    dos2unix [options] [FICHIER …] [-n FICHIER_ENTRÉE FICHIER_SORTIE …]\n"
 "    unix2dos [options] [FICHIER …] [-n FICHIER_ENTRÉE FICHIER_SORTIE …]\n"
+"\n"
 
 #. type: =head1
 #: dos2unix.pod:61
@@ -74,7 +75,7 @@ msgstr "Les fichiers non réguliers tels que les répertoires et les FIFOs sont 
 #. type: textblock
 #: dos2unix.pod:80
 msgid "Symbolic links and their targets are by default kept untouched.  Symbolic links can optionally be replaced, or the output can be written to the symbolic link target.  Symbolic links on Windows are not supported. Windows symbolic links always replaced, keeping the targets unchanged."
-msgstr "Les liens symboliques et leur cible sont, par défaut, inchangés. Les liens symboliques peuvent, en option, être remplacés ou la sortie peut être écrite dans la cible du lien symbolique. Les liens symboliques sous Windows ne sont pas supportés. Les liens symboliques sous Windows sont toujours remplacés en laissant la cible inchangée."
+msgstr "Les liens symboliques et leur cible sont, par défaut, inchangés. En option, les liens symboliques peuvent être remplacés ou, au choix, la sortie peut être écrite dans la cible du lien symbolique. Les liens symboliques sous Windows ne sont pas supportés. Les liens symboliques sous Windows sont toujours remplacés en laissant la cible inchangée."
 
 #. type: textblock
 #: dos2unix.pod:86
@@ -179,7 +180,7 @@ msgstr "B<-860>"
 #. type: textblock
 #: dos2unix.pod:128
 msgid "Use DOS code page 860 (Portuguese)."
-msgstr "Utilise le code page 860 du DOS (portugais)"
+msgstr "Utilise le code page 860 du DOS (portugais)."
 
 #. type: =item
 #: dos2unix.pod:130
@@ -189,7 +190,7 @@ msgstr "B<-863>"
 #. type: textblock
 #: dos2unix.pod:132
 msgid "Use DOS code page 863 (French Canadian)."
-msgstr "Utilise le code page 863 du DOS (français Canadien)."
+msgstr "Utilise le code page 863 du DOS (français canadien)."
 
 #. type: =item
 #: dos2unix.pod:134
@@ -199,7 +200,7 @@ msgstr "B<-865>"
 #. type: textblock
 #: dos2unix.pod:136
 msgid "Use DOS code page 865 (Nordic)."
-msgstr "Utilise le code page 865 du DOS (nordique)"
+msgstr "Utilise le code page 865 du DOS (nordique)."
 
 #. type: =item
 #: dos2unix.pod:138
@@ -704,7 +705,7 @@ msgstr "Utilisez l'option C<-ul> ou C<-ub> pour convertir un fichier UTF-16 sans
 #. type: textblock
 #: dos2unix.pod:394
 msgid "Dos2unix never writes a BOM in the output file, unless you use option C<-m>."
-msgstr "Dos2unix n'écrit jamais de BOM dans le fichier de sortie à moins que vous utilisez l'option C<-m>."
+msgstr "Dos2unix n'écrit jamais de BOM dans le fichier de sortie à moins que vous utilisiez l'option C<-m>."
 
 #. type: textblock
 #: dos2unix.pod:396
