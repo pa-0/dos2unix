@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-6.0.5-beta9\n"
 "POT-Creation-Date: 2014-03-16 20:04+0100\n"
-"PO-Revision-Date: 2014-03-19 14:19+0100\n"
+"PO-Revision-Date: 2014-03-20 08:41+0100\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -23,7 +23,7 @@ msgstr "NOM"
 #. type: textblock
 #: dos2unix.pod:54
 msgid "dos2unix - DOS/Mac to Unix and vice versa text file format converter"
-msgstr "dos2unix - Converti les fichiers textes du format DOS/Mac vers Unix et inversement"
+msgstr "dos2unix - Convertit les fichiers textes du format DOS/Mac vers Unix et inversement"
 
 #. type: =head1
 #: dos2unix.pod:56
