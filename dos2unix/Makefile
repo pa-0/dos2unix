@@ -334,8 +334,14 @@ $(MAC2UNIX_BIN) : $(BIN)
 $(MANPOTFILE) : man/man1/dos2unix.pod
 	$(MAKE) -C man/man1 $(notdir $@)
 
+%.po : man/man1/dos2unix.pod
+	$(MAKE) -C man/man1 $(subst man/,../,$@)
+
 %.pod : %.po
 	$(MAKE) -C man/man1 $(subst man/,../,$@)
+
+# empty recipe to break circular dependency
+man/man1/dos2unix.pod : ;
 
 %.1 : %.pod
 	$(MAKE) -C man/man1 $(subst man/,../,$@)
@@ -381,6 +387,8 @@ $(POT) : dos2unix.c unix2dos.c common.c
 
 %.txt : %.pod
 	pod2text $< > $@
+
+README.txt INSTALL.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt: ;
 
 %.ps : %.1
 	groff -man $< -T ps > $@

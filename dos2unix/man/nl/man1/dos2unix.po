@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man\n"
-"POT-Creation-Date: 2014-03-12 09:35+0100\n"
+"POT-Creation-Date: 2014-03-21 14:53+0100\n"
 "PO-Revision-Date: 2014-03-12 10:49+0100\n"
 "Last-Translator: Erwin Waterlander <waterlan@xs4all.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -17,23 +17,23 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 #. type: =head1
-#: dos2unix.pod:50
+#: dos2unix.pod:52
 msgid "NAME"
 msgstr "NAAM"
 
 #. type: textblock
-#: dos2unix.pod:52
+#: dos2unix.pod:54
 msgid "dos2unix - DOS/Mac to Unix and vice versa text file format converter"
 msgstr ""
 "dos2unix - DOS/Mac naar Unix en vice versa tekstbestand formaat omzetter"
 
 #. type: =head1
-#: dos2unix.pod:54
+#: dos2unix.pod:56
 msgid "SYNOPSIS"
 msgstr "OVERZICHT"
 
 #. type: verbatim
-#: dos2unix.pod:56
+#: dos2unix.pod:58
 #, no-wrap
 msgid ""
 "    dos2unix [options] [FILE ...] [-n INFILE OUTFILE ...]\n"
@@ -45,12 +45,12 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: dos2unix.pod:59
+#: dos2unix.pod:61
 msgid "DESCRIPTION"
 msgstr "BESCHRIJVING"
 
 #. type: textblock
-#: dos2unix.pod:61
+#: dos2unix.pod:63
 msgid ""
 "The Dos2unix package includes utilities C<dos2unix> and C<unix2dos> to "
 "convert plain text files in DOS or Mac format to Unix format and vice versa."
@@ -59,7 +59,7 @@ msgstr ""
 "tekstbestanden in DOS of Mac formaat naar Unix om te zetten en vice versa."
 
 #. type: textblock
-#: dos2unix.pod:64
+#: dos2unix.pod:66
 msgid ""
 "In DOS/Windows text files a line break, also known as newline, is a "
 "combination of two characters: a Carriage Return (CR) followed by a Line "
@@ -76,7 +76,7 @@ msgstr ""
 "Mac OS X is Unix gebaseerd en heeft dezelfde regeleindes als Unix."
 
 #. type: textblock
-#: dos2unix.pod:70
+#: dos2unix.pod:72
 msgid ""
 "Besides line breaks Dos2unix can also convert the encoding of files. A few "
 "DOS code pages can be converted to Unix Latin-1. And Windows Unicode "
@@ -88,14 +88,14 @@ msgstr ""
 "(UTF-8) bestanden."
 
 #. type: textblock
-#: dos2unix.pod:74
+#: dos2unix.pod:76
 msgid "Binary files are automatically skipped, unless conversion is forced."
 msgstr ""
 "Binaire bestanden worden automatisch overgeslagen, behalve als de omzetting "
 "geforceerd wordt."
 
 #. type: textblock
-#: dos2unix.pod:76
+#: dos2unix.pod:78
 msgid ""
 "Non-regular files, such as directories and FIFOs, are automatically skipped."
 msgstr ""
@@ -103,12 +103,18 @@ msgstr ""
 "overgeslagen."
 
 #. type: textblock
-#: dos2unix.pod:78
+#: dos2unix.pod:80
+#, fuzzy
+#| msgid ""
+#| "Symbolic links and their targets are by default kept untouched.  Symbolic "
+#| "links can optionally be replaced, or the output can be written to the "
+#| "symbolic link target.  Symbolic links on Windows are not supported. "
+#| "Windows symbolic links always replaced, keeping the targets unchanged."
 msgid ""
 "Symbolic links and their targets are by default kept untouched.  Symbolic "
 "links can optionally be replaced, or the output can be written to the "
-"symbolic link target.  Symbolic links on Windows are not supported. Windows "
-"symbolic links always replaced, keeping the targets unchanged."
+"symbolic link target.  Writing to a symbolic link target is not supported on "
+"Windows."
 msgstr ""
 "Symbolische koppelingen en hun doelen blijven standaard onaangeroerd. "
 "Optioneel kunnen symbolische koppelingen worden vervangen, of de uitvoer kan "
@@ -119,24 +125,25 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:84
 msgid ""
-"Dos2unix was modelled after dos2unix under SunOS/Solaris and has similar "
-"conversion modes."
+"Dos2unix was modelled after dos2unix under SunOS/Solaris.  There is one "
+"important difference with the original SunOS/Solaris version. This version "
+"does by default in-place conversion (old file mode), while the original "
+"SunOS/Solaris version only supports paired conversion (new file mode). See "
+"also options C<-o> and C<-n>."
 msgstr ""
-"Dos2unix is gemodelleerd naar dos2unix onder SunOS/Solaris en heeft gelijke "
-"conversiemodi."
 
 #. type: =head1
-#: dos2unix.pod:87
+#: dos2unix.pod:90
 msgid "OPTIONS"
 msgstr "OPTIES"
 
 #. type: =item
-#: dos2unix.pod:91
+#: dos2unix.pod:94
 msgid "B<-->"
 msgstr "B<-->"
 
 #. type: textblock
-#: dos2unix.pod:93
+#: dos2unix.pod:96
 msgid ""
 "Treat all following options as file names. Use this option if you want to "
 "convert files whose names start with a dash. For instance to convert a file "
@@ -148,7 +155,7 @@ msgstr ""
 "opdracht:"
 
 #. type: verbatim
-#: dos2unix.pod:97
+#: dos2unix.pod:100
 #, no-wrap
 msgid ""
 "    dos2unix -- -foo\n"
@@ -158,12 +165,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:99
+#: dos2unix.pod:102
 msgid "Or in new file mode:"
 msgstr "Of in nieuw-bestand-modus:"
 
 #. type: verbatim
-#: dos2unix.pod:101
+#: dos2unix.pod:104
 #, no-wrap
 msgid ""
 "    dos2unix -n -- -foo out.txt\n"
@@ -173,22 +180,22 @@ msgstr ""
 "\n"
 
 #. type: =item
-#: dos2unix.pod:103
+#: dos2unix.pod:106
 msgid "B<-ascii>"
 msgstr "B<-ascii>"
 
 #. type: textblock
-#: dos2unix.pod:105
+#: dos2unix.pod:108
 msgid "Convert only line breaks. This is the default conversion mode."
 msgstr "Converteer alleen regeleindes. Dit is de standaard conversiemodus."
 
 #. type: =item
-#: dos2unix.pod:107
+#: dos2unix.pod:110
 msgid "B<-iso>"
 msgstr "B<-iso>"
 
 #. type: textblock
-#: dos2unix.pod:109
+#: dos2unix.pod:112
 msgid ""
 "Conversion between DOS and ISO-8859-1 character set. See also section "
 "CONVERSION MODES."
@@ -197,22 +204,22 @@ msgstr ""
 "CONVERSIEMODI."
 
 #. type: =item
-#: dos2unix.pod:112
+#: dos2unix.pod:115
 msgid "B<-1252>"
 msgstr "B<-1252>"
 
 #. type: textblock
-#: dos2unix.pod:114
+#: dos2unix.pod:117
 msgid "Use Windows code page 1252 (Western European)."
 msgstr "Gebruik Windows codetabel 1252 (West-Europees)."
 
 #. type: =item
-#: dos2unix.pod:116
+#: dos2unix.pod:119
 msgid "B<-437>"
 msgstr "B<-437>"
 
 #. type: textblock
-#: dos2unix.pod:118
+#: dos2unix.pod:121
 msgid ""
 "Use DOS code page 437 (US). This is the default code page used for ISO "
 "conversion."
@@ -221,62 +228,62 @@ msgstr ""
 "wordt bij ISO conversie."
 
 #. type: =item
-#: dos2unix.pod:120
+#: dos2unix.pod:123
 msgid "B<-850>"
 msgstr "B<-850>"
 
 #. type: textblock
-#: dos2unix.pod:122
+#: dos2unix.pod:125
 msgid "Use DOS code page 850 (Western European)."
 msgstr "Gebruik DOS codetabel 850 (West-Europees)."
 
 #. type: =item
-#: dos2unix.pod:124
+#: dos2unix.pod:127
 msgid "B<-860>"
 msgstr "B<-860>"
 
 #. type: textblock
-#: dos2unix.pod:126
+#: dos2unix.pod:129
 msgid "Use DOS code page 860 (Portuguese)."
 msgstr "Gebruik DOS codetabel 860 (Portugees)."
 
 #. type: =item
-#: dos2unix.pod:128
+#: dos2unix.pod:131
 msgid "B<-863>"
 msgstr "B<-863>"
 
 #. type: textblock
-#: dos2unix.pod:130
+#: dos2unix.pod:133
 msgid "Use DOS code page 863 (French Canadian)."
 msgstr "Gebruik DOS codetabel 863 (Canadees Frans)."
 
 #. type: =item
-#: dos2unix.pod:132
+#: dos2unix.pod:135
 msgid "B<-865>"
 msgstr "B<-865>"
 
 #. type: textblock
-#: dos2unix.pod:134
+#: dos2unix.pod:137
 msgid "Use DOS code page 865 (Nordic)."
 msgstr "Gebruik DOS codetabel 865 (Scandinavisch)."
 
 #. type: =item
-#: dos2unix.pod:136
+#: dos2unix.pod:139
 msgid "B<-7>"
 msgstr "B<-7>"
 
 #. type: textblock
-#: dos2unix.pod:138
+#: dos2unix.pod:141
 msgid "Convert 8 bit characters to 7 bit space."
 msgstr "Converteer 8 bit lettertekens naar 7 bit spatie."
 
 #. type: =item
-#: dos2unix.pod:140
+#: dos2unix.pod:143
 msgid "B<-c, --convmode CONVMODE>"
 msgstr "B<-c, --convmode CONVMODUS>"
 
 #. type: textblock
-#: dos2unix.pod:142
+#: dos2unix.pod:145
 msgid ""
 "Set conversion mode. Where CONVMODE is one of: I<ascii>, I<7bit>, I<iso>, "
 "I<mac> with ascii being the default."
@@ -285,57 +292,57 @@ msgstr ""
 "I<iso>, I<mac> met ascii als standaard instelling."
 
 #. type: =item
-#: dos2unix.pod:146
+#: dos2unix.pod:149
 msgid "B<-f, --force>"
 msgstr "B<-f, --force>"
 
 #. type: textblock
-#: dos2unix.pod:148
+#: dos2unix.pod:151
 msgid "Force conversion of binary files."
 msgstr "Forceer omzetting van binaire bestanden."
 
 #. type: =item
-#: dos2unix.pod:150
+#: dos2unix.pod:153
 msgid "B<-h, --help>"
 msgstr "B<-h, --help>"
 
 #. type: textblock
-#: dos2unix.pod:152
+#: dos2unix.pod:155
 msgid "Display help and exit."
 msgstr "Laat help tekst zien."
 
 #. type: =item
-#: dos2unix.pod:154
+#: dos2unix.pod:157
 msgid "B<-k, --keepdate>"
 msgstr "B<-k, --keepdate>"
 
 #. type: textblock
-#: dos2unix.pod:156
+#: dos2unix.pod:159
 msgid "Keep the date stamp of output file same as input file."
 msgstr "Behoud de datum van het invoerbestand in het uitvoerbestand."
 
 #. type: =item
-#: dos2unix.pod:158
+#: dos2unix.pod:161
 msgid "B<-L, --license>"
 msgstr "B<-L, --license>"
 
 #. type: textblock
-#: dos2unix.pod:160
+#: dos2unix.pod:163
 msgid "Display program's license."
 msgstr "Laat de software licentie zien."
 
 #. type: =item
-#: dos2unix.pod:162
+#: dos2unix.pod:165
 msgid "B<-l, --newline>"
 msgstr "B<-l, --newline>"
 
 #. type: textblock
-#: dos2unix.pod:164
+#: dos2unix.pod:167
 msgid "Add additional newline."
 msgstr "Voeg een extra regeleinde toe."
 
 #. type: textblock
-#: dos2unix.pod:166
+#: dos2unix.pod:169
 msgid ""
 "B<dos2unix>: Only DOS line breaks are changed to two Unix line breaks.  In "
 "Mac mode only Mac line breaks are changed to two Unix line breaks."
@@ -345,7 +352,7 @@ msgstr ""
 "Unix regeleindes."
 
 #. type: textblock
-#: dos2unix.pod:170
+#: dos2unix.pod:173
 msgid ""
 "B<unix2dos>: Only Unix line breaks are changed to two DOS line breaks.  In "
 "Mac mode Unix line breaks are changed to two Mac line breaks."
@@ -355,12 +362,12 @@ msgstr ""
 "regeleindes."
 
 #. type: =item
-#: dos2unix.pod:173
+#: dos2unix.pod:176
 msgid "B<-m, --add-bom>"
 msgstr "B<-m, --add-bom>"
 
 #. type: textblock
-#: dos2unix.pod:175
+#: dos2unix.pod:178
 msgid ""
 "Write an UTF-8 Byte Order Mark in the output file. Never use this option "
 "when the output encoding is other than UTF-8. See also section UNICODE."
@@ -370,12 +377,12 @@ msgstr ""
 "paragraaf UNICODE."
 
 #. type: =item
-#: dos2unix.pod:178
+#: dos2unix.pod:181
 msgid "B<-n, --newfile INFILE OUTFILE ...>"
 msgstr "B<-n, --newfile INVOERBESTAND UITVOERBESTAND ...>"
 
 #. type: textblock
-#: dos2unix.pod:180
+#: dos2unix.pod:183
 msgid ""
 "New file mode. Convert file INFILE and write output to file OUTFILE.  File "
 "names must be given in pairs and wildcard names should I<not> be used or you "
@@ -386,7 +393,7 @@ msgstr ""
 "Jokertekens moeten NIET gebruikt worden, anders verlies je bestanden."
 
 #. type: textblock
-#: dos2unix.pod:184
+#: dos2unix.pod:187
 msgid ""
 "The person who starts the conversion in new file (paired) mode will be the "
 "owner of the converted file. The read/write permissions of the new file will "
@@ -395,16 +402,16 @@ msgid ""
 msgstr ""
 "De persoon die de conversie start in nieuw-bestand (gepaarde) modus wordt de "
 "eigenaar van het geconverteerde bestand. De lees/schrijf permissies van het "
-"nieuwe bestand worden de permissies van het originele bestand minus de "
-"umask(1) van de persoon die de conversie draait."
+"nieuwe bestand worden de permissies van het originele bestand minus de umask"
+"(1) van de persoon die de conversie draait."
 
 #. type: =item
-#: dos2unix.pod:189
+#: dos2unix.pod:192
 msgid "B<-o, --oldfile FILE ...>"
 msgstr "B<-o, --oldfile BESTAND ...>"
 
 #. type: textblock
-#: dos2unix.pod:191
+#: dos2unix.pod:194
 msgid ""
 "Old file mode. Convert file FILE and overwrite output to it. The program "
 "defaults to run in this mode. Wildcard names may be used."
@@ -413,7 +420,7 @@ msgstr ""
 "standaard modus. Jokertekens kunnen gebruikt worden."
 
 #. type: textblock
-#: dos2unix.pod:194
+#: dos2unix.pod:197
 msgid ""
 "In old file (in-place) mode the converted file gets the same owner, group, "
 "and read/write permissions as the original file. Also when the file is "
@@ -437,12 +444,12 @@ msgstr ""
 "schrijf rechten is alleen ondersteund op Unix."
 
 #. type: =item
-#: dos2unix.pod:203
+#: dos2unix.pod:206
 msgid "B<-q, --quiet>"
 msgstr "B<-q, --quiet>"
 
 #. type: textblock
-#: dos2unix.pod:205
+#: dos2unix.pod:208
 msgid ""
 "Quiet mode. Suppress all warnings and messages. The return value is zero.  "
 "Except when wrong command-line options are used."
@@ -451,27 +458,27 @@ msgstr ""
 "Behalve wanneer verkeerde opties worden gegeven."
 
 #. type: =item
-#: dos2unix.pod:208
+#: dos2unix.pod:211
 msgid "B<-s, --safe>"
 msgstr "B<-s, --safe>"
 
 #. type: textblock
-#: dos2unix.pod:210
+#: dos2unix.pod:213
 msgid "Skip binary files (default)."
 msgstr "Sla binaire bestanden over (standaard)."
 
 #. type: =item
-#: dos2unix.pod:212
+#: dos2unix.pod:215
 msgid "B<-ul, --assume-utf16le>"
 msgstr "B<-ul, --assume-utf16le>"
 
 #. type: textblock
-#: dos2unix.pod:214
+#: dos2unix.pod:217
 msgid "Assume that the input file format is UTF-16LE."
 msgstr "Veronderstel dat het formaat van het invoerbestand UTF-16LE is."
 
 #. type: textblock
-#: dos2unix.pod:216
+#: dos2unix.pod:219
 msgid ""
 "When there is a Byte Order Mark in the input file the BOM has priority over "
 "this option."
@@ -480,7 +487,7 @@ msgstr ""
 "BOM voor op deze optie."
 
 #. type: textblock
-#: dos2unix.pod:219
+#: dos2unix.pod:222
 msgid ""
 "When you made a wrong assumption (the input file was not in UTF-16LE format) "
 "and the conversion succeeded, you will get an UTF-8 output file with wrong "
@@ -494,7 +501,7 @@ msgstr ""
 "UTF-16LE. Dit zal het originele bestand terug brengen."
 
 #. type: textblock
-#: dos2unix.pod:224
+#: dos2unix.pod:227
 msgid ""
 "The assumption of UTF-16LE works as a I<conversion mode>. By switching to "
 "the default I<ascii> mode the UTF-16LE assumption is turned off."
@@ -503,37 +510,37 @@ msgstr ""
 "naar I<ascii> modus wordt de UTF-16LE veronderstelling uitgeschakeld."
 
 #. type: =item
-#: dos2unix.pod:227
+#: dos2unix.pod:230
 msgid "B<-ub, --assume-utf16be>"
 msgstr "B<-ub, --assume-utf16be>"
 
 #. type: textblock
-#: dos2unix.pod:229
+#: dos2unix.pod:232
 msgid "Assume that the input file format is UTF-16BE."
 msgstr "Veronderstel dat het formaat van het invoerbestand UTF-16BE is."
 
 #. type: textblock
-#: dos2unix.pod:231
+#: dos2unix.pod:234
 msgid "This option works the same as option C<-ul>."
 msgstr "Deze optie werkt hetzelfde als optie C<-ul>."
 
 #. type: =item
-#: dos2unix.pod:233
+#: dos2unix.pod:236
 msgid "B<-F, --follow-symlink>"
 msgstr "B<-F, --follow-symlink>"
 
 #. type: textblock
-#: dos2unix.pod:235
+#: dos2unix.pod:238
 msgid "Follow symbolic links and convert the targets."
 msgstr "Volg symbolische koppelingen en coverteer de doelen."
 
 #. type: =item
-#: dos2unix.pod:237
+#: dos2unix.pod:240
 msgid "B<-R, --replace-symlink>"
 msgstr "B<-R, --replace-symlink>"
 
 #. type: textblock
-#: dos2unix.pod:239
+#: dos2unix.pod:242
 msgid ""
 "Replace symbolic links with converted files (original target files remain "
 "unchanged)."
@@ -542,32 +549,32 @@ msgstr ""
 "doelbestanden blijven ongewijzigd)."
 
 #. type: =item
-#: dos2unix.pod:242
+#: dos2unix.pod:245
 msgid "B<-S, --skip-symlink>"
 msgstr "B<-S, --skip-symlink>"
 
 #. type: textblock
-#: dos2unix.pod:244
+#: dos2unix.pod:247
 msgid "Keep symbolic links and targets unchanged (default)."
 msgstr "Laat symbolische koppelingen en doelen ongewijzigd (standaard)."
 
 #. type: =item
-#: dos2unix.pod:246
+#: dos2unix.pod:249
 msgid "B<-V, --version>"
 msgstr "B<-V, --version>"
 
 #. type: textblock
-#: dos2unix.pod:248
+#: dos2unix.pod:251
 msgid "Display version information and exit."
 msgstr "Laat versie informatie zien."
 
 #. type: =head1
-#: dos2unix.pod:252
+#: dos2unix.pod:255
 msgid "MAC MODE"
 msgstr "MAC MODUS"
 
 #. type: textblock
-#: dos2unix.pod:254
+#: dos2unix.pod:257
 msgid ""
 "In normal mode line breaks are converted from DOS to Unix and vice versa.  "
 "Mac line breaks are not converted."
@@ -576,7 +583,7 @@ msgstr ""
 "regeleindes worden niet omgezet."
 
 #. type: textblock
-#: dos2unix.pod:257
+#: dos2unix.pod:260
 msgid ""
 "In Mac mode line breaks are converted from Mac to Unix and vice versa. DOS "
 "line breaks are not changed."
@@ -585,7 +592,7 @@ msgstr ""
 "regeleindes blijven ongewijzigd."
 
 #. type: textblock
-#: dos2unix.pod:260
+#: dos2unix.pod:263
 msgid ""
 "To run in Mac mode use the command-line option C<-c mac> or use the commands "
 "C<mac2unix> or C<unix2mac>."
@@ -594,18 +601,9 @@ msgstr ""
 "opdrachten C<mac2unix> of C<unix2mac>."
 
 #. type: =head1
-#: dos2unix.pod:263
+#: dos2unix.pod:266
 msgid "CONVERSION MODES"
 msgstr "CONVERSIEMODI"
-
-#. type: textblock
-#: dos2unix.pod:265
-msgid ""
-"Conversion modes I<ascii>, I<7bit>, and I<iso> are similar to those of "
-"dos2unix/unix2dos under SunOS/Solaris."
-msgstr ""
-"Conversie-modi I<ascii>, I<7bit>, en I<iso> zijn gelijk aan die van dos2unix/"
-"unix2dos onder SunOS/Solaris."
 
 #. type: =item
 #: dos2unix.pod:270
@@ -689,8 +687,8 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:300
 msgid ""
-"Never use ISO conversion on Unicode text files. It will corrupt UTF-8 encoded "
-"files."
+"Never use ISO conversion on Unicode text files. It will corrupt UTF-8 "
+"encoded files."
 msgstr ""
 "Gebruik ISO conversie nooit op Unicode tekst bestanden. Het zal UTF-8 "
 "gecodeerde bestanden beschadigen."
@@ -762,7 +760,9 @@ msgstr ""
 
 #. type: textblock
 #: dos2unix.pod:320
-msgid "Convert from Unix Latin-1 to DOS default code page."
+#, fuzzy
+#| msgid "Convert from Unix Latin-1 to DOS default code page."
+msgid "Convert from Unix Latin-1 to DOS default code page"
 msgstr "Omzetten van Unix Latin-1 naar DOS standaard code tabel"
 
 #. type: verbatim
@@ -1497,3 +1497,17 @@ msgstr "ZIE OOK"
 #: dos2unix.pod:567
 msgid "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 msgstr "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
+
+#~ msgid ""
+#~ "Dos2unix was modelled after dos2unix under SunOS/Solaris and has similar "
+#~ "conversion modes."
+#~ msgstr ""
+#~ "Dos2unix is gemodelleerd naar dos2unix onder SunOS/Solaris en heeft "
+#~ "gelijke conversiemodi."
+
+#~ msgid ""
+#~ "Conversion modes I<ascii>, I<7bit>, and I<iso> are similar to those of "
+#~ "dos2unix/unix2dos under SunOS/Solaris."
+#~ msgstr ""
+#~ "Conversie-modi I<ascii>, I<7bit>, en I<iso> zijn gelijk aan die van "
+#~ "dos2unix/unix2dos onder SunOS/Solaris."

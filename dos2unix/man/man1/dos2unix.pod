@@ -77,14 +77,15 @@ Binary files are automatically skipped, unless conversion is forced.
 
 Non-regular files, such as directories and FIFOs, are automatically skipped.
 
-Symbolic links and their targets are by default kept untouched.
-Symbolic links can optionally be replaced, or the output can be written
-to the symbolic link target.
-Symbolic links on Windows are not supported. Windows symbolic links
-always replaced, keeping the targets unchanged.
+Symbolic links and their targets are by default kept untouched.  Symbolic links
+can optionally be replaced, or the output can be written to the symbolic link
+target.  Writing to a symbolic link target is not supported on Windows.
 
-Dos2unix was modelled after dos2unix under SunOS/Solaris and has similar
-conversion modes.
+Dos2unix was modelled after dos2unix under SunOS/Solaris.  There is one
+important difference with the original SunOS/Solaris version. This version does
+by default in-place conversion (old file mode), while the original
+SunOS/Solaris version only supports paired conversion (new file mode). See also
+options C<-o> and C<-n>.
 
 =head1 OPTIONS
 
@@ -264,15 +265,12 @@ commands C<mac2unix> or C<unix2mac>.
 
 =head1 CONVERSION MODES
 
-Conversion modes I<ascii>, I<7bit>, and I<iso>
-are similar to those of dos2unix/unix2dos under SunOS/Solaris.
-
 =over 4
 
 =item B<ascii>
 
-In mode C<ascii> only line breaks are converted. This is the default
-conversion mode.
+In mode C<ascii> only line breaks are converted. This is the default conversion
+mode.
 
 Although the name of this mode is ASCII, which is a 7 bit standard, the
 actual mode is 8 bit. Use always this mode when converting Unicode UTF-8
@@ -319,7 +317,7 @@ Convert from Windows CP1252 to Unix UTF-8 (Unicode)
 
     iconv -f CP1252 -t UTF-8 in.txt | dos2unix > out.txt
 
-Convert from Unix Latin-1 to DOS default code page.
+Convert from Unix Latin-1 to DOS default code page
 
     unix2dos -iso -n in.txt out.txt
 

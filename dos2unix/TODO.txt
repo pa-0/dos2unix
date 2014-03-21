@@ -13,7 +13,8 @@ TO DO
   See http://translationproject.org/domain/dos2unix-man.html
 
 
-* Support Windows native symbolic links (Windows Vista and up).
+* Support writing to symbolic link targets of Windows native
+  symbolic links (Windows Vista and up).
 
 * Keep original owner in old file mode, on Windows.
 

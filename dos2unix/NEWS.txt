@@ -1,13 +1,15 @@
 2014-??-??: Version 6.0.5-beta
 
-  * New translations of messages: Brazilian Portugues, Chinese (traditional),
+  * New translations of messages: Brazilian Portuguese, Chinese (traditional),
     Danish, French, Polish, Serbian, Ukrainian, Vietnamese.
-  * New translations of the manual: German.
+  * New translations of the manual: Brazilian Portuguese, French, German,
+    Ukrainian.
   * Generated man pages are included in the source package to prevent
     compilation problems with very old or very new perl/pod2man versions.
   * Manuals are now generated from gettext PO files with po4a for easier
     translation.
   * All manuals are now in UTF-8 encoding.
+  * Skip symbolic links on Windows by default (same as on Unix).
 
 2013-12-30: Version 6.0.4
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-30 20:41+0100\n"
+"POT-Creation-Date: 2014-03-21 14:48+0100\n"
 "PO-Revision-Date: 2011-06-20 09:13+0200\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish\n"
@@ -232,7 +232,7 @@ msgstr "convirtiendo archivo %s a formato Mac...\n"
 msgid "converting file %s to DOS format...\n"
 msgstr "convirtiendo archivo %s a formato DOS...\n"
 
-#: common.c:169
+#: common.c:229
 msgid ""
 "Redistribution and use in source and binary forms, with or without\n"
 "modification, are permitted provided that the following conditions\n"
@@ -245,7 +245,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: common.c:179
+#: common.c:239
 msgid ""
 "THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n"
 "EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
@@ -260,21 +260,21 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: common.c:196
+#: common.c:256
 #, c-format
 msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
 msgstr ""
 "Uso: %s [parámetros] [archivo ...] [-n archivo_de_entrada "
 "archivo_de_salida ...]\n"
 
-#: common.c:197
+#: common.c:257
 #, c-format
 msgid " -ascii                convert only line breaks (default)\n"
 msgstr ""
 " -ascii                solamente convierte los saltos de línea (por "
 "defecto)\n"
 
-#: common.c:198
+#: common.c:258
 #, c-format
 msgid ""
 " -iso                  conversion between DOS and ISO-8859-1 character set\n"
@@ -282,49 +282,49 @@ msgstr ""
 " -iso                  conversión entre DOS y el conjunto de caracteres "
 "ISO-8859-1\n"
 
-#: common.c:199
+#: common.c:259
 #, c-format
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
 msgstr ""
 "   -1252               usa la página de códigos Windows 1252 (Europa "
 "Occidental)\n"
 
-#: common.c:200
+#: common.c:260
 #, c-format
 msgid "   -437                use DOS code page 437 (US) (default)\n"
 msgstr ""
 "   -437                usa la página de códigos DOS 437 (EE. UU.) (por "
 "defecto)\n"
 
-#: common.c:201
+#: common.c:261
 #, c-format
 msgid "   -850                use DOS code page 850 (Western European)\n"
 msgstr ""
 "   -850                usa la página de códigos DOS 850 (Europa Occidental)\n"
 
-#: common.c:202
+#: common.c:262
 #, c-format
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
 msgstr "   -860                usa la página de códigos DOS 860 (Portugués)\n"
 
-#: common.c:203
+#: common.c:263
 #, c-format
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
 msgstr ""
 "   -863                usa la página de códigos DOS 863 (Francocanadiense)\n"
 
-#: common.c:204
+#: common.c:264
 #, c-format
 msgid "   -865                use DOS code page 865 (Nordic)\n"
 msgstr "   -865                usa la página de códigos DOS 865 (Nórdico)\n"
 
-#: common.c:205
+#: common.c:265
 #, c-format
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
 msgstr ""
 " -7                    convierte caracteres de 8 bits al espacio de 7 bits\n"
 
-#: common.c:206
+#: common.c:266
 #, c-format
 msgid ""
 " -c, --convmode        conversion mode\n"
@@ -333,37 +333,37 @@ msgstr ""
 " -c, --convmode        modo de conversión\n"
 "   modo_de_conversion  ascii, 7bit, iso, mac, por defecto es ascii\n"
 
-#: common.c:208
+#: common.c:268
 #, c-format
 msgid " -f, --force           force conversion of binary files\n"
 msgstr " -f, --force           fuerza la conversión de archivos binarios\n"
 
-#: common.c:209
+#: common.c:269
 #, c-format
 msgid " -h, --help            display this help text\n"
 msgstr " -h, --help            arroja esta ayuda\n"
 
-#: common.c:210
+#: common.c:270
 #, c-format
 msgid " -k, --keepdate        keep output file date\n"
 msgstr " -k, --keepdate        conserva la fecha en el archivo de salida\n"
 
-#: common.c:211
+#: common.c:271
 #, c-format
 msgid " -L, --license         display software license\n"
 msgstr " -L, --license         muestra la licencia del programa\n"
 
-#: common.c:212
+#: common.c:272
 #, c-format
 msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline         añade salto de línea adicional\n"
 
-#: common.c:213
+#: common.c:273
 #, c-format
 msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"
 msgstr " -m, --add-bom         añade marca de orden de bytes para UTF-8\n"
 
-#: common.c:214
+#: common.c:274
 #, c-format
 msgid ""
 " -n, --newfile         write to new file\n"
@@ -374,7 +374,7 @@ msgstr ""
 "   archivo_de_entrada  archivo original en el modo de archivo nuevo\n"
 "   archivo_de_salida   archivo de salida en el modo de archivo nuevo\n"
 
-#: common.c:217
+#: common.c:277
 #, c-format
 msgid ""
 " -o, --oldfile         write to old file (default)\n"
@@ -383,7 +383,7 @@ msgstr ""
 " -o, --oldfile         escribe al archivo antiguo (por defecto)\n"
 "   archivo ...         archivos a convertir en el modo de archivo antiguo\n"
 
-#: common.c:219
+#: common.c:279
 #, c-format
 msgid ""
 " -q, --quiet           quiet mode, suppress all warnings\n"
@@ -392,29 +392,29 @@ msgstr ""
 " -q, --quiet           modo silencioso, suprime todas las advertencias\n"
 "                         (siempre en modo stdio)\n"
 
-#: common.c:221
+#: common.c:281
 #, c-format
 msgid " -s, --safe            skip binary files (default)\n"
 msgstr " -s, --safe            ignora archivos binarios (por defecto)\n"
 
-#: common.c:223
+#: common.c:283
 #, c-format
 msgid " -ul, --assume-utf16le assume that the input format is UTF-16LE\n"
 msgstr " -ul, --assume-utf16le supone que el formato de entrada es UTF-16LE\n"
 
-#: common.c:224
+#: common.c:284
 #, c-format
 msgid " -ub, --assume-utf16be assume that the input format is UTF-16BE\n"
 msgstr " -ub, --assume-utf16be supone que el formato de entrada es UTF-16BE\n"
 
-#: common.c:227
+#: common.c:287
 #, c-format
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
 msgstr ""
 " -F, --follow-symlink  sigue los enlaces simbólicos y convierte los "
 "destinos\n"
 
-#: common.c:228
+#: common.c:290
 #, c-format
 msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
@@ -424,7 +424,7 @@ msgstr ""
 "convertidos\n"
 "                         (los archivos destino originales no son alterados)\n"
 
-#: common.c:230
+#: common.c:292
 #, c-format
 msgid ""
 " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
@@ -432,77 +432,77 @@ msgstr ""
 " -S, --skip-symlink    no altera los enlaces simbólicos ni sus destinos (por "
 "defecto)\n"
 
-#: common.c:232
+#: common.c:294
 #, c-format
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         despliega el número de versión\n"
 
-#: common.c:244
+#: common.c:306
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "Versión DOS de 16 bit (WATCOMC).\n"
 
-#: common.c:246
+#: common.c:308
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "Versión DOS de 16 bit (TURBOC).\n"
 
-#: common.c:248
+#: common.c:310
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "Versión DOS de 32 bit (WATCOMC).\n"
 
-#: common.c:250
+#: common.c:312
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "Versión DOS de 32 bit (DJGPP).\n"
 
-#: common.c:252
+#: common.c:314
 msgid "MSYS version.\n"
 msgstr "Versión para MSYS.\n"
 
-#: common.c:254
+#: common.c:316
 msgid "Cygwin version.\n"
 msgstr "Versión para Cygwin.\n"
 
-#: common.c:256
+#: common.c:318
 msgid "Windows 64 bit version (MinGW-w64).\n"
 msgstr "Versión Windows de 64 bit (MinGW-w64).\n"
 
-#: common.c:258
+#: common.c:320
 msgid "Windows 32 bit version (WATCOMC).\n"
 msgstr "Versión Windows de 32 bit (WATCOMC).\n"
 
-#: common.c:260
+#: common.c:322
 msgid "Windows 32 bit version (MinGW-w64).\n"
 msgstr "Versión Windows de 32 bit (MinGW-w64).\n"
 
-#: common.c:262
+#: common.c:324
 msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Versión Windows de 32 bit (MinGW).\n"
 
-#: common.c:264
+#: common.c:326
 #, c-format
 msgid "Windows 64 bit version (MSVC %d).\n"
 msgstr "Versión Windows de 64 bit (MSVC %d).\n"
 
-#: common.c:266
+#: common.c:328
 #, c-format
 msgid "Windows 32 bit version (MSVC %d).\n"
 msgstr "Versión Windows de 32 bit (MSVC %d).\n"
 
-#: common.c:268
+#: common.c:330
 msgid "OS/2 version (WATCOMC).\n"
 msgstr "Versión para OS/2 (WATCOMC).\n"
 
-#: common.c:270
+#: common.c:332
 msgid "OS/2 version (EMX).\n"
 msgstr "Versión para OS/2 (EMX).\n"
 
-#: common.c:273
+#: common.c:335
 msgid "With Unicode UTF-16 support.\n"
 msgstr "Con soporte Unicode UTF-16.\n"
 
-#: common.c:275
+#: common.c:337
 msgid "Without Unicode UTF-16 support.\n"
 msgstr "Sin soporte Unicode UTF-16.\n"
 
-#: common.c:278
+#: common.c:340
 msgid "With native language support.\n"
 msgstr "Con soporte de idioma materno.\n"

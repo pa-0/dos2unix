@@ -1,3 +1,10 @@
+2014-03-21 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Windows version of function symbolic_link().
+	  Now Windows version also skips symbolic links by default.
+	* man/man1/dos2unix.pod: Update wrt Windows symbolic links,
+	  and some minor updates.
+	* Makefile: Fix some dependencies for man page creation.
+
 2014-03-18 Rafael Ferreira <rafael.f.f1@gmail.com>
 	* man/pt_BR/man1/dos2unix.po: New Brazilian Portuguese
 	  translation of the manual.

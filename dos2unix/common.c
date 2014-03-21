@@ -55,19 +55,79 @@
  * returns 1 on success, 0 when it fails.
  *
  ******************************************************************/
-int symbolic_link(char *path)
+
+#if (defined(_WIN32) && !defined(__CYGWIN__))
+
+void d2u_PrintError(DWORD dw)
+{
+    /* Retrieve the system error message for the last-error code */
+
+    LPVOID lpMsgBuf;
+
+    FormatMessage(
+        FORMAT_MESSAGE_ALLOCATE_BUFFER |
+        FORMAT_MESSAGE_FROM_SYSTEM |
+        FORMAT_MESSAGE_IGNORE_INSERTS,
+        NULL,
+        dw,
+        MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+        (LPTSTR) &lpMsgBuf,
+        0, NULL );
+
+    /* Display the error message */
+
+    /* MessageBox(NULL, (LPCTSTR)lpMsgBuf, TEXT("Error"), MB_OK); */
+    fprintf(stderr, "%s\n",(LPCTSTR)lpMsgBuf);
+
+    LocalFree(lpMsgBuf);
+}
+
+	
+int symbolic_link(const char *path, CFlag *ipFlag, const char *progname)
+{
+   DWORD attrs;
+   DWORD dw;
+   attrs = GetFileAttributes(path);
+
+   if (attrs == INVALID_FILE_ATTRIBUTES)
+   {
+      if (!ipFlag->Quiet)
+      {
+         dw = GetLastError();
+         fprintf(stderr, "%s: %s: ", progname, path);
+         d2u_PrintError(dw);
+      }
+      return(0);
+   }
+
+   return ((attrs & FILE_ATTRIBUTE_REPARSE_POINT) != 0);
+}
+
+#else
+int symbolic_link(const char *path, CFlag *ipFlag, const char *progname)
 {
 #ifdef S_ISLNK
    struct stat buf;
+   char *errstr;
 
    if (STAT(path, &buf) == 0)
    {
       if (S_ISLNK(buf.st_mode))
          return(1);
    }
+   else
+   {
+     if (!ipFlag->Quiet)
+     {
+       ipFlag->error = errno;
+       errstr = strerror(errno);
+       fprintf(stderr, "%s: %s: %s\n", progname, path, errstr);
+     }
+   }
 #endif
    return(0);
 }
+#endif
 
 /******************************************************************
  *
@@ -225,6 +285,8 @@ void PrintUsage(char *progname)
 #endif
 #ifdef S_ISLNK
   printf(_(" -F, --follow-symlink  follow symbolic links and convert the targets\n"));
+#endif
+#if defined(S_ISLNK) || (defined(_WIN32) && !defined(__CYGWIN__))
   printf(_(" -R, --replace-symlink replace symbolic links with converted files\n\
                          (original target files remain unchanged)\n"));
   printf(_(" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"));
