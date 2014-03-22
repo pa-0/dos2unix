@@ -1,21 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Hungarian translation of dos2unix
+# Copyright (C) 2014 Erwin Waterlander (msgids)
+# This file is distributed under the same license as the dos2unix package.
 #
-#, fuzzy
+# Balázs Úr <urbalazs@gmail.com>, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-22 10:34+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2014-03-22 00:19+0100\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: dos2unix.c:76
 msgid ""
@@ -26,133 +27,144 @@ msgid ""
 "All rights reserved.\n"
 "\n"
 msgstr ""
+"Copyright (C) 2009-2014 Erwin Waterlander\n"
+"Copyright (C) 1998      Christian Wurll (verzió 3.1)\n"
+"Copyright (C) 1998      Bernd Johannes Wuebben (verzió 3.0)\n"
+"Copyright (C) 1994-1995 Benjamin Lin\n"
+"Minden jog fenntartva.\n"
+"\n"
 
 #: dos2unix.c:164 dos2unix.c:202 unix2dos.c:132 unix2dos.c:185
 #, c-format
 msgid "Binary symbol 0x00%02X found at line %d\n"
-msgstr ""
+msgstr "Bináris szimbólum (0x00%02X) található a(z) %d. sorban\n"
 
 #: dos2unix.c:179 dos2unix.c:218 dos2unix.c:243 dos2unix.c:355 dos2unix.c:391
 #: dos2unix.c:413 unix2dos.c:162 unix2dos.c:199 unix2dos.c:220 unix2dos.c:238
 #: unix2dos.c:362 unix2dos.c:396 unix2dos.c:414 unix2dos.c:429
 #, c-format
 msgid "can not write to output file: %s\n"
-msgstr ""
+msgstr "nem sikerült írni a kimeneti fájlba: %s\n"
 
 #: dos2unix.c:259 dos2unix.c:428 unix2dos.c:253 unix2dos.c:443
 #, c-format
 msgid "program error, invalid conversion mode %d\n"
-msgstr ""
+msgstr "programhiba, érvénytelen átalakítási mód: %d\n"
 
 #: dos2unix.c:317 unix2dos.c:311
 #, c-format
 msgid "using code page %d.\n"
-msgstr ""
+msgstr "%d kódlap használata.\n"
 
 #: dos2unix.c:342 dos2unix.c:377 unix2dos.c:334 unix2dos.c:384
 #, c-format
 msgid "Binary symbol 0x%02X found at line %d\n"
-msgstr ""
+msgstr "Bináris szimbólum (0x%02X) található a(z) %d. sorban\n"
 
 #: dos2unix.c:516 unix2dos.c:531
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
-msgstr ""
+msgstr "Nem sikerült megnyitni az átmeneti kimeneti fájlt: %s\n"
 
 #: dos2unix.c:523 unix2dos.c:538
 #, c-format
 msgid "using %s as temporary file\n"
-msgstr ""
+msgstr "%s használata átmeneti fájlként\n"
 
 #: dos2unix.c:636 unix2dos.c:651
 #, c-format
 msgid "Failed to write to temporary output file %s: %s\n"
-msgstr ""
+msgstr "Nem sikerült írni a(z) %s átmeneti kimeneti fájlba: %s\n"
 
 #: dos2unix.c:671 unix2dos.c:686
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s: %s\n"
 msgstr ""
+"Nem sikerült megváltoztatni a(z) %s átmeneti kimeneti fájl jogosultságait: "
+"%s\n"
 
 #: dos2unix.c:690 unix2dos.c:705
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
 msgstr ""
+"Nem sikerült megváltoztatni a(z) %s átmeneti kimeneti fájl tulajdonosát és "
+"csoportját: %s\n"
 
 #: dos2unix.c:743 unix2dos.c:758
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
-msgstr ""
+msgstr "hiba a(z) „%s” szimbolikus link feloldásakor\n"
 
 #: dos2unix.c:744 dos2unix.c:778 unix2dos.c:759 unix2dos.c:793
 #, c-format
 msgid "          output file remains in '%s'\n"
-msgstr ""
+msgstr "          kimeneti fájl maradt ebben: „%s”\n"
 
 #: dos2unix.c:773 unix2dos.c:788
 #, c-format
 msgid "problems renaming '%s' to '%s': %s\n"
-msgstr ""
+msgstr "hiba a(z) „%s” átnevezésekor erre: „%s”: %s\n"
 
 #: dos2unix.c:776 unix2dos.c:791
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
-msgstr ""
+msgstr "          mi a(z) „%s” szimbolikus link célja\n"
 
 #: dos2unix.c:874 unix2dos.c:889
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
-msgstr ""
+msgstr "hiba: a DOS2UNIX_LOCALEDIR környezeti változó értéke túl hosszú.\n"
 
 #: dos2unix.c:977 dos2unix.c:1014 unix2dos.c:992 unix2dos.c:1029
 #, c-format
 msgid "active code page: %d\n"
-msgstr ""
+msgstr "aktív kódlap: %d\n"
 
 #: dos2unix.c:1024 unix2dos.c:1039
 #, c-format
 msgid "invalid %s conversion mode specified\n"
-msgstr ""
+msgstr "érvénytelen %s átalakítási mód lett megadva\n"
 
 #: dos2unix.c:1034 unix2dos.c:1049
 #, c-format
 msgid "option '%s' requires an argument\n"
-msgstr ""
+msgstr "a(z) „%s” kapcsolóhoz argumentum szükséges\n"
 
 #: dos2unix.c:1047 dos2unix.c:1061 dos2unix.c:1255 unix2dos.c:1062
 #: unix2dos.c:1076 unix2dos.c:1276
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
-msgstr ""
+msgstr "a(z) %s fájl célja nincs megadva az új-fájl módban\n"
 
 #: dos2unix.c:1091 dos2unix.c:1175 unix2dos.c:1106 unix2dos.c:1193
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
-msgstr ""
+msgstr "A(z) %s kihagyása, nem egy szabályos fájl.\n"
 
 #: dos2unix.c:1098 unix2dos.c:1113
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
-msgstr ""
+msgstr "A(z) %s kihagyása, a(z) %s kimeneti fájl egy szimbolikus link.\n"
 
 #: dos2unix.c:1105 dos2unix.c:1189 unix2dos.c:1120 unix2dos.c:1207
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
-msgstr ""
+msgstr "A(z) %s szimbolikus link kihagyása, a cél nem egy szabályos fájl.\n"
 
 #: dos2unix.c:1112 unix2dos.c:1127
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr ""
+"A(z) %s kihagyása, a(z) %s szimbolikus link célja nem egy szabályos fájl.\n"
 
 #: dos2unix.c:1119 dos2unix.c:1196 unix2dos.c:1134 unix2dos.c:1214
 #, c-format
 msgid "Skipping binary file %s\n"
-msgstr ""
+msgstr "A(z) %s bináris fájl kihagyása\n"
 
 #: dos2unix.c:1126 dos2unix.c:1203 unix2dos.c:1141 unix2dos.c:1221
 #, c-format
 msgid "code page %d is not supported.\n"
-msgstr ""
+msgstr "a(z) %d kódlap nem támogatott.\n"
 
 #: dos2unix.c:1133 dos2unix.c:1210 unix2dos.c:1148 unix2dos.c:1228
 #, c-format
@@ -160,41 +172,43 @@ msgid ""
 "Skipping UTF-16 file %s, the current locale character encoding is not "
 "UTF-8.\n"
 msgstr ""
+"A(z) %s UTF-16 fájl kihagyása, a jelenlegi területi beállítás "
+"karakterkódolása nem UTF-8.\n"
 
 #: dos2unix.c:1140 dos2unix.c:1217 unix2dos.c:1155 unix2dos.c:1235
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
-msgstr ""
+msgstr "A(z) %s UTF-16 fájl kihagyása, a wchar_t mérete %d bájt.\n"
 
 #: dos2unix.c:1147 dos2unix.c:1224 unix2dos.c:1162 unix2dos.c:1242
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
-msgstr ""
+msgstr "A(z) %s UTF-16 fájl kihagyása, egy UTF-16 átalakítási hiba történt.\n"
 
 #: dos2unix.c:1153
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
-msgstr ""
+msgstr "a(z) %s fájl átalakítása %s fájlra Unix formátumban…\n"
 
 #: dos2unix.c:1160 unix2dos.c:1178
 #, c-format
 msgid "problems converting file %s to file %s\n"
-msgstr ""
+msgstr "hiba a(z) %s fájl %s fájlra való átalakításakor\n"
 
 #: dos2unix.c:1182 unix2dos.c:1200
 #, c-format
 msgid "Skipping symbolic link %s.\n"
-msgstr ""
+msgstr "A(z) %s szimbolikus link kihagyása.\n"
 
 #: dos2unix.c:1230
 #, c-format
 msgid "converting file %s to Unix format...\n"
-msgstr ""
+msgstr "a(z) %s fájl átalakítása Unix formátumra…\n"
 
 #: dos2unix.c:1237 unix2dos.c:1258
 #, c-format
 msgid "problems converting file %s\n"
-msgstr ""
+msgstr "hiba a(z) %s fájl átalakításakor\n"
 
 #: unix2dos.c:66
 msgid ""
@@ -203,26 +217,30 @@ msgid ""
 "All rights reserved.\n"
 "\n"
 msgstr ""
+"Copyright (C) 2009-2014 Erwin Waterlander\n"
+"Copyright (C) 1994-1995 Benjamin Lin\n"
+"Minden jog fenntartva.\n"
+"\n"
 
 #: unix2dos.c:1169
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
-msgstr ""
+msgstr "a(z) %s fájl átalakítása %s fájlra Mac formátumban…\n"
 
 #: unix2dos.c:1171
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
-msgstr ""
+msgstr "a(z) %s fájl átalakítása %s fájlra DOS formátumban…\n"
 
 #: unix2dos.c:1249
 #, c-format
 msgid "converting file %s to Mac format...\n"
-msgstr ""
+msgstr "a(z) %s fájl átalakítása Mac formátumra…\n"
 
 #: unix2dos.c:1251
 #, c-format
 msgid "converting file %s to DOS format...\n"
-msgstr ""
+msgstr "a(z) %s fájl átalakítása DOS formátumra…\n"
 
 #: common.c:229
 msgid ""
@@ -236,6 +254,15 @@ msgid ""
 "   the distribution.\n"
 "\n"
 msgstr ""
+"Engedélyezett a forráskód és bináris formában történő felhasználás és\n"
+"terjesztés, módosítással vagy anélkül, amennyiben a következő feltételek\n"
+"teljesülnek:\n"
+"1. A forráskód terjesztésekor meg kell őrizni a fenti szerzői jogi\n"
+"   megjegyzést, ezt a feltétellistát és a következő nyilatkozatot.\n"
+"2. Bináris formában történő terjesztéskor tovább kell adni a fenti szerzői\n"
+"   jogi megjegyzést, ezt a feltétellistát és a következő nyilatkozatot a\n"
+"   dokumentációban, illetve a csomaggal részét képező egyéb anyagokban.\n"
+"\n"
 
 #: common.c:239
 msgid ""
@@ -251,57 +278,74 @@ msgid ""
 "OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN\n"
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
+"EZT A SZOFTVERT A SZERZŐI JOG TULAJDONOSAI ÉS A HOZZÁJÁRULÓK ÚGY\n"
+"BIZTOSÍTJÁK, „AHOGY VAN”, ÉS SEMMILYEN NYÍLT VAGY BURKOLT GARANCIA\n"
+"– BELEÉRTVE, DE NEM ERRE KORLÁTOZVA AZ ELADHATÓSÁGOT VAGY EGY ADOTT\n"
+"CÉLRA VALÓ ALKALMATOSSÁGOT – NEM ÉRVÉNYESÍTHETŐ. A SZERZŐI JOG\n"
+"TULAJDONOSAI ÉS A HOZZÁJÁRULÓK SEMMILYEN ESETBEN SEM VONHATÓK\n"
+"FELELŐSSÉGRE A SZOFTVER HASZNÁLATÁBÓL EREDŐ SEMMILYEN KÖZVETLEN,\n"
+"KÖZVETETT, VÉLETLENSZERŰ, KÜLÖNLEGES, PÉLDAADÓ VAGY SZÜKSÉGSZERŰ\n"
+"KÁROKÉRT (BELEÉRTVE, DE NEM ERRE KORLÁTOZVA A HELYETTESÍTŐ TERMÉKEK\n"
+"VAGY SZOLGÁLTATÁSOK BESZERZÉSÉT, ÜZEMKIESÉST, ADATVESZTÉST, ELMARADT\n"
+"HASZNOT VAGY ÜZLETMENET MEGSZAKADÁSÁT), BÁRHOGY IS KÖVETKEZETT BE,\n"
+"VALAMINT A FELELŐSSÉG BÁRMILYEN ELMÉLETÉVEL – AKÁR SZERZŐDÉSBEN, AKÁR\n"
+"OKOZOTT KÁRBAN (BELEÉRTVE A HANYAGSÁGOT ÉS EGYEBET), AKKOR IS, HA AZ\n"
+"ILYEN KÁR LEHETŐSÉGÉRE FELHÍVTÁK A FIGYELMET.\n"
 
 #: common.c:256
 #, c-format
 msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
-msgstr ""
+msgstr "Használat: %s [kapcsolók] [fájl ...] [-n be_fájl ki_fájl ...]\n"
 
 #: common.c:257
 #, c-format
 msgid " -ascii                convert only line breaks (default)\n"
-msgstr ""
+msgstr " -ascii                csak sortörések átalakítása (alapértelmezett)\n"
 
 #: common.c:258
 #, c-format
 msgid ""
 " -iso                  conversion between DOS and ISO-8859-1 character set\n"
 msgstr ""
+" -iso                  átalakítás DOS és ISO-8859-1 karakterkészlet között\n"
 
 #: common.c:259
 #, c-format
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
 msgstr ""
+"   -1252               Windows 1252-es kódlap használata (Nyugat-európai)\n"
 
 #: common.c:260
 #, c-format
 msgid "   -437                use DOS code page 437 (US) (default)\n"
 msgstr ""
+"   -437                DOS 437-es kódlap használata (US) (alapértelmezett)\n"
 
 #: common.c:261
 #, c-format
 msgid "   -850                use DOS code page 850 (Western European)\n"
-msgstr ""
+msgstr "   -850                DOS 850-es kódlap használata (Nyugat-európai)\n"
 
 #: common.c:262
 #, c-format
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
-msgstr ""
+msgstr "   -860                DOS 860-as kódlap használata (portugál)\n"
 
 #: common.c:263
 #, c-format
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
 msgstr ""
+"   -863                DOS 863-as kódlap használata (francia-kanadai)\n"
 
 #: common.c:264
 #, c-format
 msgid "   -865                use DOS code page 865 (Nordic)\n"
-msgstr ""
+msgstr "   -865                DOS 865-ös kódlap használata (északi)\n"
 
 #: common.c:265
 #, c-format
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
-msgstr ""
+msgstr " -7                    8-bites karakterek átalakítása 7-bitesre\n"
 
 #: common.c:266
 #, c-format
@@ -309,36 +353,38 @@ msgid ""
 " -c, --convmode        conversion mode\n"
 "   convmode            ascii, 7bit, iso, mac, default to ascii\n"
 msgstr ""
+" -c, --convmode        átalakítási mód\n"
+"   convmode            ascii, 7bit, iso, mac, alapértelmezetten asci\n"
 
 #: common.c:268
 #, c-format
 msgid " -f, --force           force conversion of binary files\n"
-msgstr ""
+msgstr " -f, --force           bináris fájlok átalakításának kényszerítése\n"
 
 #: common.c:269
 #, c-format
 msgid " -h, --help            display this help text\n"
-msgstr ""
+msgstr " -h, --help            ezen súgószöveg megjelenítése\n"
 
 #: common.c:270
 #, c-format
 msgid " -k, --keepdate        keep output file date\n"
-msgstr ""
+msgstr " -k, --keepdate        kimeneti fájl dátumának megtartása\n"
 
 #: common.c:271
 #, c-format
 msgid " -L, --license         display software license\n"
-msgstr ""
+msgstr " -L, --license         szoftverlicenc megjelenítése\n"
 
 #: common.c:272
 #, c-format
 msgid " -l, --newline         add additional newline\n"
-msgstr ""
+msgstr " -l, --newline         további új sor hozzáadása\n"
 
 #: common.c:273
 #, c-format
 msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"
-msgstr ""
+msgstr " -m, --add-bom         UTF-8 bájtsorrendjel hozzáadása\n"
 
 #: common.c:274
 #, c-format
@@ -347,6 +393,9 @@ msgid ""
 "   infile              original file in new-file mode\n"
 "   outfile             output file in new-file mode\n"
 msgstr ""
+" -n, --newfile         kiírás új fájlba\n"
+"   infile              eredeti fájl új-fájl módban\n"
+"   outfile             kimeneti fájl új-fájl módban\n"
 
 #: common.c:277
 #, c-format
@@ -354,6 +403,8 @@ msgid ""
 " -o, --oldfile         write to old file (default)\n"
 "   file ...            files to convert in old-file mode\n"
 msgstr ""
+" -o, --oldfile         kiírás a régi fájlba (alapértelmezett)\n"
+"   file ...            átalakítandó fájl régi-fájl módban\n"
 
 #: common.c:279
 #, c-format
@@ -361,26 +412,31 @@ msgid ""
 " -q, --quiet           quiet mode, suppress all warnings\n"
 "                         (always on in stdio mode)\n"
 msgstr ""
+" -q, --quiet           csöndes mód, minden figyelmeztetés elnyomása\n"
+"                         (mindig be van kapcsolva stdio módban)\n"
 
 #: common.c:281
 #, c-format
 msgid " -s, --safe            skip binary files (default)\n"
-msgstr ""
+msgstr " -s, --safe            bináris fájlok kihagyása (alapértelmezett)\n"
 
 #: common.c:283
 #, c-format
 msgid " -ul, --assume-utf16le assume that the input format is UTF-16LE\n"
 msgstr ""
+" -ul, --assume-utf16le feltételezze, hogy a bemeneti formátum UTF-16LE\n"
 
 #: common.c:284
 #, c-format
 msgid " -ub, --assume-utf16be assume that the input format is UTF-16BE\n"
 msgstr ""
+" -ub, --assume-utf16be feltételezze, hogy a bemeneti formátum UTF-16BE\n"
 
 #: common.c:287
 #, c-format
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
 msgstr ""
+" -F, --follow-symlink  szimbolikus linkek követése és a célok átalakítása\n"
 
 #: common.c:290
 #, c-format
@@ -388,84 +444,88 @@ msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
 "                         (original target files remain unchanged)\n"
 msgstr ""
+" -R, --replace-symlink szimbolikus linkek cseréje az átalakított fájlokkal\n"
+"                         (az eredeti célfájlok változatlanok maradnak)\n"
 
 #: common.c:292
 #, c-format
 msgid ""
 " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr ""
+" -S, --skip-symlink    szimbolikus linkek és célok változatlanul hagyása\n"
+"                              (alapértelmezett)\n"
 
 #: common.c:294
 #, c-format
 msgid " -V, --version         display version number\n"
-msgstr ""
+msgstr " -V, --version         verziószám megjelenítése\n"
 
 #: common.c:306
 msgid "DOS 16 bit version (WATCOMC).\n"
-msgstr ""
+msgstr "16-bites DOS verzió (WATCOMC).\n"
 
 #: common.c:308
 msgid "DOS 16 bit version (TURBOC).\n"
-msgstr ""
+msgstr "16-bites DOS verzió (TURBOC).\n"
 
 #: common.c:310
 msgid "DOS 32 bit version (WATCOMC).\n"
-msgstr ""
+msgstr "32-bites DOS verzió (WATCOMC).\n"
 
 #: common.c:312
 msgid "DOS 32 bit version (DJGPP).\n"
-msgstr ""
+msgstr "32-bites DOS verzió (DJGPP).\n"
 
 #: common.c:314
 msgid "MSYS version.\n"
-msgstr ""
+msgstr "MSYS verzió.\n"
 
 #: common.c:316
 msgid "Cygwin version.\n"
-msgstr ""
+msgstr "Cygwin verzió.\n"
 
 #: common.c:318
 msgid "Windows 64 bit version (MinGW-w64).\n"
-msgstr ""
+msgstr "64-bites Windows verzió (MinGW-w64).\n"
 
 #: common.c:320
 msgid "Windows 32 bit version (WATCOMC).\n"
-msgstr ""
+msgstr "32-bites Windows verzió (WATCOMC).\n"
 
 #: common.c:322
 msgid "Windows 32 bit version (MinGW-w64).\n"
-msgstr ""
+msgstr "32-bites Windows verzió (MinGW-w64).\n"
 
 #: common.c:324
 msgid "Windows 32 bit version (MinGW).\n"
-msgstr ""
+msgstr "32-bites Windows verzió (MinGW)\n"
 
 #: common.c:326
 #, c-format
 msgid "Windows 64 bit version (MSVC %d).\n"
-msgstr ""
+msgstr "64-bites Windows verzió (MSVC %d).\n"
 
 #: common.c:328
 #, c-format
 msgid "Windows 32 bit version (MSVC %d).\n"
-msgstr ""
+msgstr "32-bites Windows verzió (MSVC %d).\n"
 
 #: common.c:330
 msgid "OS/2 version (WATCOMC).\n"
-msgstr ""
+msgstr "OS/2 verzió (WATCOMC).\n"
 
 #: common.c:332
 msgid "OS/2 version (EMX).\n"
-msgstr ""
+msgstr "OS/2 verzió (EMX).\n"
 
 #: common.c:335
 msgid "With Unicode UTF-16 support.\n"
-msgstr ""
+msgstr "Unicode UTF-16 támogatással.\n"
 
 #: common.c:337
 msgid "Without Unicode UTF-16 support.\n"
-msgstr ""
+msgstr "Unicode UTF-16 támogatás nélkül.\n"
 
 #: common.c:340
 msgid "With native language support.\n"
-msgstr ""
+msgstr "Natív nyelvi támogatással.\n"
