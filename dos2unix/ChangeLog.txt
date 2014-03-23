@@ -1,3 +1,9 @@
+2014-03-23 Jakub Bogusz <qboosh@pld-linux.org>
+	* man/pl/dos2unix.po: New Polish translation of the manual.
+
+2014-03-23 Benno Schulenberg <benno@vertaalt.nl>
+	* man/nl/dos2unix.po: Update Dutch manual.
+
 2014-03-22 Balázs Úr <urbalazs@gmail.com>
 	* po/hu.po: New Hungarian translation of UI messages.
 

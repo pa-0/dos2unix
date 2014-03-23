@@ -3,7 +3,7 @@
   * New translations of messages: Brazilian Portuguese, Chinese (traditional),
     Danish, French, Hungarian, Polish, Serbian, Ukrainian, Vietnamese.
   * New translations of the manual: Brazilian Portuguese, French, German,
-    Ukrainian.
+    Polish, Ukrainian.
   * Generated man pages are included in the source package to prevent
     compilation problems with very old or very new perl/pod2man versions.
   * Manuals are now generated from gettext PO files with po4a for easier
