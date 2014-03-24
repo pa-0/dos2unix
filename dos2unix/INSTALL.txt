@@ -8,31 +8,27 @@ PREREQUISITES
             * sh           : POSIX type shell
             * GNU coreutils: Core utilities package (chmod, install, mkdir,
                              mv, rm, uname)
-            * perl         : Practical Extraction and Report Language (perlpod)
-                             perl >= 5.10.1 is required.
 
         Optional (depending on build targets):
-            * gettext     : Framework to help GNU packages produce multi-
-                            lingual messages.
-            * groff       : GNU troff text formatting system.
-            * ghostscript : An interpreter for the PostScript language and
-                            for PDF (ps2pdf)
-            * po4a        : PO for anything.
+            * perl         : Practical Extraction and Report Language (perlpod)
+                             perl >= 5.10.1 is required.
+            * gettext      : Framework to help GNU packages produce multi-
+                             lingual messages.
+            * groff        : GNU troff text formatting system.
+            * ghostscript  : An interpreter for the PostScript language and
+                             for PDF (ps2pdf)
+            * po4a         : PO for anything.
 
 
     Using Watcom C:
         Required
             * Open Watcom  : http://www.openwatcom.org/
-            * perl         : Practical Extraction and Report Language (perlpod)
-                             http://strawberryperl.com/
 
 
     Using Microsoft Visual C++:
         Required
             * Visual C++   : You can get a free express version via this web page:
                              http://www.microsoft.com/visualstudio/eng/downloads#d-2010-express
-            * perl         : Practical Extraction and Report Language (perlpod)
-                             http://strawberryperl.com/
 
 
 
@@ -119,9 +115,9 @@ INTERNATIONAL MAN PAGES
 
         NROFF        /usr/bin/preconv | /usr/bin/nroff -c -mandoc 2>/dev/null
 
-    To view the man page set the correct locale. E.g. for Russian:
+    To view the man page set the correct locale. E.g. for Ukrainian:
 
-        export LANG=ru_RU.UTF-8
+        export LANG=uk_UA.UTF-8
         man dos2unix
 
 
