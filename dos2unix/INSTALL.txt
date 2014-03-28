@@ -180,9 +180,10 @@ WINDOWS 32 BIT PORT
         make -f mingw.mak strip
         make -f mingw.mak install
 
-    Using Mingw-w64 compiler <http://mingw-w64.sourceforge.net>:
-    I used Ruben van Boxem release installed in c:\mingw32
-    32 bit host, 32 bit target: i686-w64-mingw32-gcc-4.6.3-2-release-win32_rubenvb.7z
+    Using MinGW-w64 compiler <http://mingw-w64.sourceforge.net>:
+    I am using the MSYS2 project <http://sourceforge.net/projects/msys2/>
+    which includes the MinGW-w64 compiler and an updated MSYS shell based
+    on Cygwin 1.7.
 
         make -f mingw32.mak clean
         make -f mingw32.mak
@@ -206,14 +207,16 @@ WINDOWS 32 BIT PORT
     MinGW's libintl-8.dll that has builtin support for relocation. See also
     http://waterlan.home.xs4all.nl/libintl.html and
     http://sourceforge.net/p/mingw/bugs/1808/
+    The MSYS2 project has the relocation patch already included.
 
 
 WINDOWS 64 BIT PORT
 
     To compile a version for 64 bit Windows, get the Mingw-w64 compiler
     <http://mingw-w64.sourceforge.net>, and use makefile mingw64.mak:
-    I used Ruben van Boxem release installed in c:\mingw64
-    32 bit host, 64 bit target: x86_64-w64-mingw32-gcc-4.6.3-2-release-win32_rubenvb.7z
+    I am using the MSYS2 project <http://sourceforge.net/projects/msys2/>
+    which includes the MinGW-w64 compiler and an updated MSYS shell based
+    on Cygwin 1.7.
 
         make -f mingw64.mak clean
         make -f mingw64.mak
@@ -224,7 +227,9 @@ WINDOWS 64 BIT PORT
 DOS PORT, 32 BIT
 
     To compile a version for DOS, get the DJGPP compiler
-    <http://www.delorie.com/djgpp/>, and use makefile djgpp.mak:
+    <http://www.delorie.com/djgpp/>, and use makefile djgpp.mak.
+    It may be troublesome to get djgpp working correctly on a
+    new Windows OS.
 
         make -f djgpp.mak clean
         make -f djgpp.mak
@@ -232,6 +237,7 @@ DOS PORT, 32 BIT
         make -f djgpp.mak install
 
     Or use Open Watcom
+    Cross compiling from Windows 32 bit. This works.
 
         wmake -f wccdos32.mak clean
         wmake -f wccdos32.mak
