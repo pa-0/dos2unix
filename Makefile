@@ -46,7 +46,8 @@ dist:
 		${RELEASE_DIR_DOS2UNIX}/man/man1/*.pot \
 		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.txt \
 		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.htm* \
-		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.1
+		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.1 \
+		${RELEASE_DIR_DOS2UNIX}/man/*/man1/*.pod
 	# Remove generated doc files from Unix package.
 	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) clean
 	# Create the package.
