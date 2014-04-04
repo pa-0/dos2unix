@@ -25,6 +25,11 @@ UCS = 1
 
 prefix = c:\usr\local
 
+# We only build and install the English manuals, because wildcards on
+# directory names are not supported in Windows CMD. Like man\*\man1\*.txt will
+# give a syntax error. It could be done with more scripting, but for simplicity
+# we stick to English.
+
 all: $(PROGRAMS) $(DOCFILES)
 
 
@@ -97,30 +102,14 @@ install: $(PROGRAMS) $(DOCFILES) $(bindir) $(docdir)
 	copy man\man1\$(PACKAGE).txt $(docdir)
 	copy man\man1\$(PACKAGE).$(HTMLEXT) $(docdir)
 
-man\es\man1\dos2unix.txt : man\es\man1\dos2unix.pod
-	pod2text $** > $(@R).tx1
-	iconv -f ISO-8859-1 -t UTF-8 $(@R).tx1 > $@
-
-man\nl\man1\dos2unix.txt : man\nl\man1\dos2unix.pod
-	pod2text $** > $(@R).tx1
-	iconv -f ISO-8859-1 -t UTF-8 $(@R).tx1 > $@
-
 man\man1\dos2unix.txt : man\man1\dos2unix.pod
 	pod2text $** > $@
-
-man\es\man1\dos2unix.$(HTMLEXT) : man\es\man1\dos2unix.pod
-	iconv -f ISO-8859-1 -t UTF-8 $** > $(@R).ut8
-	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Convertidor de archivos de texto de formato DOS/Mac a Unix y viceversa" $(@R).ut8 > $@
-
-man\nl\man1\dos2unix.$(HTMLEXT) : man\nl\man1\dos2unix.pod
-	iconv -f ISO-8859-1 -t UTF-8 $** > $(@R).ut8
-	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/Mac naar Unix en vice versa tekstbestand formaat omzetter" $(@R).ut8 > $@
 
 man\man1\dos2unix.$(HTMLEXT) : man\man1\dos2unix.pod
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $** > $@
 
-TXTFILES = man\man1\$(PACKAGE).txt man\es\man1\$(PACKAGE).txt man\nl\man1\$(PACKAGE).txt
-HTMLFILES = man\man1\$(PACKAGE).$(HTMLEXT) man\es\man1\$(PACKAGE).$(HTMLEXT) man\nl\man1\$(PACKAGE).$(HTMLEXT)
+TXTFILES = man\man1\$(PACKAGE).txt
+HTMLFILES = man\man1\$(PACKAGE).$(HTMLEXT)
 
 txt : $(TXTFILES)
 
@@ -162,14 +151,7 @@ mostlyclean :
 	-del *.tmp
 
 clean : mostlyclean
-	-del $(DOCFILES)
-	-del man\es\man1\*.txt
-	-del man\nl\man1\*.txt
-	-del man\es\man1\*.tx1
-	-del man\nl\man1\*.tx1
-	-del man\es\man1\*.$(HTMLEXT)
-	-del man\nl\man1\*.$(HTMLEXT)
-	-del man\es\man1\*.ut8
-	-del man\nl\man1\*.ut8
 	-del $(DISTCMD)
 
+maintainer-clean : clean
+	-del $(DOCFILES)
