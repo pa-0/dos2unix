@@ -14,10 +14,10 @@ PREREQUISITES
                              perl >= 5.10.1 is required.
             * gettext      : Framework to help GNU packages produce multi-
                              lingual messages.
+            * po4a         : PO for anything.
             * groff        : GNU troff text formatting system.
             * ghostscript  : An interpreter for the PostScript language and
                              for PDF (ps2pdf)
-            * po4a         : PO for anything.
 
 
     Using Watcom C:

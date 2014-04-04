@@ -4,17 +4,15 @@ dos2unix - DOS/Mac to Unix and vice versa text file format converter.
 
 FILE LIST
 
-        README.txt      : This file.
-        INSTALL.txt     : How to build and install.
-        COPYING.txt     : distribution license.
-        NEWS.txt        : Basic change log for users.
-        ChangeLog.txt   : Detailed change log for programmers.
-        TODO.txt        : Things to do.
-        BUGS.txt        : Known bugs and instructions on reporting new ones.
-        dos2unix.txt    : Dos2unix manual, text format.
-        dos2unix.ps     : Dos2unix manual, PostScript format.
-        dos2unix.pdf    : Dos2unix manual, PDF format.
-        dos2unix.htm    : Dos2unix manual, HTML format.
+        README.txt            : This file.
+        INSTALL.txt           : How to build and install.
+        COPYING.txt           : distribution license.
+        NEWS.txt              : Basic change log for users.
+        ChangeLog.txt         : Detailed change log for programmers.
+        TODO.txt              : Things to do.
+        BUGS.txt              : Known bugs and instructions on reporting new ones.
+        man/man1/dos2unix.txt : Dos2unix manual, text format.
+        man/man1/dos2unix.htm : Dos2unix manual, HTML format.
 
 
 HISTORY
@@ -48,7 +46,7 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2-6.0.4  2009-2013
+        Erwin Waterlander       version 3.2-6.0.5  2009-2014
         Christian Wurll         version 3.1        1998
         Bernd Johannes Wuebben  version 3.0        1998
         Benjamin Lin            version 1.1-2.3    1994-1995
@@ -117,6 +115,8 @@ ACKNOWLEDGEMENTS
         Justin Lecher         Makefile improvement.
         F.J. Brandelik        Reported problems when win32 version processes
                               huge files on a network drive.
+        Benno Schulenberg     Cleaning up the UI messages.
+        Mario Blättermann    Generate pod files from gettext po files with po4a.
 
 FINDUTILS
 
