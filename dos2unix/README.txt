@@ -60,35 +60,35 @@ TRANSLATORS
         Translation of the messages.
         See http://translationproject.org/domain/dos2unix.html
 
-        Brazilian Portuguese  Enrico Nicoletto <Tranlation Project>           Version 6.0.5
+        Brazilian Portuguese  Enrico Nicoletto <rafael.f.f1@gmail.com>        Version 6.0.5
         Chinese (traditional) mail6543210 <mail6543210@yahoo.com.tw>          Version 6.0.5
         Danish                Thomas Pryds <thomas@pryds.eu>                  Version 6.0.5
         Dutch                 Erwin Waterlander <waterlan@xs4all.nl>          Version 4.0   - 6.0.4
-        Dutch                 Benno Schulenberg <Tranlation Project>          Version 6.0.5
+        Dutch                 Benno Schulenberg <benno@vertaalt.nl>           Version 6.0.5
         Esperanto             Rugxulo <rugxulo@gmail.com>                     Version 5.1   - 6.0.4
-        Esperanto             Benno Schulenberg <Tranlation Project>          Version 6.0.5
+        Esperanto             Benno Schulenberg  <benno@vertaalt.nl>          Version 6.0.5
         French                Frédéric Marchal <fmarchal@perso.be>            Version 6.0.5
         German                Philipp Thomas <pth@suse.de>                    Version 5.0   - 6.0.3
         German                Lars Wendler <polynomial-c@gentoo.org>          Version 6.0.4
         Hungarian             Balázs Úr <urbalazs@gmail.com>                  Version 6.0.5
-        Polish                Jakub Bogusz <Tranlation Project>               Version 6.0.5
+        Polish                Jakub Bogusz <qboosh@pld-linux.org>             Version 6.0.5
         Russian               Андрей Углик (Andrei Uhlik) <uglika@gmail.com>  Version 6.0.4
         Serbian               Мирослав Николић <miroslavnikolic@rocketmail.com> Version 6.0.5
         Spanish               Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>   Version 5.3.1 - 6.0.4
-        Ukrainian             Yuri Chornoivan <Tranlation Project>            Version 6.0.5
-        Vietnamese            Trần Ngọc Quân <Tranlation Project>             Version 6.0.5
+        Ukrainian             Yuri Chornoivan <yurchor@ukr.net>               Version 6.0.5
+        Vietnamese            Trần Ngọc Quân <vnwildman@gmail.com>            Version 6.0.5
 
         Translation of the manual.
         See http://translationproject.org/domain/dos2unix-man.html
 
         Brazilian Portuguese  Rafael Ferreira <rafael.f.f1@gmail.com>          Version 6.0.5
         Dutch                 Erwin Waterlander <waterlan@xs4all.nl>           Version 5.1.1 - 6.0.4
-        Dutch                 Benno Schulenberg <Tranlation Project>           Version 6.0.5
+        Dutch                 Benno Schulenberg <benno@vertaalt.nl>            Version 6.0.5
         French                Frédéric Marchal <fmarchal@perso.be>             Version 6.0.5
 	German                Mario Blättermann <mario.blaettermann@gmail.com> Version 6.0.5
-        Polish                Jakub Bogusz <Tranlation Project>                Version 6.0.5
+        Polish                Jakub Bogusz <qboosh@pld-linux.org>              Version 6.0.5
         Spanish               Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>    Version 5.3.1 - 6.0.5
-        Ukrainian             Yuri Chornoivan <Tranlation Project>             Version 6.0.5
+        Ukrainian             Yuri Chornoivan <yurchor@ukr.net>                Version 6.0.5
 
 
 ACKNOWLEDGEMENTS
