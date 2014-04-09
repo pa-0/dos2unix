@@ -1,6 +1,6 @@
 2014-??-??: Version 6.0.5-beta
 
-  * New translations of messages: Brazilian Portuguese, Chinese (traditional),
+  * New translations of UI messages: Brazilian Portuguese, Chinese (traditional),
     Danish, French, Hungarian, Polish, Serbian, Ukrainian, Vietnamese.
   * New translations of the manual: Brazilian Portuguese, French, German,
     Polish, Ukrainian.
