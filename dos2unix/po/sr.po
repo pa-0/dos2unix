@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-21 14:48+0100\n"
+"POT-Creation-Date: 2014-04-09 23:22+0200\n"
 "PO-Revision-Date: 2014-02-24 22:18+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -240,7 +240,7 @@ msgstr "претварам датотеку „%s“ у запису Мека...
 msgid "converting file %s to DOS format...\n"
 msgstr "претварам датотеку „%s“ у запису ДОС-а...\n"
 
-#: common.c:229
+#: common.c:187
 msgid ""
 "Redistribution and use in source and binary forms, with or without\n"
 "modification, are permitted provided that the following conditions\n"
@@ -260,7 +260,7 @@ msgstr ""
 "ауторског права у документацији и/или у другом материјалу који долази уз "
 "дистрибуцију.\n"
 
-#: common.c:239
+#: common.c:197
 msgid ""
 "THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n"
 "EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
@@ -286,65 +286,65 @@ msgstr ""
 "НЕПАЖЊУ ИЛИ ДРУГО) ДОВОДЕЋИ НА БИЛО КОЈИ НАЧИН ДО ПРЕКИДА УПОТРЕБЕ\n"
 "ОВОГ СОФТВЕРА, ЧАК И АКО СТЕ ОБАВЕШТЕНИ О МОГУЋНОСТИ ТАКВИХ ШТЕТА.\n"
 
-#: common.c:256
+#: common.c:214
 #, c-format
 msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
 msgstr ""
 "Употреба: %s [опције] [датотека ...] [-n ул.датотека изл.датотека ...]\n"
 
-#: common.c:257
+#: common.c:215
 #, c-format
 msgid " -ascii                convert only line breaks (default)\n"
 msgstr " -ascii                претвара само прекиде реда (основно)\n"
 
-#: common.c:258
+#: common.c:216
 #, c-format
 msgid ""
 " -iso                  conversion between DOS and ISO-8859-1 character set\n"
 msgstr ""
 " -iso                  претварање између скупа знакова ДОС-а и ИСО-8859-1\n"
 
-#: common.c:259
+#: common.c:217
 #, c-format
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
 msgstr ""
 "   -1252               користи Виндоуз кодну страницу 1252 (западно-"
 "европски)\n"
 
-#: common.c:260
+#: common.c:218
 #, c-format
 msgid "   -437                use DOS code page 437 (US) (default)\n"
 msgstr ""
 "   -437                користи ДОС кодну страницу 437 (САД) (основно)\n"
 
-#: common.c:261
+#: common.c:219
 #, c-format
 msgid "   -850                use DOS code page 850 (Western European)\n"
 msgstr ""
 "   -850                користи ДОС кодну страницу 850 (западно-европски)\n"
 
-#: common.c:262
+#: common.c:220
 #, c-format
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
 msgstr "   -860                користи ДОС кодну страницу 860 (португалски)\n"
 
-#: common.c:263
+#: common.c:221
 #, c-format
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
 msgstr ""
 "   -863                користи ДОС кодну страницу 863 (канадски француски)\n"
 
-#: common.c:264
+#: common.c:222
 #, c-format
 msgid "   -865                use DOS code page 865 (Nordic)\n"
 msgstr "   -865                користи ДОС кодну страницу 865 (норвешки)\n"
 
-#: common.c:265
+#: common.c:223
 #, c-format
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
 msgstr " -7                    претвара 8-битне знакове у 7-битне размаке\n"
 
-#: common.c:266
+#: common.c:224
 #, c-format
 msgid ""
 " -c, --convmode        conversion mode\n"
@@ -353,37 +353,37 @@ msgstr ""
 " -c, --convmode        режим претварања\n"
 "   режим претварања    аскри, 7бита, исо, мек, подразумева аскри\n"
 
-#: common.c:268
+#: common.c:226
 #, c-format
 msgid " -f, --force           force conversion of binary files\n"
 msgstr " -f, --force           присиљава претварање бинарних датотека\n"
 
-#: common.c:269
+#: common.c:227
 #, c-format
 msgid " -h, --help            display this help text\n"
 msgstr " -h, --help            приказује овај текст помоћи\n"
 
-#: common.c:270
+#: common.c:228
 #, c-format
 msgid " -k, --keepdate        keep output file date\n"
 msgstr " -k, --keepdate        задржава датум излазне датотеке\n"
 
-#: common.c:271
+#: common.c:229
 #, c-format
 msgid " -L, --license         display software license\n"
 msgstr " -L, --license         приказује дозволу софтвера\n"
 
-#: common.c:272
+#: common.c:230
 #, c-format
 msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline         додаје додатни нови ред\n"
 
-#: common.c:273
+#: common.c:231
 #, c-format
 msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"
 msgstr " -m, --add-bom         додаје УТФ-8 назнаку поретка бајта\n"
 
-#: common.c:274
+#: common.c:232
 #, c-format
 msgid ""
 " -n, --newfile         write to new file\n"
@@ -394,7 +394,7 @@ msgstr ""
 "   улазна датотека     изворна датотека у режиму нове датотеке\n"
 "   излазна датотека    излазна датотека у режиму нове датотеке\n"
 
-#: common.c:277
+#: common.c:235
 #, c-format
 msgid ""
 " -o, --oldfile         write to old file (default)\n"
@@ -403,7 +403,7 @@ msgstr ""
 " -o, --oldfile         пише у стару датотеку (основно)\n"
 "   датотека ...        датотеке за претварање у режиму старе датотеке\n"
 
-#: common.c:279
+#: common.c:237
 #, c-format
 msgid ""
 " -q, --quiet           quiet mode, suppress all warnings\n"
@@ -412,27 +412,27 @@ msgstr ""
 " -q, --quiet           тихи режим, потискује сва упозорења\n"
 "                         (увек укључено у режиму стндуи)\n"
 
-#: common.c:281
+#: common.c:239
 #, c-format
 msgid " -s, --safe            skip binary files (default)\n"
 msgstr " -s, --safe            прескаче бинарне датотеке (основно)\n"
 
-#: common.c:283
+#: common.c:241
 #, c-format
 msgid " -ul, --assume-utf16le assume that the input format is UTF-16LE\n"
 msgstr " -ul, --assume-utf16le подразумева да је улазни запис „UTF-16LE“\n"
 
-#: common.c:284
+#: common.c:242
 #, c-format
 msgid " -ub, --assume-utf16be assume that the input format is UTF-16BE\n"
 msgstr " -ub, --assume-utf16be подразумева да је улазни запис „UTF-16BE“\n"
 
-#: common.c:287
+#: common.c:245
 #, c-format
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
 msgstr " -F, --follow-symlink  прати симболичке везе и претвара мете\n"
 
-#: common.c:290
+#: common.c:248
 #, c-format
 msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
@@ -441,7 +441,7 @@ msgstr ""
 " -R, --replace-symlink замењује симболичке везе претвореним датотекама\n"
 "                         (изворне датотеке мете остају непромењене)\n"
 
-#: common.c:292
+#: common.c:250
 #, c-format
 msgid ""
 " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
@@ -449,77 +449,77 @@ msgstr ""
 " -S, --skip-symlink    задржава неизмењеним симболичке везе и мете "
 "(основно)\n"
 
-#: common.c:294
+#: common.c:252
 #, c-format
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         приказује број издања\n"
 
-#: common.c:306
+#: common.c:264
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "ДОС 16 бита издање (WATCOMC).\n"
 
-#: common.c:308
+#: common.c:266
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "ДОС 16 бита издање (TURBOC).\n"
 
-#: common.c:310
+#: common.c:268
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "ДОС 32 бита издање (WATCOMC).\n"
 
-#: common.c:312
+#: common.c:270
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "ДОС 32 бита издање (DJGPP).\n"
 
-#: common.c:314
+#: common.c:272
 msgid "MSYS version.\n"
 msgstr "МСИС издање.\n"
 
-#: common.c:316
+#: common.c:274
 msgid "Cygwin version.\n"
 msgstr "Цигвин издање.\n"
 
-#: common.c:318
+#: common.c:276
 msgid "Windows 64 bit version (MinGW-w64).\n"
 msgstr "Виндоуз 64 бита издање (MinGW-w64).\n"
 
-#: common.c:320
+#: common.c:278
 msgid "Windows 32 bit version (WATCOMC).\n"
 msgstr "Виндоуз 32 бита издање (WATCOMC).\n"
 
-#: common.c:322
+#: common.c:280
 msgid "Windows 32 bit version (MinGW-w64).\n"
 msgstr "Виндоуз 32 бита издање (MinGW-w64).\n"
 
-#: common.c:324
+#: common.c:282
 msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Виндоуз 32 бита издање (MinGW).\n"
 
-#: common.c:326
+#: common.c:284
 #, c-format
 msgid "Windows 64 bit version (MSVC %d).\n"
 msgstr "Виндоуз 64 бита издање (MSVC %d).\n"
 
-#: common.c:328
+#: common.c:286
 #, c-format
 msgid "Windows 32 bit version (MSVC %d).\n"
 msgstr "Виндоуз 32 бита издање (MSVC %d).\n"
 
-#: common.c:330
+#: common.c:288
 msgid "OS/2 version (WATCOMC).\n"
 msgstr "ОС/2 издање (WATCOMC).\n"
 
-#: common.c:332
+#: common.c:290
 msgid "OS/2 version (EMX).\n"
 msgstr "ОС/2 издање (EMX).\n"
 
-#: common.c:335
+#: common.c:293
 msgid "With Unicode UTF-16 support.\n"
 msgstr "Са подршком Јуникода УТФ-16.\n"
 
-#: common.c:337
+#: common.c:295
 msgid "Without Unicode UTF-16 support.\n"
 msgstr "Без подршке Јуникода УТФ-16.\n"
 
-#: common.c:340
+#: common.c:298
 msgid "With native language support.\n"
 msgstr "Са подршком матерњег језика.\n"

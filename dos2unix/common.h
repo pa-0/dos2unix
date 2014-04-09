@@ -208,7 +208,7 @@ typedef struct
 } CFlag;
 
 
-int symbolic_link(const char *path, CFlag *ipFlag, const char *progname);
+int symbolic_link(const char *path);
 int regfile(char *path, int allowSymlinks, CFlag *ipFlag, char *progname);
 int regfile_target(char *path, CFlag *ipFlag, char *progname);
 void PrintUsage(char *progname);

@@ -474,7 +474,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   ipFlag->status = 0 ;
 
   /* Test if output file is a symbolic link */
-  if (symbolic_link(ipOutFN, ipFlag, progname) && !ipFlag->Follow)
+  if (symbolic_link(ipOutFN) && !ipFlag->Follow)
   {
     ipFlag->status |= OUTPUTFILE_SYMLINK ;
     /* Not a failure, skipping input file according spec. (keep symbolic link unchanged) */
@@ -490,7 +490,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   }
 
   /* Test if input file target is a regular file */
-  if (symbolic_link(ipInFN, ipFlag, progname) && regfile_target(ipInFN, ipFlag,progname))
+  if (symbolic_link(ipInFN) && regfile_target(ipInFN, ipFlag,progname))
   {
     ipFlag->status |= INPUT_TARGET_NO_REGFILE ;
     /* Not a failure, skipping non-regular input file according spec. */
@@ -498,7 +498,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   }
 
   /* Test if output file target is a regular file */
-  if (symbolic_link(ipOutFN, ipFlag, progname) && (ipFlag->Follow == SYMLINK_FOLLOW) && regfile_target(ipOutFN, ipFlag,progname))
+  if (symbolic_link(ipOutFN) && (ipFlag->Follow == SYMLINK_FOLLOW) && regfile_target(ipOutFN, ipFlag,progname))
   {
     ipFlag->status |= OUTPUT_TARGET_NO_REGFILE ;
     /* Failure, input is regular, cannot produce output. */
@@ -744,7 +744,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   /* If output file is a symbolic link, optional resolve the link and modify  */
   /* the target, instead of removing the link and creating a new regular file */
   TargetFN = ipOutFN;
-  if (symbolic_link(ipOutFN, ipFlag, progname) && !RetVal)
+  if (symbolic_link(ipOutFN) && !RetVal)
   {
     ResolveSymlinkResult = 0; /* indicates that TargetFN need not be freed */
     if (ipFlag->Follow == SYMLINK_FOLLOW)

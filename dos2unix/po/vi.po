@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-21 14:48+0100\n"
+"POT-Creation-Date: 2014-04-09 23:22+0200\n"
 "PO-Revision-Date: 2014-02-03 14:44+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -239,7 +239,7 @@ msgstr "đang chuyển đổi tập tin %s sang định dạng Mac...\n"
 msgid "converting file %s to DOS format...\n"
 msgstr "đang chuyển đổi tập tin %s sang định dạng DOS...\n"
 
-#: common.c:229
+#: common.c:187
 msgid ""
 "Redistribution and use in source and binary forms, with or without\n"
 "modification, are permitted provided that the following conditions\n"
@@ -252,7 +252,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: common.c:239
+#: common.c:197
 msgid ""
 "THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n"
 "EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
@@ -267,59 +267,59 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: common.c:256
+#: common.c:214
 #, c-format
 msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
 msgstr ""
 "Cách dùng: %s [các-tùy-chọn] [tập-tin ...] [-n tập-tin-vào tập-tin-ra ...]\n"
 
-#: common.c:257
+#: common.c:215
 #, c-format
 msgid " -ascii                convert only line breaks (default)\n"
 msgstr " -ascii                chỉ chuyển đổi các ngắt dòng (mặc định)\n"
 
-#: common.c:258
+#: common.c:216
 #, c-format
 msgid ""
 " -iso                  conversion between DOS and ISO-8859-1 character set\n"
 msgstr " -iso                  chuyển đổi giữa DOS và ISO-8859-1\n"
 
-#: common.c:259
+#: common.c:217
 #, c-format
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
 msgstr "   -1252               dùng trang mã Windows 1252 (Tây Âu)\n"
 
-#: common.c:260
+#: common.c:218
 #, c-format
 msgid "   -437                use DOS code page 437 (US) (default)\n"
 msgstr "   -437                dùng trang mã DOS 437 (US) (mặc định)\n"
 
-#: common.c:261
+#: common.c:219
 #, c-format
 msgid "   -850                use DOS code page 850 (Western European)\n"
 msgstr "   -850                dùng trang mã DOS 850 (Tây Âu)\n"
 
-#: common.c:262
+#: common.c:220
 #, c-format
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
 msgstr "   -860                dùng trang mã DOS 860 (Bồ Đào Nha)\n"
 
-#: common.c:263
+#: common.c:221
 #, c-format
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
 msgstr "   -863                dùng trang mã DOS 863 (Ca Na Đa Pháp)\n"
 
-#: common.c:264
+#: common.c:222
 #, c-format
 msgid "   -865                use DOS code page 865 (Nordic)\n"
 msgstr "   -865                dùng trang mã DOS 865 (Bắc Âu)\n"
 
-#: common.c:265
+#: common.c:223
 #, c-format
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
 msgstr " -7                    chuyển đổi các ký tự 8 bit thành 7 bit\n"
 
-#: common.c:266
+#: common.c:224
 #, c-format
 msgid ""
 " -c, --convmode        conversion mode\n"
@@ -328,37 +328,37 @@ msgstr ""
 " -c, --convmode        chế độ chuyển đổi\n"
 "   chế độ chuyển đổi:  ascii, 7bit, iso, mac, mặc định là ascii\n"
 
-#: common.c:268
+#: common.c:226
 #, c-format
 msgid " -f, --force           force conversion of binary files\n"
 msgstr " -f, --force           bắt buộc chuyển đổi các tập tin nhị phân\n"
 
-#: common.c:269
+#: common.c:227
 #, c-format
 msgid " -h, --help            display this help text\n"
 msgstr " -h, --help            hiển thị trợ giúp này\n"
 
-#: common.c:270
+#: common.c:228
 #, c-format
 msgid " -k, --keepdate        keep output file date\n"
 msgstr " -k, --keepdate        giữ ngày tháng tập tin xuất ra\n"
 
-#: common.c:271
+#: common.c:229
 #, c-format
 msgid " -L, --license         display software license\n"
 msgstr " -L, --license         hiển thị giấy phép dùng phần mềm\n"
 
-#: common.c:272
+#: common.c:230
 #, c-format
 msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline         bổ xung thêm dòng mới\n"
 
-#: common.c:273
+#: common.c:231
 #, c-format
 msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"
 msgstr " -m, --add-bom         thêm “UTF-8 Byte Order Mark”\n"
 
-#: common.c:274
+#: common.c:232
 #, c-format
 msgid ""
 " -n, --newfile         write to new file\n"
@@ -369,7 +369,7 @@ msgstr ""
 "   tập-tin-vào         tập tin gốc trong chế độ tập-tin-mới\n"
 "   tập-tin-ra          tập tin xuất ra trong chế độ tập-tin-mới\n"
 
-#: common.c:277
+#: common.c:235
 #, c-format
 msgid ""
 " -o, --oldfile         write to old file (default)\n"
@@ -378,7 +378,7 @@ msgstr ""
 " -o, --oldfile         ghi vào tập tin cũ (mặc định)\n"
 "   tập-tin ...           các tập tin cần chuyển đổi trong chế độ tập-tin-cũ\n"
 
-#: common.c:279
+#: common.c:237
 #, c-format
 msgid ""
 " -q, --quiet           quiet mode, suppress all warnings\n"
@@ -387,27 +387,27 @@ msgstr ""
 " -q, --quiet           chế độ im lặng, chặn mọi cảnh báo\n"
 "                         (luôn bật ở chế độ vào ra tiêu chuẩn)\n"
 
-#: common.c:281
+#: common.c:239
 #, c-format
 msgid " -s, --safe            skip binary files (default)\n"
 msgstr " -s, --safe            bỏ qua tập tin nhị phân (mặc định)\n"
 
-#: common.c:283
+#: common.c:241
 #, c-format
 msgid " -ul, --assume-utf16le assume that the input format is UTF-16LE\n"
 msgstr " -ul, --assume-utf16le coi rằng định dạng đầu vào là UTF-16LE\n"
 
-#: common.c:284
+#: common.c:242
 #, c-format
 msgid " -ub, --assume-utf16be assume that the input format is UTF-16BE\n"
 msgstr " -ub, --assume-utf16be coi rằng định dạng đầu vào là UTF-16BE\n"
 
-#: common.c:287
+#: common.c:245
 #, c-format
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
 msgstr " -F, --follow-symlink  theo liên kết mềm và chuyển đổi đích\n"
 
-#: common.c:290
+#: common.c:248
 #, c-format
 msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
@@ -417,84 +417,84 @@ msgstr ""
 "                         (các tập tin đích nguyên gốc thì để nguyên không "
 "thay đổi)\n"
 
-#: common.c:292
+#: common.c:250
 #, c-format
 msgid ""
 " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr ""
 " -S, --skip-symlink    giữ liên kết mềm và đích không thay đổi (mặc định)\n"
 
-#: common.c:294
+#: common.c:252
 #, c-format
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         hiển thị số hiệu phiên bản\n"
 
-#: common.c:306
+#: common.c:264
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "Phiên bản DOS 16 bit (WATCOMC).\n"
 
-#: common.c:308
+#: common.c:266
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "Phiên bản DOS 16 bit (TURBOC).\n"
 
-#: common.c:310
+#: common.c:268
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "Phiên bản DOS 32 bit (WATCOMC).\n"
 
-#: common.c:312
+#: common.c:270
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "Phiên bản DOS 32 bit (DJGPP).\n"
 
-#: common.c:314
+#: common.c:272
 msgid "MSYS version.\n"
 msgstr "Phiên bản MSYS.\n"
 
-#: common.c:316
+#: common.c:274
 msgid "Cygwin version.\n"
 msgstr "Phiên bản Cygwin.\n"
 
-#: common.c:318
+#: common.c:276
 msgid "Windows 64 bit version (MinGW-w64).\n"
 msgstr "Phiên bản Windows 64 bit (MinGW-w64).\n"
 
-#: common.c:320
+#: common.c:278
 msgid "Windows 32 bit version (WATCOMC).\n"
 msgstr "Phiên bản Windows 32 bit (WATCOMC).\n"
 
-#: common.c:322
+#: common.c:280
 msgid "Windows 32 bit version (MinGW-w64).\n"
 msgstr "Phiên bản Windows 32 bit (MinGW-w64).\n"
 
-#: common.c:324
+#: common.c:282
 msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Phiên bản Windows 32 bit (MinGW).\n"
 
-#: common.c:326
+#: common.c:284
 #, c-format
 msgid "Windows 64 bit version (MSVC %d).\n"
 msgstr "Phiên bản Windows 64 bit (MSVC %d).\n"
 
-#: common.c:328
+#: common.c:286
 #, c-format
 msgid "Windows 32 bit version (MSVC %d).\n"
 msgstr "Phiên bản Windows 32 bit (MSVC %d).\n"
 
-#: common.c:330
+#: common.c:288
 msgid "OS/2 version (WATCOMC).\n"
 msgstr "Phiên bản OS/2 (WATCOMC).\n"
 
-#: common.c:332
+#: common.c:290
 msgid "OS/2 version (EMX).\n"
 msgstr "Phiên bản OS/2 (EMX).\n"
 
-#: common.c:335
+#: common.c:293
 msgid "With Unicode UTF-16 support.\n"
 msgstr "Có hỗ trợ Unicode UTF-16.\n"
 
-#: common.c:337
+#: common.c:295
 msgid "Without Unicode UTF-16 support.\n"
 msgstr "Không hỗ trợ Unicode UTF-16.\n"
 
-#: common.c:340
+#: common.c:298
 msgid "With native language support.\n"
 msgstr "Có hỗ trợ ngôn ngữ bản địa.\n"

@@ -1,3 +1,7 @@
+2014-04-09 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Fix symbolic_link(), don't print error when file
+	  does not exist (problem was introduced on 2014-03-21).
+
 2014-04-08 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Fix for GNU make < 3.82. For rules with multiple
 	  patterns, put rule with shortest stem first.
