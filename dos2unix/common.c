@@ -61,7 +61,7 @@
 int symbolic_link(const char *path)
 {
    DWORD attrs;
-   DWORD dw;
+
    attrs = GetFileAttributes(path);
 
    if (attrs == INVALID_FILE_ATTRIBUTES)
@@ -75,7 +75,6 @@ int symbolic_link(const char *path)
 {
 #ifdef S_ISLNK
    struct stat buf;
-   char *errstr;
 
    if (STAT(path, &buf) == 0)
    {
