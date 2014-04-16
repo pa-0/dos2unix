@@ -331,6 +331,9 @@ $(UNIX2DOS_BIN): unix2dos.o querycp.o common.o
 $(MAC2UNIX_BIN) : $(BIN)
 	$(LINK) $< $@
 
+$(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
+	$(LINK) $< $@
+
 $(MANPOTFILE) : man/man1/dos2unix.pod
 	$(MAKE) -C man/man1 $(notdir $@)
 
@@ -358,9 +361,6 @@ man/man1/dos2unix.pod : ;
 
 %.1 : %.pod
 	$(MAKE) -C man/man1 $(subst man/,../,$@)
-
-$(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
-	$(LINK) $< $@
 
 mofiles: $(MOFILES)
 
