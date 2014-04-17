@@ -2,6 +2,6 @@ open sftp://waterlan,dos2unix@frs.sourceforge.net
 cd /home/frs/project/d/do/dos2unix/dos2unix
 mkdir 6.0.5
 cd 6.0.5
-mput dos2unix-6.0.5.tar.gz d2u605s.zip d2u605b.zip d2u605pm.zip dos2unix-6.0.5-win32.zip dos2unix-6.0.5-win64.zip trunk/dos2unix/ChangeLog.txt
+mput dos2unix-6.0.5.tar.gz d2u605s.zip d2u605b.zip d2u605pm.zip dos2unix-6.0.5-win32.zip dos2unix-6.0.5-win64.zip dos2unix-6.0.5-win32-nls.zip dos2unix-6.0.5-win64-nls.zip d2u605/ChangeLog.txt
 mput README.txt
 exit
