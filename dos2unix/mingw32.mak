@@ -18,7 +18,7 @@ ENABLE_NLS=
 
 ifdef ENABLE_NLS
 LIBS_EXTRA = -lintl -liconv
-ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
+ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll bin/libgcc_s_dw2-1.dll bin/libwinpthread-1.dll
 endif
 LIBS_EXTRA += $(CRT_GLOB_OBJ)
 
