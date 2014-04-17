@@ -1,5 +1,8 @@
-2014-??-??: Version 6.0.5-beta
+2014-04-17: Version 6.0.5
 
+  * Dos2unix is part of the Translation Project (TP).
+    All translations go via the Translation Project.
+    See http://translationproject.org/
   * New translations of UI messages: Brazilian Portuguese, Chinese (traditional),
     Danish, French, Hungarian, Polish, Serbian, Ukrainian, Vietnamese.
   * New translations of the manual: Brazilian Portuguese, French, German,

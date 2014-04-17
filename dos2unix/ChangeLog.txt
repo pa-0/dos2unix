@@ -1,3 +1,6 @@
+2014-04-17 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 6.0.5
+
 2014-04-09 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Fix symbolic_link(), don't print error when file
 	  does not exist (problem was introduced on 2014-03-21).
