@@ -43,6 +43,19 @@ dist:
 	cd .. ; rm -f ${RELEASE_DIR_D2U}s.zip
 	cd .. ; zip -r ${RELEASE_DIR_D2U}s.zip ${RELEASE_DIR_D2U}
 
+# Create pgp signature. Required for Debian Linux.
+# See http://narfation.org/2013/06/23/signed-upstream-tarballs-in-debian
+pgpsign:
+	cd ..; gpg --detach-sign --armor ${RELEASE_DIR_DOS2UNIX}.tar.gz
+
+# Send the key tp HKP/SKS keyserver.
+# You might want to add this to receive kes easily:
+#
+#    # .gnupg/gpg.conf
+#    keyserver  hkp://pool.sks-keyservers.net
+pgpsend:
+	cd ..; gpg --keyserver pool.sks-keyservers.net --send-keys B12725BE
+
 # Target: tag - Create a tag copy of trunk
 tag:
 	svn copy ${SVNSSHREPO}/trunk \
