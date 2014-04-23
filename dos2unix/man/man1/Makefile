@@ -97,8 +97,8 @@ dos2unix-man.pot : dos2unix.pod
 # Fix problem that =encoding is before =pod command.
 %.pod : %.po
 	po4a-translate -f pod -m dos2unix.pod -p $< > $@
-	sed -i '/=encoding UTF-8/d' $@
-	sed -i 's/=pod/=pod\n\n=encoding UTF-8/' $@
+	perl -ni.bak -e 'print unless /=encoding UTF-8/' $@
+	perl -pli.bak -e 's/=pod/=pod\n\n=encoding UTF-8/' $@
 
 # An empty recipe for dos2unix.pod to break circular dependency.
 dos2unix.pod : ;

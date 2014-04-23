@@ -1,3 +1,8 @@
+2014-04-23 Erwin Waterlander <waterlan@xs4all.nl>
+	* man/man1/Makefile: Removed dependency on GNU sed.
+	  Thanks to Daniel Macks.
+	* BUGS.txt: Update URL to bug tracker.
+
 2014-04-17 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 6.0.5
 
