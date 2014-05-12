@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-6.0.5-beta11\n"
 "POT-Creation-Date: 2014-03-21 15:57+0100\n"
-"PO-Revision-Date: 2014-03-22 19:19+0100\n"
+"PO-Revision-Date: 2014-05-08 12:44+0200\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -715,7 +715,7 @@ msgstr "Exemples Unicode"
 #. type: textblock
 #: dos2unix.pod:399
 msgid "Convert from Windows UTF-16 (with BOM) to Unix UTF-8"
-msgstr "Convertir de l'UTF-16 Windows (avec une BOM) vers l'UTF-8 de Unix"
+msgstr "Convertir de l'UTF-16 Windows (avec BOM) vers l'UTF-8 de Unix"
 
 #. type: verbatim
 #: dos2unix.pod:401
@@ -745,7 +745,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:407
 msgid "Convert from Unix UTF-8 to Windows UTF-8 with BOM"
-msgstr "Convertir de l'UTF-8 de Unix vers l'UTF-8 de Windows sans BOM"
+msgstr "Convertir de l'UTF-8 de Unix vers l'UTF-8 de Windows avec BOM"
 
 #. type: verbatim
 #: dos2unix.pod:409

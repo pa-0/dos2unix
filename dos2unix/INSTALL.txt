@@ -28,7 +28,10 @@ PREREQUISITES
     Using Microsoft Visual C++:
         Required
             * Visual C++   : You can get a free express version via this web page:
-                             http://www.microsoft.com/visualstudio/eng/downloads#d-2010-express
+                             http://www.visualstudio.com/products/visual-studio-express-vs
+                             Download Visual Studio for Windows Desktop. Visual C++ is part
+                             of Visual Studio. Out of the box compilation for 64-bit
+                             applications is supported since version 2012.
 
 
 
@@ -222,6 +225,15 @@ WINDOWS 64 BIT PORT
         make -f mingw64.mak
         make -f mingw64.mak strip
         make -f mingw64.mak install
+
+    Or use Microsoft Visual C++. Visual Studio Express supports
+    out of the box C/C++ compilation for 64-bit applications since
+    version 2012. Start an "x64 Cross Tools Command Prompt" and
+    type:
+
+        nmake /f vc.mak clean
+        nmake /f vc.mak
+        nmake /f vc.mak install
 
 
 DOS PORT, 32 BIT

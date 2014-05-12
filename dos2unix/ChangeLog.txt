@@ -1,3 +1,10 @@
+2014-05-12 Erwin Waterlander <waterlan@xs4all.nl>
+	* INSTALL.txt: Updated for building 64-bit applications
+	  with Microsoft Visual C++ Express.
+
+2014-05-12 Frédéric Marchal <fmarchal@perso.be>
+	* man/fr/man1/dos2unix.po: Fixed minor translation error.
+
 2014-04-23 Erwin Waterlander <waterlan@xs4all.nl>
 	* man/man1/Makefile: Removed dependency on GNU sed.
 	  Thanks to Daniel Macks.
