@@ -1,3 +1,9 @@
+2014-05-24  Åka Sikrom <a4@hush.com>\n"
+	* po/nb.po: New Norwegian Bokmaal translation.
+
+2014-05-17 Mario Blättermann <mario.blaettermann@gmail.com>
+	* po/de.po: Update German messages.
+
 2014-05-12 Erwin Waterlander <waterlan@xs4all.nl>
 	* INSTALL.txt: Updated for building 64-bit applications
 	  with Microsoft Visual C++ Express.
