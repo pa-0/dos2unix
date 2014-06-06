@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-30 20:41+0100\n"
+"POT-Creation-Date: 2014-06-07 00:16+0200\n"
 "PO-Revision-Date: 2014-05-22 20:23+0100\n"
 "Last-Translator: Åka Sikrom <a4@hush.com>\n"
 "Language-Team: Norwegian Bokmaal <i18n-nb@lister.ping.uio.no>\n"
@@ -79,12 +79,15 @@ msgstr "Klarte ikke å skrive til den midlertidige utdata-fila «%s». %s\n"
 #: dos2unix.c:671 unix2dos.c:686
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s: %s\n"
-msgstr "Klarte ikke å endre rettighetene til den midlertidige utdata-fila «%s». %s\n"
+msgstr ""
+"Klarte ikke å endre rettighetene til den midlertidige utdata-fila «%s». %s\n"
 
 #: dos2unix.c:690 unix2dos.c:705
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
-msgstr "Klarte ikke å endre eier og gruppetilhørighet for den midlertidige utdata-fila «%s». %s\n"
+msgstr ""
+"Klarte ikke å endre eier og gruppetilhørighet for den midlertidige utdata-"
+"fila «%s». %s\n"
 
 #: dos2unix.c:743 unix2dos.c:758
 #, c-format
@@ -149,7 +152,8 @@ msgstr "Hopper over den symbolske lenka «%s». Målet er ikke en vanlig fil.\n"
 #: dos2unix.c:1112 unix2dos.c:1127
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
-msgstr "Hopper over «%s». Målet for den symbolske lenka «%s» er ikke en vanlig fil.\n"
+msgstr ""
+"Hopper over «%s». Målet for den symbolske lenka «%s» er ikke en vanlig fil.\n"
 
 #: dos2unix.c:1119 dos2unix.c:1196 unix2dos.c:1134 unix2dos.c:1214
 #, c-format
@@ -163,8 +167,12 @@ msgstr "kodesiden %d støttes ikke.\n"
 
 #: dos2unix.c:1133 dos2unix.c:1210 unix2dos.c:1148 unix2dos.c:1228
 #, c-format
-msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
-msgstr "Hopper over UTF-16-fila «%s». Gjeldende lokaltilpasset tegnkoding er ikke UTF-8.\n"
+msgid ""
+"Skipping UTF-16 file %s, the current locale character encoding is not "
+"UTF-8.\n"
+msgstr ""
+"Hopper over UTF-16-fila «%s». Gjeldende lokaltilpasset tegnkoding er ikke "
+"UTF-8.\n"
 
 #: dos2unix.c:1140 dos2unix.c:1217 unix2dos.c:1155 unix2dos.c:1235
 #, c-format
@@ -174,7 +182,8 @@ msgstr "Hopper over UTF-16-fila «%s». Størrelsen på wchar_t er %d byte.\n"
 #: dos2unix.c:1147 dos2unix.c:1224 unix2dos.c:1162 unix2dos.c:1242
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
-msgstr "Hopper over UTF-16-fila «%s». Det oppstod en UTF-16-konverteringsfeil.\n"
+msgstr ""
+"Hopper over UTF-16-fila «%s». Det oppstod en UTF-16-konverteringsfeil.\n"
 
 #: dos2unix.c:1153
 #, c-format
@@ -233,7 +242,7 @@ msgstr "konverterer fila «%s» til Mac-format …\n"
 msgid "converting file %s to DOS format...\n"
 msgstr "konverterer fila «%s» til DOS-format …\n"
 
-#: common.c:169
+#: common.c:186
 msgid ""
 "Redistribution and use in source and binary forms, with or without\n"
 "modification, are permitted provided that the following conditions\n"
@@ -248,13 +257,14 @@ msgstr ""
 "Du kan dele og/eller endre både kildekode og binærfiler, gitt at følgende\n"
 "vilkår oppfylles:\n"
 "1. Redistribuert kildekode må beholde opphavsrettsteksten som\n"
-"   ligger ovenfor, samt denne lista over vilkår og følgende ansvarsfraskrivelse.\n"
+"   ligger ovenfor, samt denne lista over vilkår og følgende "
+"ansvarsfraskrivelse.\n"
 "2. Redistribuerte binærfiler må kunne produsere opphavsrettsteksten\n"
 "   i dokumentasjonen og/eller i annet materiell som inngår i\n"
 "   distribusjonen.\n"
 "\n"
 
-#: common.c:179
+#: common.c:196
 msgid ""
 "THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n"
 "EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
@@ -270,7 +280,8 @@ msgid ""
 msgstr ""
 "DENNE PROGRAMVAREN TILBYS AV FORFATTEREN «SLIK DET ER», OG\n"
 "DET STILLES INGEN EKSPLISITT ELLER IMPLISITT GARANTI FOR AT DET EGNER\n"
-"SEG TIL NOE SOM HELST. UTVIKLEREN SKAL UNDER INGEN OMSTENDIGHETERREGNES SOM \n"
+"SEG TIL NOE SOM HELST. UTVIKLEREN SKAL UNDER INGEN OMSTENDIGHETERREGNES "
+"SOM \n"
 "ANSVARLIG FOR DIREKTE, INDIREKTE, TILFELDIGE, SPESIELLE, EKSEMPLARISKE\n"
 "ELLER KONSEKVENTE SKADER (INLKUSIVE - MEN IKKE BEGRENSET TIL - INNKJØP\n"
 "AV RESERVEVARER ELLER -TJENESTER, TAP AV DATA, TAP AV FORTJENESTE, ELLER\n"
@@ -280,57 +291,59 @@ msgstr ""
 "PROGRAMVAREN, SELV NÅR VEDKOMMENDE ER INFORMERT OM AT SLIK SKADE KAN \n"
 "OPPSTÅ.\n"
 
-#: common.c:196
+#: common.c:213
 #, c-format
 msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
 msgstr "Bruk: %s [valg] [fil …] [-n inndatafil utdatafil …]\n"
 
-#: common.c:197
+#: common.c:214
 #, c-format
 msgid " -ascii                convert only line breaks (default)\n"
 msgstr " -ascii                bare konverter linjeskift (standard)\n"
 
-#: common.c:198
+#: common.c:215
 #, c-format
-msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
-msgstr " -iso                  konverter mellom tegnsettene DOS og ISO-8859-1\n"
+msgid ""
+" -iso                  conversion between DOS and ISO-8859-1 character set\n"
+msgstr ""
+" -iso                  konverter mellom tegnsettene DOS og ISO-8859-1\n"
 
-#: common.c:199
+#: common.c:216
 #, c-format
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
 msgstr "   -1252               bruk Windows-kodeside 1252 (Vesteuropeisk)\n"
 
-#: common.c:200
+#: common.c:217
 #, c-format
 msgid "   -437                use DOS code page 437 (US) (default)\n"
 msgstr "   -437                bruk DOS-kodeside 437 (US) (standard)\n"
 
-#: common.c:201
+#: common.c:218
 #, c-format
 msgid "   -850                use DOS code page 850 (Western European)\n"
 msgstr "   -850                bruk DOS-kodeside 850 (vesteuropeisk)\n"
 
-#: common.c:202
+#: common.c:219
 #, c-format
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
 msgstr "   -860                bruk DOS-kodeside 860 (portugisisk)\n"
 
-#: common.c:203
+#: common.c:220
 #, c-format
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
 msgstr "   -863                bruk DOS-kodeside 863 (fransk-kanadisk)\n"
 
-#: common.c:204
+#: common.c:221
 #, c-format
 msgid "   -865                use DOS code page 865 (Nordic)\n"
 msgstr "   -865                bruk DOS-kodeside 865 (nordisk)\n"
 
-#: common.c:205
+#: common.c:222
 #, c-format
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
 msgstr " -7                    konverter 8-bit-tegn til 7-bit\n"
 
-#: common.c:206
+#: common.c:223
 #, c-format
 msgid ""
 " -c, --convmode        conversion mode\n"
@@ -339,37 +352,37 @@ msgstr ""
 " -c, --convmode        konverteringsmodus\n"
 "   convmode            ascii, 7bit, iso, mac (standardmodus er ascii)\n"
 
-#: common.c:208
+#: common.c:225
 #, c-format
 msgid " -f, --force           force conversion of binary files\n"
 msgstr " -f, --force           tving konvertering av binærfiler\n"
 
-#: common.c:209
+#: common.c:226
 #, c-format
 msgid " -h, --help            display this help text\n"
 msgstr " -h, --help            vis denne hjelpeteksten\n"
 
-#: common.c:210
+#: common.c:227
 #, c-format
 msgid " -k, --keepdate        keep output file date\n"
 msgstr " -k, --keepdate        behold utdata-filens dato\n"
 
-#: common.c:211
+#: common.c:228
 #, c-format
 msgid " -L, --license         display software license\n"
 msgstr " -L, --license         vis programvarelisens\n"
 
-#: common.c:212
+#: common.c:229
 #, c-format
 msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline         legg til en ekstra ny linje\n"
 
-#: common.c:213
+#: common.c:230
 #, c-format
 msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"
 msgstr " -m, --add-bom         legg til UTF-8 «Byte Order»-merke\n"
 
-#: common.c:214
+#: common.c:231
 #, c-format
 msgid ""
 " -n, --newfile         write to new file\n"
@@ -380,7 +393,7 @@ msgstr ""
 "   infile              opprinnelig fil i ny fil-modus\n"
 "   outfile             utdata-fil i ny fil-modus\n"
 
-#: common.c:217
+#: common.c:234
 #, c-format
 msgid ""
 " -o, --oldfile         write to old file (default)\n"
@@ -389,7 +402,7 @@ msgstr ""
 " -o, --oldfile         skriv til gammel fil (standard)\n"
 "   file …            filer som skal konverteres i gammel fil-modus\n"
 
-#: common.c:219
+#: common.c:236
 #, c-format
 msgid ""
 " -q, --quiet           quiet mode, suppress all warnings\n"
@@ -398,27 +411,27 @@ msgstr ""
 " -q, --quiet           stillemodus, uten advarsler\n"
 "                         (dette er alltid gjeldende i «stdio»-modus)\n"
 
-#: common.c:221
+#: common.c:238
 #, c-format
 msgid " -s, --safe            skip binary files (default)\n"
 msgstr " -s, --safe            hopp over binærfiler (standard)\n"
 
-#: common.c:223
+#: common.c:240
 #, c-format
 msgid " -ul, --assume-utf16le assume that the input format is UTF-16LE\n"
 msgstr " -ul, --assume-utf16le anta at inndata-formatet er UTF-16LE\n"
 
-#: common.c:224
+#: common.c:241
 #, c-format
 msgid " -ub, --assume-utf16be assume that the input format is UTF-16BE\n"
 msgstr " -ub, --assume-utf16be anta at inndata-formatet er UTF-16BE\n"
 
-#: common.c:227
+#: common.c:244
 #, c-format
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
 msgstr " -F, --follow-symlink  følg symbolske lenker, og konverter lenkemål\n"
 
-#: common.c:228
+#: common.c:247
 #, c-format
 msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
@@ -427,82 +440,85 @@ msgstr ""
 " -R, --replace-symlink erstatt symbolske lenker med konverterte filer\n"
 "                         (opprinnelig målfil forblir uendret)\n"
 
-#: common.c:230
+#: common.c:249
 #, c-format
-msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
-msgstr " -S, --skip-symlink    hold både symbolske lenker og lenkemål uendret (standard)\n"
+msgid ""
+" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
+msgstr ""
+" -S, --skip-symlink    hold både symbolske lenker og lenkemål uendret "
+"(standard)\n"
 
-#: common.c:232
+#: common.c:251
 #, c-format
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         vis versjonsnummer\n"
 
-#: common.c:244
+#: common.c:263
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "DOS 16-bit-versjon (WATCOMC).\n"
 
-#: common.c:246
+#: common.c:265
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "DOS 16-bit-versjon (TURBOC).\n"
 
-#: common.c:248
+#: common.c:267
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "DOS 32-bit-versjon (WATCOMC).\n"
 
-#: common.c:250
+#: common.c:269
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "DOS 32-bit-versjon (DJGPP).\n"
 
-#: common.c:252
+#: common.c:271
 msgid "MSYS version.\n"
 msgstr "MSYS-versjon.\n"
 
-#: common.c:254
+#: common.c:273
 msgid "Cygwin version.\n"
 msgstr "Cygwin-versjon.\n"
 
-#: common.c:256
+#: common.c:275
 msgid "Windows 64 bit version (MinGW-w64).\n"
 msgstr "Windows 64-bit-versjon (MinGW-w64).\n"
 
-#: common.c:258
+#: common.c:277
 msgid "Windows 32 bit version (WATCOMC).\n"
 msgstr "Windows 32-bit-versjon (WATCOMC).\n"
 
-#: common.c:260
+#: common.c:279
 msgid "Windows 32 bit version (MinGW-w64).\n"
 msgstr "Windows 32-bit-versjon (MinGW-w64).\n"
 
-#: common.c:262
+#: common.c:281
 msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Windows 32-bit-versjon (MinGW).\n"
 
-#: common.c:264
+#: common.c:283
 #, c-format
 msgid "Windows 64 bit version (MSVC %d).\n"
 msgstr "Windows 64-bit-versjon (MSVC %d).\n"
 
-#: common.c:266
+#: common.c:285
 #, c-format
 msgid "Windows 32 bit version (MSVC %d).\n"
 msgstr "Windows 32-bit-versjon (MSVC %d).\n"
 
-#: common.c:268
+#: common.c:287
 msgid "OS/2 version (WATCOMC).\n"
 msgstr "OS/2-versjon (WATCOMC).\n"
 
-#: common.c:270
+#: common.c:289
 msgid "OS/2 version (EMX).\n"
 msgstr "OS/2-versjon (EMX).\n"
 
-#: common.c:273
+#: common.c:292
 msgid "With Unicode UTF-16 support.\n"
 msgstr "Med støtte for Unicode UTF-16.\n"
 
-#: common.c:275
+#: common.c:294
 msgid "Without Unicode UTF-16 support.\n"
 msgstr "Uten støtte for Unicode UTF-16.\n"
 
-#: common.c:278
+#: common.c:297
 msgid "With native language support.\n"
 msgstr "Med innebygd språkstøtte.\n"

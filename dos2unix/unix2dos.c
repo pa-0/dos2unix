@@ -276,8 +276,8 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
     switch (ipFlag->ConvMode)
     {
       case CONVMODE_ASCII: /* ascii */
-      case CONVMODE_UTF16LE: /* Assume UTF-16LE */
-      case CONVMODE_UTF16BE: /* Assume UTF-16BE */
+      case CONVMODE_UTF16LE: /* Assume UTF-16LE, bomtype = FILE_UTF8 */
+      case CONVMODE_UTF16BE: /* Assume UTF-16BE, bomtype = FILE_UTF8 */
         ConvTable = U2DAsciiTable;
         break;
       case CONVMODE_7BIT: /* 7bit */
