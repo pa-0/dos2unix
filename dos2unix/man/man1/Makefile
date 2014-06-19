@@ -92,6 +92,8 @@ dos2unix-man.pot : dos2unix.pod
 
 %.po : dos2unix.pod
 	po4a-updatepo -f pod -m $< -p $@ --msgmerge-opt --backup=numbered
+	# change timestamp in case .po file was not updated.
+	touch $@
 
 # Create pod files from po.
 # Fix problem that =encoding is before =pod command.
