@@ -1,3 +1,8 @@
+2014-07-06 Erwin Waterlander <waterlan@xs4all.nl>
+	* dos2unix.c: Bug fix mac2unix conversion of UTF-16 files.
+	  Mac to Unix conversion produced corrupted output.
+	  Thanks to report of Alan S. Jones.
+
 2014-05-24  Åka Sikrom <a4@hush.com>\n"
 	* po/nb.po: New Norwegian Bokmaal translation.
 

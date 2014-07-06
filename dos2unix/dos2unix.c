@@ -224,7 +224,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
           else{
             /* TempChar is a CR */
             if ( (TempNextChar = d2u_getwc(ipInF, ipFlag->bomtype)) != WEOF) {
-              ungetc( TempNextChar, ipInF );  /* put back peek char */
+              d2u_ungetwc( TempNextChar, ipInF, ipFlag->bomtype);  /* put back peek char */
               /* Don't touch this delimiter if it's a CR,LF pair. */
               if ( TempNextChar == 0x0a ) {
                 d2u_putwc(0x0d, ipOutF, ipFlag); /* put CR, part of DOS CR-LF */
