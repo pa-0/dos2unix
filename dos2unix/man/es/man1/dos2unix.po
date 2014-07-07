@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man\n"
-"POT-Creation-Date: 2014-03-21 14:53+0100\n"
+"POT-Creation-Date: 2014-07-07 22:36+0300\n"
 "PO-Revision-Date: 2014-03-12 12:13+0100\n"
 "Last-Translator: Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -282,11 +282,26 @@ msgstr "Convierte caracteres de 8 bits al espacio de 7 bits."
 
 #. type: =item
 #: dos2unix.pod:143
+#, fuzzy
+#| msgid "B<-m, --add-bom>"
+msgid "B<-b, --keep-bom>"
+msgstr "B<-m, --add-bom>"
+
+#. type: textblock
+#: dos2unix.pod:145
+msgid ""
+"Keep Byte Order Mark (BOM). When the input file has a BOM, write a BOM in "
+"the output file. This is the default behavior when converting to DOS line "
+"breaks."
+msgstr ""
+
+#. type: =item
+#: dos2unix.pod:149
 msgid "B<-c, --convmode CONVMODE>"
 msgstr "B<-c, --convmode CONVMODE>"
 
 #. type: textblock
-#: dos2unix.pod:145
+#: dos2unix.pod:151
 msgid ""
 "Set conversion mode. Where CONVMODE is one of: I<ascii>, I<7bit>, I<iso>, "
 "I<mac> with ascii being the default."
@@ -295,58 +310,58 @@ msgstr ""
 "I<7bit>, I<iso>, I<mac> siendo ascii el valor por defecto."
 
 #. type: =item
-#: dos2unix.pod:149
+#: dos2unix.pod:155
 msgid "B<-f, --force>"
 msgstr "B<-f, --force>"
 
 #. type: textblock
-#: dos2unix.pod:151
+#: dos2unix.pod:157
 msgid "Force conversion of binary files."
 msgstr "Fuerza la conversión de archivos binarios."
 
 #. type: =item
-#: dos2unix.pod:153
+#: dos2unix.pod:159
 msgid "B<-h, --help>"
 msgstr "B<-h, --help>"
 
 #. type: textblock
-#: dos2unix.pod:155
+#: dos2unix.pod:161
 msgid "Display help and exit."
 msgstr "Despiega la ayuda y termina el programa."
 
 #. type: =item
-#: dos2unix.pod:157
+#: dos2unix.pod:163
 msgid "B<-k, --keepdate>"
 msgstr "B<-k, --keepdate>"
 
 #. type: textblock
-#: dos2unix.pod:159
+#: dos2unix.pod:165
 msgid "Keep the date stamp of output file same as input file."
 msgstr ""
 "Mantiene la fecha del archivo de salida igual a la del archivo de entrada."
 
 #. type: =item
-#: dos2unix.pod:161
+#: dos2unix.pod:167
 msgid "B<-L, --license>"
 msgstr "B<-L, --license>"
 
 #. type: textblock
-#: dos2unix.pod:163
+#: dos2unix.pod:169
 msgid "Display program's license."
 msgstr "Muestra la licencia del programa."
 
 #. type: =item
-#: dos2unix.pod:165
+#: dos2unix.pod:171
 msgid "B<-l, --newline>"
 msgstr "B<-l, --newline>"
 
 #. type: textblock
-#: dos2unix.pod:167
+#: dos2unix.pod:173
 msgid "Add additional newline."
 msgstr "Añade salto de línea adicional."
 
 #. type: textblock
-#: dos2unix.pod:169
+#: dos2unix.pod:175
 msgid ""
 "B<dos2unix>: Only DOS line breaks are changed to two Unix line breaks.  In "
 "Mac mode only Mac line breaks are changed to two Unix line breaks."
@@ -356,7 +371,7 @@ msgstr ""
 "saltos de línea Unix."
 
 #. type: textblock
-#: dos2unix.pod:173
+#: dos2unix.pod:179
 msgid ""
 "B<unix2dos>: Only Unix line breaks are changed to two DOS line breaks.  In "
 "Mac mode Unix line breaks are changed to two Mac line breaks."
@@ -366,12 +381,12 @@ msgstr ""
 "de línea Mac."
 
 #. type: =item
-#: dos2unix.pod:176
+#: dos2unix.pod:182
 msgid "B<-m, --add-bom>"
 msgstr "B<-m, --add-bom>"
 
 #. type: textblock
-#: dos2unix.pod:178
+#: dos2unix.pod:184
 msgid ""
 "Write an UTF-8 Byte Order Mark in the output file. Never use this option "
 "when the output encoding is other than UTF-8. See also section UNICODE."
@@ -381,12 +396,12 @@ msgstr ""
 "UTF-8. Véase también la sección UNICODE."
 
 #. type: =item
-#: dos2unix.pod:181
+#: dos2unix.pod:187
 msgid "B<-n, --newfile INFILE OUTFILE ...>"
 msgstr "B<-n, --newfile ARCH_DE_ENTRADA ARCH_DE_SALIDA ...>"
 
 #. type: textblock
-#: dos2unix.pod:183
+#: dos2unix.pod:189
 msgid ""
 "New file mode. Convert file INFILE and write output to file OUTFILE.  File "
 "names must be given in pairs and wildcard names should I<not> be used or you "
@@ -397,7 +412,7 @@ msgstr ""
 "pares y los comodines I<no> deben ser usados o I<perderá> sus archivos."
 
 #. type: textblock
-#: dos2unix.pod:187
+#: dos2unix.pod:193
 msgid ""
 "The person who starts the conversion in new file (paired) mode will be the "
 "owner of the converted file. The read/write permissions of the new file will "
@@ -410,12 +425,12 @@ msgstr ""
 "umask(1) de la persona que ejecute la conversión."
 
 #. type: =item
-#: dos2unix.pod:192
+#: dos2unix.pod:198
 msgid "B<-o, --oldfile FILE ...>"
 msgstr "B<-o, --oldfile ARCHIVO ...>"
 
 #. type: textblock
-#: dos2unix.pod:194
+#: dos2unix.pod:200
 msgid ""
 "Old file mode. Convert file FILE and overwrite output to it. The program "
 "defaults to run in this mode. Wildcard names may be used."
@@ -425,7 +440,7 @@ msgstr ""
 "emplear comodines."
 
 #. type: textblock
-#: dos2unix.pod:197
+#: dos2unix.pod:203
 msgid ""
 "In old file (in-place) mode the converted file gets the same owner, group, "
 "and read/write permissions as the original file. Also when the file is "
@@ -449,12 +464,12 @@ msgstr ""
 "está soportada bajo Unix."
 
 #. type: =item
-#: dos2unix.pod:206
+#: dos2unix.pod:212
 msgid "B<-q, --quiet>"
 msgstr "B<-q, --quiet>"
 
 #. type: textblock
-#: dos2unix.pod:208
+#: dos2unix.pod:214
 msgid ""
 "Quiet mode. Suppress all warnings and messages. The return value is zero.  "
 "Except when wrong command-line options are used."
@@ -463,27 +478,41 @@ msgstr ""
 "retornado es cero. Excepto cuando se emplean parámetros incorrectos."
 
 #. type: =item
-#: dos2unix.pod:211
+#: dos2unix.pod:217
+#, fuzzy
+#| msgid "B<-m, --add-bom>"
+msgid "B<-r, --remove-bom>"
+msgstr "B<-m, --add-bom>"
+
+#. type: textblock
+#: dos2unix.pod:219
+msgid ""
+"Remove Byte Order Mark (BOM). Do not write a BOM in the output file.  This "
+"is the default behavior when converting to Unix line breaks."
+msgstr ""
+
+#. type: =item
+#: dos2unix.pod:222
 msgid "B<-s, --safe>"
 msgstr "B<-s, --safe>"
 
 #. type: textblock
-#: dos2unix.pod:213
+#: dos2unix.pod:224
 msgid "Skip binary files (default)."
 msgstr "Ignora los archivos binarios (por defecto)."
 
 #. type: =item
-#: dos2unix.pod:215
+#: dos2unix.pod:226
 msgid "B<-ul, --assume-utf16le>"
 msgstr "B<-ul, --assume-utf16le>"
 
 #. type: textblock
-#: dos2unix.pod:217
+#: dos2unix.pod:228
 msgid "Assume that the input file format is UTF-16LE."
 msgstr "Supone que el formato de archivo de entrada es UTF-16LE."
 
 #. type: textblock
-#: dos2unix.pod:219
+#: dos2unix.pod:230
 msgid ""
 "When there is a Byte Order Mark in the input file the BOM has priority over "
 "this option."
@@ -492,7 +521,7 @@ msgstr ""
 "BOM tiene prioridad sobre esta opción."
 
 #. type: textblock
-#: dos2unix.pod:222
+#: dos2unix.pod:233
 msgid ""
 "When you made a wrong assumption (the input file was not in UTF-16LE format) "
 "and the conversion succeeded, you will get an UTF-8 output file with wrong "
@@ -506,7 +535,7 @@ msgstr ""
 "Esto restaurará el archivo original."
 
 #. type: textblock
-#: dos2unix.pod:227
+#: dos2unix.pod:238
 msgid ""
 "The assumption of UTF-16LE works as a I<conversion mode>. By switching to "
 "the default I<ascii> mode the UTF-16LE assumption is turned off."
@@ -515,37 +544,37 @@ msgstr ""
 "al modo por defecto I<ascii> el supuesto UTF-16LE es deshabilitado."
 
 #. type: =item
-#: dos2unix.pod:230
+#: dos2unix.pod:241
 msgid "B<-ub, --assume-utf16be>"
 msgstr "B<-ub, --assume-utf16be>"
 
 #. type: textblock
-#: dos2unix.pod:232
+#: dos2unix.pod:243
 msgid "Assume that the input file format is UTF-16BE."
 msgstr "Supone que el formato del archivo de entrada es UTF-16BE."
 
 #. type: textblock
-#: dos2unix.pod:234
+#: dos2unix.pod:245
 msgid "This option works the same as option C<-ul>."
 msgstr "Esta opción funciona igual que la opción C<-ul>."
 
 #. type: =item
-#: dos2unix.pod:236
+#: dos2unix.pod:247
 msgid "B<-F, --follow-symlink>"
 msgstr "B<-F, --follow-symlink>"
 
 #. type: textblock
-#: dos2unix.pod:238
+#: dos2unix.pod:249
 msgid "Follow symbolic links and convert the targets."
 msgstr "Sigue los enlaces simbólicos y convierte los destinos."
 
 #. type: =item
-#: dos2unix.pod:240
+#: dos2unix.pod:251
 msgid "B<-R, --replace-symlink>"
 msgstr "B<-R, --replace-symlink>"
 
 #. type: textblock
-#: dos2unix.pod:242
+#: dos2unix.pod:253
 msgid ""
 "Replace symbolic links with converted files (original target files remain "
 "unchanged)."
@@ -554,32 +583,32 @@ msgstr ""
 "destino originales no se alteran)."
 
 #. type: =item
-#: dos2unix.pod:245
+#: dos2unix.pod:256
 msgid "B<-S, --skip-symlink>"
 msgstr "B<-S, --skip-symlink>"
 
 #. type: textblock
-#: dos2unix.pod:247
+#: dos2unix.pod:258
 msgid "Keep symbolic links and targets unchanged (default)."
 msgstr "No altera los enlaces simbólicos ni sus destinos (por defecto)."
 
 #. type: =item
-#: dos2unix.pod:249
+#: dos2unix.pod:260
 msgid "B<-V, --version>"
 msgstr "B<-V, --version>"
 
 #. type: textblock
-#: dos2unix.pod:251
+#: dos2unix.pod:262
 msgid "Display version information and exit."
 msgstr "Despiega la información de la versión y termina el programa."
 
 #. type: =head1
-#: dos2unix.pod:255
+#: dos2unix.pod:266
 msgid "MAC MODE"
 msgstr "MODO MAC"
 
 #. type: textblock
-#: dos2unix.pod:257
+#: dos2unix.pod:268
 msgid ""
 "In normal mode line breaks are converted from DOS to Unix and vice versa.  "
 "Mac line breaks are not converted."
@@ -588,7 +617,7 @@ msgstr ""
 "viceversa. Los saltos de línea Mac no son convertidos."
 
 #. type: textblock
-#: dos2unix.pod:260
+#: dos2unix.pod:271
 msgid ""
 "In Mac mode line breaks are converted from Mac to Unix and vice versa. DOS "
 "line breaks are not changed."
@@ -597,7 +626,7 @@ msgstr ""
 "Los saltos de línea DOS no son modificados."
 
 #. type: textblock
-#: dos2unix.pod:263
+#: dos2unix.pod:274
 msgid ""
 "To run in Mac mode use the command-line option C<-c mac> or use the commands "
 "C<mac2unix> or C<unix2mac>."
@@ -606,17 +635,17 @@ msgstr ""
 "C<mac2unix> o C<unix2mac>."
 
 #. type: =head1
-#: dos2unix.pod:266
+#: dos2unix.pod:277
 msgid "CONVERSION MODES"
 msgstr "MODOS DE CONVERSIÓN"
 
 #. type: =item
-#: dos2unix.pod:270
+#: dos2unix.pod:281
 msgid "B<ascii>"
 msgstr "B<ascii>"
 
 #. type: textblock
-#: dos2unix.pod:272
+#: dos2unix.pod:283
 msgid ""
 "In mode C<ascii> only line breaks are converted. This is the default "
 "conversion mode."
@@ -625,7 +654,7 @@ msgstr ""
 "de conversión por defecto."
 
 #. type: textblock
-#: dos2unix.pod:275
+#: dos2unix.pod:286
 msgid ""
 "Although the name of this mode is ASCII, which is a 7 bit standard, the "
 "actual mode is 8 bit. Use always this mode when converting Unicode UTF-8 "
@@ -636,12 +665,12 @@ msgstr ""
 "Unicode UTF-8."
 
 #. type: =item
-#: dos2unix.pod:279
+#: dos2unix.pod:290
 msgid "B<7bit>"
 msgstr "B<7bit>"
 
 #. type: textblock
-#: dos2unix.pod:281
+#: dos2unix.pod:292
 msgid ""
 "In this mode all 8 bit non-ASCII characters (with values from 128 to 255)  "
 "are converted to a 7 bit space."
@@ -650,12 +679,12 @@ msgstr ""
 "255) son convertidos al espacio de 7 bits."
 
 #. type: =item
-#: dos2unix.pod:284
+#: dos2unix.pod:295
 msgid "B<iso>"
 msgstr "B<iso>"
 
 #. type: textblock
-#: dos2unix.pod:286
+#: dos2unix.pod:297
 msgid ""
 "Characters are converted between a DOS character set (code page) and ISO "
 "character set ISO-8859-1 (Latin-1) on Unix. DOS characters without "
@@ -669,7 +698,7 @@ msgstr ""
 "ISO-8859-1 sin contraparte DOS."
 
 #. type: textblock
-#: dos2unix.pod:291
+#: dos2unix.pod:302
 msgid ""
 "When only option C<-iso> is used dos2unix will try to determine the active "
 "code page. When this is not possible dos2unix will use default code page "
@@ -691,7 +720,7 @@ msgstr ""
 "Iconv puede convertir entre una larga lista de codificaciones de caracteres."
 
 #. type: textblock
-#: dos2unix.pod:300
+#: dos2unix.pod:311
 msgid ""
 "Never use ISO conversion on Unicode text files. It will corrupt UTF-8 "
 "encoded files."
@@ -700,18 +729,18 @@ msgstr ""
 "los archivos codificados como UTF-8."
 
 #. type: textblock
-#: dos2unix.pod:302
+#: dos2unix.pod:313
 msgid "Some examples:"
 msgstr "Algunos ejemplos:"
 
 #. type: textblock
-#: dos2unix.pod:304
+#: dos2unix.pod:315
 msgid "Convert from DOS default code page to Unix Latin-1"
 msgstr ""
 "Convierte de la página de códigos por defecto de DOS a Latín-1 de Unix."
 
 #. type: verbatim
-#: dos2unix.pod:306
+#: dos2unix.pod:317
 #, no-wrap
 msgid ""
 "    dos2unix -iso -n in.txt out.txt\n"
@@ -721,12 +750,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:308
+#: dos2unix.pod:319
 msgid "Convert from DOS CP850 to Unix Latin-1"
 msgstr "Convierte de DOS 850 a Unix Latín-1."
 
 #. type: verbatim
-#: dos2unix.pod:310
+#: dos2unix.pod:321
 #, no-wrap
 msgid ""
 "    dos2unix -850 -n in.txt out.txt\n"
@@ -736,12 +765,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:312
+#: dos2unix.pod:323
 msgid "Convert from Windows CP1252 to Unix Latin-1"
 msgstr "Convierte de Windows 1252 a Unix Latín-1."
 
 #. type: verbatim
-#: dos2unix.pod:314
+#: dos2unix.pod:325
 #, no-wrap
 msgid ""
 "    dos2unix -1252 -n in.txt out.txt\n"
@@ -751,12 +780,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:316
+#: dos2unix.pod:327
 msgid "Convert from Windows CP1252 to Unix UTF-8 (Unicode)"
 msgstr "Convierte de Windows 1252 a Unix UTF-8 (Unicode)."
 
 #. type: verbatim
-#: dos2unix.pod:318
+#: dos2unix.pod:329
 #, no-wrap
 msgid ""
 "    iconv -f CP1252 -t UTF-8 in.txt | dos2unix > out.txt\n"
@@ -766,14 +795,14 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:320
+#: dos2unix.pod:331
 #, fuzzy
 #| msgid "Convert from Unix Latin-1 to DOS default code page."
 msgid "Convert from Unix Latin-1 to DOS default code page"
 msgstr "Convierte de Unix Latín-1 a la página de códigos por defecto de DOS."
 
 #. type: verbatim
-#: dos2unix.pod:322
+#: dos2unix.pod:333
 #, no-wrap
 msgid ""
 "    unix2dos -iso -n in.txt out.txt\n"
@@ -783,12 +812,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:324
+#: dos2unix.pod:335
 msgid "Convert from Unix Latin-1 to DOS CP850"
 msgstr "Convierte de Unix Latín-1 a DOS 850."
 
 #. type: verbatim
-#: dos2unix.pod:326
+#: dos2unix.pod:337
 #, no-wrap
 msgid ""
 "    unix2dos -850 -n in.txt out.txt\n"
@@ -798,12 +827,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:328
+#: dos2unix.pod:339
 msgid "Convert from Unix Latin-1 to Windows CP1252"
 msgstr "Convierte de Unix Latín-1 a Windows 1252."
 
 #. type: verbatim
-#: dos2unix.pod:330
+#: dos2unix.pod:341
 #, no-wrap
 msgid ""
 "    unix2dos -1252 -n in.txt out.txt\n"
@@ -813,12 +842,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:332
+#: dos2unix.pod:343
 msgid "Convert from Unix UTF-8 (Unicode) to Windows CP1252"
 msgstr "Convierte de Unix UTF-8 (Unicode) a Windows 1252."
 
 #. type: verbatim
-#: dos2unix.pod:334
+#: dos2unix.pod:345
 #, no-wrap
 msgid ""
 "    unix2dos < in.txt | iconv -f UTF-8 -t CP1252 > out.txt\n"
@@ -828,7 +857,7 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:336
+#: dos2unix.pod:347
 msgid ""
 "See also L<http://czyborra.com/charsets/codepages.html> and L<http://"
 "czyborra.com/charsets/iso8859.html>."
@@ -837,17 +866,17 @@ msgstr ""
 "czyborra.com/charsets/iso8859.html>."
 
 #. type: =head1
-#: dos2unix.pod:341
+#: dos2unix.pod:352
 msgid "UNICODE"
 msgstr "UNICODE"
 
 #. type: =head2
-#: dos2unix.pod:343
+#: dos2unix.pod:354
 msgid "Encodings"
 msgstr "Codificaciones"
 
 #. type: textblock
-#: dos2unix.pod:345
+#: dos2unix.pod:356
 msgid ""
 "There exist different Unicode encodings. On Unix and Linux Unicode files are "
 "typically encoded in UTF-8 encoding. On Windows Unicode text files can be "
@@ -860,12 +889,12 @@ msgstr ""
 "endian, pero con más frecuencia son codificados en formato UTF-16."
 
 #. type: =head2
-#: dos2unix.pod:350
+#: dos2unix.pod:361
 msgid "Conversion"
 msgstr "Conversion"
 
 #. type: textblock
-#: dos2unix.pod:352
+#: dos2unix.pod:363
 msgid ""
 "Unicode text files can have DOS, Unix or Mac line breaks, like regular text "
 "files."
@@ -874,7 +903,7 @@ msgstr ""
 "como cualquier archivo de texto."
 
 #. type: textblock
-#: dos2unix.pod:355
+#: dos2unix.pod:366
 msgid ""
 "All versions of dos2unix and unix2dos can convert UTF-8 encoded files, "
 "because UTF-8 was designed for backward compatibility with ASCII."
@@ -884,7 +913,7 @@ msgstr ""
 "compatibilidad con ASCII."
 
 #. type: textblock
-#: dos2unix.pod:358
+#: dos2unix.pod:369
 msgid ""
 "Dos2unix and unix2dos with Unicode UTF-16 support, can read little and big "
 "endian UTF-16 encoded text files. To see if dos2unix was built with UTF-16 "
@@ -895,7 +924,7 @@ msgstr ""
 "compilado con soporte UTF-16 escriba C<dos2unix -V>."
 
 #. type: textblock
-#: dos2unix.pod:362
+#: dos2unix.pod:373
 msgid ""
 "The Windows versions of dos2unix and unix2dos convert UTF-16 encoded files "
 "always to UTF-8 encoded files. Unix versions of dos2unix/unix2dos convert "
@@ -910,7 +939,7 @@ msgstr ""
 "codificación de caracteres local."
 
 #. type: textblock
-#: dos2unix.pod:367
+#: dos2unix.pod:378
 msgid ""
 "Because UTF-8 formatted text files are well supported on both Windows and "
 "Unix, dos2unix and unix2dos have no option to write UTF-16 files. All UTF-16 "
@@ -930,17 +959,17 @@ msgstr ""
 "entrada UTF-16 contiene un error, el archivo será ignorado."
 
 #. type: textblock
-#: dos2unix.pod:375
+#: dos2unix.pod:386
 msgid "ISO and 7-bit mode conversion do not work on UTF-16 files."
 msgstr "La conversión en modos ISO y 7-bit no funciona en archivos UTF-16."
 
 #. type: =head2
-#: dos2unix.pod:377
+#: dos2unix.pod:388
 msgid "Byte Order Mark"
 msgstr "Marca de orden de bytes"
 
 #. type: textblock
-#: dos2unix.pod:379
+#: dos2unix.pod:390
 msgid ""
 "On Windows Unicode text files typically have a Byte Order Mark (BOM), "
 "because many Windows programs (including Notepad) add BOMs by default. See "
@@ -952,7 +981,7 @@ msgstr ""
 "wikipedia.org/wiki/Marca_de_orden_de_bytes_%28BOM%29>."
 
 #. type: textblock
-#: dos2unix.pod:383
+#: dos2unix.pod:394
 msgid ""
 "On Unix Unicode files typically don't have a BOM. It is assumed that text "
 "files are encoded in the locale character encoding."
@@ -961,7 +990,7 @@ msgstr ""
 "los archivos de texto son codificados en la codificación de caracteres local."
 
 #. type: textblock
-#: dos2unix.pod:386
+#: dos2unix.pod:397
 msgid ""
 "Dos2unix can only detect if a file is in UTF-16 format if the file has a "
 "BOM.  When an UTF-16 file doesn't have a BOM, dos2unix will see the file as "
@@ -972,40 +1001,54 @@ msgstr ""
 "tratará el archivo como un archivo binario."
 
 #. type: textblock
-#: dos2unix.pod:390
+#: dos2unix.pod:401
 msgid "Use option C<-ul> or C<-ub> to convert an UTF-16 file without BOM."
 msgstr ""
 "Emplee la opción C<-ul> o C<-ub> para convertir un archivo UTF-16 sin BOM."
 
 #. type: textblock
-#: dos2unix.pod:392
+#: dos2unix.pod:403
 msgid ""
-"Dos2unix never writes a BOM in the output file, unless you use option C<-m>."
+"Dos2unix writes by default no BOM in the output file. With option C<-b> "
+"Dos2unix writes a BOM when the input file has a BOM."
 msgstr ""
-"Dos2unix nunca escribe una BOM en el archivo de salida, a menos que emplee "
-"la opción C<-m>."
 
 #. type: textblock
-#: dos2unix.pod:394
+#: dos2unix.pod:406
+#, fuzzy
+#| msgid ""
+#| "Unix2dos writes a BOM in the output file when the input file has a BOM, "
+#| "or when option C<-m> is used."
 msgid ""
-"Unix2dos writes a BOM in the output file when the input file has a BOM, or "
-"when option C<-m> is used."
+"Unix2dos writes by default a BOM in the output file when the input file has "
+"a BOM. Use option C<-r> to remove the BOM."
+msgstr ""
+"Unix2dos escribe una BOM en el archivo de salida cuando el archivo de "
+"entrada tiene una BOM, o cuando se emplea la opción C<-m>."
+
+#. type: textblock
+#: dos2unix.pod:409
+#, fuzzy
+#| msgid ""
+#| "Unix2dos writes a BOM in the output file when the input file has a BOM, "
+#| "or when option C<-m> is used."
+msgid "Dos2unix and unix2dos write always a BOM when option C<-m> is used."
 msgstr ""
 "Unix2dos escribe una BOM en el archivo de salida cuando el archivo de "
 "entrada tiene una BOM, o cuando se emplea la opción C<-m>."
 
 #. type: =head2
-#: dos2unix.pod:397
+#: dos2unix.pod:411
 msgid "Unicode examples"
 msgstr "Ejemplos Unicode"
 
 #. type: textblock
-#: dos2unix.pod:399
+#: dos2unix.pod:413
 msgid "Convert from Windows UTF-16 (with BOM) to Unix UTF-8"
 msgstr "Convertir de Windows UTF-16 (con una BOM) a Unix UTF-8"
 
 #. type: verbatim
-#: dos2unix.pod:401
+#: dos2unix.pod:415
 #, no-wrap
 msgid ""
 "    dos2unix -n in.txt out.txt\n"
@@ -1015,12 +1058,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:403
+#: dos2unix.pod:417
 msgid "Convert from Windows UTF-16LE (without BOM) to Unix UTF-8"
 msgstr "Convertir de Windows UTF-16LE (sin una BOM) a Unix UTF-8"
 
 #. type: verbatim
-#: dos2unix.pod:405
+#: dos2unix.pod:419
 #, no-wrap
 msgid ""
 "    dos2unix -ul -n in.txt out.txt\n"
@@ -1030,12 +1073,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:407
+#: dos2unix.pod:421
 msgid "Convert from Unix UTF-8 to Windows UTF-8 with BOM"
 msgstr "Convertir de Unix UTF-8 a Windows UTF-8 sin una BOM"
 
 #. type: verbatim
-#: dos2unix.pod:409
+#: dos2unix.pod:423
 #, no-wrap
 msgid ""
 "    unix2dos -m -n in.txt out.txt\n"
@@ -1045,12 +1088,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:411
+#: dos2unix.pod:425
 msgid "Convert from Unix UTF-8 to Windows UTF-16"
 msgstr "Convertir de Unix UTF-8 a Windows UTF-16"
 
 #. type: verbatim
-#: dos2unix.pod:413
+#: dos2unix.pod:427
 #, no-wrap
 msgid ""
 "    unix2dos < in.txt | iconv -f UTF-8 -t UTF-16 > out.txt\n"
@@ -1060,17 +1103,17 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: dos2unix.pod:415
+#: dos2unix.pod:429
 msgid "EXAMPLES"
 msgstr "EJEMPLOS"
 
 #. type: textblock
-#: dos2unix.pod:417
+#: dos2unix.pod:431
 msgid "Read input from 'stdin' and write output to 'stdout'."
 msgstr "Lee la entrada desde 'stdin' y escribe la salida a 'stdout'."
 
 #. type: verbatim
-#: dos2unix.pod:419
+#: dos2unix.pod:433
 #, no-wrap
 msgid ""
 "    dos2unix\n"
@@ -1082,12 +1125,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:422
+#: dos2unix.pod:436
 msgid "Convert and replace a.txt. Convert and replace b.txt."
 msgstr "Convierte y reemplaza a.txt. Convierte y reemplaza b.txt."
 
 #. type: verbatim
-#: dos2unix.pod:424
+#: dos2unix.pod:438
 #, no-wrap
 msgid ""
 "    dos2unix a.txt b.txt\n"
@@ -1099,12 +1142,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:427
+#: dos2unix.pod:441
 msgid "Convert and replace a.txt in ascii conversion mode."
 msgstr "Convierte y reemplaza a.txt empleando modo de conversión ascii."
 
 #. type: verbatim
-#: dos2unix.pod:429
+#: dos2unix.pod:443
 #, no-wrap
 msgid ""
 "    dos2unix a.txt\n"
@@ -1114,7 +1157,7 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:431
+#: dos2unix.pod:445
 msgid ""
 "Convert and replace a.txt in ascii conversion mode.  Convert and replace b."
 "txt in 7bit conversion mode."
@@ -1123,7 +1166,7 @@ msgstr ""
 "reemplaza b.txt empleando modo de conversión de 7bits."
 
 #. type: verbatim
-#: dos2unix.pod:434
+#: dos2unix.pod:448
 #, no-wrap
 msgid ""
 "    dos2unix a.txt -c 7bit b.txt\n"
@@ -1137,12 +1180,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:438
+#: dos2unix.pod:452
 msgid "Convert a.txt from Mac to Unix format."
 msgstr "Convierte a.txt del formato de Mac a Unix."
 
 #. type: verbatim
-#: dos2unix.pod:440
+#: dos2unix.pod:454
 #, no-wrap
 msgid ""
 "    dos2unix -c mac a.txt\n"
@@ -1151,59 +1194,59 @@ msgid ""
 msgstr ""
 "    dos2unix -c mac a.txt\n"
 "    mac2unix a.txt\n"
-"\n"
-
-#. type: textblock
-#: dos2unix.pod:443
-msgid "Convert a.txt from Unix to Mac format."
-msgstr "Convierte a.txt del formato de Unix a Mac."
-
-#. type: verbatim
-#: dos2unix.pod:445
-#, no-wrap
-msgid ""
-"    unix2dos -c mac a.txt\n"
-"    unix2mac a.txt\n"
-"\n"
-msgstr ""
-"    unix2dos -c mac a.txt\n"
-"    unix2mac a.txt\n"
-"\n"
-
-#. type: textblock
-#: dos2unix.pod:448
-msgid "Convert and replace a.txt while keeping original date stamp."
-msgstr "Convierte y reemplaza a.txt manteniendo la fecha del archivo original."
-
-#. type: verbatim
-#: dos2unix.pod:450
-#, no-wrap
-msgid ""
-"    dos2unix -k a.txt\n"
-"    dos2unix -k -o a.txt\n"
-"\n"
-msgstr ""
-"    dos2unix -k a.txt\n"
-"    dos2unix -k -o a.txt\n"
-"\n"
-
-#. type: textblock
-#: dos2unix.pod:453
-msgid "Convert a.txt and write to e.txt."
-msgstr "Convierte a.txt y escribe la salida a e.txt."
-
-#. type: verbatim
-#: dos2unix.pod:455
-#, no-wrap
-msgid ""
-"    dos2unix -n a.txt e.txt\n"
-"\n"
-msgstr ""
-"    dos2unix -n a.txt e.txt\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:457
+msgid "Convert a.txt from Unix to Mac format."
+msgstr "Convierte a.txt del formato de Unix a Mac."
+
+#. type: verbatim
+#: dos2unix.pod:459
+#, no-wrap
+msgid ""
+"    unix2dos -c mac a.txt\n"
+"    unix2mac a.txt\n"
+"\n"
+msgstr ""
+"    unix2dos -c mac a.txt\n"
+"    unix2mac a.txt\n"
+"\n"
+
+#. type: textblock
+#: dos2unix.pod:462
+msgid "Convert and replace a.txt while keeping original date stamp."
+msgstr "Convierte y reemplaza a.txt manteniendo la fecha del archivo original."
+
+#. type: verbatim
+#: dos2unix.pod:464
+#, no-wrap
+msgid ""
+"    dos2unix -k a.txt\n"
+"    dos2unix -k -o a.txt\n"
+"\n"
+msgstr ""
+"    dos2unix -k a.txt\n"
+"    dos2unix -k -o a.txt\n"
+"\n"
+
+#. type: textblock
+#: dos2unix.pod:467
+msgid "Convert a.txt and write to e.txt."
+msgstr "Convierte a.txt y escribe la salida a e.txt."
+
+#. type: verbatim
+#: dos2unix.pod:469
+#, no-wrap
+msgid ""
+"    dos2unix -n a.txt e.txt\n"
+"\n"
+msgstr ""
+"    dos2unix -n a.txt e.txt\n"
+"\n"
+
+#. type: textblock
+#: dos2unix.pod:471
 msgid ""
 "Convert a.txt and write to e.txt, keep date stamp of e.txt same as a.txt."
 msgstr ""
@@ -1211,7 +1254,7 @@ msgstr ""
 "igual a la de a.txt."
 
 #. type: verbatim
-#: dos2unix.pod:459
+#: dos2unix.pod:473
 #, no-wrap
 msgid ""
 "    dos2unix -k -n a.txt e.txt\n"
@@ -1221,12 +1264,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:461
+#: dos2unix.pod:475
 msgid "Convert and replace a.txt. Convert b.txt and write to e.txt."
 msgstr "Convierte y reemplaza a.txt. Convierte b.txt y escribe a e.txt."
 
 #. type: verbatim
-#: dos2unix.pod:463
+#: dos2unix.pod:477
 #, no-wrap
 msgid ""
 "    dos2unix a.txt -n b.txt e.txt\n"
@@ -1238,7 +1281,7 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:466
+#: dos2unix.pod:480
 msgid ""
 "Convert c.txt and write to e.txt. Convert and replace a.txt.  Convert and "
 "replace b.txt. Convert d.txt and write to f.txt."
@@ -1247,7 +1290,7 @@ msgstr ""
 "reemplaza b.txt. Convierte d.txt y escribe a f.txt."
 
 #. type: verbatim
-#: dos2unix.pod:469
+#: dos2unix.pod:483
 #, no-wrap
 msgid ""
 "    dos2unix -n c.txt e.txt -o a.txt b.txt -n d.txt f.txt\n"
@@ -1257,12 +1300,12 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: dos2unix.pod:471
+#: dos2unix.pod:485
 msgid "RECURSIVE CONVERSION"
 msgstr "CONVERSIÓN RECURSIVA"
 
 #. type: textblock
-#: dos2unix.pod:473
+#: dos2unix.pod:487
 msgid ""
 "Use dos2unix in combination with the find(1) and xargs(1) commands to "
 "recursively convert text files in a directory tree structure. For instance "
@@ -1275,7 +1318,7 @@ msgstr ""
 "de directorios debajo del directorio actual escriba:"
 
 #. type: verbatim
-#: dos2unix.pod:477
+#: dos2unix.pod:491
 #, no-wrap
 msgid ""
 "    find . -name *.txt |xargs dos2unix\n"
@@ -1285,17 +1328,17 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: dos2unix.pod:479
+#: dos2unix.pod:493
 msgid "LOCALIZATION"
 msgstr "INTERNACIONALIZACIÓN"
 
 #. type: =item
-#: dos2unix.pod:483
+#: dos2unix.pod:497
 msgid "B<LANG>"
 msgstr "B<LANG>"
 
 #. type: textblock
-#: dos2unix.pod:485
+#: dos2unix.pod:499
 msgid ""
 "The primary language is selected with the environment variable LANG. The "
 "LANG variable consists out of several parts. The first part is in small "
@@ -1312,7 +1355,7 @@ msgstr ""
 "cuantos ejemplos para intérpretes de comandos tipo POSIX estándar:"
 
 #. type: verbatim
-#: dos2unix.pod:492
+#: dos2unix.pod:506
 #, no-wrap
 msgid ""
 "    export LANG=nl               Dutch\n"
@@ -1334,7 +1377,7 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:500
+#: dos2unix.pod:514
 msgid ""
 "For a complete list of language and country codes see the gettext manual: "
 "L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes>"
@@ -1344,7 +1387,7 @@ msgstr ""
 "Codes>"
 
 #. type: textblock
-#: dos2unix.pod:503
+#: dos2unix.pod:517
 msgid ""
 "On Unix systems you can use to command locale(1) to get locale specific "
 "information."
@@ -1353,12 +1396,12 @@ msgstr ""
 "específica del locale."
 
 #. type: =item
-#: dos2unix.pod:506
+#: dos2unix.pod:520
 msgid "B<LANGUAGE>"
 msgstr "B<LANGUAGE>"
 
 #. type: textblock
-#: dos2unix.pod:508
+#: dos2unix.pod:522
 msgid ""
 "With the LANGUAGE environment variable you can specify a priority list of "
 "languages, separated by colons. Dos2unix gives preference to LANGUAGE over "
@@ -1378,7 +1421,7 @@ msgstr ""
 "gettext/manual/gettext.html#The-LANGUAGE-variable>"
 
 #. type: textblock
-#: dos2unix.pod:516
+#: dos2unix.pod:530
 msgid ""
 "If you select a language which is not available you will get the standard "
 "English messages."
@@ -1387,12 +1430,12 @@ msgstr ""
 "ingles."
 
 #. type: =item
-#: dos2unix.pod:520
+#: dos2unix.pod:534
 msgid "B<DOS2UNIX_LOCALEDIR>"
 msgstr "B<DOS2UNIX_LOCALEDIR>"
 
 #. type: textblock
-#: dos2unix.pod:522
+#: dos2unix.pod:536
 msgid ""
 "With the environment variable DOS2UNIX_LOCALEDIR the LOCALEDIR set during "
 "compilation can be overruled. LOCALEDIR is used to find the language files. "
@@ -1405,12 +1448,12 @@ msgstr ""
 "locale>. El parámetro B<--version> desplegará el LOCALEDIR en uso."
 
 #. type: textblock
-#: dos2unix.pod:527
+#: dos2unix.pod:541
 msgid "Example (POSIX shell):"
 msgstr "Ejemplo (intérprete de comandos POSIX):"
 
 #. type: verbatim
-#: dos2unix.pod:529
+#: dos2unix.pod:543
 #, no-wrap
 msgid ""
 "    export DOS2UNIX_LOCALEDIR=$HOME/share/locale\n"
@@ -1420,12 +1463,12 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: dos2unix.pod:534
+#: dos2unix.pod:548
 msgid "RETURN VALUE"
 msgstr "VALOR DE RETORNO"
 
 #. type: textblock
-#: dos2unix.pod:536
+#: dos2unix.pod:550
 msgid ""
 "On success, zero is returned.  When a system error occurs the last system "
 "error will be returned. For other errors 1 is returned."
@@ -1435,7 +1478,7 @@ msgstr ""
 "otros errores se regresa 1."
 
 #. type: textblock
-#: dos2unix.pod:539
+#: dos2unix.pod:553
 msgid ""
 "The return value is always zero in quiet mode, except when wrong command-"
 "line options are used."
@@ -1444,37 +1487,37 @@ msgstr ""
 "emplean parámetros incorrectos."
 
 #. type: =head1
-#: dos2unix.pod:542
+#: dos2unix.pod:556
 msgid "STANDARDS"
 msgstr "ESTÁNDARES"
 
 #. type: textblock
-#: dos2unix.pod:544
+#: dos2unix.pod:558
 msgid "L<http://en.wikipedia.org/wiki/Text_file>"
 msgstr "L<http://es.wikipedia.org/wiki/Documento_de_texto>"
 
 #. type: textblock
-#: dos2unix.pod:546
+#: dos2unix.pod:560
 msgid "L<http://en.wikipedia.org/wiki/Carriage_return>"
 msgstr "L<http://es.wikipedia.org/wiki/Retorno_de_carro>"
 
 #. type: textblock
-#: dos2unix.pod:548
+#: dos2unix.pod:562
 msgid "L<http://en.wikipedia.org/wiki/Newline>"
 msgstr "L<http://es.wikipedia.org/wiki/Nueva_l%C3%ADnea>"
 
 #. type: textblock
-#: dos2unix.pod:550
+#: dos2unix.pod:564
 msgid "L<http://en.wikipedia.org/wiki/Unicode>"
 msgstr "L<http://es.wikipedia.org/wiki/Unicode>"
 
 #. type: =head1
-#: dos2unix.pod:552
+#: dos2unix.pod:566
 msgid "AUTHORS"
 msgstr "AUTORES"
 
 #. type: textblock
-#: dos2unix.pod:554
+#: dos2unix.pod:568
 msgid ""
 "Benjamin Lin - <blin@socs.uts.edu.au> Bernd Johannes Wuebben (mac2unix mode) "
 "- <wuebben@kde.org>, Christian Wurll (add extra newline) - <wurll@ira.uka."
@@ -1485,29 +1528,36 @@ msgstr ""
 "de>, Erwin Waterlander - <waterlan@xs4all.nl> (Maintainer)"
 
 #. type: textblock
-#: dos2unix.pod:559
+#: dos2unix.pod:573
 msgid "Project page: L<http://waterlan.home.xs4all.nl/dos2unix.html>"
 msgstr "Página del proyecto: L<http://waterlan.home.xs4all.nl/dos2unix.html>"
 
 #. type: textblock
-#: dos2unix.pod:561
+#: dos2unix.pod:575
 msgid "SourceForge page: L<http://sourceforge.net/projects/dos2unix/>"
 msgstr "Página de SourceForge: L<http://sourceforge.net/projects/dos2unix/>"
 
 #. type: textblock
-#: dos2unix.pod:563
+#: dos2unix.pod:577
 msgid "Freecode: L<http://freecode.com/projects/dos2unix>"
 msgstr "Freecode: L<http://freecode.com/projects/dos2unix>"
 
 #. type: =head1
-#: dos2unix.pod:565
+#: dos2unix.pod:579
 msgid "SEE ALSO"
 msgstr "VÉASE TAMBIÉN"
 
 #. type: textblock
-#: dos2unix.pod:567
+#: dos2unix.pod:581
 msgid "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 msgstr "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
+
+#~ msgid ""
+#~ "Dos2unix never writes a BOM in the output file, unless you use option C<-"
+#~ "m>."
+#~ msgstr ""
+#~ "Dos2unix nunca escribe una BOM en el archivo de salida, a menos que "
+#~ "emplee la opción C<-m>."
 
 #~ msgid ""
 #~ "Dos2unix was modelled after dos2unix under SunOS/Solaris and has similar "

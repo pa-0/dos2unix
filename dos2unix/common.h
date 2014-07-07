@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2009-2012 Erwin Waterlander
+ *   Copyright (C) 2009-2014 Erwin Waterlander
  *   All rights reserved.
  *
  *   Redistribution and use in source and binary forms, with or without
@@ -205,6 +205,7 @@ typedef struct
   int error;                            /* an error occurred */
   int bomtype;                          /* byte order mark */
   int add_bom;                          /* 1: write BOM */
+  int keep_bom;                         /* 1: write BOM if input file has BOM. 0: Do not write BOM */
 } CFlag;
 
 

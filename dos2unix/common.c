@@ -220,6 +220,10 @@ void PrintUsage(char *progname)
   printf(_("   -863                use DOS code page 863 (French Canadian)\n"));
   printf(_("   -865                use DOS code page 865 (Nordic)\n"));
   printf(_(" -7                    convert 8 bit characters to 7 bit space\n"));
+  if ((strncmp(progname, "dos2unix", sizeof("mac2unix")) == 0) || (strncmp(progname, "dos2unix", sizeof("dos2unix")) == 0))
+    printf(_(" -b, --keep-bom        keep Byte Order Mark\n"));
+  else
+    printf(_(" -b, --keep-bom        keep Byte Order Mark (default)\n"));
   printf(_(" -c, --convmode        conversion mode\n\
    convmode            ascii, 7bit, iso, mac, default to ascii\n"));
   printf(_(" -f, --force           force conversion of binary files\n"));
@@ -235,6 +239,10 @@ void PrintUsage(char *progname)
    file ...            files to convert in old-file mode\n"));
   printf(_(" -q, --quiet           quiet mode, suppress all warnings\n\
                          (always on in stdio mode)\n"));
+  if ((strncmp(progname, "dos2unix", sizeof("mac2unix")) == 0) || (strncmp(progname, "dos2unix", sizeof("dos2unix")) == 0))
+    printf(_(" -r, --remove-bom      remove Byte Order Mark (default)\n"));
+  else
+    printf(_(" -r, --remove-bom      remove Byte Order Mark\n"));
   printf(_(" -s, --safe            skip binary files (default)\n"));
 #ifdef D2U_UNICODE
   printf(_(" -ul, --assume-utf16le assume that the input format is UTF-16LE\n"));

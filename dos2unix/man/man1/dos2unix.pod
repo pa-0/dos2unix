@@ -1,7 +1,7 @@
 /*
 #  Copyright and License
 #
-#   Copyright (C) 2009-2013 Erwin Waterlander
+#   Copyright (C) 2009-2014 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -140,6 +140,12 @@ Use DOS code page 865 (Nordic).
 
 Convert 8 bit characters to 7 bit space.
 
+=item B<-b, --keep-bom>
+
+Keep Byte Order Mark (BOM). When the input file has a BOM, write a BOM in
+the output file. This is the default behavior when converting to DOS line
+breaks.
+
 =item B<-c, --convmode CONVMODE>
 
 Set conversion mode. Where CONVMODE is one of:
@@ -207,6 +213,11 @@ group, and read/write permissions is only supported on Unix.
 
 Quiet mode. Suppress all warnings and messages. The return value is zero.
 Except when wrong command-line options are used.
+
+=item B<-r, --remove-bom>
+
+Remove Byte Order Mark (BOM). Do not write a BOM in the output file.
+This is the default behavior when converting to Unix line breaks.
 
 =item B<-s, --safe>
 
@@ -389,10 +400,13 @@ file.
 
 Use option C<-ul> or C<-ub> to convert an UTF-16 file without BOM.
 
-Dos2unix never writes a BOM in the output file, unless you use option C<-m>.
+Dos2unix writes by default no BOM in the output file. With option C<-b>
+Dos2unix writes a BOM when the input file has a BOM.
 
-Unix2dos writes a BOM in the output file when the input file has a BOM, or
-when option C<-m> is used.
+Unix2dos writes by default a BOM in the output file when the input file has a
+BOM. Use option C<-r> to remove the BOM.
+
+Dos2unix and unix2dos write always a BOM when option C<-m> is used.
 
 =head2 Unicode examples
 
