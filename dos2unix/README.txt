@@ -118,6 +118,8 @@ ACKNOWLEDGEMENTS
                               huge files on a network drive.
         Benno Schulenberg     Cleaning up the UI messages.
         Mario Blättermann     Generate pod files from gettext po files with po4a.
+        Daniel Macks          Reported dependency on GNU sed.
+        Alan S. Jones         Reported bug in UTF-16 conversion by mac2unix.
 
 FINDUTILS
 

@@ -11,7 +11,7 @@
 	  Mac to Unix conversion produced corrupted output.
 	  Thanks to report of Alan S. Jones.
 
-2014-05-24  Åka Sikrom <a4@hush.com>\n"
+2014-05-24  Åka Sikrom <a4@hush.com>
 	* po/nb.po: New Norwegian Bokmaal translation.
 
 2014-05-17 Mario Blättermann <mario.blaettermann@gmail.com>
