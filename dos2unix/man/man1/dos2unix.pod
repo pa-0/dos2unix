@@ -144,7 +144,7 @@ Convert 8 bit characters to 7 bit space.
 
 Keep Byte Order Mark (BOM). When the input file has a BOM, write a BOM in
 the output file. This is the default behavior when converting to DOS line
-breaks.
+breaks. See also option C<-r>.
 
 =item B<-c, --convmode CONVMODE>
 
@@ -218,6 +218,7 @@ Except when wrong command-line options are used.
 
 Remove Byte Order Mark (BOM). Do not write a BOM in the output file.
 This is the default behavior when converting to Unix line breaks.
+See also option C<-b>.
 
 =item B<-s, --safe>
 

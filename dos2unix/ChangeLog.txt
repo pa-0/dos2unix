@@ -1,3 +1,7 @@
+2014-07-09 Erwin Waterlander <waterlan@xs4all.nl>
+	* dos2unix.c, unix2dos.c: Option -r also disables option
+	  -m (add BOM).
+
 2014-07-07 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c, unix2dos.c, common.c: New options -b (keep BOM)
 	  and -r (remove BOM).

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-07 22:11+0200\n"
+"POT-Creation-Date: 2014-07-09 19:08+0200\n"
 "PO-Revision-Date: 2014-02-01 17:54+0100\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -111,59 +111,59 @@ msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr ""
 "błąd: wartość zmiennej środowiskowej DOS2UNIX_LOCALEDIR jest zbyt długa.\n"
 
-#: dos2unix.c:982 dos2unix.c:1019 unix2dos.c:997 unix2dos.c:1034
+#: dos2unix.c:985 dos2unix.c:1022 unix2dos.c:1000 unix2dos.c:1037
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktywna strona kodowa: %d\n"
 
-#: dos2unix.c:1029 unix2dos.c:1044
+#: dos2unix.c:1032 unix2dos.c:1047
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "podano błędny tryb konwersji %s\n"
 
-#: dos2unix.c:1039 unix2dos.c:1054
+#: dos2unix.c:1042 unix2dos.c:1057
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "opcja '%s' wymaga argumentu\n"
 
-#: dos2unix.c:1052 dos2unix.c:1066 dos2unix.c:1260 unix2dos.c:1067
-#: unix2dos.c:1081 unix2dos.c:1281
+#: dos2unix.c:1055 dos2unix.c:1069 dos2unix.c:1263 unix2dos.c:1070
+#: unix2dos.c:1084 unix2dos.c:1284
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "nie podano celu pliku %s w trybie nowego pliku\n"
 
-#: dos2unix.c:1096 dos2unix.c:1180 unix2dos.c:1111 unix2dos.c:1198
+#: dos2unix.c:1099 dos2unix.c:1183 unix2dos.c:1114 unix2dos.c:1201
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "Pominięto %s, nie jest zwykłym plikiem.\n"
 
-#: dos2unix.c:1103 unix2dos.c:1118
+#: dos2unix.c:1106 unix2dos.c:1121
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "Pominięto %s, plik wyjściowy %s jest dowiązaniem symbolicznym.\n"
 
-#: dos2unix.c:1110 dos2unix.c:1194 unix2dos.c:1125 unix2dos.c:1212
+#: dos2unix.c:1113 dos2unix.c:1197 unix2dos.c:1128 unix2dos.c:1215
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr "Pominięto dowiązanie symboliczne %s, cel nie jest zwykłym plikiem.\n"
 
-#: dos2unix.c:1117 unix2dos.c:1132
+#: dos2unix.c:1120 unix2dos.c:1135
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr ""
 "Pominięto %s, cel dowiązania symbolicznego %s nie jest zwykłym plikiem.\n"
 
-#: dos2unix.c:1124 dos2unix.c:1201 unix2dos.c:1139 unix2dos.c:1219
+#: dos2unix.c:1127 dos2unix.c:1204 unix2dos.c:1142 unix2dos.c:1222
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "Pominięto plik binarny %s\n"
 
-#: dos2unix.c:1131 dos2unix.c:1208 unix2dos.c:1146 unix2dos.c:1226
+#: dos2unix.c:1134 dos2unix.c:1211 unix2dos.c:1149 unix2dos.c:1229
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "strona kodowa %d nie jest obsługiwana.\n"
 
-#: dos2unix.c:1138 dos2unix.c:1215 unix2dos.c:1153 unix2dos.c:1233
+#: dos2unix.c:1141 dos2unix.c:1218 unix2dos.c:1156 unix2dos.c:1236
 #, c-format
 msgid ""
 "Skipping UTF-16 file %s, the current locale character encoding is not "
@@ -172,37 +172,37 @@ msgstr ""
 "Pominięto plik UTF-16 %s, kodowanie znaków bieżącej lokalizacji to nie "
 "UTF-8.\n"
 
-#: dos2unix.c:1145 dos2unix.c:1222 unix2dos.c:1160 unix2dos.c:1240
+#: dos2unix.c:1148 dos2unix.c:1225 unix2dos.c:1163 unix2dos.c:1243
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "Pominięto plik UTF-16 %s, rozmiar wchar_t to %d bajt(y).\n"
 
-#: dos2unix.c:1152 dos2unix.c:1229 unix2dos.c:1167 unix2dos.c:1247
+#: dos2unix.c:1155 dos2unix.c:1232 unix2dos.c:1170 unix2dos.c:1250
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
 msgstr "Pominięto plik UTF-16 %s, wystąpił błąd konwersji UTF-16.\n"
 
-#: dos2unix.c:1158
+#: dos2unix.c:1161
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "konwersja pliku %s do pliku %s w formacie uniksowym...\n"
 
-#: dos2unix.c:1165 unix2dos.c:1183
+#: dos2unix.c:1168 unix2dos.c:1186
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "problemy z konwersją pliku %s do pliku %s\n"
 
-#: dos2unix.c:1187 unix2dos.c:1205
+#: dos2unix.c:1190 unix2dos.c:1208
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "Pominięto dowiązanie symboliczne %s.\n"
 
-#: dos2unix.c:1235
+#: dos2unix.c:1238
 #, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "konwertowanie pliku %s do formatu uniksowego...\n"
 
-#: dos2unix.c:1242 unix2dos.c:1263
+#: dos2unix.c:1245 unix2dos.c:1266
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "problemy z konwersją pliku %s\n"
@@ -219,22 +219,22 @@ msgstr ""
 "Wszelkie prawa zastrzeżone.\n"
 "\n"
 
-#: unix2dos.c:1174
+#: unix2dos.c:1177
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "konwersja pliku %s do pliku %s w formacie Mac...\n"
 
-#: unix2dos.c:1176
+#: unix2dos.c:1179
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "konwersja pliku %s do pliku %s w formacie DOS...\n"
 
-#: unix2dos.c:1254
+#: unix2dos.c:1257
 #, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "konwersja pliku %s do formatu Mac...\n"
 
-#: unix2dos.c:1256
+#: unix2dos.c:1259
 #, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "konwersja pliku %s do formatu DOS...\n"
