@@ -1,3 +1,7 @@
+2014-07-12 Various authors
+	* po/*.po, man/*/man1/*.po: Update translations.
+	  See README.txt for details.
+
 2014-07-09 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c, unix2dos.c: Option -r also disables option
 	  -m (add BOM).
