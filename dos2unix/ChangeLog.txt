@@ -1,6 +1,16 @@
+2014-08-03 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 6.0.6
+
+2014-08-03 Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail.com>
+	* po/es.po : Updated Spanish translation of messages.
+	* man/es/man1/dos2unix.po : Updated Spanish translation of manual.
+
 2014-07-12 Various authors
 	* po/*.po, man/*/man1/*.po: Update translations.
 	  See README.txt for details.
+
+2014-07-12 Yuri Kozlov <yuray@komyakino.ru>
+	* po/ru.po: Update Russian translation of messages.
 
 2014-07-09 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c, unix2dos.c: Option -r also disables option

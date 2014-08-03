@@ -22,7 +22,9 @@ PREREQUISITES
 
     Using Watcom C:
         Required
-            * Open Watcom  : http://www.openwatcom.org/
+            * Open Watcom     : http://www.openwatcom.org/
+            * Open Watcom V2  : http://open-watcom.github.io/open-watcom/    (git repo)
+                                http://sourceforge.net/projects/openwatcom/  (binaries download)
 
 
     Using Microsoft Visual C++:
@@ -111,8 +113,8 @@ INTERNATIONAL MAN PAGES
     old systems.  Man pages in UTF-8 format are shown properly on Linux. Not
     all roff implementations support UTF-8.
 
-    In order to show UTF-8 man pages properly on Cygwin you need to do the
-    following:
+    In order to show UTF-8 man pages properly on Cygwin with traditional man
+    you need to do the following:
 
     In /etc/man.conf, change the NROFF definition to use 'preconv'.
 
@@ -122,6 +124,10 @@ INTERNATIONAL MAN PAGES
 
         export LANG=uk_UA.UTF-8
         man dos2unix
+
+    With man-db the manpages show correctly out of the box. Cygwin changed to
+    man-db in June 2014.
+    Man-db is the default man system on the major Linux distributions.
 
 
 LARGE FILE SUPPORT

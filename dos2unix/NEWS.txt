@@ -1,3 +1,9 @@
+2014-08-03: Version 6.0.6
+
+  * Bugfix: mac2unix conversion produced corrupted output from UTF-16 input file.
+  * New options -b (keep BOM) and -r (remove BOM).
+  * New translation of the UI messages: Norwegian Bokmaal.
+
 2014-04-17: Version 6.0.5
 
   * Dos2unix is part of the Translation Project (TP).

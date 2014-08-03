@@ -59,40 +59,42 @@ TRANSLATORS
         Translation of the messages.
         See http://translationproject.org/domain/dos2unix.html
 
-        Brazilian Portuguese  Enrico Nicoletto            Version 6.0.5
-        Brazilian Portuguese  Rafael Ferreira             Version 6.0.6
-        Chinese (traditional) mail6543210                 Version 6.0.5
-        Danish                Thomas Pryds                Version 6.0.5 - 6.0.6
-        Dutch                 Erwin Waterlander           Version 4.0   - 6.0.4
-        Dutch                 Benno Schulenberg           Version 6.0.5
-        Esperanto             Rugxulo                     Version 5.1   - 6.0.4
-        Esperanto             Benno Schulenberg           Version 6.0.5
-        French                Frédéric Marchal            Version 6.0.5 - 6.0.6
-        German                Philipp Thomas              Version 5.0   - 6.0.3
-        German                Lars Wendler                Version 6.0.4
-	German                Mario Blättermann           Version 6.0.6
-        Hungarian             Balázs Úr                   Version 6.0.5 - 6.0.6
-        Norwegian Bokmaal     Åka Sikrom                  Version 6.0.6
-        Polish                Jakub Bogusz                Version 6.0.5 - 6.0.6
-        Russian               Андрей Углик (Andrei Uhlik) Version 6.0.4
-        Russian               Yuri Kozlov                 Version 6.0.6
-        Serbian               Мирослав Николић            Version 6.0.5
-        Spanish               Julio A. Freyre-Gonzalez    Version 5.3.1 - 6.0.4
-        Ukrainian             Yuri Chornoivan             Version 6.0.5
-        Vietnamese            Trần Ngọc Quân              Version 6.0.5 - 6.0.6
+        Brazilian Portuguese  Enrico Nicoletto             Version 6.0.5
+        Brazilian Portuguese  Rafael Ferreira              Version 6.0.6
+        Chinese (traditional) mail6543210                  Version 6.0.5
+        Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
+        Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4
+        Dutch                 Benno Schulenberg            Version 6.0.5
+        Esperanto             Rugxulo                      Version 5.1   - 6.0.4
+        Esperanto             Benno Schulenberg            Version 6.0.5
+        French                Frédéric Marchal             Version 6.0.5 - 6.0.6
+        German                Philipp Thomas               Version 5.0   - 6.0.3
+        German                Lars Wendler                 Version 6.0.4
+	German                Mario Blättermann            Version 6.0.6
+        Hungarian             Balázs Úr                    Version 6.0.5 - 6.0.6
+        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6
+        Polish                Jakub Bogusz                 Version 6.0.5 - 6.0.6
+        Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
+        Russian               Yuri Kozlov                  Version 6.0.6
+        Serbian               Мирослав Николић             Version 6.0.5 - 6.0.6
+        Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
+        Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 6.0.6
+        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 6.0.6
 
         Translation of the manual.
         See http://translationproject.org/domain/dos2unix-man.html
 
-        Brazilian Portuguese  Rafael Ferreira             Version 6.0.5 - 6.0.6
-        Dutch                 Erwin Waterlander           Version 5.1.1 - 6.0.4
-        Dutch                 Benno Schulenberg           Version 6.0.5
-        French                Frédéric Marchal            Version 6.0.5 - 6.0.6
-	German                Mario Blättermann           Version 6.0.5 - 6.0.6
-        Hungarian             Balázs Úr                   Version 6.0.6
-        Polish                Jakub Bogusz                Version 6.0.5 - 6.0.6
-        Spanish               Julio A. Freyre-Gonzalez    Version 5.3.1 - 6.0.5
-        Ukrainian             Yuri Chornoivan             Version 6.0.5 - 6.0.6
+        Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 6.0.6
+        Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
+        Dutch                 Benno Schulenberg            Version 6.0.5
+        French                Frédéric Marchal             Version 6.0.5 - 6.0.6
+	German                Mario Blättermann            Version 6.0.5 - 6.0.6
+        Hungarian             Balázs Úr                    Version 6.0.6
+        Polish                Jakub Bogusz                 Version 6.0.5 - 6.0.6
+        Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
+        Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 6.0.6
 
 
 ACKNOWLEDGEMENTS
