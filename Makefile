@@ -40,8 +40,8 @@ dist:
 	cd ../$(RELEASE_DIR_D2U) ; unix2dos --keepdate man/man1/*.htm* man/*/man1/*.htm*
 	# Create the package.
 	cd .. ; tar cvzf ${RELEASE_DIR_DOS2UNIX}.tar.gz ${RELEASE_DIR_DOS2UNIX}
-	cd .. ; rm -f ${RELEASE_DIR_D2U}s.zip
-	cd .. ; zip -r ${RELEASE_DIR_D2U}s.zip ${RELEASE_DIR_D2U}
+	cd .. ; rm -f ${RELEASE_DIR_D2U}.zip
+	cd .. ; zip -r ${RELEASE_DIR_D2U}.zip ${RELEASE_DIR_D2U}
 
 # Create pgp signature. Required for Debian Linux.
 # See http://narfation.org/2013/06/23/signed-upstream-tarballs-in-debian
