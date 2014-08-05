@@ -224,6 +224,13 @@ See also option C<-b>.
 
 Skip binary files (default).
 
+=item B<-u, --keep-utf16>
+
+Keep the original UTF-16 encoding of the input file. The output file will be
+written in the same UTF-16 encoding, little or big endian, as the input file.
+This prevents transformation to UTF-8. An UTF-16 BOM will be written
+accordingly. This option can be disabled with the C<-ascii> option.
+
 =item B<-ul, --assume-utf16le>
 
 Assume that the input file format is UTF-16LE.

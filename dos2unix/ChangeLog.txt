@@ -1,3 +1,7 @@
+2014-08-05 Erwin Waterlander <waterlan@xs4all.nl>
+	* New option -u, --keep_utf16: Keep UTF-16 encoding of the
+	  input file. This prevents transformation to UTF-8.
+
 2014-08-03 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 6.0.6
 

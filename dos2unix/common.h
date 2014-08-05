@@ -206,6 +206,7 @@ typedef struct
   int bomtype;                          /* byte order mark */
   int add_bom;                          /* 1: write BOM */
   int keep_bom;                         /* 1: write BOM if input file has BOM. 0: Do not write BOM */
+  int keep_utf16;                       /* 1: write UTF-16 format when input file is UTF-16 format */
 } CFlag;
 
 
@@ -230,6 +231,7 @@ int MakeTempFileFrom(const char *OutFN, char **fname_ret);
 #endif
 int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, char *progname);
 FILE *read_bom (FILE *f, int *bomtype);
+FILE *write_bom (FILE *f, CFlag *ipFlag);
 #ifdef D2U_UNICODE
 wint_t d2u_getwc(FILE *f, int bomtype);
 wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype);

@@ -592,7 +592,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 #endif
 
   if ((ipFlag->add_bom) || ((ipFlag->keep_bom) && (ipFlag->bomtype > 0)))
-    fprintf(TempF, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
+    write_bom(TempF, ipFlag);
 
   /* Turn off ISO and 7-bit conversion for Unicode text files */
   /* When we assume UTF16, don't change the conversion mode. We need to remember it. */
@@ -824,7 +824,7 @@ int ConvertDosToUnixStdio(CFlag *ipFlag, char *progname)
 #endif
 
     if ((ipFlag->add_bom) || ((ipFlag->keep_bom) && (ipFlag->bomtype > 0)))
-       fprintf(stdout, "%s", "\xEF\xBB\xBF");  /* UTF-8 BOM */
+      write_bom(stdout, ipFlag);
 
 #ifdef D2U_UNICODE
     if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))
@@ -904,11 +904,10 @@ int main (int argc, char *argv[])
   pFlag->status = 0;
   pFlag->stdio_mode = 1;
   pFlag->error = 0;
-#ifdef D2U_UNICODE
   pFlag->bomtype = FILE_MBS;
-#endif
   pFlag->add_bom = 0;
   pFlag->keep_bom = 0;
+  pFlag->keep_utf16 = 0;
 
   if ( ((ptr=strrchr(argv[0],'/')) == NULL) && ((ptr=strrchr(argv[0],'\\')) == NULL) )
     ptr = argv[0];
@@ -973,7 +972,10 @@ int main (int argc, char *argv[])
         return(pFlag->error);
       }
       else if (strcmp(argv[ArgIdx],"-ascii") == 0)  /* SunOS compatible options */
+      {
         pFlag->ConvMode = CONVMODE_ASCII;
+        pFlag->keep_utf16 = 0;
+      }
       else if (strcmp(argv[ArgIdx],"-7") == 0)
         pFlag->ConvMode = CONVMODE_7BIT;
       else if (strcmp(argv[ArgIdx],"-iso") == 0)
@@ -1000,6 +1002,8 @@ int main (int argc, char *argv[])
       else if (strcmp(argv[ArgIdx],"-1252") == 0)
         pFlag->ConvMode = CONVMODE_1252;
 #ifdef D2U_UNICODE
+      else if ((strcmp(argv[ArgIdx],"-u") == 0) || (strcmp(argv[ArgIdx],"--keep-utf16") == 0))
+        pFlag->keep_utf16 = 1;
       else if ((strcmp(argv[ArgIdx],"-ul") == 0) || (strcmp(argv[ArgIdx],"--assume-utf16le") == 0))
         pFlag->ConvMode = CONVMODE_UTF16LE;
       else if ((strcmp(argv[ArgIdx],"-ub") == 0) || (strcmp(argv[ArgIdx],"--assume-utf16be") == 0))

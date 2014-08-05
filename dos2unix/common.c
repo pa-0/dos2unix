@@ -245,6 +245,7 @@ void PrintUsage(char *progname)
     printf(_(" -r, --remove-bom      remove Byte Order Mark\n"));
   printf(_(" -s, --safe            skip binary files (default)\n"));
 #ifdef D2U_UNICODE
+  printf(_(" -u,  --keep-utf16     keep UTF-16 encoding\n"));
   printf(_(" -ul, --assume-utf16le assume that the input format is UTF-16LE\n"));
   printf(_(" -ub, --assume-utf16be assume that the input format is UTF-16BE\n"));
 #endif
@@ -565,6 +566,29 @@ FILE *read_bom (FILE *f, int *bomtype)
   return(f);
 }
 
+FILE *write_bom (FILE *f, CFlag *ipFlag)
+{
+  if (ipFlag->keep_utf16)
+  {
+    switch (ipFlag->bomtype)
+    {
+      case FILE_UTF16LE:   /* UTF-16 Little Endian */
+        fprintf(f, "%s", "\xFF\xFE");
+        break;
+      case FILE_UTF16BE:   /* UTF-16 Big Endian */
+        fprintf(f, "%s", "\xFE\xFF");
+        break;
+      case FILE_UTF8:      /* UTF-8 */
+        fprintf(f, "%s", "\xEF\xBB\xBF");
+        break;
+      default:
+      ;
+    }
+  } else {
+    fprintf(f, "%s", "\xEF\xBB\xBF");
+  }
+  return(f);
+}
 
 #ifdef D2U_UNICODE
 wint_t d2u_getwc(FILE *f, int bomtype)
@@ -614,6 +638,24 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
    static wchar_t lead, trail;
    static wchar_t wstr[3];
    size_t i,len;
+   int c_trail, c_lead;
+
+   if (ipFlag->keep_utf16)
+   {
+     if (ipFlag->bomtype == FILE_UTF16LE)  /* UTF16 little endian */
+     {
+        c_trail = (int)(wc & 0xff00);
+        c_trail >>=8;
+        c_lead  = (int)(wc & 0xff);
+     } else {                      /* UTF16 big endian */
+        c_lead = (int)(wc & 0xff00);
+        c_lead >>=8;
+        c_trail  = (int)(wc & 0xff);
+     }
+     if ((fputc(c_lead,f) == EOF)  || (fputc(c_trail,f) == EOF))
+       return(WEOF);
+     return wc;
+   }
 
    if ((wc >= 0xd800) && (wc < 0xdc00))
    {
