@@ -1014,7 +1014,10 @@ int main (int argc, char *argv[])
         if (++ArgIdx < argc)
         {
           if (strcmpi(argv[ArgIdx],"ascii") == 0)  /* Benjamin Lin's legacy options */
+          {
             pFlag->ConvMode = CONVMODE_ASCII;
+            pFlag->keep_utf16 = 0;
+          }
           else if (strcmpi(argv[ArgIdx], "7bit") == 0)
             pFlag->ConvMode = CONVMODE_7BIT;
           else if (strcmpi(argv[ArgIdx], "iso") == 0)
