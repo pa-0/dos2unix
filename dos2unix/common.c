@@ -138,7 +138,7 @@ int regfile(char *path, int allowSymlinks, CFlag *ipFlag, char *progname)
    }
    else
    {
-     if (!ipFlag->Quiet)
+     if (ipFlag->verbose)
      {
        ipFlag->error = errno;
        errstr = strerror(errno);
@@ -171,7 +171,7 @@ int regfile_target(char *path, CFlag *ipFlag, char *progname)
    }
    else
    {
-     if (!ipFlag->Quiet)
+     if (ipFlag->verbose)
      {
        ipFlag->error = errno;
        errstr = strerror(errno);
@@ -249,6 +249,7 @@ void PrintUsage(char *progname)
   printf(_(" -ul, --assume-utf16le assume that the input format is UTF-16LE\n"));
   printf(_(" -ub, --assume-utf16be assume that the input format is UTF-16BE\n"));
 #endif
+  printf(_(" -v,  --verbose        verbose operation\n"));
 #ifdef S_ISLNK
   printf(_(" -F, --follow-symlink  follow symbolic links and convert the targets\n"));
 #endif
@@ -428,7 +429,7 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, char *progname)
 
   if (STAT(lFN, &StatBuf))
   {
-    if (!ipFlag->Quiet)
+    if (ipFlag->verbose)
     {
       ipFlag->error = errno;
       errstr = strerror(errno);
@@ -442,7 +443,7 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, char *progname)
     targetFN = canonicalize_file_name(lFN);
     if (!targetFN)
     {
-      if (!ipFlag->Quiet)
+      if (ipFlag->verbose)
       {
         errstr = strerror(errno);
         fprintf(stderr, "%s: %s: %s\n", progname, lFN, errstr);
@@ -462,7 +463,7 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, char *progname)
     targetFN = (char *) malloc(PATH_MAX * sizeof(char));
     if (!targetFN)
     {
-      if (!ipFlag->Quiet)
+      if (ipFlag->verbose)
       {
         errstr = strerror(errno);
         fprintf(stderr, "%s: %s: %s\n", progname, lFN, errstr);
@@ -476,7 +477,7 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, char *progname)
       char *rVal = realpath(lFN, targetFN);
       if (!rVal)
       {
-        if (!ipFlag->Quiet)
+        if (ipFlag->verbose)
         {
           errstr = strerror(errno);
           fprintf(stderr, "%s: %s: %s\n", progname, lFN, errstr);
@@ -566,7 +567,7 @@ FILE *read_bom (FILE *f, int *bomtype)
   return(f);
 }
 
-FILE *write_bom (FILE *f, CFlag *ipFlag)
+FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
 {
   if (ipFlag->keep_utf16)
   {
@@ -574,20 +575,61 @@ FILE *write_bom (FILE *f, CFlag *ipFlag)
     {
       case FILE_UTF16LE:   /* UTF-16 Little Endian */
         fprintf(f, "%s", "\xFF\xFE");
+        if (ipFlag->verbose > 1)
+        {
+          fprintf(stderr, "%s: ", progname);
+          fprintf(stderr, _("Writing %s BOM.\n"), "UTF-16LE");
+        }
         break;
       case FILE_UTF16BE:   /* UTF-16 Big Endian */
         fprintf(f, "%s", "\xFE\xFF");
+        if (ipFlag->verbose > 1)
+        {
+          fprintf(stderr, "%s: ", progname);
+          fprintf(stderr, _("Writing %s BOM.\n"), "UTF-16BE");
+        }
         break;
       case FILE_UTF8:      /* UTF-8 */
         fprintf(f, "%s", "\xEF\xBB\xBF");
+        if (ipFlag->verbose > 1)
+        {
+          fprintf(stderr, "%s: ", progname);
+          fprintf(stderr, _("Writing %s BOM.\n"), "UTF-8");
+        }
         break;
       default:
       ;
     }
   } else {
     fprintf(f, "%s", "\xEF\xBB\xBF");
+    if (ipFlag->verbose > 1)
+    {
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("Writing %s BOM.\n"), "UTF-8");
+    }
   }
   return(f);
+}
+
+void print_bom (const int bomtype, const char *filename, const char *progname)
+{
+    switch (bomtype)
+    {
+    case FILE_UTF16LE:   /* UTF-16 Little Endian */
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("Input file %s has %s BOM.\n"), filename, "UTF-16LE");
+      break;
+    case FILE_UTF16BE:   /* UTF-16 Big Endian */
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("Input file %s has %s BOM.\n"), filename, "UTF-16BE");
+      break;
+    case FILE_UTF8:      /* UTF-8 */
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("Input file %s has %s BOM.\n"), filename, "UTF-8");
+      break;
+    default:
+    ;
+  }
 }
 
 #ifdef D2U_UNICODE

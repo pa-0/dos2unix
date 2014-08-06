@@ -83,7 +83,7 @@ All rights reserved.\n\n"));
 }
 
 #ifdef D2U_UNICODE
-void StripDelimiterW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, wint_t CurChar)
+void StripDelimiterW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, wint_t CurChar, int *converted)
 {
   wint_t TempNextChar;
   /* CurChar is always CR (x0d) */
@@ -93,6 +93,8 @@ void StripDelimiterW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, wint_t CurChar)
     d2u_ungetwc( TempNextChar, ipInF, ipFlag->bomtype);  /* put back peek char */
     if ( TempNextChar != 0x0a ) {
       d2u_putwc( CurChar, ipOutF, ipFlag);  /* Mac line, put back CR */
+    } else {
+      (*converted)++;
     }
   }
   else if ( CurChar == 0x0d ) {  /* EOF: last Mac line delimiter (CR)? */
@@ -104,7 +106,7 @@ void StripDelimiterW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, wint_t CurChar)
 }
 #endif
 
-void StripDelimiter(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar)
+void StripDelimiter(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar, int *converted)
 {
   int TempNextChar;
   /* CurChar is always CR (x0d) */
@@ -114,6 +116,8 @@ void StripDelimiter(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar)
     ungetc( TempNextChar, ipInF );  /* put back peek char */
     if ( TempNextChar != '\x0a' ) {
       fputc( CurChar, ipOutF );  /* Mac line, put back CR */
+    } else {
+      (*converted)++;
     }
   }
   else if ( CurChar == '\x0d' ) {  /* EOF: last Mac line delimiter (CR)? */
@@ -135,6 +139,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
     wint_t TempChar;
     wint_t TempNextChar;
     int line_nr = 1;
+    int converted = 0;
     char *errstr;
 
     ipFlag->status = 0;
@@ -158,7 +163,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               (TempChar != 0x0c)) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
-            if (!ipFlag->Quiet)
+            if (ipFlag->verbose)
             {
               fprintf(stderr, "%s: ", progname);
               fprintf(stderr, _("Binary symbol 0x00%02X found at line %d\n"),TempChar, line_nr);
@@ -170,7 +175,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               ++line_nr;
             if (d2u_putwc(TempChar, ipOutF, ipFlag) == WEOF) {
               RetVal = -1;
-              if (!ipFlag->Quiet)
+              if (ipFlag->verbose)
               {
                 if (!(ipFlag->status & UNICODE_CONVERSION_ERROR))
                 {
@@ -182,7 +187,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               break;
             }
           } else {
-            StripDelimiterW( ipInF, ipOutF, ipFlag, TempChar );
+            StripDelimiterW( ipInF, ipOutF, ipFlag, TempChar, &converted);
           }
         }
         break;
@@ -196,7 +201,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               (TempChar != 0x0c)) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
-            if (!ipFlag->Quiet)
+            if (ipFlag->verbose)
             {
               fprintf(stderr, "%s: ", progname);
               fprintf(stderr, _("Binary symbol 0x00%02X found at line %d\n"),TempChar, line_nr);
@@ -209,7 +214,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                 ++line_nr;
               if(d2u_putwc(TempChar, ipOutF, ipFlag) == WEOF){
                 RetVal = -1;
-                if (!ipFlag->Quiet)
+                if (ipFlag->verbose)
                 {
                   if (!(ipFlag->status & UNICODE_CONVERSION_ERROR))
                   {
@@ -234,7 +239,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
             if (d2u_putwc(0x0a, ipOutF, ipFlag) == WEOF) /* MAC line end (CR). Put LF */
               {
                 RetVal = -1;
-                if (!ipFlag->Quiet)
+                if (ipFlag->verbose)
                 {
                   if (!(ipFlag->status & UNICODE_CONVERSION_ERROR))
                   {
@@ -245,6 +250,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                 }
                 break;
               }
+            converted++;
             line_nr++; /* Count all Mac line breaks */
             if (ipFlag->NewLine) {  /* add additional LF? */
               d2u_putwc(0x0a, ipOutF, ipFlag);
@@ -259,6 +265,11 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
       fprintf(stderr, _("program error, invalid conversion mode %d\n"),ipFlag->FromToMode);
       exit(1);
 #endif
+    }
+    if (ipFlag->verbose > 1)
+    {
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("Converted %d out of %d line breaks.\n"),converted, line_nr -1);
     }
     return RetVal;
 }
@@ -275,6 +286,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
     int TempNextChar;
     int *ConvTable;
     int line_nr = 1;
+    int converted = 0;
     char *errstr;
 
     ipFlag->status = 0;
@@ -311,7 +323,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
         ipFlag->status |= WRONG_CODEPAGE ;
         return(-1);
     }
-    if ((ipFlag->ConvMode > 1) && (!ipFlag->Quiet)) /* not ascii or 7bit */
+    if ((ipFlag->ConvMode > 1) && (ipFlag->verbose)) /* not ascii or 7bit */
     {
        fprintf(stderr, "%s: ", progname);
        fprintf(stderr, _("using code page %d.\n"), ipFlag->ConvMode);
@@ -336,7 +348,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               (TempChar != '\x0c')) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
-            if (!ipFlag->Quiet)
+            if (ipFlag->verbose)
             {
               fprintf(stderr, "%s: ", progname);
               fprintf(stderr, _("Binary symbol 0x%02X found at line %d\n"),TempChar, line_nr);
@@ -348,7 +360,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               ++line_nr;
             if (fputc(ConvTable[TempChar], ipOutF) == EOF) {
               RetVal = -1;
-              if (!ipFlag->Quiet)
+              if (ipFlag->verbose)
               {
                 errstr = strerror(errno);
                 fprintf(stderr, "%s: ", progname);
@@ -357,7 +369,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               break;
             }
           } else {
-            StripDelimiter( ipInF, ipOutF, ipFlag, TempChar );
+            StripDelimiter( ipInF, ipOutF, ipFlag, TempChar, &converted);
           }
         }
         break;
@@ -371,7 +383,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
               (TempChar != '\x0c')) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
-            if (!ipFlag->Quiet)
+            if (ipFlag->verbose)
             {
               fprintf(stderr, "%s: ", progname);
               fprintf(stderr, _("Binary symbol 0x%02X found at line %d\n"),TempChar, line_nr);
@@ -384,7 +396,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                 ++line_nr;
               if(fputc(ConvTable[TempChar], ipOutF) == EOF){
                 RetVal = -1;
-                if (!ipFlag->Quiet)
+                if (ipFlag->verbose)
                 {
                   errstr = strerror(errno);
                   fprintf(stderr, "%s: ", progname);
@@ -406,7 +418,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
             if (fputc('\x0a', ipOutF) == EOF) /* MAC line end (CR). Put LF */
               {
                 RetVal = -1;
-                if (!ipFlag->Quiet)
+                if (ipFlag->verbose)
                 {
                   errstr = strerror(errno);
                   fprintf(stderr, "%s: ", progname);
@@ -414,6 +426,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                 }
                 break;
               }
+            converted++;
             line_nr++; /* Count all Mac line breaks */
             if (ipFlag->NewLine) {  /* add additional LF? */
               fputc('\x0a', ipOutF);
@@ -428,6 +441,11 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
       fprintf(stderr, _("program error, invalid conversion mode %d\n"),ipFlag->FromToMode);
       exit(1);
 #endif
+    }
+    if (ipFlag->verbose > 1)
+    {
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("Converted %d out of %d line breaks.\n"),converted, line_nr -1);
     }
     return RetVal;
 }
@@ -494,7 +512,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   /* retrieve ipInFN file date stamp */
   if (stat(ipInFN, &StatBuf))
   {
-    if (!ipFlag->Quiet)
+    if (ipFlag->verbose)
     {
       ipFlag->error = errno;
       errstr = strerror(errno);
@@ -508,7 +526,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 #else
   if((fd = MakeTempFileFrom (ipOutFN, &TempPath)) < 0) {
 #endif
-    if (!ipFlag->Quiet)
+    if (ipFlag->verbose)
     {
       ipFlag->error = errno;
       errstr = strerror(errno);
@@ -555,7 +573,24 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
     }
   }
 
+#ifdef D2U_UNICODE
+  if (ipFlag->verbose > 1)
+  {
+    if (ipFlag->ConvMode == CONVMODE_UTF16LE)
+    {
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("Assuming UTF-16LE encoding.\n") );
+    }
+    if (ipFlag->ConvMode == CONVMODE_UTF16BE)
+    {
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("Assuming UTF-16BE encoding.\n") );
+    }
+  }
+#endif
   InF = read_bom(InF, &ipFlag->bomtype);
+  if (ipFlag->verbose > 1)
+    print_bom(ipFlag->bomtype, ipInFN, progname);
 #ifdef D2U_UNICODE
   if ((ipFlag->bomtype == FILE_MBS) && (ipFlag->ConvMode == CONVMODE_UTF16LE))
     ipFlag->bomtype = FILE_UTF16LE;
@@ -565,7 +600,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 
 #ifdef D2U_UNICODE
 #if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
-  if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))
+  if (!ipFlag->keep_utf16 && ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)))
   {
     if (strcmp(nl_langinfo(CODESET), "UTF-8") != 0)
     {
@@ -578,7 +613,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   }
 #endif
 #if !defined(_WIN32) && !defined(__CYGWIN__) /* Not Windows or Cygwin */
-  if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))
+  if (!ipFlag->keep_utf16 && ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)))
   {
     if (sizeof(wchar_t) < 4)
     {
@@ -592,7 +627,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 #endif
 
   if ((ipFlag->add_bom) || ((ipFlag->keep_bom) && (ipFlag->bomtype > 0)))
-    write_bom(TempF, ipFlag);
+    write_bom(TempF, ipFlag, progname);
 
   /* Turn off ISO and 7-bit conversion for Unicode text files */
   /* When we assume UTF16, don't change the conversion mode. We need to remember it. */
@@ -628,7 +663,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   {
     if (fclose(TempF) == EOF)
     {
-       if (!ipFlag->Quiet)
+       if (ipFlag->verbose)
        {
          ipFlag->error = errno;
          errstr = strerror(errno);
@@ -663,7 +698,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 
     if (RetVal)
     {
-       if (!ipFlag->Quiet)
+       if (ipFlag->verbose)
        {
          ipFlag->error = errno;
          errstr = strerror(errno);
@@ -682,7 +717,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
      /* Make sure that the original owner can still access the file. */
      if (chown(TempPath, StatBuf.st_uid, StatBuf.st_gid))
      {
-        if (!ipFlag->Quiet)
+        if (ipFlag->verbose)
         {
           ipFlag->error = errno;
           errstr = strerror(errno);
@@ -701,7 +736,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
     /* can change output file time to in file time? */
     if (utime(TempPath, &UTimeBuf) == -1)
     {
-      if (!ipFlag->Quiet)
+      if (ipFlag->verbose)
       {
         ipFlag->error = errno;
         errstr = strerror(errno);
@@ -716,7 +751,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
   {
     if (unlink(TempPath) && (errno != ENOENT))
     {
-      if (!ipFlag->Quiet)
+      if (ipFlag->verbose)
       {
         ipFlag->error = errno;
         errstr = strerror(errno);
@@ -737,7 +772,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
       ResolveSymlinkResult = ResolveSymbolicLink(ipOutFN, &TargetFN, ipFlag, progname);
       if (ResolveSymlinkResult < 0)
       {
-        if (!ipFlag->Quiet)
+        if (ipFlag->verbose)
         {
           fprintf(stderr, "%s: ", progname);
           fprintf(stderr, _("problems resolving symbolic link '%s'\n"), ipOutFN);
@@ -754,7 +789,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 #ifdef NEED_REMOVE
     if (unlink(TargetFN) && (errno != ENOENT))
     {
-      if (!ipFlag->Quiet)
+      if (ipFlag->verbose)
       {
         ipFlag->error = errno;
         errstr = strerror(errno);
@@ -765,7 +800,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 #endif
     if (rename(TempPath, TargetFN) == -1)
     {
-      if (!ipFlag->Quiet)
+      if (ipFlag->verbose)
       {
         ipFlag->error = errno;
         errstr = strerror(errno);
@@ -794,7 +829,7 @@ int ConvertDosToUnixNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 int ConvertDosToUnixStdio(CFlag *ipFlag, char *progname)
 {
     ipFlag->NewFile = 1;
-    ipFlag->Quiet = 1;
+    ipFlag->verbose = 0;
     ipFlag->KeepDate = 0;
     ipFlag->Force = 1;
 
@@ -824,7 +859,7 @@ int ConvertDosToUnixStdio(CFlag *ipFlag, char *progname)
 #endif
 
     if ((ipFlag->add_bom) || ((ipFlag->keep_bom) && (ipFlag->bomtype > 0)))
-      write_bom(stdout, ipFlag);
+      write_bom(stdout, ipFlag, progname);
 
 #ifdef D2U_UNICODE
     if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))
@@ -894,7 +929,7 @@ int main (int argc, char *argv[])
   ShouldExit = 0;
   pFlag = (CFlag*)malloc(sizeof(CFlag));
   pFlag->NewFile = 0;
-  pFlag->Quiet = 0;
+  pFlag->verbose = 1;
   pFlag->KeepDate = 0;
   pFlag->ConvMode = CONVMODE_ASCII;  /* default ascii */
   pFlag->FromToMode = FROMTO_DOS2UNIX;  /* default dos2unix */
@@ -942,7 +977,9 @@ int main (int argc, char *argv[])
       else if ((strcmp(argv[ArgIdx],"-s") == 0) || (strcmp(argv[ArgIdx],"--safe") == 0))
         pFlag->Force = 0;
       else if ((strcmp(argv[ArgIdx],"-q") == 0) || (strcmp(argv[ArgIdx],"--quiet") == 0))
-        pFlag->Quiet = 1;
+        pFlag->verbose = 0;
+      else if ((strcmp(argv[ArgIdx],"-v") == 0) || (strcmp(argv[ArgIdx],"--verbose") == 0))
+        pFlag->verbose = 2;
       else if ((strcmp(argv[ArgIdx],"-l") == 0) || (strcmp(argv[ArgIdx],"--newline") == 0))
         pFlag->NewLine = 1;
       else if ((strcmp(argv[ArgIdx],"-m") == 0) || (strcmp(argv[ArgIdx],"--add-bom") == 0))
@@ -981,7 +1018,7 @@ int main (int argc, char *argv[])
       else if (strcmp(argv[ArgIdx],"-iso") == 0)
       {
         pFlag->ConvMode = (int)query_con_codepage();
-        if (!pFlag->Quiet)
+        if (pFlag->verbose)
         {
            fprintf(stderr,"%s: ",progname);
            fprintf(stderr,_("active code page: %d\n"), pFlag->ConvMode);
@@ -1023,7 +1060,7 @@ int main (int argc, char *argv[])
           else if (strcmpi(argv[ArgIdx], "iso") == 0)
           {
             pFlag->ConvMode = (int)query_con_codepage();
-            if (!pFlag->Quiet)
+            if (pFlag->verbose)
             {
                fprintf(stderr,"%s: ",progname);
                fprintf(stderr,_("active code page: %d\n"), pFlag->ConvMode);
@@ -1100,76 +1137,76 @@ int main (int argc, char *argv[])
           RetVal = ConvertDosToUnixNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag, progname);
           if (pFlag->status & NO_REGFILE)
           {
-            if (!pFlag->Quiet)
+            if (pFlag->verbose)
             {
               fprintf(stderr,"%s: ",progname);
               fprintf(stderr, _("Skipping %s, not a regular file.\n"), argv[ArgIdx-1]);
             }
           } else if (pFlag->status & OUTPUTFILE_SYMLINK)
           {
-            if (!pFlag->Quiet)
+            if (pFlag->verbose)
             {
               fprintf(stderr,"%s: ",progname);
               fprintf(stderr, _("Skipping %s, output file %s is a symbolic link.\n"), argv[ArgIdx-1], argv[ArgIdx]);
             }
           } else if (pFlag->status & INPUT_TARGET_NO_REGFILE)
           {
-            if (!pFlag->Quiet)
+            if (pFlag->verbose)
             {
               fprintf(stderr,"%s: ",progname);
               fprintf(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), argv[ArgIdx-1]);
             }
           } else if (pFlag->status & OUTPUT_TARGET_NO_REGFILE)
           {
-            if (!pFlag->Quiet)
+            if (pFlag->verbose)
             {
               fprintf(stderr,"%s: ",progname);
               fprintf(stderr, _("Skipping %s, target of symbolic link %s is not a regular file.\n"), argv[ArgIdx-1], argv[ArgIdx]);
             }
           } else if (pFlag->status & BINARY_FILE)
           {
-            if (!pFlag->Quiet)
+            if (pFlag->verbose)
             {
               fprintf(stderr,"%s: ",progname);
               fprintf(stderr, _("Skipping binary file %s\n"), argv[ArgIdx-1]);
             }
           } else if (pFlag->status & WRONG_CODEPAGE)
           {
-            if (!pFlag->Quiet)
+            if (pFlag->verbose)
             {
               fprintf(stderr,"%s: ",progname);
               fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
             }
           } else if (pFlag->status & LOCALE_NOT_UTF8)
           {
-            if (!pFlag->Quiet)
+            if (pFlag->verbose)
             {
               fprintf(stderr,"%s: ",progname);
               fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), argv[ArgIdx-1]);
             }
           } else if (pFlag->status & WCHAR_T_TOO_SMALL)
           {
-            if (!pFlag->Quiet)
+            if (pFlag->verbose)
             {
               fprintf(stderr,"%s: ",progname);
               fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), argv[ArgIdx-1], (int)sizeof(wchar_t));
             }
           } else if (pFlag->status & UNICODE_CONVERSION_ERROR)
           {
-            if (!pFlag->Quiet)
+            if (pFlag->verbose)
             {
               fprintf(stderr,"%s: ",progname);
               fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), argv[ArgIdx-1]);
             }
           } else {
-            if (!pFlag->Quiet)
+            if (pFlag->verbose)
             {
               fprintf(stderr,"%s: ",progname);
               fprintf(stderr, _("converting file %s to file %s in Unix format...\n"), argv[ArgIdx-1], argv[ArgIdx]);
             }
             if (RetVal)
             {
-              if (!pFlag->Quiet)
+              if (pFlag->verbose)
               {
                 fprintf(stderr,"%s: ",progname);
                 fprintf(stderr, _("problems converting file %s to file %s\n"), argv[ArgIdx-1], argv[ArgIdx]);
@@ -1184,69 +1221,69 @@ int main (int argc, char *argv[])
         RetVal = ConvertDosToUnixNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname);
         if (pFlag->status & NO_REGFILE)
         {
-          if (!pFlag->Quiet)
+          if (pFlag->verbose)
           {
             fprintf(stderr,"%s: ",progname);
             fprintf(stderr, _("Skipping %s, not a regular file.\n"), argv[ArgIdx]);
           }
         } else if (pFlag->status & OUTPUTFILE_SYMLINK)
         {
-          if (!pFlag->Quiet)
+          if (pFlag->verbose)
           {
             fprintf(stderr,"%s: ",progname);
             fprintf(stderr, _("Skipping symbolic link %s.\n"), argv[ArgIdx]);
           }
         } else if (pFlag->status & INPUT_TARGET_NO_REGFILE)
         {
-          if (!pFlag->Quiet)
+          if (pFlag->verbose)
           {
             fprintf(stderr,"%s: ",progname);
             fprintf(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), argv[ArgIdx]);
           }
         } else if (pFlag->status & BINARY_FILE)
         {
-          if (!pFlag->Quiet)
+          if (pFlag->verbose)
           {
             fprintf(stderr,"%s: ",progname);
             fprintf(stderr, _("Skipping binary file %s\n"), argv[ArgIdx]);
           }
         } else if (pFlag->status & WRONG_CODEPAGE)
         {
-          if (!pFlag->Quiet)
+          if (pFlag->verbose)
           {
             fprintf(stderr,"%s: ",progname);
             fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
           }
         } else if (pFlag->status & LOCALE_NOT_UTF8)
         {
-          if (!pFlag->Quiet)
+          if (pFlag->verbose)
           {
             fprintf(stderr,"%s: ",progname);
             fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), argv[ArgIdx]);
           }
         } else if (pFlag->status & WCHAR_T_TOO_SMALL)
         {
-          if (!pFlag->Quiet)
+          if (pFlag->verbose)
           {
             fprintf(stderr,"%s: ",progname);
             fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), argv[ArgIdx], (int)sizeof(wchar_t));
           }
         } else if (pFlag->status & UNICODE_CONVERSION_ERROR)
         {
-          if (!pFlag->Quiet)
+          if (pFlag->verbose)
           {
             fprintf(stderr,"%s: ",progname);
             fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), argv[ArgIdx]);
           }
         } else {
-          if (!pFlag->Quiet)
+          if (pFlag->verbose)
           {
             fprintf(stderr,"%s: ",progname);
             fprintf(stderr, _("converting file %s to Unix format...\n"), argv[ArgIdx]);
           }
           if (RetVal)
           {
-            if (!pFlag->Quiet)
+            if (pFlag->verbose)
             {
               fprintf(stderr,"%s: ",progname);
               fprintf(stderr, _("problems converting file %s\n"), argv[ArgIdx]);

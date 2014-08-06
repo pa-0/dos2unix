@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-05 23:05+0200\n"
+"POT-Creation-Date: 2014-08-06 21:04+0200\n"
 "PO-Revision-Date: 2014-02-01 14:37+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -34,141 +34,156 @@ msgstr ""
 "Alle rechten voorbehouden.\n"
 "\n"
 
-#: dos2unix.c:164 dos2unix.c:202 unix2dos.c:132 unix2dos.c:185
+#: dos2unix.c:169 dos2unix.c:207 unix2dos.c:133 unix2dos.c:186
 #, c-format
 msgid "Binary symbol 0x00%02X found at line %d\n"
 msgstr "Binair teken 0x00%02X gevonden op regel %d\n"
 
-#: dos2unix.c:179 dos2unix.c:218 dos2unix.c:243 dos2unix.c:355 dos2unix.c:391
-#: dos2unix.c:413 unix2dos.c:162 unix2dos.c:199 unix2dos.c:220 unix2dos.c:238
-#: unix2dos.c:362 unix2dos.c:396 unix2dos.c:414 unix2dos.c:429
+#: dos2unix.c:184 dos2unix.c:223 dos2unix.c:248 dos2unix.c:367 dos2unix.c:403
+#: dos2unix.c:425 unix2dos.c:163 unix2dos.c:200 unix2dos.c:224 unix2dos.c:242
+#: unix2dos.c:373 unix2dos.c:407 unix2dos.c:428 unix2dos.c:443
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "kan niet schrijven naar uitvoerbestand: %s\n"
 
-#: dos2unix.c:259 dos2unix.c:428 unix2dos.c:253 unix2dos.c:443
+#: dos2unix.c:265 dos2unix.c:441 unix2dos.c:257 unix2dos.c:458
 #, c-format
 msgid "program error, invalid conversion mode %d\n"
 msgstr "**programmafout**: ongeldige conversiemodus %d\n"
 
-#: dos2unix.c:317 unix2dos.c:311
+#: dos2unix.c:272 dos2unix.c:448 unix2dos.c:264 unix2dos.c:465
+#, c-format
+msgid "Converted %d out of %d line breaks.\n"
+msgstr ""
+
+#: dos2unix.c:329 unix2dos.c:321
 #, c-format
 msgid "using code page %d.\n"
 msgstr "codetabel %d wordt gebruikt.\n"
 
-#: dos2unix.c:342 dos2unix.c:377 unix2dos.c:334 unix2dos.c:384
+#: dos2unix.c:354 dos2unix.c:389 unix2dos.c:344 unix2dos.c:395
 #, c-format
 msgid "Binary symbol 0x%02X found at line %d\n"
 msgstr "Binair teken 0x%02X gevonden op regel %d\n"
 
-#: dos2unix.c:516 unix2dos.c:531
+#: dos2unix.c:534 unix2dos.c:551
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
 msgstr "Kan tijdelijk uitvoerbestand niet openen: %s\n"
 
-#: dos2unix.c:523 unix2dos.c:538
+#: dos2unix.c:541 unix2dos.c:558
 #, c-format
 msgid "using %s as temporary file\n"
 msgstr "%s wordt als tijdelijk bestand gebruikt\n"
 
-#: dos2unix.c:636 unix2dos.c:651
+#: dos2unix.c:582 unix2dos.c:599
+#, c-format
+msgid "Assuming UTF-16LE encoding.\n"
+msgstr ""
+
+#: dos2unix.c:587 unix2dos.c:604
+#, c-format
+msgid "Assuming UTF-16BE encoding.\n"
+msgstr ""
+
+#: dos2unix.c:671 unix2dos.c:688
 #, c-format
 msgid "Failed to write to temporary output file %s: %s\n"
 msgstr "Kan niet schrijven naar tijdelijk uitvoerbestand %s: %s\n"
 
-#: dos2unix.c:671 unix2dos.c:686
+#: dos2unix.c:706 unix2dos.c:723
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s: %s\n"
 msgstr ""
 "Kan toegangsrechten van tijdelijk uitvoerbestand %s niet wijzigen: %s\n"
 
-#: dos2unix.c:690 unix2dos.c:705
+#: dos2unix.c:725 unix2dos.c:742
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
 msgstr ""
 "Kan eigenaar en groep van tijdelijk uitvoerbestand %s niet wijzigen: %s\n"
 
-#: dos2unix.c:743 unix2dos.c:758
+#: dos2unix.c:778 unix2dos.c:795
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
 msgstr "problemen met het herleiden van symbolische koppeling '%s'\n"
 
-#: dos2unix.c:744 dos2unix.c:778 unix2dos.c:759 unix2dos.c:793
+#: dos2unix.c:779 dos2unix.c:813 unix2dos.c:796 unix2dos.c:830
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          uitvoerbestand blijft in '%s'\n"
 
-#: dos2unix.c:773 unix2dos.c:788
+#: dos2unix.c:808 unix2dos.c:825
 #, c-format
 msgid "problems renaming '%s' to '%s': %s\n"
 msgstr "problemen met hernoemen van '%s' naar '%s': %s\n"
 
-#: dos2unix.c:776 unix2dos.c:791
+#: dos2unix.c:811 unix2dos.c:828
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          welke het doel is van symbolische koppeling '%s'\n"
 
-#: dos2unix.c:874 unix2dos.c:889
+#: dos2unix.c:909 unix2dos.c:926
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "fout: Waarde van omgevingsvariabele DOS2UNIX_LOCALEDIR is te lang.\n"
 
-#: dos2unix.c:987 dos2unix.c:1029 unix2dos.c:1002 unix2dos.c:1044
+#: dos2unix.c:1024 dos2unix.c:1066 unix2dos.c:1041 unix2dos.c:1083
 #, c-format
 msgid "active code page: %d\n"
 msgstr "actieve codetabel: %d\n"
 
-#: dos2unix.c:1039 unix2dos.c:1054
+#: dos2unix.c:1076 unix2dos.c:1093
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "ongeldige conversiemodus %s opgegeven\n"
 
-#: dos2unix.c:1049 unix2dos.c:1064
+#: dos2unix.c:1086 unix2dos.c:1103
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "optie '%s' vereist een argument\n"
 
-#: dos2unix.c:1062 dos2unix.c:1076 dos2unix.c:1270 unix2dos.c:1077
-#: unix2dos.c:1091 unix2dos.c:1291
+#: dos2unix.c:1099 dos2unix.c:1113 dos2unix.c:1307 unix2dos.c:1116
+#: unix2dos.c:1130 unix2dos.c:1330
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "doel van bestand %s is niet opgegeven in 'nieuwbestand-modus'\n"
 
-#: dos2unix.c:1106 dos2unix.c:1190 unix2dos.c:1121 unix2dos.c:1208
+#: dos2unix.c:1143 dos2unix.c:1227 unix2dos.c:1160 unix2dos.c:1247
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "%s wordt overgeslagen, omdat het geen regulier bestand is.\n"
 
-#: dos2unix.c:1113 unix2dos.c:1128
+#: dos2unix.c:1150 unix2dos.c:1167
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr ""
 "%s wordt overgeslagen, uitvoerbestand %s is een symbolische koppeling.\n"
 
-#: dos2unix.c:1120 dos2unix.c:1204 unix2dos.c:1135 unix2dos.c:1222
+#: dos2unix.c:1157 dos2unix.c:1241 unix2dos.c:1174 unix2dos.c:1261
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr ""
 "Symbolische koppeling %s wordt overgeslagen, omdat het doel geen regulier "
 "bestand is.\n"
 
-#: dos2unix.c:1127 unix2dos.c:1142
+#: dos2unix.c:1164 unix2dos.c:1181
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr ""
 "%s wordt overgeslagen, omdat het doel van symbolische koppeling %s geen "
 "regulier bestand is.\n"
 
-#: dos2unix.c:1134 dos2unix.c:1211 unix2dos.c:1149 unix2dos.c:1229
+#: dos2unix.c:1171 dos2unix.c:1248 unix2dos.c:1188 unix2dos.c:1268
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "Binair bestand %s wordt overgeslagen\n"
 
-#: dos2unix.c:1141 dos2unix.c:1218 unix2dos.c:1156 unix2dos.c:1236
+#: dos2unix.c:1178 dos2unix.c:1255 unix2dos.c:1195 unix2dos.c:1275
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "Codetabel %d wordt niet ondersteund.\n"
 
-#: dos2unix.c:1148 dos2unix.c:1225 unix2dos.c:1163 unix2dos.c:1243
+#: dos2unix.c:1185 dos2unix.c:1262 unix2dos.c:1202 unix2dos.c:1282
 #, c-format
 msgid ""
 "Skipping UTF-16 file %s, the current locale character encoding is not "
@@ -177,40 +192,40 @@ msgstr ""
 "UTF-16-bestand %s wordt overgeslagen, de tekencodering van de huidige "
 "taalregio is niet UTF-8.\n"
 
-#: dos2unix.c:1155 dos2unix.c:1232 unix2dos.c:1170 unix2dos.c:1250
+#: dos2unix.c:1192 dos2unix.c:1269 unix2dos.c:1209 unix2dos.c:1289
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr ""
 "UTF-16-bestand %s wordt overgeslagen, de grootte van 'wchar_t' is %d bytes.\n"
 
-#: dos2unix.c:1162 dos2unix.c:1239 unix2dos.c:1177 unix2dos.c:1257
+#: dos2unix.c:1199 dos2unix.c:1276 unix2dos.c:1216 unix2dos.c:1296
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
 msgstr ""
 "UTF-16-bestand %s wordt overgeslagen, er is een UTF-16-conversiefout "
 "opgetreden.\n"
 
-#: dos2unix.c:1168
+#: dos2unix.c:1205
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "converteren van bestand %s naar bestand %s in Unix-opmaak...\n"
 
-#: dos2unix.c:1175 unix2dos.c:1193
+#: dos2unix.c:1212 unix2dos.c:1232
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "problemen met conversie van bestand %s naar bestand %s\n"
 
-#: dos2unix.c:1197 unix2dos.c:1215
+#: dos2unix.c:1234 unix2dos.c:1254
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "Symbolische koppeling %s wordt overgeslagen.\n"
 
-#: dos2unix.c:1245
+#: dos2unix.c:1282
 #, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "converteren van bestand %s naar Unix-opmaak...\n"
 
-#: dos2unix.c:1252 unix2dos.c:1273
+#: dos2unix.c:1289 unix2dos.c:1312
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "problemen met conversie van bestand %s\n"
@@ -227,22 +242,22 @@ msgstr ""
 "Alle rechten voorbehouden.\n"
 "\n"
 
-#: unix2dos.c:1184
+#: unix2dos.c:1223
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "converteren van bestand %s naar bestand %s in Mac-opmaak...\n"
 
-#: unix2dos.c:1186
+#: unix2dos.c:1225
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "converteren van bestand %s naar bestand %s in DOS-opmaak...\n"
 
-#: unix2dos.c:1264
+#: unix2dos.c:1303
 #, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "converteren van bestand %s naar Mac-opmaak...\n"
 
-#: unix2dos.c:1266
+#: unix2dos.c:1305
 #, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "converteren van bestand %s naar DOS-opmaak...\n"
@@ -451,14 +466,19 @@ msgstr " -ul, --assume-utf16le  aannemen dat de invoeropmaak UTF-16LE is\n"
 msgid " -ub, --assume-utf16be assume that the input format is UTF-16BE\n"
 msgstr " -ub, --assume-utf16be  aannemen dat de invoeropmaak UTF-16BE is\n"
 
-#: common.c:253
+#: common.c:252
+#, c-format
+msgid " -v,  --verbose        verbose operation\n"
+msgstr ""
+
+#: common.c:254
 #, c-format
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
 msgstr ""
 " -F, --follow-symlink   symbolische koppelingen volgen en de doelen "
 "converteren\n"
 
-#: common.c:256
+#: common.c:257
 #, c-format
 msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
@@ -468,7 +488,7 @@ msgstr ""
 "geconverteerde bestanden\n"
 "                          (de originele doelbestanden blijven ongewijzigd)\n"
 
-#: common.c:258
+#: common.c:259
 #, c-format
 msgid ""
 " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
@@ -476,77 +496,87 @@ msgstr ""
 " -S, --skip-symlink     symbolische koppelingen en doelen ongewijzigd laten "
 "(standaard)\n"
 
-#: common.c:260
+#: common.c:261
 #, c-format
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version          programmaversie tonen\n"
 
-#: common.c:272
+#: common.c:273
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "DOS 16-bits versie (WATCOMC).\n"
 
-#: common.c:274
+#: common.c:275
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "DOS 16-bits versie (TURBOC).\n"
 
-#: common.c:276
+#: common.c:277
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "DOS 32-bits versie (WATCOMC).\n"
 
-#: common.c:278
+#: common.c:279
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "DOS 32-bits versie (DJGPP).\n"
 
-#: common.c:280
+#: common.c:281
 msgid "MSYS version.\n"
 msgstr "MSYS-versie.\n"
 
-#: common.c:282
+#: common.c:283
 msgid "Cygwin version.\n"
 msgstr "Cygwin-versie.\n"
 
-#: common.c:284
+#: common.c:285
 msgid "Windows 64 bit version (MinGW-w64).\n"
 msgstr "Windows 64-bits versie (MinGW-w64).\n"
 
-#: common.c:286
+#: common.c:287
 msgid "Windows 32 bit version (WATCOMC).\n"
 msgstr "Windows 32-bits versie (WATCOMC).\n"
 
-#: common.c:288
+#: common.c:289
 msgid "Windows 32 bit version (MinGW-w64).\n"
 msgstr "Windows 32-bits versie (MinGW-w64).\n"
 
-#: common.c:290
+#: common.c:291
 msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Windows 32-bits versie (MinGW).\n"
 
-#: common.c:292
+#: common.c:293
 #, c-format
 msgid "Windows 64 bit version (MSVC %d).\n"
 msgstr "Windows 64-bits versie (MSVC %d).\n"
 
-#: common.c:294
+#: common.c:295
 #, c-format
 msgid "Windows 32 bit version (MSVC %d).\n"
 msgstr "Windows 32-bits versie (MSVC %d).\n"
 
-#: common.c:296
+#: common.c:297
 msgid "OS/2 version (WATCOMC).\n"
 msgstr "OS/2-versie (WATCOMC).\n"
 
-#: common.c:298
+#: common.c:299
 msgid "OS/2 version (EMX).\n"
 msgstr "OS/2-versie (EMX).\n"
 
-#: common.c:301
+#: common.c:302
 msgid "With Unicode UTF-16 support.\n"
 msgstr "Met ondersteuning voor Unicode UTF-16.\n"
 
-#: common.c:303
+#: common.c:304
 msgid "Without Unicode UTF-16 support.\n"
 msgstr "Zonder ondersteuning voor Unicode UTF-16.\n"
 
-#: common.c:306
+#: common.c:307
 msgid "With native language support.\n"
 msgstr "Met ondersteuning voor taalregio's.\n"
+
+#: common.c:581 common.c:589 common.c:597 common.c:608
+#, c-format
+msgid "Writing %s BOM.\n"
+msgstr ""
+
+#: common.c:620 common.c:624 common.c:628
+#, c-format
+msgid "Input file %s has %s BOM.\n"
+msgstr ""

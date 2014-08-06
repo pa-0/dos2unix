@@ -193,7 +193,7 @@
 typedef struct
 {
   int NewFile;                          /* is in new file mode? */
-  int Quiet;                            /* is in quiet mode? */
+  int verbose;                          /* 0 = quiet, 1 = normal, 2 = verbose */
   int KeepDate;                         /* should keep date stamp? */
   int ConvMode;                         /* 0: ascii, 1: 7bit, 2: iso */
   int FromToMode;                       /* 0: dos2unix/unix2dos, 1: mac2unix/unix2mac */
@@ -231,7 +231,8 @@ int MakeTempFileFrom(const char *OutFN, char **fname_ret);
 #endif
 int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, char *progname);
 FILE *read_bom (FILE *f, int *bomtype);
-FILE *write_bom (FILE *f, CFlag *ipFlag);
+FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname);
+void print_bom (const int bomtype, const char *filename, const char *progname);
 #ifdef D2U_UNICODE
 wint_t d2u_getwc(FILE *f, int bomtype);
 wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype);

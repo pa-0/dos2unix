@@ -252,6 +252,11 @@ Assume that the input file format is UTF-16BE.
 
 This option works the same as option C<-ul>.
 
+=item B<-v, --verbose>
+
+Display verbose messages. Extra information is displayed about Byte Order Marks
+and the amount of converted line breaks.
+
 =item B<-F, --follow-symlink>
 
 Follow symbolic links and convert the targets.
