@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-06 21:04+0200\n"
+"POT-Creation-Date: 2014-08-08 21:57+0200\n"
 "PO-Revision-Date: 2014-02-01 14:37+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -402,8 +402,8 @@ msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline          extra regeleinde toevoegen\n"
 
 #: common.c:234
-#, c-format
-msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"
+#, fuzzy, c-format
+msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
 msgstr " -m, --add-bom          een UTF-8 \"Byte Order Mark\" toevoegen\n"
 
 #: common.c:235
@@ -580,3 +580,6 @@ msgstr ""
 #, c-format
 msgid "Input file %s has %s BOM.\n"
 msgstr ""
+
+#~ msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"
+#~ msgstr " -m, --add-bom          een UTF-8 \"Byte Order Mark\" toevoegen\n"

@@ -83,7 +83,7 @@ All rights reserved.\n\n"));
 }
 
 #ifdef D2U_UNICODE
-void StripDelimiterW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, wint_t CurChar, int *converted)
+void StripDelimiterW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, wint_t CurChar, unsigned int *converted)
 {
   wint_t TempNextChar;
   /* CurChar is always CR (x0d) */
@@ -106,7 +106,7 @@ void StripDelimiterW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, wint_t CurChar, i
 }
 #endif
 
-void StripDelimiter(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar, int *converted)
+void StripDelimiter(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar, unsigned int *converted)
 {
   int TempNextChar;
   /* CurChar is always CR (x0d) */
@@ -138,8 +138,8 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
     int RetVal = 0;
     wint_t TempChar;
     wint_t TempNextChar;
-    int line_nr = 1;
-    int converted = 0;
+    unsigned int line_nr = 1;
+    unsigned int converted = 0;
     char *errstr;
 
     ipFlag->status = 0;
@@ -285,8 +285,8 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
     int TempChar;
     int TempNextChar;
     int *ConvTable;
-    int line_nr = 1;
-    int converted = 0;
+    unsigned int line_nr = 1;
+    unsigned int converted = 0;
     char *errstr;
 
     ipFlag->status = 0;

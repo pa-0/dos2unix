@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-06 21:04+0200\n"
+"POT-Creation-Date: 2014-08-08 21:57+0200\n"
 "PO-Revision-Date: 2014-07-09 23:29+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -407,9 +407,9 @@ msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline         további új sor hozzáadása\n"
 
 #: common.c:234
-#, c-format
-msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"
-msgstr " -m, --add-bom         UTF-8 bájtsorrendjel hozzáadása\n"
+#, fuzzy, c-format
+msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
+msgstr " -b, --keep-bom        bájtsorrendjel megtartása (alapértelmezett)\n"
 
 #: common.c:235
 #, c-format
@@ -584,3 +584,6 @@ msgstr ""
 #, c-format
 msgid "Input file %s has %s BOM.\n"
 msgstr ""
+
+#~ msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"
+#~ msgstr " -m, --add-bom         UTF-8 bájtsorrendjel hozzáadása\n"

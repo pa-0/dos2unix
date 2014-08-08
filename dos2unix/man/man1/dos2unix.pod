@@ -181,8 +181,15 @@ In Mac mode Unix line breaks are changed to two Mac line breaks.
 
 =item B<-m, --add-bom>
 
-Write an UTF-8 Byte Order Mark in the output file. Never use this option when
-the output encoding is other than UTF-8. See also section UNICODE.
+Write a Byte Order Mark (BOM) in the output file. By default an UTF-8 BOM
+is written.
+
+When the input file is UTF-16, and the option C<-u> is used, an UTF-16
+BOM will be written.
+
+Never use this option when the output encoding is other than UTF-8 or UTF-16.
+See also section UNICODE.
+
 
 =item B<-n, --newfile INFILE OUTFILE ...>
 
@@ -383,18 +390,19 @@ Dos2unix and unix2dos with Unicode UTF-16 support, can read little and big
 endian UTF-16 encoded text files. To see if dos2unix was built with UTF-16
 support type C<dos2unix -V>.
 
-The Windows versions of dos2unix and unix2dos convert UTF-16 encoded files
-always to UTF-8 encoded files. Unix versions of dos2unix/unix2dos convert
-UTF-16 encoded files to the locale character encoding when it is set to UTF-8.
-Use the locale(1) command to find out what the locale character encoding is.
+UTF-16 encoded files are by default converted to UTF-8. On Unix/Linux it is
+required that the locale character encoding is set to UTF-8. Use the locale(1)
+command to find out what the locale character encoding is. UTF-8 formatted
+text files are well supported on both Windows and Unix/Linux.
 
-Because UTF-8 formatted text files are well supported on both Windows and Unix,
-dos2unix and unix2dos have no option to write UTF-16 files. All UTF-16
-characters can be encoded in UTF-8. Conversion from UTF-16 to UTF-8 is without
-loss. UTF-16 files will be skipped on Unix when the locale character encoding
-is not UTF-8, to prevent accidental loss of text. When an UTF-16 to UTF-8
-conversion error occurs, for instance when the UTF-16 input file contains
-an error, the file will be skipped.
+UTF-16 and UTF-8 encoding are fully compatible, there will no text be lost in
+the conversion. When an UTF-16 to UTF-8 conversion error occurs, for instance
+when the UTF-16 input file contains an error, the file will be skipped.
+
+When option C<-u> is used, the output file will be written in the same UTF-16
+encoding as the input file. Option C<-u> prevents conversion to UTF-8.
+
+Dos2unix and unix2dos have no option to convert UTF-8 files to UTF-16.
 
 ISO and 7-bit mode conversion do not work on UTF-16 files.
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-06 21:04+0200\n"
+"POT-Creation-Date: 2014-08-08 21:57+0200\n"
 "PO-Revision-Date: 2014-07-10 18:19+0200\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -408,9 +408,10 @@ msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline         dodanie dodatkowego znaku nowej linii\n"
 
 #: common.c:234
-#, c-format
-msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"
-msgstr " -m, --add-bom         dodanie znaku BOM (Byte Order Mark) UTF-8\n"
+#, fuzzy, c-format
+msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
+msgstr ""
+" -b, --keep-bom        zachowanie znaku BOM (Byte Order Mark) (domyślne)\n"
 
 #: common.c:235
 #, c-format
@@ -585,3 +586,6 @@ msgstr ""
 #, c-format
 msgid "Input file %s has %s BOM.\n"
 msgstr ""
+
+#~ msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"
+#~ msgstr " -m, --add-bom         dodanie znaku BOM (Byte Order Mark) UTF-8\n"

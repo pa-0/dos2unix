@@ -104,8 +104,8 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
     int RetVal = 0;
     wint_t TempChar;
     wint_t PreviousChar = 0;
-    int line_nr = 1;
-    int converted = 0;
+    unsigned int line_nr = 1;
+    unsigned int converted = 0;
     char *errstr;
 
     ipFlag->status = 0;
@@ -277,8 +277,8 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
     int TempChar;
     int PreviousChar = 0;
     int *ConvTable;
-    int line_nr = 1;
-    int converted = 0;
+    unsigned int line_nr = 1;
+    unsigned int converted = 0;
     char *errstr;
 
     ipFlag->status = 0;

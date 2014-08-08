@@ -231,7 +231,7 @@ void PrintUsage(char *progname)
   printf(_(" -k, --keepdate        keep output file date\n"));
   printf(_(" -L, --license         display software license\n"));
   printf(_(" -l, --newline         add additional newline\n"));
-  printf(_(" -m, --add-bom         add UTF-8 Byte Order Mark\n"));
+  printf(_(" -m, --add-bom         add Byte Order Mark (default UTF-8)\n"));
   printf(_(" -n, --newfile         write to new file\n\
    infile              original file in new-file mode\n\
    outfile             output file in new-file mode\n"));

@@ -1,3 +1,7 @@
+2014-08-08 Erwin Waterlander <waterlan@xs4all.nl>
+	* man/man1/dos2unix.pod: Update manual wrt Unicode.
+	* common.c: Update help message for option -m.
+
 2014-08-06 Erwin Waterlander <waterlan@xs4all.nl>
 	* New option -v, --verbose: Print extra information about
 	  number of converted line breaks and BOMs.
