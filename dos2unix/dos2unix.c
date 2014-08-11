@@ -95,13 +95,13 @@ void StripDelimiterW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, wint_t CurChar, u
       d2u_putwc( CurChar, ipOutF, ipFlag);  /* Mac line, put back CR */
     } else {
       (*converted)++;
+      if (ipFlag->NewLine) {  /* add additional LF? */
+        d2u_putwc(0x0a, ipOutF, ipFlag);
+      }
     }
   }
   else if ( CurChar == 0x0d ) {  /* EOF: last Mac line delimiter (CR)? */
     d2u_putwc( CurChar, ipOutF, ipFlag);
-  }
-  if (ipFlag->NewLine) {  /* add additional LF? */
-    d2u_putwc(0x0a, ipOutF, ipFlag);
   }
 }
 #endif
@@ -118,13 +118,13 @@ void StripDelimiter(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar, unsig
       fputc( CurChar, ipOutF );  /* Mac line, put back CR */
     } else {
       (*converted)++;
+      if (ipFlag->NewLine) {  /* add additional LF? */
+        fputc('\x0a', ipOutF);
+      }
     }
   }
   else if ( CurChar == '\x0d' ) {  /* EOF: last Mac line delimiter (CR)? */
     fputc( CurChar, ipOutF );
-  }
-  if (ipFlag->NewLine) {  /* add additional LF? */
-    fputc('\x0a', ipOutF);
   }
 }
 

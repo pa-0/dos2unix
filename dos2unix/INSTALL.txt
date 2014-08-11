@@ -246,8 +246,10 @@ DOS PORT, 32 BIT
 
     To compile a version for DOS, get the DJGPP compiler
     <http://www.delorie.com/djgpp/>, and use makefile djgpp.mak.
-    It may be troublesome to get djgpp working correctly on a
-    new Windows OS.
+    DJGPP gcc >= 4.6 seems to cause problems. Crashes of gcc itself,
+    or crashing dos2unix binaries (seen in DOSBox and DOSEMU).
+    Use DJGPP gcc <= 4.5.3.
+
 
         make -f djgpp.mak clean
         make -f djgpp.mak

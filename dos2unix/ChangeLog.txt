@@ -1,3 +1,9 @@
+2014-08-10 Erwin Waterlander <waterlan@xs4all.nl>
+	* dos2unix.c: Bug fix: dos2unix -l created DOS line breaks
+	  from Mac line breaks. This bug was introduced in version 3.2,
+	  by safeconv patch.
+	* INSTALL.txt: Update for DJGPP. Use gcc <= 4.5.3.
+
 2014-08-08 Erwin Waterlander <waterlan@xs4all.nl>
 	* man/man1/dos2unix.pod: Update manual wrt Unicode.
 	* common.c: Update help message for option -m.
@@ -36,6 +42,7 @@
 	* dos2unix.c: Bug fix mac2unix conversion of UTF-16 files.
 	  Mac to Unix conversion produced corrupted output.
 	  Thanks to report of Alan S. Jones.
+	  This bug was introduced in version 6.0.
 
 2014-05-24  Åka Sikrom <a4@hush.com>
 	* po/nb.po: New Norwegian Bokmaal translation.
