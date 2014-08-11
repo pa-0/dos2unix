@@ -315,7 +315,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
         ipFlag->status |= WRONG_CODEPAGE ;
         return(-1);
     }
-    if ((ipFlag->ConvMode > 1) && (ipFlag->verbose)) /* not ascii or 7bit */
+    if ((ipFlag->ConvMode > CONVMODE_7BIT) && (ipFlag->verbose)) /* not ascii or 7bit */
     {
        fprintf(stderr, "%s: ", progname);
        fprintf(stderr, _("using code page %d.\n"), ipFlag->ConvMode);

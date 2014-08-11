@@ -1,3 +1,6 @@
+2014-08-11 Erwin Waterlander <waterlan@xs4all.nl>
+	* test: Added automated tests.
+
 2014-08-10 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c: Bug fix: dos2unix -l created DOS line breaks
 	  from Mac line breaks. This bug was introduced in version 3.2,
