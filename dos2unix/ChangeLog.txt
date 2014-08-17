@@ -1,3 +1,6 @@
+2014-08-17 Erwin Waterlander <waterlan@xs4all.nl>
+	* test: Use TAP (Test Anything Protocol) to run tests.
+
 2014-08-11 Erwin Waterlander <waterlan@xs4all.nl>
 	* test: Added automated tests.
 

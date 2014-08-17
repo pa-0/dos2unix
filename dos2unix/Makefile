@@ -429,7 +429,7 @@ man/pt_BR/man1/$(PACKAGE).$(HTMLEXT) : man/pt_BR/man1/$(PACKAGE).pod
 man/uk/man1/$(PACKAGE).$(HTMLEXT) : man/uk/man1/$(PACKAGE).pod
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - програма для перетворення даних у текстовому форматі DOS/Mac у формат Unix, і навпаки" $< > $@
 
-test:
+test: all
 	cd test; $(MAKE) test
 
 check: test
