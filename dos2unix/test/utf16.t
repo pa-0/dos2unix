@@ -6,6 +6,9 @@ use Test::More tests => 19;
 $suffix = "";
 if (-e "../dos2unix.exe") {
   $suffix = ".exe";
+  $unix = 0;
+} else {
+  $unix = 1;
 }
 $DOS2UNIX = "../dos2unix" . $suffix;
 $MAC2UNIX = "../mac2unix" . $suffix;
@@ -59,4 +62,5 @@ $ENV{'LC_ALL'} = 'en_US.ISO-8859-1';
 
 system("$DOS2UNIX -v -n utf16le.txt out_unix.txt");
 $result = ($? >> 8);
-ok( $result == 1, 'DOS UTF-16LE to Unix UTF-8, env is not UTF-8' );
+if ( $unix ) { $expected = 1; } else { $expected = 0 };
+ok( $result == $expected, 'DOS UTF-16LE to Unix UTF-8, env is not UTF-8' );
