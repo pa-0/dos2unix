@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Requires perl-Test-Simple installation.
-use Test::More tests => 29;
+use Test::More tests => 31;
 
 $suffix = "";
 if (-e "../dos2unix.exe") {
@@ -23,6 +23,12 @@ ok( $? == 0, 'Unix to DOS conversion' );
 
 system("$UNIX2MAC -v -n unix.txt out_mac.txt; cmp out_mac.txt mac.txt");
 ok( $? == 0, 'Unix to Mac conversion' );
+
+system("cp -f dos.txt out_unix.txt; $DOS2UNIX -v out_unix.txt; cmp out_unix.txt unix.txt");
+ok( $? == 0, 'DOS to Unix conversion, old file mode' );
+
+system("cp -f unix.txt out_dos.txt; $UNIX2DOS -v out_dos.txt; cmp out_dos.txt dos.txt");
+ok( $? == 0, 'Unix to DOS conversion, old file mode' );
 
 system("$DOS2UNIX -v -n unix.txt out_unix.txt; cmp out_unix.txt unix.txt");
 ok( $? == 0, 'dos2unix must not change unix line breaks');

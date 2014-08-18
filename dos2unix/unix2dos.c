@@ -137,6 +137,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
           if (TempChar == 0x0a)
           {
             d2u_putwc(0x0d, ipOutF, ipFlag); /* got LF, put extra CR */
+            converted++;
           } else {
              if (TempChar == 0x0d) /* got CR */
              {
@@ -244,6 +245,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname)
                 }
                 break;
               }
+            converted++;
             if (ipFlag->NewLine) {  /* add additional CR? */
               d2u_putwc(0x0d, ipOutF, ipFlag);
             }

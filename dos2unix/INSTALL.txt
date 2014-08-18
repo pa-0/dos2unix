@@ -10,12 +10,15 @@ PREREQUISITES
                              mv, rm, uname)
 
         Optional (depending on build targets):
-            * perl         : Practical Extraction and Report Language (perlpod)
-                             perl >= 5.10.1 is required.
+            * perl         : Practical Extraction and Report Language
+                             perl >= 5.10.1 is required for rebuilding the
+                             manual pages with perlpod.
+                             Self-tests require module perl-Test-Simple.
             * gettext      : Framework to help GNU packages produce multi-
                              lingual messages.
-            * po4a         : PO for anything.
-            * groff        : GNU troff text formatting system.
+            * po4a         : PO for anything, for rebuilding manuals.
+            * groff        : GNU troff text formatting system, for
+                             international messages and manuals.
             * ghostscript  : An interpreter for the PostScript language and
                              for PDF (ps2pdf)
 
@@ -42,6 +45,11 @@ BASIC INSTALLATION
     To build the program type:
 
         make
+
+
+    To run the self-tests type:
+
+        make check
 
 
     To strip the executables:

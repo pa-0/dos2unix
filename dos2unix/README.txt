@@ -45,7 +45,7 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2-6.0.6  2009-2014
+        Erwin Waterlander       version 3.2-6.1    2009-2014
         Christian Wurll         version 3.1        1998
         Bernd Johannes Wuebben  version 3.0        1998
         Benjamin Lin            version 1.1-2.3    1994-1995
@@ -67,8 +67,8 @@ TRANSLATORS
         Dutch                 Benno Schulenberg            Version 6.0.5
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
         Esperanto             Benno Schulenberg            Version 6.0.5
-        French                Frédéric Marchal             Version 6.0.5 - 6.0.6
-        German                Philipp Thomas               Version 5.0   - 6.0.3
+        French                Frédéric Marchal             Version 6.0.5 - 6.1
+        German                Philipp Thomas               Version 5.0   - 6.0.3, 6.1
         German                Lars Wendler                 Version 6.0.4
 	German                Mario Blättermann            Version 6.0.6
         Hungarian             Balázs Úr                    Version 6.0.5 - 6.0.6
@@ -79,7 +79,7 @@ TRANSLATORS
         Serbian               Мирослав Николић             Version 6.0.5 - 6.0.6
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 6.0.6
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 6.1
         Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 6.0.6
 
         Translation of the manual.
@@ -88,13 +88,13 @@ TRANSLATORS
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 6.0.6
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5
-        French                Frédéric Marchal             Version 6.0.5 - 6.0.6
-	German                Mario Blättermann            Version 6.0.5 - 6.0.6
+        French                Frédéric Marchal             Version 6.0.5 - 6.1
+	German                Mario Blättermann            Version 6.0.5 - 6.1
         Hungarian             Balázs Úr                    Version 6.0.6
         Polish                Jakub Bogusz                 Version 6.0.5 - 6.0.6
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 6.0.6
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 6.1
 
 
 ACKNOWLEDGEMENTS
