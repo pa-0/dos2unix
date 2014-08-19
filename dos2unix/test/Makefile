@@ -3,7 +3,10 @@ all: test
 check: test
 
 test:
-	prove -v iso.t utf8.t utf16.t misc.t
+	prove -v ascii.t iso.t utf8.t utf16.t misc.t
+
+ascii:
+	prove -v $@.t
 
 iso:
 	prove -v $@.t

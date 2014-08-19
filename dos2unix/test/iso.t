@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Requires perl-Test-Simple installation.
-use Test::More tests => 31;
+use Test::More tests => 12;
 
 $suffix = "";
 if (-e "../dos2unix.exe") {
@@ -12,75 +12,73 @@ $MAC2UNIX = "../mac2unix" . $suffix;
 $UNIX2DOS = "../unix2dos" . $suffix;
 $UNIX2MAC = "../unix2mac" . $suffix;
 
-system("$DOS2UNIX -v -n dos.txt out_unix.txt; cmp out_unix.txt unix.txt");
-ok( $? == 0, 'DOS to Unix conversion' );
+# To check for instance cp850 to iso88591 conversion
+# you can do a visual check like this (on Windows).
+#
+# In a Windows Command Prompt, set font to Lucida Console.
+# Then set the code page to 850:
+#    chcp 850
+# Display complete cp850 code page:
+#    type chardos.txt
+#
+# In a Cygwin Mintty terminal, under Options->Text
+# set Character set to ISO-8859-1
+# Display converted character set:
+#    cat iso_850.txt
+#
+# You now see the same characters as in the Windows Command Prompt
+# with the non-convertable characters replaced with a dot.
 
-system("$MAC2UNIX -v -n mac.txt out_unix.txt; cmp out_unix.txt unix.txt");
-ok( $? == 0, 'DOS to Unix conversion' );
+system("$DOS2UNIX -v -437 -n chardos.txt out_unix.txt; cmp out_unix.txt iso_437.txt");
+ok( $? == 0, 'DOS to Unix conversion, cp437 to iso88591' );
 
-system("$UNIX2DOS -v -n unix.txt out_dos.txt; cmp out_dos.txt dos.txt");
-ok( $? == 0, 'Unix to DOS conversion' );
+system("$DOS2UNIX -v -850 -n chardos.txt out_unix.txt; cmp out_unix.txt iso_850.txt");
+ok( $? == 0, 'DOS to Unix conversion, cp850 to iso88591' );
 
-system("$UNIX2MAC -v -n unix.txt out_mac.txt; cmp out_mac.txt mac.txt");
-ok( $? == 0, 'Unix to Mac conversion' );
+system("$DOS2UNIX -v -860 -n chardos.txt out_unix.txt; cmp out_unix.txt iso_860.txt");
+ok( $? == 0, 'DOS to Unix conversion, cp860 to iso88591' );
 
-system("cp -f dos.txt out_unix.txt; $DOS2UNIX -v out_unix.txt; cmp out_unix.txt unix.txt");
-ok( $? == 0, 'DOS to Unix conversion, old file mode' );
+system("$DOS2UNIX -v -863 -n chardos.txt out_unix.txt; cmp out_unix.txt iso_863.txt");
+ok( $? == 0, 'DOS to Unix conversion, cp863 to iso88591' );
 
-system("cp -f unix.txt out_dos.txt; $UNIX2DOS -v out_dos.txt; cmp out_dos.txt dos.txt");
-ok( $? == 0, 'Unix to DOS conversion, old file mode' );
+system("$DOS2UNIX -v -865 -n chardos.txt out_unix.txt; cmp out_unix.txt iso_865.txt");
+ok( $? == 0, 'DOS to Unix conversion, cp865 to iso88591' );
 
-system("$DOS2UNIX -v -n unix.txt out_unix.txt; cmp out_unix.txt unix.txt");
-ok( $? == 0, 'dos2unix must not change unix line breaks');
-system("$DOS2UNIX -v -n mac.txt out_unix.txt; cmp out_unix.txt mac.txt");
-ok( $? == 0, 'dos2unix must not change mac line breaks');
-system("$MAC2UNIX -v -n unix.txt out_unix.txt; cmp out_unix.txt unix.txt");
-ok( $? == 0, 'mac2unix must not change unix line breaks');
-system("$MAC2UNIX -v -n dos.txt out_unix.txt; cmp out_unix.txt dos.txt");
-ok( $? == 0, 'mac2unix must not change dos line breaks');
-system("$UNIX2DOS -v -n dos.txt out_dos.txt; cmp out_dos.txt dos.txt");
-ok( $? == 0, 'unix2dos must not change dos line breaks');
-system("$UNIX2DOS -v -n mac.txt out_dos.txt; cmp out_dos.txt mac.txt");
-ok( $? == 0, 'unix2dos must not change mac line breaks');
-system("$UNIX2MAC -v -n dos.txt out_mac.txt; cmp out_mac.txt dos.txt");
-ok( $? == 0, 'unix2mac must not change dos line breaks');
-system("$UNIX2MAC -v -n mac.txt out_mac.txt; cmp out_mac.txt mac.txt");
-ok( $? == 0, 'unix2mac must not change mac line breaks');
+system("$DOS2UNIX -v -1252 -n chardos.txt out_unix.txt; cmp out_unix.txt iso_1252.txt");
+ok( $? == 0, 'DOS to Unix conversion, cp1252 to iso88591' );
 
-system("$DOS2UNIX -v -n mixed.txt out.txt; cmp out.txt mixedd2u.txt");
-ok( $? == 0, 'DOS to Unix conversion mixed');
-system("$MAC2UNIX -v -n mixed.txt out.txt; cmp out.txt mixedm2u.txt");
-ok( $? == 0, 'DOS to Unix conversion mixed');
-system("$UNIX2DOS -v -n mixed.txt out.txt; cmp out.txt mixedu2d.txt");
-ok( $? == 0, 'Unix to DOS conversion mixed');
-system("$UNIX2MAC -v -n mixed.txt out.txt; cmp out.txt mixedu2m.txt");
-ok( $? == 0, 'Unix to Mac conversion mixed');
 
-system("$DOS2UNIX -v -l -n dos.txt out_unix.txt; cmp out_unix.txt unix_dbl.txt");
-ok( $? == 0, 'DOS to Unix conversion with line doubling');
-system("$MAC2UNIX -v -l -n mac.txt out_unix.txt; cmp out_unix.txt unix_dbl.txt");
-ok( $? == 0, 'DOS to Unix conversion with line doubling');
-system("$UNIX2DOS -v -l -n unix.txt out_dos.txt; cmp out_dos.txt dos_dbl.txt");
-ok( $? == 0, 'Unix to DOS conversion with line doubling');
-system("$UNIX2MAC -v -l -n unix.txt out_mac.txt; cmp out_mac.txt mac_dbl.txt");
-ok( $? == 0, 'Unix to Mac conversion with line doubling');
+# To check for instance iso88591 to cp850 conversion
+# you can do a visual check like this (on Windows).
+#
+# In a Cygwin Mintty terminal, under Options->Text
+# set Character set to ISO-8859-1
+# Display complete ISO-8859-1 character set:
+#    cat charunix.txt
+#
+# In a Windows Command Prompt, set font to Lucida Console.
+# Then set the code page to 850:
+#    chcp 850
+# Display converted cp850 code page:
+#    type cp_850.txt
+#
+# You now see the same characters as in the Mintty terminal
+# with the non-convertable characters replaced with a dot.
 
-system("$DOS2UNIX -v -l -n unix.txt out_unix.txt; cmp out_unix.txt unix.txt");
-ok( $? == 0, 'dos2unix -l must not change unix line breaks');
-system("$DOS2UNIX -v -l -n mac.txt out_unix.txt; cmp out_unix.txt mac.txt");
-ok( $? == 0, 'dos2unix -l must not change mac line breaks');
-system("$MAC2UNIX -v -l -n unix.txt out_unix.txt; cmp out_unix.txt unix.txt");
-ok( $? == 0, 'mac2unix -l must not change unix line breaks');
-system("$MAC2UNIX -v -l -n dos.txt out_unix.txt; cmp out_unix.txt dos.txt");
-ok( $? == 0, 'mac2unix -l must not change dos line breaks');
-system("$UNIX2DOS -v -l -n dos.txt out_dos.txt; cmp out_dos.txt dos.txt");
-ok( $? == 0, 'unix2dos -l must not change dos line breaks');
-system("$UNIX2DOS -v -l -n mac.txt out_dos.txt; cmp out_dos.txt mac.txt");
-ok( $? == 0, 'unix2dos -l must not change mac line breaks');
-system("$UNIX2MAC -v -l -n dos.txt out_mac.txt; cmp out_mac.txt dos.txt");
-ok( $? == 0, 'unix2mac -l must not change dos line breaks');
-system("$UNIX2MAC -v -l -n mac.txt out_mac.txt; cmp out_mac.txt mac.txt");
-ok( $? == 0, 'unix2mac -l must not change mac line breaks');
+system("$UNIX2DOS -v -437 -n charunix.txt out_dos.txt; cmp out_dos.txt cp_437.txt");
+ok( $? == 0, 'Unix to DOS conversion, iso88591 to cp437' );
 
-system("$DOS2UNIX -v -7 -n char.txt out_unix.txt; cmp out_unix.txt char7.txt");
-ok( $? == 0, '7bit');
+system("$UNIX2DOS -v -850 -n charunix.txt out_dos.txt; cmp out_dos.txt cp_850.txt");
+ok( $? == 0, 'Unix to DOS conversion, iso88591 to cp850' );
+
+system("$UNIX2DOS -v -860 -n charunix.txt out_dos.txt; cmp out_dos.txt cp_860.txt");
+ok( $? == 0, 'Unix to DOS conversion, iso88591 to cp860' );
+
+system("$UNIX2DOS -v -863 -n charunix.txt out_dos.txt; cmp out_dos.txt cp_863.txt");
+ok( $? == 0, 'Unix to DOS conversion, iso88591 to cp863' );
+
+system("$UNIX2DOS -v -865 -n charunix.txt out_dos.txt; cmp out_dos.txt cp_865.txt");
+ok( $? == 0, 'Unix to DOS conversion, iso88591 to cp865' );
+
+system("$UNIX2DOS -v -1252 -n charunix.txt out_dos.txt; cmp out_dos.txt cp_1252.txt");
+ok( $? == 0, 'Unix to DOS conversion, iso88591 to cp1252' );
