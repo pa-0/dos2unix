@@ -64,7 +64,7 @@ TRANSLATORS
         Chinese (traditional) mail6543210                  Version 6.0.5
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
         Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4
-        Dutch                 Benno Schulenberg            Version 6.0.5
+        Dutch                 Benno Schulenberg            Version 6.0.5 - 6.1
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
         Esperanto             Benno Schulenberg            Version 6.0.5
         French                Frédéric Marchal             Version 6.0.5 - 6.1
@@ -73,9 +73,9 @@ TRANSLATORS
 	German                Mario Blättermann            Version 6.0.6
         Hungarian             Balázs Úr                    Version 6.0.5 - 6.0.6
         Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6
-        Polish                Jakub Bogusz                 Version 6.0.5 - 6.0.6
+        Polish                Jakub Bogusz                 Version 6.0.5 - 6.1
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
-        Russian               Yuri Kozlov                  Version 6.0.6
+        Russian               Yuri Kozlov                  Version 6.0.6 - 6.1
         Serbian               Мирослав Николић             Version 6.0.5 - 6.0.6
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6
@@ -87,11 +87,11 @@ TRANSLATORS
 
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 6.0.6
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
-        Dutch                 Benno Schulenberg            Version 6.0.5
+        Dutch                 Benno Schulenberg            Version 6.0.5 - 6.1
         French                Frédéric Marchal             Version 6.0.5 - 6.1
 	German                Mario Blättermann            Version 6.0.5 - 6.1
         Hungarian             Balázs Úr                    Version 6.0.6
-        Polish                Jakub Bogusz                 Version 6.0.5 - 6.0.6
+        Polish                Jakub Bogusz                 Version 6.0.5 - 6.1
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6
         Ukrainian             Yuri Chornoivan              Version 6.0.5 - 6.1
