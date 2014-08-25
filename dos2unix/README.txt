@@ -34,12 +34,13 @@ HISTORY
         Features
 
         * Native language support.
-        * Automatically skips binary and non-regular files
+        * Automatically skips binary and non-regular files.
         * In-place, paired, or stdio mode conversion.
         * Keep original file dates option.
         * 7-bit and iso conversion modes like SunOS dos2unix.
-        * Conversion of Windows UTF-16 files to Unix UTF-8.
-        * Handles Unicode Byte Order Mark (BOM)
+        * Conversion of Unicode UTF-16 and UTF-8 files.
+        * Conversion of UTF-16 files to UTF-8.
+        * Handles Unicode Byte Order Mark (BOM).
         * Secure.
 
 
@@ -70,7 +71,7 @@ TRANSLATORS
         French                Frédéric Marchal             Version 6.0.5 - 6.1
         German                Philipp Thomas               Version 5.0   - 6.0.3, 6.1
         German                Lars Wendler                 Version 6.0.4
-	German                Mario Blättermann            Version 6.0.6
+        German                Mario Blättermann            Version 6.0.6
         Hungarian             Balázs Úr                    Version 6.0.5 - 6.0.6
         Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 6.1
         Polish                Jakub Bogusz                 Version 6.0.5 - 6.1
@@ -89,7 +90,7 @@ TRANSLATORS
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5 - 6.1
         French                Frédéric Marchal             Version 6.0.5 - 6.1
-	German                Mario Blättermann            Version 6.0.5 - 6.1
+        German                Mario Blättermann            Version 6.0.5 - 6.1
         Hungarian             Balázs Úr                    Version 6.0.6
         Polish                Jakub Bogusz                 Version 6.0.5 - 6.1
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
