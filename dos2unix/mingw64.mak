@@ -4,6 +4,7 @@
 
 # This makefile is for use with MSYS2 and MinGW-w64 target 64 bit (x86_64)
 # http://sourceforge.net/projects/msys2/
+.PHONY: test check
 
 # Ruben van Boxem x86_64-w64-mingw32
 #CC = x86_64-w64-mingw32-gcc
@@ -26,6 +27,11 @@ LIBS_EXTRA += $(CRT_GLOB_OBJ)
 
 all:
 	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) CFLAGS_OS=-I/mingw64/include
+
+test: all
+	cd test; $(MAKE) test
+
+check: test
 
 install:
 	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) CFLAGS_OS=-I/mingw64/include

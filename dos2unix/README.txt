@@ -72,7 +72,7 @@ TRANSLATORS
         German                Lars Wendler                 Version 6.0.4
 	German                Mario Blättermann            Version 6.0.6
         Hungarian             Balázs Úr                    Version 6.0.5 - 6.0.6
-        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6
+        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 6.1
         Polish                Jakub Bogusz                 Version 6.0.5 - 6.1
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
         Russian               Yuri Kozlov                  Version 6.0.6 - 6.1
@@ -80,7 +80,7 @@ TRANSLATORS
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6
         Ukrainian             Yuri Chornoivan              Version 6.0.5 - 6.1
-        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 6.0.6
+        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 6.1
 
         Translation of the manual.
         See http://translationproject.org/domain/dos2unix-man.html

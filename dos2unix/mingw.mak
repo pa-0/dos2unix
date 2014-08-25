@@ -5,6 +5,7 @@
 
 # This makefile is for use with MSYS and MinGW (mingw.org) target 32 bit (i686)
 # http://www.mingw.org/
+.PHONY: test check
 
 prefix=c:/usr/local
 ENABLE_NLS=
@@ -16,6 +17,11 @@ endif
 
 all:
 	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f"
+
+test: all
+	cd test; $(MAKE) test
+
+check: test
 
 install:
 	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f"

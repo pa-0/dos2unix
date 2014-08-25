@@ -73,6 +73,13 @@ BASIC INSTALLATION
 
         make mostlyclean
 
+SELF-TESTS
+
+    To run the self-tests you need a Perl installation including
+    module perl-Test-Simple.
+
+    To check the native Windows ports you need to run the tests in
+    the MSYS2 shell.
 
 INSTALLATION NAMES
 

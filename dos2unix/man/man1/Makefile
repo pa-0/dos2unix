@@ -109,7 +109,7 @@ dos2unix.pod : ;
 	# make target - create manual page from a *.pod page
 	podchecker $<
 	$(POD2MAN) $(POD2MAN_FLAGS) \
-                --utf8 \
+		--utf8 \
 		--center="$(PODCENTER)" \
 		--name="$(PACKAGE)" \
 		--section="$(MANSECT)" \

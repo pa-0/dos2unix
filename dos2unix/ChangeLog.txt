@@ -1,3 +1,7 @@
+2014-08-25 Erwin Waterlander <waterlan@xs4all.nl>
+	* test/symlink.t: New tests for options -F, -R, -S
+	* *.po: Included updated nl,nb ,vi translations.
+
 2014-08-22 Erwin Waterlander <waterlan@xs4all.nl>
 	* *.po: Included updated nl,pl,ru translations.
 
@@ -9,6 +13,7 @@
 
 2014-08-17 Erwin Waterlander <waterlan@xs4all.nl>
 	* test: Use TAP (Test Anything Protocol) to run tests.
+	  Requires perl module perl-Test-Simple.
 
 2014-08-11 Erwin Waterlander <waterlan@xs4all.nl>
 	* test: Added automated tests.
