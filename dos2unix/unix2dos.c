@@ -598,60 +598,18 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
     if (ipFlag->ConvMode == CONVMODE_UTF16LE)
     {
       fprintf(stderr, "%s: ", progname);
-         fprintf(stderr, _("Assuming UTF-16LE encoding.\n") );
+      fprintf(stderr, _("Assuming UTF-16LE encoding.\n") );
     }
     if (ipFlag->ConvMode == CONVMODE_UTF16BE)
     {
       fprintf(stderr, "%s: ", progname);
-         fprintf(stderr, _("Assuming UTF-16BE encoding.\n") );
+      fprintf(stderr, _("Assuming UTF-16BE encoding.\n") );
     }
   }
 #endif
-  InF = read_bom(InF, &ipFlag->bomtype);
-  if (ipFlag->verbose > 1)
-    print_bom(ipFlag->bomtype, ipInFN, progname);
-#ifdef D2U_UNICODE
-  if ((ipFlag->bomtype == FILE_MBS) && (ipFlag->ConvMode == CONVMODE_UTF16LE))
-    ipFlag->bomtype = FILE_UTF16LE;
-  if ((ipFlag->bomtype == FILE_MBS) && (ipFlag->ConvMode == CONVMODE_UTF16BE))
-    ipFlag->bomtype = FILE_UTF16BE;
-#endif
 
-#ifdef D2U_UNICODE
-#if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
-  if (!ipFlag->keep_utf16 && ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)))
-  {
-    if (strcmp(nl_langinfo(CODESET), "UTF-8") != 0)
-    {
-      /* Don't convert UTF-16 files when the locale encoding is not UTF-8
-       * to prevent loss of characters. */
-      ipFlag->status |= LOCALE_NOT_UTF8 ;
-      if (!ipFlag->error) ipFlag->error = 1;
-      RetVal = -1;
-    }
-  }
-#endif
-#if !defined(_WIN32) && !defined(__CYGWIN__) /* Not Windows or Cygwin */
-  if (!ipFlag->keep_utf16 && ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)))
-  {
-    if (sizeof(wchar_t) < 4)
-    {
-      /* A decoded UTF-16 surrogate pair must fit in a wchar_t */
-      ipFlag->status |= WCHAR_T_TOO_SMALL ;
-      if (!ipFlag->error) ipFlag->error = 1;
-      RetVal = -1;
-    }
-  }
-#endif
-#endif
-
-  if ((ipFlag->add_bom) || ((ipFlag->keep_bom) && (ipFlag->bomtype > 0)))
-    write_bom(TempF, ipFlag, progname);
-
-  /* Turn off ISO and 7-bit conversion for Unicode text files */
-  /* When we assume UTF16, don't change the conversion mode. We need to remember it. */
-  if ((ipFlag->bomtype > 0) && (ipFlag->ConvMode != CONVMODE_UTF16LE) && (ipFlag->ConvMode != CONVMODE_UTF16BE))
-    ipFlag->ConvMode = CONVMODE_ASCII;
+  if (check_unicode(InF, TempF, ipFlag, ipInFN, progname))
+    RetVal = -1;
 
   /* conversion sucessful? */
 #ifdef D2U_UNICODE
@@ -848,9 +806,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *pr
 int ConvertUnixToDosStdio(CFlag *ipFlag, char *progname)
 {
     ipFlag->NewFile = 1;
-    ipFlag->verbose = 0;
     ipFlag->KeepDate = 0;
-    ipFlag->Force = 1;
 
 #if defined(_WIN32) && !defined(__CYGWIN__)
 
@@ -869,26 +825,18 @@ int ConvertUnixToDosStdio(CFlag *ipFlag, char *progname)
     setmode(fileno(stdin), O_BINARY);
 #endif
 
-    read_bom(stdin, &ipFlag->bomtype);
-#ifdef D2U_UNICODE
-    if ((ipFlag->bomtype == FILE_MBS) && (ipFlag->ConvMode == CONVMODE_UTF16LE))
-      ipFlag->bomtype = FILE_UTF16LE;
-    if ((ipFlag->bomtype == FILE_MBS) && (ipFlag->ConvMode == CONVMODE_UTF16BE))
-      ipFlag->bomtype = FILE_UTF16BE;
-#endif
-
-    if ((ipFlag->add_bom) || ((ipFlag->keep_bom) && (ipFlag->bomtype > 0)))
-      write_bom(stdout, ipFlag, progname);
+  if (check_unicode(stdin, stdout, ipFlag, "stdin", progname))
+    return 1;
 
 #ifdef D2U_UNICODE
     if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))
     {
-       return (ConvertUnixToDosW(stdin, stdout, ipFlag, progname));
+       return ConvertUnixToDosW(stdin, stdout, ipFlag, progname);
     } else {
-       return (ConvertUnixToDos(stdin, stdout, ipFlag, progname));
+       return ConvertUnixToDos(stdin, stdout, ipFlag, progname);
     }
 #else
-    return (ConvertUnixToDos(stdin, stdout, ipFlag, progname));
+    return ConvertUnixToDos(stdin, stdout, ipFlag, progname);
 #endif
 }
 
@@ -1322,7 +1270,9 @@ int main (int argc, char *argv[])
   /* no file argument, use stdin and stdout */
   if (pFlag->stdio_mode)
   {
-    exit(ConvertUnixToDosStdio(pFlag, progname));
+    ConvertUnixToDosStdio(pFlag, progname);
+    print_errors_stdio(pFlag, progname);
+    return pFlag->error;
   }
 
 

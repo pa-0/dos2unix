@@ -233,6 +233,8 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, char *progname);
 FILE *read_bom (FILE *f, int *bomtype);
 FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname);
 void print_bom (const int bomtype, const char *filename, const char *progname);
+int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, const char *progname);
+void print_errors_stdio(const CFlag *pFlag, const char *progname);
 #ifdef D2U_UNICODE
 wint_t d2u_getwc(FILE *f, int bomtype);
 wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype);

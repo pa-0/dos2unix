@@ -29,7 +29,11 @@
 #if defined(_WIN32) || defined(__CYGWIN__)
 #include <windows.h>
 #endif
+#if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
+# include <langinfo.h>
 #endif
+#endif
+
 
 #if defined(__GLIBC__)
 /* on glibc, canonicalize_file_name() broken prior to 2.4 (06-Mar-2006) */
@@ -237,9 +241,8 @@ void PrintUsage(char *progname)
    outfile             output file in new-file mode\n"));
   printf(_(" -o, --oldfile         write to old file (default)\n\
    file ...            files to convert in old-file mode\n"));
-  printf(_(" -q, --quiet           quiet mode, suppress all warnings\n\
-                         (always on in stdio mode)\n"));
-  if ((strncmp(progname, "dos2unix", sizeof("mac2unix")) == 0) || (strncmp(progname, "dos2unix", sizeof("dos2unix")) == 0))
+  printf(_(" -q, --quiet           quiet mode, suppress all warnings\n"));
+  if ((strncmp(progname, "dos2unix", sizeof("dos2unix")) == 0) || (strncmp(progname, "mac2unix", sizeof("mac2unix")) == 0))
     printf(_(" -r, --remove-bom      remove Byte Order Mark (default)\n"));
   else
     printf(_(" -r, --remove-bom      remove Byte Order Mark\n"));
@@ -631,6 +634,101 @@ void print_bom (const int bomtype, const char *filename, const char *progname)
     ;
   }
 }
+
+int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, const char *progname)
+{
+  int RetVal = 0;
+
+#ifdef D2U_UNICODE
+  if (ipFlag->verbose > 1) {
+    if (ipFlag->ConvMode == CONVMODE_UTF16LE) {
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("Assuming UTF-16LE encoding.\n") );
+    }
+    if (ipFlag->ConvMode == CONVMODE_UTF16BE) {
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("Assuming UTF-16BE encoding.\n") );
+    }
+  }
+#endif
+  InF = read_bom(InF, &ipFlag->bomtype);
+  if (ipFlag->verbose > 1)
+    print_bom(ipFlag->bomtype, ipInFN, progname);
+#ifdef D2U_UNICODE
+  if ((ipFlag->bomtype == FILE_MBS) && (ipFlag->ConvMode == CONVMODE_UTF16LE))
+    ipFlag->bomtype = FILE_UTF16LE;
+  if ((ipFlag->bomtype == FILE_MBS) && (ipFlag->ConvMode == CONVMODE_UTF16BE))
+    ipFlag->bomtype = FILE_UTF16BE;
+#endif
+
+#ifdef D2U_UNICODE
+#if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
+  if (!ipFlag->keep_utf16 && ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))) {
+    if (strcmp(nl_langinfo(CODESET), "UTF-8") != 0) {
+      /* Don't convert UTF-16 files when the locale encoding is not UTF-8
+       * to prevent loss of characters. */
+      ipFlag->status |= LOCALE_NOT_UTF8 ;
+      if (!ipFlag->error) ipFlag->error = 1;
+      RetVal = -1;
+    }
+  }
+#endif
+#if !defined(_WIN32) && !defined(__CYGWIN__) /* Not Windows or Cygwin */
+  if (!ipFlag->keep_utf16 && ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))) {
+    if (sizeof(wchar_t) < 4) {
+      /* A decoded UTF-16 surrogate pair must fit in a wchar_t */
+      ipFlag->status |= WCHAR_T_TOO_SMALL ;
+      if (!ipFlag->error) ipFlag->error = 1;
+      RetVal = -1;
+    }
+  }
+#endif
+#endif
+
+  if ((ipFlag->add_bom) || ((ipFlag->keep_bom) && (ipFlag->bomtype > 0)))
+    write_bom(TempF, ipFlag, progname);
+
+  /* Turn off ISO and 7-bit conversion for Unicode text files */
+  /* When we assume UTF16, don't change the conversion mode. We need to remember it. */
+  if ((ipFlag->bomtype > 0) && (ipFlag->ConvMode != CONVMODE_UTF16LE) && (ipFlag->ConvMode != CONVMODE_UTF16BE))
+    ipFlag->ConvMode = CONVMODE_ASCII;
+
+  return RetVal;
+}
+
+void print_errors_stdio(const CFlag *pFlag, const char *progname)
+{
+    if (pFlag->status & WRONG_CODEPAGE)
+    {
+      if (pFlag->verbose)
+      {
+        fprintf(stderr,"%s: ",progname);
+        fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
+      }
+    } else if (pFlag->status & LOCALE_NOT_UTF8)
+    {
+      if (pFlag->verbose)
+      {
+        fprintf(stderr,"%s: ",progname);
+        fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), "stdin");
+      }
+    } else if (pFlag->status & WCHAR_T_TOO_SMALL)
+    {
+      if (pFlag->verbose)
+      {
+        fprintf(stderr,"%s: ",progname);
+        fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), "stdin", (int)sizeof(wchar_t));
+      }
+    } else if (pFlag->status & UNICODE_CONVERSION_ERROR)
+    {
+      if (pFlag->verbose)
+      {
+        fprintf(stderr,"%s: ",progname);
+        fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), "stdin");
+      }
+    }
+}
+
 
 #ifdef D2U_UNICODE
 wint_t d2u_getwc(FILE *f, int bomtype)

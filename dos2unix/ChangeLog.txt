@@ -1,3 +1,9 @@
+2014-08-26 Erwin Waterlander <waterlan@xs4all.nl>
+	* dos2unix.c, unix2dos.c, common.c: stdio mode does not automatically
+	  set quiet mode. stdio mode prints errors and returns error code.
+	* dos2unix.c, unix2dos.c: stdio mode does not automatically force
+	  conversion of binaries.
+
 2014-08-25 Erwin Waterlander <waterlan@xs4all.nl>
 	* test/symlink.t: New tests for options -F, -R, -S
 	* *.po: Included updated nl,nb ,vi translations.

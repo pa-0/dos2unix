@@ -12,6 +12,8 @@ $MAC2UNIX = "../mac2unix" . $suffix;
 $UNIX2DOS = "../unix2dos" . $suffix;
 $UNIX2MAC = "../unix2mac" . $suffix;
 
+$ENV{'LC_ALL'} = 'en_US.UTF-8';
+
 system("$DOS2UNIX -v -7 -n chardos.txt out_unix.txt; cmp out_unix.txt charu7.txt");
 ok( $? == 0, '7bit');
 
