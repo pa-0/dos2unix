@@ -25,6 +25,8 @@
  */
 
 #include "common.h"
+#include "dos2unix.h"
+
 #if defined(D2U_UNICODE)
 #if defined(_WIN32) || defined(__CYGWIN__)
 #include <windows.h>
@@ -33,7 +35,6 @@
 # include <langinfo.h>
 #endif
 #endif
-
 
 #if defined(__GLIBC__)
 /* on glibc, canonicalize_file_name() broken prior to 2.4 (06-Mar-2006) */
@@ -212,7 +213,15 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n\
 "));
 }
 
-void PrintUsage(char *progname)
+int is_dos2unix(const char *progname)
+{
+  if ((strncmp(progname, "dos2unix", sizeof("dos2unix")) == 0) || (strncmp(progname, "mac2unix", sizeof("mac2unix")) == 0))
+    return 1;
+  else
+    return 0;
+}
+
+void PrintUsage(const char *progname)
 {
   printf(_("Usage: %s [options] [file ...] [-n infile outfile ...]\n"), progname);
   printf(_(" -ascii                convert only line breaks (default)\n"));
@@ -224,7 +233,7 @@ void PrintUsage(char *progname)
   printf(_("   -863                use DOS code page 863 (French Canadian)\n"));
   printf(_("   -865                use DOS code page 865 (Nordic)\n"));
   printf(_(" -7                    convert 8 bit characters to 7 bit space\n"));
-  if ((strncmp(progname, "dos2unix", sizeof("mac2unix")) == 0) || (strncmp(progname, "dos2unix", sizeof("dos2unix")) == 0))
+  if (is_dos2unix(progname))
     printf(_(" -b, --keep-bom        keep Byte Order Mark\n"));
   else
     printf(_(" -b, --keep-bom        keep Byte Order Mark (default)\n"));
@@ -242,7 +251,7 @@ void PrintUsage(char *progname)
   printf(_(" -o, --oldfile         write to old file (default)\n\
    file ...            files to convert in old-file mode\n"));
   printf(_(" -q, --quiet           quiet mode, suppress all warnings\n"));
-  if ((strncmp(progname, "dos2unix", sizeof("dos2unix")) == 0) || (strncmp(progname, "mac2unix", sizeof("mac2unix")) == 0))
+  if (is_dos2unix(progname))
     printf(_(" -r, --remove-bom      remove Byte Order Mark (default)\n"));
   else
     printf(_(" -r, --remove-bom      remove Byte Order Mark\n"));
@@ -696,39 +705,462 @@ int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, co
   return RetVal;
 }
 
+/* convert file ipInFN and write to file ipOutFN
+ * RetVal: 0 if success
+ *         -1 otherwise
+ */
+int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *progname,
+                   int (*Convert)(FILE*, FILE*, CFlag *, char *)
+#ifdef D2U_UNICODE
+                 , int (*ConvertW)(FILE*, FILE*, CFlag *, char *)
+#endif
+                  )
+{
+  int RetVal = 0;
+  FILE *InF = NULL;
+  FILE *TempF = NULL;
+  char *TempPath;
+  char *errstr;
+  struct stat StatBuf;
+  struct utimbuf UTimeBuf;
+#ifndef NO_CHMOD
+  mode_t mask;
+#endif
+#ifdef NO_MKSTEMP
+  FILE* fd;
+#else
+  int fd;
+#endif
+  char *TargetFN = NULL;
+  int ResolveSymlinkResult = 0;
+
+  ipFlag->status = 0 ;
+
+  /* Test if output file is a symbolic link */
+  if (symbolic_link(ipOutFN) && !ipFlag->Follow)
+  {
+    ipFlag->status |= OUTPUTFILE_SYMLINK ;
+    /* Not a failure, skipping input file according spec. (keep symbolic link unchanged) */
+    return -1;
+  }
+
+  /* Test if input file is a regular file or symbolic link */
+  if (regfile(ipInFN, 1, ipFlag, progname))
+  {
+    ipFlag->status |= NO_REGFILE ;
+    /* Not a failure, skipping non-regular input file according spec. */
+    return -1;
+  }
+
+  /* Test if input file target is a regular file */
+  if (symbolic_link(ipInFN) && regfile_target(ipInFN, ipFlag,progname))
+  {
+    ipFlag->status |= INPUT_TARGET_NO_REGFILE ;
+    /* Not a failure, skipping non-regular input file according spec. */
+    return -1;
+  }
+
+  /* Test if output file target is a regular file */
+  if (symbolic_link(ipOutFN) && (ipFlag->Follow == SYMLINK_FOLLOW) && regfile_target(ipOutFN, ipFlag,progname))
+  {
+    ipFlag->status |= OUTPUT_TARGET_NO_REGFILE ;
+    /* Failure, input is regular, cannot produce output. */
+    if (!ipFlag->error) ipFlag->error = 1;
+    return -1;
+  }
+
+  /* retrieve ipInFN file date stamp */
+  if (stat(ipInFN, &StatBuf))
+  {
+    if (ipFlag->verbose)
+    {
+      ipFlag->error = errno;
+      errstr = strerror(errno);
+      fprintf(stderr, "%s: %s: %s\n", progname, ipInFN, errstr);
+    }
+    RetVal = -1;
+  }
+
+#ifdef NO_MKSTEMP
+  if((fd = MakeTempFileFrom(ipOutFN, &TempPath))==NULL) {
+#else
+  if((fd = MakeTempFileFrom (ipOutFN, &TempPath)) < 0) {
+#endif
+    if (ipFlag->verbose)
+    {
+      ipFlag->error = errno;
+      errstr = strerror(errno);
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("Failed to open temporary output file: %s\n"), errstr);
+    }
+    RetVal = -1;
+  }
+
+#if DEBUG
+  fprintf(stderr, "%s: ", progname);
+  fprintf(stderr, _("using %s as temporary file\n"), TempPath);
+#endif
+
+  /* can open in file? */
+  if (!RetVal)
+  {
+    InF=OpenInFile(ipInFN);
+    if (InF == NULL)
+    {
+      ipFlag->error = errno;
+      errstr = strerror(errno);
+      fprintf(stderr, "%s: %s: %s\n", progname, ipInFN, errstr);
+      RetVal = -1;
+    }
+  }
+
+  /* can open output file? */
+  if ((!RetVal) && (InF))
+  {
+#ifdef NO_MKSTEMP
+    if ((TempF=fd) == NULL)
+    {
+#else
+    if ((TempF=OpenOutFile(fd)) == NULL)
+    {
+      ipFlag->error = errno;
+      errstr = strerror(errno);
+      fprintf(stderr, "%s: %s\n", progname, errstr);
+#endif
+      fclose (InF);
+      InF = NULL;
+      RetVal = -1;
+    }
+  }
+
+  if (check_unicode(InF, TempF, ipFlag, ipInFN, progname))
+    RetVal = -1;
+
+  /* conversion sucessful? */
+#ifdef D2U_UNICODE
+  if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))
+  {
+    if ((!RetVal) && (ConvertW(InF, TempF, ipFlag, progname)))
+      RetVal = -1;
+    if (ipFlag->status & UNICODE_CONVERSION_ERROR)
+    {
+      if (!ipFlag->error) ipFlag->error = 1;
+      RetVal = -1;
+    }
+  } else {
+    if ((!RetVal) && (Convert(InF, TempF, ipFlag, progname)))
+      RetVal = -1;
+  }
+#else
+  if ((!RetVal) && (Convert(InF, TempF, ipFlag, progname)))
+    RetVal = -1;
+#endif
+
+   /* can close in file? */
+  if ((InF) && (fclose(InF) == EOF))
+    RetVal = -1;
+
+  /* can close output file? */
+  if (TempF)
+  {
+    if (fclose(TempF) == EOF)
+    {
+       if (ipFlag->verbose)
+       {
+         ipFlag->error = errno;
+         errstr = strerror(errno);
+         fprintf(stderr, "%s: ", progname);
+         fprintf(stderr, _("Failed to write to temporary output file %s: %s\n"), TempPath, errstr);
+       }
+      RetVal = -1;
+    }
+  }
+
+#ifdef NO_MKSTEMP
+  if(fd!=NULL)
+    fclose(fd);
+#else
+  if(fd>=0)
+    close(fd);
+#endif
+
+#ifndef NO_CHMOD
+  if (!RetVal)
+  {
+    if (ipFlag->NewFile == 0) /* old-file mode */
+    {
+       RetVal = chmod (TempPath, StatBuf.st_mode); /* set original permissions */
+    }
+    else
+    {
+       mask = umask(0); /* get process's umask */
+       umask(mask); /* set umask back to original */
+       RetVal = chmod(TempPath, StatBuf.st_mode & ~mask); /* set original permissions, minus umask */
+    }
+
+    if (RetVal)
+    {
+       if (ipFlag->verbose)
+       {
+         ipFlag->error = errno;
+         errstr = strerror(errno);
+         fprintf(stderr, "%s: ", progname);
+         fprintf(stderr, _("Failed to change the permissions of temporary output file %s: %s\n"), TempPath, errstr);
+       }
+    }
+  }
+#endif
+
+#ifndef NO_CHOWN
+  if (!RetVal && (ipFlag->NewFile == 0))  /* old-file mode */
+  {
+     /* Change owner and group of the temporary output file to the original file's uid and gid. */
+     /* Required when a different user (e.g. root) has write permission on the original file. */
+     /* Make sure that the original owner can still access the file. */
+     if (chown(TempPath, StatBuf.st_uid, StatBuf.st_gid))
+     {
+        if (ipFlag->verbose)
+        {
+          ipFlag->error = errno;
+          errstr = strerror(errno);
+          fprintf(stderr, "%s: ", progname);
+          fprintf(stderr, _("Failed to change the owner and group of temporary output file %s: %s\n"), TempPath, errstr);
+        }
+        RetVal = -1;
+     }
+  }
+#endif
+
+  if ((!RetVal) && (ipFlag->KeepDate))
+  {
+    UTimeBuf.actime = StatBuf.st_atime;
+    UTimeBuf.modtime = StatBuf.st_mtime;
+    /* can change output file time to in file time? */
+    if (utime(TempPath, &UTimeBuf) == -1)
+    {
+      if (ipFlag->verbose)
+      {
+        ipFlag->error = errno;
+        errstr = strerror(errno);
+        fprintf(stderr, "%s: %s: %s\n", progname, TempPath, errstr);
+      }
+      RetVal = -1;
+    }
+  }
+
+  /* any error? cleanup the temp file */
+  if (RetVal && (TempPath != NULL))
+  {
+    if (unlink(TempPath) && (errno != ENOENT))
+    {
+      if (ipFlag->verbose)
+      {
+        ipFlag->error = errno;
+        errstr = strerror(errno);
+        fprintf(stderr, "%s: %s: %s\n", progname, TempPath, errstr);
+      }
+      RetVal = -1;
+    }
+  }
+
+  /* If output file is a symbolic link, optional resolve the link and modify  */
+  /* the target, instead of removing the link and creating a new regular file */
+  TargetFN = ipOutFN;
+  if (symbolic_link(ipOutFN) && !RetVal)
+  {
+    ResolveSymlinkResult = 0; /* indicates that TargetFN need not be freed */
+    if (ipFlag->Follow == SYMLINK_FOLLOW)
+    {
+      ResolveSymlinkResult = ResolveSymbolicLink(ipOutFN, &TargetFN, ipFlag, progname);
+      if (ResolveSymlinkResult < 0)
+      {
+        if (ipFlag->verbose)
+        {
+          fprintf(stderr, "%s: ", progname);
+          fprintf(stderr, _("problems resolving symbolic link '%s'\n"), ipOutFN);
+          fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
+        }
+        RetVal = -1;
+      }
+    }
+  }
+
+  /* can rename temporary file to output file? */
+  if (!RetVal)
+  {
+#ifdef NEED_REMOVE
+    if (unlink(TargetFN) && (errno != ENOENT))
+    {
+      if (ipFlag->verbose)
+      {
+        ipFlag->error = errno;
+        errstr = strerror(errno);
+        fprintf(stderr, "%s: %s: %s\n", progname, TargetFN, errstr);
+      }
+      RetVal = -1;
+    }
+#endif
+    if (rename(TempPath, TargetFN) == -1)
+    {
+      if (ipFlag->verbose)
+      {
+        ipFlag->error = errno;
+        errstr = strerror(errno);
+        fprintf(stderr, "%s: ", progname);
+        fprintf(stderr, _("problems renaming '%s' to '%s': %s\n"), TempPath, TargetFN, errstr);
+#ifdef S_ISLNK
+        if (ResolveSymlinkResult > 0)
+          fprintf(stderr, _("          which is the target of symbolic link '%s'\n"), ipOutFN);
+#endif
+        fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
+      }
+      RetVal = -1;
+    }
+
+    if (ResolveSymlinkResult > 0)
+      free(TargetFN);
+  }
+  free(TempPath);
+  return RetVal;
+}
+
+/* convert stdin and write to stdout
+ * RetVal: 0 if success
+ *         -1 otherwise
+ */
+int ConvertStdio(CFlag *ipFlag, char *progname,
+                   int (*Convert)(FILE*, FILE*, CFlag *, char *)
+#ifdef D2U_UNICODE
+                 , int (*ConvertW)(FILE*, FILE*, CFlag *, char *)
+#endif
+                  )
+{
+    ipFlag->NewFile = 1;
+    ipFlag->KeepDate = 0;
+
+#if defined(_WIN32) && !defined(__CYGWIN__)
+
+    /* stdin and stdout are by default text streams. We need
+     * to set them to binary mode. Otherwise an LF will
+     * automatically be converted to CR-LF on DOS/Windows.
+     * Erwin */
+
+    /* POSIX 'setmode' was deprecated by MicroSoft since
+     * Visual C++ 2005. Use ISO C++ conformant '_setmode' instead. */
+
+    _setmode(_fileno(stdout), _O_BINARY);
+    _setmode(_fileno(stdin), _O_BINARY);
+#elif defined(__MSDOS__) || defined(__CYGWIN__) || defined(__OS2__)
+    setmode(fileno(stdout), O_BINARY);
+    setmode(fileno(stdin), O_BINARY);
+#endif
+
+    if (check_unicode(stdin, stdout, ipFlag, "stdin", progname))
+        return 1;
+
+#ifdef D2U_UNICODE
+    if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
+        return ConvertW(stdin, stdout, ipFlag, progname);
+    } else {
+        return Convert(stdin, stdout, ipFlag, progname);
+    }
+#else
+    return Convert(stdin, stdout, ipFlag, progname);
+#endif
+}
+
 void print_errors_stdio(const CFlag *pFlag, const char *progname)
 {
-    if (pFlag->status & WRONG_CODEPAGE)
-    {
-      if (pFlag->verbose)
-      {
+    if (pFlag->status & WRONG_CODEPAGE) {
+      if (pFlag->verbose) {
         fprintf(stderr,"%s: ",progname);
         fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
       }
-    } else if (pFlag->status & LOCALE_NOT_UTF8)
-    {
-      if (pFlag->verbose)
-      {
+    } else if (pFlag->status & LOCALE_NOT_UTF8) {
+      if (pFlag->verbose) {
         fprintf(stderr,"%s: ",progname);
         fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), "stdin");
       }
-    } else if (pFlag->status & WCHAR_T_TOO_SMALL)
-    {
-      if (pFlag->verbose)
-      {
+    } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
+      if (pFlag->verbose) {
         fprintf(stderr,"%s: ",progname);
         fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), "stdin", (int)sizeof(wchar_t));
       }
-    } else if (pFlag->status & UNICODE_CONVERSION_ERROR)
-    {
-      if (pFlag->verbose)
-      {
+    } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
+      if (pFlag->verbose) {
         fprintf(stderr,"%s: ",progname);
         fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), "stdin");
       }
     }
 }
 
+void print_errors_newfile(const CFlag *pFlag, const char *infile, const char *outfile, const char *progname, const int RetVal)
+{
+  if (pFlag->status & NO_REGFILE) {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping %s, not a regular file.\n"), infile);
+    }
+  } else if (pFlag->status & OUTPUTFILE_SYMLINK) {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping %s, output file %s is a symbolic link.\n"), infile, outfile);
+    }
+  } else if (pFlag->status & INPUT_TARGET_NO_REGFILE) {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
+    }
+  } else if (pFlag->status & OUTPUT_TARGET_NO_REGFILE) {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping %s, target of symbolic link %s is not a regular file.\n"), infile, outfile);
+    }
+  } else if (pFlag->status & BINARY_FILE) {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping binary file %s\n"), infile);
+    }
+  } else if (pFlag->status & WRONG_CODEPAGE) {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
+    }
+  } else if (pFlag->status & LOCALE_NOT_UTF8) {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), infile);
+    }
+  } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
+    }
+  } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), infile);
+    }
+  } else {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      if (is_dos2unix(progname))
+        fprintf(stderr, _("converting file %s to file %s in Unix format...\n"), infile, outfile);
+      else {
+        if (pFlag->FromToMode == FROMTO_UNIX2MAC)
+          fprintf(stderr, _("converting file %s to file %s in Mac format...\n"), infile, outfile);
+        else
+          fprintf(stderr, _("converting file %s to file %s in DOS format...\n"), infile, outfile);
+      }
+      if (RetVal) {
+        if (pFlag->verbose) {
+          fprintf(stderr,"%s: ",progname);
+          fprintf(stderr, _("problems converting file %s to file %s\n"), infile, outfile);
+        }
+      }
+    }
+  }
+}
 
 #ifdef D2U_UNICODE
 wint_t d2u_getwc(FILE *f, int bomtype)

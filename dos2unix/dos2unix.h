@@ -28,6 +28,7 @@
 #ifndef __DOS2UNIX_H
 #define __DOS2UNIX_H
 
+#ifdef __DOS2UNIX_C
 /* ASCII mode. No conversion. */
 
 static int D2UAsciiTable[256] =
@@ -212,5 +213,12 @@ static int D2UIso1252Table[256] =
   '\xe0', '\xe1', '\xe2', '\xe3', '\xe4', '\xe5', '\xe6', '\xe7', '\xe8', '\xe9', '\xea', '\xeb', '\xec', '\xed', '\xee', '\xef',
   '\xf0', '\xf1', '\xf2', '\xf3', '\xf4', '\xf5', '\xf6', '\xf7', '\xf8', '\xf9', '\xfa', '\xfb', '\xfc', '\xfd', '\xfe', '\xff',
 };
+#endif
+
+
+#ifdef D2U_UNICODE
+int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname);
+#endif
+int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, char *progname);
 
 #endif

@@ -310,7 +310,7 @@ status:
 	@echo "LDFLAGS      = $(LDFLAGS)"
 	@echo "LIBS         = $(LIBS)"
 
-common.o : common.c common.h
+common.o : common.c common.h dos2unix.h unix2dos.h
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
 
 querycp.o : querycp.c querycp.h

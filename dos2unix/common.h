@@ -24,6 +24,9 @@
  *   IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifndef __D2U_COMMON_H
+#define __D2U_COMMON_H
+
 /* define feature test macros for realpath() -- needed on    */
 /* systems that have S_ISLNK, but chicken/egg means we must  */
 /* define early, before including stdlib.h (or sys/stat.h)   */
@@ -213,7 +216,7 @@ typedef struct
 int symbolic_link(const char *path);
 int regfile(char *path, int allowSymlinks, CFlag *ipFlag, char *progname);
 int regfile_target(char *path, CFlag *ipFlag, char *progname);
-void PrintUsage(char *progname);
+void PrintUsage(const char *progname);
 void PrintBSDLicense(void);
 void PrintVersion(char *progname);
 #ifdef ENABLE_NLS
@@ -235,9 +238,23 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname);
 void print_bom (const int bomtype, const char *filename, const char *progname);
 int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, const char *progname);
 void print_errors_stdio(const CFlag *pFlag, const char *progname);
+void print_errors_newfile(const CFlag *pFlag, const char *infile, const char *outfile, const char *progname, const int RetVal);
+int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *progname,
+                   int (*Convert)(FILE*, FILE*, CFlag *, char *)
+#ifdef D2U_UNICODE
+                 , int (*ConvertW)(FILE*, FILE*, CFlag *, char *)
+#endif
+                  );
+int ConvertStdio(CFlag *ipFlag, char *progname,
+                   int (*Convert)(FILE*, FILE*, CFlag *, char *)
+#ifdef D2U_UNICODE
+                 , int (*ConvertW)(FILE*, FILE*, CFlag *, char *)
+#endif
+                  );
 #ifdef D2U_UNICODE
 wint_t d2u_getwc(FILE *f, int bomtype);
 wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype);
 wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag);
 #endif
 
+#endif
