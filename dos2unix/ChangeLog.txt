@@ -1,3 +1,8 @@
+2014-08-28 Erwin Waterlander <waterlan@xs4all.nl>
+	* dos2unix.c, unix2dos.c, common.c: Code cleanup. Moved more code
+	  to common.c.
+	* common.c: Fix mac2unix help text, options -b and -r.
+
 2014-08-26 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c, unix2dos.c, common.c: stdio mode does not automatically
 	  set quiet mode. stdio mode prints errors and returns error code.

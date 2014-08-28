@@ -26,6 +26,7 @@
 
 #include "common.h"
 #include "dos2unix.h"
+#include "querycp.h"
 
 #if defined(D2U_UNICODE)
 #if defined(_WIN32) || defined(__CYGWIN__)
@@ -101,7 +102,7 @@ int symbolic_link(const char *path)
  * returns 0 on success, -1 when it fails.
  *
  ******************************************************************/
-int regfile(char *path, int allowSymlinks, CFlag *ipFlag, char *progname)
+int regfile(char *path, int allowSymlinks, CFlag *ipFlag, const char *progname)
 {
    struct stat buf;
    char *errstr;
@@ -162,7 +163,7 @@ int regfile(char *path, int allowSymlinks, CFlag *ipFlag, char *progname)
  * returns 0 on success, -1 when it fails.
  *
  ******************************************************************/
-int regfile_target(char *path, CFlag *ipFlag, char *progname)
+int regfile_target(char *path, CFlag *ipFlag, const char *progname)
 {
    struct stat buf;
    char *errstr;
@@ -275,7 +276,7 @@ void PrintUsage(const char *progname)
 
 #define MINGW32_W64 1
 
-void PrintVersion(char *progname)
+void PrintVersion(const char *progname)
 {
   printf("%s %s (%s)\n", progname, VER_REVISION, VER_DATE);
 #if DEBUG
@@ -323,7 +324,7 @@ void PrintVersion(char *progname)
 }
 
 #ifdef ENABLE_NLS
-void PrintLocaledir(char *localedir)
+void PrintLocaledir(const char *localedir)
 {
   printf("LOCALEDIR: %s\n", localedir);
 }
@@ -431,7 +432,7 @@ int MakeTempFileFrom(const char *OutFN, char **fname_ret)
  *         1 if success, and *lFN is a symlink
  *         -1 otherwise
  */
-int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, char *progname)
+int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progname)
 {
   int RetVal = 0;
 #ifdef S_ISLNK
@@ -709,10 +710,10 @@ int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, co
  * RetVal: 0 if success
  *         -1 otherwise
  */
-int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *progname,
-                   int (*Convert)(FILE*, FILE*, CFlag *, char *)
+int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progname,
+                   int (*Convert)(FILE*, FILE*, CFlag *, const char *)
 #ifdef D2U_UNICODE
-                 , int (*ConvertW)(FILE*, FILE*, CFlag *, char *)
+                 , int (*ConvertW)(FILE*, FILE*, CFlag *, const char *)
 #endif
                   )
 {
@@ -1028,10 +1029,10 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *progname,
  * RetVal: 0 if success
  *         -1 otherwise
  */
-int ConvertStdio(CFlag *ipFlag, char *progname,
-                   int (*Convert)(FILE*, FILE*, CFlag *, char *)
+int ConvertStdio(CFlag *ipFlag, const char *progname,
+                   int (*Convert)(FILE*, FILE*, CFlag *, const char *)
 #ifdef D2U_UNICODE
-                 , int (*ConvertW)(FILE*, FILE*, CFlag *, char *)
+                 , int (*ConvertW)(FILE*, FILE*, CFlag *, const char *)
 #endif
                   )
 {
@@ -1069,7 +1070,7 @@ int ConvertStdio(CFlag *ipFlag, char *progname,
 #endif
 }
 
-void print_errors_stdio(const CFlag *pFlag, const char *progname)
+void print_messages_stdio(const CFlag *pFlag, const char *progname)
 {
     if (pFlag->status & WRONG_CODEPAGE) {
       if (pFlag->verbose) {
@@ -1094,7 +1095,7 @@ void print_errors_stdio(const CFlag *pFlag, const char *progname)
     }
 }
 
-void print_errors_newfile(const CFlag *pFlag, const char *infile, const char *outfile, const char *progname, const int RetVal)
+void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *outfile, const char *progname, const int RetVal)
 {
   if (pFlag->status & NO_REGFILE) {
     if (pFlag->verbose) {
@@ -1160,6 +1161,307 @@ void print_errors_newfile(const CFlag *pFlag, const char *infile, const char *ou
       }
     }
   }
+}
+
+void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *progname, const int RetVal)
+{
+  if (pFlag->status & NO_REGFILE) {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping %s, not a regular file.\n"), infile);
+    }
+  } else if (pFlag->status & OUTPUTFILE_SYMLINK) {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping symbolic link %s.\n"), infile);
+    }
+  } else if (pFlag->status & INPUT_TARGET_NO_REGFILE) {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
+    }
+  } else if (pFlag->status & BINARY_FILE) {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping binary file %s\n"), infile);
+    }
+  } else if (pFlag->status & WRONG_CODEPAGE) {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
+    }
+  } else if (pFlag->status & LOCALE_NOT_UTF8) {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), infile);
+    }
+  } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
+    }
+  } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), infile);
+    }
+  } else {
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      if (is_dos2unix(progname))
+        fprintf(stderr, _("converting file %s to Unix format...\n"), infile);
+      else {
+        if (pFlag->FromToMode == FROMTO_UNIX2MAC)
+          fprintf(stderr, _("converting file %s to Mac format...\n"), infile);
+        else
+          fprintf(stderr, _("converting file %s to DOS format...\n"), infile);
+      }
+    }
+    if (RetVal) {
+      if (pFlag->verbose) {
+        fprintf(stderr,"%s: ",progname);
+        fprintf(stderr, _("problems converting file %s\n"), infile);
+      }
+    }
+  }
+}
+
+int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, const char *progname,
+                  void (*PrintLicense)(void),
+                  int (*Convert)(FILE*, FILE*, CFlag *, const char *)
+#ifdef D2U_UNICODE
+                , int (*ConvertW)(FILE*, FILE*, CFlag *, const char *)
+#endif
+                  )
+{
+  int ArgIdx = 0;
+  int ShouldExit = 0;
+  int CanSwitchFileMode = 1;
+  int process_options = 1;
+  int RetVal = 0;
+
+  while ((++ArgIdx < argc) && (!ShouldExit))
+  {
+    /* is it an option? */
+    if ((argv[ArgIdx][0] == '-') && process_options)
+    {
+      /* an option */
+      if (strcmp(argv[ArgIdx],"--") == 0)
+        process_options = 0;
+      else if ((strcmp(argv[ArgIdx],"-h") == 0) || (strcmp(argv[ArgIdx],"--help") == 0))
+      {
+        PrintUsage(progname);
+        return(pFlag->error);
+      }
+      else if ((strcmp(argv[ArgIdx],"-b") == 0) || (strcmp(argv[ArgIdx],"--keep-bom") == 0))
+        pFlag->keep_bom = 1;
+      else if ((strcmp(argv[ArgIdx],"-k") == 0) || (strcmp(argv[ArgIdx],"--keepdate") == 0))
+        pFlag->KeepDate = 1;
+      else if ((strcmp(argv[ArgIdx],"-f") == 0) || (strcmp(argv[ArgIdx],"--force") == 0))
+        pFlag->Force = 1;
+      else if ((strcmp(argv[ArgIdx],"-s") == 0) || (strcmp(argv[ArgIdx],"--safe") == 0))
+        pFlag->Force = 0;
+      else if ((strcmp(argv[ArgIdx],"-q") == 0) || (strcmp(argv[ArgIdx],"--quiet") == 0))
+        pFlag->verbose = 0;
+      else if ((strcmp(argv[ArgIdx],"-v") == 0) || (strcmp(argv[ArgIdx],"--verbose") == 0))
+        pFlag->verbose = 2;
+      else if ((strcmp(argv[ArgIdx],"-l") == 0) || (strcmp(argv[ArgIdx],"--newline") == 0))
+        pFlag->NewLine = 1;
+      else if ((strcmp(argv[ArgIdx],"-m") == 0) || (strcmp(argv[ArgIdx],"--add-bom") == 0))
+        pFlag->add_bom = 1;
+      else if ((strcmp(argv[ArgIdx],"-r") == 0) || (strcmp(argv[ArgIdx],"--remove-bom") == 0))
+      {
+        pFlag->keep_bom = 0;
+        pFlag->add_bom = 0;
+      }
+      else if ((strcmp(argv[ArgIdx],"-S") == 0) || (strcmp(argv[ArgIdx],"--skip-symlink") == 0))
+        pFlag->Follow = SYMLINK_SKIP;
+      else if ((strcmp(argv[ArgIdx],"-F") == 0) || (strcmp(argv[ArgIdx],"--follow-symlink") == 0))
+        pFlag->Follow = SYMLINK_FOLLOW;
+      else if ((strcmp(argv[ArgIdx],"-R") == 0) || (strcmp(argv[ArgIdx],"--replace-symlink") == 0))
+        pFlag->Follow = SYMLINK_REPLACE;
+      else if ((strcmp(argv[ArgIdx],"-V") == 0) || (strcmp(argv[ArgIdx],"--version") == 0))
+      {
+        PrintVersion(progname);
+#ifdef ENABLE_NLS
+        PrintLocaledir(localedir);
+#endif
+        return(pFlag->error);
+      }
+      else if ((strcmp(argv[ArgIdx],"-L") == 0) || (strcmp(argv[ArgIdx],"--license") == 0))
+      {
+        PrintLicense();
+        return(pFlag->error);
+      }
+      else if (strcmp(argv[ArgIdx],"-ascii") == 0)  /* SunOS compatible options */
+      {
+        pFlag->ConvMode = CONVMODE_ASCII;
+        pFlag->keep_utf16 = 0;
+      }
+      else if (strcmp(argv[ArgIdx],"-7") == 0)
+        pFlag->ConvMode = CONVMODE_7BIT;
+      else if (strcmp(argv[ArgIdx],"-iso") == 0)
+      {
+        pFlag->ConvMode = (int)query_con_codepage();
+        if (pFlag->verbose)
+        {
+           fprintf(stderr,"%s: ",progname);
+           fprintf(stderr,_("active code page: %d\n"), pFlag->ConvMode);
+        }
+        if (pFlag->ConvMode < 2)
+           pFlag->ConvMode = CONVMODE_437;
+      }
+      else if (strcmp(argv[ArgIdx],"-437") == 0)
+        pFlag->ConvMode = CONVMODE_437;
+      else if (strcmp(argv[ArgIdx],"-850") == 0)
+        pFlag->ConvMode = CONVMODE_850;
+      else if (strcmp(argv[ArgIdx],"-860") == 0)
+        pFlag->ConvMode = CONVMODE_860;
+      else if (strcmp(argv[ArgIdx],"-863") == 0)
+        pFlag->ConvMode = CONVMODE_863;
+      else if (strcmp(argv[ArgIdx],"-865") == 0)
+        pFlag->ConvMode = CONVMODE_865;
+      else if (strcmp(argv[ArgIdx],"-1252") == 0)
+        pFlag->ConvMode = CONVMODE_1252;
+#ifdef D2U_UNICODE
+      else if ((strcmp(argv[ArgIdx],"-u") == 0) || (strcmp(argv[ArgIdx],"--keep-utf16") == 0))
+        pFlag->keep_utf16 = 1;
+      else if ((strcmp(argv[ArgIdx],"-ul") == 0) || (strcmp(argv[ArgIdx],"--assume-utf16le") == 0))
+        pFlag->ConvMode = CONVMODE_UTF16LE;
+      else if ((strcmp(argv[ArgIdx],"-ub") == 0) || (strcmp(argv[ArgIdx],"--assume-utf16be") == 0))
+        pFlag->ConvMode = CONVMODE_UTF16BE;
+#endif
+      else if ((strcmp(argv[ArgIdx],"-c") == 0) || (strcmp(argv[ArgIdx],"--convmode") == 0))
+      {
+        if (++ArgIdx < argc)
+        {
+          if (strcmpi(argv[ArgIdx],"ascii") == 0)  /* Benjamin Lin's legacy options */
+          {
+            pFlag->ConvMode = CONVMODE_ASCII;
+            pFlag->keep_utf16 = 0;
+          }
+          else if (strcmpi(argv[ArgIdx], "7bit") == 0)
+            pFlag->ConvMode = CONVMODE_7BIT;
+          else if (strcmpi(argv[ArgIdx], "iso") == 0)
+          {
+            pFlag->ConvMode = (int)query_con_codepage();
+            if (pFlag->verbose)
+            {
+               fprintf(stderr,"%s: ",progname);
+               fprintf(stderr,_("active code page: %d\n"), pFlag->ConvMode);
+            }
+            if (pFlag->ConvMode < 2)
+               pFlag->ConvMode = CONVMODE_437;
+          }
+          else if (strcmpi(argv[ArgIdx], "mac") == 0) {
+            if (is_dos2unix(progname))
+              pFlag->FromToMode = FROMTO_MAC2UNIX;
+            else
+              pFlag->FromToMode = FROMTO_UNIX2MAC;
+          } else
+          {
+            fprintf(stderr,"%s: ",progname);
+            fprintf(stderr, _("invalid %s conversion mode specified\n"),argv[ArgIdx]);
+            pFlag->error = 1;
+            ShouldExit = 1;
+            pFlag->stdio_mode = 0;
+          }
+        }
+        else
+        {
+          ArgIdx--;
+          fprintf(stderr,"%s: ",progname);
+          fprintf(stderr,_("option '%s' requires an argument\n"),argv[ArgIdx]);
+          pFlag->error = 1;
+          ShouldExit = 1;
+          pFlag->stdio_mode = 0;
+        }
+      }
+
+      else if ((strcmp(argv[ArgIdx],"-o") == 0) || (strcmp(argv[ArgIdx],"--oldfile") == 0))
+      {
+        /* last convert not paired */
+        if (!CanSwitchFileMode)
+        {
+          fprintf(stderr,"%s: ",progname);
+          fprintf(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
+          pFlag->error = 1;
+          ShouldExit = 1;
+          pFlag->stdio_mode = 0;
+        }
+        pFlag->NewFile = 0;
+      }
+
+      else if ((strcmp(argv[ArgIdx],"-n") == 0) || (strcmp(argv[ArgIdx],"--newfile") == 0))
+      {
+        /* last convert not paired */
+        if (!CanSwitchFileMode)
+        {
+          fprintf(stderr,"%s: ",progname);
+          fprintf(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
+          pFlag->error = 1;
+          ShouldExit = 1;
+          pFlag->stdio_mode = 0;
+        }
+        pFlag->NewFile = 1;
+      }
+      else { /* wrong option */
+        PrintUsage(progname);
+        ShouldExit = 1;
+        pFlag->error = 1;
+        pFlag->stdio_mode = 0;
+      }
+    }
+    else
+    {
+      pFlag->stdio_mode = 0;
+      /* not an option */
+      if (pFlag->NewFile)
+      {
+        if (CanSwitchFileMode)
+          CanSwitchFileMode = 0;
+        else
+        {
+#ifdef D2U_UNICODE
+          RetVal = ConvertNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag, progname, Convert, ConvertW);
+#else
+          RetVal = ConvertNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag, progname, Convert);
+#endif
+          print_messages_newfile(pFlag, argv[ArgIdx-1], argv[ArgIdx], progname, RetVal);
+          CanSwitchFileMode = 1;
+        }
+      }
+      else
+      {
+#ifdef D2U_UNICODE
+        RetVal = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert, ConvertW);
+#else
+        RetVal = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert);
+#endif
+        print_messages_oldfile(pFlag, argv[ArgIdx], progname, RetVal);
+      }
+    }
+  }
+
+  /* no file argument, use stdin and stdout */
+  if (pFlag->stdio_mode)
+  {
+#ifdef D2U_UNICODE
+    ConvertStdio(pFlag, progname, Convert, ConvertW);
+#else
+    ConvertStdio(pFlag, progname, Convert);
+#endif
+    print_messages_stdio(pFlag, progname);
+    return pFlag->error;
+  }
+
+  if (!CanSwitchFileMode)
+  {
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
+    pFlag->error = 1;
+  }
+  return pFlag->error;
 }
 
 #ifdef D2U_UNICODE

@@ -214,13 +214,13 @@ typedef struct
 
 
 int symbolic_link(const char *path);
-int regfile(char *path, int allowSymlinks, CFlag *ipFlag, char *progname);
-int regfile_target(char *path, CFlag *ipFlag, char *progname);
+int regfile(char *path, int allowSymlinks, CFlag *ipFlag, const char *progname);
+int regfile_target(char *path, CFlag *ipFlag, const char *progname);
 void PrintUsage(const char *progname);
 void PrintBSDLicense(void);
-void PrintVersion(char *progname);
+void PrintVersion(const char *progname);
 #ifdef ENABLE_NLS
-void PrintLocaledir(char *localedir);
+void PrintLocaledir(const char *localedir);
 #endif
 FILE* OpenInFile(char *ipFN);
 FILE* OpenOutFile(int fd);
@@ -232,23 +232,31 @@ FILE* MakeTempFileFrom(const char *OutFN, char **fname_ret);
 #else
 int MakeTempFileFrom(const char *OutFN, char **fname_ret);
 #endif
-int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, char *progname);
+int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progname);
 FILE *read_bom (FILE *f, int *bomtype);
 FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname);
 void print_bom (const int bomtype, const char *filename, const char *progname);
 int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, const char *progname);
-void print_errors_stdio(const CFlag *pFlag, const char *progname);
-void print_errors_newfile(const CFlag *pFlag, const char *infile, const char *outfile, const char *progname, const int RetVal);
-int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, char *progname,
-                   int (*Convert)(FILE*, FILE*, CFlag *, char *)
+void print_messages_stdio(const CFlag *pFlag, const char *progname);
+void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *outfile, const char *progname, const int RetVal);
+void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *progname, const int RetVal);
+int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progname,
+                   int (*Convert)(FILE*, FILE*, CFlag *, const char *)
 #ifdef D2U_UNICODE
-                 , int (*ConvertW)(FILE*, FILE*, CFlag *, char *)
+                 , int (*ConvertW)(FILE*, FILE*, CFlag *, const char *)
 #endif
                   );
-int ConvertStdio(CFlag *ipFlag, char *progname,
-                   int (*Convert)(FILE*, FILE*, CFlag *, char *)
+int ConvertStdio(CFlag *ipFlag, const char *progname,
+                   int (*Convert)(FILE*, FILE*, CFlag *, const char *)
 #ifdef D2U_UNICODE
-                 , int (*ConvertW)(FILE*, FILE*, CFlag *, char *)
+                 , int (*ConvertW)(FILE*, FILE*, CFlag *, const char *)
+#endif
+                  );
+int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, const char *progname,
+                  void (*PrintLicense)(void),
+                  int (*Convert)(FILE*, FILE*, CFlag *, const char *)
+#ifdef D2U_UNICODE
+                , int (*ConvertW)(FILE*, FILE*, CFlag *, const char *)
 #endif
                   );
 #ifdef D2U_UNICODE
