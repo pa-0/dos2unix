@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-6.1-beta1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-28 22:12+0200\n"
+"POT-Creation-Date: 2014-08-28 22:48+0200\n"
 "PO-Revision-Date: 2014-08-18 13:32+0200\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -64,7 +64,7 @@ msgstr "utilise le code page %d.\n"
 msgid "Binary symbol 0x%02X found at line %d\n"
 msgstr "Symbole binaire 0x%02X rencontré à la ligne %d\n"
 
-#: dos2unix.c:481 unix2dos.c:500
+#: dos2unix.c:479 unix2dos.c:498
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr ""
 "erreur: La valeur de la variable d'environnement DOS2UNIX_LOCALEDIR est trop "

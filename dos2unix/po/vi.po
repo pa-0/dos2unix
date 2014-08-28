@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-28 22:12+0200\n"
+"POT-Creation-Date: 2014-08-28 22:48+0200\n"
 "PO-Revision-Date: 2014-07-10 14:35+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -65,7 +65,7 @@ msgstr "dùng trang mã %d.\n"
 msgid "Binary symbol 0x%02X found at line %d\n"
 msgstr "Ký hiệu nhị phân 0x%02X được tìm thấy tại dòng %d\n"
 
-#: dos2unix.c:481 unix2dos.c:500
+#: dos2unix.c:479 unix2dos.c:498
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "lỗi: Giá trị của biến môi trường DOS2UNIX_LOCALEDIR quá dài.\n"
 

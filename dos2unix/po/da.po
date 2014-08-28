@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-28 22:12+0200\n"
+"POT-Creation-Date: 2014-08-28 22:48+0200\n"
 "PO-Revision-Date: 2014-03-09 12:07+0100\n"
 "Last-Translator: Thomas Pryds <thomas@pryds.eu>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -65,7 +65,7 @@ msgstr "bruger tegnkodningstabel %d.\n"
 msgid "Binary symbol 0x%02X found at line %d\n"
 msgstr "Binært symbol 0x%02X fundet på linje %d\n"
 
-#: dos2unix.c:481 unix2dos.c:500
+#: dos2unix.c:479 unix2dos.c:498
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "fejl: Værdien af miljøvariabel DOS2UNIX_LOCALEDIR er for lang.\n"
 

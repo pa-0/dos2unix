@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-28 22:12+0200\n"
+"POT-Creation-Date: 2014-08-28 22:48+0200\n"
 "PO-Revision-Date: 2014-07-09 23:29+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -66,7 +66,7 @@ msgstr "%d kódlap használata.\n"
 msgid "Binary symbol 0x%02X found at line %d\n"
 msgstr "Bináris szimbólum (0x%02X) található a(z) %d. sorban\n"
 
-#: dos2unix.c:481 unix2dos.c:500
+#: dos2unix.c:479 unix2dos.c:498
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "hiba: a DOS2UNIX_LOCALEDIR környezeti változó értéke túl hosszú.\n"
 

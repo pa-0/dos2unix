@@ -476,9 +476,7 @@ int main (int argc, char *argv[])
   char progname[9];
   CFlag *pFlag;
   char *ptr;
-#ifdef ENABLE_NLS
   char localedir[1024];
-#endif
 # ifdef __MINGW64__
   int _dowildcard = -1; /* enable wildcard expansion for Win64 */
 # endif
