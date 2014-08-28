@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 6.0.6-beta4\n"
+"Project-Id-Version: dos2unix 6.1-beta1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-28 22:12+0200\n"
-"PO-Revision-Date: 2014-07-09 17:52-0300\n"
+"POT-Creation-Date: 2014-08-28 22:40+0200\n"
+"PO-Revision-Date: 2014-08-28 00:05-0300\n"
 "Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge."
 "net>\n"
@@ -17,8 +17,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.6.5\n"
 
 #: dos2unix.c:76
 msgid ""
@@ -56,7 +56,7 @@ msgstr "erro do programa, modo de conversão %d é inválido\n"
 #: dos2unix.c:272 dos2unix.c:448 unix2dos.c:266 unix2dos.c:467
 #, c-format
 msgid "Converted %d out of %d line breaks.\n"
-msgstr ""
+msgstr "Convertidas %d de %d quebras de linha.\n"
 
 #: dos2unix.c:329 unix2dos.c:323
 #, c-format
@@ -245,10 +245,11 @@ msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline         acrescenta nova linha adicional\n"
 
 #: common.c:248
-#, fuzzy, c-format
+#, c-format
 msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
 msgstr ""
-" -b, --keep-bom        mantém marca de ordem de byte (B.O.M.) (padrão)\n"
+" -m, --add-bom         adiciona marca de ordem de byte (B.O.M.) (padrão "
+"UTF-8)\n"
 
 #: common.c:249
 #, c-format
@@ -296,7 +297,7 @@ msgstr " -s, --safe            ignora os arquivos binários (padrão)\n"
 #: common.c:261
 #, c-format
 msgid " -u,  --keep-utf16     keep UTF-16 encoding\n"
-msgstr ""
+msgstr " -u,  --keep-utf16     mantém codificação UTF-16\n"
 
 #: common.c:262
 #, c-format
@@ -311,7 +312,7 @@ msgstr " -ub, --assume-utf16be supõe que o formato de entrada é UTF-16BE\n"
 #: common.c:265
 #, c-format
 msgid " -v,  --verbose        verbose operation\n"
-msgstr ""
+msgstr " -v,  --verbose        operação detalhada\n"
 
 #: common.c:267
 #, c-format
@@ -416,22 +417,22 @@ msgstr "Com suporte ao idioma nativo.\n"
 #: common.c:594 common.c:602 common.c:610 common.c:621
 #, c-format
 msgid "Writing %s BOM.\n"
-msgstr ""
+msgstr "Escrevendo %s BOM.\n"
 
 #: common.c:633 common.c:637 common.c:641
 #, c-format
 msgid "Input file %s has %s BOM.\n"
-msgstr ""
+msgstr "Arquivo de entrada %s possui %s BOM\n"
 
 #: common.c:656
 #, c-format
 msgid "Assuming UTF-16LE encoding.\n"
-msgstr ""
+msgstr "Presume codificação UTF-16LE.\n"
 
 #: common.c:660
 #, c-format
 msgid "Assuming UTF-16BE encoding.\n"
-msgstr ""
+msgstr "Presumo codificação UTF-16BE.\n"
 
 #: common.c:795
 #, c-format
