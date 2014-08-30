@@ -3,6 +3,8 @@
   * New: automated self-tests.
   * New: option -u to keep UTF-16 encoding.
   * New: option -v to print information about BOMs and converted line breaks.
+  * Change: stdio mode does not automatically set quiet mode.
+  * Change: stdio mode does not automatically force conversion of binaries.
   * Bugfix: dos2unix -l created DOS line breaks from Mac line breaks.
 
 2014-08-03: Version 6.0.6
