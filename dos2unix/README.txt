@@ -18,18 +18,23 @@ FILE LIST
 HISTORY
 
         This is an update of Benjamin Lin's implementations of dos2unix and
-        unix2dos.  Benjamin Lin's implementations of dos2unix and unix2dos are
-        part of several Linux distributions such as RedHat, Fedora, Suse and
-        others.  This update includes all RedHat patches and fixes several
-        other problems.  Internationalization has been added and ports to DOS,
-        Windows, Cygwin and OS/2 Warp have been made.
+        unix2dos.  Benjamin Lin's implementations of dos2unix and unix2dos were
+        distributed via SunSITE.unc.edu (later MetaLab.unc.edu, now ibiblio)
+        and became part of several Linux distributions such as RedHat, Suse,
+        Gentoo, and others. This update includes all RedHat patches and fixes
+        several other problems. Internationalization has been added and ports
+        to DOS, Windows, Cygwin and OS/2 Warp have been made.
 
         These implementations of dos2unix and unix2dos have been modelled after
-        dos2unix/unix2dos under SunOS/Solaris.  They have similar conversion
-        modes, namely ascii, 7bit and iso.  The first versions were made by
+        dos2unix/unix2dos under SunOS/Solaris. The first versions were made by
         John Birchfield in 1989, and in 1995 rewritten from scratch by Benjamin
         Lin. Mac to Unix conversion was added by Bernd Johannes Wuebben in
         1998, Unix to Mac conversion by Erwin Waterlander in 2010.
+
+        In 2010 the two separate dos2unix and unix2dos packages have been
+        bundled into a single dos2unix package (version 5.0). Support for
+        Unicode UTF-16 was added in 2012 (version 6.0).
+
 
         Features
 
