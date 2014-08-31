@@ -82,8 +82,7 @@ int symbolic_link(const char *path)
 #ifdef S_ISLNK
    struct stat buf;
 
-   if (STAT(path, &buf) == 0)
-   {
+   if (STAT(path, &buf) == 0) {
       if (S_ISLNK(buf.st_mode))
          return(1);
    }
@@ -107,8 +106,7 @@ int regfile(char *path, int allowSymlinks, CFlag *ipFlag, const char *progname)
    struct stat buf;
    char *errstr;
 
-   if (STAT(path, &buf) == 0)
-   {
+   if (STAT(path, &buf) == 0) {
 #if DEBUG
       fprintf(stderr, "%s: %s MODE 0%o ", progname, path, buf.st_mode);
 #ifdef S_ISSOCK
@@ -142,10 +140,8 @@ int regfile(char *path, int allowSymlinks, CFlag *ipFlag, const char *progname)
       else
          return(-1);
    }
-   else
-   {
-     if (ipFlag->verbose)
-     {
+   else {
+     if (ipFlag->verbose) {
        ipFlag->error = errno;
        errstr = strerror(errno);
        fprintf(stderr, "%s: %s: %s\n", progname, path, errstr);
@@ -168,17 +164,14 @@ int regfile_target(char *path, CFlag *ipFlag, const char *progname)
    struct stat buf;
    char *errstr;
 
-   if (stat(path, &buf) == 0)
-   {
+   if (stat(path, &buf) == 0) {
       if (S_ISREG(buf.st_mode))
          return(0);
       else
          return(-1);
    }
-   else
-   {
-     if (ipFlag->verbose)
-     {
+   else {
+     if (ipFlag->verbose) {
        ipFlag->error = errno;
        errstr = strerror(errno);
        fprintf(stderr, "%s: %s: %s\n", progname, path, errstr);
@@ -356,8 +349,7 @@ char *dirname(char *path)
 
   if (( path == NULL) || (((ptr=strrchr(path,'/')) == NULL) && ((ptr=strrchr(path,'\\')) == NULL)) )
     return ".";
-  else
-  {
+  else {
     *ptr = '\0';
     return(path);
   }
@@ -440,10 +432,8 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progna
   char *errstr;
   char *targetFN = NULL;
 
-  if (STAT(lFN, &StatBuf))
-  {
-    if (ipFlag->verbose)
-    {
+  if (STAT(lFN, &StatBuf)) {
+    if (ipFlag->verbose) {
       ipFlag->error = errno;
       errstr = strerror(errno);
       fprintf(stderr, "%s: %s: %s\n", progname, lFN, errstr);
@@ -454,18 +444,15 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progna
   {
 #if USE_CANONICALIZE_FILE_NAME
     targetFN = canonicalize_file_name(lFN);
-    if (!targetFN)
-    {
-      if (ipFlag->verbose)
-      {
+    if (!targetFN) {
+      if (ipFlag->verbose) {
         errstr = strerror(errno);
         fprintf(stderr, "%s: %s: %s\n", progname, lFN, errstr);
         ipFlag->error = 1;
       }
       RetVal = -1;
     }
-    else
-    {
+    else {
       *rFN = targetFN;
       RetVal = 1;
     }
@@ -474,24 +461,19 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progna
      * flaw: PATH_MAX isn't necessarily the maximum path
      * length -- so realpath() might fail. */
     targetFN = (char *) malloc(PATH_MAX * sizeof(char));
-    if (!targetFN)
-    {
-      if (ipFlag->verbose)
-      {
+    if (!targetFN) {
+      if (ipFlag->verbose) {
         errstr = strerror(errno);
         fprintf(stderr, "%s: %s: %s\n", progname, lFN, errstr);
         ipFlag->error = 1;
       }
       RetVal = -1;
     }
-    else
-    {
+    else {
       /* is there any platform with S_ISLNK that does not have realpath? */
       char *rVal = realpath(lFN, targetFN);
-      if (!rVal)
-      {
-        if (ipFlag->verbose)
-        {
+      if (!rVal) {
+        if (ipFlag->verbose) {
           errstr = strerror(errno);
           fprintf(stderr, "%s: %s: %s\n", progname, lFN, errstr);
           ipFlag->error = 1;
@@ -499,8 +481,7 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progna
         free(targetFN);
         RetVal = -1;
       }
-      else
-      {
+      else {
         *rFN = rVal;
         RetVal = 1;
       }
@@ -527,47 +508,39 @@ FILE *read_bom (FILE *f, int *bomtype)
   *bomtype = FILE_MBS;
 
    /* Check for BOM */
-   if  (f != NULL)
-   {
-      if ((bom[0] = fgetc(f)) == EOF)
-      {
+   if  (f != NULL) {
+      if ((bom[0] = fgetc(f)) == EOF) {
          ungetc(bom[0], f);
          *bomtype = FILE_MBS;
          return(f);
       }
-      if ((bom[0] != 0xff) && (bom[0] != 0xfe) && (bom[0] != 0xef))
-      {
+      if ((bom[0] != 0xff) && (bom[0] != 0xfe) && (bom[0] != 0xef)) {
          ungetc(bom[0], f);
          *bomtype = FILE_MBS;
          return(f);
       }
-      if ((bom[1] = fgetc(f)) == EOF)
-      {
+      if ((bom[1] = fgetc(f)) == EOF) {
          ungetc(bom[1], f);
          ungetc(bom[0], f);
          *bomtype = FILE_MBS;
          return(f);
       }
-      if ((bom[0] == 0xff) && (bom[1] == 0xfe)) /* UTF16-LE */
-      {
+      if ((bom[0] == 0xff) && (bom[1] == 0xfe)) { /* UTF16-LE */
          *bomtype = FILE_UTF16LE;
          return(f);
       }
-      if ((bom[0] == 0xfe) && (bom[1] == 0xff)) /* UTF16-BE */
-      {
+      if ((bom[0] == 0xfe) && (bom[1] == 0xff)) { /* UTF16-BE */
          *bomtype = FILE_UTF16BE;
          return(f);
       }
-      if ((bom[2] = fgetc(f)) == EOF)
-      {
+      if ((bom[2] = fgetc(f)) == EOF) {
          ungetc(bom[2], f);
          ungetc(bom[1], f);
          ungetc(bom[0], f);
          *bomtype = FILE_MBS;
          return(f);
       }
-      if ((bom[0] == 0xef) && (bom[1] == 0xbb) && (bom[2]== 0xbf)) /* UTF-8 */
-      {
+      if ((bom[0] == 0xef) && (bom[1] == 0xbb) && (bom[2]== 0xbf)) { /* UTF-8 */
          *bomtype = FILE_UTF8;
          return(f);
       }
@@ -582,30 +555,25 @@ FILE *read_bom (FILE *f, int *bomtype)
 
 FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
 {
-  if (ipFlag->keep_utf16)
-  {
-    switch (ipFlag->bomtype)
-    {
+  if (ipFlag->keep_utf16) {
+    switch (ipFlag->bomtype) {
       case FILE_UTF16LE:   /* UTF-16 Little Endian */
         fprintf(f, "%s", "\xFF\xFE");
-        if (ipFlag->verbose > 1)
-        {
+        if (ipFlag->verbose > 1) {
           fprintf(stderr, "%s: ", progname);
           fprintf(stderr, _("Writing %s BOM.\n"), "UTF-16LE");
         }
         break;
       case FILE_UTF16BE:   /* UTF-16 Big Endian */
         fprintf(f, "%s", "\xFE\xFF");
-        if (ipFlag->verbose > 1)
-        {
+        if (ipFlag->verbose > 1) {
           fprintf(stderr, "%s: ", progname);
           fprintf(stderr, _("Writing %s BOM.\n"), "UTF-16BE");
         }
         break;
       case FILE_UTF8:      /* UTF-8 */
         fprintf(f, "%s", "\xEF\xBB\xBF");
-        if (ipFlag->verbose > 1)
-        {
+        if (ipFlag->verbose > 1) {
           fprintf(stderr, "%s: ", progname);
           fprintf(stderr, _("Writing %s BOM.\n"), "UTF-8");
         }
@@ -615,8 +583,7 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
     }
   } else {
     fprintf(f, "%s", "\xEF\xBB\xBF");
-    if (ipFlag->verbose > 1)
-    {
+    if (ipFlag->verbose > 1) {
       fprintf(stderr, "%s: ", progname);
       fprintf(stderr, _("Writing %s BOM.\n"), "UTF-8");
     }
@@ -626,8 +593,7 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
 
 void print_bom (const int bomtype, const char *filename, const char *progname)
 {
-    switch (bomtype)
-    {
+    switch (bomtype) {
     case FILE_UTF16LE:   /* UTF-16 Little Endian */
       fprintf(stderr, "%s: ", progname);
       fprintf(stderr, _("Input file %s has %s BOM.\n"), filename, "UTF-16LE");
@@ -738,32 +704,28 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
   ipFlag->status = 0 ;
 
   /* Test if output file is a symbolic link */
-  if (symbolic_link(ipOutFN) && !ipFlag->Follow)
-  {
+  if (symbolic_link(ipOutFN) && !ipFlag->Follow) {
     ipFlag->status |= OUTPUTFILE_SYMLINK ;
     /* Not a failure, skipping input file according spec. (keep symbolic link unchanged) */
     return -1;
   }
 
   /* Test if input file is a regular file or symbolic link */
-  if (regfile(ipInFN, 1, ipFlag, progname))
-  {
+  if (regfile(ipInFN, 1, ipFlag, progname)) {
     ipFlag->status |= NO_REGFILE ;
     /* Not a failure, skipping non-regular input file according spec. */
     return -1;
   }
 
   /* Test if input file target is a regular file */
-  if (symbolic_link(ipInFN) && regfile_target(ipInFN, ipFlag,progname))
-  {
+  if (symbolic_link(ipInFN) && regfile_target(ipInFN, ipFlag,progname)) {
     ipFlag->status |= INPUT_TARGET_NO_REGFILE ;
     /* Not a failure, skipping non-regular input file according spec. */
     return -1;
   }
 
   /* Test if output file target is a regular file */
-  if (symbolic_link(ipOutFN) && (ipFlag->Follow == SYMLINK_FOLLOW) && regfile_target(ipOutFN, ipFlag,progname))
-  {
+  if (symbolic_link(ipOutFN) && (ipFlag->Follow == SYMLINK_FOLLOW) && regfile_target(ipOutFN, ipFlag,progname)) {
     ipFlag->status |= OUTPUT_TARGET_NO_REGFILE ;
     /* Failure, input is regular, cannot produce output. */
     if (!ipFlag->error) ipFlag->error = 1;
@@ -771,10 +733,8 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
   }
 
   /* retrieve ipInFN file date stamp */
-  if (stat(ipInFN, &StatBuf))
-  {
-    if (ipFlag->verbose)
-    {
+  if (stat(ipInFN, &StatBuf)) {
+    if (ipFlag->verbose) {
       ipFlag->error = errno;
       errstr = strerror(errno);
       fprintf(stderr, "%s: %s: %s\n", progname, ipInFN, errstr);
@@ -787,8 +747,7 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
 #else
   if((fd = MakeTempFileFrom (ipOutFN, &TempPath)) < 0) {
 #endif
-    if (ipFlag->verbose)
-    {
+    if (ipFlag->verbose) {
       ipFlag->error = errno;
       errstr = strerror(errno);
       fprintf(stderr, "%s: ", progname);
@@ -803,11 +762,9 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
 #endif
 
   /* can open in file? */
-  if (!RetVal)
-  {
+  if (!RetVal) {
     InF=OpenInFile(ipInFN);
-    if (InF == NULL)
-    {
+    if (InF == NULL) {
       ipFlag->error = errno;
       errstr = strerror(errno);
       fprintf(stderr, "%s: %s: %s\n", progname, ipInFN, errstr);
@@ -816,14 +773,11 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
   }
 
   /* can open output file? */
-  if ((!RetVal) && (InF))
-  {
+  if ((!RetVal) && (InF)) {
 #ifdef NO_MKSTEMP
-    if ((TempF=fd) == NULL)
-    {
+    if ((TempF=fd) == NULL) {
 #else
-    if ((TempF=OpenOutFile(fd)) == NULL)
-    {
+    if ((TempF=OpenOutFile(fd)) == NULL) {
       ipFlag->error = errno;
       errstr = strerror(errno);
       fprintf(stderr, "%s: %s\n", progname, errstr);
@@ -839,12 +793,10 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
 
   /* conversion sucessful? */
 #ifdef D2U_UNICODE
-  if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))
-  {
+  if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
     if ((!RetVal) && (ConvertW(InF, TempF, ipFlag, progname)))
       RetVal = -1;
-    if (ipFlag->status & UNICODE_CONVERSION_ERROR)
-    {
+    if (ipFlag->status & UNICODE_CONVERSION_ERROR) {
       if (!ipFlag->error) ipFlag->error = 1;
       RetVal = -1;
     }
@@ -862,12 +814,9 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
     RetVal = -1;
 
   /* can close output file? */
-  if (TempF)
-  {
-    if (fclose(TempF) == EOF)
-    {
-       if (ipFlag->verbose)
-       {
+  if (TempF) {
+    if (fclose(TempF) == EOF) {
+       if (ipFlag->verbose) {
          ipFlag->error = errno;
          errstr = strerror(errno);
          fprintf(stderr, "%s: ", progname);
@@ -888,21 +837,16 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
 #ifndef NO_CHMOD
   if (!RetVal)
   {
-    if (ipFlag->NewFile == 0) /* old-file mode */
-    {
+    if (ipFlag->NewFile == 0) { /* old-file mode */
        RetVal = chmod (TempPath, StatBuf.st_mode); /* set original permissions */
-    }
-    else
-    {
+    } else {
        mask = umask(0); /* get process's umask */
        umask(mask); /* set umask back to original */
        RetVal = chmod(TempPath, StatBuf.st_mode & ~mask); /* set original permissions, minus umask */
     }
 
-    if (RetVal)
-    {
-       if (ipFlag->verbose)
-       {
+    if (RetVal) {
+       if (ipFlag->verbose) {
          ipFlag->error = errno;
          errstr = strerror(errno);
          fprintf(stderr, "%s: ", progname);
@@ -913,15 +857,12 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
 #endif
 
 #ifndef NO_CHOWN
-  if (!RetVal && (ipFlag->NewFile == 0))  /* old-file mode */
-  {
+  if (!RetVal && (ipFlag->NewFile == 0)) { /* old-file mode */
      /* Change owner and group of the temporary output file to the original file's uid and gid. */
      /* Required when a different user (e.g. root) has write permission on the original file. */
      /* Make sure that the original owner can still access the file. */
-     if (chown(TempPath, StatBuf.st_uid, StatBuf.st_gid))
-     {
-        if (ipFlag->verbose)
-        {
+     if (chown(TempPath, StatBuf.st_uid, StatBuf.st_gid)) {
+        if (ipFlag->verbose) {
           ipFlag->error = errno;
           errstr = strerror(errno);
           fprintf(stderr, "%s: ", progname);
@@ -937,10 +878,8 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
     UTimeBuf.actime = StatBuf.st_atime;
     UTimeBuf.modtime = StatBuf.st_mtime;
     /* can change output file time to in file time? */
-    if (utime(TempPath, &UTimeBuf) == -1)
-    {
-      if (ipFlag->verbose)
-      {
+    if (utime(TempPath, &UTimeBuf) == -1) {
+      if (ipFlag->verbose) {
         ipFlag->error = errno;
         errstr = strerror(errno);
         fprintf(stderr, "%s: %s: %s\n", progname, TempPath, errstr);
@@ -950,12 +889,9 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
   }
 
   /* any error? cleanup the temp file */
-  if (RetVal && (TempPath != NULL))
-  {
-    if (unlink(TempPath) && (errno != ENOENT))
-    {
-      if (ipFlag->verbose)
-      {
+  if (RetVal && (TempPath != NULL)) {
+    if (unlink(TempPath) && (errno != ENOENT)) {
+      if (ipFlag->verbose) {
         ipFlag->error = errno;
         errstr = strerror(errno);
         fprintf(stderr, "%s: %s: %s\n", progname, TempPath, errstr);
@@ -967,16 +903,12 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
   /* If output file is a symbolic link, optional resolve the link and modify  */
   /* the target, instead of removing the link and creating a new regular file */
   TargetFN = ipOutFN;
-  if (symbolic_link(ipOutFN) && !RetVal)
-  {
+  if (symbolic_link(ipOutFN) && !RetVal) {
     ResolveSymlinkResult = 0; /* indicates that TargetFN need not be freed */
-    if (ipFlag->Follow == SYMLINK_FOLLOW)
-    {
+    if (ipFlag->Follow == SYMLINK_FOLLOW) {
       ResolveSymlinkResult = ResolveSymbolicLink(ipOutFN, &TargetFN, ipFlag, progname);
-      if (ResolveSymlinkResult < 0)
-      {
-        if (ipFlag->verbose)
-        {
+      if (ResolveSymlinkResult < 0) {
+        if (ipFlag->verbose) {
           fprintf(stderr, "%s: ", progname);
           fprintf(stderr, _("problems resolving symbolic link '%s'\n"), ipOutFN);
           fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
@@ -987,13 +919,10 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
   }
 
   /* can rename temporary file to output file? */
-  if (!RetVal)
-  {
+  if (!RetVal) {
 #ifdef NEED_REMOVE
-    if (unlink(TargetFN) && (errno != ENOENT))
-    {
-      if (ipFlag->verbose)
-      {
+    if (unlink(TargetFN) && (errno != ENOENT)) {
+      if (ipFlag->verbose) {
         ipFlag->error = errno;
         errstr = strerror(errno);
         fprintf(stderr, "%s: %s: %s\n", progname, TargetFN, errstr);
@@ -1001,10 +930,8 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
       RetVal = -1;
     }
 #endif
-    if (rename(TempPath, TargetFN) == -1)
-    {
-      if (ipFlag->verbose)
-      {
+    if (rename(TempPath, TargetFN) == -1) {
+      if (ipFlag->verbose) {
         ipFlag->error = errno;
         errstr = strerror(errno);
         fprintf(stderr, "%s: ", progname);
@@ -1284,8 +1211,7 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
         pFlag->NewLine = 1;
       else if ((strcmp(argv[ArgIdx],"-m") == 0) || (strcmp(argv[ArgIdx],"--add-bom") == 0))
         pFlag->add_bom = 1;
-      else if ((strcmp(argv[ArgIdx],"-r") == 0) || (strcmp(argv[ArgIdx],"--remove-bom") == 0))
-      {
+      else if ((strcmp(argv[ArgIdx],"-r") == 0) || (strcmp(argv[ArgIdx],"--remove-bom") == 0)) {
         pFlag->keep_bom = 0;
         pFlag->add_bom = 0;
       }
@@ -1295,31 +1221,26 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
         pFlag->Follow = SYMLINK_FOLLOW;
       else if ((strcmp(argv[ArgIdx],"-R") == 0) || (strcmp(argv[ArgIdx],"--replace-symlink") == 0))
         pFlag->Follow = SYMLINK_REPLACE;
-      else if ((strcmp(argv[ArgIdx],"-V") == 0) || (strcmp(argv[ArgIdx],"--version") == 0))
-      {
+      else if ((strcmp(argv[ArgIdx],"-V") == 0) || (strcmp(argv[ArgIdx],"--version") == 0)) {
         PrintVersion(progname);
 #ifdef ENABLE_NLS
         PrintLocaledir(localedir);
 #endif
         return(pFlag->error);
       }
-      else if ((strcmp(argv[ArgIdx],"-L") == 0) || (strcmp(argv[ArgIdx],"--license") == 0))
-      {
+      else if ((strcmp(argv[ArgIdx],"-L") == 0) || (strcmp(argv[ArgIdx],"--license") == 0)) {
         PrintLicense();
         return(pFlag->error);
       }
-      else if (strcmp(argv[ArgIdx],"-ascii") == 0)  /* SunOS compatible options */
-      {
+      else if (strcmp(argv[ArgIdx],"-ascii") == 0) { /* SunOS compatible options */
         pFlag->ConvMode = CONVMODE_ASCII;
         pFlag->keep_utf16 = 0;
       }
       else if (strcmp(argv[ArgIdx],"-7") == 0)
         pFlag->ConvMode = CONVMODE_7BIT;
-      else if (strcmp(argv[ArgIdx],"-iso") == 0)
-      {
+      else if (strcmp(argv[ArgIdx],"-iso") == 0) {
         pFlag->ConvMode = (int)query_con_codepage();
-        if (pFlag->verbose)
-        {
+        if (pFlag->verbose) {
            fprintf(stderr,"%s: ",progname);
            fprintf(stderr,_("active code page: %d\n"), pFlag->ConvMode);
         }
@@ -1346,22 +1267,17 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
       else if ((strcmp(argv[ArgIdx],"-ub") == 0) || (strcmp(argv[ArgIdx],"--assume-utf16be") == 0))
         pFlag->ConvMode = CONVMODE_UTF16BE;
 #endif
-      else if ((strcmp(argv[ArgIdx],"-c") == 0) || (strcmp(argv[ArgIdx],"--convmode") == 0))
-      {
-        if (++ArgIdx < argc)
-        {
-          if (strcmpi(argv[ArgIdx],"ascii") == 0)  /* Benjamin Lin's legacy options */
-          {
+      else if ((strcmp(argv[ArgIdx],"-c") == 0) || (strcmp(argv[ArgIdx],"--convmode") == 0)) {
+        if (++ArgIdx < argc) {
+          if (strcmpi(argv[ArgIdx],"ascii") == 0) { /* Benjamin Lin's legacy options */
             pFlag->ConvMode = CONVMODE_ASCII;
             pFlag->keep_utf16 = 0;
           }
           else if (strcmpi(argv[ArgIdx], "7bit") == 0)
             pFlag->ConvMode = CONVMODE_7BIT;
-          else if (strcmpi(argv[ArgIdx], "iso") == 0)
-          {
+          else if (strcmpi(argv[ArgIdx], "iso") == 0) {
             pFlag->ConvMode = (int)query_con_codepage();
-            if (pFlag->verbose)
-            {
+            if (pFlag->verbose) {
                fprintf(stderr,"%s: ",progname);
                fprintf(stderr,_("active code page: %d\n"), pFlag->ConvMode);
             }
@@ -1373,17 +1289,14 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
               pFlag->FromToMode = FROMTO_MAC2UNIX;
             else
               pFlag->FromToMode = FROMTO_UNIX2MAC;
-          } else
-          {
+          } else {
             fprintf(stderr,"%s: ",progname);
             fprintf(stderr, _("invalid %s conversion mode specified\n"),argv[ArgIdx]);
             pFlag->error = 1;
             ShouldExit = 1;
             pFlag->stdio_mode = 0;
           }
-        }
-        else
-        {
+        } else {
           ArgIdx--;
           fprintf(stderr,"%s: ",progname);
           fprintf(stderr,_("option '%s' requires an argument\n"),argv[ArgIdx]);
@@ -1393,11 +1306,9 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
         }
       }
 
-      else if ((strcmp(argv[ArgIdx],"-o") == 0) || (strcmp(argv[ArgIdx],"--oldfile") == 0))
-      {
+      else if ((strcmp(argv[ArgIdx],"-o") == 0) || (strcmp(argv[ArgIdx],"--oldfile") == 0)) {
         /* last convert not paired */
-        if (!CanSwitchFileMode)
-        {
+        if (!CanSwitchFileMode) {
           fprintf(stderr,"%s: ",progname);
           fprintf(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
           pFlag->error = 1;
@@ -1407,11 +1318,9 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
         pFlag->NewFile = 0;
       }
 
-      else if ((strcmp(argv[ArgIdx],"-n") == 0) || (strcmp(argv[ArgIdx],"--newfile") == 0))
-      {
+      else if ((strcmp(argv[ArgIdx],"-n") == 0) || (strcmp(argv[ArgIdx],"--newfile") == 0)) {
         /* last convert not paired */
-        if (!CanSwitchFileMode)
-        {
+        if (!CanSwitchFileMode) {
           fprintf(stderr,"%s: ",progname);
           fprintf(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
           pFlag->error = 1;
@@ -1427,16 +1336,13 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
         pFlag->stdio_mode = 0;
       }
     }
-    else
-    {
+    else {
       pFlag->stdio_mode = 0;
       /* not an option */
-      if (pFlag->NewFile)
-      {
+      if (pFlag->NewFile) {
         if (CanSwitchFileMode)
           CanSwitchFileMode = 0;
-        else
-        {
+        else {
 #ifdef D2U_UNICODE
           RetVal = ConvertNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag, progname, Convert, ConvertW);
 #else
@@ -1446,8 +1352,7 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
           CanSwitchFileMode = 1;
         }
       }
-      else
-      {
+      else {
 #ifdef D2U_UNICODE
         RetVal = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert, ConvertW);
 #else
@@ -1459,8 +1364,7 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
   }
 
   /* no file argument, use stdin and stdout */
-  if (pFlag->stdio_mode)
-  {
+  if (pFlag->stdio_mode) {
 #ifdef D2U_UNICODE
     ConvertStdio(pFlag, progname, Convert, ConvertW);
 #else
@@ -1470,8 +1374,7 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
     return pFlag->error;
   }
 
-  if (!CanSwitchFileMode)
-  {
+  if (!CanSwitchFileMode) {
     fprintf(stderr,"%s: ",progname);
     fprintf(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
     pFlag->error = 1;
@@ -1488,8 +1391,7 @@ wint_t d2u_getwc(FILE *f, int bomtype)
    if (((c_lead=fgetc(f)) == EOF)  || ((c_trail=fgetc(f)) == EOF))
       return(WEOF);
 
-   if (bomtype == FILE_UTF16LE)  /* UTF16 little endian */
-   {
+   if (bomtype == FILE_UTF16LE) { /* UTF16 little endian */
       c_trail <<=8;
       wc = (wint_t)(c_trail + c_lead) ;
    } else {                      /* UTF16 big endian */
@@ -1503,8 +1405,7 @@ wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype)
 {
    int c_trail, c_lead;
 
-   if (bomtype == FILE_UTF16LE)  /* UTF16 little endian */
-   {
+   if (bomtype == FILE_UTF16LE) { /* UTF16 little endian */
       c_trail = (int)(wc & 0xff00);
       c_trail >>=8;
       c_lead  = (int)(wc & 0xff);
@@ -1529,10 +1430,8 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
    size_t i,len;
    int c_trail, c_lead;
 
-   if (ipFlag->keep_utf16)
-   {
-     if (ipFlag->bomtype == FILE_UTF16LE)  /* UTF16 little endian */
-     {
+   if (ipFlag->keep_utf16) {
+     if (ipFlag->bomtype == FILE_UTF16LE) { /* UTF16 little endian */
         c_trail = (int)(wc & 0xff00);
         c_trail >>=8;
         c_lead  = (int)(wc & 0xff);
@@ -1546,14 +1445,12 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
      return wc;
    }
 
-   if ((wc >= 0xd800) && (wc < 0xdc00))
-   {
+   if ((wc >= 0xd800) && (wc < 0xdc00)) {
       /* fprintf(stderr, "UTF-16 lead %x\n",wc); */
       lead = (wchar_t)wc; /* lead (high) surrogate */
       return(wc);
    }
-   if ((wc >= 0xdc00) && (wc < 0xe000))
-   {
+   if ((wc >= 0xdc00) && (wc < 0xe000)) {
       /* fprintf(stderr, "UTF-16 trail %x\n",wc); */
       trail = (wchar_t)wc; /* trail (low) surrogate */
 #if defined(_WIN32) || defined(__CYGWIN__)
@@ -1605,13 +1502,12 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
    /* fprintf(stderr, "len  %d\n",len); */
 #endif
 
-   if ( len == (size_t)(-1) )
-   {  /* Stop when there is a conversion error */
+   if ( len == (size_t)(-1) ) {
+      /* Stop when there is a conversion error */
       ipFlag->status |= UNICODE_CONVERSION_ERROR ;
       return(WEOF);
    } else {
-      for (i=0; i<len; i++)
-      {
+      for (i=0; i<len; i++) {
          if (fputc(mbs[i], f) == EOF)
             return(WEOF);
       }
