@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-28 22:48+0200\n"
+"POT-Creation-Date: 2014-08-31 13:21+0200\n"
 "PO-Revision-Date: 2014-02-01 19:14+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -34,39 +34,39 @@ msgstr ""
 "Ĉiuj rajtoj estas rezervitaj.\n"
 "\n"
 
-#: dos2unix.c:169 dos2unix.c:207 unix2dos.c:133 unix2dos.c:187
+#: dos2unix.c:168 dos2unix.c:203 unix2dos.c:132 unix2dos.c:180
 #, c-format
 msgid "Binary symbol 0x00%02X found at line %d\n"
 msgstr "Duuma signo 0x00%02X troviĝis en linio %d\n"
 
-#: dos2unix.c:184 dos2unix.c:223 dos2unix.c:248 dos2unix.c:367 dos2unix.c:403
-#: dos2unix.c:425 unix2dos.c:164 unix2dos.c:201 unix2dos.c:225 unix2dos.c:243
-#: unix2dos.c:375 unix2dos.c:409 unix2dos.c:430 unix2dos.c:445
+#: dos2unix.c:181 dos2unix.c:216 dos2unix.c:238 dos2unix.c:351 dos2unix.c:384
+#: dos2unix.c:404 unix2dos.c:158 unix2dos.c:191 unix2dos.c:212 unix2dos.c:227
+#: unix2dos.c:350 unix2dos.c:381 unix2dos.c:400 unix2dos.c:413
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "ne eblas skribi al eliga dosiero: %s\n"
 
-#: dos2unix.c:265 dos2unix.c:441 unix2dos.c:259 unix2dos.c:460
+#: dos2unix.c:255 dos2unix.c:420 unix2dos.c:243 unix2dos.c:428
 #, c-format
 msgid "program error, invalid conversion mode %d\n"
 msgstr "**programeraro**: malvalida konvertmoduso %d\n"
 
-#: dos2unix.c:272 dos2unix.c:448 unix2dos.c:266 unix2dos.c:467
+#: dos2unix.c:261 dos2unix.c:426 unix2dos.c:249 unix2dos.c:434
 #, c-format
 msgid "Converted %d out of %d line breaks.\n"
 msgstr ""
 
-#: dos2unix.c:329 unix2dos.c:323
+#: dos2unix.c:316 unix2dos.c:304
 #, c-format
 msgid "using code page %d.\n"
 msgstr "uziĝas kodpaĝo %d.\n"
 
-#: dos2unix.c:354 dos2unix.c:389 unix2dos.c:346 unix2dos.c:397
+#: dos2unix.c:339 dos2unix.c:372 unix2dos.c:325 unix2dos.c:371
 #, c-format
 msgid "Binary symbol 0x%02X found at line %d\n"
 msgstr "Duuma signo 0x%02X troviĝis en linio %d\n"
 
-#: dos2unix.c:479 unix2dos.c:498
+#: dos2unix.c:455 unix2dos.c:463
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "eraro: Valoro de ĉirkaŭaĵa variablo DOS2UNIX_LOCALEDIR tro longas.\n"
 
@@ -543,22 +543,22 @@ msgstr "konvertiĝas dosiero %s DOS-en...\n"
 msgid "problems converting file %s\n"
 msgstr "problemoj dum konverto de dosiero %s\n"
 
-#: common.c:1309 common.c:1351
+#: common.c:1324 common.c:1366
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktiva kodpaĝo: %d\n"
 
-#: common.c:1364
+#: common.c:1379
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "malvalida konvertmoduso %s indikatas\n"
 
-#: common.c:1374
+#: common.c:1389
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "opcio '%s' bezonas argumenton\n"
 
-#: common.c:1387 common.c:1401 common.c:1461
+#: common.c:1402 common.c:1416 common.c:1476
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "celo de dosiero %s ne indikatas (en novdosiera moduso)\n"

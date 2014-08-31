@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.1-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-28 22:48+0200\n"
+"POT-Creation-Date: 2014-08-31 13:21+0200\n"
 "PO-Revision-Date: 2014-08-29 21:49+0200\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -31,41 +31,42 @@ msgstr ""
 "Wszelkie prawa zastrzeżone.\n"
 "\n"
 
-#: dos2unix.c:169 dos2unix.c:207 unix2dos.c:133 unix2dos.c:187
+#: dos2unix.c:168 dos2unix.c:203 unix2dos.c:132 unix2dos.c:180
 #, c-format
 msgid "Binary symbol 0x00%02X found at line %d\n"
 msgstr "Symbol binarny 0x00%02X znaleziono w linii %d\n"
 
-#: dos2unix.c:184 dos2unix.c:223 dos2unix.c:248 dos2unix.c:367 dos2unix.c:403
-#: dos2unix.c:425 unix2dos.c:164 unix2dos.c:201 unix2dos.c:225 unix2dos.c:243
-#: unix2dos.c:375 unix2dos.c:409 unix2dos.c:430 unix2dos.c:445
+#: dos2unix.c:181 dos2unix.c:216 dos2unix.c:238 dos2unix.c:351 dos2unix.c:384
+#: dos2unix.c:404 unix2dos.c:158 unix2dos.c:191 unix2dos.c:212 unix2dos.c:227
+#: unix2dos.c:350 unix2dos.c:381 unix2dos.c:400 unix2dos.c:413
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "nie można zapisać do pliku wyjściowego: %s\n"
 
-#: dos2unix.c:265 dos2unix.c:441 unix2dos.c:259 unix2dos.c:460
+#: dos2unix.c:255 dos2unix.c:420 unix2dos.c:243 unix2dos.c:428
 #, c-format
 msgid "program error, invalid conversion mode %d\n"
 msgstr "błąd programu, błędny tryb konwersji %d\n"
 
-#: dos2unix.c:272 dos2unix.c:448 unix2dos.c:266 unix2dos.c:467
+#: dos2unix.c:261 dos2unix.c:426 unix2dos.c:249 unix2dos.c:434
 #, c-format
 msgid "Converted %d out of %d line breaks.\n"
 msgstr "Przekonwertowano znaków końca linii: %d z %d.\n"
 
-#: dos2unix.c:329 unix2dos.c:323
+#: dos2unix.c:316 unix2dos.c:304
 #, c-format
 msgid "using code page %d.\n"
 msgstr "użycie strony kodowej %d.\n"
 
-#: dos2unix.c:354 dos2unix.c:389 unix2dos.c:346 unix2dos.c:397
+#: dos2unix.c:339 dos2unix.c:372 unix2dos.c:325 unix2dos.c:371
 #, c-format
 msgid "Binary symbol 0x%02X found at line %d\n"
 msgstr "Symbol binarny 0x%02X znaleziono w linii %d\n"
 
-#: dos2unix.c:479 unix2dos.c:498
+#: dos2unix.c:455 unix2dos.c:463
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
-msgstr "błąd: wartość zmiennej środowiskowej DOS2UNIX_LOCALEDIR jest zbyt długa.\n"
+msgstr ""
+"błąd: wartość zmiennej środowiskowej DOS2UNIX_LOCALEDIR jest zbyt długa.\n"
 
 #: unix2dos.c:66
 msgid ""
@@ -96,7 +97,8 @@ msgstr ""
 "następujących warunków:\n"
 "1. Przy rozprowadzaniu kodu źródłowego musi być zachowana powyższa\n"
 "   informacja o prawach autorskich, niniejsza lista warunków oraz\n"
-"   poniższe oświadczenie.n2. Przy rozprowadzaniu w postaci binarnej powyższa informacja o prawach\n"
+"   poniższe oświadczenie.n2. Przy rozprowadzaniu w postaci binarnej powyższa "
+"informacja o prawach\n"
 "   autorskich musi być dołączona w dokumentacji i/lub innych materiałach\n"
 "   dołączonych do dystrybucji.\n"
 "\n"
@@ -139,13 +141,17 @@ msgstr " -ascii                konwersja tylko końców linii (domyślne)\n"
 
 #: common.c:229
 #, c-format
-msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
-msgstr " -iso                  konwersja między zestawem znaków DOS-a i ISO-8859-1\n"
+msgid ""
+" -iso                  conversion between DOS and ISO-8859-1 character set\n"
+msgstr ""
+" -iso                  konwersja między zestawem znaków DOS-a i ISO-8859-1\n"
 
 #: common.c:230
 #, c-format
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
-msgstr "   -1252               użycie strony kodowej Windows 1252 (zachodnioeuropejskiej)\n"
+msgstr ""
+"   -1252               użycie strony kodowej Windows 1252 "
+"(zachodnioeuropejskiej)\n"
 
 #: common.c:231
 #, c-format
@@ -155,7 +161,9 @@ msgstr "   -437                użycie strony kodowej DOS 437 (US; domyślna)\n"
 #: common.c:232
 #, c-format
 msgid "   -850                use DOS code page 850 (Western European)\n"
-msgstr "   -850                użycie strony kodowej DOS 850 (zachodnioeuropejskiej)\n"
+msgstr ""
+"   -850                użycie strony kodowej DOS 850 "
+"(zachodnioeuropejskiej)\n"
 
 #: common.c:233
 #, c-format
@@ -165,7 +173,9 @@ msgstr "   -860                użycie strony kodowej DOS 860 (portugalskiej)\n"
 #: common.c:234
 #, c-format
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
-msgstr "   -863                użycie strony kodowej DOS 863 (kanadyjskiej francuskiej)\n"
+msgstr ""
+"   -863                użycie strony kodowej DOS 863 (kanadyjskiej "
+"francuskiej)\n"
 
 #: common.c:235
 #, c-format
@@ -175,7 +185,8 @@ msgstr "   -865                użycie strony kodowej DOS 865 (nordyckiej)\n"
 #: common.c:236
 #, c-format
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
-msgstr " -7                    konwersja znaków 8-bitowych do przestrzeni 7-bitowej\n"
+msgstr ""
+" -7                    konwersja znaków 8-bitowych do przestrzeni 7-bitowej\n"
 
 #: common.c:238
 #, c-format
@@ -185,7 +196,9 @@ msgstr " -b, --keep-bom        zachowanie znacznika BOM (Byte Order Mark)\n"
 #: common.c:240
 #, c-format
 msgid " -b, --keep-bom        keep Byte Order Mark (default)\n"
-msgstr " -b, --keep-bom        zachowanie znacznika BOM (Byte Order Mark) (domyślne)\n"
+msgstr ""
+" -b, --keep-bom        zachowanie znacznika BOM (Byte Order Mark) "
+"(domyślne)\n"
 
 #: common.c:241
 #, c-format
@@ -254,7 +267,8 @@ msgstr " -q, --quiet           tryb cichy, pominięcie wszystkich ostrzeżeń\n"
 #: common.c:256
 #, c-format
 msgid " -r, --remove-bom      remove Byte Order Mark (default)\n"
-msgstr " -r, --remove-bom      usunięcie znacznika BOM (Byte Order Mark) (domyślne)\n"
+msgstr ""
+" -r, --remove-bom      usunięcie znacznika BOM (Byte Order Mark) (domyślne)\n"
 
 #: common.c:258
 #, c-format
@@ -289,7 +303,9 @@ msgstr " -v,  --verbose        działanie ze szczegółowym opisem\n"
 #: common.c:267
 #, c-format
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
-msgstr " -F, --follow-symlink  podążanie za dowiązaniami symbolicznymi i konwersja celów\n"
+msgstr ""
+" -F, --follow-symlink  podążanie za dowiązaniami symbolicznymi i konwersja "
+"celów\n"
 
 #: common.c:270
 #, c-format
@@ -297,13 +313,16 @@ msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
 "                         (original target files remain unchanged)\n"
 msgstr ""
-" -R, --replace-symlink zastępowanie dowiązań symbolicznych plikami wynikowymi\n"
+" -R, --replace-symlink zastępowanie dowiązań symbolicznych plikami "
+"wynikowymi\n"
 "                         (oryginalne pliki docelowe pozostają bez zmian)\n"
 
 #: common.c:272
 #, c-format
-msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
-msgstr " -S, --skip-symlink    bez zmian dowiązań symbolicznych i celów (domyślne)\n"
+msgid ""
+" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
+msgstr ""
+" -S, --skip-symlink    bez zmian dowiązań symbolicznych i celów (domyślne)\n"
 
 #: common.c:274
 #, c-format
@@ -418,12 +437,15 @@ msgstr "Nie udało się zapisać do tymczasowego pliku wyjściowego %s: %s\n"
 #: common.c:909
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s: %s\n"
-msgstr "Nie udało się zmienić uprawnień tymczasowego pliku wyjściowego %s: %s\n"
+msgstr ""
+"Nie udało się zmienić uprawnień tymczasowego pliku wyjściowego %s: %s\n"
 
 #: common.c:928
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
-msgstr "Nie udało się zmienić właściciela i grupy tymczasowego pliku wyjściowego %s: %s\n"
+msgstr ""
+"Nie udało się zmienić właściciela i grupy tymczasowego pliku wyjściowego %s: "
+"%s\n"
 
 #: common.c:981
 #, c-format
@@ -452,8 +474,12 @@ msgstr "strona kodowa %d nie jest obsługiwana.\n"
 
 #: common.c:1083 common.c:1133 common.c:1196
 #, c-format
-msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
-msgstr "Pominięto plik UTF-16 %s, kodowanie znaków bieżącej lokalizacji to nie UTF-8.\n"
+msgid ""
+"Skipping UTF-16 file %s, the current locale character encoding is not "
+"UTF-8.\n"
+msgstr ""
+"Pominięto plik UTF-16 %s, kodowanie znaków bieżącej lokalizacji to nie "
+"UTF-8.\n"
 
 #: common.c:1088 common.c:1138 common.c:1201
 #, c-format
@@ -483,7 +509,8 @@ msgstr "Pominięto dowiązanie symboliczne %s, cel nie jest zwykłym plikiem.\n"
 #: common.c:1118
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
-msgstr "Pominięto %s, cel dowiązania symbolicznego %s nie jest zwykłym plikiem.\n"
+msgstr ""
+"Pominięto %s, cel dowiązania symbolicznego %s nie jest zwykłym plikiem.\n"
 
 #: common.c:1123 common.c:1186
 #, c-format
@@ -535,22 +562,22 @@ msgstr "konwersja pliku %s do formatu DOS...\n"
 msgid "problems converting file %s\n"
 msgstr "problemy z konwersją pliku %s\n"
 
-#: common.c:1309 common.c:1351
+#: common.c:1324 common.c:1366
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktywna strona kodowa: %d\n"
 
-#: common.c:1364
+#: common.c:1379
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "podano błędny tryb konwersji %s\n"
 
-#: common.c:1374
+#: common.c:1389
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "opcja '%s' wymaga argumentu\n"
 
-#: common.c:1387 common.c:1401 common.c:1461
+#: common.c:1402 common.c:1416 common.c:1476
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "nie podano celu pliku %s w trybie nowego pliku\n"

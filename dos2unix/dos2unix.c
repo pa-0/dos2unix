@@ -163,8 +163,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
               (TempChar != 0x0c)) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
-            if (ipFlag->verbose)
-            {
+            if (ipFlag->verbose) {
               fprintf(stderr, "%s: ", progname);
               fprintf(stderr, _("Binary symbol 0x00%02X found at line %d\n"),TempChar, line_nr);
             }
@@ -175,10 +174,8 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
               ++line_nr;
             if (d2u_putwc(TempChar, ipOutF, ipFlag) == WEOF) {
               RetVal = -1;
-              if (ipFlag->verbose)
-              {
-                if (!(ipFlag->status & UNICODE_CONVERSION_ERROR))
-                {
+              if (ipFlag->verbose) {
+                if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
                   errstr = strerror(errno);
                   fprintf(stderr, "%s: ", progname);
                   fprintf(stderr, _("can not write to output file: %s\n"), errstr);
@@ -201,23 +198,19 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
               (TempChar != 0x0c)) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
-            if (ipFlag->verbose)
-            {
+            if (ipFlag->verbose) {
               fprintf(stderr, "%s: ", progname);
               fprintf(stderr, _("Binary symbol 0x00%02X found at line %d\n"),TempChar, line_nr);
             }
             break;
           }
-          if ((TempChar != 0x0d))
-            {
+          if ((TempChar != 0x0d)) {
               if (TempChar == 0x0a) /* Count all DOS and Unix line breaks */
                 ++line_nr;
-              if(d2u_putwc(TempChar, ipOutF, ipFlag) == WEOF){
+              if(d2u_putwc(TempChar, ipOutF, ipFlag) == WEOF) {
                 RetVal = -1;
-                if (ipFlag->verbose)
-                {
-                  if (!(ipFlag->status & UNICODE_CONVERSION_ERROR))
-                  {
+                if (ipFlag->verbose) {
+                  if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
                     errstr = strerror(errno);
                     fprintf(stderr, "%s: ", progname);
                     fprintf(stderr, _("can not write to output file: %s\n"), errstr);
@@ -236,13 +229,10 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
                 continue;
               }
             }
-            if (d2u_putwc(0x0a, ipOutF, ipFlag) == WEOF) /* MAC line end (CR). Put LF */
-              {
+            if (d2u_putwc(0x0a, ipOutF, ipFlag) == WEOF) { /* MAC line end (CR). Put LF */
                 RetVal = -1;
-                if (ipFlag->verbose)
-                {
-                  if (!(ipFlag->status & UNICODE_CONVERSION_ERROR))
-                  {
+                if (ipFlag->verbose) {
+                  if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
                     errstr = strerror(errno);
                     fprintf(stderr, "%s: ", progname);
                     fprintf(stderr, _("can not write to output file: %s\n"), errstr);
@@ -266,8 +256,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
       exit(1);
 #endif
     }
-    if (ipFlag->verbose > 1)
-    {
+    if (ipFlag->verbose > 1) {
       fprintf(stderr, "%s: ", progname);
       fprintf(stderr, _("Converted %d out of %d line breaks.\n"),converted, line_nr -1);
     }
@@ -291,8 +280,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
 
     ipFlag->status = 0;
 
-    switch (ipFlag->ConvMode)
-    {
+    switch (ipFlag->ConvMode) {
       case CONVMODE_ASCII: /* ascii */
       case CONVMODE_UTF16LE: /* Assume UTF-16LE, bomtype = FILE_UTF8 */
       case CONVMODE_UTF16BE: /* Assume UTF-16BE, bomtype = FILE_UTF8 */
@@ -323,8 +311,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
         ipFlag->status |= WRONG_CODEPAGE ;
         return(-1);
     }
-    if ((ipFlag->ConvMode > CONVMODE_7BIT) && (ipFlag->verbose)) /* not ascii or 7bit */
-    {
+    if ((ipFlag->ConvMode > CONVMODE_7BIT) && (ipFlag->verbose)) { /* not ascii or 7bit */
        fprintf(stderr, "%s: ", progname);
        fprintf(stderr, _("using code page %d.\n"), ipFlag->ConvMode);
     }
@@ -336,8 +323,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
     /* \x0a = Newline/Line Feed (LF) */
     /* \x0d = Carriage Return (CR) */
 
-    switch (ipFlag->FromToMode)
-    {
+    switch (ipFlag->FromToMode) {
       case FROMTO_DOS2UNIX: /* dos2unix */
         while ((TempChar = fgetc(ipInF)) != EOF) {  /* get character */
           if ((ipFlag->Force == 0) &&
@@ -348,8 +334,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
               (TempChar != '\x0c')) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
-            if (ipFlag->verbose)
-            {
+            if (ipFlag->verbose) {
               fprintf(stderr, "%s: ", progname);
               fprintf(stderr, _("Binary symbol 0x%02X found at line %d\n"),TempChar, line_nr);
             }
@@ -360,8 +345,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
               ++line_nr;
             if (fputc(ConvTable[TempChar], ipOutF) == EOF) {
               RetVal = -1;
-              if (ipFlag->verbose)
-              {
+              if (ipFlag->verbose) {
                 errstr = strerror(errno);
                 fprintf(stderr, "%s: ", progname);
                 fprintf(stderr, _("can not write to output file: %s\n"), errstr);
@@ -383,21 +367,18 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
               (TempChar != '\x0c')) {  /* Not a form feed */
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
-            if (ipFlag->verbose)
-            {
+            if (ipFlag->verbose) {
               fprintf(stderr, "%s: ", progname);
               fprintf(stderr, _("Binary symbol 0x%02X found at line %d\n"),TempChar, line_nr);
             }
             break;
           }
-          if ((TempChar != '\x0d'))
-            {
+          if ((TempChar != '\x0d')) {
               if (TempChar == '\x0a') /* Count all DOS and Unix line breaks */
                 ++line_nr;
-              if(fputc(ConvTable[TempChar], ipOutF) == EOF){
+              if(fputc(ConvTable[TempChar], ipOutF) == EOF) {
                 RetVal = -1;
-                if (ipFlag->verbose)
-                {
+                if (ipFlag->verbose) {
                   errstr = strerror(errno);
                   fprintf(stderr, "%s: ", progname);
                   fprintf(stderr, _("can not write to output file: %s\n"), errstr);
@@ -415,11 +396,9 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
                 continue;
               }
             }
-            if (fputc('\x0a', ipOutF) == EOF) /* MAC line end (CR). Put LF */
-              {
+            if (fputc('\x0a', ipOutF) == EOF) { /* MAC line end (CR). Put LF */
                 RetVal = -1;
-                if (ipFlag->verbose)
-                {
+                if (ipFlag->verbose) {
                   errstr = strerror(errno);
                   fprintf(stderr, "%s: ", progname);
                   fprintf(stderr, _("can not write to output file: %s\n"), errstr);
@@ -442,8 +421,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
       exit(1);
 #endif
     }
-    if (ipFlag->verbose > 1)
-    {
+    if (ipFlag->verbose > 1) {
       fprintf(stderr, "%s: ", progname);
       fprintf(stderr, _("Converted %d out of %d line breaks.\n"),converted, line_nr -1);
     }
@@ -469,12 +447,10 @@ int main (int argc, char *argv[])
    ptr = getenv("DOS2UNIX_LOCALEDIR");
    if (ptr == NULL)
       strcpy(localedir,LOCALEDIR);
-   else
-   {
+   else {
       if (strlen(ptr) < sizeof(localedir))
          strcpy(localedir,ptr);
-      else
-      {
+      else {
          fprintf(stderr,"%s: ",progname);
          fprintf(stderr, "%s", _("error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"));
          strcpy(localedir,LOCALEDIR);
@@ -495,29 +471,15 @@ int main (int argc, char *argv[])
 
   /* variable initialisations */
   pFlag = (CFlag*)malloc(sizeof(CFlag));
-  pFlag->NewFile = 0;
-  pFlag->verbose = 1;
-  pFlag->KeepDate = 0;
-  pFlag->ConvMode = CONVMODE_ASCII;  /* default ascii */
   pFlag->FromToMode = FROMTO_DOS2UNIX;  /* default dos2unix */
-  pFlag->NewLine = 0;
-  pFlag->Force = 0;
-  pFlag->Follow = SYMLINK_SKIP;
-  pFlag->status = 0;
-  pFlag->stdio_mode = 1;
-  pFlag->error = 0;
-  pFlag->bomtype = FILE_MBS;
-  pFlag->add_bom = 0;
   pFlag->keep_bom = 0;
-  pFlag->keep_utf16 = 0;
 
   if ( ((ptr=strrchr(argv[0],'/')) == NULL) && ((ptr=strrchr(argv[0],'\\')) == NULL) )
     ptr = argv[0];
   else
     ptr++;
 
-  if ((strcmpi("mac2unix", ptr) == 0) || (strcmpi("mac2unix.exe", ptr) == 0))
-  {
+  if ((strcmpi("mac2unix", ptr) == 0) || (strcmpi("mac2unix.exe", ptr) == 0)) {
     pFlag->FromToMode = FROMTO_MAC2UNIX;
     strcpy(progname,"mac2unix");
   }

@@ -1240,6 +1240,21 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
   int process_options = 1;
   int RetVal = 0;
 
+  /* variable initialisations */
+  pFlag->NewFile = 0;
+  pFlag->verbose = 1;
+  pFlag->KeepDate = 0;
+  pFlag->ConvMode = CONVMODE_ASCII;  /* default ascii */
+  pFlag->NewLine = 0;
+  pFlag->Force = 0;
+  pFlag->Follow = SYMLINK_SKIP;
+  pFlag->status = 0;
+  pFlag->stdio_mode = 1;
+  pFlag->error = 0;
+  pFlag->bomtype = FILE_MBS;
+  pFlag->add_bom = 0;
+  pFlag->keep_utf16 = 0;
+
   while ((++ArgIdx < argc) && (!ShouldExit))
   {
     /* is it an option? */

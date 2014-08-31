@@ -5,10 +5,10 @@
 # Benno Schulenberg <benno@vertaalt.nl>, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 6.1-beta1\n"
+"Project-Id-Version: dos2unix 6.1-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-28 22:48+0200\n"
-"PO-Revision-Date: 2014-08-18 21:32+0200\n"
+"POT-Creation-Date: 2014-08-31 13:21+0200\n"
+"PO-Revision-Date: 2014-08-30 17:08+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -34,39 +34,39 @@ msgstr ""
 "Alle rechten voorbehouden.\n"
 "\n"
 
-#: dos2unix.c:169 dos2unix.c:207 unix2dos.c:133 unix2dos.c:187
+#: dos2unix.c:168 dos2unix.c:203 unix2dos.c:132 unix2dos.c:180
 #, c-format
 msgid "Binary symbol 0x00%02X found at line %d\n"
 msgstr "Binair teken 0x00%02X gevonden op regel %d\n"
 
-#: dos2unix.c:184 dos2unix.c:223 dos2unix.c:248 dos2unix.c:367 dos2unix.c:403
-#: dos2unix.c:425 unix2dos.c:164 unix2dos.c:201 unix2dos.c:225 unix2dos.c:243
-#: unix2dos.c:375 unix2dos.c:409 unix2dos.c:430 unix2dos.c:445
+#: dos2unix.c:181 dos2unix.c:216 dos2unix.c:238 dos2unix.c:351 dos2unix.c:384
+#: dos2unix.c:404 unix2dos.c:158 unix2dos.c:191 unix2dos.c:212 unix2dos.c:227
+#: unix2dos.c:350 unix2dos.c:381 unix2dos.c:400 unix2dos.c:413
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "kan niet schrijven naar uitvoerbestand: %s\n"
 
-#: dos2unix.c:265 dos2unix.c:441 unix2dos.c:259 unix2dos.c:460
+#: dos2unix.c:255 dos2unix.c:420 unix2dos.c:243 unix2dos.c:428
 #, c-format
 msgid "program error, invalid conversion mode %d\n"
 msgstr "**programmafout**: ongeldige conversiemodus %d\n"
 
-#: dos2unix.c:272 dos2unix.c:448 unix2dos.c:266 unix2dos.c:467
+#: dos2unix.c:261 dos2unix.c:426 unix2dos.c:249 unix2dos.c:434
 #, c-format
 msgid "Converted %d out of %d line breaks.\n"
 msgstr "Er zijn %d van %d regeleindes geconverteerd.\n"
 
-#: dos2unix.c:329 unix2dos.c:323
+#: dos2unix.c:316 unix2dos.c:304
 #, c-format
 msgid "using code page %d.\n"
 msgstr "codetabel %d wordt gebruikt.\n"
 
-#: dos2unix.c:354 dos2unix.c:389 unix2dos.c:346 unix2dos.c:397
+#: dos2unix.c:339 dos2unix.c:372 unix2dos.c:325 unix2dos.c:371
 #, c-format
 msgid "Binary symbol 0x%02X found at line %d\n"
 msgstr "Binair teken 0x%02X gevonden op regel %d\n"
 
-#: dos2unix.c:479 unix2dos.c:498
+#: dos2unix.c:455 unix2dos.c:463
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "fout: Waarde van omgevingsvariabele DOS2UNIX_LOCALEDIR is te lang.\n"
 
@@ -221,12 +221,10 @@ msgstr " -L, --license          softwarelicentie tonen\n"
 msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline          extra regeleinde toevoegen\n"
 
-# FIXME: what does this mean?  BOMs are *never* standaard for UTF-8, they are pointless for UTF-8
 #: common.c:248
 #, c-format
 msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
-msgstr ""
-" -m, --add-bom          een \"Byte Order Mark\" toevoegen (standaard UTF-8)\n"
+msgstr " -m, --add-bom          een \"Byte Order Mark\" toevoegen\n"
 
 #: common.c:249
 #, c-format
@@ -249,12 +247,9 @@ msgstr ""
 "   bestand ...          te converteren bestanden in oudbestand-modus\n"
 
 #: common.c:254
-#, fuzzy, c-format
+#, c-format
 msgid " -q, --quiet           quiet mode, suppress all warnings\n"
-msgstr ""
-" -q, --quiet            alle waarschuwingen onderdrukken (altijd "
-"ingeschakeld\n"
-"                          bij gebruik van standaardinvoer en -uitvoer)\n"
+msgstr " -q, --quiet            alle waarschuwingen onderdrukken\n"
 
 #: common.c:256
 #, c-format
@@ -561,22 +556,22 @@ msgstr "converteren van bestand %s naar DOS-opmaak...\n"
 msgid "problems converting file %s\n"
 msgstr "problemen met conversie van bestand %s\n"
 
-#: common.c:1309 common.c:1351
+#: common.c:1324 common.c:1366
 #, c-format
 msgid "active code page: %d\n"
 msgstr "actieve codetabel: %d\n"
 
-#: common.c:1364
+#: common.c:1379
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "ongeldige conversiemodus %s opgegeven\n"
 
-#: common.c:1374
+#: common.c:1389
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "optie '%s' vereist een argument\n"
 
-#: common.c:1387 common.c:1401 common.c:1461
+#: common.c:1402 common.c:1416 common.c:1476
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "doel van bestand %s is niet opgegeven in 'nieuwbestand-modus'\n"
