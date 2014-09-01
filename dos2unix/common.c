@@ -555,7 +555,8 @@ FILE *read_bom (FILE *f, int *bomtype)
 
 FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
 {
-  if (ipFlag->keep_utf16) {
+  if (ipFlag->keep_utf16)
+  {
     switch (ipFlag->bomtype) {
       case FILE_UTF16LE:   /* UTF-16 Little Endian */
         fprintf(f, "%s", "\xFF\xFE");
@@ -571,19 +572,18 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
           fprintf(stderr, _("Writing %s BOM.\n"), "UTF-16BE");
         }
         break;
-      case FILE_UTF8:      /* UTF-8 */
+      default:      /* UTF-8 */
         fprintf(f, "%s", "\xEF\xBB\xBF");
         if (ipFlag->verbose > 1) {
           fprintf(stderr, "%s: ", progname);
           fprintf(stderr, _("Writing %s BOM.\n"), "UTF-8");
         }
-        break;
-      default:
       ;
     }
   } else {
     fprintf(f, "%s", "\xEF\xBB\xBF");
-    if (ipFlag->verbose > 1) {
+    if (ipFlag->verbose > 1)
+    {
       fprintf(stderr, "%s: ", progname);
       fprintf(stderr, _("Writing %s BOM.\n"), "UTF-8");
     }
@@ -661,13 +661,8 @@ int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, co
 #endif
 #endif
 
-  if ((ipFlag->add_bom) || ((ipFlag->keep_bom) && (ipFlag->bomtype > 0)))
+  if ((!RetVal) && ((ipFlag->add_bom) || ((ipFlag->keep_bom) && (ipFlag->bomtype > 0))))
     write_bom(TempF, ipFlag, progname);
-
-  /* Turn off ISO and 7-bit conversion for Unicode text files */
-  /* When we assume UTF16, don't change the conversion mode. We need to remember it. */
-  if ((ipFlag->bomtype > 0) && (ipFlag->ConvMode != CONVMODE_UTF16LE) && (ipFlag->ConvMode != CONVMODE_UTF16BE))
-    ipFlag->ConvMode = CONVMODE_ASCII;
 
   return RetVal;
 }
@@ -788,8 +783,9 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
     }
   }
 
-  if (check_unicode(InF, TempF, ipFlag, ipInFN, progname))
-    RetVal = -1;
+  if (!RetVal)
+    if (check_unicode(InF, TempF, ipFlag, ipInFN, progname))
+      RetVal = -1;
 
   /* conversion sucessful? */
 #ifdef D2U_UNICODE

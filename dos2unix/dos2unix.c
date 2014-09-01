@@ -311,6 +311,10 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
         ipFlag->status |= WRONG_CODEPAGE ;
         return(-1);
     }
+    /* Turn off ISO and 7-bit conversion for Unicode text files */
+    if (ipFlag->bomtype > 0)
+      ConvTable = D2UAsciiTable;
+
     if ((ipFlag->ConvMode > CONVMODE_7BIT) && (ipFlag->verbose)) { /* not ascii or 7bit */
        fprintf(stderr, "%s: ", progname);
        fprintf(stderr, _("using code page %d.\n"), ipFlag->ConvMode);

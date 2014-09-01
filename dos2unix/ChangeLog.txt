@@ -1,7 +1,16 @@
+2014-09-01 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Bug fix. Option -u disabled -m for ASCII or UTF-8 input
+	  files without BOM. Bug was introduced on 2014-08-05.
+	* dos2unix.c, unix2dos.c, common.c: Bug fix. An Unicode input file
+	  disabled 7bit and iso mode also for next input files. Bug was
+	  introduced in version 6.0.1 on 2012-03-23.
+	* common.c: Cleanup. Don't write BOM when conversion will be cancelled.
+	* test/misc.t: Added tests for the two bug fixes.
+
 2014-08-28 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c, unix2dos.c, common.c: Code cleanup. Moved more code
 	  to common.c.
-	* common.c: Fix mac2unix help text, options -b and -r. Bug was
+	* common.c: Bug fix mac2unix help text, options -b and -r. Bug was
 	  introduced in 6.0.6.
 	* *.po: Included updated pt_BR translations.
 

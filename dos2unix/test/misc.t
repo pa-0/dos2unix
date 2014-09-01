@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Requires perl-Test-Simple installation.
-use Test::More tests => 9;
+use Test::More tests => 14;
 
 $suffix = "";
 if (-e "../dos2unix.exe") {
@@ -66,4 +66,19 @@ if (-e "out_forc.txt") {
   $exists = "0";
 }
 ok( $exists == 0, 'unix2dos force binary file.' );
+
+system("$DOS2UNIX -v -7 -n utf16le.txt out_unix.txt chardos.txt out_u7.txt; cmp out_unix.txt utf8unix.txt");
+ok( $? == 0, '7bit disabled for utf16');
+
+system("cmp out_u7.txt charu7.txt");
+ok( $? == 0, '7bit enabled again, dos2unix');
+
+system("$UNIX2DOS -v -7 -n utf8unxb.txt out_dos.txt charunix.txt out_d7.txt; cmp out_dos.txt utf8dos.txt");
+ok( $? == 0, '7bit disabled for utf8 with BOM');
+
+system("cmp out_d7.txt chard7.txt");
+ok( $? == 0, '7bit enabled again, unix2dos');
+
+system("$UNIX2DOS -v -u -m -n unix.txt out_dos.txt; cmp out_dos.txt dos_bom.txt");
+ok( $? == 0, 'Option -u must not disable -m on ASCII input');
 

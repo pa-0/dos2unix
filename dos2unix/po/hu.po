@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.1-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-31 13:34+0200\n"
+"POT-Creation-Date: 2014-09-01 22:24+0200\n"
 "PO-Revision-Date: 2014-08-31 10:20+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -39,34 +39,34 @@ msgstr ""
 msgid "Binary symbol 0x00%02X found at line %d\n"
 msgstr "Bináris szimbólum (0x00%02X) található a(z) %d. sorban\n"
 
-#: dos2unix.c:181 dos2unix.c:216 dos2unix.c:238 dos2unix.c:351 dos2unix.c:384
-#: dos2unix.c:404 unix2dos.c:158 unix2dos.c:191 unix2dos.c:212 unix2dos.c:227
-#: unix2dos.c:350 unix2dos.c:381 unix2dos.c:400 unix2dos.c:413
+#: dos2unix.c:181 dos2unix.c:216 dos2unix.c:238 dos2unix.c:355 dos2unix.c:388
+#: dos2unix.c:408 unix2dos.c:158 unix2dos.c:191 unix2dos.c:212 unix2dos.c:227
+#: unix2dos.c:354 unix2dos.c:385 unix2dos.c:404 unix2dos.c:417
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "nem sikerült írni a kimeneti fájlba: %s\n"
 
-#: dos2unix.c:255 dos2unix.c:420 unix2dos.c:243 unix2dos.c:428
+#: dos2unix.c:255 dos2unix.c:424 unix2dos.c:243 unix2dos.c:432
 #, c-format
 msgid "program error, invalid conversion mode %d\n"
 msgstr "programhiba, érvénytelen átalakítási mód: %d\n"
 
-#: dos2unix.c:261 dos2unix.c:426 unix2dos.c:249 unix2dos.c:434
+#: dos2unix.c:261 dos2unix.c:430 unix2dos.c:249 unix2dos.c:438
 #, c-format
 msgid "Converted %d out of %d line breaks.\n"
 msgstr "%d / %d sortörés átalakítva.\n"
 
-#: dos2unix.c:316 unix2dos.c:304
+#: dos2unix.c:320 unix2dos.c:308
 #, c-format
 msgid "using code page %d.\n"
 msgstr "%d kódlap használata.\n"
 
-#: dos2unix.c:339 dos2unix.c:372 unix2dos.c:325 unix2dos.c:371
+#: dos2unix.c:343 dos2unix.c:376 unix2dos.c:329 unix2dos.c:375
 #, c-format
 msgid "Binary symbol 0x%02X found at line %d\n"
 msgstr "Bináris szimbólum (0x%02X) található a(z) %d. sorban\n"
 
-#: dos2unix.c:455 unix2dos.c:463
+#: dos2unix.c:459 unix2dos.c:467
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "hiba: a DOS2UNIX_LOCALEDIR környezeti változó értéke túl hosszú.\n"
 
@@ -397,7 +397,7 @@ msgstr "Unicode UTF-16 támogatás nélkül.\n"
 msgid "With native language support.\n"
 msgstr "Natív nyelvi támogatással.\n"
 
-#: common.c:564 common.c:571 common.c:578 common.c:588
+#: common.c:565 common.c:572 common.c:579 common.c:588
 #, c-format
 msgid "Writing %s BOM.\n"
 msgstr "%s BOM írása.\n"
@@ -417,61 +417,61 @@ msgstr "UTF-16LE kódolás feltételezése.\n"
 msgid "Assuming UTF-16BE encoding.\n"
 msgstr "UTF-16BE kódolás feltételezése.\n"
 
-#: common.c:754
+#: common.c:749
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
 msgstr "Nem sikerült megnyitni az átmeneti kimeneti fájlt: %s\n"
 
-#: common.c:761
+#: common.c:756
 #, c-format
 msgid "using %s as temporary file\n"
 msgstr "%s használata átmeneti fájlként\n"
 
-#: common.c:823
+#: common.c:819
 #, c-format
 msgid "Failed to write to temporary output file %s: %s\n"
 msgstr "Nem sikerült írni a(z) %s átmeneti kimeneti fájlba: %s\n"
 
-#: common.c:853
+#: common.c:849
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s: %s\n"
 msgstr ""
 "Nem sikerült megváltoztatni a(z) %s átmeneti kimeneti fájl jogosultságait: "
 "%s\n"
 
-#: common.c:869
+#: common.c:865
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
 msgstr ""
 "Nem sikerült megváltoztatni a(z) %s átmeneti kimeneti fájl tulajdonosát és "
 "csoportját: %s\n"
 
-#: common.c:913
+#: common.c:909
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
 msgstr "hiba a(z) „%s” szimbolikus link feloldásakor\n"
 
-#: common.c:914 common.c:943
+#: common.c:910 common.c:939
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          kimeneti fájl maradt ebben: „%s”\n"
 
-#: common.c:938
+#: common.c:934
 #, c-format
 msgid "problems renaming '%s' to '%s': %s\n"
 msgstr "hiba a(z) „%s” átnevezésekor erre: „%s”: %s\n"
 
-#: common.c:941
+#: common.c:937
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          mi a(z) „%s” szimbolikus link célja\n"
 
-#: common.c:1005 common.c:1055 common.c:1118
+#: common.c:1001 common.c:1051 common.c:1114
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "a(z) %d kódlap nem támogatott.\n"
 
-#: common.c:1010 common.c:1060 common.c:1123
+#: common.c:1006 common.c:1056 common.c:1119
 #, c-format
 msgid ""
 "Skipping UTF-16 file %s, the current locale character encoding is not "
@@ -480,103 +480,103 @@ msgstr ""
 "A(z) %s UTF-16 fájl kihagyása, a jelenlegi területi beállítás "
 "karakterkódolása nem UTF-8.\n"
 
-#: common.c:1015 common.c:1065 common.c:1128
+#: common.c:1011 common.c:1061 common.c:1124
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "A(z) %s UTF-16 fájl kihagyása, a wchar_t mérete %d bájt.\n"
 
-#: common.c:1020 common.c:1070 common.c:1133
+#: common.c:1016 common.c:1066 common.c:1129
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
 msgstr "A(z) %s UTF-16 fájl kihagyása, egy UTF-16 átalakítási hiba történt.\n"
 
-#: common.c:1030 common.c:1098
+#: common.c:1026 common.c:1094
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "A(z) %s kihagyása, nem egy szabályos fájl.\n"
 
-#: common.c:1035
+#: common.c:1031
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "A(z) %s kihagyása, a(z) %s kimeneti fájl egy szimbolikus link.\n"
 
-#: common.c:1040 common.c:1108
+#: common.c:1036 common.c:1104
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr "A(z) %s szimbolikus link kihagyása, a cél nem egy szabályos fájl.\n"
 
-#: common.c:1045
+#: common.c:1041
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr ""
 "A(z) %s kihagyása, a(z) %s szimbolikus link célja nem egy szabályos fájl.\n"
 
-#: common.c:1050 common.c:1113
+#: common.c:1046 common.c:1109
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "A(z) %s bináris fájl kihagyása\n"
 
-#: common.c:1076
+#: common.c:1072
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "a(z) %s fájl átalakítása %s fájlra Unix formátumban…\n"
 
-#: common.c:1079
+#: common.c:1075
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "a(z) %s fájl átalakítása %s fájlra Mac formátumban…\n"
 
-#: common.c:1081
+#: common.c:1077
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "a(z) %s fájl átalakítása %s fájlra DOS formátumban…\n"
 
-#: common.c:1086
+#: common.c:1082
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "hiba a(z) %s fájl %s fájlra való átalakításakor\n"
 
-#: common.c:1103
+#: common.c:1099
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "A(z) %s szimbolikus link kihagyása.\n"
 
-#: common.c:1139
+#: common.c:1135
 #, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "a(z) %s fájl átalakítása Unix formátumra…\n"
 
-#: common.c:1142
+#: common.c:1138
 #, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "a(z) %s fájl átalakítása Mac formátumra…\n"
 
-#: common.c:1144
+#: common.c:1140
 #, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "a(z) %s fájl átalakítása DOS formátumra…\n"
 
-#: common.c:1150
+#: common.c:1146
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "hiba a(z) %s fájl átalakításakor\n"
 
-#: common.c:1245 common.c:1282
+#: common.c:1241 common.c:1278
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktív kódlap: %d\n"
 
-#: common.c:1294
+#: common.c:1290
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "érvénytelen %s átalakítási mód lett megadva\n"
 
-#: common.c:1302
+#: common.c:1298
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "a(z) „%s” kapcsolóhoz argumentum szükséges\n"
 
-#: common.c:1313 common.c:1325 common.c:1379
+#: common.c:1309 common.c:1321 common.c:1375
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "a(z) %s fájl célja nincs megadva az új-fájl módban\n"
