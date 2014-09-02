@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.1-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-01 22:24+0200\n"
+"POT-Creation-Date: 2014-09-02 20:32+0200\n"
 "PO-Revision-Date: 2014-08-31 23:37-0300\n"
 "Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge."
@@ -481,12 +481,17 @@ msgstr "ocorreram problemas ao renomear '%s' para '%s': %s\n"
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          que é o destino do link simbólico '%s'\n"
 
-#: common.c:1001 common.c:1051 common.c:1114
+#: common.c:1000 common.c:1032 common.c:1075
+#, c-format
+msgid "Skipping binary file %s\n"
+msgstr "Ignorando o arquivo binário %s\n"
+
+#: common.c:1003 common.c:1035 common.c:1078
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "não há suporte a página de código %d.\n"
 
-#: common.c:1006 common.c:1056 common.c:1119
+#: common.c:1006 common.c:1038 common.c:1081
 #, c-format
 msgid ""
 "Skipping UTF-16 file %s, the current locale character encoding is not "
@@ -495,105 +500,100 @@ msgstr ""
 "Ignorando o arquivo UTF-16 %s, a atual codificação local de caractere não é "
 "UTF-8.\n"
 
-#: common.c:1011 common.c:1061 common.c:1124
+#: common.c:1009 common.c:1041 common.c:1084
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "Ignorando o arquivo UTF-16 %s, o tamanho de wchar_t é de %d bytes.\n"
 
-#: common.c:1016 common.c:1066 common.c:1129
+#: common.c:1012 common.c:1044 common.c:1087
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
 msgstr ""
 "Ignorando o arquivo UTF-16 %s, ocorreu um erro de conversão para UTF-16.\n"
 
-#: common.c:1026 common.c:1094
+#: common.c:1020 common.c:1066
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "Ignorando %s, não é um arquivo comum.\n"
 
-#: common.c:1031
+#: common.c:1023
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "Ignorando %s, o arquivo de saída %s é um link simbólico.\n"
 
-#: common.c:1036 common.c:1104
+#: common.c:1026 common.c:1072
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr ""
 "Ignorando o link simbólico %s, o destino não é o de um arquivo comum.\n"
 
-#: common.c:1041
+#: common.c:1029
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr ""
 "Ignorando %s, o destino do link simbólico %s não é o de um arquivo comum.\n"
 
-#: common.c:1046 common.c:1109
-#, c-format
-msgid "Skipping binary file %s\n"
-msgstr "Ignorando o arquivo binário %s\n"
-
-#: common.c:1072
+#: common.c:1048
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "convertendo o arquivo %s para arquivo %s em formato do Unix...\n"
 
-#: common.c:1075
+#: common.c:1051
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "convertendo o arquivo %s para o arquivo %s em formato do Mac...\n"
 
-#: common.c:1077
+#: common.c:1053
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "convertendo o arquivo %s para o arquivo %s em formato do DOS...\n"
 
-#: common.c:1082
+#: common.c:1057
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "ocorreram problemas ao converter o arquivo %s para arquivo %s\n"
 
-#: common.c:1099
+#: common.c:1069
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "Ignorando o link simbólico %s.\n"
 
-#: common.c:1135
+#: common.c:1091
 #, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "convertendo o arquivo %s para formato do Unix...\n"
 
-#: common.c:1138
+#: common.c:1094
 #, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "convertendo o arquivo %s para formato do Mac...\n"
 
-#: common.c:1140
+#: common.c:1096
 #, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "convertendo o arquivo %s para formato do DOS...\n"
 
-#: common.c:1146
+#: common.c:1100
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "ocorreram problemas ao converter o arquivo %s\n"
 
-#: common.c:1241 common.c:1278
+#: common.c:1194 common.c:1231
 #, c-format
 msgid "active code page: %d\n"
 msgstr "página de código ativa: %d\n"
 
-#: common.c:1290
+#: common.c:1243
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "o modo de conversão %s especificado é inválido\n"
 
-#: common.c:1298
+#: common.c:1251
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "a opção '%s' requer um argumento\n"
 
-#: common.c:1309 common.c:1321 common.c:1375
+#: common.c:1262 common.c:1274 common.c:1331
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "o destino do arquivo %s não foi especificado no modo de novo arquivo\n"

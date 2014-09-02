@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-6.1-beta1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-01 22:24+0200\n"
+"POT-Creation-Date: 2014-09-02 20:32+0200\n"
 "PO-Revision-Date: 2014-08-21 15:32+0400\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <gnu@mx.ru>\n"
@@ -474,114 +474,114 @@ msgstr "проблемы при переименовании «%s» в «%s»: %
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          который является целью символической ссылки «%s»\n"
 
-#: common.c:1001 common.c:1051 common.c:1114
+#: common.c:1000 common.c:1032 common.c:1075
+#, c-format
+msgid "Skipping binary file %s\n"
+msgstr "Пропуск двоичного файла %s\n"
+
+#: common.c:1003 common.c:1035 common.c:1078
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "кодовая страница %d не поддерживается.\n"
 
-#: common.c:1006 common.c:1056 common.c:1119
+#: common.c:1006 common.c:1038 common.c:1081
 #, c-format
 msgid ""
 "Skipping UTF-16 file %s, the current locale character encoding is not "
 "UTF-8.\n"
 msgstr "Пропуск файла %s с UTF-16, текущая символьная кодировка не UTF-8.\n"
 
-#: common.c:1011 common.c:1061 common.c:1124
+#: common.c:1009 common.c:1041 common.c:1084
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "Пропуск файла %s с UTF-16, размер wchar_t составляет %d байт.\n"
 
-#: common.c:1016 common.c:1066 common.c:1129
+#: common.c:1012 common.c:1044 common.c:1087
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
 msgstr "Пропуск файла %s с UTF-16, возникла ошибка преобразования UTF-16.\n"
 
-#: common.c:1026 common.c:1094
+#: common.c:1020 common.c:1066
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "Пропуск %s, не является обычным файлом.\n"
 
-#: common.c:1031
+#: common.c:1023
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "Пропуск %s, выходной файл %s является символической ссылкой.\n"
 
-#: common.c:1036 common.c:1104
+#: common.c:1026 common.c:1072
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr "Пропуск символической ссылки %s, цель не является обычным файлом.\n"
 
-#: common.c:1041
+#: common.c:1029
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr "Пропуск %s, цель символической ссылки %s не является обычным файлом.\n"
 
-#: common.c:1046 common.c:1109
-#, c-format
-msgid "Skipping binary file %s\n"
-msgstr "Пропуск двоичного файла %s\n"
-
-#: common.c:1072
+#: common.c:1048
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "преобразование файла %s в файл %s в формат Unix…\n"
 
-#: common.c:1075
+#: common.c:1051
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "преобразование файла %s в файл %s в формат Mac…\n"
 
-#: common.c:1077
+#: common.c:1053
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "преобразование файла %s в файл %s в формат DOS…\n"
 
-#: common.c:1082
+#: common.c:1057
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "проблемы при преобразовании файла %s в файл %s\n"
 
-#: common.c:1099
+#: common.c:1069
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "Пропуск символической ссылки %s.\n"
 
-#: common.c:1135
+#: common.c:1091
 #, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "преобразование файла %s в формат Unix…\n"
 
-#: common.c:1138
+#: common.c:1094
 #, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "преобразование файла %s в формат Mac…\n"
 
-#: common.c:1140
+#: common.c:1096
 #, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "преобразование файла %s в формат DOS…\n"
 
-#: common.c:1146
+#: common.c:1100
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "проблемы при преобразовании файла %s\n"
 
-#: common.c:1241 common.c:1278
+#: common.c:1194 common.c:1231
 #, c-format
 msgid "active code page: %d\n"
 msgstr "активная кодовая страница: %d\n"
 
-#: common.c:1290
+#: common.c:1243
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "задан неправильный %s режим преобразования\n"
 
-#: common.c:1298
+#: common.c:1251
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "для параметра «%s» требуется аргумент\n"
 
-#: common.c:1309 common.c:1321 common.c:1375
+#: common.c:1262 common.c:1274 common.c:1331
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "цель файла %s не задана в режиме нового файла\n"

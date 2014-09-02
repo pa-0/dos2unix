@@ -310,16 +310,16 @@ status:
 	@echo "LDFLAGS      = $(LDFLAGS)"
 	@echo "LIBS         = $(LIBS)"
 
-common.o : common.c common.h dos2unix.h unix2dos.h
+common.o : common.c common.h dos2unix.h unix2dos.h version.mk
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
 
 querycp.o : querycp.c querycp.h
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
 
-dos2unix.o : dos2unix.c dos2unix.h querycp.h common.h version.mk
+dos2unix.o : dos2unix.c dos2unix.h querycp.h common.h
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
 
-unix2dos.o : unix2dos.c unix2dos.h querycp.h common.h version.mk
+unix2dos.o : unix2dos.c unix2dos.h querycp.h common.h
 	$(CC) $(DEFS) $(EXTRA_CFLAGS) $(DOS2UNIX_NLSDEFS) $(CFLAGS) -c $< -o $@
 
 $(BIN): dos2unix.o querycp.o common.o

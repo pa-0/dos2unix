@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-01 22:24+0200\n"
+"POT-Creation-Date: 2014-09-02 20:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -410,114 +410,114 @@ msgstr ""
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr ""
 
-#: common.c:1001 common.c:1051 common.c:1114
+#: common.c:1000 common.c:1032 common.c:1075
+#, c-format
+msgid "Skipping binary file %s\n"
+msgstr ""
+
+#: common.c:1003 common.c:1035 common.c:1078
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr ""
 
-#: common.c:1006 common.c:1056 common.c:1119
+#: common.c:1006 common.c:1038 common.c:1081
 #, c-format
 msgid ""
 "Skipping UTF-16 file %s, the current locale character encoding is not "
 "UTF-8.\n"
 msgstr ""
 
-#: common.c:1011 common.c:1061 common.c:1124
+#: common.c:1009 common.c:1041 common.c:1084
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr ""
 
-#: common.c:1016 common.c:1066 common.c:1129
+#: common.c:1012 common.c:1044 common.c:1087
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
 msgstr ""
 
-#: common.c:1026 common.c:1094
+#: common.c:1020 common.c:1066
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr ""
 
-#: common.c:1031
+#: common.c:1023
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr ""
 
-#: common.c:1036 common.c:1104
+#: common.c:1026 common.c:1072
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr ""
 
-#: common.c:1041
+#: common.c:1029
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr ""
 
-#: common.c:1046 common.c:1109
-#, c-format
-msgid "Skipping binary file %s\n"
-msgstr ""
-
-#: common.c:1072
+#: common.c:1048
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr ""
 
-#: common.c:1075
+#: common.c:1051
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr ""
 
-#: common.c:1077
+#: common.c:1053
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr ""
 
-#: common.c:1082
+#: common.c:1057
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr ""
 
-#: common.c:1099
+#: common.c:1069
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr ""
 
-#: common.c:1135
+#: common.c:1091
 #, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr ""
 
-#: common.c:1138
+#: common.c:1094
 #, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr ""
 
-#: common.c:1140
+#: common.c:1096
 #, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr ""
 
-#: common.c:1146
+#: common.c:1100
 #, c-format
 msgid "problems converting file %s\n"
 msgstr ""
 
-#: common.c:1241 common.c:1278
+#: common.c:1194 common.c:1231
 #, c-format
 msgid "active code page: %d\n"
 msgstr ""
 
-#: common.c:1290
+#: common.c:1243
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr ""
 
-#: common.c:1298
+#: common.c:1251
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr ""
 
-#: common.c:1309 common.c:1321 common.c:1375
+#: common.c:1262 common.c:1274 common.c:1331
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr ""

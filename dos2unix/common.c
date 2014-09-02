@@ -995,93 +995,66 @@ int ConvertStdio(CFlag *ipFlag, const char *progname,
 
 void print_messages_stdio(const CFlag *pFlag, const char *progname)
 {
-    if (pFlag->status & WRONG_CODEPAGE) {
-      if (pFlag->verbose) {
-        fprintf(stderr,"%s: ",progname);
-        fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
-      }
+    if (pFlag->status & BINARY_FILE) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping binary file %s\n"), "stdin");
+    } else if (pFlag->status & WRONG_CODEPAGE) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
     } else if (pFlag->status & LOCALE_NOT_UTF8) {
-      if (pFlag->verbose) {
-        fprintf(stderr,"%s: ",progname);
-        fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), "stdin");
-      }
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), "stdin");
     } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
-      if (pFlag->verbose) {
-        fprintf(stderr,"%s: ",progname);
-        fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), "stdin", (int)sizeof(wchar_t));
-      }
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), "stdin", (int)sizeof(wchar_t));
     } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
-      if (pFlag->verbose) {
-        fprintf(stderr,"%s: ",progname);
-        fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), "stdin");
-      }
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), "stdin");
     }
 }
 
 void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *outfile, const char *progname, const int RetVal)
 {
   if (pFlag->status & NO_REGFILE) {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping %s, not a regular file.\n"), infile);
-    }
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping %s, not a regular file.\n"), infile);
   } else if (pFlag->status & OUTPUTFILE_SYMLINK) {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping %s, output file %s is a symbolic link.\n"), infile, outfile);
-    }
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping %s, output file %s is a symbolic link.\n"), infile, outfile);
   } else if (pFlag->status & INPUT_TARGET_NO_REGFILE) {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
-    }
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
   } else if (pFlag->status & OUTPUT_TARGET_NO_REGFILE) {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping %s, target of symbolic link %s is not a regular file.\n"), infile, outfile);
-    }
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping %s, target of symbolic link %s is not a regular file.\n"), infile, outfile);
   } else if (pFlag->status & BINARY_FILE) {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping binary file %s\n"), infile);
-    }
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping binary file %s\n"), infile);
   } else if (pFlag->status & WRONG_CODEPAGE) {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
-    }
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
   } else if (pFlag->status & LOCALE_NOT_UTF8) {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), infile);
-    }
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), infile);
   } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
-    }
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
   } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), infile);
-    }
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), infile);
   } else {
-    if (pFlag->verbose) {
+    fprintf(stderr,"%s: ",progname);
+    if (is_dos2unix(progname))
+      fprintf(stderr, _("converting file %s to file %s in Unix format...\n"), infile, outfile);
+    else {
+      if (pFlag->FromToMode == FROMTO_UNIX2MAC)
+        fprintf(stderr, _("converting file %s to file %s in Mac format...\n"), infile, outfile);
+      else
+        fprintf(stderr, _("converting file %s to file %s in DOS format...\n"), infile, outfile);
+    }
+    if (RetVal) {
       fprintf(stderr,"%s: ",progname);
-      if (is_dos2unix(progname))
-        fprintf(stderr, _("converting file %s to file %s in Unix format...\n"), infile, outfile);
-      else {
-        if (pFlag->FromToMode == FROMTO_UNIX2MAC)
-          fprintf(stderr, _("converting file %s to file %s in Mac format...\n"), infile, outfile);
-        else
-          fprintf(stderr, _("converting file %s to file %s in DOS format...\n"), infile, outfile);
-      }
-      if (RetVal) {
-        if (pFlag->verbose) {
-          fprintf(stderr,"%s: ",progname);
-          fprintf(stderr, _("problems converting file %s to file %s\n"), infile, outfile);
-        }
-      }
+      fprintf(stderr, _("problems converting file %s to file %s\n"), infile, outfile);
     }
   }
 }
@@ -1089,62 +1062,42 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
 void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *progname, const int RetVal)
 {
   if (pFlag->status & NO_REGFILE) {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping %s, not a regular file.\n"), infile);
-    }
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping %s, not a regular file.\n"), infile);
   } else if (pFlag->status & OUTPUTFILE_SYMLINK) {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping symbolic link %s.\n"), infile);
-    }
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping symbolic link %s.\n"), infile);
   } else if (pFlag->status & INPUT_TARGET_NO_REGFILE) {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
-    }
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
   } else if (pFlag->status & BINARY_FILE) {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping binary file %s\n"), infile);
-    }
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping binary file %s\n"), infile);
   } else if (pFlag->status & WRONG_CODEPAGE) {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
-    }
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
   } else if (pFlag->status & LOCALE_NOT_UTF8) {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), infile);
-    }
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), infile);
   } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
-    }
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
   } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), infile);
-    }
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), infile);
   } else {
-    if (pFlag->verbose) {
-      fprintf(stderr,"%s: ",progname);
-      if (is_dos2unix(progname))
-        fprintf(stderr, _("converting file %s to Unix format...\n"), infile);
-      else {
-        if (pFlag->FromToMode == FROMTO_UNIX2MAC)
-          fprintf(stderr, _("converting file %s to Mac format...\n"), infile);
-        else
-          fprintf(stderr, _("converting file %s to DOS format...\n"), infile);
-      }
+    fprintf(stderr,"%s: ",progname);
+    if (is_dos2unix(progname))
+      fprintf(stderr, _("converting file %s to Unix format...\n"), infile);
+    else {
+      if (pFlag->FromToMode == FROMTO_UNIX2MAC)
+        fprintf(stderr, _("converting file %s to Mac format...\n"), infile);
+      else
+        fprintf(stderr, _("converting file %s to DOS format...\n"), infile);
     }
     if (RetVal) {
-      if (pFlag->verbose) {
-        fprintf(stderr,"%s: ",progname);
-        fprintf(stderr, _("problems converting file %s\n"), infile);
-      }
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("problems converting file %s\n"), infile);
     }
   }
 }
@@ -1344,7 +1297,8 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
 #else
           RetVal = ConvertNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag, progname, Convert);
 #endif
-          print_messages_newfile(pFlag, argv[ArgIdx-1], argv[ArgIdx], progname, RetVal);
+          if (pFlag->verbose)
+            print_messages_newfile(pFlag, argv[ArgIdx-1], argv[ArgIdx], progname, RetVal);
           CanSwitchFileMode = 1;
         }
       }
@@ -1354,7 +1308,8 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
 #else
         RetVal = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert);
 #endif
-        print_messages_oldfile(pFlag, argv[ArgIdx], progname, RetVal);
+        if (pFlag->verbose)
+          print_messages_oldfile(pFlag, argv[ArgIdx], progname, RetVal);
       }
     }
   }
@@ -1366,7 +1321,8 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
 #else
     ConvertStdio(pFlag, progname, Convert);
 #endif
-    print_messages_stdio(pFlag, progname);
+    if (pFlag->verbose)
+      print_messages_stdio(pFlag, progname);
     return pFlag->error;
   }
 
