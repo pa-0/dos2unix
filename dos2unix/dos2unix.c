@@ -164,6 +164,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
             if (ipFlag->verbose) {
+              if ((ipFlag->stdio_mode) && (!ipFlag->error)) ipFlag->error = 1;
               fprintf(stderr, "%s: ", progname);
               fprintf(stderr, _("Binary symbol 0x00%02X found at line %d\n"),TempChar, line_nr);
             }
@@ -176,6 +177,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
               RetVal = -1;
               if (ipFlag->verbose) {
                 if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
+                  ipFlag->error = errno;
                   errstr = strerror(errno);
                   fprintf(stderr, "%s: ", progname);
                   fprintf(stderr, _("can not write to output file: %s\n"), errstr);
@@ -199,6 +201,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
             if (ipFlag->verbose) {
+              if ((ipFlag->stdio_mode) && (!ipFlag->error)) ipFlag->error = 1;
               fprintf(stderr, "%s: ", progname);
               fprintf(stderr, _("Binary symbol 0x00%02X found at line %d\n"),TempChar, line_nr);
             }
@@ -211,6 +214,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
                 RetVal = -1;
                 if (ipFlag->verbose) {
                   if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
+                    ipFlag->error = errno;
                     errstr = strerror(errno);
                     fprintf(stderr, "%s: ", progname);
                     fprintf(stderr, _("can not write to output file: %s\n"), errstr);
@@ -233,6 +237,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
                 RetVal = -1;
                 if (ipFlag->verbose) {
                   if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
+                    ipFlag->error = errno;
                     errstr = strerror(errno);
                     fprintf(stderr, "%s: ", progname);
                     fprintf(stderr, _("can not write to output file: %s\n"), errstr);
@@ -339,6 +344,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
             if (ipFlag->verbose) {
+              if ((ipFlag->stdio_mode) && (!ipFlag->error)) ipFlag->error = 1;
               fprintf(stderr, "%s: ", progname);
               fprintf(stderr, _("Binary symbol 0x%02X found at line %d\n"),TempChar, line_nr);
             }
@@ -350,6 +356,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
             if (fputc(ConvTable[TempChar], ipOutF) == EOF) {
               RetVal = -1;
               if (ipFlag->verbose) {
+                ipFlag->error = errno;
                 errstr = strerror(errno);
                 fprintf(stderr, "%s: ", progname);
                 fprintf(stderr, _("can not write to output file: %s\n"), errstr);
@@ -372,6 +379,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
             RetVal = -1;
             ipFlag->status |= BINARY_FILE ;
             if (ipFlag->verbose) {
+              if ((ipFlag->stdio_mode) && (!ipFlag->error)) ipFlag->error = 1;
               fprintf(stderr, "%s: ", progname);
               fprintf(stderr, _("Binary symbol 0x%02X found at line %d\n"),TempChar, line_nr);
             }
@@ -383,6 +391,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
               if(fputc(ConvTable[TempChar], ipOutF) == EOF) {
                 RetVal = -1;
                 if (ipFlag->verbose) {
+                  ipFlag->error = errno;
                   errstr = strerror(errno);
                   fprintf(stderr, "%s: ", progname);
                   fprintf(stderr, _("can not write to output file: %s\n"), errstr);
@@ -403,6 +412,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
             if (fputc('\x0a', ipOutF) == EOF) { /* MAC line end (CR). Put LF */
                 RetVal = -1;
                 if (ipFlag->verbose) {
+                  ipFlag->error = errno;
                   errstr = strerror(errno);
                   fprintf(stderr, "%s: ", progname);
                   fprintf(stderr, _("can not write to output file: %s\n"), errstr);

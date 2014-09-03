@@ -1,3 +1,12 @@
+2014-09-03 Erwin Waterlander <waterlan@xs4all.nl>
+	* dos2unix.c, unix2dos.c: Return an error in stdio mode when the
+	  input is binary. In stdio mode an input stream with a binary symbol
+	  produces broken output. In file mode the binary file is skipped.
+	* test/misc.t: Added tests for above.
+	* dos2unix.c, unix2dos.c, common.c: Bug fix. System error was not
+	  always returned. When disk is full and output can't be written,
+	  or when resolving a symlink fails.
+
 2014-09-01 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Bug fix. Option -u disabled -m for ASCII or UTF-8 input
 	  files without BOM. Bug was introduced on 2014-08-05.

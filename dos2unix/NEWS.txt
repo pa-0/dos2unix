@@ -5,7 +5,9 @@
   * New: option -v to print information about BOMs and converted line breaks.
   * Change: stdio mode does not automatically set quiet mode.
   * Change: stdio mode does not automatically force conversion of binaries.
+    An error is returned when the stdin stream contains a binary symbol.
   * Bugfix: dos2unix -l created DOS line breaks from Mac line breaks.
+  * The code has been cleaned up.
 
 2014-08-03: Version 6.0.6
 

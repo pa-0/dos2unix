@@ -440,15 +440,14 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progna
     }
     RetVal = -1;
   }
-  else if (S_ISLNK(StatBuf.st_mode))
-  {
+  else if (S_ISLNK(StatBuf.st_mode)) {
 #if USE_CANONICALIZE_FILE_NAME
     targetFN = canonicalize_file_name(lFN);
     if (!targetFN) {
       if (ipFlag->verbose) {
+        ipFlag->error = errno;
         errstr = strerror(errno);
         fprintf(stderr, "%s: %s: %s\n", progname, lFN, errstr);
-        ipFlag->error = 1;
       }
       RetVal = -1;
     }
@@ -463,9 +462,9 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progna
     targetFN = (char *) malloc(PATH_MAX * sizeof(char));
     if (!targetFN) {
       if (ipFlag->verbose) {
+        ipFlag->error = errno;
         errstr = strerror(errno);
         fprintf(stderr, "%s: %s: %s\n", progname, lFN, errstr);
-        ipFlag->error = 1;
       }
       RetVal = -1;
     }
@@ -474,9 +473,9 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progna
       char *rVal = realpath(lFN, targetFN);
       if (!rVal) {
         if (ipFlag->verbose) {
+          ipFlag->error = errno;
           errstr = strerror(errno);
           fprintf(stderr, "%s: %s: %s\n", progname, lFN, errstr);
-          ipFlag->error = 1;
         }
         free(targetFN);
         RetVal = -1;

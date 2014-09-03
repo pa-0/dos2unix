@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.1-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-02 20:32+0200\n"
+"POT-Creation-Date: 2014-09-03 21:58+0200\n"
 "PO-Revision-Date: 2014-08-30 07:16+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -33,39 +33,39 @@ msgstr ""
 "Giữ toàn bộ bản quyền.\n"
 "\n"
 
-#: dos2unix.c:168 dos2unix.c:203 unix2dos.c:132 unix2dos.c:180
+#: dos2unix.c:169 dos2unix.c:206 unix2dos.c:133 unix2dos.c:183
 #, c-format
 msgid "Binary symbol 0x00%02X found at line %d\n"
 msgstr "Ký hiệu nhị phân 0x00%02X được tìm thấy tại dòng %d\n"
 
-#: dos2unix.c:181 dos2unix.c:216 dos2unix.c:238 dos2unix.c:355 dos2unix.c:388
-#: dos2unix.c:408 unix2dos.c:158 unix2dos.c:191 unix2dos.c:212 unix2dos.c:227
-#: unix2dos.c:354 unix2dos.c:385 unix2dos.c:404 unix2dos.c:417
+#: dos2unix.c:183 dos2unix.c:220 dos2unix.c:243 dos2unix.c:362 dos2unix.c:397
+#: dos2unix.c:418 unix2dos.c:160 unix2dos.c:195 unix2dos.c:217 unix2dos.c:233
+#: unix2dos.c:362 unix2dos.c:395 unix2dos.c:415 unix2dos.c:429
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "không thể ghi vào tập tin xuất: %s\n"
 
-#: dos2unix.c:255 dos2unix.c:424 unix2dos.c:243 unix2dos.c:432
+#: dos2unix.c:260 dos2unix.c:434 unix2dos.c:249 unix2dos.c:444
 #, c-format
 msgid "program error, invalid conversion mode %d\n"
 msgstr "lỗi chương trình, chế độ chuyển đổi %d không hợp lệ\n"
 
-#: dos2unix.c:261 dos2unix.c:430 unix2dos.c:249 unix2dos.c:438
+#: dos2unix.c:266 dos2unix.c:440 unix2dos.c:255 unix2dos.c:450
 #, c-format
 msgid "Converted %d out of %d line breaks.\n"
 msgstr "Đã chuyển đổi %d ngoài ngắt dòng %d.\n"
 
-#: dos2unix.c:320 unix2dos.c:308
+#: dos2unix.c:325 unix2dos.c:314
 #, c-format
 msgid "using code page %d.\n"
 msgstr "dùng trang mã %d.\n"
 
-#: dos2unix.c:343 dos2unix.c:376 unix2dos.c:329 unix2dos.c:375
+#: dos2unix.c:349 dos2unix.c:384 unix2dos.c:336 unix2dos.c:384
 #, c-format
 msgid "Binary symbol 0x%02X found at line %d\n"
 msgstr "Ký hiệu nhị phân 0x%02X được tìm thấy tại dòng %d\n"
 
-#: dos2unix.c:459 unix2dos.c:467
+#: dos2unix.c:469 unix2dos.c:479
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "lỗi: Giá trị của biến môi trường DOS2UNIX_LOCALEDIR quá dài.\n"
 
@@ -375,82 +375,82 @@ msgstr "Không hỗ trợ Unicode UTF-16.\n"
 msgid "With native language support.\n"
 msgstr "Có hỗ trợ bản địa hóa ngôn ngữ.\n"
 
-#: common.c:565 common.c:572 common.c:579 common.c:588
+#: common.c:564 common.c:571 common.c:578 common.c:587
 #, c-format
 msgid "Writing %s BOM.\n"
 msgstr "Đang ghi %s BOM.\n"
 
-#: common.c:599 common.c:603 common.c:607
+#: common.c:598 common.c:602 common.c:606
 #, c-format
 msgid "Input file %s has %s BOM.\n"
 msgstr "Tập tin %s có %s BOM.\n"
 
-#: common.c:622
+#: common.c:621
 #, c-format
 msgid "Assuming UTF-16LE encoding.\n"
 msgstr "Coi là bảng mã UTF-16LE.\n"
 
-#: common.c:626
+#: common.c:625
 #, c-format
 msgid "Assuming UTF-16BE encoding.\n"
 msgstr "Coi là bảng mã UTF-16BE.\n"
 
-#: common.c:749
+#: common.c:748
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
 msgstr "Gặp lỗi khi mở tập tin xuất tạm thời: %s\n"
 
-#: common.c:756
+#: common.c:755
 #, c-format
 msgid "using %s as temporary file\n"
 msgstr "đang dùng %s làm tập tin tạm\n"
 
-#: common.c:819
+#: common.c:818
 #, c-format
 msgid "Failed to write to temporary output file %s: %s\n"
 msgstr "Gặp lỗi khi ghi vào tập tin xuất tạm thời %s: %s\n"
 
-#: common.c:849
+#: common.c:848
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s: %s\n"
 msgstr "Gặp lỗi khi thay đổi quyền hạn của tập tin xuất tạm %s: %s\n"
 
-#: common.c:865
+#: common.c:864
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
 msgstr "Gặp lỗi khi đổi chủ sở hữu và nhóm của tập tin xuất tạm %s: %s\n"
 
-#: common.c:909
+#: common.c:908
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
 msgstr "gặp lỗi khi phân giải liên kết mềm “%s”\n"
 
-#: common.c:910 common.c:939
+#: common.c:909 common.c:938
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          tập tin xuất còn trong “%s”\n"
 
-#: common.c:934
+#: common.c:933
 #, c-format
 msgid "problems renaming '%s' to '%s': %s\n"
 msgstr "gặp lỗi khi đổi tên “%s” thành “%s”: %s\n"
 
-#: common.c:937
+#: common.c:936
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          cái là đích của liên kết mềm “%s”\n"
 
-#: common.c:1000 common.c:1032 common.c:1075
+#: common.c:999 common.c:1031 common.c:1074
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "Bỏ qua tập tin nhị phân %s\n"
 
-#: common.c:1003 common.c:1035 common.c:1078
+#: common.c:1002 common.c:1034 common.c:1077
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "không hỗ trợ trang mã %d.\n"
 
-#: common.c:1006 common.c:1038 common.c:1081
+#: common.c:1005 common.c:1037 common.c:1080
 #, c-format
 msgid ""
 "Skipping UTF-16 file %s, the current locale character encoding is not "
@@ -459,100 +459,100 @@ msgstr ""
 "Bỏ qua tập tin UTF-16 %s, bảng mã ký tự địa phương hiện tại không phải là "
 "UTF-8.\n"
 
-#: common.c:1009 common.c:1041 common.c:1084
+#: common.c:1008 common.c:1040 common.c:1083
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "Bỏ qua tập tin UTF-16 %s, cỡ của wchar_t không phải là %d byte.\n"
 
-#: common.c:1012 common.c:1044 common.c:1087
+#: common.c:1011 common.c:1043 common.c:1086
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
 msgstr "Bỏ qua tập tin UTF-16 %s, đã xảy ra lỗi chuyển đổi UTF-16.\n"
 
-#: common.c:1020 common.c:1066
+#: common.c:1019 common.c:1065
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "Bỏ qua %s, đây không phải là tập tin thường.\n"
 
-#: common.c:1023
+#: common.c:1022
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "Bỏ qua %s, tập tin xuất %s là một liên kết mềm.\n"
 
-#: common.c:1026 common.c:1072
+#: common.c:1025 common.c:1071
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr ""
 "Bỏ qua liên kết mềm %s, đích của nó không phải là một tập tin thường.\n"
 
-#: common.c:1029
+#: common.c:1028
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr ""
 "Bỏ qua liên kết mềm %s, đích %s của liên kết mềm không phải là một tập tin "
 "thường.\n"
 
-#: common.c:1048
+#: common.c:1047
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "đang chuyển đổi tập tin %s thành %s theo định dạng Unix...\n"
 
-#: common.c:1051
+#: common.c:1050
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "đang chuyển đổi tập tin %s thành %s theo định dạng Mac...\n"
 
-#: common.c:1053
+#: common.c:1052
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "đang chuyển đổi tập tin %s thành %s theo định dạng DOS...\n"
 
-#: common.c:1057
+#: common.c:1056
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "đang chuyển đổi tập tin %s thành %s\n"
 
-#: common.c:1069
+#: common.c:1068
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "Bỏ qua liên kết mềm %s.\n"
 
-#: common.c:1091
+#: common.c:1090
 #, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "đang chuyển đổi tập tin %s sang định dạng Unix...\n"
 
-#: common.c:1094
+#: common.c:1093
 #, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "đang chuyển đổi tập tin %s sang định dạng Mac...\n"
 
-#: common.c:1096
+#: common.c:1095
 #, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "đang chuyển đổi tập tin %s sang định dạng DOS...\n"
 
-#: common.c:1100
+#: common.c:1099
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "gặp trục trặc khi chuyển đổi tập tin %s\n"
 
-#: common.c:1194 common.c:1231
+#: common.c:1193 common.c:1230
 #, c-format
 msgid "active code page: %d\n"
 msgstr "trang mã đang hoạt động: %d\n"
 
-#: common.c:1243
+#: common.c:1242
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "đã đưa ra chế độ chuyển đổi %s không hợp lệ\n"
 
-#: common.c:1251
+#: common.c:1250
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "tùy chọn “%s” yêu cầu một đối số\n"
 
-#: common.c:1262 common.c:1274 common.c:1331
+#: common.c:1261 common.c:1273 common.c:1330
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "đích của tập tin %s không được chỉ định trong chế độ tập-tin-mới\n"
