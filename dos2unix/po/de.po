@@ -266,11 +266,10 @@ msgstr ""
 "   Datei ...           die im Alte-Datei-Modus umzuwandelnden Dateien\n"
 
 #: common.c:247
-#, fuzzy, c-format
+#, c-format
 msgid " -q, --quiet           quiet mode, suppress all warnings\n"
 msgstr ""
 " -q, --quiet           stiller Modus, unterdrückt alle Warnungen\n"
-"                         (ist im stdio-Modus immer aktiv)\n"
 
 #: common.c:249
 #, c-format

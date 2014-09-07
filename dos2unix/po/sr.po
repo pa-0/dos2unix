@@ -256,11 +256,10 @@ msgstr ""
 "   датотека ...        датотеке за претварање у режиму старе датотеке\n"
 
 #: common.c:247
-#, fuzzy, c-format
+#, c-format
 msgid " -q, --quiet           quiet mode, suppress all warnings\n"
 msgstr ""
 " -q, --quiet           тихи режим, потискује сва упозорења\n"
-"                         (увек укључено у режиму стндуи)\n"
 
 #: common.c:249
 #, c-format

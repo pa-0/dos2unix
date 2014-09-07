@@ -254,11 +254,10 @@ msgstr ""
 "   file …              filter til omdannelse i gammel-fil-tilstand\n"
 
 #: common.c:247
-#, fuzzy, c-format
+#, c-format
 msgid " -q, --quiet           quiet mode, suppress all warnings\n"
 msgstr ""
 " -q, --quiet           stilletilstand, tilbagehold alle advarsler\n"
-"                         (altid slået til i stdio-tilstand)\n"
 
 #: common.c:249
 #, fuzzy, c-format

@@ -250,11 +250,10 @@ msgstr ""
 "   file ...            原檔模式中要轉換的檔案\n"
 
 #: common.c:247
-#, fuzzy, c-format
+#, c-format
 msgid " -q, --quiet           quiet mode, suppress all warnings\n"
 msgstr ""
 " -q, --quiet           安靜模式，抑制所有警告\n"
-"                         (標準輸出入模式下永遠啟用)\n"
 
 #: common.c:249
 #, fuzzy, c-format
