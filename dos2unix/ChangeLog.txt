@@ -1,3 +1,6 @@
+2014-09-08 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Option -V prints home page.
+
 2014-09-03 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c, unix2dos.c: Return an error number in stdio mode when the
 	  input is binary. In stdio mode an input stream with a binary symbol

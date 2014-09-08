@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.1-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-03 21:58+0200\n"
+"POT-Creation-Date: 2014-09-08 22:44+0200\n"
 "PO-Revision-Date: 2014-08-31 17:44+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -381,83 +381,83 @@ msgstr "Sen subteno por Unikoda UTF-16.\n"
 msgid "With native language support.\n"
 msgstr "Kun subteno por lokaĵoj.\n"
 
-#: common.c:564 common.c:571 common.c:578 common.c:587
+#: common.c:562 common.c:569 common.c:576 common.c:585
 #, c-format
 msgid "Writing %s BOM.\n"
 msgstr "Skribiĝas %s-BOM.\n"
 
-#: common.c:598 common.c:602 common.c:606
+#: common.c:596 common.c:600 common.c:604
 #, c-format
 msgid "Input file %s has %s BOM.\n"
 msgstr "Eniga dosiero %s havas %s-BOM.\n"
 
-#: common.c:621
+#: common.c:619
 #, c-format
 msgid "Assuming UTF-16LE encoding.\n"
 msgstr "Supoziĝas UTF-16LE-kodoprezento.\n"
 
-#: common.c:625
+#: common.c:623
 #, c-format
 msgid "Assuming UTF-16BE encoding.\n"
 msgstr "Supoziĝas UTF-16BE-kodoprezento.\n"
 
-#: common.c:748
+#: common.c:746
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
 msgstr "Malsukcesis malfermi provizoran eligan dosieron: %s\n"
 
-#: common.c:755
+#: common.c:753
 #, c-format
 msgid "using %s as temporary file\n"
 msgstr "uziĝas %s kiel provizora dosiero\n"
 
-#: common.c:818
+#: common.c:816
 #, c-format
 msgid "Failed to write to temporary output file %s: %s\n"
 msgstr "Malsukcesis skribi al provizora eliga dosiero %s: %s\n"
 
-#: common.c:848
+#: common.c:846
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s: %s\n"
 msgstr "Malsukcesis ŝanĝi la permesojn de provizora eliga dosiero %s: %s\n"
 
-#: common.c:864
+#: common.c:862
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
 msgstr ""
 "Malsukcesis ŝanĝi posedanton kaj grupon de provizora eliga dosiero %s: %s\n"
 
-#: common.c:908
+#: common.c:906
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
 msgstr "problemoj dum redukto de simbola ligo '%s'\n"
 
-#: common.c:909 common.c:938
+#: common.c:907 common.c:936
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          eliga dosiero restas en '%s'\n"
 
-#: common.c:933
+#: common.c:931
 #, c-format
 msgid "problems renaming '%s' to '%s': %s\n"
 msgstr "problemoj dum alinomigo de '%s' al '%s': %s\n"
 
-#: common.c:936
+#: common.c:934
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          kiu estas la celo de simbola ligo '%s'\n"
 
-#: common.c:999 common.c:1031 common.c:1074
+#: common.c:997 common.c:1029 common.c:1072
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "Preterpasiĝas duuma dosiero %s\n"
 
-#: common.c:1002 common.c:1034 common.c:1077
+#: common.c:1000 common.c:1032 common.c:1075
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "kodpaĝo %d ne subtenatas.\n"
 
-#: common.c:1005 common.c:1037 common.c:1080
+#: common.c:1003 common.c:1035 common.c:1078
 #, c-format
 msgid ""
 "Skipping UTF-16 file %s, the current locale character encoding is not "
@@ -465,99 +465,99 @@ msgid ""
 msgstr ""
 "Preterpasiĝas UTF-16-a dosiero %s, la nuntempa lokaĵa kodo ne estas UTF-8.\n"
 
-#: common.c:1008 common.c:1040 common.c:1083
+#: common.c:1006 common.c:1038 common.c:1081
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr ""
 "Preterpasiĝas UTF-16-a dosiero %s, la grando de 'wchar_t' estas %d bajtoj.\n"
 
-#: common.c:1011 common.c:1043 common.c:1086
+#: common.c:1009 common.c:1041 common.c:1084
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
 msgstr "Preterpasiĝas UTF-16-a dosiero %s, okazis konverteraro de UTF-16.\n"
 
-#: common.c:1019 common.c:1065
+#: common.c:1017 common.c:1063
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "Preterpasiĝas %s, ĝi ne estas normala dosiero.\n"
 
-#: common.c:1022
+#: common.c:1020
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "Preterpasiĝas %s, eliga dosiero %s estas simbola ligo.\n"
 
-#: common.c:1025 common.c:1071
+#: common.c:1023 common.c:1069
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr "Preterpasiĝas simbola ligo %s, la celo ne estas normala dosiero.\n"
 
-#: common.c:1028
+#: common.c:1026
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr ""
 "Preterpasiĝas %s, la celo de simbola ligo %s ne estas normala dosiero.\n"
 
-#: common.c:1047
+#: common.c:1045
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "konvertiĝas dosiero %s al dosiero %s Unix-en...\n"
 
-#: common.c:1050
+#: common.c:1048
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "konvertiĝas dosiero %s al dosiero %s Mac-en...\n"
 
-#: common.c:1052
+#: common.c:1050
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "konvertiĝas dosiero %s al dosiero %s DOS-en...\n"
 
-#: common.c:1056
+#: common.c:1054
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "problemoj dum konverto de dosiero %s al dosiero %s\n"
 
-#: common.c:1068
+#: common.c:1066
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "Preterpasiĝas simbola ligo %s.\n"
 
-#: common.c:1090
+#: common.c:1088
 #, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "konvertiĝas dosiero %s Unix-en...\n"
 
-#: common.c:1093
+#: common.c:1091
 #, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "konvertiĝas dosiero %s Mac-en...\n"
 
-#: common.c:1095
+#: common.c:1093
 #, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "konvertiĝas dosiero %s DOS-en...\n"
 
-#: common.c:1099
+#: common.c:1097
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "problemoj dum konverto de dosiero %s\n"
 
-#: common.c:1193 common.c:1230
+#: common.c:1188 common.c:1225
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktiva kodpaĝo: %d\n"
 
-#: common.c:1242
+#: common.c:1237
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "malvalida konvertmoduso %s indikatas\n"
 
-#: common.c:1250
+#: common.c:1245
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "opcio '%s' bezonas argumenton\n"
 
-#: common.c:1261 common.c:1273 common.c:1330
+#: common.c:1256 common.c:1268 common.c:1325
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "celo de dosiero %s ne indikatas (en novdosiera moduso)\n"

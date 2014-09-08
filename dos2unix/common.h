@@ -218,7 +218,7 @@ int regfile(char *path, int allowSymlinks, CFlag *ipFlag, const char *progname);
 int regfile_target(char *path, CFlag *ipFlag, const char *progname);
 void PrintUsage(const char *progname);
 void PrintBSDLicense(void);
-void PrintVersion(const char *progname);
+void PrintVersion(const char *progname, const char *localedir);
 #ifdef ENABLE_NLS
 void PrintLocaledir(const char *localedir);
 #endif

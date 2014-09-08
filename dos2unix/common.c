@@ -269,7 +269,7 @@ void PrintUsage(const char *progname)
 
 #define MINGW32_W64 1
 
-void PrintVersion(const char *progname)
+void PrintVersion(const char *progname, const char *localedir)
 {
   printf("%s %s (%s)\n", progname, VER_REVISION, VER_DATE);
 #if DEBUG
@@ -314,14 +314,12 @@ void PrintVersion(const char *progname)
 #else
   printf("%s", "Without native language support.\n");
 #endif
+#ifdef ENABLE_NLS
+  printf("LOCALEDIR: %s\n", localedir);
+#endif
+  printf("http://waterlan.home.xs4all.nl/dos2unix.html\n");
 }
 
-#ifdef ENABLE_NLS
-void PrintLocaledir(const char *localedir)
-{
-  printf("LOCALEDIR: %s\n", localedir);
-}
-#endif
 
 /* opens file of name ipFN in read only mode
  * RetVal: NULL if failure
@@ -1170,10 +1168,7 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
       else if ((strcmp(argv[ArgIdx],"-R") == 0) || (strcmp(argv[ArgIdx],"--replace-symlink") == 0))
         pFlag->Follow = SYMLINK_REPLACE;
       else if ((strcmp(argv[ArgIdx],"-V") == 0) || (strcmp(argv[ArgIdx],"--version") == 0)) {
-        PrintVersion(progname);
-#ifdef ENABLE_NLS
-        PrintLocaledir(localedir);
-#endif
+        PrintVersion(progname, localedir);
         return(pFlag->error);
       }
       else if ((strcmp(argv[ArgIdx],"-L") == 0) || (strcmp(argv[ArgIdx],"--license") == 0)) {
