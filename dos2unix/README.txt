@@ -15,6 +15,11 @@ FILE LIST
         man/man1/dos2unix.htm : Dos2unix manual, HTML format.
 
 
+PROJECT HOME PAGE
+
+        http://waterlan.home.xs4all.nl/dos2unix.html
+
+
 HISTORY
 
         This is an update of Benjamin Lin's implementations of dos2unix and
@@ -144,11 +149,18 @@ FINDUTILS
 
 CONTACT INFORMATION
 
-        Project page             : http://waterlan.home.xs4all.nl/dos2unix.html
+        Project home page        : http://waterlan.home.xs4all.nl/dos2unix.html
         SourceForge project page : http://sourceforge.net/projects/dos2unix/
-        Freecode project page    : http://freecode.com/projects/dos2unix/
 
         Erwin Waterlander
         waterlan@xs4all.nl
         http://waterlan.home.xs4all.nl/
 
+        The project home page has the latest information about dos2unix.
+        Usually there is a beta version available with the latest features and
+        bug fixes. If you need support you can email me directly or make a
+        ticket on the SourceForge. Help in any form is appreciated. A problem
+        report, a fix, or just a remark.
+
+        The source code is maintained in a Subversion repository on the
+        SourceForge project page.

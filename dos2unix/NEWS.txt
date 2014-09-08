@@ -7,6 +7,9 @@
   * Change: stdio mode does not automatically force conversion of binaries.
     An error is returned when the stdin stream contains a binary symbol.
   * Bugfix: dos2unix -l created DOS line breaks from Mac line breaks.
+  * Bugfix: system error number was not always returned.
+  * Bugfix: an Unicode input file disabled 7bit and iso mode for next input files.
+  * Bugfix: mac2unix help text, options -b and -r.
   * The code has been cleaned up.
 
 2014-08-03: Version 6.0.6
