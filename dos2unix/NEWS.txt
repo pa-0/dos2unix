@@ -1,4 +1,4 @@
-2014-??-??: Version 6.1
+2014-09-09: Version 7.0
 
   * New: automated self-tests.
   * New: option -u to keep UTF-16 encoding.

@@ -56,7 +56,7 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2-6.1    2009-2014
+        Erwin Waterlander       version 3.2-7.0    2009-2014
         Christian Wurll         version 3.1        1998
         Bernd Johannes Wuebben  version 3.0        1998
         Benjamin Lin            version 1.1-2.3    1994-1995
@@ -71,41 +71,41 @@ TRANSLATORS
         See http://translationproject.org/domain/dos2unix.html
 
         Brazilian Portuguese  Enrico Nicoletto             Version 6.0.5
-        Brazilian Portuguese  Rafael Ferreira              Version 6.0.6 - 6.1
+        Brazilian Portuguese  Rafael Ferreira              Version 6.0.6 - 7.0
         Chinese (traditional) mail6543210                  Version 6.0.5
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
         Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4
-        Dutch                 Benno Schulenberg            Version 6.0.5 - 6.1
+        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.0
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
-        Esperanto             Benno Schulenberg            Version 6.0.5 - 6.1
-        French                Frédéric Marchal             Version 6.0.5 - 6.1
-        German                Philipp Thomas               Version 5.0   - 6.0.3, 6.1
+        Esperanto             Benno Schulenberg            Version 6.0.5 - 7.0
+        French                Frédéric Marchal             Version 6.0.5 - 7.0
+        German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0
         German                Lars Wendler                 Version 6.0.4
         German                Mario Blättermann            Version 6.0.6
         Hungarian             Balázs Úr                    Version 6.0.5 - 6.0.6
-        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 6.1
-        Polish                Jakub Bogusz                 Version 6.0.5 - 6.1
+        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.0
+        Polish                Jakub Bogusz                 Version 6.0.5 - 7.0
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
-        Russian               Yuri Kozlov                  Version 6.0.6 - 6.1
+        Russian               Yuri Kozlov                  Version 6.0.6 - 7.0
         Serbian               Мирослав Николић             Version 6.0.5 - 6.0.6
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 6.1
-        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 6.1
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.0
+        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.0
 
         Translation of the manual.
         See http://translationproject.org/domain/dos2unix-man.html
 
-        Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 6.1
+        Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 7.0
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
-        Dutch                 Benno Schulenberg            Version 6.0.5 - 6.1
-        French                Frédéric Marchal             Version 6.0.5 - 6.1
-        German                Mario Blättermann            Version 6.0.5 - 6.1
+        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.0
+        French                Frédéric Marchal             Version 6.0.5 - 7.0
+        German                Mario Blättermann            Version 6.0.5 - 7.0
         Hungarian             Balázs Úr                    Version 6.0.6
-        Polish                Jakub Bogusz                 Version 6.0.5 - 6.1
+        Polish                Jakub Bogusz                 Version 6.0.5 - 7.0
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 6.1
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.0
 
 
 ACKNOWLEDGEMENTS
@@ -156,11 +156,6 @@ CONTACT INFORMATION
         waterlan@xs4all.nl
         http://waterlan.home.xs4all.nl/
 
-        The project home page has the latest information about dos2unix.
-        Usually there is a beta version available with the latest features and
-        bug fixes. If you need support you can email me directly or make a
-        ticket on the SourceForge. Help in any form is appreciated. A problem
+	If you need support you can email me directly or make a ticket on the
+        SourceForge project page. Help in any form is appreciated. A problem
         report, a fix, or just a remark.
-
-        The source code is maintained in a Subversion repository on the
-        SourceForge project page.
