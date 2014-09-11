@@ -210,6 +210,7 @@ typedef struct
   int add_bom;                          /* 1: write BOM */
   int keep_bom;                         /* 1: write BOM if input file has BOM. 0: Do not write BOM */
   int keep_utf16;                       /* 1: write UTF-16 format when input file is UTF-16 format */
+  int file_info;                        /* 1: print file information */
 } CFlag;
 
 

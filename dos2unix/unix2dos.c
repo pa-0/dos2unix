@@ -200,8 +200,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
             PreviousChar = TempChar;
             if (TempChar == 0x0d) /* CR */
               ++line_nr;
-          }
-          else{
+          } else{
             /* TempChar is an LF */
             if (PreviousChar != 0x0d) /* CR already counted */
               ++line_nr;
@@ -399,8 +398,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
             PreviousChar = TempChar;
             if (TempChar == '\x0d') /* CR */
               ++line_nr;
-          }
-          else {
+          } else {
             /* TempChar is an LF */
             if (PreviousChar != '\x0d') /* CR already counted */
               ++line_nr;

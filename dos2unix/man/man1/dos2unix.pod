@@ -160,6 +160,24 @@ Force conversion of binary files.
 
 Display help and exit.
 
+=item B<-i, --info>
+
+Display file information.
+
+The following information is printed, in this order: number of DOS line breaks,
+number of Unix line breaks, number of Mac line breaks, byte order mark, tekst,
+or binary, file name.
+
+Example output:
+
+     6       0       0  no_bom    text    dos.txt
+     0       6       0  no_bom    text    unix.txt
+     0       0       6  no_bom    text    mac.txt
+    50       0       0  UTF-16LE  text    utf16le.txt
+     0      50       0  no_bom    text    utf8unix.txt
+    50       0       0  UTF-8     text    utf8dos.txt
+     2     418     219  no_bom    binary  dos2unix.exe
+
 =item B<-k, --keepdate>
 
 Keep the date stamp of output file same as input file.

@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Requires perl-Test-Simple installation.
-use Test::More tests => 30;
+use Test::Simple tests => 30;
 
 $suffix = "";
 if (-e "../dos2unix.exe") {

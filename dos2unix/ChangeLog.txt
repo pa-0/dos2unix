@@ -1,3 +1,10 @@
+2014-09-11 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: New option -i, --info, display file information.
+	  This new option prints number of line breaks, the byte order
+	  mark, and if the file is tekst or binary.
+	* man/man1/dos2unix.pod: Added option -i.
+	* test/*.t: Use Test::Simple iso Test::More.
+
 2014-09-09 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 7.0
 

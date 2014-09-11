@@ -235,6 +235,8 @@ void PrintUsage(const char *progname)
    convmode            ascii, 7bit, iso, mac, default to ascii\n"));
   printf(_(" -f, --force           force conversion of binary files\n"));
   printf(_(" -h, --help            display this help text\n"));
+  printf(_(" -i, --info            display file information\n\
+   file ...            files to analyze\n"));
   printf(_(" -k, --keepdate        keep output file date\n"));
   printf(_(" -L, --license         display software license\n"));
   printf(_(" -l, --newline         add additional newline\n"));
@@ -606,6 +608,65 @@ void print_bom (const int bomtype, const char *filename, const char *progname)
     default:
     ;
   }
+}
+
+void print_bom_info (const int bomtype)
+{
+    switch (bomtype) {
+    case FILE_UTF16LE:   /* UTF-16 Little Endian */
+      printf("  UTF-16LE");
+      break;
+    case FILE_UTF16BE:   /* UTF-16 Big Endian */
+      printf("  UTF-16BE");
+      break;
+    case FILE_UTF8:      /* UTF-8 */
+      printf("  UTF-8   ");
+      break;
+    default:
+      printf("  no_bom  ");
+    ;
+  }
+}
+
+int check_unicode_info(FILE *InF, CFlag *ipFlag, const char *progname, int *bomtype_orig)
+{
+  int RetVal = 0;
+
+#ifdef D2U_UNICODE
+  if (ipFlag->verbose > 1) {
+    if (ipFlag->ConvMode == CONVMODE_UTF16LE) {
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("Assuming UTF-16LE encoding.\n") );
+    }
+    if (ipFlag->ConvMode == CONVMODE_UTF16BE) {
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("Assuming UTF-16BE encoding.\n") );
+    }
+  }
+#endif
+  InF = read_bom(InF, &ipFlag->bomtype);
+  *bomtype_orig = ipFlag->bomtype;
+#ifdef D2U_UNICODE
+  if ((ipFlag->bomtype == FILE_MBS) && (ipFlag->ConvMode == CONVMODE_UTF16LE))
+    ipFlag->bomtype = FILE_UTF16LE;
+  if ((ipFlag->bomtype == FILE_MBS) && (ipFlag->ConvMode == CONVMODE_UTF16BE))
+    ipFlag->bomtype = FILE_UTF16BE;
+#endif
+
+#ifdef D2U_UNICODE
+#if !defined(_WIN32) && !defined(__CYGWIN__) /* Not Windows or Cygwin */
+  if (!ipFlag->keep_utf16 && ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))) {
+    if (sizeof(wchar_t) < 4) {
+      /* A decoded UTF-16 surrogate pair must fit in a wchar_t */
+      ipFlag->status |= WCHAR_T_TOO_SMALL ;
+      if (!ipFlag->error) ipFlag->error = 1;
+      RetVal = -1;
+    }
+  }
+#endif
+#endif
+
+  return RetVal;
 }
 
 int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, const char *progname)
@@ -1099,6 +1160,215 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
   }
 }
 
+void print_messages_info(const CFlag *pFlag, const char *infile, const char *progname)
+{
+  if (pFlag->status & NO_REGFILE) {
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping %s, not a regular file.\n"), infile);
+  } else if (pFlag->status & INPUT_TARGET_NO_REGFILE) {
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
+  } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
+    fprintf(stderr,"%s: ",progname);
+    fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
+  } else {
+    print_bom_info(pFlag->bomtype);
+    if (pFlag->status & BINARY_FILE)
+      printf("  binary");
+    else
+      printf("  text  ");
+    printf("  %s\n",infile);
+  }
+}
+
+#ifdef D2U_UNICODE
+void FileInfoW(FILE* ipInF, CFlag *ipFlag)
+{
+  wint_t TempChar;
+  wint_t PreviousChar = 0;
+  unsigned int lb_dos = 0;
+  unsigned int lb_unix = 0;
+  unsigned int lb_mac = 0;
+
+  ipFlag->status = 0;
+
+  while ((TempChar = d2u_getwc(ipInF, ipFlag->bomtype)) != WEOF) {
+    if ( (TempChar < 32) &&
+        (TempChar != 0x0a) &&  /* Not an LF */
+        (TempChar != 0x0d) &&  /* Not a CR */
+        (TempChar != 0x09) &&  /* Not a TAB */
+        (TempChar != 0x0c)) {  /* Not a form feed */
+      ipFlag->status |= BINARY_FILE ;
+    }
+    if (TempChar != 0x0a) { /* Not an LF */
+      PreviousChar = TempChar;
+      if (TempChar == 0x0d) /* CR */
+        lb_mac++;
+    } else{
+      /* TempChar is an LF */
+      if ( PreviousChar == 0x0d ) { /* CR,LF pair. */
+        lb_dos++;
+        lb_mac--;
+        PreviousChar = TempChar;
+        continue;
+      }
+      PreviousChar = TempChar;
+      lb_unix++; /* Unix line end (LF). Put CR */
+    }
+  }
+  printf("%6d  %6d  %6d",lb_dos, lb_unix, lb_mac);
+}
+#endif
+
+void FileInfo(FILE* ipInF, CFlag *ipFlag)
+{
+  int TempChar;
+  int PreviousChar = 0;
+  unsigned int lb_dos = 0;
+  unsigned int lb_unix = 0;
+  unsigned int lb_mac = 0;
+
+
+  ipFlag->status = 0;
+
+  while ((TempChar = fgetc(ipInF)) != EOF) {
+    if ( (TempChar < 32) &&
+        (TempChar != '\x0a') &&  /* Not an LF */
+        (TempChar != '\x0d') &&  /* Not a CR */
+        (TempChar != '\x09') &&  /* Not a TAB */
+        (TempChar != '\x0c')) {  /* Not a form feed */
+      ipFlag->status |= BINARY_FILE ;
+      }
+    if (TempChar != '\x0a') { /* Not an LF */
+      PreviousChar = TempChar;
+      if (TempChar == '\x0d') /* CR */
+        lb_mac++;
+    } else {
+      /* TempChar is an LF */
+      if ( PreviousChar == '\x0d' ) { /* CR,LF pair. */
+        lb_dos++;
+        lb_mac--;
+        PreviousChar = TempChar;
+        continue;
+      }
+      PreviousChar = TempChar;
+      lb_unix++; /* Unix line end (LF). Put CR */
+    }
+  }
+
+  printf("%6d  %6d  %6d",lb_dos, lb_unix, lb_mac);
+}
+
+int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
+{
+  int RetVal = 0;
+  FILE *InF = NULL;
+  char *errstr;
+  int bomtype_orig;
+
+  ipFlag->status = 0 ;
+
+  /* Test if input file is a regular file or symbolic link */
+  if (regfile(ipInFN, 1, ipFlag, progname)) {
+    ipFlag->status |= NO_REGFILE ;
+    /* Not a failure, skipping non-regular input file according spec. */
+    return -1;
+  }
+
+  /* Test if input file target is a regular file */
+  if (symbolic_link(ipInFN) && regfile_target(ipInFN, ipFlag,progname)) {
+    ipFlag->status |= INPUT_TARGET_NO_REGFILE ;
+    /* Not a failure, skipping non-regular input file according spec. */
+    return -1;
+  }
+
+
+  /* can open in file? */
+  if (!RetVal) {
+    InF=OpenInFile(ipInFN);
+    if (InF == NULL) {
+      ipFlag->error = errno;
+      errstr = strerror(errno);
+      fprintf(stderr, "%s: %s: %s\n", progname, ipInFN, errstr);
+      RetVal = -1;
+    }
+  }
+
+
+  if (!RetVal) 
+    if (check_unicode_info(InF, ipFlag, progname, &bomtype_orig))
+      RetVal = -1;
+
+  /* info sucessful? */
+#ifdef D2U_UNICODE
+  if (!RetVal) {
+    if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
+      FileInfoW(InF, ipFlag);
+    } else {
+      FileInfo(InF, ipFlag);
+    }
+  }
+#else
+  if (!RetVal)
+    FileInfo(InF, ipFlag);
+#endif
+  ipFlag->bomtype = bomtype_orig; /* messages must print the real bomtype, not the assumed bomtype */
+  if (!RetVal)
+    print_messages_info(ipFlag, ipInFN, progname);
+
+   /* can close in file? */
+  if ((InF) && (fclose(InF) == EOF))
+    RetVal = -1;
+
+  return RetVal;
+}
+
+int GetFileInfoStdio(CFlag *ipFlag, const char *progname)
+{
+  int RetVal = 0;
+  int bomtype_orig;
+
+  ipFlag->status = 0 ;
+
+#if defined(_WIN32) && !defined(__CYGWIN__)
+
+    /* stdin and stdout are by default text streams. We need
+     * to set them to binary mode. Otherwise an LF will
+     * automatically be converted to CR-LF on DOS/Windows.
+     * Erwin */
+
+    /* POSIX 'setmode' was deprecated by MicroSoft since
+     * Visual C++ 2005. Use ISO C++ conformant '_setmode' instead. */
+
+    _setmode(_fileno(stdin), _O_BINARY);
+#elif defined(__MSDOS__) || defined(__CYGWIN__) || defined(__OS2__)
+    setmode(fileno(stdin), O_BINARY);
+#endif
+
+  if (!RetVal) 
+    if (check_unicode_info(stdin, ipFlag, progname, &bomtype_orig))
+      RetVal = -1;
+
+  /* info sucessful? */
+#ifdef D2U_UNICODE
+  if (!RetVal) {
+    if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
+      FileInfoW(stdin, ipFlag);
+    } else {
+      FileInfo(stdin, ipFlag);
+    }
+  }
+#else
+  if (!RetVal)
+    FileInfo(stdin, ipFlag);
+#endif
+  ipFlag->bomtype = bomtype_orig; /* messages must print the real bomtype, not the assumed bomtype */
+  if (!RetVal)
+    print_messages_info(ipFlag, "stdin", progname);
+
+  return RetVal;
+}
+
 int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, const char *progname,
                   void (*PrintLicense)(void),
                   int (*Convert)(FILE*, FILE*, CFlag *, const char *)
@@ -1127,6 +1397,7 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
   pFlag->bomtype = FILE_MBS;
   pFlag->add_bom = 0;
   pFlag->keep_utf16 = 0;
+  pFlag->file_info = 0;
 
   while ((++ArgIdx < argc) && (!ShouldExit))
   {
@@ -1155,6 +1426,8 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
         pFlag->verbose = 2;
       else if ((strcmp(argv[ArgIdx],"-l") == 0) || (strcmp(argv[ArgIdx],"--newline") == 0))
         pFlag->NewLine = 1;
+      else if ((strcmp(argv[ArgIdx],"-i") == 0) || (strcmp(argv[ArgIdx],"--info") == 0))
+        pFlag->file_info = 1;
       else if ((strcmp(argv[ArgIdx],"-m") == 0) || (strcmp(argv[ArgIdx],"--add-bom") == 0))
         pFlag->add_bom = 1;
       else if ((strcmp(argv[ArgIdx],"-r") == 0) || (strcmp(argv[ArgIdx],"--remove-bom") == 0)) {
@@ -1259,6 +1532,7 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
           pFlag->stdio_mode = 0;
         }
         pFlag->NewFile = 0;
+        pFlag->file_info = 0;
       }
 
       else if ((strcmp(argv[ArgIdx],"-n") == 0) || (strcmp(argv[ArgIdx],"--newfile") == 0)) {
@@ -1271,6 +1545,7 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
           pFlag->stdio_mode = 0;
         }
         pFlag->NewFile = 1;
+        pFlag->file_info = 0;
       }
       else { /* wrong option */
         PrintUsage(progname);
@@ -1278,8 +1553,7 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
         pFlag->error = 1;
         pFlag->stdio_mode = 0;
       }
-    }
-    else {
+    } else {
       pFlag->stdio_mode = 0;
       /* not an option */
       if (pFlag->NewFile) {
@@ -1295,28 +1569,35 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
             print_messages_newfile(pFlag, argv[ArgIdx-1], argv[ArgIdx], progname, RetVal);
           CanSwitchFileMode = 1;
         }
-      }
-      else {
+      } else {
+        if (pFlag->file_info) {
+          RetVal = GetFileInfo(argv[ArgIdx], pFlag, progname);
+        } else {
 #ifdef D2U_UNICODE
-        RetVal = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert, ConvertW);
+          RetVal = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert, ConvertW);
 #else
-        RetVal = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert);
+          RetVal = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert);
 #endif
-        if (pFlag->verbose)
-          print_messages_oldfile(pFlag, argv[ArgIdx], progname, RetVal);
+          if (pFlag->verbose)
+            print_messages_oldfile(pFlag, argv[ArgIdx], progname, RetVal);
+        }
       }
     }
   }
 
   /* no file argument, use stdin and stdout */
   if (pFlag->stdio_mode) {
+    if (pFlag->file_info) {
+      RetVal = GetFileInfoStdio(pFlag, progname);
+    } else {
 #ifdef D2U_UNICODE
-    ConvertStdio(pFlag, progname, Convert, ConvertW);
+      ConvertStdio(pFlag, progname, Convert, ConvertW);
 #else
-    ConvertStdio(pFlag, progname, Convert);
+      ConvertStdio(pFlag, progname, Convert);
 #endif
-    if (pFlag->verbose)
-      print_messages_stdio(pFlag, progname);
+      if (pFlag->verbose)
+        print_messages_stdio(pFlag, progname);
+    }
     return pFlag->error;
   }
 
