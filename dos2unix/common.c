@@ -1163,14 +1163,20 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
 void print_messages_info(const CFlag *pFlag, const char *infile, const char *progname)
 {
   if (pFlag->status & NO_REGFILE) {
-    fprintf(stderr,"%s: ",progname);
-    fprintf(stderr, _("Skipping %s, not a regular file.\n"), infile);
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping %s, not a regular file.\n"), infile);
+    }
   } else if (pFlag->status & INPUT_TARGET_NO_REGFILE) {
-    fprintf(stderr,"%s: ",progname);
-    fprintf(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
+    }
   } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
-    fprintf(stderr,"%s: ",progname);
-    fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
+    if (pFlag->verbose) {
+      fprintf(stderr,"%s: ",progname);
+      fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
+    }
   } else {
     print_bom_info(pFlag->bomtype);
     if (pFlag->status & BINARY_FILE)
@@ -1313,8 +1319,6 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
     FileInfo(InF, ipFlag);
 #endif
   ipFlag->bomtype = bomtype_orig; /* messages must print the real bomtype, not the assumed bomtype */
-  if (!RetVal)
-    print_messages_info(ipFlag, ipInFN, progname);
 
    /* can close in file? */
   if ((InF) && (fclose(InF) == EOF))
@@ -1363,8 +1367,6 @@ int GetFileInfoStdio(CFlag *ipFlag, const char *progname)
     FileInfo(stdin, ipFlag);
 #endif
   ipFlag->bomtype = bomtype_orig; /* messages must print the real bomtype, not the assumed bomtype */
-  if (!RetVal)
-    print_messages_info(ipFlag, "stdin", progname);
 
   return RetVal;
 }
@@ -1572,6 +1574,7 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
       } else {
         if (pFlag->file_info) {
           RetVal = GetFileInfo(argv[ArgIdx], pFlag, progname);
+          print_messages_info(pFlag, argv[ArgIdx], progname);
         } else {
 #ifdef D2U_UNICODE
           RetVal = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert, ConvertW);
@@ -1589,6 +1592,7 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
   if (pFlag->stdio_mode) {
     if (pFlag->file_info) {
       RetVal = GetFileInfoStdio(pFlag, progname);
+      print_messages_info(pFlag, "stdin", progname);
     } else {
 #ifdef D2U_UNICODE
       ConvertStdio(pFlag, progname, Convert, ConvertW);

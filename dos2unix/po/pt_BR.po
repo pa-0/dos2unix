@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.1-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-11 22:46+0200\n"
+"POT-Creation-Date: 2014-09-11 23:56+0200\n"
 "PO-Revision-Date: 2014-08-31 23:37-0300\n"
 "Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge."
@@ -509,7 +509,7 @@ msgstr ""
 "Ignorando o arquivo UTF-16 %s, a atual codificação local de caractere não é "
 "UTF-8.\n"
 
-#: common.c:1067 common.c:1099 common.c:1142 common.c:1173
+#: common.c:1067 common.c:1099 common.c:1142 common.c:1178
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "Ignorando o arquivo UTF-16 %s, o tamanho de wchar_t é de %d bytes.\n"
@@ -520,7 +520,7 @@ msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
 msgstr ""
 "Ignorando o arquivo UTF-16 %s, ocorreu um erro de conversão para UTF-16.\n"
 
-#: common.c:1078 common.c:1124 common.c:1167
+#: common.c:1078 common.c:1124 common.c:1168
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "Ignorando %s, não é um arquivo comum.\n"
@@ -530,7 +530,7 @@ msgstr "Ignorando %s, não é um arquivo comum.\n"
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "Ignorando %s, o arquivo de saída %s é um link simbólico.\n"
 
-#: common.c:1084 common.c:1130 common.c:1170
+#: common.c:1084 common.c:1130 common.c:1173
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr ""
@@ -587,22 +587,22 @@ msgstr "convertendo o arquivo %s para formato do DOS...\n"
 msgid "problems converting file %s\n"
 msgstr "ocorreram problemas ao converter o arquivo %s\n"
 
-#: common.c:1461 common.c:1498
+#: common.c:1463 common.c:1500
 #, c-format
 msgid "active code page: %d\n"
 msgstr "página de código ativa: %d\n"
 
-#: common.c:1510
+#: common.c:1512
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "o modo de conversão %s especificado é inválido\n"
 
-#: common.c:1518
+#: common.c:1520
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "a opção '%s' requer um argumento\n"
 
-#: common.c:1529 common.c:1542 common.c:1606
+#: common.c:1531 common.c:1544 common.c:1610
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "o destino do arquivo %s não foi especificado no modo de novo arquivo\n"

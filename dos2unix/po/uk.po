@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.1-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-11 22:46+0200\n"
+"POT-Creation-Date: 2014-09-11 23:56+0200\n"
 "PO-Revision-Date: 2014-08-29 22:17+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -517,7 +517,7 @@ msgstr ""
 "Пропускаємо файл у кодуванні UTF-16, %s, поточним кодуванням символів локалі "
 "не є UTF-8.\n"
 
-#: common.c:1067 common.c:1099 common.c:1142 common.c:1173
+#: common.c:1067 common.c:1099 common.c:1142 common.c:1178
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr ""
@@ -530,7 +530,7 @@ msgstr ""
 "Пропускаємо файл у кодуванні UTF-16, %s, сталася помилка під час "
 "перетворення даних UTF-16.\n"
 
-#: common.c:1078 common.c:1124 common.c:1167
+#: common.c:1078 common.c:1124 common.c:1168
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "Пропускаємо %s, не є звичайним файлом.\n"
@@ -540,7 +540,7 @@ msgstr "Пропускаємо %s, не є звичайним файлом.\n"
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "Пропускаємо %s, файл результату, %s, є символічним посиланням.\n"
 
-#: common.c:1084 common.c:1130 common.c:1170
+#: common.c:1084 common.c:1130 common.c:1173
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr ""
@@ -598,22 +598,22 @@ msgstr "перетворюємо файл %s до формату DOS...\n"
 msgid "problems converting file %s\n"
 msgstr "під час перетворення файла %s виникли проблеми\n"
 
-#: common.c:1461 common.c:1498
+#: common.c:1463 common.c:1500
 #, c-format
 msgid "active code page: %d\n"
 msgstr "активна кодова сторінка: %d\n"
 
-#: common.c:1510
+#: common.c:1512
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "вказано некоректний режим перетворення %s\n"
 
-#: common.c:1518
+#: common.c:1520
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "до параметра «%s» слід вказувати аргумент\n"
 
-#: common.c:1529 common.c:1542 common.c:1606
+#: common.c:1531 common.c:1544 common.c:1610
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "не вказано призначення для файла %s у режимі створення файлів\n"

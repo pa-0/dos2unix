@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-11 22:46+0200\n"
+"POT-Creation-Date: 2014-09-11 23:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -434,7 +434,7 @@ msgid ""
 "UTF-8.\n"
 msgstr ""
 
-#: common.c:1067 common.c:1099 common.c:1142 common.c:1173
+#: common.c:1067 common.c:1099 common.c:1142 common.c:1178
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr ""
@@ -444,7 +444,7 @@ msgstr ""
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
 msgstr ""
 
-#: common.c:1078 common.c:1124 common.c:1167
+#: common.c:1078 common.c:1124 common.c:1168
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr ""
@@ -454,7 +454,7 @@ msgstr ""
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr ""
 
-#: common.c:1084 common.c:1130 common.c:1170
+#: common.c:1084 common.c:1130 common.c:1173
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr ""
@@ -509,22 +509,22 @@ msgstr ""
 msgid "problems converting file %s\n"
 msgstr ""
 
-#: common.c:1461 common.c:1498
+#: common.c:1463 common.c:1500
 #, c-format
 msgid "active code page: %d\n"
 msgstr ""
 
-#: common.c:1510
+#: common.c:1512
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr ""
 
-#: common.c:1518
+#: common.c:1520
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr ""
 
-#: common.c:1529 common.c:1542 common.c:1606
+#: common.c:1531 common.c:1544 common.c:1610
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr ""
