@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man 6.1-beta1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-11 22:45+0300\n"
+"POT-Creation-Date: 2014-09-12 21:37+0300\n"
 "PO-Revision-Date: 2014-08-28 00:05-0300\n"
 "Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge."
@@ -334,9 +334,9 @@ msgstr "Exibe ajuda e sai."
 #. type: =item
 #: dos2unix.pod:163
 #, fuzzy
-#| msgid "B<-f, --force>"
-msgid "B<-i, --info>"
-msgstr "B<-f, --force>"
+#| msgid "B<-o, --oldfile FILE ...>"
+msgid "B<-i, --info FILE ...>"
+msgstr "B<-o, --oldfile ARQUIVO ...>"
 
 #. type: textblock
 #: dos2unix.pod:165
@@ -350,7 +350,7 @@ msgstr "Exibe informação da versão e sai."
 msgid ""
 "The following information is printed, in this order: number of DOS line "
 "breaks, number of Unix line breaks, number of Mac line breaks, byte order "
-"mark, tekst, or binary, file name."
+"mark, text or binary, file name."
 msgstr ""
 
 #. type: textblock
@@ -1632,6 +1632,11 @@ msgstr "Veja também"
 #: dos2unix.pod:618
 msgid "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 msgstr "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
+
+#, fuzzy
+#~| msgid "B<-f, --force>"
+#~ msgid "B<-i, --info>"
+#~ msgstr "B<-f, --force>"
 
 #~ msgid "Freecode: L<http://freecode.com/projects/dos2unix>"
 #~ msgstr "Freecode: L<http://freecode.com/projects/dos2unix>"

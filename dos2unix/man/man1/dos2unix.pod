@@ -160,12 +160,12 @@ Force conversion of binary files.
 
 Display help and exit.
 
-=item B<-i, --info>
+=item B<-i, --info FILE ...>
 
 Display file information.
 
 The following information is printed, in this order: number of DOS line breaks,
-number of Unix line breaks, number of Mac line breaks, byte order mark, tekst,
+number of Unix line breaks, number of Mac line breaks, byte order mark, text
 or binary, file name.
 
 Example output:
