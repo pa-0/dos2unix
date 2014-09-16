@@ -181,8 +181,17 @@
 
 #define FROMTO_DOS2UNIX 0
 #define FROMTO_MAC2UNIX 1
-#define FROMTO_UNIX2DOS 0
-#define FROMTO_UNIX2MAC 1
+#define FROMTO_UNIX2DOS 2
+#define FROMTO_UNIX2MAC 3
+
+#define INFO_DOS  0x1
+#define INFO_UNIX 0x2
+#define INFO_MAC  0x4
+#define INFO_BOM  0x8
+#define INFO_TEXT 0x10
+#define INFO_NAME 0x20
+#define INFO_DEFAULT 0x3F
+#define INFO_CONVERT 0x40
 
 #define SYMLINK_SKIP 0
 #define SYMLINK_FOLLOW 1

@@ -1,3 +1,9 @@
+2014-09-16 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Options -i, --info can have extra flags to change the
+	  output. For instance to print only the number of Unix line breaks,
+	  or print only the files that have DOS line breaks.
+	* man/man1/dos2unix.pod: Updated.
+
 2014-09-11 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: New option -i, --info, display file information.
 	  This new option prints number of line breaks, the byte order

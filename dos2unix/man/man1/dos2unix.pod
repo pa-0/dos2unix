@@ -160,7 +160,7 @@ Force conversion of binary files.
 
 Display help and exit.
 
-=item B<-i, --info FILE ...>
+=item B<-i[FLAGS], --info[=FLAGS] FILE ...>
 
 Display file information.
 
@@ -177,6 +177,62 @@ Example output:
      0      50       0  no_bom    text    utf8unix.txt
     50       0       0  UTF-8     text    utf8dos.txt
      2     418     219  no_bom    binary  dos2unix.exe
+
+Optionally extra flags can be set to change the output. One or more flags
+can be added.
+
+=over 4
+
+=item B<d>
+
+Print number of DOS line breaks.
+
+=item B<u>
+
+Print number of Unix line breaks.
+
+=item B<m>
+
+Print number of Mac line breaks.
+
+=item B<b>
+
+Print the byte order mark.
+
+=item B<t>
+
+Print if file is text or binary.
+
+=item B<c>
+
+Print only the files that would be converted.
+
+With the C<c> flag dos2unix will print only the files that contain DOS line breaks,
+unix2dos will print only file names that have Unix line breaks.
+
+=back
+
+Examples:
+
+Show information for all *.txt files:
+
+    dos2unix -i *.txt
+
+Show only the number of DOS line breaks and Unix line breaks:
+
+    dos2unix -idu *.txt
+
+Show only the byte order mark:
+
+    dos2unix --info=b *.txt
+
+List the files that have DOS line breaks.
+
+    dos2unix -ic *.txt
+
+List the files that have Unix line breaks.
+
+    unix2dos -ic *.txt
 
 =item B<-k, --keepdate>
 

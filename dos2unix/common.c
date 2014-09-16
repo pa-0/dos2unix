@@ -1177,18 +1177,11 @@ void print_messages_info(const CFlag *pFlag, const char *infile, const char *pro
       fprintf(stderr,"%s: ",progname);
       fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
     }
-  } else {
-    print_bom_info(pFlag->bomtype);
-    if (pFlag->status & BINARY_FILE)
-      printf("  binary");
-    else
-      printf("  text  ");
-    printf("  %s\n",infile);
   }
 }
 
 #ifdef D2U_UNICODE
-void FileInfoW(FILE* ipInF, CFlag *ipFlag)
+void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename)
 {
   wint_t TempChar;
   wint_t PreviousChar = 0;
@@ -1222,11 +1215,35 @@ void FileInfoW(FILE* ipInF, CFlag *ipFlag)
       lb_unix++; /* Unix line end (LF). Put CR */
     }
   }
-  printf("%6d  %6d  %6d",lb_dos, lb_unix, lb_mac);
+
+  if (ipFlag->file_info & INFO_CONVERT) {
+    if ((ipFlag->FromToMode == FROMTO_DOS2UNIX) && (lb_dos == 0))
+      return;
+    if (((ipFlag->FromToMode == FROMTO_UNIX2DOS)||(ipFlag->FromToMode == FROMTO_UNIX2MAC)) && (lb_unix == 0))
+      return;
+    if ((ipFlag->FromToMode == FROMTO_MAC2UNIX) && (lb_mac == 0))
+      return;
+  }
+
+  if (ipFlag->file_info & INFO_DOS)
+    printf("  %6d", lb_dos);
+  if (ipFlag->file_info & INFO_UNIX)
+    printf("  %6d", lb_unix);
+  if (ipFlag->file_info & INFO_MAC)
+    printf("  %6d", lb_mac);
+  if (ipFlag->file_info & INFO_BOM)
+    print_bom_info(ipFlag->bomtype);
+  if (ipFlag->file_info & INFO_TEXT) {
+    if (ipFlag->status & BINARY_FILE)
+      printf("  binary");
+    else
+      printf("  text  ");
+  }
+  printf("  %s\n",filename);
 }
 #endif
 
-void FileInfo(FILE* ipInF, CFlag *ipFlag)
+void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename)
 {
   int TempChar;
   int PreviousChar = 0;
@@ -1262,7 +1279,31 @@ void FileInfo(FILE* ipInF, CFlag *ipFlag)
     }
   }
 
-  printf("%6d  %6d  %6d",lb_dos, lb_unix, lb_mac);
+
+  if (ipFlag->file_info & INFO_CONVERT) {
+    if ((ipFlag->FromToMode == FROMTO_DOS2UNIX) && (lb_dos == 0))
+      return;
+    if (((ipFlag->FromToMode == FROMTO_UNIX2DOS)||(ipFlag->FromToMode == FROMTO_UNIX2MAC)) && (lb_unix == 0))
+      return;
+    if ((ipFlag->FromToMode == FROMTO_MAC2UNIX) && (lb_mac == 0))
+      return;
+  }
+
+  if (ipFlag->file_info & INFO_DOS)
+    printf("  %6d", lb_dos);
+  if (ipFlag->file_info & INFO_UNIX)
+    printf("  %6d", lb_unix);
+  if (ipFlag->file_info & INFO_MAC)
+    printf("  %6d", lb_mac);
+  if (ipFlag->file_info & INFO_BOM)
+    print_bom_info(ipFlag->bomtype);
+  if (ipFlag->file_info & INFO_TEXT) {
+    if (ipFlag->status & BINARY_FILE)
+      printf("  binary");
+    else
+      printf("  text  ");
+  }
+  printf("  %s\n",filename);
 }
 
 int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
@@ -1309,14 +1350,14 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
 #ifdef D2U_UNICODE
   if (!RetVal) {
     if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
-      FileInfoW(InF, ipFlag);
+      FileInfoW(InF, ipFlag, ipInFN);
     } else {
-      FileInfo(InF, ipFlag);
+      FileInfo(InF, ipFlag, ipInFN);
     }
   }
 #else
   if (!RetVal)
-    FileInfo(InF, ipFlag);
+    FileInfo(InF, ipFlag, ipInFN);
 #endif
   ipFlag->bomtype = bomtype_orig; /* messages must print the real bomtype, not the assumed bomtype */
 
@@ -1357,18 +1398,63 @@ int GetFileInfoStdio(CFlag *ipFlag, const char *progname)
 #ifdef D2U_UNICODE
   if (!RetVal) {
     if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
-      FileInfoW(stdin, ipFlag);
+      FileInfoW(stdin, ipFlag, "stdin");
     } else {
-      FileInfo(stdin, ipFlag);
+      FileInfo(stdin, ipFlag, "stdin");
     }
   }
 #else
   if (!RetVal)
-    FileInfo(stdin, ipFlag);
+    FileInfo(stdin, ipFlag, "stdin");
 #endif
   ipFlag->bomtype = bomtype_orig; /* messages must print the real bomtype, not the assumed bomtype */
 
   return RetVal;
+}
+
+void get_info_options(char *option, CFlag *pFlag)
+{
+  char *ptr;
+
+  ptr = option;
+
+  if (*ptr == '\0') {
+    pFlag->file_info |= INFO_DEFAULT;
+    return;
+  } else
+    pFlag->file_info |= 0x0;
+
+
+  while (*ptr != '\0') {
+    switch (*ptr) {
+      case 'd':   /* Print nr of DOS line breaks. */
+        pFlag->file_info |= INFO_DOS;
+        break;
+      case 'u':   /* Print nr of Unix line breaks. */
+        pFlag->file_info |= INFO_UNIX;
+        break;
+      case 'm':   /* Print nr of Mac line breaks. */
+        pFlag->file_info |= INFO_MAC;
+        break;
+      case 'b':   /* Print BOM. */
+        pFlag->file_info |= INFO_BOM;
+        break;
+      case 't':   /* Text or binary. */
+        pFlag->file_info |= INFO_TEXT;
+        break;
+      case 'c':   /* Print only files that would be converted. */
+        pFlag->file_info |= INFO_CONVERT;
+        break;
+      case 'n':   /* Print only file names. */
+        pFlag->file_info |= INFO_NAME;
+        fprintf(stderr, "NAME\n");
+        break;
+      default:
+        pFlag->file_info |= INFO_DEFAULT;
+      ;
+    }
+    ptr++;
+  }
 }
 
 int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, const char *progname,
@@ -1428,9 +1514,13 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
         pFlag->verbose = 2;
       else if ((strcmp(argv[ArgIdx],"-l") == 0) || (strcmp(argv[ArgIdx],"--newline") == 0))
         pFlag->NewLine = 1;
-      else if ((strcmp(argv[ArgIdx],"-i") == 0) || (strcmp(argv[ArgIdx],"--info") == 0))
-        pFlag->file_info = 1;
-      else if ((strcmp(argv[ArgIdx],"-m") == 0) || (strcmp(argv[ArgIdx],"--add-bom") == 0))
+      else if (strcmp(argv[ArgIdx],"--info") == 0)
+        pFlag->file_info |= INFO_DEFAULT;
+      else if (strncmp(argv[ArgIdx],"--info=", 7) == 0) {
+        get_info_options(argv[ArgIdx]+7, pFlag);
+      } else if (strncmp(argv[ArgIdx],"-i", 2) == 0) {
+        get_info_options(argv[ArgIdx]+2, pFlag);
+      } else if ((strcmp(argv[ArgIdx],"-m") == 0) || (strcmp(argv[ArgIdx],"--add-bom") == 0))
         pFlag->add_bom = 1;
       else if ((strcmp(argv[ArgIdx],"-r") == 0) || (strcmp(argv[ArgIdx],"--remove-bom") == 0)) {
         pFlag->keep_bom = 0;

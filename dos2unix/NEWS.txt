@@ -1,3 +1,9 @@
+2014-??-??: Version 7.1
+
+  * New: Options -i, --info to print file information.
+    This new option prints number of line breaks, the byte order
+    mark, and if the file is text or binary.
+
 2014-09-09: Version 7.0
 
   * New: automated self-tests.

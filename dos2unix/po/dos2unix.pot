@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-11 23:56+0200\n"
+"POT-Creation-Date: 2014-09-16 21:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -509,22 +509,22 @@ msgstr ""
 msgid "problems converting file %s\n"
 msgstr ""
 
-#: common.c:1463 common.c:1500
+#: common.c:1553 common.c:1590
 #, c-format
 msgid "active code page: %d\n"
 msgstr ""
 
-#: common.c:1512
+#: common.c:1602
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr ""
 
-#: common.c:1520
+#: common.c:1610
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr ""
 
-#: common.c:1531 common.c:1544 common.c:1610
+#: common.c:1621 common.c:1634 common.c:1700
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr ""

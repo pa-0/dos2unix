@@ -4,10 +4,10 @@
 # Мирослав Николић <miroslavnikolic@rocketmail.com>, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-6.0.6-beta4\n"
+"Project-Id-Version: dos2unix-6.1-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-11 23:56+0200\n"
-"PO-Revision-Date: 2014-08-01 08:26+0200\n"
+"POT-Creation-Date: 2014-09-16 21:15+0200\n"
+"PO-Revision-Date: 2014-09-13 09:08+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
 "Language: sr\n"
@@ -53,7 +53,7 @@ msgstr "програмска грешка, неисправан режим пр�
 #: dos2unix.c:266 dos2unix.c:440 unix2dos.c:254 unix2dos.c:448
 #, c-format
 msgid "Converted %d out of %d line breaks.\n"
-msgstr ""
+msgstr "Претворио сам %d од %d прекида реда.\n"
 
 #: dos2unix.c:325 unix2dos.c:313
 #, c-format
@@ -240,9 +240,9 @@ msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline         додаје додатни нови ред\n"
 
 #: common.c:243
-#, fuzzy, c-format
+#, c-format
 msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
-msgstr " -b, --keep-bom        задржава назнаку поретка бајта (основно)\n"
+msgstr " -m, --add-bom         додаје назнаку поретка бајта (основно УТФ-8)\n"
 
 #: common.c:244
 #, c-format
@@ -287,7 +287,7 @@ msgstr " -s, --safe            прескаче бинарне датотеке 
 #: common.c:256
 #, c-format
 msgid " -u,  --keep-utf16     keep UTF-16 encoding\n"
-msgstr ""
+msgstr " -u,  --keep-utf16     задржава УТФ-16 кодирање\n"
 
 #: common.c:257
 #, c-format
@@ -302,7 +302,7 @@ msgstr " -ub, --assume-utf16be подразумева да је улазни з�
 #: common.c:260
 #, c-format
 msgid " -v,  --verbose        verbose operation\n"
-msgstr ""
+msgstr " -v,  --verbose        опширне радње\n"
 
 #: common.c:262
 #, c-format
@@ -404,22 +404,22 @@ msgstr "Са подршком матерњег језика.\n"
 #: common.c:564 common.c:571 common.c:578 common.c:587
 #, c-format
 msgid "Writing %s BOM.\n"
-msgstr ""
+msgstr "Записујем %s НПБ-а.\n"
 
 #: common.c:598 common.c:602 common.c:606
 #, c-format
 msgid "Input file %s has %s BOM.\n"
-msgstr ""
+msgstr "Улазна датотека „%s“ има %s НПБ-а.\n"
 
 #: common.c:639 common.c:680
 #, c-format
 msgid "Assuming UTF-16LE encoding.\n"
-msgstr ""
+msgstr "Подразумевам УТФ-16ЛЕ кодирање.\n"
 
 #: common.c:643 common.c:684
 #, c-format
 msgid "Assuming UTF-16BE encoding.\n"
-msgstr ""
+msgstr "Подразумевам УТФ-16БЕ кодирање.\n"
 
 #: common.c:807
 #, c-format
@@ -563,22 +563,22 @@ msgstr "претварам датотеку „%s“ у запису ДОС-а..
 msgid "problems converting file %s\n"
 msgstr "проблеми претварања датотеке „%s“\n"
 
-#: common.c:1463 common.c:1500
+#: common.c:1553 common.c:1590
 #, c-format
 msgid "active code page: %d\n"
 msgstr "радна кодна страница: %d\n"
 
-#: common.c:1512
+#: common.c:1602
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "наведен је неисправан „%s“ режим претварања\n"
 
-#: common.c:1520
+#: common.c:1610
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "опција „%s“ захтева аргумент\n"
 
-#: common.c:1531 common.c:1544 common.c:1610
+#: common.c:1621 common.c:1634 common.c:1700
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "мета датотеке „%s“ није наведена у режиму нове датотеке\n"
