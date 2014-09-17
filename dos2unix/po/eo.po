@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.1-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 21:15+0200\n"
+"POT-Creation-Date: 2014-09-17 21:04+0200\n"
 "PO-Revision-Date: 2014-08-31 17:44+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -205,7 +205,7 @@ msgstr " -h, --help             montri ĉi tiun helptekston\n"
 #: common.c:238
 #, fuzzy, c-format
 msgid ""
-" -i, --info            display file information\n"
+" -i, --info[=FLAGS]    display file information\n"
 "   file ...            files to analyze\n"
 msgstr ""
 " -o, --oldfile          skribi al ekzistanta dosiero  (defaŭlto)\n"
@@ -551,22 +551,27 @@ msgstr "konvertiĝas dosiero %s DOS-en...\n"
 msgid "problems converting file %s\n"
 msgstr "problemoj dum konverto de dosiero %s\n"
 
-#: common.c:1553 common.c:1590
+#: common.c:1454
+#, c-format
+msgid "wrong flag '%c' for option -i or --info\n"
+msgstr ""
+
+#: common.c:1555 common.c:1592
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktiva kodpaĝo: %d\n"
 
-#: common.c:1602
+#: common.c:1604
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "malvalida konvertmoduso %s indikatas\n"
 
-#: common.c:1610
+#: common.c:1612
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "opcio '%s' bezonas argumenton\n"
 
-#: common.c:1621 common.c:1634 common.c:1700
+#: common.c:1623 common.c:1636 common.c:1702
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "celo de dosiero %s ne indikatas (en novdosiera moduso)\n"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.1-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 21:15+0200\n"
+"POT-Creation-Date: 2014-09-17 21:04+0200\n"
 "PO-Revision-Date: 2014-08-29 22:17+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -238,7 +238,7 @@ msgstr " -h, --help            показати це довідкове пові
 #: common.c:238
 #, fuzzy, c-format
 msgid ""
-" -i, --info            display file information\n"
+" -i, --info[=FLAGS]    display file information\n"
 "   file ...            files to analyze\n"
 msgstr ""
 " -o, --oldfile         записати до старого файла (типово)\n"
@@ -598,22 +598,27 @@ msgstr "перетворюємо файл %s до формату DOS...\n"
 msgid "problems converting file %s\n"
 msgstr "під час перетворення файла %s виникли проблеми\n"
 
-#: common.c:1553 common.c:1590
+#: common.c:1454
+#, c-format
+msgid "wrong flag '%c' for option -i or --info\n"
+msgstr ""
+
+#: common.c:1555 common.c:1592
 #, c-format
 msgid "active code page: %d\n"
 msgstr "активна кодова сторінка: %d\n"
 
-#: common.c:1602
+#: common.c:1604
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "вказано некоректний режим перетворення %s\n"
 
-#: common.c:1610
+#: common.c:1612
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "до параметра «%s» слід вказувати аргумент\n"
 
-#: common.c:1621 common.c:1634 common.c:1700
+#: common.c:1623 common.c:1636 common.c:1702
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "не вказано призначення для файла %s у режимі створення файлів\n"

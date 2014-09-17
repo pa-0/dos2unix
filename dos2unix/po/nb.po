@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-6.1-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 21:15+0200\n"
+"POT-Creation-Date: 2014-09-17 21:04+0200\n"
 "PO-Revision-Date: 2014-08-30 01:49+0100\n"
 "Last-Translator: Åka Sikrom <a4@hush.com>\n"
 "Language-Team: Norwegian Bokmaal <i18n-nb@lister.ping.uio.no>\n"
@@ -215,7 +215,7 @@ msgstr " -h, --help            vis denne hjelpeteksten\n"
 #: common.c:238
 #, fuzzy, c-format
 msgid ""
-" -i, --info            display file information\n"
+" -i, --info[=FLAGS]    display file information\n"
 "   file ...            files to analyze\n"
 msgstr ""
 " -o, --oldfile         skriv til gammel fil (standard)\n"
@@ -562,22 +562,27 @@ msgstr "konverterer fila «%s» til DOS-format …\n"
 msgid "problems converting file %s\n"
 msgstr "det oppstod problemer under konvertering av fila «%s»\n"
 
-#: common.c:1553 common.c:1590
+#: common.c:1454
+#, c-format
+msgid "wrong flag '%c' for option -i or --info\n"
+msgstr ""
+
+#: common.c:1555 common.c:1592
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktiv kodeside: %d\n"
 
-#: common.c:1602
+#: common.c:1604
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "du har valgt en ugyldig %s-konverteringsmodus\n"
 
-#: common.c:1610
+#: common.c:1612
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "valget «%s» krever at du bruker et argument\n"
 
-#: common.c:1621 common.c:1634 common.c:1700
+#: common.c:1623 common.c:1636 common.c:1702
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "målet for fila «%s» er ikke valgt i ny fil-modus\n"

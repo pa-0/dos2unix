@@ -189,9 +189,8 @@
 #define INFO_MAC  0x4
 #define INFO_BOM  0x8
 #define INFO_TEXT 0x10
-#define INFO_NAME 0x20
-#define INFO_DEFAULT 0x3F
-#define INFO_CONVERT 0x40
+#define INFO_DEFAULT 0x1F
+#define INFO_CONVERT 0x20
 
 #define SYMLINK_SKIP 0
 #define SYMLINK_FOLLOW 1

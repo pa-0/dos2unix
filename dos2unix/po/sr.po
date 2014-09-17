@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-6.1-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 21:15+0200\n"
+"POT-Creation-Date: 2014-09-17 21:04+0200\n"
 "PO-Revision-Date: 2014-09-13 09:08+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -218,7 +218,7 @@ msgstr " -h, --help            приказује овај текст помоћ
 #: common.c:238
 #, fuzzy, c-format
 msgid ""
-" -i, --info            display file information\n"
+" -i, --info[=FLAGS]    display file information\n"
 "   file ...            files to analyze\n"
 msgstr ""
 " -o, --oldfile         пише у стару датотеку (основно)\n"
@@ -563,22 +563,27 @@ msgstr "претварам датотеку „%s“ у запису ДОС-а..
 msgid "problems converting file %s\n"
 msgstr "проблеми претварања датотеке „%s“\n"
 
-#: common.c:1553 common.c:1590
+#: common.c:1454
+#, c-format
+msgid "wrong flag '%c' for option -i or --info\n"
+msgstr ""
+
+#: common.c:1555 common.c:1592
 #, c-format
 msgid "active code page: %d\n"
 msgstr "радна кодна страница: %d\n"
 
-#: common.c:1602
+#: common.c:1604
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "наведен је неисправан „%s“ режим претварања\n"
 
-#: common.c:1610
+#: common.c:1612
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "опција „%s“ захтева аргумент\n"
 
-#: common.c:1621 common.c:1634 common.c:1700
+#: common.c:1623 common.c:1636 common.c:1702
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "мета датотеке „%s“ није наведена у режиму нове датотеке\n"

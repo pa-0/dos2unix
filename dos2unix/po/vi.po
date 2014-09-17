@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.1-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 21:15+0200\n"
+"POT-Creation-Date: 2014-09-17 21:04+0200\n"
 "PO-Revision-Date: 2014-08-30 07:16+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -201,7 +201,7 @@ msgstr " -h, --help            hiển thị trợ giúp này\n"
 #: common.c:238
 #, fuzzy, c-format
 msgid ""
-" -i, --info            display file information\n"
+" -i, --info[=FLAGS]    display file information\n"
 "   file ...            files to analyze\n"
 msgstr ""
 " -o, --oldfile         ghi vào tập tin cũ (mặc định)\n"
@@ -546,22 +546,27 @@ msgstr "đang chuyển đổi tập tin %s sang định dạng DOS...\n"
 msgid "problems converting file %s\n"
 msgstr "gặp trục trặc khi chuyển đổi tập tin %s\n"
 
-#: common.c:1553 common.c:1590
+#: common.c:1454
+#, c-format
+msgid "wrong flag '%c' for option -i or --info\n"
+msgstr ""
+
+#: common.c:1555 common.c:1592
 #, c-format
 msgid "active code page: %d\n"
 msgstr "trang mã đang hoạt động: %d\n"
 
-#: common.c:1602
+#: common.c:1604
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "đã đưa ra chế độ chuyển đổi %s không hợp lệ\n"
 
-#: common.c:1610
+#: common.c:1612
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "tùy chọn “%s” yêu cầu một đối số\n"
 
-#: common.c:1621 common.c:1634 common.c:1700
+#: common.c:1623 common.c:1636 common.c:1702
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "đích của tập tin %s không được chỉ định trong chế độ tập-tin-mới\n"

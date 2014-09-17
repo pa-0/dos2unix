@@ -235,7 +235,7 @@ void PrintUsage(const char *progname)
    convmode            ascii, 7bit, iso, mac, default to ascii\n"));
   printf(_(" -f, --force           force conversion of binary files\n"));
   printf(_(" -h, --help            display this help text\n"));
-  printf(_(" -i, --info            display file information\n\
+  printf(_(" -i, --info[=FLAGS]    display file information\n\
    file ...            files to analyze\n"));
   printf(_(" -k, --keepdate        keep output file date\n"));
   printf(_(" -L, --license         display software license\n"));
@@ -1223,6 +1223,8 @@ void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename)
       return;
     if ((ipFlag->FromToMode == FROMTO_MAC2UNIX) && (lb_mac == 0))
       return;
+    if ((ipFlag->Force == 0) && (ipFlag->status & BINARY_FILE))
+      return;
   }
 
   if (ipFlag->file_info & INFO_DOS)
@@ -1286,6 +1288,8 @@ void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename)
     if (((ipFlag->FromToMode == FROMTO_UNIX2DOS)||(ipFlag->FromToMode == FROMTO_UNIX2MAC)) && (lb_unix == 0))
       return;
     if ((ipFlag->FromToMode == FROMTO_MAC2UNIX) && (lb_mac == 0))
+      return;
+    if ((ipFlag->Force == 0) && (ipFlag->status & BINARY_FILE))
       return;
   }
 
@@ -1398,32 +1402,30 @@ int GetFileInfoStdio(CFlag *ipFlag, const char *progname)
 #ifdef D2U_UNICODE
   if (!RetVal) {
     if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
-      FileInfoW(stdin, ipFlag, "stdin");
+      FileInfoW(stdin, ipFlag, "");
     } else {
-      FileInfo(stdin, ipFlag, "stdin");
+      FileInfo(stdin, ipFlag, "");
     }
   }
 #else
   if (!RetVal)
-    FileInfo(stdin, ipFlag, "stdin");
+    FileInfo(stdin, ipFlag, "");
 #endif
   ipFlag->bomtype = bomtype_orig; /* messages must print the real bomtype, not the assumed bomtype */
 
   return RetVal;
 }
 
-void get_info_options(char *option, CFlag *pFlag)
+void get_info_options(char *option, CFlag *pFlag, const char *progname)
 {
   char *ptr;
 
   ptr = option;
 
-  if (*ptr == '\0') {
+  if (*ptr == '\0') { /* no flags */
     pFlag->file_info |= INFO_DEFAULT;
     return;
-  } else
-    pFlag->file_info |= 0x0;
-
+  }
 
   while (*ptr != '\0') {
     switch (*ptr) {
@@ -1445,12 +1447,12 @@ void get_info_options(char *option, CFlag *pFlag)
       case 'c':   /* Print only files that would be converted. */
         pFlag->file_info |= INFO_CONVERT;
         break;
-      case 'n':   /* Print only file names. */
-        pFlag->file_info |= INFO_NAME;
-        fprintf(stderr, "NAME\n");
-        break;
       default:
-        pFlag->file_info |= INFO_DEFAULT;
+       /* Terminate the program on a wrong option. If pFlag->file_info is
+          zero and the program goes on, it may do unwanted conversions. */
+        fprintf(stderr,"%s: ",progname);
+        fprintf(stderr,_("wrong flag '%c' for option -i or --info\n"), *ptr);
+        exit(1);
       ;
     }
     ptr++;
@@ -1517,9 +1519,9 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
       else if (strcmp(argv[ArgIdx],"--info") == 0)
         pFlag->file_info |= INFO_DEFAULT;
       else if (strncmp(argv[ArgIdx],"--info=", 7) == 0) {
-        get_info_options(argv[ArgIdx]+7, pFlag);
+        get_info_options(argv[ArgIdx]+7, pFlag, progname);
       } else if (strncmp(argv[ArgIdx],"-i", 2) == 0) {
-        get_info_options(argv[ArgIdx]+2, pFlag);
+        get_info_options(argv[ArgIdx]+2, pFlag, progname);
       } else if ((strcmp(argv[ArgIdx],"-m") == 0) || (strcmp(argv[ArgIdx],"--add-bom") == 0))
         pFlag->add_bom = 1;
       else if ((strcmp(argv[ArgIdx],"-r") == 0) || (strcmp(argv[ArgIdx],"--remove-bom") == 0)) {

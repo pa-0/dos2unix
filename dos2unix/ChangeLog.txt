@@ -1,3 +1,9 @@
+2014-09-17 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Program terminates when wrong flag is given for option
+	  -i or --info.
+	* common.c: Option -i, flag c: don't print binary files when conversion
+	  of binaries is not forced.
+
 2014-09-16 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Options -i, --info can have extra flags to change the
 	  output. For instance to print only the number of Unix line breaks,
