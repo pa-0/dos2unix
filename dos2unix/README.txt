@@ -99,7 +99,7 @@ TRANSLATORS
 
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 7.1
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
-        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.0
+        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.1
         French                Frédéric Marchal             Version 6.0.5 - 7.0
         German                Mario Blättermann            Version 6.0.5 - 7.1
         Hungarian             Balázs Úr                    Version 6.0.6
