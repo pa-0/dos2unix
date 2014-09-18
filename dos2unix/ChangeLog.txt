@@ -1,3 +1,7 @@
+2014-09-18 Erwin Waterlander <waterlan@xs4all.nl>
+	* test/misc.t: Added a test for option -i, --info.
+	* *.po: Included several translation updates.
+
 2014-09-17 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Program terminates when wrong flag is given for option
 	  -i or --info.

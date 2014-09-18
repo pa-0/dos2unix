@@ -1518,9 +1518,9 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
         pFlag->NewLine = 1;
       else if (strcmp(argv[ArgIdx],"--info") == 0)
         pFlag->file_info |= INFO_DEFAULT;
-      else if (strncmp(argv[ArgIdx],"--info=", 7) == 0) {
+      else if (strncmp(argv[ArgIdx],"--info=", (size_t)7) == 0) {
         get_info_options(argv[ArgIdx]+7, pFlag, progname);
-      } else if (strncmp(argv[ArgIdx],"-i", 2) == 0) {
+      } else if (strncmp(argv[ArgIdx],"-i", (size_t)2) == 0) {
         get_info_options(argv[ArgIdx]+2, pFlag, progname);
       } else if ((strcmp(argv[ArgIdx],"-m") == 0) || (strcmp(argv[ArgIdx],"--add-bom") == 0))
         pFlag->add_bom = 1;

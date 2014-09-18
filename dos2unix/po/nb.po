@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-6.1-beta4\n"
+"Project-Id-Version: dos2unix-7.1-beta3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-17 21:04+0200\n"
-"PO-Revision-Date: 2014-08-30 01:49+0100\n"
+"PO-Revision-Date: 2014-09-18 07:22+0100\n"
 "Last-Translator: Åka Sikrom <a4@hush.com>\n"
 "Language-Team: Norwegian Bokmaal <i18n-nb@lister.ping.uio.no>\n"
 "Language: Norwegian Bokmål\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Norwegian bokmål\n"
 
 #: dos2unix.c:76
 msgid ""
@@ -97,8 +98,7 @@ msgstr ""
 "Du kan dele og/eller endre både kildekode og binærfiler, gitt at følgende\n"
 "vilkår oppfylles:\n"
 "1. Redistribuert kildekode må beholde opphavsrettsteksten som\n"
-"   ligger ovenfor, samt denne lista over vilkår og følgende "
-"ansvarsfraskrivelse.\n"
+"   ligger ovenfor, samt denne lista over vilkår og følgende ansvarsfraskrivelse.\n"
 "2. Redistribuerte binærfiler må kunne produsere opphavsrettsteksten\n"
 "   i dokumentasjonen og/eller i annet materiell som inngår i\n"
 "   distribusjonen.\n"
@@ -120,8 +120,7 @@ msgid ""
 msgstr ""
 "DENNE PROGRAMVAREN TILBYS AV FORFATTEREN «SLIK DET ER», OG\n"
 "DET STILLES INGEN EKSPLISITT ELLER IMPLISITT GARANTI FOR AT DET EGNER\n"
-"SEG TIL NOE SOM HELST. UTVIKLEREN SKAL UNDER INGEN OMSTENDIGHETERREGNES "
-"SOM \n"
+"SEG TIL NOE SOM HELST. UTVIKLEREN SKAL UNDER INGEN OMSTENDIGHETERREGNES SOM \n"
 "ANSVARLIG FOR DIREKTE, INDIREKTE, TILFELDIGE, SPESIELLE, EKSEMPLARISKE\n"
 "ELLER KONSEKVENTE SKADER (INLKUSIVE - MEN IKKE BEGRENSET TIL - INNKJØP\n"
 "AV RESERVEVARER ELLER -TJENESTER, TAP AV DATA, TAP AV FORTJENESTE, ELLER\n"
@@ -143,10 +142,8 @@ msgstr " -ascii                bare konverter linjeskift (standard)\n"
 
 #: common.c:222
 #, c-format
-msgid ""
-" -iso                  conversion between DOS and ISO-8859-1 character set\n"
-msgstr ""
-" -iso                  konverter mellom tegnsettene DOS og ISO-8859-1\n"
+msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
+msgstr " -iso                  konverter mellom tegnsettene DOS og ISO-8859-1\n"
 
 #: common.c:223
 #, c-format
@@ -213,13 +210,13 @@ msgid " -h, --help            display this help text\n"
 msgstr " -h, --help            vis denne hjelpeteksten\n"
 
 #: common.c:238
-#, fuzzy, c-format
+#, c-format
 msgid ""
 " -i, --info[=FLAGS]    display file information\n"
 "   file ...            files to analyze\n"
 msgstr ""
-" -o, --oldfile         skriv til gammel fil (standard)\n"
-"   file …            filer som skal konverteres i gammel fil-modus\n"
+" -i, --info[=FLAGG]    vis informasjon om fil\n"
+"   file …            filer som skal undersøkes\n"
 
 #: common.c:240
 #, c-format
@@ -317,11 +314,8 @@ msgstr ""
 
 #: common.c:267
 #, c-format
-msgid ""
-" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
-msgstr ""
-" -S, --skip-symlink    hold både symbolske lenker og lenkemål uendret "
-"(standard)\n"
+msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
+msgstr " -S, --skip-symlink    hold både symbolske lenker og lenkemål uendret (standard)\n"
 
 #: common.c:269
 #, c-format
@@ -436,15 +430,12 @@ msgstr "Klarte ikke å skrive til den midlertidige utdata-fila «%s». %s\n"
 #: common.c:907
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s: %s\n"
-msgstr ""
-"Klarte ikke å endre rettighetene til den midlertidige utdata-fila «%s». %s\n"
+msgstr "Klarte ikke å endre rettighetene til den midlertidige utdata-fila «%s». %s\n"
 
 #: common.c:923
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
-msgstr ""
-"Klarte ikke å endre eier og gruppetilhørighet for den midlertidige utdata-"
-"fila «%s». %s\n"
+msgstr "Klarte ikke å endre eier og gruppetilhørighet for den midlertidige utdata-fila «%s». %s\n"
 
 #: common.c:967
 #, c-format
@@ -478,12 +469,8 @@ msgstr "kodesiden %d støttes ikke.\n"
 
 #: common.c:1064 common.c:1096 common.c:1139
 #, c-format
-msgid ""
-"Skipping UTF-16 file %s, the current locale character encoding is not "
-"UTF-8.\n"
-msgstr ""
-"Hopper over UTF-16-fila «%s». Gjeldende lokaltilpasset tegnkoding er ikke "
-"UTF-8.\n"
+msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
+msgstr "Hopper over UTF-16-fila «%s». Gjeldende lokaltilpasset tegnkoding er ikke UTF-8.\n"
 
 #: common.c:1067 common.c:1099 common.c:1142 common.c:1178
 #, c-format
@@ -493,8 +480,7 @@ msgstr "Hopper over UTF-16-fila «%s». Størrelsen på wchar_t er %d byte.\n"
 #: common.c:1070 common.c:1102 common.c:1145
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
-msgstr ""
-"Hopper over UTF-16-fila «%s». Det oppstod en UTF-16-konverteringsfeil.\n"
+msgstr "Hopper over UTF-16-fila «%s». Det oppstod en UTF-16-konverteringsfeil.\n"
 
 #: common.c:1078 common.c:1124 common.c:1168
 #, c-format
@@ -514,8 +500,7 @@ msgstr "Hopper over den symbolske lenka «%s». Målet er ikke en vanlig fil.\n"
 #: common.c:1087
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
-msgstr ""
-"Hopper over «%s». Målet for den symbolske lenka «%s» er ikke en vanlig fil.\n"
+msgstr "Hopper over «%s». Målet for den symbolske lenka «%s» er ikke en vanlig fil.\n"
 
 #: common.c:1106
 #, c-format
@@ -565,7 +550,7 @@ msgstr "det oppstod problemer under konvertering av fila «%s»\n"
 #: common.c:1454
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
-msgstr ""
+msgstr "«%c» er et ugyldig flagg for -i (--info)\n"
 
 #: common.c:1555 common.c:1592
 #, c-format

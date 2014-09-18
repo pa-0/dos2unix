@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Requires perl-Test-Simple installation.
-use Test::Simple tests => 16;
+use Test::Simple tests => 17;
 
 $suffix = "";
 if (-e "../dos2unix.exe") {
@@ -90,3 +90,6 @@ ok( $? == 0, '7bit enabled again, unix2dos');
 system("$UNIX2DOS -v -u -m -n unix.txt out_dos.txt; cmp out_dos.txt dos_bom.txt");
 ok( $? == 0, 'Option -u must not disable -m on ASCII input');
 
+system("$DOS2UNIX -i dos.txt unix.txt mac.txt mixed.txt utf16le.txt utf16be.txt utf16len.txt utf8unix.txt utf8dos.txt > outinfo.txt");
+system("$DOS2UNIX outinfo.txt; diff info.txt outinfo.txt");
+ok( $? == 0, 'Option -i, --info');

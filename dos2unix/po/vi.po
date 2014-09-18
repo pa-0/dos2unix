@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 6.1-beta4\n"
+"Project-Id-Version: dos2unix 7.1-beta3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-17 21:04+0200\n"
-"PO-Revision-Date: 2014-08-30 07:16+0700\n"
+"PO-Revision-Date: 2014-09-18 08:57+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
 "Language: vi\n"
@@ -120,8 +120,7 @@ msgstr ""
 #: common.c:220
 #, c-format
 msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
-msgstr ""
-"Cách dùng: %s [các-tùy-chọn] [tập-tin ...] [-n tập-tin-vào tập-tin-ra ...]\n"
+msgstr "Cách dùng: %s [các-tùy-chọn] [tập-tin ...] [-n tập-tin-vào tập-tin-ra ...]\n"
 
 #: common.c:221
 #, c-format
@@ -130,8 +129,7 @@ msgstr " -ascii                chỉ chuyển đổi các ngắt dòng (mặc đ
 
 #: common.c:222
 #, c-format
-msgid ""
-" -iso                  conversion between DOS and ISO-8859-1 character set\n"
+msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
 msgstr " -iso                  chuyển đổi giữa DOS và ISO-8859-1\n"
 
 #: common.c:223
@@ -199,13 +197,13 @@ msgid " -h, --help            display this help text\n"
 msgstr " -h, --help            hiển thị trợ giúp này\n"
 
 #: common.c:238
-#, fuzzy, c-format
+#, c-format
 msgid ""
 " -i, --info[=FLAGS]    display file information\n"
 "   file ...            files to analyze\n"
 msgstr ""
-" -o, --oldfile         ghi vào tập tin cũ (mặc định)\n"
-"   tập-tin ...           các tập tin cần chuyển đổi trong chế độ tập-tin-cũ\n"
+" -i, --info[=CỜ]       hiển thị thông tin tập tin\n"
+"   tập-tin ...         các tập tin cần phân tích\n"
 
 #: common.c:240
 #, c-format
@@ -245,7 +243,7 @@ msgid ""
 "   file ...            files to convert in old-file mode\n"
 msgstr ""
 " -o, --oldfile         ghi vào tập tin cũ (mặc định)\n"
-"   tập-tin ...           các tập tin cần chuyển đổi trong chế độ tập-tin-cũ\n"
+"   tập-tin ...         các tập tin cần chuyển đổi trong chế độ tập-tin-cũ\n"
 
 #: common.c:249
 #, c-format
@@ -299,15 +297,12 @@ msgid ""
 "                         (original target files remain unchanged)\n"
 msgstr ""
 " -R, --replace-symlink thay thế liên kết mềm bằng tập tin đã chuyển đổi\n"
-"                         (các tập tin đích nguyên gốc thì để nguyên không "
-"thay đổi)\n"
+"                         (các tập tin đích nguyên gốc thì để nguyên không thay đổi)\n"
 
 #: common.c:267
 #, c-format
-msgid ""
-" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
-msgstr ""
-" -S, --skip-symlink    giữ liên kết mềm và đích không thay đổi (mặc định)\n"
+msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
+msgstr " -S, --skip-symlink    giữ liên kết mềm và đích không thay đổi (mặc định)\n"
 
 #: common.c:269
 #, c-format
@@ -461,12 +456,8 @@ msgstr "không hỗ trợ trang mã %d.\n"
 
 #: common.c:1064 common.c:1096 common.c:1139
 #, c-format
-msgid ""
-"Skipping UTF-16 file %s, the current locale character encoding is not "
-"UTF-8.\n"
-msgstr ""
-"Bỏ qua tập tin UTF-16 %s, bảng mã ký tự địa phương hiện tại không phải là "
-"UTF-8.\n"
+msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
+msgstr "Bỏ qua tập tin UTF-16 %s, bảng mã ký tự địa phương hiện tại không phải là UTF-8.\n"
 
 #: common.c:1067 common.c:1099 common.c:1142 common.c:1178
 #, c-format
@@ -491,15 +482,12 @@ msgstr "Bỏ qua %s, tập tin xuất %s là một liên kết mềm.\n"
 #: common.c:1084 common.c:1130 common.c:1173
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
-msgstr ""
-"Bỏ qua liên kết mềm %s, đích của nó không phải là một tập tin thường.\n"
+msgstr "Bỏ qua liên kết mềm %s, đích của nó không phải là một tập tin thường.\n"
 
 #: common.c:1087
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
-msgstr ""
-"Bỏ qua liên kết mềm %s, đích %s của liên kết mềm không phải là một tập tin "
-"thường.\n"
+msgstr "Bỏ qua liên kết mềm %s, đích %s của liên kết mềm không phải là một tập tin thường.\n"
 
 #: common.c:1106
 #, c-format
@@ -549,7 +537,7 @@ msgstr "gặp trục trặc khi chuyển đổi tập tin %s\n"
 #: common.c:1454
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
-msgstr ""
+msgstr "cờ “%c” cho tùy chọn -i hay --info bị sai\n"
 
 #: common.c:1555 common.c:1592
 #, c-format

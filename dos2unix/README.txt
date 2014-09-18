@@ -51,6 +51,7 @@ HISTORY
         * Conversion of Unicode UTF-16 and UTF-8 files.
         * Conversion of UTF-16 files to UTF-8.
         * Handles Unicode Byte Order Mark (BOM).
+        * Display file information.
         * Secure.
 
 
@@ -71,11 +72,11 @@ TRANSLATORS
         See http://translationproject.org/domain/dos2unix.html
 
         Brazilian Portuguese  Enrico Nicoletto             Version 6.0.5
-        Brazilian Portuguese  Rafael Ferreira              Version 6.0.6 - 7.0
+        Brazilian Portuguese  Rafael Ferreira              Version 6.0.6 - 7.1
         Chinese (traditional) mail6543210                  Version 6.0.5
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
         Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4
-        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.0
+        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.1
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
         Esperanto             Benno Schulenberg            Version 6.0.5 - 7.0
         French                Frédéric Marchal             Version 6.0.5 - 7.0
@@ -83,29 +84,29 @@ TRANSLATORS
         German                Lars Wendler                 Version 6.0.4
         German                Mario Blättermann            Version 6.0.6
         Hungarian             Balázs Úr                    Version 6.0.5 - 6.0.6
-        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.0
-        Polish                Jakub Bogusz                 Version 6.0.5 - 7.0
+        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.1
+        Polish                Jakub Bogusz                 Version 6.0.5 - 7.1
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
         Russian               Yuri Kozlov                  Version 6.0.6 - 7.0
         Serbian               Мирослав Николић             Version 6.0.5 - 6.0.6
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.0
-        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.0
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.1
+        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.1
 
         Translation of the manual.
         See http://translationproject.org/domain/dos2unix-man.html
 
-        Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 7.0
+        Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 7.1
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.0
         French                Frédéric Marchal             Version 6.0.5 - 7.0
-        German                Mario Blättermann            Version 6.0.5 - 7.0
+        German                Mario Blättermann            Version 6.0.5 - 7.1
         Hungarian             Balázs Úr                    Version 6.0.6
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.0
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.0
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.1
 
 
 ACKNOWLEDGEMENTS
