@@ -137,9 +137,10 @@ ACKNOWLEDGEMENTS
         Mario Blättermann     Generate pod files from gettext po files with po4a.
         Daniel Macks          Reported dependency on GNU sed.
         Alan S. Jones         Reported bug in UTF-16 conversion by mac2unix.
-        Alan S. Jones         Idea for an info option, to list file statistics.
-        Gary Johnson          Idea for an info option, to list files which have
-                              DOS or Unix line breaks.
+        Alan S. Jones         Idea for an info option, to list file statistics
+                              about line breaks and byte order marks.
+        Gary Johnson          Idea for an info option, to list only files which have
+                              DOS line breaks, or only files with Unix line breaks.
 
 FINDUTILS
 
