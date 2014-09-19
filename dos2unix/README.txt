@@ -137,6 +137,9 @@ ACKNOWLEDGEMENTS
         Mario Blättermann     Generate pod files from gettext po files with po4a.
         Daniel Macks          Reported dependency on GNU sed.
         Alan S. Jones         Reported bug in UTF-16 conversion by mac2unix.
+        Alan S. Jones         Idea for an info option, to list file statistics.
+        Gary Johnson          Idea for an info option, to list files which have
+                              DOS or Unix line breaks.
 
 FINDUTILS
 
@@ -157,6 +160,6 @@ CONTACT INFORMATION
         waterlan@xs4all.nl
         http://waterlan.home.xs4all.nl/
 
-	If you need support you can email me directly or make a ticket on the
+        If you need support you can email me directly or make a ticket on the
         SourceForge project page. Help in any form is appreciated. A problem
         report, a fix, or just a remark.
