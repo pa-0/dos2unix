@@ -5,10 +5,10 @@
 # Benno Schulenberg <benno@vertaalt.nl>, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 6.1-beta4\n"
+"Project-Id-Version: dos2unix 7.1-beta3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-17 21:04+0200\n"
-"PO-Revision-Date: 2014-08-31 17:44+0200\n"
+"PO-Revision-Date: 2014-09-21 12:21+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
 "Language: eo\n"
@@ -96,11 +96,9 @@ msgid ""
 msgstr ""
 "Redistribuo kaj uzo en teksta kaj en duuma formo, sen aŭ kun modifoj,\n"
 "estas permesata se vi observas la jenajn kondiĉojn:\n"
-"1. Redistribuoj de la programteksto devas reteni la supran kopirajtan "
-"afiŝon,\n"
+"1. Redistribuoj de la programteksto devas reteni la supran kopirajtan afiŝon,\n"
 "   kaj ĉi tiun liston de kondiĉoj, kaj la suban malgarantion.\n"
-"2. Redistribuoj en duuma formo devas prezenti la supran kopirajtan afiŝon "
-"en\n"
+"2. Redistribuoj en duuma formo devas prezenti la supran kopirajtan afiŝon en\n"
 "   la manlibro kaj/aŭ en la aliaj materialoj kiuj akompanis la distribuon.\n"
 "\n"
 
@@ -122,8 +120,7 @@ msgstr ""
 #: common.c:220
 #, c-format
 msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
-msgstr ""
-"Uzmaniero:  %s [opcioj] [dosiero ...] [-n enigdosiero eligdosiero ...]\n"
+msgstr "Uzmaniero:  %s [opcioj] [dosiero ...] [-n enigdosiero eligdosiero ...]\n"
 
 #: common.c:221
 #, c-format
@@ -132,8 +129,7 @@ msgstr " -ascii                 konverti nur linifinojn  (defaŭlto)\n"
 
 #: common.c:222
 #, c-format
-msgid ""
-" -iso                  conversion between DOS and ISO-8859-1 character set\n"
+msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
 msgstr " -iso                   konverti inter signaroj DOS kaj ISO-8859-1\n"
 
 #: common.c:223
@@ -169,8 +165,7 @@ msgstr "   -865                 uzi DOS-kodpaĝon 865 (Nordlandaj)\n"
 #: common.c:229
 #, c-format
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
-msgstr ""
-" -7                     konverti signojn kun jesa oka bito al spacetojn\n"
+msgstr " -7                     konverti signojn kun jesa oka bito al spacetojn\n"
 
 #: common.c:231
 #, c-format
@@ -189,8 +184,7 @@ msgid ""
 "   convmode            ascii, 7bit, iso, mac, default to ascii\n"
 msgstr ""
 " -c, --convmode         uzenda konvertmoduso\n"
-"   konvertmoduso        'ascii', '7bit', 'iso', aŭ 'mac'  (defaŭltas al "
-"'ascii')\n"
+"   MODUSO               'ascii', '7bit', 'iso', aŭ 'mac'  (defaŭltas al 'ascii')\n"
 
 #: common.c:236
 #, c-format
@@ -203,13 +197,13 @@ msgid " -h, --help            display this help text\n"
 msgstr " -h, --help             montri ĉi tiun helptekston\n"
 
 #: common.c:238
-#, fuzzy, c-format
+#, c-format
 msgid ""
 " -i, --info[=FLAGS]    display file information\n"
 "   file ...            files to analyze\n"
 msgstr ""
-" -o, --oldfile          skribi al ekzistanta dosiero  (defaŭlto)\n"
-"   dosiero ...          konvertenda(j) dosiero(j) en olddosiera moduso\n"
+" -i, --info[=FLAGOJ]    montri (specifajn) informojn pri dosieroj\n"
+"   DOSIERO...           ekzamenendaj dosieroj\n"
 
 #: common.c:240
 #, c-format
@@ -239,8 +233,8 @@ msgid ""
 "   outfile             output file in new-file mode\n"
 msgstr ""
 " -n, --newfile          skribi al nova dosiero\n"
-"   enigdosiero          eniga dosiero en novdosiera moduso\n"
-"   eligdosiero          eliga dosiero en novdosiera moduso\n"
+"   ENIGDOSIERO          eniga dosiero en novdosiera moduso\n"
+"   ELIGDOSIERO          eliga dosiero en novdosiera moduso\n"
 
 #: common.c:247
 #, c-format
@@ -249,7 +243,7 @@ msgid ""
 "   file ...            files to convert in old-file mode\n"
 msgstr ""
 " -o, --oldfile          skribi al ekzistanta dosiero  (defaŭlto)\n"
-"   dosiero ...          konvertenda(j) dosiero(j) en olddosiera moduso\n"
+"   DOSIERO...           konvertendaj dosieroj en olddosiera moduso\n"
 
 #: common.c:249
 #, c-format
@@ -294,8 +288,7 @@ msgstr " -v,  --verbose          parolema funkciado\n"
 #: common.c:262
 #, c-format
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
-msgstr ""
-" -F, --follow-symlink   sekvi simbolajn ligojn kaj konverti ties celojn\n"
+msgstr " -F, --follow-symlink   sekvi simbolajn ligojn kaj konverti ties celojn\n"
 
 #: common.c:265
 #, c-format
@@ -303,17 +296,13 @@ msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
 "                         (original target files remain unchanged)\n"
 msgstr ""
-" -R, --replace-symlink  anstataŭigi simbolajn ligojn per la konvertitaj "
-"dosieroj\n"
+" -R, --replace-symlink  anstataŭigi simbolajn ligojn per la konvertitaj dosieroj\n"
 "                          (la celaj dosieroj ne ŝanĝiĝas)\n"
 
 #: common.c:267
 #, c-format
-msgid ""
-" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
-msgstr ""
-" -S, --skip-symlink     ne ŝanĝi simbolajn ligojn nek ties celojn  "
-"(defaŭlto)\n"
+msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
+msgstr " -S, --skip-symlink     ne ŝanĝi simbolajn ligojn nek ties celojn  (defaŭlto)\n"
 
 #: common.c:269
 #, c-format
@@ -433,8 +422,7 @@ msgstr "Malsukcesis ŝanĝi la permesojn de provizora eliga dosiero %s: %s\n"
 #: common.c:923
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
-msgstr ""
-"Malsukcesis ŝanĝi posedanton kaj grupon de provizora eliga dosiero %s: %s\n"
+msgstr "Malsukcesis ŝanĝi posedanton kaj grupon de provizora eliga dosiero %s: %s\n"
 
 #: common.c:967
 #, c-format
@@ -468,17 +456,13 @@ msgstr "kodpaĝo %d ne subtenatas.\n"
 
 #: common.c:1064 common.c:1096 common.c:1139
 #, c-format
-msgid ""
-"Skipping UTF-16 file %s, the current locale character encoding is not "
-"UTF-8.\n"
-msgstr ""
-"Preterpasiĝas UTF-16-a dosiero %s, la nuntempa lokaĵa kodo ne estas UTF-8.\n"
+msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
+msgstr "Preterpasiĝas UTF-16-a dosiero %s, la nuntempa lokaĵa kodo ne estas UTF-8.\n"
 
 #: common.c:1067 common.c:1099 common.c:1142 common.c:1178
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
-msgstr ""
-"Preterpasiĝas UTF-16-a dosiero %s, la grando de 'wchar_t' estas %d bajtoj.\n"
+msgstr "Preterpasiĝas UTF-16-a dosiero %s, la grando de 'wchar_t' estas %d bajtoj.\n"
 
 #: common.c:1070 common.c:1102 common.c:1145
 #, c-format
@@ -503,8 +487,7 @@ msgstr "Preterpasiĝas simbola ligo %s, la celo ne estas normala dosiero.\n"
 #: common.c:1087
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
-msgstr ""
-"Preterpasiĝas %s, la celo de simbola ligo %s ne estas normala dosiero.\n"
+msgstr "Preterpasiĝas %s, la celo de simbola ligo %s ne estas normala dosiero.\n"
 
 #: common.c:1106
 #, c-format
@@ -554,7 +537,7 @@ msgstr "problemoj dum konverto de dosiero %s\n"
 #: common.c:1454
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
-msgstr ""
+msgstr "malĝusta flago '%c' por opcio '-i' aŭ '--info'\n"
 
 #: common.c:1555 common.c:1592
 #, c-format
