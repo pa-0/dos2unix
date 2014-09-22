@@ -67,12 +67,6 @@ BASIC INSTALLATION
         make clean
 
 
-    Mostly clean.
-
-        The target mostlyclean will preserve the generated documentation files.
-
-        make mostlyclean
-
 SELF-TESTS
 
     To run the self-tests you need a Perl installation including
@@ -141,7 +135,7 @@ INTERNATIONAL MAN PAGES
         man dos2unix
 
     With man-db the manpages show correctly out of the box. Cygwin changed to
-    man-db in June 2014.
+    use man-db in June 2014.
     Man-db is the default man system on the major Linux distributions.
 
 

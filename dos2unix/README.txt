@@ -83,7 +83,7 @@ TRANSLATORS
         German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0
         German                Lars Wendler                 Version 6.0.4
         German                Mario Blättermann            Version 6.0.6
-        Hungarian             Balázs Úr                    Version 6.0.5 - 6.0.6
+        Hungarian             Balázs Úr                    Version 6.0.5 - 7.1
         Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.1
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.1
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4

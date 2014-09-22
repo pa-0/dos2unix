@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.1-beta3\n"
 "POT-Creation-Date: 2014-09-17 21:17+0300\n"
-"PO-Revision-Date: 2014-09-18 09:40+0100\n"
+"PO-Revision-Date: 2014-09-22 11:51+0200\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
@@ -1394,21 +1394,3 @@ msgstr "SIEHE AUCH"
 #: dos2unix.pod:675
 msgid "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 msgstr "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
-
-#~ msgid "Freecode: L<http://freecode.com/projects/dos2unix>"
-#~ msgstr "Freecode: L<http://freecode.com/projects/dos2unix>"
-
-#~ msgid "The Windows versions of dos2unix and unix2dos convert UTF-16 encoded files always to UTF-8 encoded files. Unix versions of dos2unix/unix2dos convert UTF-16 encoded files to the locale character encoding when it is set to UTF-8.  Use the locale(1) command to find out what the locale character encoding is."
-#~ msgstr "Die Windows-Versionen von dos2unix und unix2dos wandeln UTF-16-kodierte Dateien stets in UTF-8-Dateien um. Die entsprechenden Unix-Versionen wandeln UTF-16-kodierte Dateien in die lokale Zeichenkodierung um, falls diese nicht auf UTF-8 gesetzt ist. Verwenden Sie den Befehl locale(1), um die lokale Zeichenkodierung zu ermitteln."
-
-#~ msgid "Because UTF-8 formatted text files are well supported on both Windows and Unix, dos2unix and unix2dos have no option to write UTF-16 files. All UTF-16 characters can be encoded in UTF-8. Conversion from UTF-16 to UTF-8 is without loss. UTF-16 files will be skipped on Unix when the locale character encoding is not UTF-8, to prevent accidental loss of text. When an UTF-16 to UTF-8 conversion error occurs, for instance when the UTF-16 input file contains an error, the file will be skipped."
-#~ msgstr "Da in UTF-8 formatierte Textdateien sowohl unter Windows als auch unter Unix gut unterstützt werden, haben dos2unix und unix2dos keine Option zum Schreiben von UTF-16-Dateien. Alle UTF-16-Zeichen können verlustlos in UTF-8 kodiert werden. UTF-16-Dateien werden unter Unix übersprungen, wenn die lokale Zeichenkodierung nicht UTF-8 ist, um unbeabsichtigte Verluste von Textteilen zu verhindern. Wenn eine Umwandlung von UTF-16 nach UTF-8 Fehlermeldungen verursacht, zum Beispiel die UTF-16-Eingabedatei einen Fehler enthält, dann wird diese Datei übersprungen."
-
-#~ msgid "Dos2unix never writes a BOM in the output file, unless you use option C<-m>."
-#~ msgstr "Dos2unix schreibt nur dann eine BOM in die Ausgabedatei, wenn Sie die Option C<-m> angeben."
-
-#~ msgid "Dos2unix was modelled after dos2unix under SunOS/Solaris and has similar conversion modes."
-#~ msgstr "Dos2unix wurde nach dem Beispiel des in SunOS/Solaris verfügbaren dos2unix entwickelt und bietet ähnliche Umwandlungsmodi."
-
-#~ msgid "Conversion modes I<ascii>, I<7bit>, and I<iso> are similar to those of dos2unix/unix2dos under SunOS/Solaris."
-#~ msgstr "Die Umwandlungsmodi I<ascii>, I<7bit> und I<iso> ähneln denen von dos2unix/unix2dos unter SunOS/Solaris."

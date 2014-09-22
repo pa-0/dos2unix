@@ -14,7 +14,7 @@
 # MSYS2
 CC = gcc
 STRIP = strip
-CRT_GLOB_OBJ = C:/msys2/msys32/mingw64/x86_64-w64-mingw32/lib/CRT_glob.o
+CRT_GLOB_OBJ = /mingw64/x86_64-w64-mingw32/lib/CRT_glob.o
 
 prefix=c:/usr/local64
 ENABLE_NLS=

@@ -32,4 +32,4 @@ symlink:
 	prove -v $@.t
 
 clean:
-	rm -f out*.txt in*.txt
+	rm -f out*.txt in_link.txt

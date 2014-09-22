@@ -12,7 +12,7 @@ CC = gcc
 #CRT_GLOB_OBJ = C:/mingw32/i686-w64-mingw32/lib/CRT_glob.o
 
 # MSYS2
-CRT_GLOB_OBJ = C:/msys2/msys32/mingw32/i686-w64-mingw32/lib/CRT_glob.o
+CRT_GLOB_OBJ = /mingw32/i686-w64-mingw32/lib/CRT_glob.o
 
 prefix=c:/usr/local
 ENABLE_NLS=

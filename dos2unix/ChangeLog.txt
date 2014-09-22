@@ -1,3 +1,10 @@
+2014-09-22 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Added settings for freeMiNT, and cleanup setting
+	  OS specific settings. Thanks to ...
+	* common.c: PrintVersion() updated for freeMiNT. Thanks to ...
+	* mingw32.mak, mingw64.mak: Fixed setting path to CRT_glob.o.
+	  Works now independent of MSYS2 install path.
+
 2014-09-18 Erwin Waterlander <waterlan@xs4all.nl>
 	* test/misc.t: Added a test for option -i, --info.
 	* *.po: Included several translation updates.

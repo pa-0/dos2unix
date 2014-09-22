@@ -119,18 +119,42 @@ VERSIONSUFFIX	= -bin
 
 # ......................................................... OS flags ...
 
-D2U_OS =
 
 ifndef D2U_OS
-ifeq (Linux, $(shell uname -s))
-	D2U_OS = linux
-endif
-endif
+	d2u_os=$(shell uname -s)
 
-ifndef D2U_OS
-ifeq ($(findstring CYGWIN,$(shell uname)),CYGWIN)
+ifeq ($(findstring CYGWIN,$(d2u_os)),CYGWIN)
 	D2U_OS = cygwin
 endif
+
+ifndef D2U_OS
+ifeq ($(findstring MSYS,$(d2u_os)),MSYS)
+	D2U_OS = msys
+endif
+endif
+
+ifndef D2U_OS
+ifeq ($(findstring MINGW32,$(d2u_os)),MINGW32)
+	D2U_OS = mingw32
+endif
+endif
+
+ifndef D2U_OS
+ifneq ($(DJGPP),)
+	D2U_OS = msdos
+endif
+endif
+
+ifndef D2U_OS
+ifneq (, $(wildcard /opt/csw))
+	D2U_OS = sun
+endif
+endif
+
+ifndef D2U_OS
+	D2U_OS=$(shell echo $(d2u_os) | tr [A-Z] [a-z])
+endif
+
 endif
 
 ifeq (cygwin,$(D2U_OS))
@@ -151,10 +175,8 @@ endif
 	VERSIONSUFFIX	= -cygwin
 endif
 
-ifndef D2U_OS
-ifeq ($(findstring MSYS,$(shell uname)),MSYS)
+ifeq (msys,$(D2U_OS))
 	CC=gcc
-	D2U_OS = msys
 	EXE = .exe
 	VERSIONSUFFIX	= -msys
 	UCS =
@@ -162,11 +184,8 @@ ifdef ENABLE_NLS
 	LIBS_EXTRA = -lintl -liconv
 endif
 endif
-endif
 
-ifndef D2U_OS
-ifeq ($(findstring MINGW32,$(shell uname)),MINGW32)
-	D2U_OS = mingw32
+ifeq (mingw32,$(D2U_OS))
 	prefix=c:/usr/local
 	EXE = .exe
 	VERSIONSUFFIX	= -win32
@@ -179,11 +198,8 @@ ifeq ($(findstring w64-mingw32,$(shell gcc -dumpmachine)),w64-mingw32)
 	CFLAGS_COMPILER = -DD2U_COMPILER=MINGW32_W64
 endif
 endif
-endif
 
-ifndef D2U_OS
-ifneq ($(DJGPP),)
-	D2U_OS = msdos
+ifeq (msdos,$(D2U_OS))
 	prefix=c:/dos32
 	EXE = .exe
 	VERSIONSUFFIX = pm
@@ -195,11 +211,8 @@ ifdef ENABLE_NLS
 	LIBS_EXTRA = -lintl -liconv
 endif
 endif
-endif
 
-ifndef D2U_OS
-ifeq ($(shell uname),OS/2)
-	D2U_OS = os/2
+ifeq (os/2,$(D2U_OS))
 	prefix=c:/usr
 	EXE = .exe
 	VERSIONSUFFIX = -os2
@@ -210,32 +223,32 @@ ifdef ENABLE_NLS
 	LIBS_EXTRA += -lintl -liconv
 endif
 endif
+
+ifeq (freemint,$(D2U_OS))
+	prefix=/usr
+	EXE =
+	VERSIONSUFFIX = -freemint
+	UCS=
+	ENABLE_NLS=
+ifdef ENABLE_NLS
+	LIBS_EXTRA += -lintl -liconv
+endif
+	EXTRA_DEFS += -Dfreemint -D__OS=\"freemint\"
 endif
 
-ifndef D2U_OS
-ifeq (FreeBSD, $(shell uname -s))
-	D2U_OS = freebsd
+ifeq (freebsd,$(D2U_OS))
 ifdef ENABLE_NLS
 	CFLAGS_OS     = -I/usr/local/include
 	LDFLAGS_EXTRA = -L/usr/local/lib
 	LIBS_EXTRA    = -lintl
 endif
 endif
-endif
 
-ifeq (Darwin, $(shell uname -s))
-	D2U_OS = Darwin
+ifeq (darwin,$(D2U_OS))
 ifdef ENABLE_NLS
 	CFLAGS_OS     = -I/usr/local/include
 	LDFLAGS_EXTRA = -L/usr/local/lib
 	LIBS_EXTRA    = -lintl
-endif
-endif
-
-
-ifndef D2U_OS
-ifneq (, $(wildcard /opt/csw))
-	D2U_OS = sun
 endif
 endif
 
@@ -244,20 +257,11 @@ ifeq (sun,$(D2U_OS))
 	LIBS_EXTRA = -lintl
 endif
 
-ifndef D2U_OS
-ifeq (HP-UX, $(shell uname -s))
-	D2U_OS = hpux
-endif
-endif
-
-ifeq (hpux,$(D2U_OS))
+ifeq (hp-ux,$(D2U_OS))
 	# Running under HP-UX
 	EXTRA_DEFS += -Dhpux -D_HPUX_SOURCE
 endif
 
-ifndef D2U_OS
-	D2U_OS = $(shell uname -s)
-endif
 
 # ............................................................ flags ...
 

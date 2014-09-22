@@ -305,6 +305,8 @@ void PrintVersion(const char *progname, const char *localedir)
   printf("%s", _("OS/2 version (WATCOMC).\n"));
 #elif defined (__OS2__) && defined(__EMX__) /* OS/2 Warp */
   printf("%s", _("OS/2 version (EMX).\n"));
+#elif defined(__OS)
+  printf(_("%s version.\n"), __OS);
 #endif
 #ifdef D2U_UNICODE
   printf("%s", _("With Unicode UTF-16 support.\n"));
