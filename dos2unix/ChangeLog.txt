@@ -1,5 +1,6 @@
 2014-09-29 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Fixed possible uninitialized use of variable bomtype_orig.
+	* djgpp.mak: Fix time stamps mac2unix/unix2mac after make strip.
 
 2014-09-22 Erwin Waterlander <waterlan@xs4all.nl>
 	* mingw32.mak, mingw64.mak: Fixed setting path to CRT_glob.o.

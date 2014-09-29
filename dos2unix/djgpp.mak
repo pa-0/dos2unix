@@ -38,4 +38,8 @@ dist:
 
 strip:
 	$(MAKE) strip LINK_MAN="cp -f" EXE=.exe
+	# Fix time stamps. Otherwise make install may rebuild mac2unix unix2mac.
+	# Now make install can be done in MSYS. In djgpp bash install is problematic.
+	touch mac2unix.exe
+	touch unix2mac.exe
 
