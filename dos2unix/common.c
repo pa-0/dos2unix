@@ -653,9 +653,8 @@ int check_unicode_info(FILE *InF, CFlag *ipFlag, const char *progname, int *bomt
     ipFlag->bomtype = FILE_UTF16LE;
   if ((ipFlag->bomtype == FILE_MBS) && (ipFlag->ConvMode == CONVMODE_UTF16BE))
     ipFlag->bomtype = FILE_UTF16BE;
-#endif
 
-#ifdef D2U_UNICODE
+
 #if !defined(_WIN32) && !defined(__CYGWIN__) /* Not Windows or Cygwin */
   if (!ipFlag->keep_utf16 && ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))) {
     if (sizeof(wchar_t) < 4) {
@@ -695,9 +694,8 @@ int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, co
     ipFlag->bomtype = FILE_UTF16LE;
   if ((ipFlag->bomtype == FILE_MBS) && (ipFlag->ConvMode == CONVMODE_UTF16BE))
     ipFlag->bomtype = FILE_UTF16BE;
-#endif
 
-#ifdef D2U_UNICODE
+
 #if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
   if (!ipFlag->keep_utf16 && ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))) {
     if (strcmp(nl_langinfo(CODESET), "UTF-8") != 0) {
@@ -1040,7 +1038,7 @@ int ConvertStdio(CFlag *ipFlag, const char *progname,
 #endif
 
     if (check_unicode(stdin, stdout, ipFlag, "stdin", progname))
-        return 1;
+        return -1;
 
 #ifdef D2U_UNICODE
     if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
@@ -1317,7 +1315,7 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
   int RetVal = 0;
   FILE *InF = NULL;
   char *errstr;
-  int bomtype_orig;
+  int bomtype_orig = FILE_MBS;
 
   ipFlag->status = 0 ;
 
@@ -1337,14 +1335,12 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
 
 
   /* can open in file? */
-  if (!RetVal) {
-    InF=OpenInFile(ipInFN);
-    if (InF == NULL) {
-      ipFlag->error = errno;
-      errstr = strerror(errno);
-      fprintf(stderr, "%s: %s: %s\n", progname, ipInFN, errstr);
-      RetVal = -1;
-    }
+  InF=OpenInFile(ipInFN);
+  if (InF == NULL) {
+    ipFlag->error = errno;
+    errstr = strerror(errno);
+    fprintf(stderr, "%s: %s: %s\n", progname, ipInFN, errstr);
+    RetVal = -1;
   }
 
 
@@ -1377,7 +1373,7 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
 int GetFileInfoStdio(CFlag *ipFlag, const char *progname)
 {
   int RetVal = 0;
-  int bomtype_orig;
+  int bomtype_orig = FILE_MBS;
 
   ipFlag->status = 0 ;
 
@@ -1396,9 +1392,8 @@ int GetFileInfoStdio(CFlag *ipFlag, const char *progname)
     setmode(fileno(stdin), O_BINARY);
 #endif
 
-  if (!RetVal) 
-    if (check_unicode_info(stdin, ipFlag, progname, &bomtype_orig))
-      RetVal = -1;
+  if (check_unicode_info(stdin, ipFlag, progname, &bomtype_orig))
+    RetVal = -1;
 
   /* info sucessful? */
 #ifdef D2U_UNICODE

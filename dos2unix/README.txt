@@ -82,7 +82,7 @@ TRANSLATORS
         French                Frédéric Marchal             Version 6.0.5 - 7.0
         German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0
         German                Lars Wendler                 Version 6.0.4
-        German                Mario Blättermann            Version 6.0.6
+        German                Mario Blättermann            Version 6.0.6, 7.1
         Hungarian             Balázs Úr                    Version 6.0.5 - 7.1
         Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.1
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.1
@@ -141,6 +141,8 @@ ACKNOWLEDGEMENTS
                               about line breaks and byte order marks.
         Gary Johnson          Idea for an info option, to list only files which have
                               DOS line breaks, or only files with Unix line breaks.
+        Helmut Karlowski      Makefile and PrintVersion() update for freeMiNT.
+
 
 FINDUTILS
 

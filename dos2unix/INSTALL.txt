@@ -23,6 +23,11 @@ PREREQUISITES
                              for PDF (ps2pdf)
 
 
+    Using LLVM CLANG:
+        Clang can be used as a drop-in replacement for gcc. Just add CC=clang to the make
+        command line.
+
+
     Using Watcom C:
         Required
             * Open Watcom     : http://www.openwatcom.org/
