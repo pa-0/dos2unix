@@ -1,8 +1,9 @@
-2014-??-??: Version 7.1
+2014-10-06: Version 7.1
 
-  * New: Options -i, --info to print file information.
-    This new option prints number of line breaks, the byte order
-    mark, and if the file is text or binary.
+  * New: Option -i, --info to print file information.
+    This new option prints number of DOS, Unix, and Mac line breaks, the byte
+    order mark, and if the file is text or binary. And it can print the names
+    of files that would be converted.
 
 2014-09-09: Version 7.0
 

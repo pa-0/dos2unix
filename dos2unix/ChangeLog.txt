@@ -1,3 +1,6 @@
+2014-10-06 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 7.1
+
 2014-09-29 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Fixed possible uninitialized use of variable bomtype_orig.
 	* djgpp.mak: Fix time stamps mac2unix/unix2mac after make strip.

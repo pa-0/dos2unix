@@ -1,7 +1,7 @@
 open sftp://waterlan,dos2unix@frs.sourceforge.net
 cd /home/frs/project/d/do/dos2unix/dos2unix
-mkdir 7.0
-cd 7.0
-mput dos2unix-7.0.tar.gz d2u70.zip d2u70b.zip d2u70pm.zip dos2unix-7.0-win32.zip dos2unix-7.0-win64.zip dos2unix-7.0-win32-nls.zip dos2unix-7.0-win64-nls.zip d2u70/ChangeLog.txt
+mkdir 7.1
+cd 7.1
+mput dos2unix-7.1.tar.gz d2u71.zip d2u71b.zip d2u71pm.zip dos2unix-7.1-win32.zip dos2unix-7.1-win64.zip dos2unix-7.1-win32-nls.zip dos2unix-7.1-win64-nls.zip d2u71/ChangeLog.txt
 mput README.txt
 exit
