@@ -1,3 +1,6 @@
+2014-11-09 Yasuaki Taniguchi <yasuakit@gmail.com>
+	* po/ja.po: New Japanese translation of the UI messages.
+
 2014-10-06 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 7.1
 

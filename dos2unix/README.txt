@@ -84,6 +84,7 @@ TRANSLATORS
         German                Lars Wendler                 Version 6.0.4
         German                Mario Blättermann            Version 6.0.6, 7.1
         Hungarian             Balázs Úr                    Version 6.0.5 - 7.1
+        Japanese              Yasuaki Taniguchi            Version 7.1.1
         Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.1
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.1
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
@@ -102,7 +103,6 @@ TRANSLATORS
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.1
         French                Frédéric Marchal             Version 6.0.5 - 7.0
         German                Mario Blättermann            Version 6.0.5 - 7.1
-        Hungarian             Balázs Úr                    Version 6.0.6
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.1
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6
