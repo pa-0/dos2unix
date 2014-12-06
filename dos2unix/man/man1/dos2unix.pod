@@ -156,6 +156,12 @@ with ascii being the default.
 
 Force conversion of binary files.
 
+=item B<-gb, --gb18030>
+
+On Windows UTF-16 files are by default converted to UTF-8, regardless of the
+locale setting. Use this option to convert UTF-16 files to GB18030.
+See also section GB18030.
+
 =item B<-h, --help>
 
 Display help and exit.
@@ -577,6 +583,27 @@ Convert c.txt and write to e.txt. Convert and replace a.txt.
 Convert and replace b.txt. Convert d.txt and write to f.txt.
 
     dos2unix -n c.txt e.txt -o a.txt b.txt -n d.txt f.txt
+
+=head1 GB18030
+
+GB18030 is a Chinese government standard. GB18030 is fully compatible with
+Unicode. Like UTF-8, GB18030 is compatible with ASCII. And it is also compatible
+with Windows code page 936, also known as GBK. See also
+L<http://en.wikipedia.org/wiki/GB_18030>.
+
+On Unix/Linux incoming UTF-16 files from Windows are converted to GB18030 when
+the locale encoding is set to GB18030. Note that it will only work if also the
+location is set to China. E.g. an English British locale setting
+C<en_GB.GB18030> will not work, but a Chinese C<zh_CN.GB18030> setting will
+work.
+
+On Windows you need to use option C<-gb> to convert UTF-16 files to GB18030. By
+default UTF-16 files are converted to UTF-8, regardless of the locale setting.
+The Windows locale setting does not say anything about the Unix system that
+will receive the file.
+
+GB18030 encoded files can have a Byte Order Mark, like Unicode files.
+
 
 =head1 RECURSIVE CONVERSION
 

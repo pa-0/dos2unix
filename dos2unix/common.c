@@ -234,6 +234,11 @@ void PrintUsage(const char *progname)
   printf(_(" -c, --convmode        conversion mode\n\
    convmode            ascii, 7bit, iso, mac, default to ascii\n"));
   printf(_(" -f, --force           force conversion of binary files\n"));
+#ifdef D2U_UNICODE
+#if (defined(_WIN32) && !defined(__CYGWIN__))
+  printf(_(" -gb, --gb18030        convert UTF-16 to GB18030\n"));
+#endif
+#endif
   printf(_(" -h, --help            display this help text\n"));
   printf(_(" -i, --info[=FLAGS]    display file information\n\
    file ...            files to analyze\n"));
@@ -499,11 +504,12 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progna
 
 FILE *read_bom (FILE *f, int *bomtype)
 {
-  int bom[3];
+  int bom[4];
   /* BOMs
    * UTF16-LE  ff fe
    * UTF16-BE  fe ff
    * UTF-8     ef bb bf
+   * GB18030   84 31 95 33
    */
 
   *bomtype = FILE_MBS;
@@ -515,7 +521,7 @@ FILE *read_bom (FILE *f, int *bomtype)
          *bomtype = FILE_MBS;
          return(f);
       }
-      if ((bom[0] != 0xff) && (bom[0] != 0xfe) && (bom[0] != 0xef)) {
+      if ((bom[0] != 0xff) && (bom[0] != 0xfe) && (bom[0] != 0xef) && (bom[0] != 0x84)) {
          ungetc(bom[0], f);
          *bomtype = FILE_MBS;
          return(f);
@@ -545,6 +551,14 @@ FILE *read_bom (FILE *f, int *bomtype)
          *bomtype = FILE_UTF8;
          return(f);
       }
+      if ((bom[0] == 0x84) && (bom[1] == 0x31) && (bom[2]== 0x95)) {
+        bom[3] = fgetc(f);
+        if (bom[3]== 0x33) { /* GB18030 */
+          *bomtype = FILE_GB18030;
+          return(f);
+        }
+        ungetc(bom[3], f);
+      }
       ungetc(bom[2], f);
       ungetc(bom[1], f);
       ungetc(bom[0], f);
@@ -573,6 +587,13 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
           fprintf(stderr, _("Writing %s BOM.\n"), "UTF-16BE");
         }
         break;
+      case FILE_GB18030:  /* GB18030 */
+        fprintf(f, "%s", "\x84\x31\x95\x33");
+        if (ipFlag->verbose > 1) {
+          fprintf(stderr, "%s: ", progname);
+          fprintf(stderr, _("Writing %s BOM.\n"), "GB18030");
+        }
+        break;
       default:      /* UTF-8 */
         fprintf(f, "%s", "\xEF\xBB\xBF");
         if (ipFlag->verbose > 1) {
@@ -582,12 +603,23 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
       ;
     }
   } else {
-    fprintf(f, "%s", "\xEF\xBB\xBF");
-    if (ipFlag->verbose > 1)
-    {
-      fprintf(stderr, "%s: ", progname);
-      fprintf(stderr, _("Writing %s BOM.\n"), "UTF-8");
-    }
+    if ((ipFlag->bomtype == FILE_GB18030) ||
+        (((ipFlag->bomtype == FILE_UTF16LE)||(ipFlag->bomtype == FILE_UTF16LE))&&(ipFlag->utf16_target == TARGET_GB18030))
+       ) {
+        fprintf(f, "%s", "\x84\x31\x95\x33"); /* GB18030 */
+        if (ipFlag->verbose > 1)
+        {
+          fprintf(stderr, "%s: ", progname);
+          fprintf(stderr, _("Writing %s BOM.\n"), "GB18030");
+        }
+     } else {
+        fprintf(f, "%s", "\xEF\xBB\xBF"); /* UTF-8 */
+        if (ipFlag->verbose > 1)
+        {
+          fprintf(stderr, "%s: ", progname);
+          fprintf(stderr, _("Writing %s BOM.\n"), "UTF-8");
+        }
+     }
   }
   return(f);
 }
@@ -607,6 +639,10 @@ void print_bom (const int bomtype, const char *filename, const char *progname)
       fprintf(stderr, "%s: ", progname);
       fprintf(stderr, _("Input file %s has %s BOM.\n"), filename, "UTF-8");
       break;
+    case FILE_GB18030:      /* GB18030 */
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("Input file %s has %s BOM.\n"), filename, "GB18030");
+      break;
     default:
     ;
   }
@@ -623,6 +659,9 @@ void print_bom_info (const int bomtype)
       break;
     case FILE_UTF8:      /* UTF-8 */
       printf("  UTF-8   ");
+      break;
+    case FILE_GB18030:   /* GB18030 */
+      printf("  GB18030 ");
       break;
     default:
       printf("  no_bom  ");
@@ -698,13 +737,15 @@ int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, co
 
 #if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
   if (!ipFlag->keep_utf16 && ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))) {
-    if (strcmp(nl_langinfo(CODESET), "UTF-8") != 0) {
-      /* Don't convert UTF-16 files when the locale encoding is not UTF-8
+    if ((strcmp(nl_langinfo(CODESET), "UTF-8") != 0) && (strcmp(nl_langinfo(CODESET), "GB18030") != 0)) {
+      /* Don't convert UTF-16 files when the locale encoding is not UTF-8 or GB18030
        * to prevent loss of characters. */
-      ipFlag->status |= LOCALE_NOT_UTF8 ;
+      ipFlag->status |= LOCALE_NOT_UTF ;
       if (!ipFlag->error) ipFlag->error = 1;
       RetVal = -1;
     }
+    if (strcmp(nl_langinfo(CODESET), "GB18030") != 0)
+      ipFlag->utf16_target = TARGET_GB18030;
   }
 #endif
 #if !defined(_WIN32) && !defined(__CYGWIN__) /* Not Windows or Cygwin */
@@ -1059,9 +1100,9 @@ void print_messages_stdio(const CFlag *pFlag, const char *progname)
     } else if (pFlag->status & WRONG_CODEPAGE) {
       fprintf(stderr,"%s: ",progname);
       fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
-    } else if (pFlag->status & LOCALE_NOT_UTF8) {
+    } else if (pFlag->status & LOCALE_NOT_UTF) {
       fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), "stdin");
+      fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8 or GB18030.\n"), "stdin");
     } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
       fprintf(stderr,"%s: ",progname);
       fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), "stdin", (int)sizeof(wchar_t));
@@ -1091,9 +1132,9 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
   } else if (pFlag->status & WRONG_CODEPAGE) {
     fprintf(stderr,"%s: ",progname);
     fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
-  } else if (pFlag->status & LOCALE_NOT_UTF8) {
+  } else if (pFlag->status & LOCALE_NOT_UTF) {
     fprintf(stderr,"%s: ",progname);
-    fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), infile);
+    fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8 or GB18030.\n"), infile);
   } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
     fprintf(stderr,"%s: ",progname);
     fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
@@ -1134,9 +1175,9 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
   } else if (pFlag->status & WRONG_CODEPAGE) {
     fprintf(stderr,"%s: ",progname);
     fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
-  } else if (pFlag->status & LOCALE_NOT_UTF8) {
+  } else if (pFlag->status & LOCALE_NOT_UTF) {
     fprintf(stderr,"%s: ",progname);
-    fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"), infile);
+    fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8 or GB18030.\n"), infile);
   } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
     fprintf(stderr,"%s: ",progname);
     fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
@@ -1485,6 +1526,7 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
   pFlag->add_bom = 0;
   pFlag->keep_utf16 = 0;
   pFlag->file_info = 0;
+  pFlag->utf16_target = TARGET_UTF8;
 
   while ((++ArgIdx < argc) && (!ShouldExit))
   {
@@ -1505,6 +1547,12 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
         pFlag->KeepDate = 1;
       else if ((strcmp(argv[ArgIdx],"-f") == 0) || (strcmp(argv[ArgIdx],"--force") == 0))
         pFlag->Force = 1;
+#ifdef D2U_UNICODE
+#if (defined(_WIN32) && !defined(__CYGWIN__))
+      else if ((strcmp(argv[ArgIdx],"-gb") == 0) || (strcmp(argv[ArgIdx],"--gb18030") == 0))
+        pFlag->utf16_target = TARGET_GB18030;
+#endif
+#endif
       else if ((strcmp(argv[ArgIdx],"-s") == 0) || (strcmp(argv[ArgIdx],"--safe") == 0))
         pFlag->Force = 0;
       else if ((strcmp(argv[ArgIdx],"-q") == 0) || (strcmp(argv[ArgIdx],"--quiet") == 0))
@@ -1542,6 +1590,7 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
       else if (strcmp(argv[ArgIdx],"-ascii") == 0) { /* SunOS compatible options */
         pFlag->ConvMode = CONVMODE_ASCII;
         pFlag->keep_utf16 = 0;
+        pFlag->utf16_target = TARGET_UTF8;
       }
       else if (strcmp(argv[ArgIdx],"-7") == 0)
         pFlag->ConvMode = CONVMODE_7BIT;
@@ -1814,8 +1863,12 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
    }
 
 #if defined(_WIN32) || defined(__CYGWIN__)
-   /* On Windows we convert UTF-16 always to UTF-8 */
-   len = (size_t)(WideCharToMultiByte(CP_UTF8, 0, wstr, -1, mbs, sizeof(mbs), NULL, NULL) -1);
+   /* On Windows we convert UTF-16 always to UTF-8 or GB18030 */
+   if (ipFlag->utf16_target == TARGET_GB18030) {
+     len = (size_t)(WideCharToMultiByte(54936, 0, wstr, -1, mbs, sizeof(mbs), NULL, NULL) -1);
+   } else {
+     len = (size_t)(WideCharToMultiByte(CP_UTF8, 0, wstr, -1, mbs, sizeof(mbs), NULL, NULL) -1);
+   }
 #else
    /* On Unix we convert UTF-16 to the locale encoding */
    len = wcstombs(mbs, wstr, sizeof(mbs));

@@ -164,7 +164,7 @@
 #define OUTPUTFILE_SYMLINK 0x8
 #define INPUT_TARGET_NO_REGFILE 0x10
 #define OUTPUT_TARGET_NO_REGFILE 0x20
-#define LOCALE_NOT_UTF8 0x40
+#define LOCALE_NOT_UTF 0x40     /* Locale not an Unicode Transformation Format */
 #define WCHAR_T_TOO_SMALL 0x80
 #define UNICODE_CONVERSION_ERROR 0x100
 
@@ -200,6 +200,10 @@
 #define FILE_UTF16LE 1  /* UTF-16 Little Endian */
 #define FILE_UTF16BE 2  /* UTF-16 Big Endian */
 #define FILE_UTF8    3  /* UTF-8 */
+#define FILE_GB18030 4  /* GB18030 */
+
+#define TARGET_UTF8    0  /* UTF-16 conversion target on Windows*/
+#define TARGET_GB18030 1  /* UTF-16 conversion target on Windows */
 
 typedef struct
 {
@@ -219,6 +223,7 @@ typedef struct
   int keep_bom;                         /* 1: write BOM if input file has BOM. 0: Do not write BOM */
   int keep_utf16;                       /* 1: write UTF-16 format when input file is UTF-16 format */
   int file_info;                        /* 1: print file information */
+  int utf16_target;                     /* UTF-16 conversion target on Windows. 0: UTF-8; 1: GB18030 */
 } CFlag;
 
 

@@ -7,3 +7,4 @@
        0      51      52  no_bom    binary  utf16len.txt
        0      50       0  no_bom    text    utf8unix.txt
       50       0       0  UTF-8     text    utf8dos.txt
+      50       0       0  GB18030   text    gb18030.txt

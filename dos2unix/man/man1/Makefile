@@ -98,7 +98,7 @@ dos2unix-man.pot : dos2unix.pod
 # Create pod files from po.
 # Fix problem that =encoding is before =pod command.
 %.pod : %.po
-	po4a-translate -f pod -m dos2unix.pod -p $< > $@
+	po4a-translate -f pod -m dos2unix.pod -k 70 -p $< > $@
 	perl -ni.bak -e 'print unless /=encoding UTF-8/' $@
 	perl -pli.bak -e 's/=pod/=pod\n\n=encoding UTF-8/' $@
 
