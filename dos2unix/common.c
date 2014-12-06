@@ -744,7 +744,7 @@ int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, co
       if (!ipFlag->error) ipFlag->error = 1;
       RetVal = -1;
     }
-    if (strcmp(nl_langinfo(CODESET), "GB18030") != 0)
+    if (strcmp(nl_langinfo(CODESET), "GB18030") == 0)
       ipFlag->utf16_target = TARGET_GB18030;
   }
 #endif
