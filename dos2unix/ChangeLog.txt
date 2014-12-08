@@ -1,4 +1,10 @@
 2014-12-06 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: On Unix/Linux convert UTF-16 to the locale encoding. It is
+	  no longer required that the locale encoding is UTF-8. When
+	  conversion is not possible an error will occur and conversion will be
+	  skipped.
+
+2014-12-06 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c, common.h: Support conversion of UTF-16 to GB18030.
 	* man/man1/dos2unix.pod: Update with info about GB18030.
 

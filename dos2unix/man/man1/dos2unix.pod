@@ -471,9 +471,12 @@ Dos2unix and unix2dos with Unicode UTF-16 support, can read little and big
 endian UTF-16 encoded text files. To see if dos2unix was built with UTF-16
 support type C<dos2unix -V>.
 
-UTF-16 encoded files are by default converted to UTF-8. On Unix/Linux it is
-required that the locale character encoding is set to UTF-8. Use the locale(1)
-command to find out what the locale character encoding is. UTF-8 formatted
+On Unix/Linux UTF-16 encoded files are converted to the locale character
+encoding. Use the locale(1) command to find out what the locale character
+encoding is. When conversion is not possible a conversion error will occur and
+the file will be skipped.
+
+On Windows UTF-16 files are by default converted to UTF-8. UTF-8 formatted
 text files are well supported on both Windows and Unix/Linux.
 
 UTF-16 and UTF-8 encoding are fully compatible, there will no text be lost in

@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Requires perl-Test-Simple installation.
-use Test::Simple tests => 19;
+use Test::Simple tests => 20;
 
 $suffix = "";
 if (-e "../dos2unix.exe") {
@@ -64,11 +64,13 @@ ok( $? == 0, 'Unix UTF-16 to DOS UTF-16LE' );
 system("$UNIX2MAC -v -b -u -n utf16u.txt out_mac.txt; cmp out_mac.txt utf16m.txt");
 ok( $? == 0, 'Unix UTF-16 to Mac UTF-16LE' );
 
-$ENV{'LC_ALL'} = 'en_US.ISO-8859-1';
+$ENV{'LC_ALL'} = 'C';
 
 system("$DOS2UNIX -v -n utf16le.txt out_unix.txt");
 $result = ($? >> 8);
 if ( $unix ) { $expected = 1; } else { $expected = 0 };
 print "UNIX" . $unix . "\n";
 print "EXP" . $expected . "\n";
-ok( $result == $expected, 'DOS UTF-16LE to Unix UTF-8, env is not UTF-8' );
+ok( $result == $expected, 'DOS UTF-16LE to Unix in C locale, conversion error.' );
+system("$DOS2UNIX -v -n utf16.txt out_unix.txt");
+ok( $? == 0, 'DOS UTF-16LE to Unix in C locale, conversion OK' );

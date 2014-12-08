@@ -736,17 +736,10 @@ int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, co
 
 
 #if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
-  if (!ipFlag->keep_utf16 && ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))) {
-    if ((strcmp(nl_langinfo(CODESET), "UTF-8") != 0) && (strcmp(nl_langinfo(CODESET), "GB18030") != 0)) {
-      /* Don't convert UTF-16 files when the locale encoding is not UTF-8 or GB18030
-       * to prevent loss of characters. */
-      ipFlag->status |= LOCALE_NOT_UTF ;
-      if (!ipFlag->error) ipFlag->error = 1;
-      RetVal = -1;
-    }
-    if (strcmp(nl_langinfo(CODESET), "GB18030") == 0)
-      ipFlag->utf16_target = TARGET_GB18030;
-  }
+  if (strcmp(nl_langinfo(CODESET), "UTF-8") == 0)
+    ipFlag->utf16_target = TARGET_UTF8;
+  if (strcmp(nl_langinfo(CODESET), "GB18030") == 0)
+    ipFlag->utf16_target = TARGET_GB18030;
 #endif
 #if !defined(_WIN32) && !defined(__CYGWIN__) /* Not Windows or Cygwin */
   if (!ipFlag->keep_utf16 && ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))) {
@@ -1100,9 +1093,6 @@ void print_messages_stdio(const CFlag *pFlag, const char *progname)
     } else if (pFlag->status & WRONG_CODEPAGE) {
       fprintf(stderr,"%s: ",progname);
       fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
-    } else if (pFlag->status & LOCALE_NOT_UTF) {
-      fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8 or GB18030.\n"), "stdin");
     } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
       fprintf(stderr,"%s: ",progname);
       fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), "stdin", (int)sizeof(wchar_t));
@@ -1132,9 +1122,6 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
   } else if (pFlag->status & WRONG_CODEPAGE) {
     fprintf(stderr,"%s: ",progname);
     fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
-  } else if (pFlag->status & LOCALE_NOT_UTF) {
-    fprintf(stderr,"%s: ",progname);
-    fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8 or GB18030.\n"), infile);
   } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
     fprintf(stderr,"%s: ",progname);
     fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
@@ -1175,9 +1162,6 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
   } else if (pFlag->status & WRONG_CODEPAGE) {
     fprintf(stderr,"%s: ",progname);
     fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
-  } else if (pFlag->status & LOCALE_NOT_UTF) {
-    fprintf(stderr,"%s: ",progname);
-    fprintf(stderr, _("Skipping UTF-16 file %s, the current locale character encoding is not UTF-8 or GB18030.\n"), infile);
   } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
     fprintf(stderr,"%s: ",progname);
     fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
@@ -1862,7 +1846,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
       wstr[1] = L'\0';
    }
 
-#if defined(_WIN32) || defined(__CYGWIN__)
+#if (defined(_WIN32) && !defined(__CYGWIN__))
    /* On Windows we convert UTF-16 always to UTF-8 or GB18030 */
    if (ipFlag->utf16_target == TARGET_GB18030) {
      len = (size_t)(WideCharToMultiByte(54936, 0, wstr, -1, mbs, sizeof(mbs), NULL, NULL) -1);
