@@ -1102,8 +1102,43 @@ void print_messages_stdio(const CFlag *pFlag, const char *progname)
     }
 }
 
+void print_format(const CFlag *pFlag, char *informat, char *outformat)
+{
+  informat[0]='\0';
+  outformat[0]='\0';
+
+  if (pFlag->bomtype == FILE_UTF16LE)
+    strcpy(informat," UTF-16LE");
+  if (pFlag->bomtype == FILE_UTF16BE)
+    strcpy(informat," UTF-16BE");
+
+#ifdef D2U_UNICODE
+  if ((pFlag->bomtype == FILE_UTF16LE)||(pFlag->bomtype == FILE_UTF16BE)) {
+#if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
+    outformat[0]=' ';
+    strcpy(outformat + 1,nl_langinfo(CODESET));
+#endif
+
+#if defined(_WIN32) && !defined(__CYGWIN__) /* Windows, not Cygwin */
+    if (pFlag->utf16_target == TARGET_GB18030)
+      strcpy(outformat, " GB18030");
+    else
+      strcpy(outformat, " UTF-8");
+#endif
+
+    if (pFlag->keep_utf16)
+      strcpy(outformat, " UTF-16");
+  }
+#endif
+}
+
 void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *outfile, const char *progname, const int RetVal)
 {
+  char informat[10];
+  char outformat[32];
+
+  print_format(pFlag, informat, outformat);
+
   if (pFlag->status & NO_REGFILE) {
     fprintf(stderr,"%s: ",progname);
     fprintf(stderr, _("Skipping %s, not a regular file.\n"), infile);
@@ -1131,12 +1166,12 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
   } else {
     fprintf(stderr,"%s: ",progname);
     if (is_dos2unix(progname))
-      fprintf(stderr, _("converting file %s to file %s in Unix format...\n"), infile, outfile);
+      fprintf(stderr, _("converting%s file %s to file %s in%s Unix format...\n"), informat, infile, outfile, outformat);
     else {
       if (pFlag->FromToMode == FROMTO_UNIX2MAC)
-        fprintf(stderr, _("converting file %s to file %s in Mac format...\n"), infile, outfile);
+        fprintf(stderr, _("converting%s file %s to file %s in%s Mac format...\n"), informat, infile, outfile, outformat);
       else
-        fprintf(stderr, _("converting file %s to file %s in DOS format...\n"), infile, outfile);
+        fprintf(stderr, _("converting%s file %s to file %s in%s DOS format...\n"), informat, infile, outfile, outformat);
     }
     if (RetVal) {
       fprintf(stderr,"%s: ",progname);
@@ -1147,6 +1182,11 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
 
 void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *progname, const int RetVal)
 {
+  char informat[10];
+  char outformat[32];
+
+  print_format(pFlag, informat, outformat);
+
   if (pFlag->status & NO_REGFILE) {
     fprintf(stderr,"%s: ",progname);
     fprintf(stderr, _("Skipping %s, not a regular file.\n"), infile);
@@ -1171,12 +1211,12 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
   } else {
     fprintf(stderr,"%s: ",progname);
     if (is_dos2unix(progname))
-      fprintf(stderr, _("converting file %s to Unix format...\n"), infile);
+      fprintf(stderr, _("converting%s file %s to%s Unix format...\n"), informat, infile, outformat);
     else {
       if (pFlag->FromToMode == FROMTO_UNIX2MAC)
-        fprintf(stderr, _("converting file %s to Mac format...\n"), infile);
+        fprintf(stderr, _("converting%s file %s to%s Mac format...\n"), informat, infile, outformat);
       else
-        fprintf(stderr, _("converting file %s to DOS format...\n"), infile);
+        fprintf(stderr, _("converting%s file %s to%s DOS format...\n"), informat, infile, outformat);
     }
     if (RetVal) {
       fprintf(stderr,"%s: ",progname);

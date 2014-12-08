@@ -1,3 +1,7 @@
+2014-12-08 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: When the input file is UTF-16, the input and output
+	  format is printed.
+
 2014-12-06 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: On Unix/Linux convert UTF-16 to the locale encoding. It is
 	  no longer required that the locale encoding is UTF-8. When
