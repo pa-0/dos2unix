@@ -533,21 +533,21 @@ Convert from Unix UTF-8 to Windows UTF-16
 
 =head1 GB18030
 
-GB18030 is a Chinese government standard. GB18030 is fully compatible with
-Unicode. Like UTF-8, GB18030 is compatible with ASCII. And it is also compatible
-with Windows code page 936, also known as GBK. See also
-L<http://en.wikipedia.org/wiki/GB_18030>.
+GB18030 is a Chinese government standard. A mandatory subset of the GB18030
+standard is officially required for all software products sold in China. See
+also L<http://en.wikipedia.org/wiki/GB_18030>.
 
-On Unix/Linux incoming UTF-16 files from Windows are converted to GB18030 when
-the locale encoding is set to GB18030. Note that it will only work if also the
-location is set to China. E.g. an English British locale setting
-C<en_GB.GB18030> will not work, but a Chinese C<zh_CN.GB18030> setting will
-work.
+GB18030 is fully compatible with Unicode, and can be considered an unicode
+transformation format. Like UTF-8, GB18030 is compatible with ASCII. GB18030
+is also compatible with Windows code page 936, also known as GBK.
 
-On Windows you need to use option C<-gb> to convert UTF-16 files to GB18030. By
-default UTF-16 files are converted to UTF-8, regardless of the locale setting.
-The Windows locale setting does not say anything about the Unix system that
-will receive the file.
+On Unix/Linux UTF-16 files are converted to GB18030 when the locale encoding is
+set to GB18030. Note that this will only work if the location is set to China.
+E.g. in an English British locale setting C<en_GB.GB18030> conversion of UTF-16
+to GB18030 will not work, but in a Chinese C<zh_CN.GB18030> locale setting it
+will work.
+
+On Windows you need to use option C<-gb> to convert UTF-16 files to GB18030.
 
 GB18030 encoded files can have a Byte Order Mark, like Unicode files.
 

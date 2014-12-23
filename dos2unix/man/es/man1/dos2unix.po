@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-6.0.6-beta4\n"
-"POT-Creation-Date: 2014-12-07 21:24+0100\n"
+"POT-Creation-Date: 2014-12-23 20:25+0100\n"
 "PO-Revision-Date: 2014-07-30 10:31+0100\n"
 "Last-Translator: Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail."
 "com>\n"
@@ -1389,30 +1389,37 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:536
 msgid ""
-"GB18030 is a Chinese government standard. GB18030 is fully compatible with "
-"Unicode. Like UTF-8, GB18030 is compatible with ASCII. And it is also "
-"compatible with Windows code page 936, also known as GBK. See also L<http://"
-"en.wikipedia.org/wiki/GB_18030>."
+"GB18030 is a Chinese government standard. A mandatory subset of the GB18030 "
+"standard is officially required for all software products sold in China. See "
+"also L<http://en.wikipedia.org/wiki/GB_18030>."
 msgstr ""
 
 #. type: textblock
-#: dos2unix.pod:541
+#: dos2unix.pod:540
 msgid ""
-"On Unix/Linux incoming UTF-16 files from Windows are converted to GB18030 "
-"when the locale encoding is set to GB18030. Note that it will only work if "
-"also the location is set to China. E.g. an English British locale setting "
-"C<en_GB.GB18030> will not work, but a Chinese C<zh_CN.GB18030> setting will "
-"work."
+"GB18030 is fully compatible with Unicode, and can be considered an unicode "
+"transformation format. Like UTF-8, GB18030 is compatible with ASCII. GB18030 "
+"is also compatible with Windows code page 936, also known as GBK."
 msgstr ""
 
 #. type: textblock
-#: dos2unix.pod:547
+#: dos2unix.pod:544
 msgid ""
-"On Windows you need to use option C<-gb> to convert UTF-16 files to GB18030. "
-"By default UTF-16 files are converted to UTF-8, regardless of the locale "
-"setting.  The Windows locale setting does not say anything about the Unix "
-"system that will receive the file."
+"On Unix/Linux UTF-16 files are converted to GB18030 when the locale encoding "
+"is set to GB18030. Note that this will only work if the location is set to "
+"China.  E.g. in an English British locale setting C<en_GB.GB18030> "
+"conversion of UTF-16 to GB18030 will not work, but in a Chinese C<zh_CN."
+"GB18030> locale setting it will work."
 msgstr ""
+
+#. type: textblock
+#: dos2unix.pod:550
+#, fuzzy
+#| msgid "Use option C<-ul> or C<-ub> to convert an UTF-16 file without BOM."
+msgid ""
+"On Windows you need to use option C<-gb> to convert UTF-16 files to GB18030."
+msgstr ""
+"Emplee la opción C<-ul> o C<-ub> para convertir un fichero UTF-16 sin BOM."
 
 #. type: textblock
 #: dos2unix.pod:552
