@@ -1135,7 +1135,12 @@ void print_format(const CFlag *pFlag, char *informat, char *outformat)
 #endif
 
     if (pFlag->keep_utf16)
-      strcpy(outformat, " UTF-16");
+    {
+      if (pFlag->bomtype == FILE_UTF16LE)
+        strcpy(outformat," UTF-16LE");
+      if (pFlag->bomtype == FILE_UTF16BE)
+        strcpy(outformat," UTF-16BE");
+    }
   }
 #endif
 }
