@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.1-beta3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-08 23:15+0100\n"
+"POT-Creation-Date: 2014-12-24 11:06+0100\n"
 "PO-Revision-Date: 2014-09-18 22:09+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -407,188 +407,188 @@ msgstr "Zonder ondersteuning voor Unicode UTF-16.\n"
 msgid "With native language support.\n"
 msgstr "Met ondersteuning voor taalregio's.\n"
 
-#: common.c:580 common.c:587 common.c:594 common.c:601 common.c:613
-#: common.c:620
+#: common.c:588 common.c:595 common.c:602 common.c:609 common.c:621
+#: common.c:628
 #, c-format
 msgid "Writing %s BOM.\n"
 msgstr "Schrijven van %s-BOM.\n"
 
-#: common.c:632 common.c:636 common.c:640 common.c:644
+#: common.c:640 common.c:644 common.c:648 common.c:652
 #, c-format
 msgid "Input file %s has %s BOM.\n"
 msgstr "Invoerbestand %s heeft %s-BOM.\n"
 
-#: common.c:680 common.c:720
+#: common.c:688 common.c:728
 #, c-format
 msgid "Assuming UTF-16LE encoding.\n"
 msgstr "UTF-16LE-codering wordt aangenomen.\n"
 
-#: common.c:684 common.c:724
+#: common.c:692 common.c:732
 #, c-format
 msgid "Assuming UTF-16BE encoding.\n"
 msgstr "UTF-16BE-codering wordt aangenomen.\n"
 
-#: common.c:841
+#: common.c:849
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
 msgstr "Kan tijdelijk uitvoerbestand niet openen: %s\n"
 
-#: common.c:848
+#: common.c:856
 #, c-format
 msgid "using %s as temporary file\n"
 msgstr "%s wordt als tijdelijk bestand gebruikt\n"
 
-#: common.c:911
+#: common.c:919
 #, c-format
 msgid "Failed to write to temporary output file %s: %s\n"
 msgstr "Kan niet schrijven naar tijdelijk uitvoerbestand %s: %s\n"
 
-#: common.c:941
+#: common.c:949
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s: %s\n"
 msgstr ""
 "Kan toegangsrechten van tijdelijk uitvoerbestand %s niet wijzigen: %s\n"
 
-#: common.c:957
+#: common.c:965
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
 msgstr ""
 "Kan eigenaar en groep van tijdelijk uitvoerbestand %s niet wijzigen: %s\n"
 
-#: common.c:1001
+#: common.c:1009
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
 msgstr "problemen met het herleiden van symbolische koppeling '%s'\n"
 
-#: common.c:1002 common.c:1031
+#: common.c:1010 common.c:1039
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          uitvoerbestand blijft in '%s'\n"
 
-#: common.c:1026
+#: common.c:1034
 #, c-format
 msgid "problems renaming '%s' to '%s': %s\n"
 msgstr "problemen met hernoemen van '%s' naar '%s': %s\n"
 
-#: common.c:1029
+#: common.c:1037
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          welke het doel is van symbolische koppeling '%s'\n"
 
-#: common.c:1092 common.c:1156 common.c:1201
+#: common.c:1100 common.c:1164 common.c:1209
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "Binair bestand %s wordt overgeslagen\n"
 
-#: common.c:1095 common.c:1159 common.c:1204
+#: common.c:1103 common.c:1167 common.c:1212
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "Codetabel %d wordt niet ondersteund.\n"
 
-#: common.c:1098 common.c:1162 common.c:1207 common.c:1243
+#: common.c:1106 common.c:1170 common.c:1215 common.c:1251
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr ""
 "UTF-16-bestand %s wordt overgeslagen, de grootte van 'wchar_t' is %d bytes.\n"
 
-#: common.c:1101 common.c:1165 common.c:1210
+#: common.c:1109 common.c:1173 common.c:1218
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
 msgstr ""
 "UTF-16-bestand %s wordt overgeslagen, er is een UTF-16-conversiefout "
 "opgetreden.\n"
 
-#: common.c:1144 common.c:1192 common.c:1233
+#: common.c:1152 common.c:1200 common.c:1241
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "%s wordt overgeslagen, omdat het geen regulier bestand is.\n"
 
-#: common.c:1147
+#: common.c:1155
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr ""
 "%s wordt overgeslagen, uitvoerbestand %s is een symbolische koppeling.\n"
 
-#: common.c:1150 common.c:1198 common.c:1238
+#: common.c:1158 common.c:1206 common.c:1246
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr ""
 "Symbolische koppeling %s wordt overgeslagen, omdat het doel geen regulier "
 "bestand is.\n"
 
-#: common.c:1153
+#: common.c:1161
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr ""
 "%s wordt overgeslagen, omdat het doel van symbolische koppeling %s geen "
 "regulier bestand is.\n"
 
-#: common.c:1169
+#: common.c:1177
 #, fuzzy, c-format
 msgid "converting%s file %s to file %s in%s Unix format...\n"
 msgstr "converteren van bestand %s naar bestand %s in Unix-opmaak...\n"
 
-#: common.c:1172
+#: common.c:1180
 #, fuzzy, c-format
 msgid "converting%s file %s to file %s in%s Mac format...\n"
 msgstr "converteren van bestand %s naar bestand %s in Mac-opmaak...\n"
 
-#: common.c:1174
+#: common.c:1182
 #, fuzzy, c-format
 msgid "converting%s file %s to file %s in%s DOS format...\n"
 msgstr "converteren van bestand %s naar bestand %s in DOS-opmaak...\n"
 
-#: common.c:1178
+#: common.c:1186
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "problemen met conversie van bestand %s naar bestand %s\n"
 
-#: common.c:1195
+#: common.c:1203
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "Symbolische koppeling %s wordt overgeslagen.\n"
 
-#: common.c:1214
+#: common.c:1222
 #, fuzzy, c-format
 msgid "converting%s file %s to%s Unix format...\n"
 msgstr "converteren van bestand %s naar Unix-opmaak...\n"
 
-#: common.c:1217
+#: common.c:1225
 #, fuzzy, c-format
 msgid "converting%s file %s to%s Mac format...\n"
 msgstr "converteren van bestand %s naar Mac-opmaak...\n"
 
-#: common.c:1219
+#: common.c:1227
 #, fuzzy, c-format
 msgid "converting%s file %s to%s DOS format...\n"
 msgstr "converteren van bestand %s naar DOS-opmaak...\n"
 
-#: common.c:1223
+#: common.c:1231
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "problemen met conversie van bestand %s\n"
 
-#: common.c:1516
+#: common.c:1524
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "onjuiste vlag '%c' voor optie '-i' of '--info'\n"
 
-#: common.c:1625 common.c:1662
+#: common.c:1633 common.c:1670
 #, c-format
 msgid "active code page: %d\n"
 msgstr "actieve codetabel: %d\n"
 
-#: common.c:1674
+#: common.c:1682
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "ongeldige conversiemodus %s opgegeven\n"
 
-#: common.c:1682
+#: common.c:1690
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "optie '%s' vereist een argument\n"
 
-#: common.c:1693 common.c:1706 common.c:1772
+#: common.c:1701 common.c:1714 common.c:1780
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "doel van bestand %s is niet opgegeven in 'nieuwbestand-modus'\n"

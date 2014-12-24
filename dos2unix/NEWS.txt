@@ -1,7 +1,7 @@
 201?-??-??: Version 7.1.1
 
   * New: Japanese translation of the UI messages.
-  * New: New option -gb on Windows. Convert UTF-16 to GB18030.
+  * New: Support Chinese GB18030 locale.
   * Change: On Unix/Linux convert UTF-16 to the locale encoding. It is
     no longer required that the locale encoding is UTF-8.
 

@@ -32,9 +32,9 @@
 #if defined(_WIN32) || defined(__CYGWIN__)
 #include <windows.h>
 #endif
+#endif
 #if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
 # include <langinfo.h>
-#endif
 #endif
 
 #if defined(__GLIBC__)
@@ -570,9 +570,17 @@ FILE *read_bom (FILE *f, int *bomtype)
 
 FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
 {
+  int bomtype = ipFlag->bomtype;
+
+#if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
+  /* Input file has no BOM and locale encoding is GB18030 */
+  if ((ipFlag->bomtype == FILE_MBS) && (strcmp(nl_langinfo(CODESET), "GB18030") == 0))
+    bomtype = FILE_GB18030;
+#endif
+
   if (ipFlag->keep_utf16)
   {
-    switch (ipFlag->bomtype) {
+    switch (bomtype) {
       case FILE_UTF16LE:   /* UTF-16 Little Endian */
         fprintf(f, "%s", "\xFF\xFE");
         if (ipFlag->verbose > 1) {
@@ -603,8 +611,8 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
       ;
     }
   } else {
-    if ((ipFlag->bomtype == FILE_GB18030) ||
-        (((ipFlag->bomtype == FILE_UTF16LE)||(ipFlag->bomtype == FILE_UTF16LE))&&(ipFlag->utf16_target == TARGET_GB18030))
+    if ((bomtype == FILE_GB18030) ||
+        (((bomtype == FILE_UTF16LE)||(bomtype == FILE_UTF16LE))&&(ipFlag->utf16_target == TARGET_GB18030))
        ) {
         fprintf(f, "%s", "\x84\x31\x95\x33"); /* GB18030 */
         if (ipFlag->verbose > 1)

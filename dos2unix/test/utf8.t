@@ -12,6 +12,8 @@ $MAC2UNIX = "../mac2unix" . $suffix;
 $UNIX2DOS = "../unix2dos" . $suffix;
 $UNIX2MAC = "../unix2mac" . $suffix;
 
+$ENV{'LC_ALL'} = 'en_US.UTF-8';
+
 system("$DOS2UNIX -v -n dos_bom.txt out_unix.txt; cmp out_unix.txt unix.txt");
 ok( $? == 0, 'dos2unix removes BOM' );
 

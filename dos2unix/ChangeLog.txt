@@ -1,3 +1,11 @@
+2014-12-24 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Fix. In a GB18030 locale, option -m must add GB18030 BOM
+	  i.s.o. UTF-8 BOM.
+	* test/gb18030.t: New tests for GB18030.
+
+2014-12-23 Erwin Waterlander <waterlan@xs4all.nl>
+	* man/man1/dos2unix.pod: Update section GB18030.
+
 2014-12-08 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: When the input file is UTF-16, the input and output
 	  formats are printed.
