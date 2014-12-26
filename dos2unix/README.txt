@@ -72,41 +72,41 @@ TRANSLATORS
         See http://translationproject.org/domain/dos2unix.html
 
         Brazilian Portuguese  Enrico Nicoletto             Version 6.0.5
-        Brazilian Portuguese  Rafael Ferreira              Version 6.0.6 - 7.1
+        Brazilian Portuguese  Rafael Ferreira              Version 6.0.6 - 7.2
         Chinese (traditional) mail6543210                  Version 6.0.5
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
         Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.1
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
         Esperanto             Benno Schulenberg            Version 6.0.5 - 7.1
-        French                Frédéric Marchal             Version 6.0.5 - 7.1.1
+        French                Frédéric Marchal             Version 6.0.5 - 7.2
         German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0
         German                Lars Wendler                 Version 6.0.4
         German                Mario Blättermann            Version 6.0.6, 7.1
         Hungarian             Balázs Úr                    Version 6.0.5 - 7.1
         Japanese              Yasuaki Taniguchi            Version 7.1.1
-        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.1
-        Polish                Jakub Bogusz                 Version 6.0.5 - 7.1
+        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.2
+        Polish                Jakub Bogusz                 Version 6.0.5 - 7.2
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
         Russian               Yuri Kozlov                  Version 6.0.6 - 7.1
         Serbian               Мирослав Николић             Version 6.0.5 - 6.0.6
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.1
-        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.1
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.2
+        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.2
 
         Translation of the manual.
         See http://translationproject.org/domain/dos2unix-man.html
 
-        Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 7.1
+        Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 7.2
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.1
-        French                Frédéric Marchal             Version 6.0.5 - 7.0
-        German                Mario Blättermann            Version 6.0.5 - 7.1
-        Polish                Jakub Bogusz                 Version 6.0.5 - 7.1
+        French                Frédéric Marchal             Version 6.0.5 - 7.2
+        German                Mario Blättermann            Version 6.0.5 - 7.2
+        Polish                Jakub Bogusz                 Version 6.0.5 - 7.2
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.1
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.2
 
 
 ACKNOWLEDGEMENTS
