@@ -1,3 +1,8 @@
+2014-12-26 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Fix. On Windows when option -gb is used, option -m must
+	  add GB18030 BOM i.s.o. UTF-8 BOM.
+	* test/gb18030.t: Make tests working for Windows version.
+
 2014-12-24 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Fix. In a GB18030 locale, option -m must add GB18030 BOM
 	  i.s.o. UTF-8 BOM.

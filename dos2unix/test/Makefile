@@ -1,11 +1,16 @@
 TESTS = ascii.t iso.t utf8.t utf16.t misc.t
 
-# GB18030 test is not working on Cygwin. Cygwin does not support zh_CN.GB18030 locale.
-ifeq ($(wildcard ../dos2unix.exe),)
+d2u_os=$(shell uname -s)
+
+# GB18030 test is not working on Cygwin and MSYS. They do not support zh_CN.GB18030 locale.
+ifeq ($(findstring CYGWIN,$(d2u_os)),)
+ifeq ($(findstring MSYS,$(d2u_os)),)
 TESTS += gb18030.t
 endif
+endif
 
-ifneq ($(findstring MINGW,$(shell uname)),MINGW)
+# Windows version does not support symlinks like the Unix version.
+ifneq ($(findstring MINGW,$(d2u_os)),MINGW)
 TESTS += symlink.t
 endif
 

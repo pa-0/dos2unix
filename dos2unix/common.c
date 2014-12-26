@@ -572,11 +572,8 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
 {
   int bomtype = ipFlag->bomtype;
 
-#if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
-  /* Input file has no BOM and locale encoding is GB18030 */
-  if ((ipFlag->bomtype == FILE_MBS) && (strcmp(nl_langinfo(CODESET), "GB18030") == 0))
+  if ((bomtype == FILE_MBS)&&(ipFlag->locale_target == TARGET_GB18030))
     bomtype = FILE_GB18030;
-#endif
 
   if (ipFlag->keep_utf16)
   {
@@ -612,7 +609,7 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
     }
   } else {
     if ((bomtype == FILE_GB18030) ||
-        (((bomtype == FILE_UTF16LE)||(bomtype == FILE_UTF16LE))&&(ipFlag->utf16_target == TARGET_GB18030))
+        (((bomtype == FILE_UTF16LE)||(bomtype == FILE_UTF16LE))&&(ipFlag->locale_target == TARGET_GB18030))
        ) {
         fprintf(f, "%s", "\x84\x31\x95\x33"); /* GB18030 */
         if (ipFlag->verbose > 1)
@@ -743,12 +740,6 @@ int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, co
     ipFlag->bomtype = FILE_UTF16BE;
 
 
-#if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
-  if (strcmp(nl_langinfo(CODESET), "UTF-8") == 0)
-    ipFlag->utf16_target = TARGET_UTF8;
-  if (strcmp(nl_langinfo(CODESET), "GB18030") == 0)
-    ipFlag->utf16_target = TARGET_GB18030;
-#endif
 #if !defined(_WIN32) && !defined(__CYGWIN__) /* Not Windows or Cygwin */
   if (!ipFlag->keep_utf16 && ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE))) {
     if (sizeof(wchar_t) < 4) {
@@ -759,6 +750,11 @@ int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, co
     }
   }
 #endif
+#endif
+
+#if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
+  if (strcmp(nl_langinfo(CODESET), "GB18030") == 0)
+    ipFlag->locale_target = TARGET_GB18030;
 #endif
 
   if ((!RetVal) && ((ipFlag->add_bom) || ((ipFlag->keep_bom) && (ipFlag->bomtype > 0))))
@@ -1128,7 +1124,7 @@ void print_format(const CFlag *pFlag, char *informat, char *outformat)
 #endif
 
 #if defined(_WIN32) && !defined(__CYGWIN__) /* Windows, not Cygwin */
-    if (pFlag->utf16_target == TARGET_GB18030)
+    if (pFlag->locale_target == TARGET_GB18030)
       strcpy(outformat, " GB18030");
     else
       strcpy(outformat, " UTF-8");
@@ -1563,7 +1559,7 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
   pFlag->add_bom = 0;
   pFlag->keep_utf16 = 0;
   pFlag->file_info = 0;
-  pFlag->utf16_target = TARGET_UTF8;
+  pFlag->locale_target = TARGET_UTF8;
 
   while ((++ArgIdx < argc) && (!ShouldExit))
   {
@@ -1587,7 +1583,7 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
 #ifdef D2U_UNICODE
 #if (defined(_WIN32) && !defined(__CYGWIN__))
       else if ((strcmp(argv[ArgIdx],"-gb") == 0) || (strcmp(argv[ArgIdx],"--gb18030") == 0))
-        pFlag->utf16_target = TARGET_GB18030;
+        pFlag->locale_target = TARGET_GB18030;
 #endif
 #endif
       else if ((strcmp(argv[ArgIdx],"-s") == 0) || (strcmp(argv[ArgIdx],"--safe") == 0))
@@ -1627,7 +1623,7 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
       else if (strcmp(argv[ArgIdx],"-ascii") == 0) { /* SunOS compatible options */
         pFlag->ConvMode = CONVMODE_ASCII;
         pFlag->keep_utf16 = 0;
-        pFlag->utf16_target = TARGET_UTF8;
+        pFlag->locale_target = TARGET_UTF8;
       }
       else if (strcmp(argv[ArgIdx],"-7") == 0)
         pFlag->ConvMode = CONVMODE_7BIT;
@@ -1901,7 +1897,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
 
 #if (defined(_WIN32) && !defined(__CYGWIN__))
    /* On Windows we convert UTF-16 always to UTF-8 or GB18030 */
-   if (ipFlag->utf16_target == TARGET_GB18030) {
+   if (ipFlag->locale_target == TARGET_GB18030) {
      len = (size_t)(WideCharToMultiByte(54936, 0, wstr, -1, mbs, sizeof(mbs), NULL, NULL) -1);
    } else {
      len = (size_t)(WideCharToMultiByte(CP_UTF8, 0, wstr, -1, mbs, sizeof(mbs), NULL, NULL) -1);

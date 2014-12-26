@@ -202,8 +202,9 @@
 #define FILE_UTF8    3  /* UTF-8 */
 #define FILE_GB18030 4  /* GB18030 */
 
-#define TARGET_UTF8    0  /* UTF-16 conversion target on Windows*/
-#define TARGET_GB18030 1  /* UTF-16 conversion target on Windows */
+/* locale conversion targets */
+#define TARGET_UTF8    0
+#define TARGET_GB18030 1
 
 typedef struct
 {
@@ -223,7 +224,7 @@ typedef struct
   int keep_bom;                         /* 1: write BOM if input file has BOM. 0: Do not write BOM */
   int keep_utf16;                       /* 1: write UTF-16 format when input file is UTF-16 format */
   int file_info;                        /* 1: print file information */
-  int utf16_target;                     /* UTF-16 conversion target on Windows. 0: UTF-8; 1: GB18030 */
+  int locale_target;                    /* locale conversion target. 0: UTF-8; 1: GB18030 */
 } CFlag;
 
 
