@@ -1,3 +1,6 @@
+2014-12-30 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Changed some messages for better translations.
+
 2014-12-26 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Fix. On Windows when option -gb is used, option -m must
 	  add GB18030 BOM i.s.o. UTF-8 BOM.

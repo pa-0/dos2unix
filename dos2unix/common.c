@@ -582,28 +582,28 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
         fprintf(f, "%s", "\xFF\xFE");
         if (ipFlag->verbose > 1) {
           fprintf(stderr, "%s: ", progname);
-          fprintf(stderr, _("Writing %s BOM.\n"), "UTF-16LE");
+          fprintf(stderr, _("Writing %s BOM.\n"), _("UTF-16LE"));
         }
         break;
       case FILE_UTF16BE:   /* UTF-16 Big Endian */
         fprintf(f, "%s", "\xFE\xFF");
         if (ipFlag->verbose > 1) {
           fprintf(stderr, "%s: ", progname);
-          fprintf(stderr, _("Writing %s BOM.\n"), "UTF-16BE");
+          fprintf(stderr, _("Writing %s BOM.\n"), _("UTF-16BE"));
         }
         break;
       case FILE_GB18030:  /* GB18030 */
         fprintf(f, "%s", "\x84\x31\x95\x33");
         if (ipFlag->verbose > 1) {
           fprintf(stderr, "%s: ", progname);
-          fprintf(stderr, _("Writing %s BOM.\n"), "GB18030");
+          fprintf(stderr, _("Writing %s BOM.\n"), _("GB18030"));
         }
         break;
       default:      /* UTF-8 */
         fprintf(f, "%s", "\xEF\xBB\xBF");
         if (ipFlag->verbose > 1) {
           fprintf(stderr, "%s: ", progname);
-          fprintf(stderr, _("Writing %s BOM.\n"), "UTF-8");
+          fprintf(stderr, _("Writing %s BOM.\n"), _("UTF-8"));
         }
       ;
     }
@@ -615,14 +615,14 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
         if (ipFlag->verbose > 1)
         {
           fprintf(stderr, "%s: ", progname);
-          fprintf(stderr, _("Writing %s BOM.\n"), "GB18030");
+          fprintf(stderr, _("Writing %s BOM.\n"), _("GB18030"));
         }
      } else {
         fprintf(f, "%s", "\xEF\xBB\xBF"); /* UTF-8 */
         if (ipFlag->verbose > 1)
         {
           fprintf(stderr, "%s: ", progname);
-          fprintf(stderr, _("Writing %s BOM.\n"), "UTF-8");
+          fprintf(stderr, _("Writing %s BOM.\n"), _("UTF-8"));
         }
      }
   }
@@ -634,19 +634,19 @@ void print_bom (const int bomtype, const char *filename, const char *progname)
     switch (bomtype) {
     case FILE_UTF16LE:   /* UTF-16 Little Endian */
       fprintf(stderr, "%s: ", progname);
-      fprintf(stderr, _("Input file %s has %s BOM.\n"), filename, "UTF-16LE");
+      fprintf(stderr, _("Input file %s has %s BOM.\n"), filename, _("UTF-16LE"));
       break;
     case FILE_UTF16BE:   /* UTF-16 Big Endian */
       fprintf(stderr, "%s: ", progname);
-      fprintf(stderr, _("Input file %s has %s BOM.\n"), filename, "UTF-16BE");
+      fprintf(stderr, _("Input file %s has %s BOM.\n"), filename, _("UTF-16BE"));
       break;
     case FILE_UTF8:      /* UTF-8 */
       fprintf(stderr, "%s: ", progname);
-      fprintf(stderr, _("Input file %s has %s BOM.\n"), filename, "UTF-8");
+      fprintf(stderr, _("Input file %s has %s BOM.\n"), filename, _("UTF-8"));
       break;
     case FILE_GB18030:      /* GB18030 */
       fprintf(stderr, "%s: ", progname);
-      fprintf(stderr, _("Input file %s has %s BOM.\n"), filename, "GB18030");
+      fprintf(stderr, _("Input file %s has %s BOM.\n"), filename, _("GB18030"));
       break;
     default:
     ;
@@ -655,6 +655,8 @@ void print_bom (const int bomtype, const char *filename, const char *progname)
 
 void print_bom_info (const int bomtype)
 {
+/* The BOM info must not be translated to other languages, otherwise scripts
+   that process the output may not work in other than English locales. */
     switch (bomtype) {
     case FILE_UTF16LE:   /* UTF-16 Little Endian */
       printf("  UTF-16LE");
@@ -1106,37 +1108,38 @@ void print_messages_stdio(const CFlag *pFlag, const char *progname)
     }
 }
 
-void print_format(const CFlag *pFlag, char *informat, char *outformat)
+void print_format(const CFlag *pFlag, char *informat, char *outformat, size_t lin, size_t lout)
 {
   informat[0]='\0';
   outformat[0]='\0';
 
   if (pFlag->bomtype == FILE_UTF16LE)
-    strcpy(informat," UTF-16LE");
+    strncpy(informat,_("UTF-16LE"),lin);
   if (pFlag->bomtype == FILE_UTF16BE)
-    strcpy(informat," UTF-16BE");
+    strncpy(informat,_("UTF-16BE"),lin);
+  informat[lin-1]='\0';
 
 #ifdef D2U_UNICODE
   if ((pFlag->bomtype == FILE_UTF16LE)||(pFlag->bomtype == FILE_UTF16BE)) {
 #if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
-    outformat[0]=' ';
-    strcpy(outformat + 1,nl_langinfo(CODESET));
+    strncpy(outformat,nl_langinfo(CODESET),lout);
 #endif
 
 #if defined(_WIN32) && !defined(__CYGWIN__) /* Windows, not Cygwin */
     if (pFlag->locale_target == TARGET_GB18030)
-      strcpy(outformat, " GB18030");
+      strncpy(outformat, _("GB18030"),lout);
     else
-      strcpy(outformat, " UTF-8");
+      strncpy(outformat, _("UTF-8"),lout);
 #endif
 
     if (pFlag->keep_utf16)
     {
       if (pFlag->bomtype == FILE_UTF16LE)
-        strcpy(outformat," UTF-16LE");
+        strncpy(outformat,_("UTF-16LE"),lout);
       if (pFlag->bomtype == FILE_UTF16BE)
-        strcpy(outformat," UTF-16BE");
+        strncpy(outformat,_("UTF-16BE"),lout);
     }
+    outformat[lout-1]='\0';
   }
 #endif
 }
@@ -1146,7 +1149,7 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
   char informat[10];
   char outformat[32];
 
-  print_format(pFlag, informat, outformat);
+  print_format(pFlag, informat, outformat, sizeof(informat), sizeof(outformat));
 
   if (pFlag->status & NO_REGFILE) {
     fprintf(stderr,"%s: ",progname);
@@ -1174,13 +1177,30 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
     fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), infile);
   } else {
     fprintf(stderr,"%s: ",progname);
-    if (is_dos2unix(progname))
-      fprintf(stderr, _("converting%s file %s to file %s in%s Unix format...\n"), informat, infile, outfile, outformat);
-    else {
-      if (pFlag->FromToMode == FROMTO_UNIX2MAC)
-        fprintf(stderr, _("converting%s file %s to file %s in%s Mac format...\n"), informat, infile, outfile, outformat);
-      else
-        fprintf(stderr, _("converting%s file %s to file %s in%s DOS format...\n"), informat, infile, outfile, outformat);
+    if (informat[0] == '\0') {
+      if (is_dos2unix(progname))
+        fprintf(stderr, _("converting file %s to file %s in Unix format...\n"), infile, outfile);
+      else {
+        if (pFlag->FromToMode == FROMTO_UNIX2MAC)
+          fprintf(stderr, _("converting file %s to file %s in Mac format...\n"), infile, outfile);
+        else
+          fprintf(stderr, _("converting file %s to file %s in DOS format...\n"), infile, outfile);
+      }
+    } else {
+      if (is_dos2unix(progname))
+    /* TRANSLATORS:
+1st %s is encoding of input file.
+2nd %s is name of input file.
+3rd %s is encoding of output file.
+4th %s is name of output file.
+E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format... */
+        fprintf(stderr, _("converting %s file %s to %s file %s in Unix format...\n"), informat, infile, outformat, outfile);
+      else {
+        if (pFlag->FromToMode == FROMTO_UNIX2MAC)
+          fprintf(stderr, _("converting %s file %s to %s file %s in Mac format...\n"), informat, infile, outformat, outfile);
+        else
+          fprintf(stderr, _("converting %s file %s to %s file %s in DOS format...\n"), informat, infile, outformat, outfile);
+      }
     }
     if (RetVal) {
       fprintf(stderr,"%s: ",progname);
@@ -1194,7 +1214,7 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
   char informat[10];
   char outformat[32];
 
-  print_format(pFlag, informat, outformat);
+  print_format(pFlag, informat, outformat, sizeof(informat), sizeof(outformat));
 
   if (pFlag->status & NO_REGFILE) {
     fprintf(stderr,"%s: ",progname);
@@ -1219,13 +1239,29 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
     fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), infile);
   } else {
     fprintf(stderr,"%s: ",progname);
-    if (is_dos2unix(progname))
-      fprintf(stderr, _("converting%s file %s to%s Unix format...\n"), informat, infile, outformat);
-    else {
-      if (pFlag->FromToMode == FROMTO_UNIX2MAC)
-        fprintf(stderr, _("converting%s file %s to%s Mac format...\n"), informat, infile, outformat);
-      else
-        fprintf(stderr, _("converting%s file %s to%s DOS format...\n"), informat, infile, outformat);
+    if (informat[0] == '\0') {
+      if (is_dos2unix(progname))
+        fprintf(stderr, _("converting file %s to Unix format...\n"), infile);
+      else {
+        if (pFlag->FromToMode == FROMTO_UNIX2MAC)
+          fprintf(stderr, _("converting file %s to Mac format...\n"), infile);
+        else
+          fprintf(stderr, _("converting file %s to DOS format...\n"), infile);
+      }
+    } else {
+      if (is_dos2unix(progname))
+    /* TRANSLATORS:
+1st %s is encoding of input file.
+2nd %s is name of input file.
+3rd %s is encoding of output (input file is overwritten).
+E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format... */
+        fprintf(stderr, _("converting %s file %s to %s Unix format...\n"), informat, infile, outformat);
+      else {
+        if (pFlag->FromToMode == FROMTO_UNIX2MAC)
+          fprintf(stderr, _("converting %s file %s to %s Mac format...\n"), informat, infile, outformat);
+        else
+          fprintf(stderr, _("converting %s file %s to %s DOS format...\n"), informat, infile, outformat);
+      }
     }
     if (RetVal) {
       fprintf(stderr,"%s: ",progname);

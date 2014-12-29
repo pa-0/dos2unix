@@ -395,7 +395,7 @@ getpoman:
 	msgfmt -c $< -o $@
 
 $(POT) : dos2unix.c unix2dos.c common.c
-	xgettext -C --keyword=_ $+ -o $(POT)
+	xgettext -C -cTRANSLATORS: --keyword=_ $+ -o $(POT)
 
 %.txt : %.pod
 	pod2text $< > $@
