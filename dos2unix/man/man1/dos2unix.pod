@@ -233,11 +233,11 @@ Show only the byte order mark:
 
     dos2unix --info=b *.txt
 
-List the files that have DOS line breaks.
+List the files that have DOS line breaks:
 
     dos2unix -ic *.txt
 
-List the files that have Unix line breaks.
+List the files that have Unix line breaks:
 
     unix2dos -ic *.txt
 
@@ -413,35 +413,35 @@ Never use ISO conversion on Unicode text files. It will corrupt UTF-8 encoded fi
 
 Some examples:
 
-Convert from DOS default code page to Unix Latin-1
+Convert from DOS default code page to Unix Latin-1:
 
     dos2unix -iso -n in.txt out.txt
 
-Convert from DOS CP850 to Unix Latin-1
+Convert from DOS CP850 to Unix Latin-1:
 
     dos2unix -850 -n in.txt out.txt
 
-Convert from Windows CP1252 to Unix Latin-1
+Convert from Windows CP1252 to Unix Latin-1:
 
     dos2unix -1252 -n in.txt out.txt
 
-Convert from Windows CP1252 to Unix UTF-8 (Unicode)
+Convert from Windows CP1252 to Unix UTF-8 (Unicode):
 
     iconv -f CP1252 -t UTF-8 in.txt | dos2unix > out.txt
 
-Convert from Unix Latin-1 to DOS default code page
+Convert from Unix Latin-1 to DOS default code page:
 
     unix2dos -iso -n in.txt out.txt
 
-Convert from Unix Latin-1 to DOS CP850
+Convert from Unix Latin-1 to DOS CP850:
 
     unix2dos -850 -n in.txt out.txt
 
-Convert from Unix Latin-1 to Windows CP1252
+Convert from Unix Latin-1 to Windows CP1252:
 
     unix2dos -1252 -n in.txt out.txt
 
-Convert from Unix UTF-8 (Unicode) to Windows CP1252
+Convert from Unix UTF-8 (Unicode) to Windows CP1252:
 
     unix2dos < in.txt | iconv -f UTF-8 -t CP1252 > out.txt
 
@@ -515,19 +515,19 @@ Dos2unix and unix2dos write always a BOM when option C<-m> is used.
 
 =head2 Unicode examples
 
-Convert from Windows UTF-16 (with BOM) to Unix UTF-8
+Convert from Windows UTF-16 (with BOM) to Unix UTF-8:
 
     dos2unix -n in.txt out.txt
 
-Convert from Windows UTF-16LE (without BOM) to Unix UTF-8
+Convert from Windows UTF-16LE (without BOM) to Unix UTF-8:
 
     dos2unix -ul -n in.txt out.txt
 
-Convert from Unix UTF-8 to Windows UTF-8 with BOM
+Convert from Unix UTF-8 to Windows UTF-8 with BOM:
 
     unix2dos -m -n in.txt out.txt
 
-Convert from Unix UTF-8 to Windows UTF-16
+Convert from Unix UTF-8 to Windows UTF-16:
 
     unix2dos < in.txt | iconv -f UTF-8 -t UTF-16 > out.txt
 
@@ -553,57 +553,57 @@ GB18030 encoded files can have a Byte Order Mark, like Unicode files.
 
 =head1 EXAMPLES
 
-Read input from 'stdin' and write output to 'stdout'.
+Read input from 'stdin' and write output to 'stdout':
 
     dos2unix
     dos2unix -l -c mac
 
-Convert and replace a.txt. Convert and replace b.txt.
+Convert and replace a.txt. Convert and replace b.txt:
 
     dos2unix a.txt b.txt
     dos2unix -o a.txt b.txt
 
-Convert and replace a.txt in ascii conversion mode.
+Convert and replace a.txt in ascii conversion mode:
 
     dos2unix a.txt
 
-Convert and replace a.txt in ascii conversion mode.
-Convert and replace b.txt in 7bit conversion mode.
+Convert and replace a.txt in ascii conversion mode,
+convert and replace b.txt in 7bit conversion mode:
 
     dos2unix a.txt -c 7bit b.txt
     dos2unix -c ascii a.txt -c 7bit b.txt
     dos2unix -ascii a.txt -7 b.txt
 
-Convert a.txt from Mac to Unix format.
+Convert a.txt from Mac to Unix format:
 
     dos2unix -c mac a.txt
     mac2unix a.txt
 
-Convert a.txt from Unix to Mac format.
+Convert a.txt from Unix to Mac format:
 
     unix2dos -c mac a.txt
     unix2mac a.txt
 
-Convert and replace a.txt while keeping original date stamp.
+Convert and replace a.txt while keeping original date stamp:
 
     dos2unix -k a.txt
     dos2unix -k -o a.txt
 
-Convert a.txt and write to e.txt.
+Convert a.txt and write to e.txt:
 
     dos2unix -n a.txt e.txt
 
-Convert a.txt and write to e.txt, keep date stamp of e.txt same as a.txt.
+Convert a.txt and write to e.txt, keep date stamp of e.txt same as a.txt:
 
     dos2unix -k -n a.txt e.txt
 
-Convert and replace a.txt. Convert b.txt and write to e.txt.
+Convert and replace a.txt, convert b.txt and write to e.txt:
 
     dos2unix a.txt -n b.txt e.txt
     dos2unix -o a.txt -n b.txt e.txt
 
-Convert c.txt and write to e.txt. Convert and replace a.txt.
-Convert and replace b.txt. Convert d.txt and write to f.txt.
+Convert c.txt and write to e.txt, convert and replace a.txt,
+convert and replace b.txt, convert d.txt and write to f.txt:
 
     dos2unix -n c.txt e.txt -o a.txt b.txt -n d.txt f.txt
 
@@ -639,7 +639,7 @@ shells:
 For a complete list of language and country codes see the gettext manual:
 L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes>
 
-On Unix systems you can use to command locale(1) to get locale specific
+On Unix systems you can use the command locale(1) to get locale specific
 information.
 
 =item B<LANGUAGE>
@@ -690,10 +690,10 @@ L<http://en.wikipedia.org/wiki/Unicode>
 
 =head1 AUTHORS
 
-Benjamin Lin - <blin@socs.uts.edu.au>
+Benjamin Lin - <blin@socs.uts.edu.au>,
 Bernd Johannes Wuebben (mac2unix mode) - <wuebben@kde.org>,
 Christian Wurll (add extra newline) - <wurll@ira.uka.de>,
-Erwin Waterlander - <waterlan@xs4all.nl> (Maintainer)
+Erwin Waterlander - <waterlan@xs4all.nl> (maintainer)
 
 Project page: L<http://waterlan.home.xs4all.nl/dos2unix.html>
 
