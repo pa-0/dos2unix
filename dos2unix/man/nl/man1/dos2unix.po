@@ -434,7 +434,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:236
 msgid "List the files that have DOS line breaks."
-msgstr "De bestanden opsommen die DOS-regeleindes bevatten."
+msgstr "De bestanden opsommen die DOS-regeleindes bevatten:"
 
 #. type: verbatim
 #: dos2unix.pod:238
@@ -449,7 +449,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:240
 msgid "List the files that have Unix line breaks."
-msgstr "De bestanden opsommen die Unix-regeleindes bevatten."
+msgstr "De bestanden opsommen die Unix-regeleindes bevatten:"
 
 #. type: verbatim
 #: dos2unix.pod:242
@@ -759,7 +759,7 @@ msgstr "Enkele voorbeelden:"
 #. type: textblock
 #: dos2unix.pod:416
 msgid "Convert from DOS default code page to Unix Latin-1"
-msgstr "Omzetten van de standaard DOS-codetabel naar Unix Latin-1"
+msgstr "Omzetten van de standaard DOS-codetabel naar Unix Latin-1:"
 
 #. type: verbatim
 #: dos2unix.pod:418
@@ -774,7 +774,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:420
 msgid "Convert from DOS CP850 to Unix Latin-1"
-msgstr "Omzetten van DOS CP850 naar Unix Latin-1"
+msgstr "Omzetten van DOS CP850 naar Unix Latin-1:"
 
 #. type: verbatim
 #: dos2unix.pod:422
@@ -789,7 +789,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:424
 msgid "Convert from Windows CP1252 to Unix Latin-1"
-msgstr "Omzetten van Windows CP1252 naar Unix Latin-1"
+msgstr "Omzetten van Windows CP1252 naar Unix Latin-1:"
 
 #. type: verbatim
 #: dos2unix.pod:426
@@ -804,7 +804,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:428
 msgid "Convert from Windows CP1252 to Unix UTF-8 (Unicode)"
-msgstr "Omzetten van Windows CP1252 naar Unix UTF-8 (Unicode)"
+msgstr "Omzetten van Windows CP1252 naar Unix UTF-8 (Unicode):"
 
 #. type: verbatim
 #: dos2unix.pod:430
@@ -819,7 +819,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:432
 msgid "Convert from Unix Latin-1 to DOS default code page"
-msgstr "Omzetten van Unix Latin-1 naar de standaard DOS-codetabel"
+msgstr "Omzetten van Unix Latin-1 naar de standaard DOS-codetabel:"
 
 #. type: verbatim
 #: dos2unix.pod:434
@@ -834,7 +834,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:436
 msgid "Convert from Unix Latin-1 to DOS CP850"
-msgstr "Omzetten van Unix Latin-1 naar DOS CP850"
+msgstr "Omzetten van Unix Latin-1 naar DOS CP850:"
 
 #. type: verbatim
 #: dos2unix.pod:438
@@ -849,7 +849,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:440
 msgid "Convert from Unix Latin-1 to Windows CP1252"
-msgstr "Omzetten van Unix Latin-1 naar Windows CP1252"
+msgstr "Omzetten van Unix Latin-1 naar Windows CP1252:"
 
 #. type: verbatim
 #: dos2unix.pod:442
@@ -864,7 +864,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:444
 msgid "Convert from Unix UTF-8 (Unicode) to Windows CP1252"
-msgstr "Omzetten van Unix UTF-8 (Unicode) naar Windows CP1252"
+msgstr "Omzetten van Unix UTF-8 (Unicode) naar Windows CP1252:"
 
 #. type: verbatim
 #: dos2unix.pod:446
@@ -914,7 +914,7 @@ msgstr "Alle versies van dos2unix en unix2dos kunnen UTF-8-gecodeerde bestanden 
 #. type: textblock
 #: dos2unix.pod:470
 msgid "Dos2unix and unix2dos with Unicode UTF-16 support, can read little and big endian UTF-16 encoded text files. To see if dos2unix was built with UTF-16 support type C<dos2unix -V>."
-msgstr "Dos2unix en unix2dos met Unicode UTF-16-ondersteuning, kunnen little en big endian UTF-16 gecodeerde tekstbestanden lezen.  Om er achter te komen of dos2unix gebouwd is met UTF-16- ondersteuning, typt u C<dos2unix -V>."
+msgstr "Dos2unix en unix2dos met Unicode UTF-16-ondersteuning kunnen little en big endian UTF-16-gecodeerde tekstbestanden lezen.  Om er achter te komen of dos2unix gebouwd is met UTF-16- ondersteuning, typt u C<dos2unix -V>."
 
 #. type: textblock
 #: dos2unix.pod:474
@@ -954,12 +954,12 @@ msgstr "Byte-Order-Mark"
 #. type: textblock
 #: dos2unix.pod:495
 msgid "On Windows Unicode text files typically have a Byte Order Mark (BOM), because many Windows programs (including Notepad) add BOMs by default. See also L<http://en.wikipedia.org/wiki/Byte_order_mark>."
-msgstr "Op Windows bevatten Unicode-tekstbestanden typisch een Byte-Order-Mark (BOM), omdat veel Windows-programma's (inclusief Kladblok) standaard een BOM toevoegen.  Zie ook L<http://en.wikipedia.org/wiki/Byte_order_mark>."
+msgstr "Op Windows bevatten Unicode-tekstbestanden gewoonlijk een Byte-Order-Mark (BOM), omdat veel Windows-programma's (inclusief Kladblok) standaard een BOM toevoegen.  Zie ook L<http://en.wikipedia.org/wiki/Byte_order_mark>."
 
 #. type: textblock
 #: dos2unix.pod:499
 msgid "On Unix Unicode files typically don't have a BOM. It is assumed that text files are encoded in the locale character encoding."
-msgstr "Op Unix hebben Unicode-tekstbestanden typisch geen BOM.  Er wordt aangenomen dat de codering van tekstbestanden gelijk is aan de lokale tekencodering."
+msgstr "Op Unix hebben Unicode-tekstbestanden meestal geen BOM.  Er wordt aangenomen dat de codering van tekstbestanden gelijk is aan de tekencodering van de ingestelde taalregio."
 
 #. type: textblock
 #: dos2unix.pod:502
@@ -994,7 +994,7 @@ msgstr "Unicode-voorbeelden"
 #. type: textblock
 #: dos2unix.pod:518
 msgid "Convert from Windows UTF-16 (with BOM) to Unix UTF-8"
-msgstr "Omzetten van Windows UTF-16 (met BOM) naar Unix UTF-8"
+msgstr "Omzetten van Windows UTF-16 (met BOM) naar Unix UTF-8:"
 
 #. type: verbatim
 #: dos2unix.pod:520
@@ -1009,7 +1009,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:522
 msgid "Convert from Windows UTF-16LE (without BOM) to Unix UTF-8"
-msgstr "Omzetten van Windows UTF-16LE (zonder BOM) naar Unix UTF-8"
+msgstr "Omzetten van Windows UTF-16LE (zonder BOM) naar Unix UTF-8:"
 
 #. type: verbatim
 #: dos2unix.pod:524
@@ -1024,7 +1024,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:526
 msgid "Convert from Unix UTF-8 to Windows UTF-8 with BOM"
-msgstr "Omzetten van Unix UTF-8 naar Windows UTF-8 met BOM"
+msgstr "Omzetten van Unix UTF-8 naar Windows UTF-8 met BOM:"
 
 #. type: verbatim
 #: dos2unix.pod:528
@@ -1039,7 +1039,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:530
 msgid "Convert from Unix UTF-8 to Windows UTF-16"
-msgstr "Omzetten van Unix UTF-8 naar Windows UTF-16"
+msgstr "Omzetten van Unix UTF-8 naar Windows UTF-16:"
 
 #. type: verbatim
 #: dos2unix.pod:532
@@ -1064,7 +1064,7 @@ msgstr "GB18030 is een standaard van de Chinese overheid.  Een subset van de GB1
 #. type: textblock
 #: dos2unix.pod:540
 msgid "GB18030 is fully compatible with Unicode, and can be considered an unicode transformation format. Like UTF-8, GB18030 is compatible with ASCII. GB18030 is also compatible with Windows code page 936, also known as GBK."
-msgstr "GB18030 is volledig compatibel met Unicode, en kan als een Unicodetransformatie beschuwd worden.  Net als UTF-8 is GB18030 compatibel met ASCII.  GB18030 is ook compatibel met Windows-codepagina 936, ook wel GBK genoemd."
+msgstr "GB18030 is volledig compatibel met Unicode, en kan als een Unicodetransformatie beschouwd worden.  Net als UTF-8 is GB18030 compatibel met ASCII.  GB18030 is ook compatibel met Windows-codepagina 936 (ook wel GBK genoemd)."
 
 #. type: textblock
 #: dos2unix.pod:544
@@ -1089,7 +1089,7 @@ msgstr "VOORBEELDEN"
 #. type: textblock
 #: dos2unix.pod:556
 msgid "Read input from 'stdin' and write output to 'stdout'."
-msgstr "Invoer lezen van standaardinvoer en uitvoer schrijven naar standaarduitvoer."
+msgstr "Invoer lezen van standaardinvoer en uitvoer schrijven naar standaarduitvoer:"
 
 #. type: verbatim
 #: dos2unix.pod:558
@@ -1106,7 +1106,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:561
 msgid "Convert and replace a.txt. Convert and replace b.txt."
-msgstr "Omzetten en vervangen van a.txt.  Omzetten en vervangen van b.txt."
+msgstr "Omzetten en vervangen van a.txt, omzetten en vervangen van b.txt:"
 
 #. type: verbatim
 #: dos2unix.pod:563
@@ -1123,7 +1123,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:566
 msgid "Convert and replace a.txt in ascii conversion mode."
-msgstr "Omzetten en vervangen van a.txt in ascii-conversiemodus."
+msgstr "Omzetten en vervangen van a.txt in ascii-conversiemodus:"
 
 #. type: verbatim
 #: dos2unix.pod:568
@@ -1138,7 +1138,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:570
 msgid "Convert and replace a.txt in ascii conversion mode.  Convert and replace b.txt in 7bit conversion mode."
-msgstr "Omzetten en vervangen van a.txt in ascii-conversiemodus.  Omzetten en vervangen b.txt in 7-bits conversiemodus."
+msgstr "Omzetten en vervangen van a.txt in ascii-conversiemodus, omzetten en vervangen van b.txt in 7-bits conversiemodus:"
 
 #. type: verbatim
 #: dos2unix.pod:573
@@ -1157,7 +1157,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:577
 msgid "Convert a.txt from Mac to Unix format."
-msgstr "Omzetten van a.txt van Mac- naar Unix-indeling."
+msgstr "Omzetten van a.txt van Mac- naar Unix-indeling:"
 
 #. type: verbatim
 #: dos2unix.pod:579
@@ -1174,7 +1174,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:582
 msgid "Convert a.txt from Unix to Mac format."
-msgstr "Omzetten van a.txt van Unix- naar Mac-indeling."
+msgstr "Omzetten van a.txt van Unix- naar Mac-indeling:"
 
 #. type: verbatim
 #: dos2unix.pod:584
@@ -1191,7 +1191,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:587
 msgid "Convert and replace a.txt while keeping original date stamp."
-msgstr "Omzetten en vervangen van a.txt met behoud van origineel tijdsstempel."
+msgstr "Omzetten en vervangen van a.txt met behoud van origineel tijdsstempel:"
 
 #. type: verbatim
 #: dos2unix.pod:589
@@ -1208,7 +1208,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:592
 msgid "Convert a.txt and write to e.txt."
-msgstr "Omzetten van a.txt en naar e.txt schrijven."
+msgstr "Omzetten van a.txt en resultaat naar e.txt schrijven:"
 
 #. type: verbatim
 #: dos2unix.pod:594
@@ -1223,7 +1223,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:596
 msgid "Convert a.txt and write to e.txt, keep date stamp of e.txt same as a.txt."
-msgstr "Omzetten van a.txt en naar e.txt schrijven, met tijdsstempel van e.txt gelijk aan die van a.txt."
+msgstr "Omzetten van a.txt en naar e.txt schrijven, met tijdsstempel van e.txt gelijk aan die van a.txt:"
 
 #. type: verbatim
 #: dos2unix.pod:598
@@ -1238,7 +1238,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:600
 msgid "Convert and replace a.txt. Convert b.txt and write to e.txt."
-msgstr "Omzetten en vervangen van a.txt.  Omzetten van b.txt en naar e.txt schrijven."
+msgstr "Omzetten en vervangen van a.txt, omzetten van b.txt en naar e.txt schrijven:"
 
 #. type: verbatim
 #: dos2unix.pod:602
@@ -1255,7 +1255,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:605
 msgid "Convert c.txt and write to e.txt. Convert and replace a.txt.  Convert and replace b.txt. Convert d.txt and write to f.txt."
-msgstr "Omzetten van c.txt en naar e.txt schrijven.  Omzetten en vervangen van a.txt.  Omzetten en vervangen van b.txt.  Omzetten van d.txt en naar f.txt schrijven."
+msgstr "Omzetten van c.txt en naar e.txt schrijven, omzetten en vervangen van a.txt, omzetten en vervangen van b.txt, omzetten van d.txt en naar f.txt schrijven."
 
 #. type: verbatim
 #: dos2unix.pod:608
@@ -1275,7 +1275,7 @@ msgstr "RECURSIEVE CONVERSIE"
 #. type: textblock
 #: dos2unix.pod:612
 msgid "Use dos2unix in combination with the find(1) and xargs(1) commands to recursively convert text files in a directory tree structure. For instance to convert all .txt files in the directory tree under the current directory type:"
-msgstr "Gebruik dos2unix in combinatie met de opdrachten find(1) en xargs(1) om tekstbestanden in een mappenboom recursief om te zetten.  Bijvoorbeeld om alle .txt-bestanden in de mappenboom onder de huidige map te converteren, typt u:"
+msgstr "Gebruik dos2unix in combinatie met de opdrachten B<find>(1) en B<xargs>(1) om tekstbestanden in een mappenboom recursief om te zetten.  Bijvoorbeeld om alle .txt-bestanden in de mappenboom onder de huidige map te converteren, typt u:"
 
 #. type: verbatim
 #: dos2unix.pod:616
@@ -1300,7 +1300,7 @@ msgstr "B<LANG>"
 #. type: textblock
 #: dos2unix.pod:624
 msgid "The primary language is selected with the environment variable LANG. The LANG variable consists out of several parts. The first part is in small letters the language code. The second is optional and is the country code in capital letters, preceded with an underscore. There is also an optional third part: character encoding, preceded with a dot. A few examples for POSIX standard type shells:"
-msgstr "The primaire taal wordt geselecteerd via de omgevingsvariabele LANG.  De variabele LANG bestaat uit verschillende onderdelen.  Het eerste deel is in kleine letters de taalcode.  Het tweede deel is optioneel en is de landcode in hoofdletters, voorafgegaan door een liggend streepje.  Er is ook een optioneel derde deel: de tekencodering, voorafgegaan door een punt.  Enkele voorbeelden voor een POSIX-shell:"
+msgstr "De primaire taal wordt geselecteerd via de omgevingsvariabele LANG.  De variabele LANG bestaat uit verschillende onderdelen.  Het eerste deel is in kleine letters de taalcode.  Het tweede deel is optioneel en is de landcode in hoofdletters, voorafgegaan door een liggend streepje.  Er is ook een optioneel derde deel: de tekencodering, voorafgegaan door een punt.  Enkele voorbeelden voor een POSIX-shell:"
 
 #. type: verbatim
 #: dos2unix.pod:631
@@ -1448,7 +1448,7 @@ msgstr "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 #~ msgstr "Freecode: L<http://freecode.com/projects/dos2unix>"
 
 #~ msgid "The Windows versions of dos2unix and unix2dos convert UTF-16 encoded files always to UTF-8 encoded files. Unix versions of dos2unix/unix2dos convert UTF-16 encoded files to the locale character encoding when it is set to UTF-8.  Use the locale(1) command to find out what the locale character encoding is."
-#~ msgstr "De Windows-versies van dos2unix en unix2dos converteren UTF-16 -gecodeerde bestanden altijd naar UTF-8-gecodeerde bestanden.  Unix-versies van dos2unix/unix2dos zetten UTF-16-gecodeerde bestanden om naar de lokale tekencodering als die gelijk is aan UTF-8.  Gebruik de opdracht locale(1) om uit te vinden wat de lokale tekencodering is."
+#~ msgstr "De Windows-versies van dos2unix en unix2dos converteren UTF-16-gecodeerde bestanden altijd naar UTF-8-gecodeerde bestanden.  Unix-versies van dos2unix/unix2dos zetten UTF-16-gecodeerde bestanden om naar de lokale tekencodering als die gelijk is aan UTF-8.  Gebruik de opdracht locale(1) om uit te vinden wat de lokale tekencodering is."
 
 #~ msgid "Because UTF-8 formatted text files are well supported on both Windows and Unix, dos2unix and unix2dos have no option to write UTF-16 files. All UTF-16 characters can be encoded in UTF-8. Conversion from UTF-16 to UTF-8 is without loss. UTF-16 files will be skipped on Unix when the locale character encoding is not UTF-8, to prevent accidental loss of text. When an UTF-16 to UTF-8 conversion error occurs, for instance when the UTF-16 input file contains an error, the file will be skipped."
 #~ msgstr "Omdat UTF-8-gecodeerde tekstbestanden zowel op Windows en Unix goed ondersteund worden, hebben dos2unix en unix2dos geen optie om UTF-16-bestanden te schrijven.  Alle UTF-16-tekens kunnen worden omgezet naar UTF-8.  De omzetting van UTF-16 naar UTF-8 is verliesvrij.  Op Unix worden UTF-16-bestanden overgeslagen als de lokale tekencodering ongelijk is aan UTF-8, om te voorkomen dat er per ongeluk tekst verloren gaat.  Wanneer een conversiefout  van UTF-16 naar UTF-8 optreedt, bijvoorbeeld wanneer het UTF-16-invoerbestand een fout bevat, wordt het bestand overgeslagen."
