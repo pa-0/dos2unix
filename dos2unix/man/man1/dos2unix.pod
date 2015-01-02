@@ -1,7 +1,7 @@
 /*
 #  Copyright and License
 #
-#   Copyright (C) 2009-2014 Erwin Waterlander
+#   Copyright (C) 2009-2015 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -637,7 +637,7 @@ shells:
     export LANG=en_GB.UTF-8      English, UK, UTF-8 encoding
 
 For a complete list of language and country codes see the gettext manual:
-L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes>
+L<http://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html>
 
 On Unix systems you can use the command locale(1) to get locale specific
 information.
@@ -650,7 +650,7 @@ For instance, first Dutch and then German: C<LANGUAGE=nl:de>. You have to first
 enable localization, by setting LANG (or LC_ALL) to a value other than
 "C", before you can use a language priority list through the LANGUAGE
 variable. See also the gettext manual:
-L<http://www.gnu.org/software/gettext/manual/gettext.html#The-LANGUAGE-variable>
+L<http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>
 
 If you select a language which is not available you will get the
 standard English messages.

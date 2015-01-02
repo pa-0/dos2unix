@@ -1,3 +1,7 @@
+2015-01-02 Erwin Waterlander <waterlan@xs4all.nl>
+	* man/man1/dos2unix.pod: Point to gettext manual html nodes instead of
+	  the full gettext manual.
+
 2014-12-31 Erwin Waterlander <waterlan@xs4all.nl>
 	* man/man1/dos2unix.pod: Cleanup man page. Thanks to Benno Schulenberg.
 

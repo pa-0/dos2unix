@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-6.0.6-beta4\n"
-"POT-Creation-Date: 2014-12-31 15:07+0100\n"
+"POT-Creation-Date: 2015-01-02 18:22+0100\n"
 "PO-Revision-Date: 2014-07-30 10:31+0100\n"
 "Last-Translator: Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail."
 "com>\n"
@@ -482,6 +482,7 @@ msgstr ""
 
 #. type: verbatim
 #: dos2unix.pod:226
+#, no-wrap
 msgid ""
 "    dos2unix -i *.txt\n"
 "\n"
@@ -496,6 +497,7 @@ msgstr ""
 
 #. type: verbatim
 #: dos2unix.pod:230
+#, no-wrap
 msgid ""
 "    dos2unix -idu *.txt\n"
 "\n"
@@ -510,6 +512,7 @@ msgstr ""
 
 #. type: verbatim
 #: dos2unix.pod:234
+#, no-wrap
 msgid ""
 "    dos2unix --info=b *.txt\n"
 "\n"
@@ -524,6 +527,7 @@ msgstr ""
 
 #. type: verbatim
 #: dos2unix.pod:238
+#, no-wrap
 msgid ""
 "    dos2unix -ic *.txt\n"
 "\n"
@@ -538,6 +542,7 @@ msgstr ""
 
 #. type: verbatim
 #: dos2unix.pod:242
+#, no-wrap
 msgid ""
 "    unix2dos -ic *.txt\n"
 "\n"
@@ -1699,9 +1704,14 @@ msgstr ""
 
 #. type: textblock
 #: dos2unix.pod:639
+#, fuzzy
+#| msgid ""
+#| "For a complete list of language and country codes see the gettext manual: "
+#| "L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes>"
 msgid ""
 "For a complete list of language and country codes see the gettext manual: "
-"L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-Codes>"
+"L<http://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes."
+"html>"
 msgstr ""
 "Para una lista completa de códigos de idioma y país véase el manual de "
 "gettext: L<http://www.gnu.org/software/gettext/manual/gettext.html#Language-"
@@ -1727,6 +1737,15 @@ msgstr "B<LANGUAGE>"
 
 #. type: textblock
 #: dos2unix.pod:647
+#, fuzzy
+#| msgid ""
+#| "With the LANGUAGE environment variable you can specify a priority list of "
+#| "languages, separated by colons. Dos2unix gives preference to LANGUAGE "
+#| "over LANG.  For instance, first Dutch and then German: C<LANGUAGE=nl:de>. "
+#| "You have to first enable localization, by setting LANG (or LC_ALL) to a "
+#| "value other than \"C\", before you can use a language priority list "
+#| "through the LANGUAGE variable. See also the gettext manual: L<http://www."
+#| "gnu.org/software/gettext/manual/gettext.html#The-LANGUAGE-variable>"
 msgid ""
 "With the LANGUAGE environment variable you can specify a priority list of "
 "languages, separated by colons. Dos2unix gives preference to LANGUAGE over "
@@ -1734,7 +1753,7 @@ msgid ""
 "have to first enable localization, by setting LANG (or LC_ALL) to a value "
 "other than \"C\", before you can use a language priority list through the "
 "LANGUAGE variable. See also the gettext manual: L<http://www.gnu.org/"
-"software/gettext/manual/gettext.html#The-LANGUAGE-variable>"
+"software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
 msgstr ""
 "Con la variable de entorno LANGUAGE puede especificar una lista de prioridad "
 "de los idiomas, separados por dos puntos. Dos2unix da preferencia a LANGUAGE "
@@ -1848,9 +1867,9 @@ msgid ""
 "mode) - <wuebben@kde.org>, Christian Wurll (add extra newline) - <wurll@ira."
 "uka.de>, Erwin Waterlander - <waterlan@xs4all.nl> (maintainer)"
 msgstr ""
-"Benjamin Lin - <blin@socs.uts.edu.au>, Bernd Johannes Wuebben (mac2unix mode) "
-"- <wuebben@kde.org>, Christian Wurll (add extra newline) - <wurll@ira.uka."
-"de>, Erwin Waterlander - <waterlan@xs4all.nl> (maintainer)"
+"Benjamin Lin - <blin@socs.uts.edu.au>, Bernd Johannes Wuebben (mac2unix "
+"mode) - <wuebben@kde.org>, Christian Wurll (add extra newline) - <wurll@ira."
+"uka.de>, Erwin Waterlander - <waterlan@xs4all.nl> (maintainer)"
 
 #. type: textblock
 #: dos2unix.pod:698

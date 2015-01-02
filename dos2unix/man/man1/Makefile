@@ -3,7 +3,7 @@
 #   Copyright information
 #
 #	Copyright (C) 2010 Jari Aalto
-#	Copyright (C) 2010-2014 Erwin Waterlander
+#	Copyright (C) 2010-2015 Erwin Waterlander
 #
 #   License
 #
@@ -76,8 +76,6 @@ all: $(MAN_OBJECTS) dos2unix-man.pot
 
 
 # Issues:
-
-# Cygwin 1.7 expects man pages to be in Latin-1 format.
 
 # The perl version of MinGW and DJGPP is 5.8.8. The pod2man command of perl
 # 5.8.8 does not yet have the options -u, --utf8, and does support the

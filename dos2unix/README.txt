@@ -57,7 +57,7 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2-7.1    2009-2014
+        Erwin Waterlander       version 3.2-7.2    2009-2015
         Christian Wurll         version 3.1        1998
         Bernd Johannes Wuebben  version 3.0        1998
         Benjamin Lin            version 1.1-2.3    1994-1995
@@ -76,7 +76,7 @@ TRANSLATORS
         Chinese (traditional) mail6543210                  Version 6.0.5
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
         Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4
-        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.1
+        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.2
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
         Esperanto             Benno Schulenberg            Version 6.0.5 - 7.1
         French                Frédéric Marchal             Version 6.0.5 - 7.2
@@ -100,7 +100,7 @@ TRANSLATORS
 
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 7.2
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
-        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.1
+        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.2
         French                Frédéric Marchal             Version 6.0.5 - 7.2
         German                Mario Blättermann            Version 6.0.5 - 7.2
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.2
