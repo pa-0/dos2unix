@@ -1,3 +1,7 @@
+2015-01-03 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Fixed wrong encoded titles in HTML manuals when Perl 5.18
+	  pod2html was used. Thanks to Tom Christiansen.
+
 2015-01-02 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile, man/man1/Makefile: add option --no-wrap to xgettext and
 	  msgmerge. Translation Project standard is not to wrap.

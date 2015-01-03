@@ -142,6 +142,7 @@ ACKNOWLEDGEMENTS
         Gary Johnson          Idea for an info option, to list only files which have
                               DOS line breaks, or only files with Unix line breaks.
         Helmut Karlowski      Makefile and PrintVersion() update for freeMiNT.
+        Tom Christiansen      Fix for wrong title in HTML manuals.
 
 
 FINDUTILS
