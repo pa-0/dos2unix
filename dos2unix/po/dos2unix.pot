@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-30 00:05+0100\n"
+"POT-Creation-Date: 2015-01-03 11:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -111,8 +111,7 @@ msgstr ""
 
 #: common.c:222
 #, c-format
-msgid ""
-" -iso                  conversion between DOS and ISO-8859-1 character set\n"
+msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
 msgstr ""
 
 #: common.c:223
@@ -278,8 +277,7 @@ msgstr ""
 
 #: common.c:272
 #, c-format
-msgid ""
-" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
+msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr ""
 
 #: common.c:274

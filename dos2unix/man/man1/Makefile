@@ -86,10 +86,10 @@ all: $(MAN_OBJECTS) dos2unix-man.pot
 # Dos2unix 6.0.5: Forget Latin-1, we do now only UTF-8.
 
 dos2unix-man.pot : dos2unix.pod
-	po4a-updatepo -f pod -m $< -p $@
+	po4a-updatepo -f pod -m $< -p $@ --msgmerge-opt --no-wrap
 
 %.po : dos2unix.pod
-	po4a-updatepo -f pod -m $< -p $@ --msgmerge-opt --backup=numbered
+	po4a-updatepo -f pod -m $< -p $@ --msgmerge-opt "--backup=numbered --no-wrap"
 	# change timestamp in case .po file was not updated.
 	touch $@
 

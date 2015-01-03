@@ -1,6 +1,6 @@
 # Author: Erwin Waterlander
 #
-#   Copyright (C) 2009-2014 Erwin Waterlander
+#   Copyright (C) 2009-2015 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -350,7 +350,7 @@ $(MANPOTFILE) : man/man1/dos2unix.pod
 #  the shortest stem first.
 
 po/%.po : $(POT)
-	msgmerge -U $@ $(POT) --backup=numbered
+	msgmerge --no-wrap -U $@ $(POT) --backup=numbered
 	# change timestamp in case .po file was not updated.
 	touch $@
 
@@ -395,7 +395,7 @@ getpoman:
 	msgfmt -c $< -o $@
 
 $(POT) : dos2unix.c unix2dos.c common.c
-	xgettext -C -cTRANSLATORS: --keyword=_ $+ -o $(POT)
+	xgettext -C -cTRANSLATORS: --no-wrap --keyword=_ $+ -o $(POT)
 
 %.txt : %.pod
 	pod2text $< > $@

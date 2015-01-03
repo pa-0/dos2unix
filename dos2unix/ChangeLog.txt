@@ -1,4 +1,8 @@
 2015-01-02 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile, man/man1/Makefile: add option --no-wrap to xgettext and
+	  msgmerge. Translation Project standard is not to wrap.
+
+2015-01-02 Erwin Waterlander <waterlan@xs4all.nl>
 	* man/man1/dos2unix.pod: Point to gettext manual html nodes instead of
 	  the full gettext manual.
 
