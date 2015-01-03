@@ -3,22 +3,22 @@
 #
 # Philipp Thomas <pth@suse.de>, 2009, 2010, 2011, 2012.
 # Lars Wendler <polynomial-c@gentoo.org>, 2013.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2014.
 # Philipp Thomas <pth@suse.de>, 2014.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2014, 2015.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.1-beta3\n"
+"Project-Id-Version: dos2unix 7.2-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-30 00:05+0100\n"
-"PO-Revision-Date: 2014-09-24 20:45+0100\n"
+"POT-Creation-Date: 2015-01-03 11:25+0100\n"
+"PO-Revision-Date: 2015-01-03 17:47+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.7.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: dos2unix.c:76
@@ -71,8 +71,7 @@ msgstr "Ein binäres Symbol 0x%02X wurde in Zeile %d gefunden\n"
 
 #: dos2unix.c:469 unix2dos.c:477
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
-msgstr ""
-"Fehler: Der Inhalt der Umgebungsvariablen DOS2UNIX_LOCALEDIR ist zu lang.\n"
+msgstr "Fehler: Der Inhalt der Umgebungsvariablen DOS2UNIX_LOCALEDIR ist zu lang.\n"
 
 #: unix2dos.c:66
 msgid ""
@@ -150,16 +149,13 @@ msgstr " -ascii                wandelt nur Zeilenumbrüche um (Vorgabe)\n"
 
 #: common.c:222
 #, c-format
-msgid ""
-" -iso                  conversion between DOS and ISO-8859-1 character set\n"
-msgstr ""
-" -iso                  wandelt zwischen DOS- und ISO-8859-1-Zeichensatz um\n"
+msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
+msgstr " -iso                  wandelt zwischen DOS- und ISO-8859-1-Zeichensatz um\n"
 
 #: common.c:223
 #, c-format
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
-msgstr ""
-"   -1252               verwendet Windows Codepage 1252 (Westeuropäisch)\n"
+msgstr "   -1252               verwendet Windows Codepage 1252 (Westeuropäisch)\n"
 
 #: common.c:224
 #, c-format
@@ -179,8 +175,7 @@ msgstr "   -860                verwendet DOS Codepage 860 (Portugiesisch)\n"
 #: common.c:227
 #, c-format
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
-msgstr ""
-"   -863                verwendet DOS Codepage 863 (Kanadisches Französisch)\n"
+msgstr "   -863                verwendet DOS Codepage 863 (Kanadisches Französisch)\n"
 
 #: common.c:228
 #, c-format
@@ -190,8 +185,7 @@ msgstr "   -865                verwendet DOS Codepage 865 (Nordisch)\n"
 #: common.c:229
 #, c-format
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
-msgstr ""
-" -7                    wandelt 8Bit-Zeichen in solche aus dem 7Bit-Raum um\n"
+msgstr " -7                    wandelt 8Bit-Zeichen in solche aus dem 7Bit-Raum um\n"
 
 #: common.c:231
 #, c-format
@@ -201,8 +195,7 @@ msgstr " -b, --keep-bom        erhält die Bytereihenfolge-Markierung\n"
 #: common.c:233
 #, c-format
 msgid " -b, --keep-bom        keep Byte Order Mark (default)\n"
-msgstr ""
-" -b, --keep-bom        erhält die Bytereihenfolge-Markierung (Vorgabe)\n"
+msgstr " -b, --keep-bom        erhält die Bytereihenfolge-Markierung (Vorgabe)\n"
 
 #: common.c:234
 #, c-format
@@ -221,7 +214,7 @@ msgstr " -f, --force           erzwingt die Umwandlung binärer Dateien\n"
 #: common.c:239
 #, c-format
 msgid " -gb, --gb18030        convert UTF-16 to GB18030\n"
-msgstr ""
+msgstr " -gb, --gb18030        wandelt UTF-16 in GB18030 um\n"
 
 #: common.c:242
 #, c-format
@@ -255,9 +248,7 @@ msgstr " -l, --newline         fügt einen Zeilenumbruch hinzu\n"
 #: common.c:248
 #, c-format
 msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
-msgstr ""
-" -m, --add-bom        eine Bytereihenfolge-Markierung hinzufen (Vorgabe "
-"UTF-8)\n"
+msgstr " -m, --add-bom        eine Bytereihenfolge-Markierung hinzufen (Vorgabe UTF-8)\n"
 
 #: common.c:249
 #, c-format
@@ -287,8 +278,7 @@ msgstr " -q, --quiet           stiller Modus, unterdrückt alle Warnungen\n"
 #: common.c:256
 #, c-format
 msgid " -r, --remove-bom      remove Byte Order Mark (default)\n"
-msgstr ""
-" -r, --remove-bom      entfernt die Bytereihenfolge-Markierung (Vorgabe)\n"
+msgstr " -r, --remove-bom      entfernt die Bytereihenfolge-Markierung (Vorgabe)\n"
 
 #: common.c:258
 #, c-format
@@ -323,9 +313,7 @@ msgstr " -v,  --verbose        ausführliche Ausgabe\n"
 #: common.c:267
 #, c-format
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
-msgstr ""
-" -F, --follow-symlink  folgt symbolischen Verknüpfungen und wandelt die "
-"Ziele um\n"
+msgstr " -F, --follow-symlink  folgt symbolischen Verknüpfungen und wandelt die Ziele um\n"
 
 #: common.c:270
 #, c-format
@@ -333,14 +321,12 @@ msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
 "                         (original target files remain unchanged)\n"
 msgstr ""
-" -R, --replace-symlink ersetzt symbolische Verknüpfungen durch die "
-"umgewandelten\n"
+" -R, --replace-symlink ersetzt symbolische Verknüpfungen durch die umgewandelten\n"
 "                         Dateien (die originale Ziele bleiben unangetastet)\n"
 
 #: common.c:272
 #, c-format
-msgid ""
-" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
+msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr ""
 " -S, --skip-symlink    lässt symbolische Verknüpfungen und deren Ziele\n"
 "                       unangetastet (Vorgabe)\n"
@@ -409,9 +395,9 @@ msgid "OS/2 version (EMX).\n"
 msgstr "OS/2-Version (EMX).\n"
 
 #: common.c:314
-#, fuzzy, c-format
+#, c-format
 msgid "%s version.\n"
-msgstr "MSYS-Version.\n"
+msgstr "%s-Version.\n"
 
 #: common.c:317
 msgid "With Unicode UTF-16 support.\n"
@@ -433,19 +419,19 @@ msgstr "Das %s BOM wird geschrieben.\n"
 
 #: common.c:585 common.c:637 common.c:1117 common.c:1138
 msgid "UTF-16LE"
-msgstr ""
+msgstr "UTF-16LE"
 
 #: common.c:592 common.c:641 common.c:1119 common.c:1140
 msgid "UTF-16BE"
-msgstr ""
+msgstr "UTF-16BE"
 
 #: common.c:599 common.c:618 common.c:649 common.c:1130
 msgid "GB18030"
-msgstr ""
+msgstr "GB18030"
 
 #: common.c:606 common.c:625 common.c:645 common.c:1132
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: common.c:637 common.c:641 common.c:645 common.c:649
 #, c-format
@@ -485,9 +471,7 @@ msgstr "Das Ändern der Rechte der temporären Ausgabedatei %s scheiterte: %s\n"
 #: common.c:963
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
-msgstr ""
-"Das Ändern des Eigentümers und der Gruppe der temporären Ausgabedatei %s "
-"scheiterte: %s\n"
+msgstr "Das Ändern des Eigentümers und der Gruppe der temporären Ausgabedatei %s scheiterte: %s\n"
 
 #: common.c:1007
 #, c-format
@@ -527,8 +511,7 @@ msgstr "UTF-16 Datei %s wird übersprungen, da wchar_t %d Bytes groß ist.\n"
 #: common.c:1107 common.c:1177 common.c:1239
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
-msgstr ""
-"UTF-16 Datei %s wird übersprungen, da beim Umwandeln ein Fehler auftrat.\n"
+msgstr "UTF-16 Datei %s wird übersprungen, da beim Umwandeln ein Fehler auftrat.\n"
 
 #: common.c:1156 common.c:1221 common.c:1278
 #, c-format
@@ -538,35 +521,30 @@ msgstr "%s wird übersprungen, da es keine reguläre Datei ist\n"
 #: common.c:1159
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
-msgstr ""
-"%s wird übersprungen, Ausgabedatei %s ist eine symbolische Verknüpfung.\n"
+msgstr "%s wird übersprungen, Ausgabedatei %s ist eine symbolische Verknüpfung.\n"
 
 #: common.c:1162 common.c:1227 common.c:1283
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
-msgstr ""
-"Symbolische Verknüpfung %s wird übersprungen, da das Ziel keine reguläre "
-"Datei ist.\n"
+msgstr "Symbolische Verknüpfung %s wird übersprungen, da das Ziel keine reguläre Datei ist.\n"
 
 #: common.c:1165
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
-msgstr ""
-"%s wird übersprungen, das Ziel der symbolischen Verknüpfung %s ist keine "
-"reguläre Datei.\n"
+msgstr "%s wird übersprungen, das Ziel der symbolischen Verknüpfung %s ist keine reguläre Datei.\n"
 
 #: common.c:1182
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "Datei %s wird zu Datei %s im Unix-Format umgewandelt …\n"
 
 #: common.c:1185
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "Datei %s wird in Datei %s im Mac-Format umgewandelt …\n"
 
 #: common.c:1187
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "Datei %s wird in Datei %s im DOS-Format umgewandelt …\n"
 
@@ -577,19 +555,19 @@ msgstr "Datei %s wird in Datei %s im DOS-Format umgewandelt …\n"
 #. 4th %s is name of output file.
 #. E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format...
 #: common.c:1197
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in Unix format...\n"
-msgstr "Datei %s wird zu Datei %s im Unix-Format umgewandelt …\n"
+msgstr "%s-Datei %s wird zu %s-Datei %s im Unix-Format umgewandelt …\n"
 
 #: common.c:1200
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in Mac format...\n"
-msgstr "Datei %s wird in Datei %s im Mac-Format umgewandelt …\n"
+msgstr "%s-Datei %s wird in %s-Datei %s im Mac-Format umgewandelt …\n"
 
 #: common.c:1202
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in DOS format...\n"
-msgstr "Datei %s wird in Datei %s im DOS-Format umgewandelt …\n"
+msgstr "%s-Datei %s wird in %s-Datei %s im DOS-Format umgewandelt …\n"
 
 #: common.c:1207
 #, c-format
@@ -602,17 +580,17 @@ msgid "Skipping symbolic link %s.\n"
 msgstr "Symbolische Verknüpfung %s wird übersprungen.\n"
 
 #: common.c:1244
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "Datei %s wird ins Unix-Format umgewandelt …\n"
 
 #: common.c:1247
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "Datei %s wird ins Mac-Format umgewandelt …\n"
 
 #: common.c:1249
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "Datei %s wird ins DOS-Format umgewandelt …\n"
 
@@ -622,19 +600,19 @@ msgstr "Datei %s wird ins DOS-Format umgewandelt …\n"
 #. 3rd %s is encoding of output (input file is overwritten).
 #. E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format...
 #: common.c:1258
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s Unix format...\n"
-msgstr "Datei %s wird ins Unix-Format umgewandelt …\n"
+msgstr "%s-Datei %s wird ins %s-Unix-Format umgewandelt …\n"
 
 #: common.c:1261
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s Mac format...\n"
-msgstr "Datei %s wird ins Mac-Format umgewandelt …\n"
+msgstr "%s-Datei %s wird ins %s-Mac-Format umgewandelt …\n"
 
 #: common.c:1263
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s DOS format...\n"
-msgstr "Datei %s wird ins DOS-Format umgewandelt …\n"
+msgstr "%s-Datei %s wird ins %s-DOS-Format umgewandelt …\n"
 
 #: common.c:1268
 #, c-format
@@ -666,10 +644,5 @@ msgstr "Die Option »%s« benötigt ein Argument\n"
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "Das Ziel der Datei %s wurde für den Neudatei-Modus nicht angegeben\n"
 
-#, fuzzy
-#~ msgid ""
-#~ "Skipping UTF-16 file %s, the current locale character encoding is not "
-#~ "UTF-8 or GB18030.\n"
-#~ msgstr ""
-#~ "UTF-16 Datei %s wird übersprungen, da die derzeitige Zeichenkodierung "
-#~ "nicht UTF-8 ist.\n"
+#~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
+#~ msgstr "UTF-16 Datei %s wird übersprungen, da die derzeitige Zeichenkodierung nicht UTF-8 ist.\n"

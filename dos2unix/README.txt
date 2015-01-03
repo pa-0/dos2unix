@@ -82,7 +82,7 @@ TRANSLATORS
         French                Frédéric Marchal             Version 6.0.5 - 7.2
         German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0
         German                Lars Wendler                 Version 6.0.4
-        German                Mario Blättermann            Version 6.0.6, 7.1
+        German                Mario Blättermann            Version 6.0.6, 7.1 - 7.2
         Hungarian             Balázs Úr                    Version 6.0.5 - 7.1
         Japanese              Yasuaki Taniguchi            Version 7.1.1
         Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.2
