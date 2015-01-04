@@ -9,10 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-30 00:05+0100\n"
+"POT-Creation-Date: 2015-01-04 22:32+0100\n"
 "PO-Revision-Date: 2014-07-25 18:03+0100\n"
-"Last-Translator: Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail."
-"com>\n"
+"Last-Translator: Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -23,14 +22,14 @@ msgstr ""
 
 #: dos2unix.c:76
 msgid ""
-"Copyright (C) 2009-2014 Erwin Waterlander\n"
+"Copyright (C) 2009-2015 Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
 "Copyright (C) 1998      Bernd Johannes Wuebben (Version 3.0)\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Copyright (C) 2009-2014 Erwin Waterlander\n"
+"Copyright (C) 2009-2015 Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
 "Copyright (C) 1998      Bernd Johannes Wuebben (Version 3.0)\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
@@ -71,18 +70,16 @@ msgstr "Símbolo binario 0x%02X encontrado en la línea %d\n"
 
 #: dos2unix.c:469 unix2dos.c:477
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
-msgstr ""
-"error: El valor de la variable de entorno DOS2UNIX_LOCALEDIR es demasiado "
-"largo.\n"
+msgstr "error: El valor de la variable de entorno DOS2UNIX_LOCALEDIR es demasiado largo.\n"
 
 #: unix2dos.c:66
 msgid ""
-"Copyright (C) 2009-2014 Erwin Waterlander\n"
+"Copyright (C) 2009-2015 Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Copyright (C) 2009-2014 Erwin Waterlander\n"
+"Copyright (C) 2009-2015 Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "Todos los derechos reservados.\n"
 "\n"
@@ -100,18 +97,13 @@ msgid ""
 "   the distribution.\n"
 "\n"
 msgstr ""
-"La redistribución y el uso en las formas de código fuente y binario, con o "
-"sin\n"
+"La redistribución y el uso en las formas de código fuente y binario, con o sin\n"
 "modificaciones, están permitidos siempre que se cumplan las siguientes\n"
 "condiciones:\n"
-"1. Las redistribuciones del código fuente deben conservar el aviso de "
-"copyright\n"
-"   anterior, esta lista de condiciones y el siguiente descargo de "
-"responsabilidad.\n"
-"2. Las redistribuciones en formato binario deben reproducir el aviso de "
-"copyright\n"
-"   anterior, esta lista de condiciones y la siguiente renuncia en la "
-"documentación\n"
+"1. Las redistribuciones del código fuente deben conservar el aviso de copyright\n"
+"   anterior, esta lista de condiciones y el siguiente descargo de responsabilidad.\n"
+"2. Las redistribuciones en formato binario deben reproducir el aviso de copyright\n"
+"   anterior, esta lista de condiciones y la siguiente renuncia en la documentación\n"
 "   y/u otros materiales suministrados con la distribución.\n"
 "\n"
 
@@ -136,8 +128,7 @@ msgstr ""
 "DETERMINADO SON RECHAZADAS. EN NINGÚN CASO EL AUTOR SERÁ RESPONSABLE\n"
 "POR NINGÚN DAÑO DIRECTO, INDIRECTO, INCIDENTAL, ESPECIAL, EJEMPLAR O\n"
 "CONSECUENTE (INCLUYENDO, PERO NO LIMITADO A, LA ADQUISICIÓN DE BIENES O\n"
-"SERVICIOS; LA PÉRDIDA DE USO, DE DATOS O DE BENEFICIOS; O INTERRUPCIÓN DE "
-"LA\n"
+"SERVICIOS; LA PÉRDIDA DE USO, DE DATOS O DE BENEFICIOS; O INTERRUPCIÓN DE LA\n"
 "ACTIVIDAD EMPRESARIAL) O POR CUALQUIER TEORÍA DE RESPONSABILIDAD, YA SEA\n"
 "POR CONTRATO, RESPONSABILIDAD ESTRICTA O AGRAVIO (INCLUYENDO NEGLIGENCIA\n"
 "O CUALQUIER OTRA CAUSA) QUE SURJA DE CUALQUIER MANERA DEL USO DE ESTE\n"
@@ -146,44 +137,32 @@ msgstr ""
 #: common.c:220
 #, c-format
 msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
-msgstr ""
-"Uso: %s [parámetros] [archivo ...] [-n archivo_de_entrada "
-"archivo_de_salida ...]\n"
+msgstr "Uso: %s [parámetros] [archivo ...] [-n archivo_de_entrada archivo_de_salida ...]\n"
 
 #: common.c:221
 #, c-format
 msgid " -ascii                convert only line breaks (default)\n"
-msgstr ""
-" -ascii                solamente convierte los saltos de línea (por "
-"defecto)\n"
+msgstr " -ascii                solamente convierte los saltos de línea (por defecto)\n"
 
 #: common.c:222
 #, c-format
-msgid ""
-" -iso                  conversion between DOS and ISO-8859-1 character set\n"
-msgstr ""
-" -iso                  conversión entre DOS y el conjunto de caracteres "
-"ISO-8859-1\n"
+msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
+msgstr " -iso                  conversión entre DOS y el conjunto de caracteres ISO-8859-1\n"
 
 #: common.c:223
 #, c-format
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
-msgstr ""
-"   -1252               usa la página de códigos Windows 1252 (Europa "
-"Occidental)\n"
+msgstr "   -1252               usa la página de códigos Windows 1252 (Europa Occidental)\n"
 
 #: common.c:224
 #, c-format
 msgid "   -437                use DOS code page 437 (US) (default)\n"
-msgstr ""
-"   -437                usa la página de códigos DOS 437 (EE. UU.) (por "
-"defecto)\n"
+msgstr "   -437                usa la página de códigos DOS 437 (EE. UU.) (por defecto)\n"
 
 #: common.c:225
 #, c-format
 msgid "   -850                use DOS code page 850 (Western European)\n"
-msgstr ""
-"   -850                usa la página de códigos DOS 850 (Europa Occidental)\n"
+msgstr "   -850                usa la página de códigos DOS 850 (Europa Occidental)\n"
 
 #: common.c:226
 #, c-format
@@ -193,8 +172,7 @@ msgstr "   -860                usa la página de códigos DOS 860 (Portugués)\n
 #: common.c:227
 #, c-format
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
-msgstr ""
-"   -863                usa la página de códigos DOS 863 (Francocanadiense)\n"
+msgstr "   -863                usa la página de códigos DOS 863 (Francocanadiense)\n"
 
 #: common.c:228
 #, c-format
@@ -204,8 +182,7 @@ msgstr "   -865                usa la página de códigos DOS 865 (Nórdico)\n"
 #: common.c:229
 #, c-format
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
-msgstr ""
-" -7                    convierte caracteres de 8 bits al espacio de 7 bits\n"
+msgstr " -7                    convierte caracteres de 8 bits al espacio de 7 bits\n"
 
 #: common.c:231
 #, c-format
@@ -215,9 +192,7 @@ msgstr " -b, --keep-bom        conserva la Marca de Orden del Byte, BOM\n"
 #: common.c:233
 #, c-format
 msgid " -b, --keep-bom        keep Byte Order Mark (default)\n"
-msgstr ""
-" -b, --keep-bom         conserva la Marca de Orden del Byte, BOM (por "
-"defecto)\n"
+msgstr " -b, --keep-bom         conserva la Marca de Orden del Byte, BOM (por defecto)\n"
 
 #: common.c:234
 #, c-format
@@ -270,9 +245,7 @@ msgstr " -l, --newline         añade salto de línea adicional\n"
 #: common.c:248
 #, fuzzy, c-format
 msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
-msgstr ""
-" -b, --keep-bom         conserva la Marca de Orden del Byte, BOM (por "
-"defecto)\n"
+msgstr " -b, --keep-bom         conserva la Marca de Orden del Byte, BOM (por defecto)\n"
 
 #: common.c:249
 #, c-format
@@ -297,15 +270,12 @@ msgstr ""
 #: common.c:254
 #, c-format
 msgid " -q, --quiet           quiet mode, suppress all warnings\n"
-msgstr ""
-" -q, --quiet           modo silencioso, suprime todas las advertencias\n"
+msgstr " -q, --quiet           modo silencioso, suprime todas las advertencias\n"
 
 #: common.c:256
 #, c-format
 msgid " -r, --remove-bom      remove Byte Order Mark (default)\n"
-msgstr ""
-" -r, --remove-bom      elimina la Marca de Orden del Byte, BOM (por "
-"defecto)\n"
+msgstr " -r, --remove-bom      elimina la Marca de Orden del Byte, BOM (por defecto)\n"
 
 #: common.c:258
 #, c-format
@@ -340,9 +310,7 @@ msgstr ""
 #: common.c:267
 #, c-format
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
-msgstr ""
-" -F, --follow-symlink  sigue los enlaces simbólicos y convierte los "
-"destinos\n"
+msgstr " -F, --follow-symlink  sigue los enlaces simbólicos y convierte los destinos\n"
 
 #: common.c:270
 #, c-format
@@ -350,17 +318,13 @@ msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
 "                         (original target files remain unchanged)\n"
 msgstr ""
-" -R, --replace-symlink reemplaza los enlaces simbólicos con los archivos "
-"convertidos\n"
+" -R, --replace-symlink reemplaza los enlaces simbólicos con los archivos convertidos\n"
 "                         (los archivos destino originales no son alterados)\n"
 
 #: common.c:272
 #, c-format
-msgid ""
-" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
-msgstr ""
-" -S, --skip-symlink    no altera los enlaces simbólicos ni sus destinos (por "
-"defecto)\n"
+msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
+msgstr " -S, --skip-symlink    no altera los enlaces simbólicos ni sus destinos (por defecto)\n"
 
 #: common.c:274
 #, c-format
@@ -502,9 +466,7 @@ msgstr "Error al cambiar los permisos del archivo temporal de salida %s: %s\n"
 #: common.c:963
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
-msgstr ""
-"Error al cambiar el propietario y grupo del archivo temporal de salida %s: "
-"%s\n"
+msgstr "Error al cambiar el propietario y grupo del archivo temporal de salida %s: %s\n"
 
 #: common.c:1007
 #, c-format
@@ -544,8 +506,7 @@ msgstr "Ignorando archivo UTF-16 %s, el tamaño de wchar_t es %d bytes.\n"
 #: common.c:1107 common.c:1177 common.c:1239
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
-msgstr ""
-"Ignorando archivo UTF-16 %s, ocurrió un error de conversión a UTF-16.\n"
+msgstr "Ignorando archivo UTF-16 %s, ocurrió un error de conversión a UTF-16.\n"
 
 #: common.c:1156 common.c:1221 common.c:1278
 #, c-format
@@ -565,21 +526,20 @@ msgstr "Ignorando enlace simbólico %s, el destino no es un archivo regular.\n"
 #: common.c:1165
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
-msgstr ""
-"Ignorando %s, el destino del enlace simbólico %s no es un archivo regular.\n"
+msgstr "Ignorando %s, el destino del enlace simbólico %s no es un archivo regular.\n"
 
 #: common.c:1182
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "convirtiendo archivo %s a %s in formato Unix...\n"
 
 #: common.c:1185
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "convirtiendo archivo %s a %s in formato Mac...\n"
 
 #: common.c:1187
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "convirtiendo archivo %s a %s en formato DOS...\n"
 
@@ -615,17 +575,17 @@ msgid "Skipping symbolic link %s.\n"
 msgstr "Ignorando enlace simbólico %s.\n"
 
 #: common.c:1244
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "convirtiendo archivo %s a formato Unix...\n"
 
 #: common.c:1247
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "convirtiendo archivo %s a formato Mac...\n"
 
 #: common.c:1249
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "convirtiendo archivo %s a formato DOS...\n"
 
@@ -677,13 +637,10 @@ msgstr "el parámetro '%s' requiere un argumento\n"
 #: common.c:1738 common.c:1751 common.c:1817
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
-msgstr ""
-"el destino del archivo %s no se especificó en el modo de archivo nuevo\n"
+msgstr "el destino del archivo %s no se especificó en el modo de archivo nuevo\n"
 
 #, fuzzy
-#~ msgid ""
-#~ "Skipping UTF-16 file %s, the current locale character encoding is not "
-#~ "UTF-8 or GB18030.\n"
+#~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8 or GB18030.\n"
 #~ msgstr "Ignorando archivo UTF-16 %s, la codificación actual no es UTF-8.\n"
 
 #~ msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"

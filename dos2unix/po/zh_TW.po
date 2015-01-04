@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-30 00:05+0100\n"
+"POT-Creation-Date: 2015-01-04 22:32+0100\n"
 "PO-Revision-Date: 2014-03-14 00:43+0800\n"
 "Last-Translator: mail6543210 <mail6543210@yahoo.com.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -19,14 +19,14 @@ msgstr ""
 
 #: dos2unix.c:76
 msgid ""
-"Copyright (C) 2009-2014 Erwin Waterlander\n"
+"Copyright (C) 2009-2015 Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
 "Copyright (C) 1998      Bernd Johannes Wuebben (Version 3.0)\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Copyright (C) 2009-2014 Erwin Waterlander\n"
+"Copyright (C) 2009-2015 Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (版本 3.1)\n"
 "Copyright (C) 1998      Bernd Johannes Wuebben (版本 3.0)\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
@@ -71,12 +71,12 @@ msgstr "錯誤：環境變數DOS2UNIX_LOCALEDIR 的值太長。\n"
 
 #: unix2dos.c:66
 msgid ""
-"Copyright (C) 2009-2014 Erwin Waterlander\n"
+"Copyright (C) 2009-2015 Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Copyright © 2009-2014 Erwin Waterlander\n"
+"Copyright © 2009-2015 Erwin Waterlander\n"
 "Copyright © 1994-1995 Benjamin Lin\n"
 "保留所有權利。\n"
 "\n"
@@ -141,8 +141,7 @@ msgstr " -ascii                只轉換換行字元(預設)\n"
 
 #: common.c:222
 #, c-format
-msgid ""
-" -iso                  conversion between DOS and ISO-8859-1 character set\n"
+msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
 msgstr " -iso                  在DOS 和ISO-8859-1 字元集間轉換\n"
 
 #: common.c:223
@@ -319,8 +318,7 @@ msgstr ""
 
 #: common.c:272
 #, c-format
-msgid ""
-" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
+msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr " -S, --skip-symlink    保持符號連結及其目標不變(預設)\n"
 
 #: common.c:274
@@ -526,17 +524,17 @@ msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr "略過 %s，符號連結 %s 目標不是一個普通檔案。\n"
 
 #: common.c:1182
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "正在轉換 %s 為Unix 格式到 %s...\n"
 
 #: common.c:1185
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "正在轉換 %s 為Mac 格式到 %s...\n"
 
 #: common.c:1187
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "正在轉換 %s 為DOS 格式到 %s...\n"
 
@@ -572,17 +570,17 @@ msgid "Skipping symbolic link %s.\n"
 msgstr "略過符號連結 %s。\n"
 
 #: common.c:1244
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "正在轉換 %s 為Unix 格式...\n"
 
 #: common.c:1247
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "正在轉換 %s 為Mac 格式...\n"
 
 #: common.c:1249
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "正在轉換 %s 為DOS 格式...\n"
 
@@ -637,9 +635,7 @@ msgid "target of file %s not specified in new-file mode\n"
 msgstr "新檔模式中未指明檔案 %s 的目的位置\n"
 
 #, fuzzy
-#~ msgid ""
-#~ "Skipping UTF-16 file %s, the current locale character encoding is not "
-#~ "UTF-8 or GB18030.\n"
+#~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8 or GB18030.\n"
 #~ msgstr "略過 UTF-16 檔案 %s，目前語言字元編碼並非UTF-8。\n"
 
 #~ msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"

@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-7.1.1-beta6\n"
+"Project-Id-Version: dos2unix-7.2-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-30 00:05+0100\n"
-"PO-Revision-Date: 2014-12-25 19:02+0100\n"
+"POT-Creation-Date: 2015-01-04 22:32+0100\n"
+"PO-Revision-Date: 2015-01-04 15:04+0100\n"
 "Last-Translator: Åka Sikrom <a4@hush.com>\n"
 "Language-Team: Norwegian Bokmaal <i18n-nb@lister.ping.uio.no>\n"
 "Language: Norwegian Bokmål\n"
@@ -20,14 +20,14 @@ msgstr ""
 
 #: dos2unix.c:76
 msgid ""
-"Copyright (C) 2009-2014 Erwin Waterlander\n"
+"Copyright (C) 2009-2015 Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
 "Copyright (C) 1998      Bernd Johannes Wuebben (Version 3.0)\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Opphavsrett (C) 2009-2014 Erwin Waterlander\n"
+"Opphavsrett (C) 2009-2015 Erwin Waterlander\n"
 "Opphavsrett (C) 1998      Christian Wurll (Versjon 3.1)\n"
 "Opphavsrett (C) 1998      Bernd Johannes Wuebben (Versjon 3.0)\n"
 "Opphavsrett (C) 1994-1995 Benjamin Lin\n"
@@ -72,12 +72,12 @@ msgstr "feil: Verdien av miljøvariabelen DOS2UNIX_LOCALEDIR er for lang.\n"
 
 #: unix2dos.c:66
 msgid ""
-"Copyright (C) 2009-2014 Erwin Waterlander\n"
+"Copyright (C) 2009-2015 Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Opphavsrett (C) 2009-2014 Erwin Waterlander\n"
+"Opphavsrett (C) 2009-2015 Erwin Waterlander\n"
 "Opphavsrett (C) 1994-1995 Benjamin Lin\n"
 "Alle rettigheter tilhører rettighetshaveren.\n"
 "\n"
@@ -97,8 +97,7 @@ msgstr ""
 "Du kan dele og/eller endre både kildekode og binærfiler, gitt at følgende\n"
 "vilkår oppfylles:\n"
 "1. Redistribuert kildekode må beholde opphavsrettsteksten som\n"
-"   ligger ovenfor, samt denne lista over vilkår og følgende "
-"ansvarsfraskrivelse.\n"
+"   ligger ovenfor, samt denne lista over vilkår og følgende ansvarsfraskrivelse.\n"
 "2. Redistribuerte binærfiler må kunne produsere opphavsrettsteksten\n"
 "   i dokumentasjonen og/eller i annet materiell som inngår i\n"
 "   distribusjonen.\n"
@@ -120,8 +119,7 @@ msgid ""
 msgstr ""
 "DENNE PROGRAMVAREN TILBYS AV FORFATTEREN «SLIK DET ER», OG\n"
 "DET STILLES INGEN EKSPLISITT ELLER IMPLISITT GARANTI FOR AT DET EGNER\n"
-"SEG TIL NOE SOM HELST. UTVIKLEREN SKAL UNDER INGEN OMSTENDIGHETERREGNES "
-"SOM \n"
+"SEG TIL NOE SOM HELST. UTVIKLEREN SKAL UNDER INGEN OMSTENDIGHETERREGNES SOM \n"
 "ANSVARLIG FOR DIREKTE, INDIREKTE, TILFELDIGE, SPESIELLE, EKSEMPLARISKE\n"
 "ELLER KONSEKVENTE SKADER (INLKUSIVE - MEN IKKE BEGRENSET TIL - INNKJØP\n"
 "AV RESERVEVARER ELLER -TJENESTER, TAP AV DATA, TAP AV FORTJENESTE, ELLER\n"
@@ -143,10 +141,8 @@ msgstr " -ascii                bare konverter linjeskift (standard)\n"
 
 #: common.c:222
 #, c-format
-msgid ""
-" -iso                  conversion between DOS and ISO-8859-1 character set\n"
-msgstr ""
-" -iso                  konverter mellom tegnsettene DOS og ISO-8859-1\n"
+msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
+msgstr " -iso                  konverter mellom tegnsettene DOS og ISO-8859-1\n"
 
 #: common.c:223
 #, c-format
@@ -322,11 +318,8 @@ msgstr ""
 
 #: common.c:272
 #, c-format
-msgid ""
-" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
-msgstr ""
-" -S, --skip-symlink    hold både symbolske lenker og lenkemål uendret "
-"(standard)\n"
+msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
+msgstr " -S, --skip-symlink    hold både symbolske lenker og lenkemål uendret (standard)\n"
 
 #: common.c:274
 #, c-format
@@ -416,19 +409,19 @@ msgstr "Skriver «Byte Order»-merke %s.\n"
 
 #: common.c:585 common.c:637 common.c:1117 common.c:1138
 msgid "UTF-16LE"
-msgstr ""
+msgstr "UTF-16LE"
 
 #: common.c:592 common.c:641 common.c:1119 common.c:1140
 msgid "UTF-16BE"
-msgstr ""
+msgstr "UTF-16BE"
 
 #: common.c:599 common.c:618 common.c:649 common.c:1130
 msgid "GB18030"
-msgstr ""
+msgstr "GB18030"
 
 #: common.c:606 common.c:625 common.c:645 common.c:1132
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: common.c:637 common.c:641 common.c:645 common.c:649
 #, c-format
@@ -463,15 +456,12 @@ msgstr "Klarte ikke å skrive til den midlertidige utdata-fila «%s». %s\n"
 #: common.c:947
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s: %s\n"
-msgstr ""
-"Klarte ikke å endre rettighetene til den midlertidige utdata-fila «%s». %s\n"
+msgstr "Klarte ikke å endre rettighetene til den midlertidige utdata-fila «%s». %s\n"
 
 #: common.c:963
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
-msgstr ""
-"Klarte ikke å endre eier og gruppetilhørighet for den midlertidige utdata-"
-"fila «%s». %s\n"
+msgstr "Klarte ikke å endre eier og gruppetilhørighet for den midlertidige utdata-fila «%s». %s\n"
 
 #: common.c:1007
 #, c-format
@@ -511,8 +501,7 @@ msgstr "Hopper over UTF-16-fila «%s». Størrelsen på wchar_t er %d byte.\n"
 #: common.c:1107 common.c:1177 common.c:1239
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
-msgstr ""
-"Hopper over UTF-16-fila «%s». Det oppstod en UTF-16-konverteringsfeil.\n"
+msgstr "Hopper over UTF-16-fila «%s». Det oppstod en UTF-16-konverteringsfeil.\n"
 
 #: common.c:1156 common.c:1221 common.c:1278
 #, c-format
@@ -532,23 +521,22 @@ msgstr "Hopper over den symbolske lenka «%s». Målet er ikke en vanlig fil.\n"
 #: common.c:1165
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
-msgstr ""
-"Hopper over «%s». Målet for den symbolske lenka «%s» er ikke en vanlig fil.\n"
+msgstr "Hopper over «%s». Målet for den symbolske lenka «%s» er ikke en vanlig fil.\n"
 
 #: common.c:1182
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to file %s in Unix format...\n"
-msgstr "konverterer %s fil %s til fil %s i %s Unix-format …\n"
+msgstr "konverterer fila %s til %s i Unix-format …\n"
 
 #: common.c:1185
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to file %s in Mac format...\n"
-msgstr "konverterer %s fil %s til fil %s i %s Mac-format …\n"
+msgstr "konverterer fila %s til %s Mac-format …\n"
 
 #: common.c:1187
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to file %s in DOS format...\n"
-msgstr "konverterer %s fil %s til fil %s i %s DOS-format …\n"
+msgstr "konverterer fila %s til %s i DOS-format …\n"
 
 #. TRANSLATORS:
 #. 1st %s is encoding of input file.
@@ -557,19 +545,19 @@ msgstr "konverterer %s fil %s til fil %s i %s DOS-format …\n"
 #. 4th %s is name of output file.
 #. E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format...
 #: common.c:1197
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in Unix format...\n"
-msgstr "konverterer %s fil %s til fil %s i %s Unix-format …\n"
+msgstr "konverterer %s-fila %s til %s-fila %s i Unix-format …\n"
 
 #: common.c:1200
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in Mac format...\n"
-msgstr "konverterer %s fil %s til fil %s i %s Mac-format …\n"
+msgstr "konverterer %s-fila %s til %s-fila %s i Mac-format …\n"
 
 #: common.c:1202
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in DOS format...\n"
-msgstr "konverterer %s fil %s til fil %s i %s DOS-format …\n"
+msgstr "konverterer %s-fila %s til %s-fila %s DOS-format …\n"
 
 #: common.c:1207
 #, c-format
@@ -582,19 +570,19 @@ msgid "Skipping symbolic link %s.\n"
 msgstr "Hopper over den symbolske lenka «%s».\n"
 
 #: common.c:1244
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to Unix format...\n"
-msgstr "konverterer %s fil %s til %s Unix-format …\n"
+msgstr "konverterer fila %s til Unix-format …\n"
 
 #: common.c:1247
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to Mac format...\n"
-msgstr "konverterer %s fil %s til %s Mac-format …\n"
+msgstr "konverterer fila %s til Mac-format …\n"
 
 #: common.c:1249
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to DOS format...\n"
-msgstr "konverterer %s fil %s til %s DOS-format …\n"
+msgstr "konverterer fila %s til DOS-format …\n"
 
 #. TRANSLATORS:
 #. 1st %s is encoding of input file.
@@ -602,19 +590,19 @@ msgstr "konverterer %s fil %s til %s DOS-format …\n"
 #. 3rd %s is encoding of output (input file is overwritten).
 #. E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format...
 #: common.c:1258
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s Unix format...\n"
-msgstr "konverterer %s fil %s til %s Unix-format …\n"
+msgstr "konverterer %s-fila %s til %s-Unix-format …\n"
 
 #: common.c:1261
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s Mac format...\n"
-msgstr "konverterer %s fil %s til %s Mac-format …\n"
+msgstr "konverterer %s-fila %s til %s-Mac-format …\n"
 
 #: common.c:1263
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s DOS format...\n"
-msgstr "konverterer %s fil %s til %s DOS-format …\n"
+msgstr "konverterer %s-fila %s til %s-DOS-format …\n"
 
 #: common.c:1268
 #, c-format
@@ -646,12 +634,8 @@ msgstr "valget «%s» krever at du bruker et argument\n"
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "målet for fila «%s» er ikke valgt i ny fil-modus\n"
 
-#~ msgid ""
-#~ "Skipping UTF-16 file %s, the current locale character encoding is not "
-#~ "UTF-8.\n"
-#~ msgstr ""
-#~ "Hopper over UTF-16-fila «%s». Gjeldende lokaltilpasset tegnkoding er ikke "
-#~ "UTF-8.\n"
+#~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
+#~ msgstr "Hopper over UTF-16-fila «%s». Gjeldende lokaltilpasset tegnkoding er ikke UTF-8.\n"
 
 #~ msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"
 #~ msgstr " -m, --add-bom         legg til UTF-8 «Byte Order»-merke\n"

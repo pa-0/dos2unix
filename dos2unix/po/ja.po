@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.1-beta3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-30 00:05+0100\n"
+"POT-Creation-Date: 2015-01-04 22:32+0100\n"
 "PO-Revision-Date: 2014-11-07 11:35+0000\n"
 "Last-Translator: YASUAKI TANIGUCHI <yasuakit@gmail.com>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -18,14 +18,14 @@ msgstr ""
 
 #: dos2unix.c:76
 msgid ""
-"Copyright (C) 2009-2014 Erwin Waterlander\n"
+"Copyright (C) 2009-2015 Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
 "Copyright (C) 1998      Bernd Johannes Wuebben (Version 3.0)\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Copyright (C) 2009-2014 Erwin Waterlander\n"
+"Copyright (C) 2009-2015 Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
 "Copyright (C) 1998      Bernd Johannes Wuebben (Version 3.0)\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
@@ -70,12 +70,12 @@ msgstr "エラー: 環境変数 DOS2UNIX_LOCALEDIR の値が長すぎます。\n
 
 #: unix2dos.c:66
 msgid ""
-"Copyright (C) 2009-2014 Erwin Waterlander\n"
+"Copyright (C) 2009-2015 Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Copyright (C) 2009-2014 Erwin Waterlander\n"
+"Copyright (C) 2009-2015 Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
@@ -142,8 +142,7 @@ msgstr " -ascii                改行のみ変換する (既定)\n"
 
 #: common.c:222
 #, c-format
-msgid ""
-" -iso                  conversion between DOS and ISO-8859-1 character set\n"
+msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
 msgstr " -iso                  DOS と ISO-8859-1 文字セット間で変換する\n"
 
 #: common.c:223
@@ -164,14 +163,12 @@ msgstr "   -850                DOS コードページ 850 (西欧) を使用す�
 #: common.c:226
 #, c-format
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
-msgstr ""
-"   -860                DOS コードページ 860 (ポルトガル語) を使用する\n"
+msgstr "   -860                DOS コードページ 860 (ポルトガル語) を使用する\n"
 
 #: common.c:227
 #, c-format
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
-msgstr ""
-"   -863                DOS コードページ 863 (カナダのフランス語) を使用する\n"
+msgstr "   -863                DOS コードページ 863 (カナダのフランス語) を使用する\n"
 
 #: common.c:228
 #, c-format
@@ -322,11 +319,8 @@ msgstr ""
 
 #: common.c:272
 #, c-format
-msgid ""
-" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
-msgstr ""
-" -S, --skip-symlink    シンボリックリンクを辿らず、対象をそのままにする (既"
-"定)\n"
+msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
+msgstr " -S, --skip-symlink    シンボリックリンクを辿らず、対象をそのままにする (既定)\n"
 
 #: common.c:274
 #, c-format
@@ -503,15 +497,12 @@ msgstr "コードページ %d はサポートされていません\n"
 #: common.c:1104 common.c:1174 common.c:1236 common.c:1288
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
-msgstr ""
-"UTF-16 ファイル %s をスキップしています。wchar_t のサイズは %d バイトです。\n"
+msgstr "UTF-16 ファイル %s をスキップしています。wchar_t のサイズは %d バイトです。\n"
 
 #: common.c:1107 common.c:1177 common.c:1239
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
-msgstr ""
-"UTF-16 ファイル %s をスキップしています。UTF-16 変換でエラーが発生しまし"
-"た。\n"
+msgstr "UTF-16 ファイル %s をスキップしています。UTF-16 変換でエラーが発生しました。\n"
 
 #: common.c:1156 common.c:1221 common.c:1278
 #, c-format
@@ -526,29 +517,25 @@ msgstr "%s をスキップしています。出力ファイル %s はシンボ�
 #: common.c:1162 common.c:1227 common.c:1283
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
-msgstr ""
-"シンボリックリンク %s をスキップしています。対象が通常ファイルではありませ"
-"ん。\n"
+msgstr "シンボリックリンク %s をスキップしています。対象が通常ファイルではありません。\n"
 
 #: common.c:1165
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
-msgstr ""
-"%s をスキップしています。シンボリックリンク %s を辿った先が通常ファイルではあ"
-"りません。\n"
+msgstr "%s をスキップしています。シンボリックリンク %s を辿った先が通常ファイルではありません。\n"
 
 #: common.c:1182
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "%s から %s へ Unix 形式でファイル変換しています。\n"
 
 #: common.c:1185
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "%s から %s へ Mac 形式でファイル変換しています。\n"
 
 #: common.c:1187
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "%s から %s へ DOS 形式で変換しています。\n"
 
@@ -584,17 +571,17 @@ msgid "Skipping symbolic link %s.\n"
 msgstr "シンボリックリンク %s をスキップしています。\n"
 
 #: common.c:1244
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "ファイル %s を Unix 形式へ変換しています。\n"
 
 #: common.c:1247
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "ファイル %s を Mac 形式へ変換しています。\n"
 
 #: common.c:1249
-#, fuzzy, c-format
+#, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "ファイル %s を DOS 形式へ変換しています。\n"
 
@@ -649,9 +636,5 @@ msgid "target of file %s not specified in new-file mode\n"
 msgstr "対象ファイル %s が新規ファイルモードで指定されていません\n"
 
 #, fuzzy
-#~ msgid ""
-#~ "Skipping UTF-16 file %s, the current locale character encoding is not "
-#~ "UTF-8 or GB18030.\n"
-#~ msgstr ""
-#~ "UTF-16 ファイル %s をスキップしています。現在のロケールの文字エンコーディ"
-#~ "ングは UTF-8 ではありません。\n"
+#~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8 or GB18030.\n"
+#~ msgstr "UTF-16 ファイル %s をスキップしています。現在のロケールの文字エンコーディングは UTF-8 ではありません。\n"
