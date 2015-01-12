@@ -1,13 +1,13 @@
 # Polish translation for dos2unix.
 # This file is distributed under the same license as the dos2unix package.
-# Jakub Bogusz <qboosh@pld-linux.org>, 2014.
+# Jakub Bogusz <qboosh@pld-linux.org>, 2014-2015.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.1.1-beta6\n"
+"Project-Id-Version: dos2unix 7.2-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-04 22:32+0100\n"
-"PO-Revision-Date: 2014-12-24 13:31+0100\n"
+"POT-Creation-Date: 2015-01-12 21:40+0100\n"
+"PO-Revision-Date: 2015-01-08 16:15+0100\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "Language: pl\n"
@@ -407,19 +407,19 @@ msgstr "Zapis znacznika BOM %s.\n"
 
 #: common.c:585 common.c:637 common.c:1117 common.c:1138
 msgid "UTF-16LE"
-msgstr ""
+msgstr "UTF-16LE"
 
 #: common.c:592 common.c:641 common.c:1119 common.c:1140
 msgid "UTF-16BE"
-msgstr ""
+msgstr "UTF-16BE"
 
 #: common.c:599 common.c:618 common.c:649 common.c:1130
 msgid "GB18030"
-msgstr ""
+msgstr "GB18030"
 
 #: common.c:606 common.c:625 common.c:645 common.c:1132
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: common.c:637 common.c:641 common.c:645 common.c:649
 #, c-format
@@ -543,19 +543,19 @@ msgstr "konwersja pliku %s do pliku %s w formacie DOS...\n"
 #. 4th %s is name of output file.
 #. E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format...
 #: common.c:1197
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in Unix format...\n"
-msgstr "konwersja pliku%s %s do pliku %s w formacie uniksowym%s...\n"
+msgstr "konwersja pliku %s %s do pliku %s %s w formacie uniksowym...\n"
 
 #: common.c:1200
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in Mac format...\n"
-msgstr "konwersja pliku%s %s do pliku %s w formacie Mac%s...\n"
+msgstr "konwersja pliku %s %s do pliku %s %s w formacie Mac...\n"
 
 #: common.c:1202
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in DOS format...\n"
-msgstr "konwersja pliku%s %s do pliku %s w formacie DOS%s...\n"
+msgstr "konwersja pliku %s %s do pliku %s %s w formacie DOS...\n"
 
 #: common.c:1207
 #, c-format
@@ -570,7 +570,7 @@ msgstr "Pominięto dowiązanie symboliczne %s.\n"
 #: common.c:1244
 #, c-format
 msgid "converting file %s to Unix format...\n"
-msgstr "konwertowanie pliku %s do formatu uniksowego...\n"
+msgstr "konwersja pliku %s do formatu uniksowego...\n"
 
 #: common.c:1247
 #, c-format
@@ -588,19 +588,19 @@ msgstr "konwersja pliku %s do formatu DOS...\n"
 #. 3rd %s is encoding of output (input file is overwritten).
 #. E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format...
 #: common.c:1258
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s Unix format...\n"
-msgstr "konwersja pliku%s %s do formatu uniksowego%s...\n"
+msgstr "konwersja pliku %s %s do formatu uniksowego %s...\n"
 
 #: common.c:1261
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s Mac format...\n"
-msgstr "konwersja pliku%s %s do formatu Mac%s...\n"
+msgstr "konwersja pliku %s %s do formatu Mac %s...\n"
 
 #: common.c:1263
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s DOS format...\n"
-msgstr "konwersja pliku%s %s do formatu DOS%s...\n"
+msgstr "konwersja pliku %s %s do formatu DOS %s...\n"
 
 #: common.c:1268
 #, c-format
@@ -631,6 +631,3 @@ msgstr "opcja '%s' wymaga argumentu\n"
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "nie podano celu pliku %s w trybie nowego pliku\n"
-
-#~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
-#~ msgstr "Pominięto plik UTF-16 %s, kodowanie znaków bieżącej lokalizacji to nie UTF-8.\n"
