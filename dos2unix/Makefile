@@ -413,25 +413,25 @@ README.txt INSTALL.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt: ;
 	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
 
 man/de/man1/$(PACKAGE).$(HTMLEXT) : man/de/man1/$(PACKAGE).pod
-	PERL_UNICODE=A pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Formatumwandlung für Textdateien von DOS/Mac nach Unix und umgekehrt" $< > $@
+	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Formatumwandlung für Textdateien von DOS/Mac nach Unix und umgekehrt" $< > $@
 
 man/es/man1/$(PACKAGE).$(HTMLEXT) : man/es/man1/$(PACKAGE).pod
-	PERL_UNICODE=A pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Convertidor de archivos de texto de formato DOS/Mac a Unix y viceversa" $< > $@
+	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Convertidor de archivos de texto de formato DOS/Mac a Unix y viceversa" $< > $@
 
 man/fr/man1/$(PACKAGE).$(HTMLEXT) : man/fr/man1/$(PACKAGE).pod
-	PERL_UNICODE=A pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Convertit les fichiers textes du format DOS/Mac vers Unix et inversement" $< > $@
+	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Convertit les fichiers textes du format DOS/Mac vers Unix et inversement" $< > $@
 
 man/nl/man1/$(PACKAGE).$(HTMLEXT) : man/nl/man1/$(PACKAGE).pod
-	PERL_UNICODE=A pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/Mac naar Unix en vice versa tekstbestand formaat omzetter" $< > $@
+	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/Mac naar Unix en vice versa tekstbestand formaat omzetter" $< > $@
 
 man/pl/man1/$(PACKAGE).$(HTMLEXT) : man/pl/man1/$(PACKAGE).pod
-	PERL_UNICODE=A pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - konwerter formatu plików tekstowych między systemami DOS/Mac a Uniksem" $< > $@
+	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - konwerter formatu plików tekstowych między systemami DOS/Mac a Uniksem" $< > $@
 
 man/pt_BR/man1/$(PACKAGE).$(HTMLEXT) : man/pt_BR/man1/$(PACKAGE).pod
-	PERL_UNICODE=A pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Conversor de formato de arquivo texto de DOS/Mac para Unix e vice-versa" $< > $@
+	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Conversor de formato de arquivo texto de DOS/Mac para Unix e vice-versa" $< > $@
 
 man/uk/man1/$(PACKAGE).$(HTMLEXT) : man/uk/man1/$(PACKAGE).pod
-	PERL_UNICODE=A pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - програма для перетворення даних у текстовому форматі DOS/Mac у формат Unix, і навпаки" $< > $@
+	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - програма для перетворення даних у текстовому форматі DOS/Mac у формат Unix, і навпаки" $< > $@
 
 test: all
 	cd test; $(MAKE) test
