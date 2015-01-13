@@ -4,13 +4,13 @@
 # This file is distributed under the same license as the dos2unix package.
 #
 # Julio A. Freyre-Gonzalez <jfreyreg@gmail.com>, 2011, 2012, 2013.
-# Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail.com>, 2014.
+# Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail.com>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 6.0.6-beta4\n"
+"Project-Id-Version: dos2unix 7.2-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-04 22:32+0100\n"
-"PO-Revision-Date: 2014-07-25 18:03+0100\n"
+"POT-Creation-Date: 2015-01-03 11:25+0100\n"
+"PO-Revision-Date: 2015-01-13 19:50+0100\n"
 "Last-Translator: Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.7\n"
+"X-Generator: Poedit 1.7.3\n"
 
 #: dos2unix.c:76
 msgid ""
@@ -56,7 +56,7 @@ msgstr "error, modo de conversión %d inválido\n"
 #: dos2unix.c:266 dos2unix.c:440 unix2dos.c:254 unix2dos.c:448
 #, c-format
 msgid "Converted %d out of %d line breaks.\n"
-msgstr ""
+msgstr "Convertidos %d saltos de línea de un total de %d.\n"
 
 #: dos2unix.c:325 unix2dos.c:313
 #, c-format
@@ -211,7 +211,7 @@ msgstr " -f, --force           fuerza la conversión de archivos binarios\n"
 #: common.c:239
 #, c-format
 msgid " -gb, --gb18030        convert UTF-16 to GB18030\n"
-msgstr ""
+msgstr " -gb, --gb18030        convierte UTF-16 a GB18030\n"
 
 #: common.c:242
 #, c-format
@@ -219,13 +219,13 @@ msgid " -h, --help            display this help text\n"
 msgstr " -h, --help            arroja esta ayuda\n"
 
 #: common.c:243
-#, fuzzy, c-format
+#, c-format
 msgid ""
 " -i, --info[=FLAGS]    display file information\n"
 "   file ...            files to analyze\n"
 msgstr ""
-" -o, --oldfile         escribe al archivo antiguo (por defecto)\n"
-"   archivo ...         archivos a convertir en el modo de archivo antiguo\n"
+" -i, --info[=FLAGS]    muestra información del archivo\n"
+"   archivo ...            archivos a analizar\n"
 
 #: common.c:245
 #, c-format
@@ -243,9 +243,9 @@ msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline         añade salto de línea adicional\n"
 
 #: common.c:248
-#, fuzzy, c-format
+#, c-format
 msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
-msgstr " -b, --keep-bom         conserva la Marca de Orden del Byte, BOM (por defecto)\n"
+msgstr " -m, --add-bom         añade la Marca de Orden del Byte, BOM (por defecto en UTF-8)\n"
 
 #: common.c:249
 #, c-format
@@ -290,7 +290,7 @@ msgstr " -s, --safe            ignora archivos binarios (por defecto)\n"
 #: common.c:261
 #, c-format
 msgid " -u,  --keep-utf16     keep UTF-16 encoding\n"
-msgstr ""
+msgstr " -u,  --keep-utf16     mantiene la codificación UTF-16\n"
 
 #: common.c:262
 #, c-format
@@ -305,7 +305,7 @@ msgstr " -ub, --assume-utf16be supone que el formato de entrada es UTF-16BE\n"
 #: common.c:265
 #, c-format
 msgid " -v,  --verbose        verbose operation\n"
-msgstr ""
+msgstr " -v,  --verbose        operación detallada\n"
 
 #: common.c:267
 #, c-format
@@ -390,9 +390,9 @@ msgid "OS/2 version (EMX).\n"
 msgstr "Versión para OS/2 (EMX).\n"
 
 #: common.c:314
-#, fuzzy, c-format
+#, c-format
 msgid "%s version.\n"
-msgstr "Versión para MSYS.\n"
+msgstr "Versión para %s.\n"
 
 #: common.c:317
 msgid "With Unicode UTF-16 support.\n"
@@ -410,38 +410,38 @@ msgstr "Con soporte de idioma materno.\n"
 #: common.c:625
 #, c-format
 msgid "Writing %s BOM.\n"
-msgstr ""
+msgstr "Escribiendo BOM %s.\n"
 
 #: common.c:585 common.c:637 common.c:1117 common.c:1138
 msgid "UTF-16LE"
-msgstr ""
+msgstr "UTF-16LE"
 
 #: common.c:592 common.c:641 common.c:1119 common.c:1140
 msgid "UTF-16BE"
-msgstr ""
+msgstr "UTF-16BE"
 
 #: common.c:599 common.c:618 common.c:649 common.c:1130
 msgid "GB18030"
-msgstr ""
+msgstr "GB18030"
 
 #: common.c:606 common.c:625 common.c:645 common.c:1132
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: common.c:637 common.c:641 common.c:645 common.c:649
 #, c-format
 msgid "Input file %s has %s BOM.\n"
-msgstr ""
+msgstr "El archivo de entrada %s tiene BOM %s.\n"
 
 #: common.c:687 common.c:727
 #, c-format
 msgid "Assuming UTF-16LE encoding.\n"
-msgstr ""
+msgstr "Se asume codificación UTF-16LE.\n"
 
 #: common.c:691 common.c:731
 #, c-format
 msgid "Assuming UTF-16BE encoding.\n"
-msgstr ""
+msgstr "Se asume codificación UTF-16BE.\n"
 
 #: common.c:847
 #, c-format
@@ -550,19 +550,19 @@ msgstr "convirtiendo archivo %s a %s en formato DOS...\n"
 #. 4th %s is name of output file.
 #. E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format...
 #: common.c:1197
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in Unix format...\n"
-msgstr "convirtiendo archivo %s a %s in formato Unix...\n"
+msgstr "convirtiendo archivo %s %s en archivo %s %s en formato Unix...\n"
 
 #: common.c:1200
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in Mac format...\n"
-msgstr "convirtiendo archivo %s a %s in formato Mac...\n"
+msgstr "convirtiendo archivo %s %s en archivo %s %s en formato Mac...\n"
 
 #: common.c:1202
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in DOS format...\n"
-msgstr "convirtiendo archivo %s a %s en formato DOS...\n"
+msgstr "convirtiendo archivo %s %s en archivo %s %s en formato DOS...\n"
 
 #: common.c:1207
 #, c-format
@@ -595,19 +595,19 @@ msgstr "convirtiendo archivo %s a formato DOS...\n"
 #. 3rd %s is encoding of output (input file is overwritten).
 #. E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format...
 #: common.c:1258
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s Unix format...\n"
-msgstr "convirtiendo archivo %s a formato Unix...\n"
+msgstr "convirtiendo archivo %s %s a formato %s Unix...\n"
 
 #: common.c:1261
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s Mac format...\n"
-msgstr "convirtiendo archivo %s a formato Mac...\n"
+msgstr "convirtiendo archivo %s %s a formato %s Mac...\n"
 
 #: common.c:1263
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s DOS format...\n"
-msgstr "convirtiendo archivo %s a formato DOS...\n"
+msgstr "convirtiendo archivo %s %s a formato %s DOS...\n"
 
 #: common.c:1268
 #, c-format
@@ -617,7 +617,7 @@ msgstr "problemas convirtiendo el archivo %s\n"
 #: common.c:1561
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
-msgstr ""
+msgstr "'%c' es un valor incorrecto para la opción -i o --info\n"
 
 #: common.c:1670 common.c:1707
 #, c-format
@@ -639,8 +639,7 @@ msgstr "el parámetro '%s' requiere un argumento\n"
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "el destino del archivo %s no se especificó en el modo de archivo nuevo\n"
 
-#, fuzzy
-#~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8 or GB18030.\n"
+#~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
 #~ msgstr "Ignorando archivo UTF-16 %s, la codificación actual no es UTF-8.\n"
 
 #~ msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"
