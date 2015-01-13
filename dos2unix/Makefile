@@ -410,7 +410,7 @@ README.txt INSTALL.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt: ;
 
 # Generic rule.
 %.$(HTMLEXT) : %.pod
-	pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
+	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
 
 man/de/man1/$(PACKAGE).$(HTMLEXT) : man/de/man1/$(PACKAGE).pod
 	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Formatumwandlung für Textdateien von DOS/Mac nach Unix und umgekehrt" $< > $@
