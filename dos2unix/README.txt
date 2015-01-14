@@ -105,7 +105,7 @@ TRANSLATORS
         German                Mario Blättermann            Version 6.0.5 - 7.2
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.2
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
-        Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6
+        Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.2
         Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.2
 
 
