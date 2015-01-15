@@ -130,7 +130,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
             if (ipFlag->verbose) {
               if ((ipFlag->stdio_mode) && (!ipFlag->error)) ipFlag->error = 1;
               fprintf(stderr, "%s: ", progname);
-              fprintf(stderr, _("Binary symbol 0x00%02X found at line %d\n"),TempChar, line_nr);
+              fprintf(stderr, _("Binary symbol 0x00%02X found at line %u\n"), TempChar, line_nr);
             }
             break;
           }
@@ -180,7 +180,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
             if (ipFlag->verbose) {
               if ((ipFlag->stdio_mode) && (!ipFlag->error)) ipFlag->error = 1;
               fprintf(stderr, "%s: ", progname);
-              fprintf(stderr, _("Binary symbol 0x00%02X found at line %d\n"),TempChar, line_nr);
+              fprintf(stderr, _("Binary symbol 0x00%02X found at line %u\n"), TempChar, line_nr);
             }
             break;
           }
@@ -251,7 +251,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
     }
     if (ipFlag->verbose > 1) {
       fprintf(stderr, "%s: ", progname);
-      fprintf(stderr, _("Converted %d out of %d line breaks.\n"),converted, line_nr -1);
+      fprintf(stderr, _("Converted %u out of %u line breaks.\n"), converted, line_nr -1);
     }
     return RetVal;
 }
@@ -332,7 +332,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
             if (ipFlag->verbose) {
               if ((ipFlag->stdio_mode) && (!ipFlag->error)) ipFlag->error = 1;
               fprintf(stderr, "%s: ", progname);
-              fprintf(stderr, _("Binary symbol 0x%02X found at line %d\n"),TempChar, line_nr);
+              fprintf(stderr, _("Binary symbol 0x%02X found at line %u\n"), TempChar, line_nr);
             }
             break;
           }
@@ -380,7 +380,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
             if (ipFlag->verbose) {
               if ((ipFlag->stdio_mode) && (!ipFlag->error)) ipFlag->error = 1;
               fprintf(stderr, "%s: ", progname);
-              fprintf(stderr, _("Binary symbol 0x%02X found at line %d\n"),TempChar, line_nr);
+              fprintf(stderr, _("Binary symbol 0x%02X found at line %u\n"), TempChar, line_nr);
             }
             break;
           }
@@ -445,7 +445,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
     }
     if (ipFlag->verbose > 1) {
       fprintf(stderr, "%s: ", progname);
-      fprintf(stderr, _("Converted %d out of %d line breaks.\n"),converted, line_nr -1);
+      fprintf(stderr, _("Converted %u out of %u line breaks.\n"), converted, line_nr -1);
     }
     return RetVal;
 }

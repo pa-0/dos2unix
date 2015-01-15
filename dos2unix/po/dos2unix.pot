@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-12 21:40+0100\n"
+"POT-Creation-Date: 2015-01-15 22:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgstr ""
 
 #: dos2unix.c:169 dos2unix.c:206 unix2dos.c:133 unix2dos.c:183
 #, c-format
-msgid "Binary symbol 0x00%02X found at line %d\n"
+msgid "Binary symbol 0x00%02X found at line %u\n"
 msgstr ""
 
 #: dos2unix.c:183 dos2unix.c:220 dos2unix.c:243 dos2unix.c:362 dos2unix.c:397
@@ -46,7 +46,7 @@ msgstr ""
 
 #: dos2unix.c:266 dos2unix.c:440 unix2dos.c:254 unix2dos.c:448
 #, c-format
-msgid "Converted %d out of %d line breaks.\n"
+msgid "Converted %u out of %u line breaks.\n"
 msgstr ""
 
 #: dos2unix.c:325 unix2dos.c:313
@@ -56,7 +56,7 @@ msgstr ""
 
 #: dos2unix.c:349 dos2unix.c:384 unix2dos.c:335 unix2dos.c:383
 #, c-format
-msgid "Binary symbol 0x%02X found at line %d\n"
+msgid "Binary symbol 0x%02X found at line %u\n"
 msgstr ""
 
 #: dos2unix.c:469 unix2dos.c:477

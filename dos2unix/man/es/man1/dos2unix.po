@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.2-beta4\n"
 "POT-Creation-Date: 2015-01-03 13:05+0100\n"
-"PO-Revision-Date: 2015-01-13 22:56+0100\n"
+"PO-Revision-Date: 2015-01-15 08:44+0100\n"
 "Last-Translator: Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
 "Language: es\n"
@@ -252,7 +252,7 @@ msgstr "B<-gb, --gb18030>"
 #. type: textblock
 #: dos2unix.pod:161
 msgid "On Windows UTF-16 files are by default converted to UTF-8, regardless of the locale setting. Use this option to convert UTF-16 files to GB18030. This option is only available on Windows. See also section GB18030."
-msgstr ""
+msgstr "En Windows los archivos UTF-16 se convierten por defecto a UTF-8, sin tener en cuenta la configuración local. Use esta opción para convertir archivos UTF-16 a GB18030. Esta opción sólo está disponible en Windows.l Véase también la sección GB18030."
 
 #. type: =item
 #: dos2unix.pod:165
@@ -271,15 +271,13 @@ msgstr "B<-i[MARCAS], --info[= MARCAS] ARCHIVO ...>"
 
 #. type: textblock
 #: dos2unix.pod:171
-#, fuzzy
-#| msgid "Display version information and exit."
 msgid "Display file information. No conversion is done."
-msgstr "Despiega la información de la versión y termina el programa."
+msgstr "Muestra la información del archivo. No se realiza ninguna conversión."
 
 #. type: textblock
 #: dos2unix.pod:173
 msgid "The following information is printed, in this order: number of DOS line breaks, number of Unix line breaks, number of Mac line breaks, byte order mark, text or binary, file name."
-msgstr ""
+msgstr "Se muestra la siguiente información, en este orden: número de saltos de línea DOS, número de saltos de línea Unix, número de saltos de línea Mac, Marca de Orden de Byte, de texto o binario, nombre del archivo."
 
 #. type: textblock
 #: dos2unix.pod:177
@@ -403,7 +401,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:228
 msgid "Show only the number of DOS line breaks and Unix line breaks:"
-msgstr ""
+msgstr "Muestra sólo el número de saltos de línea de DOS y de Unix:"
 
 #. type: verbatim
 #: dos2unix.pod:230
@@ -448,7 +446,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:240
 msgid "List the files that have Unix line breaks:"
-msgstr ""
+msgstr "Muestra los archivos que tienen saltos de línea Unix:"
 
 #. type: verbatim
 #: dos2unix.pod:242

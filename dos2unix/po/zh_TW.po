@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-04 22:32+0100\n"
+"POT-Creation-Date: 2015-01-15 22:35+0100\n"
 "PO-Revision-Date: 2014-03-14 00:43+0800\n"
 "Last-Translator: mail6543210 <mail6543210@yahoo.com.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -34,8 +34,8 @@ msgstr ""
 "\n"
 
 #: dos2unix.c:169 dos2unix.c:206 unix2dos.c:133 unix2dos.c:183
-#, c-format
-msgid "Binary symbol 0x00%02X found at line %d\n"
+#, fuzzy, c-format
+msgid "Binary symbol 0x00%02X found at line %u\n"
 msgstr "找到二進位符號0x00%02X 在第%d 行\n"
 
 #: dos2unix.c:183 dos2unix.c:220 dos2unix.c:243 dos2unix.c:362 dos2unix.c:397
@@ -52,7 +52,7 @@ msgstr "程式錯誤，不合法的轉換模式 %d\n"
 
 #: dos2unix.c:266 dos2unix.c:440 unix2dos.c:254 unix2dos.c:448
 #, c-format
-msgid "Converted %d out of %d line breaks.\n"
+msgid "Converted %u out of %u line breaks.\n"
 msgstr ""
 
 #: dos2unix.c:325 unix2dos.c:313
@@ -61,8 +61,8 @@ msgid "using code page %d.\n"
 msgstr "使用 %d 編碼頁。\n"
 
 #: dos2unix.c:349 dos2unix.c:384 unix2dos.c:335 unix2dos.c:383
-#, c-format
-msgid "Binary symbol 0x%02X found at line %d\n"
+#, fuzzy, c-format
+msgid "Binary symbol 0x%02X found at line %u\n"
 msgstr "找到二進位符號0x%02X 在第%d 行\n"
 
 #: dos2unix.c:469 unix2dos.c:477

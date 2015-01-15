@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.2-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-04 22:32+0100\n"
+"POT-Creation-Date: 2015-01-15 22:35+0100\n"
 "PO-Revision-Date: 2015-01-04 14:22+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -35,8 +35,8 @@ msgstr ""
 "\n"
 
 #: dos2unix.c:169 dos2unix.c:206 unix2dos.c:133 unix2dos.c:183
-#, c-format
-msgid "Binary symbol 0x00%02X found at line %d\n"
+#, fuzzy, c-format
+msgid "Binary symbol 0x00%02X found at line %u\n"
 msgstr "Ký hiệu nhị phân 0x00%02X được tìm thấy tại dòng %d\n"
 
 #: dos2unix.c:183 dos2unix.c:220 dos2unix.c:243 dos2unix.c:362 dos2unix.c:397
@@ -52,8 +52,8 @@ msgid "program error, invalid conversion mode %d\n"
 msgstr "lỗi chương trình, chế độ chuyển đổi %d không hợp lệ\n"
 
 #: dos2unix.c:266 dos2unix.c:440 unix2dos.c:254 unix2dos.c:448
-#, c-format
-msgid "Converted %d out of %d line breaks.\n"
+#, fuzzy, c-format
+msgid "Converted %u out of %u line breaks.\n"
 msgstr "Đã chuyển đổi %d trong tổng số %d chỗ ngắt dòng.\n"
 
 #: dos2unix.c:325 unix2dos.c:313
@@ -62,8 +62,8 @@ msgid "using code page %d.\n"
 msgstr "dùng trang mã %d.\n"
 
 #: dos2unix.c:349 dos2unix.c:384 unix2dos.c:335 unix2dos.c:383
-#, c-format
-msgid "Binary symbol 0x%02X found at line %d\n"
+#, fuzzy, c-format
+msgid "Binary symbol 0x%02X found at line %u\n"
 msgstr "Ký hiệu nhị phân 0x%02X được tìm thấy tại dòng %d\n"
 
 #: dos2unix.c:469 unix2dos.c:477

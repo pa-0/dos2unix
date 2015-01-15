@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-6.1-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-04 22:32+0100\n"
+"POT-Creation-Date: 2015-01-15 22:35+0100\n"
 "PO-Revision-Date: 2014-09-13 09:08+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -33,8 +33,8 @@ msgstr ""
 "\n"
 
 #: dos2unix.c:169 dos2unix.c:206 unix2dos.c:133 unix2dos.c:183
-#, c-format
-msgid "Binary symbol 0x00%02X found at line %d\n"
+#, fuzzy, c-format
+msgid "Binary symbol 0x00%02X found at line %u\n"
 msgstr "Бинарни симбол 0x00%02X је пронађен у %d. реду\n"
 
 #: dos2unix.c:183 dos2unix.c:220 dos2unix.c:243 dos2unix.c:362 dos2unix.c:397
@@ -50,8 +50,8 @@ msgid "program error, invalid conversion mode %d\n"
 msgstr "програмска грешка, неисправан режим претварања %d\n"
 
 #: dos2unix.c:266 dos2unix.c:440 unix2dos.c:254 unix2dos.c:448
-#, c-format
-msgid "Converted %d out of %d line breaks.\n"
+#, fuzzy, c-format
+msgid "Converted %u out of %u line breaks.\n"
 msgstr "Претворио сам %d од %d прекида реда.\n"
 
 #: dos2unix.c:325 unix2dos.c:313
@@ -60,8 +60,8 @@ msgid "using code page %d.\n"
 msgstr "користим кодну страницу %d.\n"
 
 #: dos2unix.c:349 dos2unix.c:384 unix2dos.c:335 unix2dos.c:383
-#, c-format
-msgid "Binary symbol 0x%02X found at line %d\n"
+#, fuzzy, c-format
+msgid "Binary symbol 0x%02X found at line %u\n"
 msgstr "Бинарни симбол 0x%02X је пронађен у %d. реду\n"
 
 #: dos2unix.c:469 unix2dos.c:477

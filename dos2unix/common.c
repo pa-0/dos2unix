@@ -609,7 +609,7 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
     }
   } else {
     if ((bomtype == FILE_GB18030) ||
-        (((bomtype == FILE_UTF16LE)||(bomtype == FILE_UTF16LE))&&(ipFlag->locale_target == TARGET_GB18030))
+        (((bomtype == FILE_UTF16LE)||(bomtype == FILE_UTF16BE))&&(ipFlag->locale_target == TARGET_GB18030))
        ) {
         fprintf(f, "%s", "\x84\x31\x95\x33"); /* GB18030 */
         if (ipFlag->verbose > 1)
@@ -1338,11 +1338,11 @@ void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename)
   }
 
   if (ipFlag->file_info & INFO_DOS)
-    printf("  %6d", lb_dos);
+    printf("  %6u", lb_dos);
   if (ipFlag->file_info & INFO_UNIX)
-    printf("  %6d", lb_unix);
+    printf("  %6u", lb_unix);
   if (ipFlag->file_info & INFO_MAC)
-    printf("  %6d", lb_mac);
+    printf("  %6u", lb_mac);
   if (ipFlag->file_info & INFO_BOM)
     print_bom_info(ipFlag->bomtype);
   if (ipFlag->file_info & INFO_TEXT) {
@@ -1404,11 +1404,11 @@ void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename)
   }
 
   if (ipFlag->file_info & INFO_DOS)
-    printf("  %6d", lb_dos);
+    printf("  %6u", lb_dos);
   if (ipFlag->file_info & INFO_UNIX)
-    printf("  %6d", lb_unix);
+    printf("  %6u", lb_unix);
   if (ipFlag->file_info & INFO_MAC)
-    printf("  %6d", lb_mac);
+    printf("  %6u", lb_mac);
   if (ipFlag->file_info & INFO_BOM)
     print_bom_info(ipFlag->bomtype);
   if (ipFlag->file_info & INFO_TEXT) {
