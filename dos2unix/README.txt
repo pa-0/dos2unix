@@ -143,6 +143,7 @@ ACKNOWLEDGEMENTS
                               DOS line breaks, or only files with Unix line breaks.
         Helmut Karlowski      Makefile and PrintVersion() update for freeMiNT.
         Tom Christiansen      Fix for wrong title in HTML manuals.
+        Armin Müller          Fixed typo in if condition in write_bom().
 
 
 FINDUTILS
