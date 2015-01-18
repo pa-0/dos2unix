@@ -1,4 +1,4 @@
-# Dutch translations for dos2unix, a DOS/MAC to UNIX text-file format converter.
+# Dutch translations for dos2unix, a DOS/Mac to Unix text-file format converter.
 # This file is distributed under the same license as the dos2unix package.
 #
 #
@@ -6,10 +6,10 @@
 # Benno Schulenberg <benno@vertaalt.nl>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.2-beta4\n"
+"Project-Id-Version: dos2unix 7.2-beta5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-15 22:35+0100\n"
-"PO-Revision-Date: 2015-01-04 10:06+0100\n"
+"PO-Revision-Date: 2015-01-17 21:05+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -36,9 +36,9 @@ msgstr ""
 "\n"
 
 #: dos2unix.c:169 dos2unix.c:206 unix2dos.c:133 unix2dos.c:183
-#, fuzzy, c-format
+#, c-format
 msgid "Binary symbol 0x00%02X found at line %u\n"
-msgstr "Binair teken 0x00%02X gevonden op regel %d\n"
+msgstr "Binair teken 0x00%02X gevonden op regel %u\n"
 
 #: dos2unix.c:183 dos2unix.c:220 dos2unix.c:243 dos2unix.c:362 dos2unix.c:397
 #: dos2unix.c:418 unix2dos.c:160 unix2dos.c:195 unix2dos.c:216 unix2dos.c:232
@@ -53,9 +53,9 @@ msgid "program error, invalid conversion mode %d\n"
 msgstr "**programmafout**: ongeldige conversiemodus %d\n"
 
 #: dos2unix.c:266 dos2unix.c:440 unix2dos.c:254 unix2dos.c:448
-#, fuzzy, c-format
+#, c-format
 msgid "Converted %u out of %u line breaks.\n"
-msgstr "Er zijn %d van %d regeleindes geconverteerd.\n"
+msgstr "Er zijn %u van %u regeleindes geconverteerd.\n"
 
 #: dos2unix.c:325 unix2dos.c:313
 #, c-format
@@ -63,9 +63,9 @@ msgid "using code page %d.\n"
 msgstr "codetabel %d wordt gebruikt.\n"
 
 #: dos2unix.c:349 dos2unix.c:384 unix2dos.c:335 unix2dos.c:383
-#, fuzzy, c-format
+#, c-format
 msgid "Binary symbol 0x%02X found at line %u\n"
-msgstr "Binair teken 0x%02X gevonden op regel %d\n"
+msgstr "Binair teken 0x%02X gevonden op regel %u\n"
 
 #: dos2unix.c:469 unix2dos.c:477
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
