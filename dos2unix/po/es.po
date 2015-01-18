@@ -7,10 +7,10 @@
 # Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail.com>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.2-beta4\n"
+"Project-Id-Version: dos2unix 7.2-beta5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-15 22:35+0100\n"
-"PO-Revision-Date: 2015-01-13 19:50+0100\n"
+"PO-Revision-Date: 2015-01-18 10:54+0100\n"
 "Last-Translator: Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
 "Language: es\n"
@@ -37,9 +37,9 @@ msgstr ""
 "\n"
 
 #: dos2unix.c:169 dos2unix.c:206 unix2dos.c:133 unix2dos.c:183
-#, fuzzy, c-format
+#, c-format
 msgid "Binary symbol 0x00%02X found at line %u\n"
-msgstr "Símbolo binario 0x00%02X encontrado en la línea %d\n"
+msgstr "Símbolo binario 0x00%02X encontrado en la línea %u\n"
 
 #: dos2unix.c:183 dos2unix.c:220 dos2unix.c:243 dos2unix.c:362 dos2unix.c:397
 #: dos2unix.c:418 unix2dos.c:160 unix2dos.c:195 unix2dos.c:216 unix2dos.c:232
@@ -54,9 +54,9 @@ msgid "program error, invalid conversion mode %d\n"
 msgstr "error, modo de conversión %d inválido\n"
 
 #: dos2unix.c:266 dos2unix.c:440 unix2dos.c:254 unix2dos.c:448
-#, fuzzy, c-format
+#, c-format
 msgid "Converted %u out of %u line breaks.\n"
-msgstr "Convertidos %d saltos de línea de un total de %d.\n"
+msgstr "Convertidos %u saltos de línea de un total de %u.\n"
 
 #: dos2unix.c:325 unix2dos.c:313
 #, c-format
@@ -64,9 +64,9 @@ msgid "using code page %d.\n"
 msgstr "usando página de códigos %d.\n"
 
 #: dos2unix.c:349 dos2unix.c:384 unix2dos.c:335 unix2dos.c:383
-#, fuzzy, c-format
+#, c-format
 msgid "Binary symbol 0x%02X found at line %u\n"
-msgstr "Símbolo binario 0x%02X encontrado en la línea %d\n"
+msgstr "Símbolo binario 0x%02X encontrado en la línea %u\n"
 
 #: dos2unix.c:469 unix2dos.c:477
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
