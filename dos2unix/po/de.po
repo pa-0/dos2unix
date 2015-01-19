@@ -3,15 +3,15 @@
 #
 # Philipp Thomas <pth@suse.de>, 2009, 2010, 2011, 2012.
 # Lars Wendler <polynomial-c@gentoo.org>, 2013.
-# Philipp Thomas <pth@suse.de>, 2014.
+# Philipp Thomas <pth@suse.de>, 2014, 2015.
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2014, 2015.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.2-beta4\n"
+"Project-Id-Version: dos2unix 7.2-beta5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-15 22:35+0100\n"
-"PO-Revision-Date: 2015-01-03 17:47+0100\n"
+"PO-Revision-Date: 2015-01-19 08:21+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
@@ -38,9 +38,9 @@ msgstr ""
 "\n"
 
 #: dos2unix.c:169 dos2unix.c:206 unix2dos.c:133 unix2dos.c:183
-#, fuzzy, c-format
+#, c-format
 msgid "Binary symbol 0x00%02X found at line %u\n"
-msgstr "Das binäre Symbol 0x00%02X wurde in Zeile %d gefunden\n"
+msgstr "Das binäre Symbol 0x00%02X wurde in Zeile %u gefunden\n"
 
 #: dos2unix.c:183 dos2unix.c:220 dos2unix.c:243 dos2unix.c:362 dos2unix.c:397
 #: dos2unix.c:418 unix2dos.c:160 unix2dos.c:195 unix2dos.c:216 unix2dos.c:232
@@ -55,9 +55,9 @@ msgid "program error, invalid conversion mode %d\n"
 msgstr "Programmfehler, der Umwandlungsmodus %d ist unzulässig\n"
 
 #: dos2unix.c:266 dos2unix.c:440 unix2dos.c:254 unix2dos.c:448
-#, fuzzy, c-format
+#, c-format
 msgid "Converted %u out of %u line breaks.\n"
-msgstr "Es wurden %d von %d Zeilenumbrüchen umgewandelt.\n"
+msgstr "Es wurden %u von %u Zeilenumbrüchen umgewandelt.\n"
 
 #: dos2unix.c:325 unix2dos.c:313
 #, c-format
@@ -65,9 +65,9 @@ msgid "using code page %d.\n"
 msgstr "Codepage %d wird verwendet.\n"
 
 #: dos2unix.c:349 dos2unix.c:384 unix2dos.c:335 unix2dos.c:383
-#, fuzzy, c-format
+#, c-format
 msgid "Binary symbol 0x%02X found at line %u\n"
-msgstr "Ein binäres Symbol 0x%02X wurde in Zeile %d gefunden\n"
+msgstr "Das binäres Symbol 0x%02X wurde in Zeile %u gefunden\n"
 
 #: dos2unix.c:469 unix2dos.c:477
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
