@@ -36,9 +36,9 @@ msgstr ""
 "\n"
 
 #: dos2unix.c:169 dos2unix.c:206 unix2dos.c:133 unix2dos.c:183
-#, fuzzy, c-format
+#, c-format
 msgid "Binary symbol 0x00%02X found at line %u\n"
-msgstr "Símbolo binário 0x00%02X localizado na linha %d\n"
+msgstr "Símbolo binário 0x00%02X localizado na linha %u\n"
 
 #: dos2unix.c:183 dos2unix.c:220 dos2unix.c:243 dos2unix.c:362 dos2unix.c:397
 #: dos2unix.c:418 unix2dos.c:160 unix2dos.c:195 unix2dos.c:216 unix2dos.c:232
@@ -53,9 +53,9 @@ msgid "program error, invalid conversion mode %d\n"
 msgstr "erro do programa, modo de conversão %d é inválido\n"
 
 #: dos2unix.c:266 dos2unix.c:440 unix2dos.c:254 unix2dos.c:448
-#, fuzzy, c-format
+#, c-format
 msgid "Converted %u out of %u line breaks.\n"
-msgstr "Convertidas %d de %d quebras de linha.\n"
+msgstr "Convertidas %u de %u quebras de linha.\n"
 
 #: dos2unix.c:325 unix2dos.c:313
 #, c-format
@@ -63,9 +63,9 @@ msgid "using code page %d.\n"
 msgstr "usando a página de código %d.\n"
 
 #: dos2unix.c:349 dos2unix.c:384 unix2dos.c:335 unix2dos.c:383
-#, fuzzy, c-format
+#, c-format
 msgid "Binary symbol 0x%02X found at line %u\n"
-msgstr "Símbolo binário 0x%02X localizado na linha %d\n"
+msgstr "Símbolo binário 0x%02X localizado na linha %u\n"
 
 #: dos2unix.c:469 unix2dos.c:477
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"

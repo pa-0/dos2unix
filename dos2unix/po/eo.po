@@ -1,14 +1,16 @@
 # Esperanto translations for the dos2unix converter programs.
 # This file is distributed under the same license as the dos2unix package.
 #
+# »Eine schöne, leichte Schwere.«
+#
 # Ruĝulo <ruĝulo@gmail.com>, 2010.
-# Benno Schulenberg <benno@vertaalt.nl>, 2014.
+# Benno Schulenberg <benno@vertaalt.nl>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.1-beta3\n"
+"Project-Id-Version: dos2unix 7.2-beta5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-15 22:35+0100\n"
-"PO-Revision-Date: 2014-09-21 12:21+0200\n"
+"PO-Revision-Date: 2015-01-24 21:51+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
 "Language: eo\n"
@@ -35,9 +37,9 @@ msgstr ""
 "\n"
 
 #: dos2unix.c:169 dos2unix.c:206 unix2dos.c:133 unix2dos.c:183
-#, fuzzy, c-format
+#, c-format
 msgid "Binary symbol 0x00%02X found at line %u\n"
-msgstr "Duuma signo 0x00%02X troviĝis en linio %d\n"
+msgstr "Duuma signo 0x00%02X troviĝis en linio %u\n"
 
 #: dos2unix.c:183 dos2unix.c:220 dos2unix.c:243 dos2unix.c:362 dos2unix.c:397
 #: dos2unix.c:418 unix2dos.c:160 unix2dos.c:195 unix2dos.c:216 unix2dos.c:232
@@ -52,9 +54,9 @@ msgid "program error, invalid conversion mode %d\n"
 msgstr "**programeraro**: malvalida konvertmoduso %d\n"
 
 #: dos2unix.c:266 dos2unix.c:440 unix2dos.c:254 unix2dos.c:448
-#, fuzzy, c-format
+#, c-format
 msgid "Converted %u out of %u line breaks.\n"
-msgstr "Konvertiĝis %d el %d linifinoj.\n"
+msgstr "Konvertiĝis %u el %u linifinoj.\n"
 
 #: dos2unix.c:325 unix2dos.c:313
 #, c-format
@@ -62,9 +64,9 @@ msgid "using code page %d.\n"
 msgstr "uziĝas kodpaĝo %d.\n"
 
 #: dos2unix.c:349 dos2unix.c:384 unix2dos.c:335 unix2dos.c:383
-#, fuzzy, c-format
+#, c-format
 msgid "Binary symbol 0x%02X found at line %u\n"
-msgstr "Duuma signo 0x%02X troviĝis en linio %d\n"
+msgstr "Duuma signo 0x%02X troviĝis en linio %u\n"
 
 #: dos2unix.c:469 unix2dos.c:477
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
@@ -150,7 +152,7 @@ msgstr "   -850                 uzi DOS-kodpaĝon 850 (Okcident-Eŭropa)\n"
 #: common.c:226
 #, c-format
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
-msgstr "   -860                 uzi DOS0-kodpaĝon 860 (Portugala)\n"
+msgstr "   -860                 uzi DOS-kodpaĝon 860 (Portugala)\n"
 
 #: common.c:227
 #, c-format
@@ -194,7 +196,7 @@ msgstr " -f, --force            perforte konverti ankaŭ duumajn dosierojn\n"
 #: common.c:239
 #, c-format
 msgid " -gb, --gb18030        convert UTF-16 to GB18030\n"
-msgstr ""
+msgstr " -gb, --gb18030         konverti UTF-16 al GB18030\n"
 
 #: common.c:242
 #, c-format
@@ -373,9 +375,9 @@ msgid "OS/2 version (EMX).\n"
 msgstr "OS/2-versio (EMX).\n"
 
 #: common.c:314
-#, fuzzy, c-format
+#, c-format
 msgid "%s version.\n"
-msgstr "MSYS-versio.\n"
+msgstr "%s-versio.\n"
 
 #: common.c:317
 msgid "With Unicode UTF-16 support.\n"
@@ -397,19 +399,19 @@ msgstr "Skribiĝas %s-BOM.\n"
 
 #: common.c:585 common.c:637 common.c:1117 common.c:1138
 msgid "UTF-16LE"
-msgstr ""
+msgstr "UTF-16LE"
 
 #: common.c:592 common.c:641 common.c:1119 common.c:1140
 msgid "UTF-16BE"
-msgstr ""
+msgstr "UTF-16BE"
 
 #: common.c:599 common.c:618 common.c:649 common.c:1130
 msgid "GB18030"
-msgstr ""
+msgstr "GB18030"
 
 #: common.c:606 common.c:625 common.c:645 common.c:1132
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: common.c:637 common.c:641 common.c:645 common.c:649
 #, c-format
@@ -533,19 +535,19 @@ msgstr "konvertiĝas dosiero %s al dosiero %s DOS-en...\n"
 #. 4th %s is name of output file.
 #. E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format...
 #: common.c:1197
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in Unix format...\n"
-msgstr "konvertiĝas dosiero %s al dosiero %s Unix-en...\n"
+msgstr "konvertiĝas dosiero %2$s (%1$s) Unix-en al dosiero %3$s (%4$s)...\n"
 
 #: common.c:1200
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in Mac format...\n"
-msgstr "konvertiĝas dosiero %s al dosiero %s Mac-en...\n"
+msgstr "konvertiĝas dosiero %2$s (%1$s) Mac-en al dosiero %3$s (%4$s)...\n"
 
 #: common.c:1202
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in DOS format...\n"
-msgstr "konvertiĝas dosiero %s al dosiero %s DOS-en...\n"
+msgstr "konvertiĝas dosiero %2$s (%1$s) DOS-en al dosiero %3$s (%4$s)...\n"
 
 #: common.c:1207
 #, c-format
@@ -578,19 +580,19 @@ msgstr "konvertiĝas dosiero %s DOS-en...\n"
 #. 3rd %s is encoding of output (input file is overwritten).
 #. E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format...
 #: common.c:1258
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s Unix format...\n"
-msgstr "konvertiĝas dosiero %s Unix-en...\n"
+msgstr "konvertiĝas dosiero %2$s (%1$s) Unix-en (%3$s)...\n"
 
 #: common.c:1261
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s Mac format...\n"
-msgstr "konvertiĝas dosiero %s Mac-en...\n"
+msgstr "konvertiĝas dosiero %2$s (%1$s) Mac-en (%3$s)...\n"
 
 #: common.c:1263
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s DOS format...\n"
-msgstr "konvertiĝas dosiero %s DOS-en...\n"
+msgstr "konvertiĝas dosiero %2$s (%1$s) DOS-en (%3$s)...\n"
 
 #: common.c:1268
 #, c-format
@@ -622,6 +624,5 @@ msgstr "opcio '%s' bezonas argumenton\n"
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "celo de dosiero %s ne indikatas (en novdosiera moduso)\n"
 
-#, fuzzy
-#~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8 or GB18030.\n"
+#~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
 #~ msgstr "Preterpasiĝas UTF-16-a dosiero %s, la nuntempa lokaĵa kodo ne estas UTF-8.\n"
