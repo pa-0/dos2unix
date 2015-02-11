@@ -48,8 +48,7 @@ HISTORY
         * In-place, paired, or stdio mode conversion.
         * Keep original file dates option.
         * 7-bit and iso conversion modes like SunOS dos2unix.
-        * Conversion of Unicode UTF-16 and UTF-8 files.
-        * Conversion of UTF-16 files to UTF-8.
+        * Conversion of Unicode UTF-16 files.
         * Handles Unicode Byte Order Mark (BOM).
         * Display file information.
         * Secure.

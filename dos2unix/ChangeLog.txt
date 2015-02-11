@@ -1,3 +1,6 @@
+2015-02-11 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 7.2
+
 2015-01-15 Armin Müller
 	* common.c,dos2unix.c,unix2dos.c: Use %u in format strings for
 	  unsigned ints.

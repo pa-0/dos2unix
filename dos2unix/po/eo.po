@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: dos2unix 7.2-beta5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-15 22:35+0100\n"
-"PO-Revision-Date: 2015-01-24 21:51+0100\n"
+"PO-Revision-Date: 2015-02-05 22:37+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
 "Language: eo\n"
@@ -537,17 +537,17 @@ msgstr "konvertiĝas dosiero %s al dosiero %s DOS-en...\n"
 #: common.c:1197
 #, c-format
 msgid "converting %s file %s to %s file %s in Unix format...\n"
-msgstr "konvertiĝas dosiero %2$s (%1$s) Unix-en al dosiero %3$s (%4$s)...\n"
+msgstr "konvertiĝas dosiero %2$s (%1$s) Unix-en al dosiero %4$s (%3$s)...\n"
 
 #: common.c:1200
 #, c-format
 msgid "converting %s file %s to %s file %s in Mac format...\n"
-msgstr "konvertiĝas dosiero %2$s (%1$s) Mac-en al dosiero %3$s (%4$s)...\n"
+msgstr "konvertiĝas dosiero %2$s (%1$s) Mac-en al dosiero %4$s (%3$s)...\n"
 
 #: common.c:1202
 #, c-format
 msgid "converting %s file %s to %s file %s in DOS format...\n"
-msgstr "konvertiĝas dosiero %2$s (%1$s) DOS-en al dosiero %3$s (%4$s)...\n"
+msgstr "konvertiĝas dosiero %2$s (%1$s) DOS-en al dosiero %4$s (%3$s)...\n"
 
 #: common.c:1207
 #, c-format
