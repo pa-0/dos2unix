@@ -56,24 +56,24 @@ $result = ($? >> 8);
 ok( $result == 1, 'Unix2dos stdio returns error on binary input.' );
 
 system("rm -f out_forc.txt");
-system("$DOS2UNIX -v -n utf16len.txt out_forc.txt");
+system("$DOS2UNIX -f -v -n utf16len.txt out_forc.txt");
 # file out_bin.txt may not exist.
 if (-e "out_forc.txt") {
   $exists = "1";
 } else {
   $exists = "0";
 }
-ok( $exists == 0, 'dos2unix force binary file.' );
+ok( $exists == 1, 'dos2unix force binary file.' );
 
 system("rm -f out_forc.txt");
-system("$UNIX2DOS -v -n utf16len.txt out_forc.txt");
+system("$UNIX2DOS -f -v -n utf16len.txt out_forc.txt");
 # file out_bin.txt may not exist.
 if (-e "out_forc.txt") {
   $exists = "1";
 } else {
   $exists = "0";
 }
-ok( $exists == 0, 'unix2dos force binary file.' );
+ok( $exists == 1, 'unix2dos force binary file.' );
 
 system("$DOS2UNIX -v -7 -n utf16le.txt out_unix.txt chardos.txt out_u7.txt; cmp out_unix.txt utf8unix.txt");
 ok( $? == 0, '7bit disabled for utf16');

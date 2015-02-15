@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.2-beta4\n"
-"POT-Creation-Date: 2015-01-03 13:05+0100\n"
+"POT-Creation-Date: 2015-02-15 10:45+0100\n"
 "PO-Revision-Date: 2015-01-04 10:18+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -518,7 +518,9 @@ msgstr "Als het invoerbestand in UTF-16 is, en de optie C<-u> is gegeven, dan wo
 
 #. type: textblock
 #: dos2unix.pod:271
-msgid "Never use this option when the output encoding is other than UTF-8 or UTF-16.  See also section UNICODE."
+#, fuzzy
+#| msgid "Never use this option when the output encoding is other than UTF-8 or UTF-16.  See also section UNICODE."
+msgid "Never use this option when the output encoding is other than UTF-8, UTF-16, or GB18030. See also section UNICODE."
 msgstr "Gebruik deze optie nooit als de codering van het uitvoerbestand niet UTF-8 of UTF-16 is.  Zie ook de sectie UNICODE."
 
 #. type: =item
@@ -1068,31 +1070,33 @@ msgstr "GB18030 is volledig compatibel met Unicode, en kan als een Unicodetransf
 
 #. type: textblock
 #: dos2unix.pod:544
-msgid "On Unix/Linux UTF-16 files are converted to GB18030 when the locale encoding is set to GB18030. Note that this will only work if the location is set to China.  E.g. in an English British locale setting C<en_GB.GB18030> conversion of UTF-16 to GB18030 will not work, but in a Chinese C<zh_CN.GB18030> locale setting it will work."
+#, fuzzy
+#| msgid "On Unix/Linux UTF-16 files are converted to GB18030 when the locale encoding is set to GB18030. Note that this will only work if the location is set to China.  E.g. in an English British locale setting C<en_GB.GB18030> conversion of UTF-16 to GB18030 will not work, but in a Chinese C<zh_CN.GB18030> locale setting it will work."
+msgid "On Unix/Linux UTF-16 files are converted to GB18030 when the locale encoding is set to GB18030. Note that this will only work if the locale is supported by the system. Use command C<locale -a> to get the list of supported locales."
 msgstr "Op Unix/Linux worden UTF-16-bestanden alleen naar GB18030 geconverteerd wanneer de taalregio op China ingesteld is en de codering op GB18030.  Bijvoorbeeld, met de Britse taalregio-instelling C<en_GB.GB18030> zal conversie van UTF-16 naar GB18030 niet werken, maar met de Chinese instelling C<zh_CN.GB18030> wel."
 
 #. type: textblock
-#: dos2unix.pod:550
+#: dos2unix.pod:548
 msgid "On Windows you need to use option C<-gb> to convert UTF-16 files to GB18030."
 msgstr "Op Windows dient u de optie C<-gb> te gebruiken om UTF-16-bestanden naar GB18030 te converteren."
 
 #. type: textblock
-#: dos2unix.pod:552
+#: dos2unix.pod:550
 msgid "GB18030 encoded files can have a Byte Order Mark, like Unicode files."
 msgstr "GB18030-bestanden kunnen een Byte-Order-Mark bevatten, net als Unicode-bestanden."
 
 #. type: =head1
-#: dos2unix.pod:554
+#: dos2unix.pod:552
 msgid "EXAMPLES"
 msgstr "VOORBEELDEN"
 
 #. type: textblock
-#: dos2unix.pod:556
+#: dos2unix.pod:554
 msgid "Read input from 'stdin' and write output to 'stdout':"
 msgstr "Invoer lezen van standaardinvoer en uitvoer schrijven naar standaarduitvoer:"
 
 #. type: verbatim
-#: dos2unix.pod:558
+#: dos2unix.pod:556
 #, no-wrap
 msgid ""
 "    dos2unix\n"
@@ -1104,12 +1108,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:561
+#: dos2unix.pod:559
 msgid "Convert and replace a.txt. Convert and replace b.txt:"
 msgstr "Omzetten en vervangen van a.txt; omzetten en vervangen van b.txt:"
 
 #. type: verbatim
-#: dos2unix.pod:563
+#: dos2unix.pod:561
 #, no-wrap
 msgid ""
 "    dos2unix a.txt b.txt\n"
@@ -1121,12 +1125,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:566
+#: dos2unix.pod:564
 msgid "Convert and replace a.txt in ascii conversion mode:"
 msgstr "Omzetten en vervangen van a.txt in ascii-conversiemodus:"
 
 #. type: verbatim
-#: dos2unix.pod:568
+#: dos2unix.pod:566
 #, no-wrap
 msgid ""
 "    dos2unix a.txt\n"
@@ -1136,12 +1140,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:570
+#: dos2unix.pod:568
 msgid "Convert and replace a.txt in ascii conversion mode, convert and replace b.txt in 7bit conversion mode:"
 msgstr "Omzetten en vervangen van a.txt in ascii-conversiemodus; omzetten en vervangen van b.txt in 7-bits conversiemodus:"
 
 #. type: verbatim
-#: dos2unix.pod:573
+#: dos2unix.pod:571
 #, no-wrap
 msgid ""
 "    dos2unix a.txt -c 7bit b.txt\n"
@@ -1155,12 +1159,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:577
+#: dos2unix.pod:575
 msgid "Convert a.txt from Mac to Unix format:"
 msgstr "Omzetten van a.txt van Mac- naar Unix-indeling:"
 
 #. type: verbatim
-#: dos2unix.pod:579
+#: dos2unix.pod:577
 #, no-wrap
 msgid ""
 "    dos2unix -c mac a.txt\n"
@@ -1172,12 +1176,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:582
+#: dos2unix.pod:580
 msgid "Convert a.txt from Unix to Mac format:"
 msgstr "Omzetten van a.txt van Unix- naar Mac-indeling:"
 
 #. type: verbatim
-#: dos2unix.pod:584
+#: dos2unix.pod:582
 #, no-wrap
 msgid ""
 "    unix2dos -c mac a.txt\n"
@@ -1189,12 +1193,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:587
+#: dos2unix.pod:585
 msgid "Convert and replace a.txt while keeping original date stamp:"
 msgstr "Omzetten en vervangen van a.txt met behoud van origineel tijdsstempel:"
 
 #. type: verbatim
-#: dos2unix.pod:589
+#: dos2unix.pod:587
 #, no-wrap
 msgid ""
 "    dos2unix -k a.txt\n"
@@ -1206,12 +1210,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:592
+#: dos2unix.pod:590
 msgid "Convert a.txt and write to e.txt:"
 msgstr "Omzetten van a.txt en resultaat naar e.txt schrijven:"
 
 #. type: verbatim
-#: dos2unix.pod:594
+#: dos2unix.pod:592
 #, no-wrap
 msgid ""
 "    dos2unix -n a.txt e.txt\n"
@@ -1221,12 +1225,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:596
+#: dos2unix.pod:594
 msgid "Convert a.txt and write to e.txt, keep date stamp of e.txt same as a.txt:"
 msgstr "Omzetten van a.txt en naar e.txt schrijven, met tijdsstempel van e.txt gelijk aan die van a.txt:"
 
 #. type: verbatim
-#: dos2unix.pod:598
+#: dos2unix.pod:596
 #, no-wrap
 msgid ""
 "    dos2unix -k -n a.txt e.txt\n"
@@ -1236,12 +1240,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:600
+#: dos2unix.pod:598
 msgid "Convert and replace a.txt, convert b.txt and write to e.txt:"
 msgstr "Omzetten en vervangen van a.txt; omzetten van b.txt en naar e.txt schrijven:"
 
 #. type: verbatim
-#: dos2unix.pod:602
+#: dos2unix.pod:600
 #, no-wrap
 msgid ""
 "    dos2unix a.txt -n b.txt e.txt\n"
@@ -1253,12 +1257,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:605
+#: dos2unix.pod:603
 msgid "Convert c.txt and write to e.txt, convert and replace a.txt, convert and replace b.txt, convert d.txt and write to f.txt:"
 msgstr "Omzetten van c.txt en naar e.txt schrijven; omzetten en vervangen van a.txt; omzetten en vervangen van b.txt; omzetten van d.txt en naar f.txt schrijven."
 
 #. type: verbatim
-#: dos2unix.pod:608
+#: dos2unix.pod:606
 #, no-wrap
 msgid ""
 "    dos2unix -n c.txt e.txt -o a.txt b.txt -n d.txt f.txt\n"
@@ -1268,17 +1272,17 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: dos2unix.pod:610
+#: dos2unix.pod:608
 msgid "RECURSIVE CONVERSION"
 msgstr "RECURSIEVE CONVERSIE"
 
 #. type: textblock
-#: dos2unix.pod:612
+#: dos2unix.pod:610
 msgid "Use dos2unix in combination with the find(1) and xargs(1) commands to recursively convert text files in a directory tree structure. For instance to convert all .txt files in the directory tree under the current directory type:"
 msgstr "Gebruik dos2unix in combinatie met de opdrachten B<find>(1) en B<xargs>(1) om tekstbestanden in een mappenboom recursief om te zetten.  Bijvoorbeeld om alle .txt-bestanden in de mappenboom onder de huidige map te converteren, typt u:"
 
 #. type: verbatim
-#: dos2unix.pod:616
+#: dos2unix.pod:614
 #, no-wrap
 msgid ""
 "    find . -name *.txt |xargs dos2unix\n"
@@ -1288,22 +1292,22 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: dos2unix.pod:618
+#: dos2unix.pod:616
 msgid "LOCALIZATION"
 msgstr "LOKALISATIE"
 
 #. type: =item
-#: dos2unix.pod:622
+#: dos2unix.pod:620
 msgid "B<LANG>"
 msgstr "B<LANG>"
 
 #. type: textblock
-#: dos2unix.pod:624
+#: dos2unix.pod:622
 msgid "The primary language is selected with the environment variable LANG. The LANG variable consists out of several parts. The first part is in small letters the language code. The second is optional and is the country code in capital letters, preceded with an underscore. There is also an optional third part: character encoding, preceded with a dot. A few examples for POSIX standard type shells:"
 msgstr "De primaire taal wordt geselecteerd via de omgevingsvariabele LANG.  De variabele LANG bestaat uit verschillende onderdelen.  Het eerste deel is in kleine letters de taalcode.  Het tweede deel is optioneel en is de landcode in hoofdletters, voorafgegaan door een liggend streepje.  Er is ook een optioneel derde deel: de tekencodering, voorafgegaan door een punt.  Enkele voorbeelden voor een POSIX-shell:"
 
 #. type: verbatim
-#: dos2unix.pod:631
+#: dos2unix.pod:629
 #, no-wrap
 msgid ""
 "    export LANG=nl               Dutch\n"
@@ -1325,47 +1329,47 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:639
+#: dos2unix.pod:637
 msgid "For a complete list of language and country codes see the gettext manual: L<http://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html>"
 msgstr "Voor een complete lijst van taal- en landcodes zie de gettext-handleiding: L<http://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html>"
 
 #. type: textblock
-#: dos2unix.pod:642
+#: dos2unix.pod:640
 msgid "On Unix systems you can use the command locale(1) to get locale specific information."
 msgstr "Op Unix-systemen kunt u de opdracht B<locale>(1) gebruiken om specifieke taalregio-informatie te verkrijgen."
 
 #. type: =item
-#: dos2unix.pod:645
+#: dos2unix.pod:643
 msgid "B<LANGUAGE>"
 msgstr "B<LANGUAGE>"
 
 #. type: textblock
-#: dos2unix.pod:647
+#: dos2unix.pod:645
 msgid "With the LANGUAGE environment variable you can specify a priority list of languages, separated by colons. Dos2unix gives preference to LANGUAGE over LANG.  For instance, first Dutch and then German: C<LANGUAGE=nl:de>. You have to first enable localization, by setting LANG (or LC_ALL) to a value other than \"C\", before you can use a language priority list through the LANGUAGE variable. See also the gettext manual: L<http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
 msgstr "Met de omgevingsvariabele LANGUAGE kunt u een prioriteitenlijst specificeren van talen, gescheiden door dubbele punten.  Dos2unix geeft voorrang aan LANGUAGE boven LANG.  Bijvoorbeeld, eerst Nederlands en dan Duits: C<LANGUAGE=nl:de>.  U moet eerst lokalisatie in werking stellen, door het instellen van LANG (of LC_ALL) op een waarde ongelijk aan \"C\", voordat u een talen-prioriteitenlijst kunt gebruiken via de variabele LANGUAGE.  Zie ook de gettext-handleiding: L<http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
 
 #. type: textblock
-#: dos2unix.pod:655
+#: dos2unix.pod:653
 msgid "If you select a language which is not available you will get the standard English messages."
 msgstr "Als u een taal kiest die niet beschikbaar is, worden de standaard Engelse berichten gebruikt."
 
 #. type: =item
-#: dos2unix.pod:659
+#: dos2unix.pod:657
 msgid "B<DOS2UNIX_LOCALEDIR>"
 msgstr "B<DOS2UNIX_LOCALEDIR>"
 
 #. type: textblock
-#: dos2unix.pod:661
+#: dos2unix.pod:659
 msgid "With the environment variable DOS2UNIX_LOCALEDIR the LOCALEDIR set during compilation can be overruled. LOCALEDIR is used to find the language files. The GNU default value is C</usr/local/share/locale>.  Option B<--version> will display the LOCALEDIR that is used."
 msgstr "Met de omgevingsvariabele DOS2UNIX_LOCALEDIR kan de LOCALEDIR die ingesteld werd tijdens compilatie worden overstemd.  LOCALEDIR wordt gebruikt om de taalbestanden te vinden.  De GNU standaardwaarde is C</usr/local/share/locale>.  De optie B<--version> laat de gebruikte LOCALEDIR zien."
 
 #. type: textblock
-#: dos2unix.pod:666
+#: dos2unix.pod:664
 msgid "Example (POSIX shell):"
 msgstr "Voorbeeld (POSIX-shell):"
 
 #. type: verbatim
-#: dos2unix.pod:668
+#: dos2unix.pod:666
 #, no-wrap
 msgid ""
 "    export DOS2UNIX_LOCALEDIR=$HOME/share/locale\n"
@@ -1375,72 +1379,72 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: dos2unix.pod:673
+#: dos2unix.pod:671
 msgid "RETURN VALUE"
 msgstr "AFSLUITWAARDE"
 
 #. type: textblock
-#: dos2unix.pod:675
+#: dos2unix.pod:673
 msgid "On success, zero is returned.  When a system error occurs the last system error will be returned. For other errors 1 is returned."
 msgstr "Bij succes wordt nul teruggegeven.  Wanneer een systeemfout optreedt wordt het laatste systeemfoutnummer teruggegeven.  Bij andere fouten wordt 1 teruggegeven."
 
 #. type: textblock
-#: dos2unix.pod:678
+#: dos2unix.pod:676
 msgid "The return value is always zero in quiet mode, except when wrong command-line options are used."
 msgstr "De afsluitwaarde is altijd nul in de stillewerkingsmodus, behalve wanneer verkeerde opties worden gegeven."
 
 #. type: =head1
-#: dos2unix.pod:681
+#: dos2unix.pod:679
 msgid "STANDARDS"
 msgstr "STANDAARDEN"
 
 #. type: textblock
-#: dos2unix.pod:683
+#: dos2unix.pod:681
 msgid "L<http://en.wikipedia.org/wiki/Text_file>"
 msgstr "L<http://nl.wikipedia.org/wiki/Tekstbestand>"
 
 #. type: textblock
-#: dos2unix.pod:685
+#: dos2unix.pod:683
 msgid "L<http://en.wikipedia.org/wiki/Carriage_return>"
 msgstr "L<http://nl.wikipedia.org/wiki/Carriage_Return>"
 
 #. type: textblock
-#: dos2unix.pod:687
+#: dos2unix.pod:685
 msgid "L<http://en.wikipedia.org/wiki/Newline>"
 msgstr "L<http://nl.wikipedia.org/wiki/Linefeed>"
 
 #. type: textblock
-#: dos2unix.pod:689
+#: dos2unix.pod:687
 msgid "L<http://en.wikipedia.org/wiki/Unicode>"
 msgstr "<http://nl.wikipedia.org/wiki/Unicode>"
 
 #. type: =head1
-#: dos2unix.pod:691
+#: dos2unix.pod:689
 msgid "AUTHORS"
 msgstr "AUTEURS"
 
 #. type: textblock
-#: dos2unix.pod:693
+#: dos2unix.pod:691
 msgid "Benjamin Lin - <blin@socs.uts.edu.au>, Bernd Johannes Wuebben (mac2unix mode) - <wuebben@kde.org>, Christian Wurll (add extra newline) - <wurll@ira.uka.de>, Erwin Waterlander - <waterlan@xs4all.nl> (maintainer)"
 msgstr "Benjamin Lin - <blin@socs.uts.edu.au>, Bernd Johannes Wuebben (mac2unix-modus) - <wuebben@kde.org>, Christian Wurll (toevoegen van extra regeleindes) - <wurll@ira.uka.de>, Erwin Waterlander - <waterlan@xs4all.nl> (beheerder)"
 
 #. type: textblock
-#: dos2unix.pod:698
+#: dos2unix.pod:696
 msgid "Project page: L<http://waterlan.home.xs4all.nl/dos2unix.html>"
 msgstr "Projectpagina: L<http://waterlan.home.xs4all.nl/dos2unix.html>"
 
 #. type: textblock
-#: dos2unix.pod:700
+#: dos2unix.pod:698
 msgid "SourceForge page: L<http://sourceforge.net/projects/dos2unix/>"
 msgstr "SourceForge-pagina: L<http://sourceforge.net/projects/dos2unix/>"
 
 #. type: =head1
-#: dos2unix.pod:702
+#: dos2unix.pod:700
 msgid "SEE ALSO"
 msgstr "ZIE OOK"
 
 #. type: textblock
-#: dos2unix.pod:704
+#: dos2unix.pod:702
 msgid "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 msgstr "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 

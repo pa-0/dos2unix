@@ -268,8 +268,8 @@ is written.
 When the input file is UTF-16, and the option C<-u> is used, an UTF-16
 BOM will be written.
 
-Never use this option when the output encoding is other than UTF-8 or UTF-16.
-See also section UNICODE.
+Never use this option when the output encoding is other than UTF-8, UTF-16, or
+GB18030. See also section UNICODE.
 
 
 =item B<-n, --newfile INFILE OUTFILE ...>
@@ -542,10 +542,8 @@ transformation format. Like UTF-8, GB18030 is compatible with ASCII. GB18030
 is also compatible with Windows code page 936, also known as GBK.
 
 On Unix/Linux UTF-16 files are converted to GB18030 when the locale encoding is
-set to GB18030. Note that this will only work if the location is set to China.
-E.g. in an English British locale setting C<en_GB.GB18030> conversion of UTF-16
-to GB18030 will not work, but in a Chinese C<zh_CN.GB18030> locale setting it
-will work.
+set to GB18030. Note that this will only work if the locale is supported by the
+system. Use command C<locale -a> to get the list of supported locales.
 
 On Windows you need to use option C<-gb> to convert UTF-16 files to GB18030.
 

@@ -2,11 +2,14 @@ TESTS = ascii.t iso.t utf8.t utf16.t misc.t
 
 d2u_os=$(shell uname -s)
 
-# GB18030 test is not working on Cygwin and MSYS. They do not support zh_CN.GB18030 locale.
-ifeq ($(findstring CYGWIN,$(d2u_os)),)
-ifeq ($(findstring MSYS,$(d2u_os)),)
+# Checking WIN32 version in MSYS shell.
+ifeq ($(findstring MINGW,$(d2u_os)),MINGW)
 TESTS += gb18030.t
 endif
+
+# Unix/Linux/Cygwin. Check if zh_CN.gb18030 locale is supported.
+ifeq ($(shell ./chk_loc.sh zh_CN.gb18030),yes)
+TESTS += gb18030.t
 endif
 
 # Windows version does not support symlinks like the Unix version.
