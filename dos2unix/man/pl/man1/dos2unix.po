@@ -4,9 +4,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.2-beta4\n"
-"POT-Creation-Date: 2015-02-15 10:45+0100\n"
-"PO-Revision-Date: 2015-01-08 16:30+0100\n"
+"Project-Id-Version: dos2unix-man 7.2.1-beta1\n"
+"POT-Creation-Date: 2015-02-15 10:51+0100\n"
+"PO-Revision-Date: 2015-03-16 20:30+0100\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "Language: pl\n"
@@ -512,10 +512,8 @@ msgstr "Jeśli plik wejściowy jest w kodowaniu UTF-16 i użyto opcji C<-u>, zos
 
 #. type: textblock
 #: dos2unix.pod:271
-#, fuzzy
-#| msgid "Never use this option when the output encoding is other than UTF-8 or UTF-16.  See also section UNICODE."
 msgid "Never use this option when the output encoding is other than UTF-8, UTF-16, or GB18030. See also section UNICODE."
-msgstr "Nigdy nie należy używać tej opcji, jeśli kodowanie wyjściowe jest inne niż UTF-8 lub UTF-16. Więcej w sekcji UNICODE."
+msgstr "Nigdy nie należy używać tej opcji, jeśli kodowanie wyjściowe jest inne niż UTF-8, UTF-16 lub GB18030. Więcej w sekcji UNICODE."
 
 #. type: =item
 #: dos2unix.pod:275
@@ -1064,10 +1062,8 @@ msgstr "GB18030 jest w pełni zgodny z Unicode i może być uważany za format t
 
 #. type: textblock
 #: dos2unix.pod:544
-#, fuzzy
-#| msgid "On Unix/Linux UTF-16 files are converted to GB18030 when the locale encoding is set to GB18030. Note that this will only work if the location is set to China.  E.g. in an English British locale setting C<en_GB.GB18030> conversion of UTF-16 to GB18030 will not work, but in a Chinese C<zh_CN.GB18030> locale setting it will work."
 msgid "On Unix/Linux UTF-16 files are converted to GB18030 when the locale encoding is set to GB18030. Note that this will only work if the locale is supported by the system. Use command C<locale -a> to get the list of supported locales."
-msgstr "Pod Uniksem/Linuksem pliki UTF-16 są konwertowane do GB18030, jeśli kodowanie dla lokalizacji jest ustawione na GB18030. Uwaga: będzie to działać tylko dla lokalizacji chińskiej. W przypadku np. ustawienia lokalizacji angielskiej/brytyjskiej C<en_GB.GB18030> konwersja UTF-16 do GB18030 nie będzie działać, a dla lokalizacji chińskiej C<zh_CN.GB18030> będzie."
+msgstr "Pod Uniksem/Linuksem pliki UTF-16 są konwertowane do GB18030, jeśli kodowanie dla lokalizacji jest ustawione na GB18030. Uwaga: będzie to działać tylko, jeśli lokalizacja jest obsługiwana przez system. Listę obsługiwanych lokalizacji można sprawdzić poleceniem C<locale -a>."
 
 #. type: textblock
 #: dos2unix.pod:548

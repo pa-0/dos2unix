@@ -100,12 +100,12 @@ TRANSLATORS
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 7.2
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.2
-        French                Frédéric Marchal             Version 6.0.5 - 7.2
+        French                Frédéric Marchal             Version 6.0.5 - 7.2.1
         German                Mario Blättermann            Version 6.0.5 - 7.2
-        Polish                Jakub Bogusz                 Version 6.0.5 - 7.2
+        Polish                Jakub Bogusz                 Version 6.0.5 - 7.2.1
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.2
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.2
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.2.1
 
 
 ACKNOWLEDGEMENTS

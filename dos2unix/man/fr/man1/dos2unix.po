@@ -4,9 +4,9 @@
 # Frédéric Marchal <fmarchal@perso.be>, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.2-beta4\n"
-"POT-Creation-Date: 2015-02-15 10:45+0100\n"
-"PO-Revision-Date: 2015-01-04 11:35+0100\n"
+"Project-Id-Version: dos2unix-man-7.2.1-beta1\n"
+"POT-Creation-Date: 2015-02-15 10:51+0100\n"
+"PO-Revision-Date: 2015-03-17 10:50+0100\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -513,10 +513,8 @@ msgstr "Lorsque le fichier d'entrée est en UTF-16 et que l'option C<-u> est uti
 
 #. type: textblock
 #: dos2unix.pod:271
-#, fuzzy
-#| msgid "Never use this option when the output encoding is other than UTF-8 or UTF-16.  See also section UNICODE."
 msgid "Never use this option when the output encoding is other than UTF-8, UTF-16, or GB18030. See also section UNICODE."
-msgstr "N'utilisez jamais cette option quand l'encodage du fichier de sortie n'est ni UTF-8 ni UTF-16. Consultez également la section UNICODE."
+msgstr "N'utilisez jamais cette option quand l'encodage du fichier de sortie n'est ni UTF-8 ni UTF-16 ni GB18030. Consultez également la section UNICODE."
 
 #. type: =item
 #: dos2unix.pod:275
@@ -1065,10 +1063,8 @@ msgstr "GB18030 est entièrement compatible avec Unicode et peut être considér
 
 #. type: textblock
 #: dos2unix.pod:544
-#, fuzzy
-#| msgid "On Unix/Linux UTF-16 files are converted to GB18030 when the locale encoding is set to GB18030. Note that this will only work if the location is set to China.  E.g. in an English British locale setting C<en_GB.GB18030> conversion of UTF-16 to GB18030 will not work, but in a Chinese C<zh_CN.GB18030> locale setting it will work."
 msgid "On Unix/Linux UTF-16 files are converted to GB18030 when the locale encoding is set to GB18030. Note that this will only work if the locale is supported by the system. Use command C<locale -a> to get the list of supported locales."
-msgstr "Sous Unix/Linux, les fichiers UTF-16 sont convertis en GB18030 quand l'encodage de la localisation est GB18030. Notez que cela ne fonctionnera que si l'emplacement est en Chine. Autrement dit, dans la localisation anglaise britannique C<en_GB.GB18030>, la conversion de UTF-16 vers GB18030 ne fonctionnera pas mais une localisation chinoise C<zh_CN.GB18030> fonctionnera."
+msgstr "Sous Unix/Linux, les fichiers UTF-16 sont convertis en GB18030 quand l'encodage de l'environnement linguistique est GB18030. Notez que cela ne fonctionnera que si l'environnement linguistique est supporté par le système. Utilisez la commande C<locale -a> pour obtenir la liste des environnements linguistiques supportés."
 
 #. type: textblock
 #: dos2unix.pod:548
