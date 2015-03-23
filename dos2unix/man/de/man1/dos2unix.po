@@ -1,20 +1,21 @@
 # German translation of the dos2unix man page.
 # Copyright (C) 2014 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2014, 2015.
 #
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.2-beta4\n"
-"POT-Creation-Date: 2015-02-15 10:45+0100\n"
-"PO-Revision-Date: 2015-01-03 17:39+0100\n"
+"Project-Id-Version: dos2unix-man-7.2.1-beta1\n"
+"POT-Creation-Date: 2015-02-15 10:51+0100\n"
+"PO-Revision-Date: 2015-03-17 19:27+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.1\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. type: =head1
 #: dos2unix.pod:52
@@ -514,10 +515,8 @@ msgstr "Wenn die Eingabedatei in UTF-16 kodiert ist und die Option C<-u> verwend
 
 #. type: textblock
 #: dos2unix.pod:271
-#, fuzzy
-#| msgid "Never use this option when the output encoding is other than UTF-8 or UTF-16.  See also section UNICODE."
 msgid "Never use this option when the output encoding is other than UTF-8, UTF-16, or GB18030. See also section UNICODE."
-msgstr "Verwenden Sie diese Option niemals, wenn die Kodierung der Ausgabedatei weder UTF-8 noch UTF-16 ist. Weitere Informationen finden Sie im Abschnitt UNICODE."
+msgstr "Verwenden Sie diese Option niemals, wenn die Kodierung der Ausgabedatei nicht UTF-8, UTF-16 oder GB 18030 ist. Weitere Informationen finden Sie im Abschnitt UNICODE."
 
 #. type: =item
 #: dos2unix.pod:275
@@ -1066,10 +1065,8 @@ msgstr "GB18030 ist vollständig zu Unicode kompatibel und kann als Unicode-Umwa
 
 #. type: textblock
 #: dos2unix.pod:544
-#, fuzzy
-#| msgid "On Unix/Linux UTF-16 files are converted to GB18030 when the locale encoding is set to GB18030. Note that this will only work if the location is set to China.  E.g. in an English British locale setting C<en_GB.GB18030> conversion of UTF-16 to GB18030 will not work, but in a Chinese C<zh_CN.GB18030> locale setting it will work."
 msgid "On Unix/Linux UTF-16 files are converted to GB18030 when the locale encoding is set to GB18030. Note that this will only work if the locale is supported by the system. Use command C<locale -a> to get the list of supported locales."
-msgstr "Unter Unix/Linux werden UTF-16-Dateien in GB18030 umgewandelt, wenn die Einstellung der Locale auf GB18030 gesetzt ist. Beachten Sie, dass dies nur funktioniert, wenn der Ort auf »China« gesetzt ist. Zum Beispiel wird in einer Locale-Einstellung C<en_GB.GB18030> (Britisches Englisch) die Umwandlung von UTF-16 in GB18030 nicht möglich sein, aber in der chinesischen Einstellung C<zh_CN.GB18030> dagegen funktionieren."
+msgstr "Unter Unix/Linux werden UTF-16-Dateien in GB18030 umgewandelt, wenn die Einstellung der Locale auf GB18030 gesetzt ist. Beachten Sie, dass dies nur funktioniert, wenn die Locale vom System unterstützt wird. Mit dem Befehl C<locale -a> erhalten Sie eine Liste der unterstützten Locales."
 
 #. type: textblock
 #: dos2unix.pod:548

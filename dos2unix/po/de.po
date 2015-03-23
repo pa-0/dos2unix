@@ -1,24 +1,22 @@
 # German messages for dos2unix.
 # This file is distributed under the same license as the dos2unix package.
-#
 # Philipp Thomas <pth@suse.de>, 2009, 2010, 2011, 2012.
 # Lars Wendler <polynomial-c@gentoo.org>, 2013.
 # Philipp Thomas <pth@suse.de>, 2014, 2015.
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2014, 2015.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.2-beta5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-15 22:35+0100\n"
-"PO-Revision-Date: 2015-01-19 08:21+0100\n"
+"PO-Revision-Date: 2015-03-19 15:36+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.1\n"
+"X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: dos2unix.c:76
