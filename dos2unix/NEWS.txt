@@ -1,3 +1,9 @@
+2015-04-01: Version 7.2.1
+
+  * Fix: Skip the GB18030 tests when system does not support the
+    Chinese locale with GB18030 character encoding.
+  * Fix: Small corrections in the manual in section GB18030 and OPTIONS -m.
+
 2015-02-11: Version 7.2
 
   * New: Japanese translation of the UI messages.

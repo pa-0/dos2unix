@@ -38,7 +38,8 @@ HISTORY
 
         In 2010 the two separate dos2unix and unix2dos packages have been
         bundled into a single dos2unix package (version 5.0). Support for
-        Unicode UTF-16 was added in 2012 (version 6.0).
+        Unicode UTF-16 was added in 2012 (version 6.0). Version 7.0, in 2014,
+        was a major code cleanup and added a test suite. 
 
 
         Features
@@ -56,7 +57,7 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2-7.2    2009-2015
+        Erwin Waterlander       version 3.2-7.2.1  2009-2015
         Christian Wurll         version 3.1        1998
         Bernd Johannes Wuebben  version 3.0        1998
         Benjamin Lin            version 1.1-2.3    1994-1995

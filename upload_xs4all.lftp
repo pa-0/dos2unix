@@ -1,6 +1,6 @@
 open ftp://waterlan@ftp.xs4all.nl
 cd WWW/dos2unix
-mput dos2unix-7.2.tar.gz d2u72s.zip d2u72b.zip d2u72pm.zip dos2unix-7.2-win32.zip dos2unix-7.2-win64.zip
+mput dos2unix-7.2.1.tar.gz d2u721s.zip d2u721b.zip d2u721pm.zip dos2unix-7.2.1-win32.zip dos2unix-7.2.1-win64.zip
 lcd trunk/dos2unix
 mput ChangeLog.txt NEWS.txt dos2unix.txt dos2unix.htm
 exit
