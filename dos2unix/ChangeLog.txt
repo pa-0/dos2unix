@@ -1,3 +1,6 @@
+2015-04-01 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 7.2.1
+
 2015-02-15 Erwin Waterlander <waterlan@xs4all.nl>
 	* test/misc.t: Fix test for -f option.
 	* test/chk_loc.sh: New script to test if locale is supported.
