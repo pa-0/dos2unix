@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.2.1-beta1\n"
 "POT-Creation-Date: 2015-02-15 10:51+0100\n"
-"PO-Revision-Date: 2015-03-17 10:50+0100\n"
+"PO-Revision-Date: 2015-04-03 16:56+0200\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -519,7 +519,7 @@ msgstr "N'utilisez jamais cette option quand l'encodage du fichier de sortie n'e
 #. type: =item
 #: dos2unix.pod:275
 msgid "B<-n, --newfile INFILE OUTFILE ...>"
-msgstr "B<-n, --newline FICHIER_ENTRÉE FICHIER_SORTIE …>"
+msgstr "B<-n, --newfile FICHIER_ENTRÉE FICHIER_SORTIE …>"
 
 #. type: textblock
 #: dos2unix.pod:277
