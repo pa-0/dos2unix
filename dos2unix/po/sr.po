@@ -1,13 +1,13 @@
 # Serbian translation for dos2unix.
 # Copyright (C) 2014 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
-# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2014.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2014—2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-6.1-beta4\n"
+"Project-Id-Version: dos2unix-7.2-beta5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-15 22:35+0100\n"
-"PO-Revision-Date: 2014-09-13 09:08+0200\n"
+"PO-Revision-Date: 2015-04-12 11:01+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
 "Language: sr\n"
@@ -199,7 +199,7 @@ msgstr " -f, --force           присиљава претварање бина�
 #: common.c:239
 #, c-format
 msgid " -gb, --gb18030        convert UTF-16 to GB18030\n"
-msgstr ""
+msgstr " -gb, --gb18030        претвара УТФ-16 у ГБ18030\n"
 
 #: common.c:242
 #, c-format
@@ -207,13 +207,13 @@ msgid " -h, --help            display this help text\n"
 msgstr " -h, --help            приказује овај текст помоћи\n"
 
 #: common.c:243
-#, fuzzy, c-format
+#, c-format
 msgid ""
 " -i, --info[=FLAGS]    display file information\n"
 "   file ...            files to analyze\n"
 msgstr ""
-" -o, --oldfile         пише у стару датотеку (основно)\n"
-"   датотека ...        датотеке за претварање у режиму старе датотеке\n"
+" -i, --info[=ЗАСТАВЕ]  приказује податке о датотеци\n"
+"   file ...            датотеке за анализу\n"
 
 #: common.c:245
 #, c-format
@@ -378,9 +378,9 @@ msgid "OS/2 version (EMX).\n"
 msgstr "ОС/2 издање (EMX).\n"
 
 #: common.c:314
-#, fuzzy, c-format
+#, c-format
 msgid "%s version.\n"
-msgstr "МСИС издање.\n"
+msgstr "%s издање.\n"
 
 #: common.c:317
 msgid "With Unicode UTF-16 support.\n"
@@ -402,19 +402,19 @@ msgstr "Записујем %s НПБ-а.\n"
 
 #: common.c:585 common.c:637 common.c:1117 common.c:1138
 msgid "UTF-16LE"
-msgstr ""
+msgstr "УТФ-16ЛЕ"
 
 #: common.c:592 common.c:641 common.c:1119 common.c:1140
 msgid "UTF-16BE"
-msgstr ""
+msgstr "УТФ-16БЕ"
 
 #: common.c:599 common.c:618 common.c:649 common.c:1130
 msgid "GB18030"
-msgstr ""
+msgstr "ГБ18030"
 
 #: common.c:606 common.c:625 common.c:645 common.c:1132
 msgid "UTF-8"
-msgstr ""
+msgstr "УТФ-8"
 
 #: common.c:637 common.c:641 common.c:645 common.c:649
 #, c-format
@@ -538,19 +538,19 @@ msgstr "претварам датотеку „%s“ у датотеку „%s�
 #. 4th %s is name of output file.
 #. E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format...
 #: common.c:1197
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in Unix format...\n"
-msgstr "претварам датотеку „%s“ у датотеку „%s“ у запису Јуникса...\n"
+msgstr "претварам %s датотеку „%s“ у %s датотеку „%s“ у запису Јуникса...\n"
 
 #: common.c:1200
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in Mac format...\n"
-msgstr "претварам датотеку „%s“ у датотеку „%s“ у запису Мека...\n"
+msgstr "претварам %s датотеку „%s“ у %s датотеку „%s“ у запису Мека...\n"
 
 #: common.c:1202
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in DOS format...\n"
-msgstr "претварам датотеку „%s“ у датотеку „%s“ у запису ДОС-а...\n"
+msgstr "претварам %s датотеку „%s“ у %s датотеку „%s“ у запису Дос-а...\n"
 
 #: common.c:1207
 #, c-format
@@ -583,19 +583,19 @@ msgstr "претварам датотеку „%s“ у запису ДОС-а..
 #. 3rd %s is encoding of output (input file is overwritten).
 #. E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format...
 #: common.c:1258
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s Unix format...\n"
-msgstr "претварам датотеку „%s“ у запису Јуникса...\n"
+msgstr "претварам %s датотеку „%s“ у %s запис Јуникса...\n"
 
 #: common.c:1261
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s Mac format...\n"
-msgstr "претварам датотеку „%s“ у запису Мека...\n"
+msgstr "претварам %s датотеку „%s“ у %s запис Мека...\n"
 
 #: common.c:1263
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s DOS format...\n"
-msgstr "претварам датотеку „%s“ у запису ДОС-а...\n"
+msgstr "претварам %s датотеку „%s“ у %s запис Дос-а...\n"
 
 #: common.c:1268
 #, c-format
@@ -605,7 +605,7 @@ msgstr "проблеми претварања датотеке „%s“\n"
 #: common.c:1561
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
-msgstr ""
+msgstr "погрешна заставица „%c“ за опцију „-i“ или „--info“\n"
 
 #: common.c:1670 common.c:1707
 #, c-format
@@ -627,8 +627,7 @@ msgstr "опција „%s“ захтева аргумент\n"
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "мета датотеке „%s“ није наведена у режиму нове датотеке\n"
 
-#, fuzzy
-#~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8 or GB18030.\n"
+#~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
 #~ msgstr "Прескачем УТФ-16 датотеку „%s“, кодни рспоред текућег језика није УТФ-8.\n"
 
 #~ msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"
