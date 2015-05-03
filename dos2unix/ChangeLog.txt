@@ -4,6 +4,9 @@
 	  Issue in wcstombs()?
 	* common.h: Removed define of _XOPEN_SOURCE. When _XOPEN_SOURCE is
 	  defined, the function lstat() is not found on FreeBSD 10.1.
+	* common.c: Bug fix. When conversion of an UTF-16 file with binary
+	  symbols was forced, null characters were not written in the output.
+	* test: Added new test for UTF-16 file with null characters.
 
 2015-04-01 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 7.2.1

@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Requires perl-Test-Simple installation.
-use Test::Simple tests => 20;
+use Test::Simple tests => 21;
 
 $suffix = "";
 if (-e "../dos2unix.exe") {
@@ -63,6 +63,9 @@ system("$UNIX2DOS -v -b -u -n utf16u.txt out_dos.txt; cmp out_dos.txt utf16.txt"
 ok( $? == 0, 'Unix UTF-16 to DOS UTF-16LE' );
 system("$UNIX2MAC -v -b -u -n utf16u.txt out_mac.txt; cmp out_mac.txt utf16m.txt");
 ok( $? == 0, 'Unix UTF-16 to Mac UTF-16LE' );
+
+system("$DOS2UNIX -v -f -n utf16bin.txt out_unix.txt; cmp out_unix.txt unix_bin.txt");
+ok( $? == 0, 'Force UTF-16 file with binary symbols' );
 
 $ENV{'LC_ALL'} = 'C';
 

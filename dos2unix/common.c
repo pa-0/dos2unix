@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2009-2014 Erwin Waterlander
+ *   Copyright (C) 2009-2015 Erwin Waterlander
  *   All rights reserved.
  *
  *   Redistribution and use in source and binary forms, with or without
@@ -1454,7 +1454,7 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
   }
 
 
-  if (!RetVal) 
+  if (!RetVal)
     if (check_unicode_info(InF, ipFlag, progname, &bomtype_orig))
       RetVal = -1;
 
@@ -1881,6 +1881,12 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
      if ((fputc(c_lead,f) == EOF)  || (fputc(c_trail,f) == EOF))
        return(WEOF);
      return wc;
+   }
+
+   if (wc == 0x0000) {
+      if (fputc(0, f) == EOF)
+         return(WEOF);
+      return(wc);
    }
 
    if ((wc >= 0xd800) && (wc < 0xdc00)) {
