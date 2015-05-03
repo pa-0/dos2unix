@@ -30,7 +30,8 @@
 /* define feature test macros for realpath() -- needed on    */
 /* systems that have S_ISLNK, but chicken/egg means we must  */
 /* define early, before including stdlib.h (or sys/stat.h)   */
-#define _XOPEN_SOURCE 500
+/*   Defining _XOPEN_SOURCE results in undefined lstat() on FreeBSD 10.1. EW 2015-05-03 */
+/* #define _XOPEN_SOURCE 500 */
 
 /* similarly, instead of realpath we like to use, if         */
 /* available, the canonicalize_file_name() function, which   */

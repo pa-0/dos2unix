@@ -7,9 +7,14 @@ ifeq ($(findstring MINGW,$(d2u_os)),MINGW)
 TESTS += gb18030.t
 endif
 
+# Although locale -a says on FreeBSD 10.1 that zh_CN.GB18030 is supported,
+# the conversion from UTF-16 with surrogate pairs to GB18030 fails.
+# Possible problem in wcstombs().
+ifneq ($(findstring FreeBSD,$(d2u_os)),FreeBSD)
 # Unix/Linux/Cygwin. Check if zh_CN.gb18030 locale is supported.
 ifeq ($(shell ./chk_loc.sh zh_CN.gb18030),yes)
 TESTS += gb18030.t
+endif
 endif
 
 # Windows version does not support symlinks like the Unix version.
