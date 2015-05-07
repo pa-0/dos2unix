@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Requires perl-Test-Simple installation.
-use Test::Simple tests => 19;
+use Test::Simple tests => 20;
 
 $suffix = "";
 if (-e "../dos2unix.exe") {
@@ -76,7 +76,10 @@ if (-e "out_forc.txt") {
 ok( $exists == 1, 'unix2dos force binary file.' );
 
 system("$DOS2UNIX -v -f -n dos_bin.txt out_unix.txt; cmp out_unix.txt unix_bin.txt");
-ok( $? == 0, 'Force ASCII file with binary symbols' );
+ok( $? == 0, 'Dos2unix, force ASCII file with binary symbols' );
+
+system("$UNIX2DOS -v -f -n unix_bin.txt out_dos.txt; cmp out_dos.txt dos_bin.txt");
+ok( $? == 0, 'Unix2dos, force ASCII file with binary symbols' );
 
 system("$DOS2UNIX -v -7 -n utf16le.txt out_unix.txt chardos.txt out_u7.txt; cmp out_unix.txt utf8unix.txt");
 ok( $? == 0, '7bit disabled for utf16');

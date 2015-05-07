@@ -3,6 +3,8 @@
 	  on FreeBSD for CJK characters in a zh_CN.GB18030 locale. 
 	* test/Makefile: New target 'wcstombs' that runs wcstombs_test.
 	* test/README.txt: New file.
+	* test/misc.t, test/utf16.t: new tests for unix2dos to check
+	  conversion of binary files with null characters.
 
 2015-05-03 Erwin Waterlander <waterlan@xs4all.nl>
 	* test/Makefile: Disable GB18030 tests for FreeBSD. Tests which convert
