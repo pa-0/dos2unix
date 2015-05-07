@@ -7,9 +7,6 @@ ifeq ($(findstring MINGW,$(d2u_os)),MINGW)
 TESTS += gb18030.t
 endif
 
-# Although locale -a says on FreeBSD 10.1 that zh_CN.GB18030 is supported,
-# the conversion from UTF-16 with surrogate pairs to GB18030 fails.
-# Possible problem in wcstombs().
 ifneq ($(findstring FreeBSD,$(d2u_os)),FreeBSD)
 # Unix/Linux/Cygwin. Check if zh_CN.gb18030 locale is supported.
 ifeq ($(shell ./chk_loc.sh zh_CN.gb18030),yes)
@@ -52,5 +49,12 @@ gb18030:
 symlink:
 	prove -v $@.t
 
+wcstombs:
+	$(CC) -Wall -Wextra wcstombs_test.c -o wcstombs_test
+	@echo "====> test wcstombs() UTF-8"
+	LC_ALL=en_US.UTF-8 ./wcstombs_test
+	@echo "====> test wcstombs() GB18030"
+	LC_ALL=zh_CN.GB18030 ./wcstombs_test
+
 clean:
-	rm -f out*.txt in_link.txt
+	rm -f out*.txt in_link.txt wcstombs_test

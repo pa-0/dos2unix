@@ -1,3 +1,9 @@
+2015-05-07 Erwin Waterlander <waterlan@xs4all.nl>
+	* test/wcstombs_test.c: New test that shows that wcstombs() is broken
+	  on FreeBSD for CJK characters in a zh_CN.GB18030 locale. 
+	* test/Makefile: New target 'wcstombs' that runs wcstombs_test.
+	* test/README.txt: New file.
+
 2015-05-03 Erwin Waterlander <waterlan@xs4all.nl>
 	* test/Makefile: Disable GB18030 tests for FreeBSD. Tests which convert
 	  UTF-16 with surrogate pairs to GB18030 fail. Seen on FreeBSD 10.1.
