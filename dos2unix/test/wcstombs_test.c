@@ -8,7 +8,7 @@
 int main() {
 
   wchar_t wstr[2];
-  char str[4];
+  char str[5];
   char *errstr;
   size_t i;
 
@@ -21,13 +21,15 @@ int main() {
     str[i]='\0';
 
   if (wcstombs(str, wstr, sizeof(str)) != (size_t)-1) {
-    fprintf(stderr,"%02X %02X %02X %02X\n",(unsigned char)str[0], (unsigned char)str[1], (unsigned char)str[2], (unsigned char)str[3]);
-    /* fprintf(stderr,"%s\n",str); */
+    for (i=0;i<sizeof(str);i++)
+      fprintf(stdout,"%02X ",(unsigned char)str[i]);
+    fprintf(stdout,"\n");
+    /* fprintf(stdout,"%s\n",str); */
     fprintf(stdout,"PASS\n");
     return 0;
   } else {
     errstr = strerror(errno);
-    fprintf(stderr,"%s\n",errstr);
+    fprintf(stdout,"%s\n",errstr);
     fprintf(stdout,"FAIL\n");
     return 1;
   }
