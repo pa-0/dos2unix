@@ -1,3 +1,6 @@
+2015-05-10 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Print system error when conversion from UTF-16 fails.
+
 2015-05-07 Erwin Waterlander <waterlan@xs4all.nl>
 	* test/wcstombs_test.c: New test that shows that wcstombs() is broken
 	  on FreeBSD for CJK characters in a zh_CN.GB18030 locale. 

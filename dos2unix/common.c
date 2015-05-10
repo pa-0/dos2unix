@@ -52,6 +52,40 @@
 #endif
 
 
+/*
+ * Print last system error on Windows.
+ *
+ */
+#if (defined(_WIN32) && !defined(__CYGWIN__))
+void d2u_PrintLastError(const char *progname)
+{
+    /* Retrieve the system error message for the last-error code */
+
+    LPVOID lpMsgBuf;
+    DWORD dw;
+
+    dw = GetLastError();
+
+    FormatMessage(
+        FORMAT_MESSAGE_ALLOCATE_BUFFER |
+        FORMAT_MESSAGE_FROM_SYSTEM |
+        FORMAT_MESSAGE_IGNORE_INSERTS,
+        NULL,
+        dw,
+        MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+        (LPTSTR) &lpMsgBuf,
+        0, NULL );
+
+    /* Display the error message */
+
+    /* MessageBox(NULL, (LPCTSTR)lpMsgBuf, TEXT("Error"), MB_OK); */
+    fprintf(stderr, "%s: %s\n",progname, (LPCTSTR)lpMsgBuf);
+
+    LocalFree(lpMsgBuf);
+}
+#endif
+
+
 /******************************************************************
  *
  * int symbolic_link(char *path)
@@ -1860,13 +1894,18 @@ wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype)
 }
 
 /* Put wide character */
-wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
+wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
 {
    static char mbs[8];
    static wchar_t lead, trail;
    static wchar_t wstr[3];
    size_t i,len;
    int c_trail, c_lead;
+#if defined(_WIN32) || defined(__CYGWIN__)
+   DWORD dwFlags;
+#else
+   char *errstr;
+#endif
 
    if (ipFlag->keep_utf16) {
      if (ipFlag->bomtype == FILE_UTF16LE) { /* UTF16 little endian */
@@ -1938,11 +1977,16 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
    }
 
 #if (defined(_WIN32) && !defined(__CYGWIN__))
+#if WINVER >= 0x0600
+   dwFlags = WC_ERR_INVALID_CHARS;
+#else
+   dwFlags = 0
+#endif
    /* On Windows we convert UTF-16 always to UTF-8 or GB18030 */
    if (ipFlag->locale_target == TARGET_GB18030) {
-     len = (size_t)(WideCharToMultiByte(54936, 0, wstr, -1, mbs, sizeof(mbs), NULL, NULL) -1);
+     len = (size_t)(WideCharToMultiByte(54936, dwFlags, wstr, -1, mbs, sizeof(mbs), NULL, NULL) -1);
    } else {
-     len = (size_t)(WideCharToMultiByte(CP_UTF8, 0, wstr, -1, mbs, sizeof(mbs), NULL, NULL) -1);
+     len = (size_t)(WideCharToMultiByte(CP_UTF8, dwFlags, wstr, -1, mbs, sizeof(mbs), NULL, NULL) -1);
    }
 #else
    /* On Unix we convert UTF-16 to the locale encoding */
@@ -1952,6 +1996,13 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag)
 
    if ( len == (size_t)(-1) ) {
       /* Stop when there is a conversion error */
+   /* On Windows we convert UTF-16 always to UTF-8 or GB18030 */
+#if (defined(_WIN32) && !defined(__CYGWIN__))
+      d2u_PrintLastError(progname);
+#else
+      errstr = strerror(errno);
+      fprintf(stderr, "%s: %s\n", progname, errstr);
+#endif
       ipFlag->status |= UNICODE_CONVERSION_ERROR ;
       return(WEOF);
    } else {

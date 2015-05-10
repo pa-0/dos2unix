@@ -71,13 +71,13 @@ All rights reserved.\n\n"));
 }
 
 #ifdef D2U_UNICODE
-void AddDOSNewLineW(FILE* ipOutF, CFlag *ipFlag, wint_t CurChar, wint_t PrevChar)
+void AddDOSNewLineW(FILE* ipOutF, CFlag *ipFlag, wint_t CurChar, wint_t PrevChar, const char *progname)
 {
   if (ipFlag->NewLine) {  /* add additional CR-LF? */
     /* Don't add line ending if it is a DOS line ending. Only in case of Unix line ending. */
     if ((CurChar == 0x0a) && (PrevChar != 0x0d)) {
-      d2u_putwc(0x0d, ipOutF, ipFlag);
-      d2u_putwc(0x0a, ipOutF, ipFlag);
+      d2u_putwc(0x0d, ipOutF, ipFlag, progname);
+      d2u_putwc(0x0a, ipOutF, ipFlag, progname);
     }
   }
 }
@@ -135,21 +135,21 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
             break;
           }
           if (TempChar == 0x0a) {
-            d2u_putwc(0x0d, ipOutF, ipFlag); /* got LF, put extra CR */
+            d2u_putwc(0x0d, ipOutF, ipFlag, progname); /* got LF, put extra CR */
             converted++;
           } else {
              if (TempChar == 0x0d) { /* got CR */
                if ((TempChar = d2u_getwc(ipInF, ipFlag->bomtype)) == WEOF) /* get next char (possibly LF) */
                  TempChar = 0x0d;  /* Read error, or end of file. */
                else {
-                 d2u_putwc(0x0d, ipOutF, ipFlag); /* put CR */
+                 d2u_putwc(0x0d, ipOutF, ipFlag, progname); /* put CR */
                  PreviousChar = 0x0d;
                }
              }
           }
           if (TempChar == 0x0a) /* Count all DOS and Unix line breaks */
             ++line_nr;
-          if (d2u_putwc(TempChar, ipOutF, ipFlag) == WEOF)
+          if (d2u_putwc(TempChar, ipOutF, ipFlag, progname) == WEOF)
           {
               RetVal = -1;
               if (ipFlag->verbose) {
@@ -162,7 +162,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
               }
               break;
           } else {
-            AddDOSNewLineW( ipOutF, ipFlag, TempChar, PreviousChar);
+            AddDOSNewLineW( ipOutF, ipFlag, TempChar, PreviousChar, progname);
           }
           PreviousChar = TempChar;
         }
@@ -185,7 +185,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
             break;
           }
           if (TempChar != 0x0a) { /* Not an LF */
-            if(d2u_putwc(TempChar, ipOutF, ipFlag) == WEOF) {
+            if(d2u_putwc(TempChar, ipOutF, ipFlag, progname) == WEOF) {
               RetVal = -1;
               if (ipFlag->verbose) {
                 if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
@@ -206,7 +206,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
               ++line_nr;
             /* Don't touch this delimiter if it's a CR,LF pair. */
             if ( PreviousChar == 0x0d ) {
-              if (d2u_putwc(0x0a, ipOutF, ipFlag) == WEOF) { /* CR,LF pair. Put LF */
+              if (d2u_putwc(0x0a, ipOutF, ipFlag, progname) == WEOF) { /* CR,LF pair. Put LF */
                   RetVal = -1;
                   if (ipFlag->verbose) {
                     if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
@@ -222,7 +222,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
               continue;
             }
             PreviousChar = TempChar;
-            if (d2u_putwc(0x0d, ipOutF, ipFlag) == WEOF) { /* Unix line end (LF). Put CR */
+            if (d2u_putwc(0x0d, ipOutF, ipFlag, progname) == WEOF) { /* Unix line end (LF). Put CR */
                 RetVal = -1;
                 if (ipFlag->verbose) {
                   if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
@@ -236,7 +236,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
               }
             converted++;
             if (ipFlag->NewLine) {  /* add additional CR? */
-              d2u_putwc(0x0d, ipOutF, ipFlag);
+              d2u_putwc(0x0d, ipOutF, ipFlag, progname);
             }
           }
         }

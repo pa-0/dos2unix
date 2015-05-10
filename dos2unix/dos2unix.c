@@ -83,7 +83,7 @@ All rights reserved.\n\n"));
 }
 
 #ifdef D2U_UNICODE
-void StripDelimiterW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, wint_t CurChar, unsigned int *converted)
+void StripDelimiterW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, wint_t CurChar, unsigned int *converted, const char *progname)
 {
   wint_t TempNextChar;
   /* CurChar is always CR (x0d) */
@@ -92,16 +92,16 @@ void StripDelimiterW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, wint_t CurChar, u
   if ( (TempNextChar = d2u_getwc(ipInF, ipFlag->bomtype)) != WEOF) {
     d2u_ungetwc( TempNextChar, ipInF, ipFlag->bomtype);  /* put back peek char */
     if ( TempNextChar != 0x0a ) {
-      d2u_putwc( CurChar, ipOutF, ipFlag);  /* Mac line, put back CR */
+      d2u_putwc(CurChar, ipOutF, ipFlag, progname);  /* Mac line, put back CR */
     } else {
       (*converted)++;
       if (ipFlag->NewLine) {  /* add additional LF? */
-        d2u_putwc(0x0a, ipOutF, ipFlag);
+        d2u_putwc(0x0a, ipOutF, ipFlag, progname);
       }
     }
   }
   else if ( CurChar == 0x0d ) {  /* EOF: last Mac line delimiter (CR)? */
-    d2u_putwc( CurChar, ipOutF, ipFlag);
+    d2u_putwc(CurChar, ipOutF, ipFlag, progname);
   }
 }
 #endif
@@ -173,7 +173,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
           if (TempChar != 0x0d) {
             if (TempChar == 0x0a) /* Count all DOS and Unix line breaks */
               ++line_nr;
-            if (d2u_putwc(TempChar, ipOutF, ipFlag) == WEOF) {
+            if (d2u_putwc(TempChar, ipOutF, ipFlag, progname) == WEOF) {
               RetVal = -1;
               if (ipFlag->verbose) {
                 if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
@@ -186,7 +186,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
               break;
             }
           } else {
-            StripDelimiterW( ipInF, ipOutF, ipFlag, TempChar, &converted);
+            StripDelimiterW( ipInF, ipOutF, ipFlag, TempChar, &converted, progname);
           }
         }
         break;
@@ -210,7 +210,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
           if ((TempChar != 0x0d)) {
               if (TempChar == 0x0a) /* Count all DOS and Unix line breaks */
                 ++line_nr;
-              if(d2u_putwc(TempChar, ipOutF, ipFlag) == WEOF) {
+              if(d2u_putwc(TempChar, ipOutF, ipFlag, progname) == WEOF) {
                 RetVal = -1;
                 if (ipFlag->verbose) {
                   if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
@@ -229,11 +229,11 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
               d2u_ungetwc( TempNextChar, ipInF, ipFlag->bomtype);  /* put back peek char */
               /* Don't touch this delimiter if it's a CR,LF pair. */
               if ( TempNextChar == 0x0a ) {
-                d2u_putwc(0x0d, ipOutF, ipFlag); /* put CR, part of DOS CR-LF */
+                d2u_putwc(0x0d, ipOutF, ipFlag, progname); /* put CR, part of DOS CR-LF */
                 continue;
               }
             }
-            if (d2u_putwc(0x0a, ipOutF, ipFlag) == WEOF) { /* MAC line end (CR). Put LF */
+            if (d2u_putwc(0x0a, ipOutF, ipFlag, progname) == WEOF) { /* MAC line end (CR). Put LF */
                 RetVal = -1;
                 if (ipFlag->verbose) {
                   if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
@@ -248,7 +248,7 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
             converted++;
             line_nr++; /* Count all Mac line breaks */
             if (ipFlag->NewLine) {  /* add additional LF? */
-              d2u_putwc(0x0a, ipOutF, ipFlag);
+              d2u_putwc(0x0a, ipOutF, ipFlag, progname);
             }
           }
         }
