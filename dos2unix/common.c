@@ -347,6 +347,9 @@ void PrintVersion(const char *progname, const char *localedir)
 #elif defined(__OS)
   printf(_("%s version.\n"), __OS);
 #endif
+#if defined(_WIN32) && defined(WINVER)
+  printf(_("WINVER %X\n"),WINVER);
+#endif
 #ifdef D2U_UNICODE
   printf("%s", _("With Unicode UTF-16 support.\n"));
 #else
@@ -1980,7 +1983,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
 #if WINVER >= 0x0600
    dwFlags = WC_ERR_INVALID_CHARS;
 #else
-   dwFlags = 0
+   dwFlags = 0;
 #endif
    /* On Windows we convert UTF-16 always to UTF-8 or GB18030 */
    if (ipFlag->locale_target == TARGET_GB18030) {
