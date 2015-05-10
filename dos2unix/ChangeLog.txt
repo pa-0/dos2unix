@@ -1,5 +1,6 @@
 2015-05-10 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Print system error when conversion from UTF-16 fails.
+	* common.c: Check for invalid surrogate halfs in UTF-16 input.
 
 2015-05-07 Erwin Waterlander <waterlan@xs4all.nl>
 	* test/wcstombs_test.c: New test that shows that wcstombs() is broken

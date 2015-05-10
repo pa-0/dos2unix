@@ -1900,11 +1900,11 @@ wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype)
 wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
 {
    static char mbs[8];
-   static wchar_t lead, trail;
+   static wchar_t lead=0x01, trail;  /* lead get's invalid value */
    static wchar_t wstr[3];
    size_t i,len;
    int c_trail, c_lead;
-#if defined(_WIN32) || defined(__CYGWIN__)
+#if (defined(_WIN32) && !defined(__CYGWIN__))
    DWORD dwFlags;
 #else
    char *errstr;
@@ -1931,12 +1931,26 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
       return(wc);
    }
 
-   if ((wc >= 0xd800) && (wc < 0xdc00)) {
+   /* check for lead without a trail */
+   if ((lead >= 0xd800) && (lead < 0xdc00) && ((wc < 0xdc00) || (wc >= 0xe000))) {
+      fprintf(stderr, "%s: Invalid surrogate half. Missing trail.\n", progname);
+      ipFlag->status |= UNICODE_CONVERSION_ERROR ;
+      return(WEOF);
+   }
+
+   if ((wc >= 0xd800) && (wc < 0xdc00)) {   /* Surrogate lead */
       /* fprintf(stderr, "UTF-16 lead %x\n",wc); */
       lead = (wchar_t)wc; /* lead (high) surrogate */
       return(wc);
    }
-   if ((wc >= 0xdc00) && (wc < 0xe000)) {
+   if ((wc >= 0xdc00) && (wc < 0xe000)) {   /* Surrogate trail */
+
+      /* check for trail without a lead */
+      if ((lead < 0xd800) || (lead >= 0xdc00)) {
+         fprintf(stderr, "%s: Invalid surrogate half. Missing lead.\n", progname);
+         ipFlag->status |= UNICODE_CONVERSION_ERROR ;
+         return(WEOF);
+      }
       /* fprintf(stderr, "UTF-16 trail %x\n",wc); */
       trail = (wchar_t)wc; /* trail (low) surrogate */
 #if defined(_WIN32) || defined(__CYGWIN__)
@@ -1946,6 +1960,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
       wstr[0] = lead;
       wstr[1] = trail;
       wstr[2] = L'\0';
+      lead = 0x01; /* make lead invalid */
 #else
       /* On Unix wchar_t is 32 bit */
       /* When we don't decode the UTF-16 surrogate pair, wcstombs() does not
@@ -1980,6 +1995,8 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
    }
 
 #if (defined(_WIN32) && !defined(__CYGWIN__))
+/* The WC_ERR_INVALID_CHARS flag is available since Windows Vista (0x0600). It enables checking for
+   invalid input characters. */
 #if WINVER >= 0x0600
    dwFlags = WC_ERR_INVALID_CHARS;
 #else

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-10 11:37+0200\n"
+"POT-Creation-Date: 2015-05-11 00:54+0200\n"
 "PO-Revision-Date: 2014-03-09 12:07+0100\n"
 "Last-Translator: Thomas Pryds <thomas@pryds.eu>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -391,150 +391,155 @@ msgid "%s version.\n"
 msgstr "MSYS-version.\n"
 
 #: common.c:351
+#, c-format
+msgid "WINVER %X\n"
+msgstr ""
+
+#: common.c:354
 msgid "With Unicode UTF-16 support.\n"
 msgstr "Med Unicode UTF-16-understøttelse.\n"
 
-#: common.c:353
+#: common.c:356
 msgid "Without Unicode UTF-16 support.\n"
 msgstr "Uden Unicode UTF-16-understøttelse.\n"
 
-#: common.c:356
+#: common.c:359
 msgid "With native language support.\n"
 msgstr "Med understøttelse for lokale sprog.\n"
 
-#: common.c:619 common.c:626 common.c:633 common.c:640 common.c:652
-#: common.c:659
+#: common.c:622 common.c:629 common.c:636 common.c:643 common.c:655
+#: common.c:662
 #, c-format
 msgid "Writing %s BOM.\n"
 msgstr ""
 
-#: common.c:619 common.c:671 common.c:1151 common.c:1172
+#: common.c:622 common.c:674 common.c:1154 common.c:1175
 msgid "UTF-16LE"
 msgstr ""
 
-#: common.c:626 common.c:675 common.c:1153 common.c:1174
+#: common.c:629 common.c:678 common.c:1156 common.c:1177
 msgid "UTF-16BE"
 msgstr ""
 
-#: common.c:633 common.c:652 common.c:683 common.c:1164
+#: common.c:636 common.c:655 common.c:686 common.c:1167
 msgid "GB18030"
 msgstr ""
 
-#: common.c:640 common.c:659 common.c:679 common.c:1166
+#: common.c:643 common.c:662 common.c:682 common.c:1169
 msgid "UTF-8"
 msgstr ""
 
-#: common.c:671 common.c:675 common.c:679 common.c:683
+#: common.c:674 common.c:678 common.c:682 common.c:686
 #, c-format
 msgid "Input file %s has %s BOM.\n"
 msgstr ""
 
-#: common.c:721 common.c:761
+#: common.c:724 common.c:764
 #, c-format
 msgid "Assuming UTF-16LE encoding.\n"
 msgstr ""
 
-#: common.c:725 common.c:765
+#: common.c:728 common.c:768
 #, c-format
 msgid "Assuming UTF-16BE encoding.\n"
 msgstr ""
 
-#: common.c:881
+#: common.c:884
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
 msgstr "Åbning af midlertidig outputfil mislykkedes: %s\n"
 
-#: common.c:888
+#: common.c:891
 #, c-format
 msgid "using %s as temporary file\n"
 msgstr "bruger %s som midlertidig fil\n"
 
-#: common.c:951
+#: common.c:954
 #, c-format
 msgid "Failed to write to temporary output file %s: %s\n"
 msgstr "Skrivning til midlertidig outputfil %s mislykkedes: %s\n"
 
-#: common.c:981
+#: common.c:984
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s: %s\n"
 msgstr "Ændring af tilladelser for midlertidig outputfil %s mislykkedes: %s\n"
 
-#: common.c:997
+#: common.c:1000
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s: %s\n"
 msgstr "Ændring af ejer og gruppe for midlertidig outputfil %s mislykkedes: %s\n"
 
-#: common.c:1041
+#: common.c:1044
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
 msgstr "problemer med at følge symbolsk henvisning \"%s\"\n"
 
-#: common.c:1042 common.c:1071
+#: common.c:1045 common.c:1074
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          outputfil forbliver i \"%s\"\n"
 
-#: common.c:1066
+#: common.c:1069
 #, c-format
 msgid "problems renaming '%s' to '%s': %s\n"
 msgstr "problemer under omdøbning af \"%s\" til \"%s\": %s\n"
 
-#: common.c:1069
+#: common.c:1072
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          som er målet for symbolsk henvisning \"%s\"\n"
 
-#: common.c:1132 common.c:1202 common.c:1264
+#: common.c:1135 common.c:1205 common.c:1267
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "Springer binær fil %s over\n"
 
-#: common.c:1135 common.c:1205 common.c:1267
+#: common.c:1138 common.c:1208 common.c:1270
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "tegnkodningstabel %d understøttes ikke.\n"
 
-#: common.c:1138 common.c:1208 common.c:1270 common.c:1322
+#: common.c:1141 common.c:1211 common.c:1273 common.c:1325
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "Springer UTF-16-fil %s over. Størrelsen på wchar_t er %d byte.\n"
 
-#: common.c:1141 common.c:1211 common.c:1273
+#: common.c:1144 common.c:1214 common.c:1276
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
 msgstr "Springer UTF-16-fil %s over. Der opstod en fejl under omdannelse.\n"
 
-#: common.c:1190 common.c:1255 common.c:1312
+#: common.c:1193 common.c:1258 common.c:1315
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "Springer %s over, ikke en almindelig fil.\n"
 
-#: common.c:1193
+#: common.c:1196
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "Springer %s over. Outputfil %s er en symbolsk henvisning.\n"
 
-#: common.c:1196 common.c:1261 common.c:1317
+#: common.c:1199 common.c:1264 common.c:1320
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr "Springer symbolsk henvisning %s over. Målet er ikke en almindelig fil.\n"
 
-#: common.c:1199
+#: common.c:1202
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr "Springer %s over. Målet for symbolsk henvisning %s er ikke en almindelig fil.\n"
 
-#: common.c:1216
+#: common.c:1219
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "omdanner fil %s til fil %s i Unix-format …\n"
 
-#: common.c:1219
+#: common.c:1222
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "omdanner fil %s til fil %s i Mac-format …\n"
 
-#: common.c:1221
+#: common.c:1224
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "omdanner fil %s til fil %s i DOS-format …\n"
@@ -545,42 +550,42 @@ msgstr "omdanner fil %s til fil %s i DOS-format …\n"
 #. 3rd %s is encoding of output file.
 #. 4th %s is name of output file.
 #. E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format...
-#: common.c:1231
+#: common.c:1234
 #, fuzzy, c-format
 msgid "converting %s file %s to %s file %s in Unix format...\n"
 msgstr "omdanner fil %s til fil %s i Unix-format …\n"
 
-#: common.c:1234
+#: common.c:1237
 #, fuzzy, c-format
 msgid "converting %s file %s to %s file %s in Mac format...\n"
 msgstr "omdanner fil %s til fil %s i Mac-format …\n"
 
-#: common.c:1236
+#: common.c:1239
 #, fuzzy, c-format
 msgid "converting %s file %s to %s file %s in DOS format...\n"
 msgstr "omdanner fil %s til fil %s i DOS-format …\n"
 
-#: common.c:1241
+#: common.c:1244
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "problemer under omdannelse af fil %s til fil %s\n"
 
-#: common.c:1258
+#: common.c:1261
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "Springer symbolsk henvisning %s over.\n"
 
-#: common.c:1278
+#: common.c:1281
 #, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "omdanner fil %s til Unix-format …\n"
 
-#: common.c:1281
+#: common.c:1284
 #, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "omdanner fil %s til Mac-format …\n"
 
-#: common.c:1283
+#: common.c:1286
 #, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "omdanner fil %s til DOS-format …\n"
@@ -590,47 +595,47 @@ msgstr "omdanner fil %s til DOS-format …\n"
 #. 2nd %s is name of input file.
 #. 3rd %s is encoding of output (input file is overwritten).
 #. E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format...
-#: common.c:1292
+#: common.c:1295
 #, fuzzy, c-format
 msgid "converting %s file %s to %s Unix format...\n"
 msgstr "omdanner fil %s til Unix-format …\n"
 
-#: common.c:1295
+#: common.c:1298
 #, fuzzy, c-format
 msgid "converting %s file %s to %s Mac format...\n"
 msgstr "omdanner fil %s til Mac-format …\n"
 
-#: common.c:1297
+#: common.c:1300
 #, fuzzy, c-format
 msgid "converting %s file %s to %s DOS format...\n"
 msgstr "omdanner fil %s til DOS-format …\n"
 
-#: common.c:1302
+#: common.c:1305
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "problemer under omdannelse af fil %s\n"
 
-#: common.c:1595
+#: common.c:1598
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr ""
 
-#: common.c:1704 common.c:1741
+#: common.c:1707 common.c:1744
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktuel tegnkodningstabel: %d\n"
 
-#: common.c:1753
+#: common.c:1756
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "ugyldig %s omdannelsestilstand specificeret\n"
 
-#: common.c:1761
+#: common.c:1764
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "tilvalg \"%s\" kræver et argument\n"
 
-#: common.c:1772 common.c:1785 common.c:1851
+#: common.c:1775 common.c:1788 common.c:1854
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "mål for fil %s er ikke angivet i ny-fil-tilstand\n"
