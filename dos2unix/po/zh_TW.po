@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-11 00:54+0200\n"
+"POT-Creation-Date: 2015-05-11 22:11+0200\n"
 "PO-Revision-Date: 2014-03-14 00:43+0800\n"
 "Last-Translator: mail6543210 <mail6543210@yahoo.com.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -38,34 +38,34 @@ msgstr ""
 msgid "Binary symbol 0x00%02X found at line %u\n"
 msgstr "找到二進位符號0x00%02X 在第%u 行\n"
 
-#: dos2unix.c:183 dos2unix.c:220 dos2unix.c:243 dos2unix.c:362 dos2unix.c:397
-#: dos2unix.c:418 unix2dos.c:160 unix2dos.c:195 unix2dos.c:216 unix2dos.c:232
-#: unix2dos.c:361 unix2dos.c:394 unix2dos.c:413 unix2dos.c:427
+#: dos2unix.c:183 dos2unix.c:220 dos2unix.c:243 dos2unix.c:364 dos2unix.c:399
+#: dos2unix.c:420 unix2dos.c:160 unix2dos.c:195 unix2dos.c:216 unix2dos.c:232
+#: unix2dos.c:363 unix2dos.c:396 unix2dos.c:415 unix2dos.c:429
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "無法寫入輸出檔：%s\n"
 
-#: dos2unix.c:260 dos2unix.c:434 unix2dos.c:248 unix2dos.c:442
+#: dos2unix.c:260 dos2unix.c:436 unix2dos.c:248 unix2dos.c:444
 #, c-format
 msgid "program error, invalid conversion mode %d\n"
 msgstr "程式錯誤，不合法的轉換模式 %d\n"
 
-#: dos2unix.c:266 dos2unix.c:440 unix2dos.c:254 unix2dos.c:448
+#: dos2unix.c:268 dos2unix.c:442 unix2dos.c:256 unix2dos.c:450
 #, c-format
 msgid "Converted %u out of %u line breaks.\n"
 msgstr ""
 
-#: dos2unix.c:325 unix2dos.c:313
+#: dos2unix.c:327 unix2dos.c:315
 #, c-format
 msgid "using code page %d.\n"
 msgstr "使用 %d 編碼頁。\n"
 
-#: dos2unix.c:349 dos2unix.c:384 unix2dos.c:335 unix2dos.c:383
+#: dos2unix.c:351 dos2unix.c:386 unix2dos.c:337 unix2dos.c:385
 #, c-format
 msgid "Binary symbol 0x%02X found at line %u\n"
 msgstr "找到二進位符號0x%02X 在第%u 行\n"
 
-#: dos2unix.c:469 unix2dos.c:477
+#: dos2unix.c:471 unix2dos.c:479
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "錯誤：環境變數DOS2UNIX_LOCALEDIR 的值太長。\n"
 
@@ -391,7 +391,7 @@ msgstr "MSYS 版本。\n"
 
 #: common.c:351
 #, c-format
-msgid "WINVER %X\n"
+msgid "WINVER 0x%X\n"
 msgstr ""
 
 #: common.c:354
@@ -504,8 +504,8 @@ msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "略過 UTF-16 檔案 %s，wchar_t 的大小是 %d 位元組。\n"
 
 #: common.c:1144 common.c:1214 common.c:1276
-#, c-format
-msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
+#, fuzzy, c-format
+msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
 msgstr "略過 UTF-16 檔案 %s，UTF-16 轉換發生錯誤。\n"
 
 #: common.c:1193 common.c:1258 common.c:1315
@@ -638,6 +638,16 @@ msgstr "選項'%s' 需要一個引數\n"
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "新檔模式中未指明檔案 %s 的目的位置\n"
+
+#: common.c:1939
+#, c-format
+msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
+msgstr ""
+
+#: common.c:1954
+#, c-format
+msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
+msgstr ""
 
 #, fuzzy
 #~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8 or GB18030.\n"

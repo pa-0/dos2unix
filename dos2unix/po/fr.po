@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-7.2-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-11 00:54+0200\n"
+"POT-Creation-Date: 2015-05-11 22:11+0200\n"
 "PO-Revision-Date: 2015-01-17 14:27+0100\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -37,34 +37,34 @@ msgstr ""
 msgid "Binary symbol 0x00%02X found at line %u\n"
 msgstr "Symbole binaire 0x00%02X rencontré à la ligne %u\n"
 
-#: dos2unix.c:183 dos2unix.c:220 dos2unix.c:243 dos2unix.c:362 dos2unix.c:397
-#: dos2unix.c:418 unix2dos.c:160 unix2dos.c:195 unix2dos.c:216 unix2dos.c:232
-#: unix2dos.c:361 unix2dos.c:394 unix2dos.c:413 unix2dos.c:427
+#: dos2unix.c:183 dos2unix.c:220 dos2unix.c:243 dos2unix.c:364 dos2unix.c:399
+#: dos2unix.c:420 unix2dos.c:160 unix2dos.c:195 unix2dos.c:216 unix2dos.c:232
+#: unix2dos.c:363 unix2dos.c:396 unix2dos.c:415 unix2dos.c:429
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "impossible d'écrire dans le fichier de sortie : %s\n"
 
-#: dos2unix.c:260 dos2unix.c:434 unix2dos.c:248 unix2dos.c:442
+#: dos2unix.c:260 dos2unix.c:436 unix2dos.c:248 unix2dos.c:444
 #, c-format
 msgid "program error, invalid conversion mode %d\n"
 msgstr "erreur du programme, mode de conversion %d invalide\n"
 
-#: dos2unix.c:266 dos2unix.c:440 unix2dos.c:254 unix2dos.c:448
+#: dos2unix.c:268 dos2unix.c:442 unix2dos.c:256 unix2dos.c:450
 #, c-format
 msgid "Converted %u out of %u line breaks.\n"
 msgstr "A converti %u sauts de lignes sur %u.\n"
 
-#: dos2unix.c:325 unix2dos.c:313
+#: dos2unix.c:327 unix2dos.c:315
 #, c-format
 msgid "using code page %d.\n"
 msgstr "utilise le code page %d.\n"
 
-#: dos2unix.c:349 dos2unix.c:384 unix2dos.c:335 unix2dos.c:383
+#: dos2unix.c:351 dos2unix.c:386 unix2dos.c:337 unix2dos.c:385
 #, c-format
 msgid "Binary symbol 0x%02X found at line %u\n"
 msgstr "Symbole binaire 0x%02X rencontré à la ligne %u\n"
 
-#: dos2unix.c:469 unix2dos.c:477
+#: dos2unix.c:471 unix2dos.c:479
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "erreur: La valeur de la variable d'environnement DOS2UNIX_LOCALEDIR est trop longue.\n"
 
@@ -388,7 +388,7 @@ msgstr "Version %s.\n"
 
 #: common.c:351
 #, c-format
-msgid "WINVER %X\n"
+msgid "WINVER 0x%X\n"
 msgstr ""
 
 #: common.c:354
@@ -501,8 +501,8 @@ msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "Ignore le fichier UTF-16 %s, la taille de wchar_t n'est pas de %d octets.\n"
 
 #: common.c:1144 common.c:1214 common.c:1276
-#, c-format
-msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"
+#, fuzzy, c-format
+msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
 msgstr "Ignore le fichier UTF-16 %s, une erreur de conversion UTF-16 a eu lieu.\n"
 
 #: common.c:1193 common.c:1258 common.c:1315
@@ -635,6 +635,16 @@ msgstr "l'option « %s » requiert un argument\n"
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "la cible du fichier %s n'est pas spécifiée en mode nouveau fichier\n"
+
+#: common.c:1939
+#, c-format
+msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
+msgstr ""
+
+#: common.c:1954
+#, c-format
+msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
+msgstr ""
 
 #~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
 #~ msgstr "Ignore le fichier UTF-16 %s, l'encodage des caractères de l'environnement linguistique actuel n'est pas UTF-8.\n"

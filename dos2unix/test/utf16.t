@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Requires perl-Test-Simple installation.
-use Test::Simple tests => 22;
+use Test::Simple tests => 24;
 
 $suffix = "";
 if (-e "../dos2unix.exe") {
@@ -68,6 +68,13 @@ system("$DOS2UNIX -v -f -n utf16bin.txt out_unix.txt; cmp out_unix.txt unix_bin.
 ok( $? == 0, 'Dos2unix, force UTF-16 file with binary symbols' );
 system("$UNIX2DOS -v -f -r -n utf16bin.txt out_dos.txt; cmp out_dos.txt dos_bin.txt");
 ok( $? == 0, 'Unix2dos, force UTF-16 file with binary symbols' );
+
+system("$DOS2UNIX -v -n invalhig.txt out_unix.txt");
+$result = ($? >> 8);
+ok( $result == 1, 'Dos2unix, invalid surrogate pair, missing low surrogate' );
+system("$DOS2UNIX -v -n invallow.txt out_unix.txt");
+$result = ($? >> 8);
+ok( $result == 1, 'Dos2unix, invalid surrogate pair, missing high surrogate' );
 
 $ENV{'LC_ALL'} = 'C';
 

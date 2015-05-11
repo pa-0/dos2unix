@@ -261,7 +261,9 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
       exit(1);
 #endif
     }
-    if (ipFlag->verbose > 1) {
+    if (ipFlag->status & UNICODE_CONVERSION_ERROR)
+        ipFlag->line_nr = line_nr;
+    if ((RetVal == 0) && (ipFlag->verbose > 1)) {
       fprintf(stderr, "%s: ", progname);
       fprintf(stderr, _("Converted %u out of %u line breaks.\n"), converted, line_nr -1);
     }
@@ -435,7 +437,7 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
       exit(1);
 #endif
     }
-    if (ipFlag->verbose > 1) {
+    if ((RetVal == 0) && (ipFlag->verbose > 1)) {
       fprintf(stderr, "%s: ", progname);
       fprintf(stderr, _("Converted %u out of %u line breaks.\n"),converted, line_nr -1);
     }

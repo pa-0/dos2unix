@@ -1,6 +1,13 @@
+2015-05-11 Erwin Waterlander <waterlan@xs4all.nl>
+	* test/utf16.t: Added 2 tests with invalid surrogate pair.
+	* dos2unix.c, unix2dos.c: Print line number when UTF-16 conversion
+	  error occurs. 
+	* dos2unix.c, unix2dos.c: Don't print number of converted lines in
+	  verbose mode when error occurs.
+
 2015-05-10 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Print system error when conversion from UTF-16 fails.
-	* common.c: Check for invalid surrogate halfs in UTF-16 input.
+	* common.c: Check for invalid surrogate pairs in UTF-16 input.
 
 2015-05-07 Erwin Waterlander <waterlan@xs4all.nl>
 	* test/wcstombs_test.c: New test that shows that wcstombs() is broken

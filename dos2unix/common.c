@@ -348,7 +348,7 @@ void PrintVersion(const char *progname, const char *localedir)
   printf(_("%s version.\n"), __OS);
 #endif
 #if defined(_WIN32) && defined(WINVER)
-  printf(_("WINVER %X\n"),WINVER);
+  printf(_("WINVER 0x%X\n"),WINVER);
 #endif
 #ifdef D2U_UNICODE
   printf("%s", _("With Unicode UTF-16 support.\n"));
@@ -1141,7 +1141,7 @@ void print_messages_stdio(const CFlag *pFlag, const char *progname)
       fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), "stdin", (int)sizeof(wchar_t));
     } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
       fprintf(stderr,"%s: ",progname);
-      fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), "stdin");
+      fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"), "stdin", pFlag->line_nr);
     }
 }
 
@@ -1211,7 +1211,7 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
     fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
   } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
     fprintf(stderr,"%s: ",progname);
-    fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), infile);
+    fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"), infile, pFlag->line_nr);
   } else {
     fprintf(stderr,"%s: ",progname);
     if (informat[0] == '\0') {
@@ -1273,7 +1273,7 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
     fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
   } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
     fprintf(stderr,"%s: ",progname);
-    fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred.\n"), infile);
+    fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"), infile, pFlag->line_nr);
   } else {
     fprintf(stderr,"%s: ",progname);
     if (informat[0] == '\0') {
@@ -1931,9 +1931,12 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
       return(wc);
    }
 
+   /* Note: In the new Unicode standard lead is named "high", and trail is name "low". */
+
    /* check for lead without a trail */
    if ((lead >= 0xd800) && (lead < 0xdc00) && ((wc < 0xdc00) || (wc >= 0xe000))) {
-      fprintf(stderr, "%s: Invalid surrogate half. Missing trail.\n", progname);
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("error: Invalid surrogate pair. Missing low surrogate.\n"));
       ipFlag->status |= UNICODE_CONVERSION_ERROR ;
       return(WEOF);
    }
@@ -1947,7 +1950,8 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
 
       /* check for trail without a lead */
       if ((lead < 0xd800) || (lead >= 0xdc00)) {
-         fprintf(stderr, "%s: Invalid surrogate half. Missing lead.\n", progname);
+         fprintf(stderr, "%s: ", progname);
+         fprintf(stderr, _("error: Invalid surrogate pair. Missing high surrogate.\n"));
          ipFlag->status |= UNICODE_CONVERSION_ERROR ;
          return(WEOF);
       }
@@ -1987,6 +1991,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
       wstr[0] += (lead & 0x03FF) << 10;
       wstr[0] += (trail & 0x03FF);
       wstr[1] = L'\0';
+      lead = 0x01; /* make lead invalid */
       /* fprintf(stderr, "UTF-32  %x\n",wstr[0]); */
 #endif
    } else {
