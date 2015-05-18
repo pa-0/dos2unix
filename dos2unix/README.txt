@@ -79,21 +79,21 @@ TRANSLATORS
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.2
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
         Esperanto             Benno Schulenberg            Version 6.0.5 - 7.1
-        French                Frédéric Marchal             Version 6.0.5 - 7.2
-        German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0
+        French                Frédéric Marchal             Version 6.0.5 - 7.2.2
+        German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0, 7.2.2
         German                Lars Wendler                 Version 6.0.4
         German                Mario Blättermann            Version 6.0.6, 7.1 - 7.2
-        Hungarian             Balázs Úr                    Version 6.0.5 - 7.1
+        Hungarian             Balázs Úr                    Version 6.0.5 - 7.2
         Japanese              Yasuaki Taniguchi            Version 7.1.1
-        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.2
-        Polish                Jakub Bogusz                 Version 6.0.5 - 7.2
+        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.2.2
+        Polish                Jakub Bogusz                 Version 6.0.5 - 7.2.2
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
         Russian               Yuri Kozlov                  Version 6.0.6 - 7.1
         Serbian               Мирослав Николић             Version 6.0.5 - 7.2.2
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.2
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.2
-        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.2
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.2.2
+        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.2.2
 
         Translation of the manual.
         See http://translationproject.org/domain/dos2unix-man.html

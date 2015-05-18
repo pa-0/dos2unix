@@ -6,10 +6,10 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.2-beta5\n"
+"Project-Id-Version: dos2unix 7.2.2-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-11 22:11+0200\n"
-"PO-Revision-Date: 2015-01-17 15:03+0200\n"
+"POT-Creation-Date: 2015-05-18 22:45+0200\n"
+"PO-Revision-Date: 2015-05-15 00:47+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
@@ -401,7 +401,7 @@ msgstr "Версія %s.\n"
 #: common.c:351
 #, c-format
 msgid "WINVER 0x%X\n"
-msgstr ""
+msgstr "WINVER 0x%X\n"
 
 #: common.c:354
 msgid "With Unicode UTF-16 support.\n"
@@ -513,9 +513,9 @@ msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "Пропускаємо файл у кодуванні UTF-16, %s, розміром wchar_t є %d байтів.\n"
 
 #: common.c:1144 common.c:1214 common.c:1276
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
-msgstr "Пропускаємо файл у кодуванні UTF-16, %s, сталася помилка під час перетворення даних UTF-16.\n"
+msgstr "Пропускаємо файл у кодуванні UTF-16, %s, сталася помилка під час перетворення даних UTF-16 у рядку %u.\n"
 
 #: common.c:1193 common.c:1258 common.c:1315
 #, c-format
@@ -648,15 +648,15 @@ msgstr "до параметра «%s» слід вказувати аргуме�
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "не вказано призначення для файла %s у режимі створення файлів\n"
 
-#: common.c:1939
+#: common.c:1933
 #, c-format
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
-msgstr ""
+msgstr "помилка: некоректна пара заміщення. Пропущено нижній компонент.\n"
 
-#: common.c:1954
+#: common.c:1948
 #, c-format
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
-msgstr ""
+msgstr "помилка: некоректна пара заміщення. Пропущено верхній компонент.\n"
 
 #~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
 #~ msgstr "Пропускаємо файл у кодуванні UTF-16, %s, поточним кодуванням символів локалі не є UTF-8.\n"

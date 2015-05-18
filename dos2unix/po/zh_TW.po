@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-11 22:11+0200\n"
+"POT-Creation-Date: 2015-05-18 22:45+0200\n"
 "PO-Revision-Date: 2014-03-14 00:43+0800\n"
 "Last-Translator: mail6543210 <mail6543210@yahoo.com.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -639,12 +639,12 @@ msgstr "選項'%s' 需要一個引數\n"
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "新檔模式中未指明檔案 %s 的目的位置\n"
 
-#: common.c:1939
+#: common.c:1933
 #, c-format
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr ""
 
-#: common.c:1954
+#: common.c:1948
 #, c-format
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr ""

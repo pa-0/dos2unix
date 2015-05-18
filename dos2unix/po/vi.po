@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.2-beta5\n"
+"Project-Id-Version: dos2unix 7.2.2-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-11 22:11+0200\n"
-"PO-Revision-Date: 2015-01-18 07:24+0700\n"
+"POT-Creation-Date: 2015-05-18 22:45+0200\n"
+"PO-Revision-Date: 2015-05-15 07:18+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
 "Language: vi\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-Basepath: ../\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 #: dos2unix.c:76
 msgid ""
@@ -381,7 +382,7 @@ msgstr "Phiên bản %s.\n"
 #: common.c:351
 #, c-format
 msgid "WINVER 0x%X\n"
-msgstr ""
+msgstr "WINVER 0x%X\n"
 
 #: common.c:354
 msgid "With Unicode UTF-16 support.\n"
@@ -493,9 +494,9 @@ msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "Bỏ qua tập tin UTF-16 %s, cỡ của wchar_t không phải là %d byte.\n"
 
 #: common.c:1144 common.c:1214 common.c:1276
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
-msgstr "Bỏ qua tập tin UTF-16 %s, đã xảy ra lỗi chuyển đổi UTF-16.\n"
+msgstr "Bỏ qua tập tin UTF-16 %s, đã xảy ra lỗi chuyển đổi UTF-16 trên dòng %u.\n"
 
 #: common.c:1193 common.c:1258 common.c:1315
 #, c-format
@@ -628,15 +629,15 @@ msgstr "tùy chọn “%s” yêu cầu một đối số\n"
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "đích của tập tin %s không được chỉ định trong chế độ tập-tin-mới\n"
 
-#: common.c:1939
+#: common.c:1933
 #, c-format
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
-msgstr ""
+msgstr "lỗi: Cặp thay thế không hợp lệ. Thiếu cái thay thế dưới.\n"
 
-#: common.c:1954
+#: common.c:1948
 #, c-format
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
-msgstr ""
+msgstr "lỗi: Cặp thay thế không hợp lệ. Thiếu cái thay thế trên.\n"
 
 #~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
 #~ msgstr "Bỏ qua tập tin UTF-16 %s, bảng mã ký tự địa phương hiện tại không phải là UTF-8.\n"

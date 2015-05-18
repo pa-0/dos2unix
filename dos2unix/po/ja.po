@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.1-beta3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-11 22:11+0200\n"
+"POT-Creation-Date: 2015-05-18 22:45+0200\n"
 "PO-Revision-Date: 2014-11-07 11:35+0000\n"
 "Last-Translator: YASUAKI TANIGUCHI <yasuakit@gmail.com>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -640,12 +640,12 @@ msgstr "オプション '%s' には引数が必要です。\n"
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "対象ファイル %s が新規ファイルモードで指定されていません\n"
 
-#: common.c:1939
+#: common.c:1933
 #, c-format
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr ""
 
-#: common.c:1954
+#: common.c:1948
 #, c-format
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr ""

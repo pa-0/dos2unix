@@ -1925,12 +1925,6 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
      return wc;
    }
 
-   if (wc == 0x0000) {
-      if (fputc(0, f) == EOF)
-         return(WEOF);
-      return(wc);
-   }
-
    /* Note: In the new Unicode standard lead is named "high", and trail is name "low". */
 
    /* check for lead without a trail */
@@ -1997,6 +1991,12 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
    } else {
       wstr[0] = (wchar_t)wc;
       wstr[1] = L'\0';
+   }
+
+   if (wc == 0x0000) {
+      if (fputc(0, f) == EOF)
+         return(WEOF);
+      return(wc);
    }
 
 #if (defined(_WIN32) && !defined(__CYGWIN__))

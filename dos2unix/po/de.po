@@ -2,15 +2,15 @@
 # This file is distributed under the same license as the dos2unix package.
 # Philipp Thomas <pth@suse.de>, 2009, 2010, 2011, 2012.
 # Lars Wendler <polynomial-c@gentoo.org>, 2013.
-# Philipp Thomas <pth@suse.de>, 2014, 2015.
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2014, 2015.
+# Philipp Thomas <pth@suse.de>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.2-beta5\n"
+"Project-Id-Version: dos2unix 7.2.2-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-11 22:11+0200\n"
-"PO-Revision-Date: 2015-03-19 15:36+0100\n"
-"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
+"POT-Creation-Date: 2015-05-18 22:45+0200\n"
+"PO-Revision-Date: 2015-05-18 15:26+0200\n"
+"Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -400,7 +400,7 @@ msgstr "%s-Version.\n"
 #: common.c:351
 #, c-format
 msgid "WINVER 0x%X\n"
-msgstr ""
+msgstr "WINVER 0x%X\n"
 
 #: common.c:354
 msgid "With Unicode UTF-16 support.\n"
@@ -512,9 +512,9 @@ msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "UTF-16 Datei %s wird übersprungen, da wchar_t %d Bytes groß ist.\n"
 
 #: common.c:1144 common.c:1214 common.c:1276
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
-msgstr "UTF-16 Datei %s wird übersprungen, da beim Umwandeln ein Fehler auftrat.\n"
+msgstr "UTF-16-Datei %s wird übersprungen, da beim Umwandeln ein Fehler in Zeile %u auftrat.\n"
 
 #: common.c:1193 common.c:1258 common.c:1315
 #, c-format
@@ -647,15 +647,15 @@ msgstr "Die Option »%s« benötigt ein Argument\n"
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "Das Ziel der Datei %s wurde für den Neudatei-Modus nicht angegeben\n"
 
-#: common.c:1939
+#: common.c:1933
 #, c-format
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
-msgstr ""
+msgstr "Fehler: Ungültiges Surrogate-Paar. Das Low-Surrogate fehlt.\n"
 
-#: common.c:1954
+#: common.c:1948
 #, c-format
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
-msgstr ""
+msgstr "Fehler: Ungültiges Surrogate-Paar. Das High-Surrogate fehlt.\n"
 
 #~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
 #~ msgstr "UTF-16 Datei %s wird übersprungen, da die derzeitige Zeichenkodierung nicht UTF-8 ist.\n"

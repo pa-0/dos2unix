@@ -4,10 +4,10 @@
 # Frédéric Marchal <fmarchal@perso.be>, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-7.2-beta5\n"
+"Project-Id-Version: dos2unix-7.2.2-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-11 22:11+0200\n"
-"PO-Revision-Date: 2015-01-17 14:27+0100\n"
+"POT-Creation-Date: 2015-05-18 22:45+0200\n"
+"PO-Revision-Date: 2015-05-15 07:19+0200\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -389,7 +389,7 @@ msgstr "Version %s.\n"
 #: common.c:351
 #, c-format
 msgid "WINVER 0x%X\n"
-msgstr ""
+msgstr "WINVER 0x%X\n"
 
 #: common.c:354
 msgid "With Unicode UTF-16 support.\n"
@@ -501,9 +501,9 @@ msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "Ignore le fichier UTF-16 %s, la taille de wchar_t n'est pas de %d octets.\n"
 
 #: common.c:1144 common.c:1214 common.c:1276
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
-msgstr "Ignore le fichier UTF-16 %s, une erreur de conversion UTF-16 a eu lieu.\n"
+msgstr "Ignore le fichier UTF-16 %s, une erreur de conversion UTF-16 a eu lieu à la ligne %u.\n"
 
 #: common.c:1193 common.c:1258 common.c:1315
 #, c-format
@@ -636,15 +636,15 @@ msgstr "l'option « %s » requiert un argument\n"
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "la cible du fichier %s n'est pas spécifiée en mode nouveau fichier\n"
 
-#: common.c:1939
+#: common.c:1933
 #, c-format
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
-msgstr ""
+msgstr "erreur: Demi-codet invalide. Le demi-codet bas est manquant.\n"
 
-#: common.c:1954
+#: common.c:1948
 #, c-format
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
-msgstr ""
+msgstr "erreur: Demi-codet invalide. Le demi-codet haut est manquant.\n"
 
 #~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
 #~ msgstr "Ignore le fichier UTF-16 %s, l'encodage des caractères de l'environnement linguistique actuel n'est pas UTF-8.\n"
