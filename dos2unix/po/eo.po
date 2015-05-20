@@ -1,16 +1,16 @@
 # Esperanto translations for the dos2unix converter programs.
 # This file is distributed under the same license as the dos2unix package.
 #
-# »Eine schöne, leichte Schwere.«
+# «"Door open"?  That is the least of your problems, haha!»
 #
 # Ruĝulo <ruĝulo@gmail.com>, 2010.
 # Benno Schulenberg <benno@vertaalt.nl>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.2-beta5\n"
+"Project-Id-Version: dos2unix 7.2.2-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 22:45+0200\n"
-"PO-Revision-Date: 2015-02-05 22:37+0100\n"
+"POT-Creation-Date: 2015-05-11 22:24+0200\n"
+"PO-Revision-Date: 2015-05-19 11:14+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
 "Language: eo\n"
@@ -382,7 +382,7 @@ msgstr "%s-versio.\n"
 #: common.c:351
 #, c-format
 msgid "WINVER 0x%X\n"
-msgstr ""
+msgstr "WINVER 0x%X\n"
 
 #: common.c:354
 msgid "With Unicode UTF-16 support.\n"
@@ -486,37 +486,37 @@ msgstr "Preterpasiĝas duuma dosiero %s\n"
 #: common.c:1138 common.c:1208 common.c:1270
 #, c-format
 msgid "code page %d is not supported.\n"
-msgstr "kodpaĝo %d ne subtenatas.\n"
+msgstr "Kodpaĝo %d ne subtenatas.\n"
 
 #: common.c:1141 common.c:1211 common.c:1273 common.c:1325
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
-msgstr "Preterpasiĝas UTF-16-a dosiero %s, la grando de 'wchar_t' estas %d bajtoj.\n"
+msgstr "Preterpasiĝas UTF-16-a dosiero %s; la grando de 'wchar_t' estas %d bajtoj.\n"
 
 #: common.c:1144 common.c:1214 common.c:1276
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
-msgstr "Preterpasiĝas UTF-16-a dosiero %s, okazis konverteraro de UTF-16.\n"
+msgstr "Preterpasiĝas UTF-16-a dosiero %s; okazis konverteraro de UTF-16 en linio %u.\n"
 
 #: common.c:1193 common.c:1258 common.c:1315
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
-msgstr "Preterpasiĝas %s, ĝi ne estas normala dosiero.\n"
+msgstr "Preterpasiĝas %s; ĝi ne estas normala dosiero.\n"
 
 #: common.c:1196
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
-msgstr "Preterpasiĝas %s, eliga dosiero %s estas simbola ligo.\n"
+msgstr "Preterpasiĝas %s; eliga dosiero %s estas simbola ligo.\n"
 
 #: common.c:1199 common.c:1264 common.c:1320
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
-msgstr "Preterpasiĝas simbola ligo %s, la celo ne estas normala dosiero.\n"
+msgstr "Preterpasiĝas simbola ligo %s; la celo ne estas normala dosiero.\n"
 
 #: common.c:1202
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
-msgstr "Preterpasiĝas %s, la celo de simbola ligo %s ne estas normala dosiero.\n"
+msgstr "Preterpasiĝas %s; la celo de simbola ligo %s ne estas normala dosiero.\n"
 
 #: common.c:1219
 #, c-format
@@ -629,15 +629,15 @@ msgstr "opcio '%s' bezonas argumenton\n"
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "celo de dosiero %s ne indikatas (en novdosiera moduso)\n"
 
-#: common.c:1933
+#: common.c:1939
 #, c-format
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
-msgstr ""
+msgstr "eraro: nevalida surogata paro -- mankas la baza parto\n"
 
-#: common.c:1948
+#: common.c:1954
 #, c-format
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
-msgstr ""
+msgstr "eraro: nevalida surogata paro -- mankas la supra parto\n"
 
 #~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
 #~ msgstr "Preterpasiĝas UTF-16-a dosiero %s, la nuntempa lokaĵa kodo ne estas UTF-8.\n"

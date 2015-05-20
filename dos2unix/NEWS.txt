@@ -1,3 +1,11 @@
+2015-0?-??: Version 7.2.2
+
+  * Fix: Fixed symlink support on FreeBSD.
+  * Fix: Skip GB18030 test on FreeBSD.
+  * Fix: When conversion of an UTF-16 file with binary symbols was forced,
+    null characters were not written in the output.
+  * Fix: Check UTF-16 input for invalid surrogate pairs.
+
 2015-04-01: Version 7.2.1
 
   * Fix: Skip the GB18030 tests when the system does not support the

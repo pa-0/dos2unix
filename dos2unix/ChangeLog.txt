@@ -1,7 +1,7 @@
 2015-05-11 Erwin Waterlander <waterlan@xs4all.nl>
 	* test/utf16.t: Added 2 tests with invalid surrogate pair.
 	* dos2unix.c, unix2dos.c: Print line number when UTF-16 conversion
-	  error occurs. 
+	  error occurs.
 	* dos2unix.c, unix2dos.c: Don't print number of converted lines in
 	  verbose mode when error occurs.
 
@@ -11,7 +11,7 @@
 
 2015-05-07 Erwin Waterlander <waterlan@xs4all.nl>
 	* test/wcstombs_test.c: New test that shows that wcstombs() is broken
-	  on FreeBSD for CJK characters in a zh_CN.GB18030 locale. 
+	  on FreeBSD for CJK characters in a zh_CN.GB18030 locale.
 	* test/Makefile: New target 'wcstombs' that runs wcstombs_test.
 	* test/README.txt: New file.
 	* test/misc.t, test/utf16.t: new tests for unix2dos to check

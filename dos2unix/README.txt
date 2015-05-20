@@ -76,9 +76,9 @@ TRANSLATORS
         Chinese (traditional) mail6543210                  Version 6.0.5
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
         Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4
-        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.2
+        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.2.2
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
-        Esperanto             Benno Schulenberg            Version 6.0.5 - 7.1
+        Esperanto             Benno Schulenberg            Version 6.0.5 - 7.2.2
         French                Frédéric Marchal             Version 6.0.5 - 7.2.2
         German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0, 7.2.2
         German                Lars Wendler                 Version 6.0.4
