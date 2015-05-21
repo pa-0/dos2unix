@@ -408,6 +408,13 @@ README.txt INSTALL.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt: ;
 %.pdf: %.ps
 	ps2pdf $< $@
 
+# Since perl 5.18 pod2html generates HTML with all non-ASCII characters encoded
+# with HTML Ampersand Character Codes. This seems to be better browser compatible
+# than HTML in UTF-8 format. PERL_UNICODE=SDA is needed to get a correct UTF-8
+# encoded title.
+# With perl < 5.18 you have to remove PERL_UNICODE=SDA, and then you get HTML pages
+# in UTF-8 format.
+
 # Generic rule.
 %.$(HTMLEXT) : %.pod
 	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/MAC to UNIX and vice versa text file format converter" $< > $@
