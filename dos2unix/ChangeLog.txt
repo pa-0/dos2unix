@@ -1,3 +1,6 @@
+2015-05-22 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 7.2.2
+
 2015-05-11 Erwin Waterlander <waterlan@xs4all.nl>
 	* test/utf16.t: Added 2 tests with invalid surrogate pair.
 	* dos2unix.c, unix2dos.c: Print line number when UTF-16 conversion
