@@ -1,5 +1,6 @@
 2015-05-22 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 7.2.2
+	* djgpp.mak: Fixed target strip.
 
 2015-05-11 Erwin Waterlander <waterlan@xs4all.nl>
 	* test/utf16.t: Added 2 tests with invalid surrogate pair.
