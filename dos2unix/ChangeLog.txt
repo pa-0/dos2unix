@@ -1,3 +1,6 @@
+2015-05-27 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Fix compilation for msys.
+
 2015-05-22 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 7.2.2
 	* djgpp.mak: Fixed target strip.

@@ -32,9 +32,9 @@
 #if defined(_WIN32) || defined(__CYGWIN__)
 #include <windows.h>
 #endif
-#endif
 #if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
 # include <langinfo.h>
+#endif
 #endif
 
 #if defined(__GLIBC__)
@@ -789,11 +789,11 @@ int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, co
     }
   }
 #endif
-#endif
 
 #if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
   if (strcmp(nl_langinfo(CODESET), "GB18030") == 0)
     ipFlag->locale_target = TARGET_GB18030;
+#endif
 #endif
 
   if ((!RetVal) && ((ipFlag->add_bom) || ((ipFlag->keep_bom) && (ipFlag->bomtype > 0))))
