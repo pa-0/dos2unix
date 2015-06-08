@@ -6,10 +6,10 @@
 # Yuri Kozlov <yuray@komyakino.ru>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-7.2-beta5\n"
+"Project-Id-Version: dos2unix-7.2.2-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 22:45+0200\n"
-"PO-Revision-Date: 2015-01-19 22:09+0300\n"
+"POT-Creation-Date: 2015-05-11 22:24+0200\n"
+"PO-Revision-Date: 2015-06-08 22:15+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <gnu@mx.ru>\n"
 "Language: ru\n"
@@ -394,7 +394,7 @@ msgstr "Версия для %s.\n"
 #: common.c:351
 #, c-format
 msgid "WINVER 0x%X\n"
-msgstr ""
+msgstr "WINVER 0x%X\n"
 
 #: common.c:354
 msgid "With Unicode UTF-16 support.\n"
@@ -506,9 +506,9 @@ msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "Пропуск файла %s с UTF-16, размер wchar_t составляет %d байт.\n"
 
 #: common.c:1144 common.c:1214 common.c:1276
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
-msgstr "Пропуск файла %s с UTF-16, возникла ошибка преобразования UTF-16.\n"
+msgstr "Пропуск файла %s с UTF-16, возникла ошибка преобразования UTF-16 в строке %u.\n"
 
 #: common.c:1193 common.c:1258 common.c:1315
 #, c-format
@@ -641,15 +641,15 @@ msgstr "для параметра «%s» требуется аргумент\n"
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "цель файла %s не задана в режиме нового файла\n"
 
-#: common.c:1933
+#: common.c:1939
 #, c-format
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
-msgstr ""
+msgstr "ошибка: некорректная суррогатная пара. Отсутствует младший суррогат.\n"
 
-#: common.c:1948
+#: common.c:1954
 #, c-format
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
-msgstr ""
+msgstr "ошибка: некорректная суррогатная пара. Отсутствует старший суррогат.\n"
 
 #~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
 #~ msgstr "Пропуск файла %s с UTF-16, текущая символьная кодировка не UTF-8.\n"

@@ -88,7 +88,7 @@ TRANSLATORS
         Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.2.2
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.2.2
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
-        Russian               Yuri Kozlov                  Version 6.0.6 - 7.1
+        Russian               Yuri Kozlov                  Version 6.0.6 - 7.2.2
         Serbian               Мирослав Николић             Version 6.0.5 - 7.2.2
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.2
