@@ -5,10 +5,10 @@
 # Balázs Úr <urbalazs@gmail.com>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.2-beta5\n"
+"Project-Id-Version: dos2unix 7.2.2-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 22:45+0200\n"
-"PO-Revision-Date: 2015-01-18 20:45+0100\n"
+"POT-Creation-Date: 2015-05-11 22:24+0200\n"
+"PO-Revision-Date: 2015-06-14 07:51+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
 "Language: hu\n"
@@ -28,8 +28,8 @@ msgid ""
 "\n"
 msgstr ""
 "Copyright (C) 2009-2015 Erwin Waterlander\n"
-"Copyright (C) 1998      Christian Wurll (verzió 3.1)\n"
-"Copyright (C) 1998      Bernd Johannes Wuebben (verzió 3.0)\n"
+"Copyright (C) 1998      Christian Wurll (3.1-es verzió)\n"
+"Copyright (C) 1998      Bernd Johannes Wuebben (3.0-s verzió)\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "Minden jog fenntartva.\n"
 "\n"
@@ -397,7 +397,7 @@ msgstr "%s verzió.\n"
 #: common.c:351
 #, c-format
 msgid "WINVER 0x%X\n"
-msgstr ""
+msgstr "WINVER 0x%X\n"
 
 #: common.c:354
 msgid "With Unicode UTF-16 support.\n"
@@ -509,9 +509,9 @@ msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "A(z) %s UTF-16 fájl kihagyása, a wchar_t mérete %d bájt.\n"
 
 #: common.c:1144 common.c:1214 common.c:1276
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
-msgstr "A(z) %s UTF-16 fájl kihagyása, egy UTF-16 átalakítási hiba történt.\n"
+msgstr "A(z) %s UTF-16 fájl kihagyása, egy UTF-16 átalakítási hiba történt a(z) %u. sorban.\n"
 
 #: common.c:1193 common.c:1258 common.c:1315
 #, c-format
@@ -644,15 +644,15 @@ msgstr "a(z) „%s” kapcsolóhoz argumentum szükséges\n"
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "a(z) %s fájl célja nincs megadva az új-fájl módban\n"
 
-#: common.c:1933
+#: common.c:1939
 #, c-format
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
-msgstr ""
+msgstr "hiba: Érvénytelen helyettesítő pár. Hiányzó alacsony helyettesítő.\n"
 
-#: common.c:1948
+#: common.c:1954
 #, c-format
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
-msgstr ""
+msgstr "hiba: Érvénytelen helyettesítő pár. Hiányzó magas helyettesítő.\n"
 
 #~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
 #~ msgstr "A(z) %s UTF-16 fájl kihagyása, a jelenlegi területi beállítás karakterkódolása nem UTF-8.\n"

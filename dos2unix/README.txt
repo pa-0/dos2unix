@@ -57,7 +57,7 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2-7.2.1  2009-2015
+        Erwin Waterlander       version 3.2-7.2.2  2009-2015
         Christian Wurll         version 3.1        1998
         Bernd Johannes Wuebben  version 3.0        1998
         Benjamin Lin            version 1.1-2.3    1994-1995
@@ -83,7 +83,7 @@ TRANSLATORS
         German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0, 7.2.2
         German                Lars Wendler                 Version 6.0.4
         German                Mario Blättermann            Version 6.0.6, 7.1 - 7.2
-        Hungarian             Balázs Úr                    Version 6.0.5 - 7.2
+        Hungarian             Balázs Úr                    Version 6.0.5 - 7.2.2
         Japanese              Yasuaki Taniguchi            Version 7.1.1
         Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.2.2
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.2.2
