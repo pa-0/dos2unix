@@ -83,49 +83,90 @@ All rights reserved.\n\n"));
 }
 
 #ifdef D2U_UNICODE
-void StripDelimiterW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, wint_t CurChar, unsigned int *converted, const char *progname)
+wint_t StripDelimiterW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, wint_t CurChar, unsigned int *converted, const char *progname)
 {
   wint_t TempNextChar;
   /* CurChar is always CR (x0d) */
   /* In normal dos2unix mode put nothing (skip CR). */
   /* Don't modify Mac files when in dos2unix mode. */
   if ( (TempNextChar = d2u_getwc(ipInF, ipFlag->bomtype)) != WEOF) {
-    d2u_ungetwc( TempNextChar, ipInF, ipFlag->bomtype);  /* put back peek char */
+    if (d2u_ungetwc( TempNextChar, ipInF, ipFlag->bomtype) == WEOF) {  /* put back peek char */
+        d2u_getc_error(ipFlag,progname);
+        return WEOF;
+    }
     if ( TempNextChar != 0x0a ) {
-      d2u_putwc(CurChar, ipOutF, ipFlag, progname);  /* Mac line, put back CR */
+      if (d2u_putwc(CurChar, ipOutF, ipFlag, progname) == WEOF) {  /* Mac line, put CR */
+          d2u_putwc_error(ipFlag,progname);
+          return WEOF;
+      }
     } else {
       (*converted)++;
       if (ipFlag->NewLine) {  /* add additional LF? */
-        d2u_putwc(0x0a, ipOutF, ipFlag, progname);
+        if (d2u_putwc(0x0a, ipOutF, ipFlag, progname) == WEOF) {
+            d2u_putwc_error(ipFlag,progname);
+            return WEOF;
+        }
       }
     }
+  } else {
+    if (ferror(ipInF)) {
+        d2u_getc_error(ipFlag,progname);
+        return WEOF;
+    }
+    if ( CurChar == 0x0d ) {  /* EOF: last Mac line delimiter (CR)? */
+        if (d2u_putwc(CurChar, ipOutF, ipFlag, progname) == WEOF) {
+            d2u_putwc_error(ipFlag,progname);
+            return WEOF;
+        }
+    }
   }
-  else if ( CurChar == 0x0d ) {  /* EOF: last Mac line delimiter (CR)? */
-    d2u_putwc(CurChar, ipOutF, ipFlag, progname);
-  }
+  return CurChar;
 }
 #endif
 
-void StripDelimiter(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar, unsigned int *converted)
+/* CUR        NEXT
+   0xd(CR)    0xa(LF)  => put LF if option -l was used
+   0xd(CR)  ! 0xa(LF)  => put CR
+   0xd(CR)    EOF      => put CR
+ */
+int StripDelimiter(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, int CurChar, unsigned int *converted, const char *progname)
 {
   int TempNextChar;
   /* CurChar is always CR (x0d) */
   /* In normal dos2unix mode put nothing (skip CR). */
   /* Don't modify Mac files when in dos2unix mode. */
   if ( (TempNextChar = fgetc(ipInF)) != EOF) {
-    ungetc( TempNextChar, ipInF );  /* put back peek char */
+    if (ungetc( TempNextChar, ipInF ) == EOF) { /* put back peek char */
+        d2u_getc_error(ipFlag,progname);
+        return EOF;
+    }
     if ( TempNextChar != '\x0a' ) {
-      fputc( CurChar, ipOutF );  /* Mac line, put back CR */
+      if (fputc( CurChar, ipOutF ) == EOF) { /* Mac line, put CR */
+          d2u_putc_error(ipFlag,progname);
+          return EOF;
+      }
     } else {
       (*converted)++;
       if (ipFlag->NewLine) {  /* add additional LF? */
-        fputc('\x0a', ipOutF);
+        if (fputc('\x0a', ipOutF) == EOF) {
+            d2u_putc_error(ipFlag,progname);
+            return EOF;
+        }
       }
     }
+  } else {
+    if (ferror(ipInF)) {
+        d2u_getc_error(ipFlag,progname);
+        return EOF;
+    }
+    if ( CurChar == '\x0d' ) {  /* EOF: last Mac line delimiter (CR)? */
+        if (fputc( CurChar, ipOutF ) == EOF) {
+            d2u_putc_error(ipFlag,progname);
+            return EOF;
+        }
+    }
   }
-  else if ( CurChar == '\x0d' ) {  /* EOF: last Mac line delimiter (CR)? */
-    fputc( CurChar, ipOutF );
-  }
+  return CurChar;
 }
 
 /* converts stream ipInF to UNIX format text and write to stream ipOutF
@@ -140,7 +181,6 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
     wint_t TempNextChar;
     unsigned int line_nr = 1;
     unsigned int converted = 0;
-    char *errstr;
 
     ipFlag->status = 0;
 
@@ -175,19 +215,19 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
               ++line_nr;
             if (d2u_putwc(TempChar, ipOutF, ipFlag, progname) == WEOF) {
               RetVal = -1;
-              if (ipFlag->verbose) {
-                if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
-                  ipFlag->error = errno;
-                  errstr = strerror(errno);
-                  fprintf(stderr, "%s: ", progname);
-                  fprintf(stderr, _("can not write to output file: %s\n"), errstr);
-                }
-              }
+              d2u_putwc_error(ipFlag,progname);
               break;
             }
           } else {
-            StripDelimiterW( ipInF, ipOutF, ipFlag, TempChar, &converted, progname);
+            if (StripDelimiterW( ipInF, ipOutF, ipFlag, TempChar, &converted, progname) == WEOF) {
+              RetVal = -1;
+              break;
+            }
           }
+        }
+        if ((TempChar == WEOF) && ferror(ipInF)) {
+          RetVal = -1;
+          d2u_getc_error(ipFlag,progname);
         }
         break;
       case FROMTO_MAC2UNIX: /* mac2unix */
@@ -212,45 +252,47 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
                 ++line_nr;
               if(d2u_putwc(TempChar, ipOutF, ipFlag, progname) == WEOF) {
                 RetVal = -1;
-                if (ipFlag->verbose) {
-                  if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
-                    ipFlag->error = errno;
-                    errstr = strerror(errno);
-                    fprintf(stderr, "%s: ", progname);
-                    fprintf(stderr, _("can not write to output file: %s\n"), errstr);
-                  }
-                }
+                d2u_putwc_error(ipFlag,progname);
                 break;
               }
             }
           else{
             /* TempChar is a CR */
             if ( (TempNextChar = d2u_getwc(ipInF, ipFlag->bomtype)) != WEOF) {
-              d2u_ungetwc( TempNextChar, ipInF, ipFlag->bomtype);  /* put back peek char */
+              if (d2u_ungetwc( TempNextChar, ipInF, ipFlag->bomtype) == WEOF) {  /* put back peek char */
+                d2u_getc_error(ipFlag,progname);
+                RetVal = -1;
+                break;
+              }
               /* Don't touch this delimiter if it's a CR,LF pair. */
               if ( TempNextChar == 0x0a ) {
-                d2u_putwc(0x0d, ipOutF, ipFlag, progname); /* put CR, part of DOS CR-LF */
+                if (d2u_putwc(0x0d, ipOutF, ipFlag, progname) == WEOF) { /* put CR, part of DOS CR-LF */
+                  d2u_putwc_error(ipFlag,progname);
+                  RetVal = -1;
+                  break;
+                }
                 continue;
               }
             }
             if (d2u_putwc(0x0a, ipOutF, ipFlag, progname) == WEOF) { /* MAC line end (CR). Put LF */
                 RetVal = -1;
-                if (ipFlag->verbose) {
-                  if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
-                    ipFlag->error = errno;
-                    errstr = strerror(errno);
-                    fprintf(stderr, "%s: ", progname);
-                    fprintf(stderr, _("can not write to output file: %s\n"), errstr);
-                  }
-                }
+                d2u_putwc_error(ipFlag,progname);
                 break;
               }
             converted++;
             line_nr++; /* Count all Mac line breaks */
             if (ipFlag->NewLine) {  /* add additional LF? */
-              d2u_putwc(0x0a, ipOutF, ipFlag, progname);
+              if (d2u_putwc(0x0a, ipOutF, ipFlag, progname) == WEOF) {
+                RetVal = -1;
+                d2u_putwc_error(ipFlag,progname);
+                break;
+              }
             }
           }
+        }
+        if ((TempChar == WEOF) && ferror(ipInF)) {
+          RetVal = -1;
+          d2u_getc_error(ipFlag,progname);
         }
         break;
       default: /* unknown FromToMode */
@@ -283,7 +325,6 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
     int *ConvTable;
     unsigned int line_nr = 1;
     unsigned int converted = 0;
-    char *errstr;
 
     ipFlag->status = 0;
 
@@ -357,17 +398,19 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
               ++line_nr;
             if (fputc(ConvTable[TempChar], ipOutF) == EOF) {
               RetVal = -1;
-              if (ipFlag->verbose) {
-                ipFlag->error = errno;
-                errstr = strerror(errno);
-                fprintf(stderr, "%s: ", progname);
-                fprintf(stderr, _("can not write to output file: %s\n"), errstr);
-              }
+              d2u_putc_error(ipFlag,progname);
               break;
             }
           } else {
-            StripDelimiter( ipInF, ipOutF, ipFlag, TempChar, &converted);
+            if (StripDelimiter( ipInF, ipOutF, ipFlag, TempChar, &converted, progname) == EOF) {
+              RetVal = -1;
+              break;
+            }
           }
+        }
+        if ((TempChar == EOF) && ferror(ipInF)) {
+          RetVal = -1;
+          d2u_getc_error(ipFlag,progname);
         }
         break;
       case FROMTO_MAC2UNIX: /* mac2unix */
@@ -392,41 +435,47 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
                 ++line_nr;
               if(fputc(ConvTable[TempChar], ipOutF) == EOF) {
                 RetVal = -1;
-                if (ipFlag->verbose) {
-                  ipFlag->error = errno;
-                  errstr = strerror(errno);
-                  fprintf(stderr, "%s: ", progname);
-                  fprintf(stderr, _("can not write to output file: %s\n"), errstr);
-                }
+                d2u_putc_error(ipFlag,progname);
                 break;
               }
             }
           else{
             /* TempChar is a CR */
             if ( (TempNextChar = fgetc(ipInF)) != EOF) {
-              ungetc( TempNextChar, ipInF );  /* put back peek char */
+              if (ungetc( TempNextChar, ipInF ) == EOF) {  /* put back peek char */
+                d2u_getc_error(ipFlag,progname);
+                RetVal = -1;
+                break;
+              }
               /* Don't touch this delimiter if it's a CR,LF pair. */
               if ( TempNextChar == '\x0a' ) {
-                fputc('\x0d', ipOutF); /* put CR, part of DOS CR-LF */
+                if (fputc('\x0d', ipOutF) == EOF) { /* put CR, part of DOS CR-LF */
+                  RetVal = -1;
+                  d2u_putc_error(ipFlag,progname);
+                  break;
+                }
                 continue;
               }
             }
             if (fputc('\x0a', ipOutF) == EOF) { /* MAC line end (CR). Put LF */
                 RetVal = -1;
-                if (ipFlag->verbose) {
-                  ipFlag->error = errno;
-                  errstr = strerror(errno);
-                  fprintf(stderr, "%s: ", progname);
-                  fprintf(stderr, _("can not write to output file: %s\n"), errstr);
-                }
+                d2u_putc_error(ipFlag,progname);
                 break;
               }
             converted++;
             line_nr++; /* Count all Mac line breaks */
             if (ipFlag->NewLine) {  /* add additional LF? */
-              fputc('\x0a', ipOutF);
+              if (fputc('\x0a', ipOutF) == EOF) {
+                RetVal = -1;
+                d2u_putc_error(ipFlag,progname);
+                break;
+              }
             }
           }
+        }
+        if ((TempChar == EOF) && ferror(ipInF)) {
+          RetVal = -1;
+          d2u_getc_error(ipFlag,progname);
         }
         break;
       default: /* unknown FromToMode */

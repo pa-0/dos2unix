@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.2.2-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-11 22:24+0200\n"
+"POT-Creation-Date: 2015-06-24 00:04+0200\n"
 "PO-Revision-Date: 2015-06-14 07:51+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -34,39 +34,32 @@ msgstr ""
 "Minden jog fenntartva.\n"
 "\n"
 
-#: dos2unix.c:169 dos2unix.c:206 unix2dos.c:133 unix2dos.c:183
+#: dos2unix.c:209 dos2unix.c:246 unix2dos.c:146 unix2dos.c:206
 #, c-format
 msgid "Binary symbol 0x00%02X found at line %u\n"
 msgstr "Bináris szimbólum (0x00%02X) található a(z) %u. sorban\n"
 
-#: dos2unix.c:183 dos2unix.c:220 dos2unix.c:243 dos2unix.c:364 dos2unix.c:399
-#: dos2unix.c:420 unix2dos.c:160 unix2dos.c:195 unix2dos.c:216 unix2dos.c:232
-#: unix2dos.c:363 unix2dos.c:396 unix2dos.c:415 unix2dos.c:429
-#, c-format
-msgid "can not write to output file: %s\n"
-msgstr "nem sikerült írni a kimeneti fájlba: %s\n"
-
-#: dos2unix.c:260 dos2unix.c:436 unix2dos.c:248 unix2dos.c:444
+#: dos2unix.c:302 dos2unix.c:485 unix2dos.c:258 unix2dos.c:458
 #, c-format
 msgid "program error, invalid conversion mode %d\n"
 msgstr "programhiba, érvénytelen átalakítási mód: %d\n"
 
-#: dos2unix.c:268 dos2unix.c:442 unix2dos.c:256 unix2dos.c:450
+#: dos2unix.c:310 dos2unix.c:491 unix2dos.c:266 unix2dos.c:464
 #, c-format
 msgid "Converted %u out of %u line breaks.\n"
 msgstr "%u / %u sortörés átalakítva.\n"
 
-#: dos2unix.c:327 unix2dos.c:315
+#: dos2unix.c:368 unix2dos.c:324
 #, c-format
 msgid "using code page %d.\n"
 msgstr "%d kódlap használata.\n"
 
-#: dos2unix.c:351 dos2unix.c:386 unix2dos.c:337 unix2dos.c:385
+#: dos2unix.c:392 dos2unix.c:429 unix2dos.c:346 unix2dos.c:406
 #, c-format
 msgid "Binary symbol 0x%02X found at line %u\n"
 msgstr "Bináris szimbólum (0x%02X) található a(z) %u. sorban\n"
 
-#: dos2unix.c:471 unix2dos.c:479
+#: dos2unix.c:520 unix2dos.c:493
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "hiba: a DOS2UNIX_LOCALEDIR környezeti változó értéke túl hosszú.\n"
 
@@ -644,12 +637,22 @@ msgstr "a(z) „%s” kapcsolóhoz argumentum szükséges\n"
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "a(z) %s fájl célja nincs megadva az új-fájl módban\n"
 
-#: common.c:1939
+#: common.c:1868
+#, fuzzy, c-format
+msgid "can not read from input file: %s\n"
+msgstr "nem sikerült írni a kimeneti fájlba: %s\n"
+
+#: common.c:1880 common.c:1894
+#, c-format
+msgid "can not write to output file: %s\n"
+msgstr "nem sikerült írni a kimeneti fájlba: %s\n"
+
+#: common.c:1971
 #, c-format
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "hiba: Érvénytelen helyettesítő pár. Hiányzó alacsony helyettesítő.\n"
 
-#: common.c:1954
+#: common.c:1986
 #, c-format
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "hiba: Érvénytelen helyettesítő pár. Hiányzó magas helyettesítő.\n"

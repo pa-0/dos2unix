@@ -276,7 +276,10 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
                 , int (*ConvertW)(FILE*, FILE*, CFlag *, const char *)
 #endif
                   );
+void d2u_getc_error(CFlag *ipFlag, const char *progname);
+void d2u_putc_error(CFlag *ipFlag, const char *progname);
 #ifdef D2U_UNICODE
+void d2u_putwc_error(CFlag *ipFlag, const char *progname);
 wint_t d2u_getwc(FILE *f, int bomtype);
 wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype);
 wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname);

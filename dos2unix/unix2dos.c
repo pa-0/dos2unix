@@ -71,27 +71,41 @@ All rights reserved.\n\n"));
 }
 
 #ifdef D2U_UNICODE
-void AddDOSNewLineW(FILE* ipOutF, CFlag *ipFlag, wint_t CurChar, wint_t PrevChar, const char *progname)
+wint_t AddDOSNewLineW(FILE* ipOutF, CFlag *ipFlag, wint_t CurChar, wint_t PrevChar, const char *progname)
 {
   if (ipFlag->NewLine) {  /* add additional CR-LF? */
     /* Don't add line ending if it is a DOS line ending. Only in case of Unix line ending. */
     if ((CurChar == 0x0a) && (PrevChar != 0x0d)) {
-      d2u_putwc(0x0d, ipOutF, ipFlag, progname);
-      d2u_putwc(0x0a, ipOutF, ipFlag, progname);
+      if (d2u_putwc(0x0d, ipOutF, ipFlag, progname) == WEOF) {
+          d2u_putwc_error(ipFlag,progname);
+          return WEOF;
+      }
+      if (d2u_putwc(0x0a, ipOutF, ipFlag, progname) == WEOF) {
+          d2u_putwc_error(ipFlag,progname);
+          return WEOF;
+      }
     }
   }
+  return CurChar;
 }
 #endif
 
-void AddDOSNewLine(FILE* ipOutF, CFlag *ipFlag, int CurChar, int PrevChar)
+int AddDOSNewLine(FILE* ipOutF, CFlag *ipFlag, int CurChar, int PrevChar, const char *progname)
 {
   if (ipFlag->NewLine) {  /* add additional CR-LF? */
     /* Don't add line ending if it is a DOS line ending. Only in case of Unix line ending. */
     if ((CurChar == '\x0a') && (PrevChar != '\x0d')) {
-      fputc('\x0d', ipOutF);
-      fputc('\x0a', ipOutF);
+      if (fputc('\x0d', ipOutF) == EOF) {
+          d2u_putc_error(ipFlag,progname);
+          return EOF;
+      }
+      if (fputc('\x0a', ipOutF) == EOF) {
+          d2u_putc_error(ipFlag,progname);
+          return EOF;
+      }
     }
   }
+  return CurChar;
 }
 
 /* converts stream ipInF to DOS format text and write to stream ipOutF
@@ -106,7 +120,6 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
     wint_t PreviousChar = 0;
     unsigned int line_nr = 1;
     unsigned int converted = 0;
-    char *errstr;
 
     ipFlag->status = 0;
 
@@ -135,14 +148,24 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
             break;
           }
           if (TempChar == 0x0a) {
-            d2u_putwc(0x0d, ipOutF, ipFlag, progname); /* got LF, put extra CR */
+            if (d2u_putwc(0x0d, ipOutF, ipFlag, progname) == WEOF) { /* got LF, put extra CR */
+              RetVal = -1;
+              d2u_putwc_error(ipFlag,progname);
+              break;
+            }
             converted++;
           } else {
              if (TempChar == 0x0d) { /* got CR */
-               if ((TempChar = d2u_getwc(ipInF, ipFlag->bomtype)) == WEOF) /* get next char (possibly LF) */
-                 TempChar = 0x0d;  /* Read error, or end of file. */
-               else {
-                 d2u_putwc(0x0d, ipOutF, ipFlag, progname); /* put CR */
+               if ((TempChar = d2u_getwc(ipInF, ipFlag->bomtype)) == WEOF) { /* get next char (possibly LF) */
+                 if (ferror(ipInF))  /* Read error */
+                   break;
+                 TempChar = 0x0d;  /* end of file. */
+               } else {
+                 if (d2u_putwc(0x0d, ipOutF, ipFlag, progname) == WEOF) { /* put CR */
+                   RetVal = -1;
+                   d2u_putwc_error(ipFlag,progname);
+                   break;
+                 }
                  PreviousChar = 0x0d;
                }
              }
@@ -152,19 +175,19 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
           if (d2u_putwc(TempChar, ipOutF, ipFlag, progname) == WEOF)
           {
               RetVal = -1;
-              if (ipFlag->verbose) {
-                if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
-                  ipFlag->error = errno;
-                  errstr = strerror(errno);
-                  fprintf(stderr, "%s: ", progname);
-                  fprintf(stderr, _("can not write to output file: %s\n"), errstr);
-                }
-              }
+              d2u_putwc_error(ipFlag,progname);
               break;
           } else {
-            AddDOSNewLineW( ipOutF, ipFlag, TempChar, PreviousChar, progname);
+            if (AddDOSNewLineW( ipOutF, ipFlag, TempChar, PreviousChar, progname) == WEOF) {
+              RetVal = -1;
+              break;
+            }
           }
           PreviousChar = TempChar;
+        }
+        if ((TempChar == WEOF) && ferror(ipInF)) {
+          RetVal = -1;
+          d2u_getc_error(ipFlag,progname);
         }
         break;
       case FROMTO_UNIX2MAC: /* unix2mac */
@@ -187,14 +210,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
           if (TempChar != 0x0a) { /* Not an LF */
             if(d2u_putwc(TempChar, ipOutF, ipFlag, progname) == WEOF) {
               RetVal = -1;
-              if (ipFlag->verbose) {
-                if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
-                  ipFlag->error = errno;
-                  errstr = strerror(errno);
-                  fprintf(stderr, "%s: ", progname);
-                  fprintf(stderr, _("can not write to output file: %s\n"), errstr);
-                }
-              }
+              d2u_putwc_error(ipFlag,progname);
               break;
             }
             PreviousChar = TempChar;
@@ -208,14 +224,7 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
             if ( PreviousChar == 0x0d ) {
               if (d2u_putwc(0x0a, ipOutF, ipFlag, progname) == WEOF) { /* CR,LF pair. Put LF */
                   RetVal = -1;
-                  if (ipFlag->verbose) {
-                    if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
-                      ipFlag->error = errno;
-                      errstr = strerror(errno);
-                      fprintf(stderr, "%s: ", progname);
-                      fprintf(stderr, _("can not write to output file: %s\n"), errstr);
-                    }
-                  }
+                  d2u_putwc_error(ipFlag,progname);
                   break;
                 }
               PreviousChar = TempChar;
@@ -224,21 +233,22 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
             PreviousChar = TempChar;
             if (d2u_putwc(0x0d, ipOutF, ipFlag, progname) == WEOF) { /* Unix line end (LF). Put CR */
                 RetVal = -1;
-                if (ipFlag->verbose) {
-                  if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
-                    ipFlag->error = errno;
-                    errstr = strerror(errno);
-                    fprintf(stderr, "%s: ", progname);
-                    fprintf(stderr, _("can not write to output file: %s\n"), errstr);
-                  }
-                }
+                d2u_putwc_error(ipFlag,progname);
                 break;
               }
             converted++;
             if (ipFlag->NewLine) {  /* add additional CR? */
-              d2u_putwc(0x0d, ipOutF, ipFlag, progname);
+              if (d2u_putwc(0x0d, ipOutF, ipFlag, progname) == WEOF) {
+                RetVal = -1;
+                d2u_putwc_error(ipFlag,progname);
+                break;
+              }
             }
           }
+        }
+        if ((TempChar == WEOF) && ferror(ipInF)) {
+          RetVal = -1;
+          d2u_getc_error(ipFlag,progname);
         }
         break;
       default: /* unknown FromToMode */
@@ -271,7 +281,6 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
     int *ConvTable;
     unsigned int line_nr = 1;
     unsigned int converted = 0;
-    char *errstr;
 
     ipFlag->status = 0;
 
@@ -340,14 +349,24 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
           }
           if (TempChar == '\x0a')
           {
-            fputc('\x0d', ipOutF); /* got LF, put extra CR */
+            if (fputc('\x0d', ipOutF) == EOF) { /* got LF, put extra CR */
+              RetVal = -1;
+              d2u_putc_error(ipFlag,progname);
+              break;
+            }
             converted++;
           } else {
              if (TempChar == '\x0d') { /* got CR */
-               if ((TempChar = fgetc(ipInF)) == EOF) /* get next char (possibly LF) */
-                 TempChar = '\x0d';  /* Read error, or end of file. */
-               else {
-                 fputc('\x0d', ipOutF); /* put CR */
+               if ((TempChar = fgetc(ipInF)) == EOF) { /* get next char (possibly LF) */
+                 if (ferror(ipInF))  /* Read error */
+                   break;
+                 TempChar = '\x0d';  /* end of file. */
+               } else {
+                 if (fputc('\x0d', ipOutF) == EOF) { /* put CR */
+                   RetVal = -1;
+                   d2u_putc_error(ipFlag,progname);
+                   break;
+                 }
                  PreviousChar = '\x0d';
                }
              }
@@ -356,17 +375,19 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
             ++line_nr;
           if (fputc(ConvTable[TempChar], ipOutF) == EOF) { /* put LF or other char */
               RetVal = -1;
-              if (ipFlag->verbose) {
-                ipFlag->error = errno;
-                errstr = strerror(errno);
-                fprintf(stderr, "%s: ", progname);
-                fprintf(stderr, _("can not write to output file: %s\n"), errstr);
-              }
+              d2u_putc_error(ipFlag,progname);
               break;
           } else {
-            AddDOSNewLine( ipOutF, ipFlag, TempChar, PreviousChar);
+            if (AddDOSNewLine( ipOutF, ipFlag, TempChar, PreviousChar, progname) == EOF) {
+              RetVal = -1;
+              break;
+            }
           }
           PreviousChar = TempChar;
+        }
+        if ((TempChar == EOF) && ferror(ipInF)) {
+          RetVal = -1;
+          d2u_getc_error(ipFlag,progname);
         }
         break;
       case FROMTO_UNIX2MAC: /* unix2mac */
@@ -389,12 +410,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
           if (TempChar != '\x0a') { /* Not an LF */
             if(fputc(ConvTable[TempChar], ipOutF) == EOF) {
               RetVal = -1;
-              if (ipFlag->verbose) {
-                ipFlag->error = errno;
-                errstr = strerror(errno);
-                fprintf(stderr, "%s: ", progname);
-                fprintf(stderr, _("can not write to output file: %s\n"), errstr);
-              }
+              d2u_putc_error(ipFlag,progname);
               break;
             }
             PreviousChar = TempChar;
@@ -408,12 +424,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
             if ( PreviousChar == '\x0d' ) {
               if (fputc('\x0a', ipOutF) == EOF) { /* CR,LF pair. Put LF */
                   RetVal = -1;
-                  if (ipFlag->verbose) {
-                    ipFlag->error = errno;
-                    errstr = strerror(errno);
-                    fprintf(stderr, "%s: ", progname);
-                    fprintf(stderr, _("can not write to output file: %s\n"), errstr);
-                  }
+                  d2u_putc_error(ipFlag,progname);
                   break;
                 }
               PreviousChar = TempChar;
@@ -422,19 +433,22 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
             PreviousChar = TempChar;
             if (fputc('\x0d', ipOutF) == EOF) { /* Unix line end (LF). Put CR */
                 RetVal = -1;
-                if (ipFlag->verbose) {
-                  ipFlag->error = errno;
-                  errstr = strerror(errno);
-                  fprintf(stderr, "%s: ", progname);
-                  fprintf(stderr, _("can not write to output file: %s\n"), errstr);
-                }
+                d2u_putc_error(ipFlag,progname);
                 break;
               }
             converted++;
             if (ipFlag->NewLine) {  /* add additional CR? */
-              fputc('\x0d', ipOutF);
+              if (fputc('\x0d', ipOutF) == EOF) {
+                RetVal = -1;
+                d2u_putc_error(ipFlag,progname);
+                break;
+              }
             }
           }
+        }
+        if ((TempChar == EOF) && ferror(ipInF)) {
+          RetVal = -1;
+          d2u_getc_error(ipFlag,progname);
         }
         break;
       default: /* unknown FromToMode */

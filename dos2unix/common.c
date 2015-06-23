@@ -1857,7 +1857,45 @@ int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, c
   return pFlag->error;
 }
 
+void d2u_getc_error(CFlag *ipFlag, const char *progname)
+{
+    char *errstr;
+
+    ipFlag->error = errno;
+    if (ipFlag->verbose) {
+      errstr = strerror(errno);
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("can not read from input file: %s\n"), errstr);
+    }
+}
+
+void d2u_putc_error(CFlag *ipFlag, const char *progname)
+{
+    char *errstr;
+
+    ipFlag->error = errno;
+    if (ipFlag->verbose) {
+      errstr = strerror(errno);
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("can not write to output file: %s\n"), errstr);
+    }
+}
+
 #ifdef D2U_UNICODE
+void d2u_putwc_error(CFlag *ipFlag, const char *progname)
+{
+    char *errstr;
+
+    if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
+      ipFlag->error = errno;
+      if (ipFlag->verbose) {
+        errstr = strerror(errno);
+        fprintf(stderr, "%s: ", progname);
+        fprintf(stderr, _("can not write to output file: %s\n"), errstr);
+      }
+    }
+}
+
 wint_t d2u_getwc(FILE *f, int bomtype)
 {
    int c_trail, c_lead;

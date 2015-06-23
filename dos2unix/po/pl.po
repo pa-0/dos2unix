@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.2.2-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 22:45+0200\n"
+"POT-Creation-Date: 2015-06-24 00:04+0200\n"
 "PO-Revision-Date: 2015-05-17 11:19+0200\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -31,39 +31,32 @@ msgstr ""
 "Wszelkie prawa zastrzeżone.\n"
 "\n"
 
-#: dos2unix.c:169 dos2unix.c:206 unix2dos.c:133 unix2dos.c:183
+#: dos2unix.c:209 dos2unix.c:246 unix2dos.c:146 unix2dos.c:206
 #, c-format
 msgid "Binary symbol 0x00%02X found at line %u\n"
 msgstr "Napotkano symbol binarny 0x00%02X w linii %u\n"
 
-#: dos2unix.c:183 dos2unix.c:220 dos2unix.c:243 dos2unix.c:364 dos2unix.c:399
-#: dos2unix.c:420 unix2dos.c:160 unix2dos.c:195 unix2dos.c:216 unix2dos.c:232
-#: unix2dos.c:363 unix2dos.c:396 unix2dos.c:415 unix2dos.c:429
-#, c-format
-msgid "can not write to output file: %s\n"
-msgstr "nie można zapisać do pliku wyjściowego: %s\n"
-
-#: dos2unix.c:260 dos2unix.c:436 unix2dos.c:248 unix2dos.c:444
+#: dos2unix.c:302 dos2unix.c:485 unix2dos.c:258 unix2dos.c:458
 #, c-format
 msgid "program error, invalid conversion mode %d\n"
 msgstr "błąd programu, błędny tryb konwersji %d\n"
 
-#: dos2unix.c:268 dos2unix.c:442 unix2dos.c:256 unix2dos.c:450
+#: dos2unix.c:310 dos2unix.c:491 unix2dos.c:266 unix2dos.c:464
 #, c-format
 msgid "Converted %u out of %u line breaks.\n"
 msgstr "Przekonwertowano znaków końca linii: %u z %u.\n"
 
-#: dos2unix.c:327 unix2dos.c:315
+#: dos2unix.c:368 unix2dos.c:324
 #, c-format
 msgid "using code page %d.\n"
 msgstr "użycie strony kodowej %d.\n"
 
-#: dos2unix.c:351 dos2unix.c:386 unix2dos.c:337 unix2dos.c:385
+#: dos2unix.c:392 dos2unix.c:429 unix2dos.c:346 unix2dos.c:406
 #, c-format
 msgid "Binary symbol 0x%02X found at line %u\n"
 msgstr "Napotkano symbol binarny 0x%02X w linii %u\n"
 
-#: dos2unix.c:471 unix2dos.c:479
+#: dos2unix.c:520 unix2dos.c:493
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "błąd: wartość zmiennej środowiskowej DOS2UNIX_LOCALEDIR jest zbyt długa.\n"
 
@@ -637,12 +630,22 @@ msgstr "opcja '%s' wymaga argumentu\n"
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "nie podano celu pliku %s w trybie nowego pliku\n"
 
-#: common.c:1933
+#: common.c:1868
+#, fuzzy, c-format
+msgid "can not read from input file: %s\n"
+msgstr "nie można zapisać do pliku wyjściowego: %s\n"
+
+#: common.c:1880 common.c:1894
+#, c-format
+msgid "can not write to output file: %s\n"
+msgstr "nie można zapisać do pliku wyjściowego: %s\n"
+
+#: common.c:1971
 #, c-format
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "błąd: Błędna para zamienna. Brak młodszego zamiennika.\n"
 
-#: common.c:1948
+#: common.c:1986
 #, c-format
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "błąd: Błędna para zamienna. Brak starszego zamiennika.\n"

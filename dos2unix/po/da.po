@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 22:45+0200\n"
+"POT-Creation-Date: 2015-06-24 00:04+0200\n"
 "PO-Revision-Date: 2014-03-09 12:07+0100\n"
 "Last-Translator: Thomas Pryds <thomas@pryds.eu>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -33,39 +33,32 @@ msgstr ""
 "Alle rettigheder forbeholdes.\n"
 "\n"
 
-#: dos2unix.c:169 dos2unix.c:206 unix2dos.c:133 unix2dos.c:183
+#: dos2unix.c:209 dos2unix.c:246 unix2dos.c:146 unix2dos.c:206
 #, c-format
 msgid "Binary symbol 0x00%02X found at line %u\n"
 msgstr "Binært symbol 0x00%02X fundet på linje %u\n"
 
-#: dos2unix.c:183 dos2unix.c:220 dos2unix.c:243 dos2unix.c:364 dos2unix.c:399
-#: dos2unix.c:420 unix2dos.c:160 unix2dos.c:195 unix2dos.c:216 unix2dos.c:232
-#: unix2dos.c:363 unix2dos.c:396 unix2dos.c:415 unix2dos.c:429
-#, c-format
-msgid "can not write to output file: %s\n"
-msgstr "kan ikke skrive til outputfil: %s\n"
-
-#: dos2unix.c:260 dos2unix.c:436 unix2dos.c:248 unix2dos.c:444
+#: dos2unix.c:302 dos2unix.c:485 unix2dos.c:258 unix2dos.c:458
 #, c-format
 msgid "program error, invalid conversion mode %d\n"
 msgstr "programfejl, ugyldig omdannelsestilstand %d\n"
 
-#: dos2unix.c:268 dos2unix.c:442 unix2dos.c:256 unix2dos.c:450
+#: dos2unix.c:310 dos2unix.c:491 unix2dos.c:266 unix2dos.c:464
 #, c-format
 msgid "Converted %u out of %u line breaks.\n"
 msgstr ""
 
-#: dos2unix.c:327 unix2dos.c:315
+#: dos2unix.c:368 unix2dos.c:324
 #, c-format
 msgid "using code page %d.\n"
 msgstr "bruger tegnkodningstabel %d.\n"
 
-#: dos2unix.c:351 dos2unix.c:386 unix2dos.c:337 unix2dos.c:385
+#: dos2unix.c:392 dos2unix.c:429 unix2dos.c:346 unix2dos.c:406
 #, c-format
 msgid "Binary symbol 0x%02X found at line %u\n"
 msgstr "Binært symbol 0x%02X fundet på linje %u\n"
 
-#: dos2unix.c:471 unix2dos.c:479
+#: dos2unix.c:520 unix2dos.c:493
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "fejl: Værdien af miljøvariabel DOS2UNIX_LOCALEDIR er for lang.\n"
 
@@ -640,12 +633,22 @@ msgstr "tilvalg \"%s\" kræver et argument\n"
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "mål for fil %s er ikke angivet i ny-fil-tilstand\n"
 
-#: common.c:1933
+#: common.c:1868
+#, fuzzy, c-format
+msgid "can not read from input file: %s\n"
+msgstr "kan ikke skrive til outputfil: %s\n"
+
+#: common.c:1880 common.c:1894
+#, c-format
+msgid "can not write to output file: %s\n"
+msgstr "kan ikke skrive til outputfil: %s\n"
+
+#: common.c:1971
 #, c-format
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr ""
 
-#: common.c:1948
+#: common.c:1986
 #, c-format
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr ""
