@@ -348,7 +348,7 @@ void PrintVersion(const char *progname, const char *localedir)
   printf(_("%s version.\n"), __OS);
 #endif
 #if defined(_WIN32) && defined(WINVER)
-  printf(_("WINVER 0x%X\n"),WINVER);
+  printf("WINVER 0x%X\n",WINVER);
 #endif
 #ifdef D2U_UNICODE
   printf("%s", _("With Unicode UTF-16 support.\n"));
@@ -539,6 +539,9 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progna
   return RetVal;
 }
 
+/* Read the Byte Order Mark.
+   Returns file pointer or NULL in case of a read error */
+
 FILE *read_bom (FILE *f, int *bomtype)
 {
   int bom[4];
@@ -554,18 +557,24 @@ FILE *read_bom (FILE *f, int *bomtype)
    /* Check for BOM */
    if  (f != NULL) {
       if ((bom[0] = fgetc(f)) == EOF) {
-         ungetc(bom[0], f);
+         if (ferror(f)) {
+           return NULL;
+         }
+         if (ungetc(bom[0], f) == EOF) return NULL;
          *bomtype = FILE_MBS;
          return(f);
       }
       if ((bom[0] != 0xff) && (bom[0] != 0xfe) && (bom[0] != 0xef) && (bom[0] != 0x84)) {
-         ungetc(bom[0], f);
+         if (ungetc(bom[0], f) == EOF) return NULL;
          *bomtype = FILE_MBS;
          return(f);
       }
       if ((bom[1] = fgetc(f)) == EOF) {
-         ungetc(bom[1], f);
-         ungetc(bom[0], f);
+         if (ferror(f)) {
+           return NULL;
+         }
+         if (ungetc(bom[1], f) == EOF) return NULL;
+         if (ungetc(bom[0], f) == EOF) return NULL;
          *bomtype = FILE_MBS;
          return(f);
       }
@@ -578,9 +587,12 @@ FILE *read_bom (FILE *f, int *bomtype)
          return(f);
       }
       if ((bom[2] = fgetc(f)) == EOF) {
-         ungetc(bom[2], f);
-         ungetc(bom[1], f);
-         ungetc(bom[0], f);
+         if (ferror(f)) {
+           return NULL;
+         }
+         if (ungetc(bom[2], f) == EOF) return NULL;
+         if (ungetc(bom[1], f) == EOF) return NULL;
+         if (ungetc(bom[0], f) == EOF) return NULL;
          *bomtype = FILE_MBS;
          return(f);
       }
@@ -589,16 +601,19 @@ FILE *read_bom (FILE *f, int *bomtype)
          return(f);
       }
       if ((bom[0] == 0x84) && (bom[1] == 0x31) && (bom[2]== 0x95)) {
-        bom[3] = fgetc(f);
-        if (bom[3]== 0x33) { /* GB18030 */
-          *bomtype = FILE_GB18030;
-          return(f);
-        }
-        ungetc(bom[3], f);
+         bom[3] = fgetc(f);
+           if (ferror(f)) {
+             return NULL;
+          }
+         if (bom[3]== 0x33) { /* GB18030 */
+           *bomtype = FILE_GB18030;
+           return(f);
+         }
+         if (ungetc(bom[3], f) == EOF) return NULL;
       }
-      ungetc(bom[2], f);
-      ungetc(bom[1], f);
-      ungetc(bom[0], f);
+      if (ungetc(bom[2], f) == EOF) return NULL;
+      if (ungetc(bom[1], f) == EOF) return NULL;
+      if (ungetc(bom[0], f) == EOF) return NULL;
       *bomtype = FILE_MBS;
       return(f);
    }
@@ -616,28 +631,28 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
   {
     switch (bomtype) {
       case FILE_UTF16LE:   /* UTF-16 Little Endian */
-        fprintf(f, "%s", "\xFF\xFE");
+        if (fprintf(f, "%s", "\xFF\xFE") < 0) return NULL;
         if (ipFlag->verbose > 1) {
           fprintf(stderr, "%s: ", progname);
           fprintf(stderr, _("Writing %s BOM.\n"), _("UTF-16LE"));
         }
         break;
       case FILE_UTF16BE:   /* UTF-16 Big Endian */
-        fprintf(f, "%s", "\xFE\xFF");
+        if (fprintf(f, "%s", "\xFE\xFF") < 0) return NULL;
         if (ipFlag->verbose > 1) {
           fprintf(stderr, "%s: ", progname);
           fprintf(stderr, _("Writing %s BOM.\n"), _("UTF-16BE"));
         }
         break;
       case FILE_GB18030:  /* GB18030 */
-        fprintf(f, "%s", "\x84\x31\x95\x33");
+        if (fprintf(f, "%s", "\x84\x31\x95\x33") < 0) return NULL;
         if (ipFlag->verbose > 1) {
           fprintf(stderr, "%s: ", progname);
           fprintf(stderr, _("Writing %s BOM.\n"), _("GB18030"));
         }
         break;
       default:      /* UTF-8 */
-        fprintf(f, "%s", "\xEF\xBB\xBF");
+        if (fprintf(f, "%s", "\xEF\xBB\xBF") < 0) return NULL;
         if (ipFlag->verbose > 1) {
           fprintf(stderr, "%s: ", progname);
           fprintf(stderr, _("Writing %s BOM.\n"), _("UTF-8"));
@@ -648,14 +663,14 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
     if ((bomtype == FILE_GB18030) ||
         (((bomtype == FILE_UTF16LE)||(bomtype == FILE_UTF16BE))&&(ipFlag->locale_target == TARGET_GB18030))
        ) {
-        fprintf(f, "%s", "\x84\x31\x95\x33"); /* GB18030 */
+        if (fprintf(f, "%s", "\x84\x31\x95\x33") < 0) return NULL; /* GB18030 */
         if (ipFlag->verbose > 1)
         {
           fprintf(stderr, "%s: ", progname);
           fprintf(stderr, _("Writing %s BOM.\n"), _("GB18030"));
         }
      } else {
-        fprintf(f, "%s", "\xEF\xBB\xBF"); /* UTF-8 */
+        if (fprintf(f, "%s", "\xEF\xBB\xBF") < 0) return NULL; /* UTF-8 */
         if (ipFlag->verbose > 1)
         {
           fprintf(stderr, "%s: ", progname);
@@ -729,7 +744,10 @@ int check_unicode_info(FILE *InF, CFlag *ipFlag, const char *progname, int *bomt
     }
   }
 #endif
-  InF = read_bom(InF, &ipFlag->bomtype);
+  if ((InF = read_bom(InF, &ipFlag->bomtype)) == NULL) {
+    d2u_getc_error(ipFlag,progname);
+    return -1;
+  }
   *bomtype_orig = ipFlag->bomtype;
 #ifdef D2U_UNICODE
   if ((ipFlag->bomtype == FILE_MBS) && (ipFlag->ConvMode == CONVMODE_UTF16LE))
@@ -769,7 +787,10 @@ int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, co
     }
   }
 #endif
-  InF = read_bom(InF, &ipFlag->bomtype);
+  if ((InF = read_bom(InF, &ipFlag->bomtype)) == NULL) {
+    d2u_getc_error(ipFlag,progname);
+    return -1;
+  }
   if (ipFlag->verbose > 1)
     print_bom(ipFlag->bomtype, ipInFN, progname);
 #ifdef D2U_UNICODE
@@ -797,7 +818,7 @@ int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, co
 #endif
 
   if ((!RetVal) && ((ipFlag->add_bom) || ((ipFlag->keep_bom) && (ipFlag->bomtype > 0))))
-    write_bom(TempF, ipFlag, progname);
+    if (write_bom(TempF, ipFlag, progname) == NULL) return -1;
 
   return RetVal;
 }
@@ -1328,13 +1349,14 @@ void print_messages_info(const CFlag *pFlag, const char *infile, const char *pro
 }
 
 #ifdef D2U_UNICODE
-void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename)
+void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename, const char *progname)
 {
   wint_t TempChar;
   wint_t PreviousChar = 0;
   unsigned int lb_dos = 0;
   unsigned int lb_unix = 0;
   unsigned int lb_mac = 0;
+  char *errstr;
 
   ipFlag->status = 0;
 
@@ -1359,8 +1381,17 @@ void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename)
         continue;
       }
       PreviousChar = TempChar;
-      lb_unix++; /* Unix line end (LF). Put CR */
+      lb_unix++; /* Unix line end (LF). */
     }
+  }
+  if ((TempChar == WEOF) && ferror(ipInF)) {
+    ipFlag->error = errno;
+    if (ipFlag->verbose) {
+      errstr = strerror(errno);
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("can not read from input file %s: %s\n"), filename, errstr);
+    }
+    return;
   }
 
   if (ipFlag->file_info & INFO_CONVERT) {
@@ -1392,13 +1423,14 @@ void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename)
 }
 #endif
 
-void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename)
+void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename, const char *progname)
 {
   int TempChar;
   int PreviousChar = 0;
   unsigned int lb_dos = 0;
   unsigned int lb_unix = 0;
   unsigned int lb_mac = 0;
+  char *errstr;
 
 
   ipFlag->status = 0;
@@ -1424,8 +1456,17 @@ void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename)
         continue;
       }
       PreviousChar = TempChar;
-      lb_unix++; /* Unix line end (LF). Put CR */
+      lb_unix++; /* Unix line end (LF). */
     }
+  }
+  if ((TempChar == EOF) && ferror(ipInF)) {
+    ipFlag->error = errno;
+    if (ipFlag->verbose) {
+      errstr = strerror(errno);
+      fprintf(stderr, "%s: ", progname);
+      fprintf(stderr, _("can not read from input file %s: %s\n"), filename, errstr);
+    }
+    return;
   }
 
 
@@ -1499,14 +1540,14 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
 #ifdef D2U_UNICODE
   if (!RetVal) {
     if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
-      FileInfoW(InF, ipFlag, ipInFN);
+      FileInfoW(InF, ipFlag, ipInFN, progname);
     } else {
-      FileInfo(InF, ipFlag, ipInFN);
+      FileInfo(InF, ipFlag, ipInFN, progname);
     }
   }
 #else
   if (!RetVal)
-    FileInfo(InF, ipFlag, ipInFN);
+    FileInfo(InF, ipFlag, ipInFN, progname);
 #endif
   ipFlag->bomtype = bomtype_orig; /* messages must print the real bomtype, not the assumed bomtype */
 
@@ -1546,14 +1587,14 @@ int GetFileInfoStdio(CFlag *ipFlag, const char *progname)
 #ifdef D2U_UNICODE
   if (!RetVal) {
     if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
-      FileInfoW(stdin, ipFlag, "");
+      FileInfoW(stdin, ipFlag, "", progname);
     } else {
-      FileInfo(stdin, ipFlag, "");
+      FileInfo(stdin, ipFlag, "", progname);
     }
   }
 #else
   if (!RetVal)
-    FileInfo(stdin, ipFlag, "");
+    FileInfo(stdin, ipFlag, "", progname);
 #endif
   ipFlag->bomtype = bomtype_orig; /* messages must print the real bomtype, not the assumed bomtype */
 

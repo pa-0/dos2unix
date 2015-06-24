@@ -1,6 +1,7 @@
 2015-??-??: Version 7.2.3
 
-  * Fix: Check for file IO errors while reading input files.
+  * Fix: Check for file I/O errors while reading input files, and added
+    a few missing checks while writing output files.
   * Fix: Compilation for msys.
 
 2015-05-22: Version 7.2.2

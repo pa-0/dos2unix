@@ -1,5 +1,8 @@
 2015-06-24 Erwin Waterlander <waterlan@xs4all.nl>
-	* dos2unix.c, unix2dos.c: Bug fix. Check for file IO errors
+	* common.c: Bug fix. Check for file I/O errors with every file access.
+
+2015-06-23 Erwin Waterlander <waterlan@xs4all.nl>
+	* dos2unix.c, unix2dos.c: Bug fix. Check for file I/O errors
 	  with every file access.
 	* common.c: New functions d2u_getc_error, d2u_putc_error, and
 	  d2u_putwc_error for printing error messages.
