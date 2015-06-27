@@ -2,6 +2,8 @@
 	* Makefile: Enable UTF-16 by default for MSYS, because MSYS2 supports it.
 	  For compilation on MSYS1 you have to disable it.
 	* common.c: Don't print "converting file ... to ..." when there was an error.
+	* common.c: Fixed false warning while reading BOM from zero byte file.
+	  Was introduced on 2015-06-24.
 
 2015-06-24 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Bug fix. Check for file I/O errors with every file access.

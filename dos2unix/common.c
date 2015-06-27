@@ -560,7 +560,6 @@ FILE *read_bom (FILE *f, int *bomtype)
          if (ferror(f)) {
            return NULL;
          }
-         if (ungetc(bom[0], f) == EOF) return NULL;
          *bomtype = FILE_MBS;
          return(f);
       }
