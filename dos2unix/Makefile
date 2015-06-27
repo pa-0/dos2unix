@@ -179,7 +179,6 @@ ifeq (msys,$(D2U_OS))
 	CC=gcc
 	EXE = .exe
 	VERSIONSUFFIX	= -msys
-	UCS =
 ifdef ENABLE_NLS
 	LIBS_EXTRA = -lintl -liconv
 endif

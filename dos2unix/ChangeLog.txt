@@ -1,9 +1,15 @@
+2015-06-27 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Enable UTF-16 by default for MSYS, because MSYS2 supports it.
+	  For compilation on MSYS1 you have to disable it.
+	* common.c: Don't print "converting file ... to ..." when there was an error.
+
 2015-06-24 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Bug fix. Check for file I/O errors with every file access.
 
 2015-06-23 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c, unix2dos.c: Bug fix. Check for file I/O errors
-	  with every file access.
+	  with every file access. Thanks to report of Philip Rowlands.
+	  http://sourceforge.net/p/dos2unix/bugs/12/
 	* common.c: New functions d2u_getc_error, d2u_putc_error, and
 	  d2u_putwc_error for printing error messages.
 

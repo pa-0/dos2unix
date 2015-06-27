@@ -1236,28 +1236,30 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
   } else {
     fprintf(stderr,"%s: ",progname);
     if (informat[0] == '\0') {
-      if (is_dos2unix(progname))
-        fprintf(stderr, _("converting file %s to file %s in Unix format...\n"), infile, outfile);
-      else {
-        if (pFlag->FromToMode == FROMTO_UNIX2MAC)
-          fprintf(stderr, _("converting file %s to file %s in Mac format...\n"), infile, outfile);
-        else
-          fprintf(stderr, _("converting file %s to file %s in DOS format...\n"), infile, outfile);
+      if (is_dos2unix(progname)) {
+        if (!RetVal) fprintf(stderr, _("converting file %s to file %s in Unix format...\n"), infile, outfile);
+      } else {
+        if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
+          if (!RetVal) fprintf(stderr, _("converting file %s to file %s in Mac format...\n"), infile, outfile);
+        } else {
+          if (!RetVal) fprintf(stderr, _("converting file %s to file %s in DOS format...\n"), infile, outfile);
+        }
       }
     } else {
-      if (is_dos2unix(progname))
+      if (is_dos2unix(progname)) {
     /* TRANSLATORS:
 1st %s is encoding of input file.
 2nd %s is name of input file.
 3rd %s is encoding of output file.
 4th %s is name of output file.
 E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format... */
-        fprintf(stderr, _("converting %s file %s to %s file %s in Unix format...\n"), informat, infile, outformat, outfile);
-      else {
-        if (pFlag->FromToMode == FROMTO_UNIX2MAC)
-          fprintf(stderr, _("converting %s file %s to %s file %s in Mac format...\n"), informat, infile, outformat, outfile);
-        else
-          fprintf(stderr, _("converting %s file %s to %s file %s in DOS format...\n"), informat, infile, outformat, outfile);
+        if (!RetVal) fprintf(stderr, _("converting %s file %s to %s file %s in Unix format...\n"), informat, infile, outformat, outfile);
+      } else {
+        if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
+          if (!RetVal) fprintf(stderr, _("converting %s file %s to %s file %s in Mac format...\n"), informat, infile, outformat, outfile);
+        } else {
+          if (!RetVal) fprintf(stderr, _("converting %s file %s to %s file %s in DOS format...\n"), informat, infile, outformat, outfile);
+        }
       }
     }
     if (RetVal) {
@@ -1298,27 +1300,29 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
   } else {
     fprintf(stderr,"%s: ",progname);
     if (informat[0] == '\0') {
-      if (is_dos2unix(progname))
-        fprintf(stderr, _("converting file %s to Unix format...\n"), infile);
-      else {
-        if (pFlag->FromToMode == FROMTO_UNIX2MAC)
-          fprintf(stderr, _("converting file %s to Mac format...\n"), infile);
-        else
-          fprintf(stderr, _("converting file %s to DOS format...\n"), infile);
+      if (is_dos2unix(progname)) {
+        if (!RetVal) fprintf(stderr, _("converting file %s to Unix format...\n"), infile);
+      } else {
+        if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
+          if (!RetVal) fprintf(stderr, _("converting file %s to Mac format...\n"), infile);
+        } else {
+          if (!RetVal) fprintf(stderr, _("converting file %s to DOS format...\n"), infile);
+        }
       }
     } else {
-      if (is_dos2unix(progname))
+      if (is_dos2unix(progname)) {
     /* TRANSLATORS:
 1st %s is encoding of input file.
 2nd %s is name of input file.
 3rd %s is encoding of output (input file is overwritten).
 E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format... */
-        fprintf(stderr, _("converting %s file %s to %s Unix format...\n"), informat, infile, outformat);
-      else {
-        if (pFlag->FromToMode == FROMTO_UNIX2MAC)
-          fprintf(stderr, _("converting %s file %s to %s Mac format...\n"), informat, infile, outformat);
-        else
-          fprintf(stderr, _("converting %s file %s to %s DOS format...\n"), informat, infile, outformat);
+        if (!RetVal) fprintf(stderr, _("converting %s file %s to %s Unix format...\n"), informat, infile, outformat);
+      } else {
+        if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
+          if (!RetVal) fprintf(stderr, _("converting %s file %s to %s Mac format...\n"), informat, infile, outformat);
+        } else {
+          if (!RetVal) fprintf(stderr, _("converting %s file %s to %s DOS format...\n"), informat, infile, outformat);
+        }
       }
     }
     if (RetVal) {

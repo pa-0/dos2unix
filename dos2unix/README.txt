@@ -75,25 +75,27 @@ TRANSLATORS
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.6 - 7.2
         Chinese (traditional) mail6543210                  Version 6.0.5
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
+        Danish                Joe Hansen                   Version 7.2.3
         Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.2.2
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
         Esperanto             Benno Schulenberg            Version 6.0.5 - 7.2.2
-        French                Frédéric Marchal             Version 6.0.5 - 7.2.2
-        German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0, 7.2.2
+        French                Frédéric Marchal             Version 6.0.5 - 7.2.3
+        German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0,
+                                                           7.2.2 - 7.2.3
         German                Lars Wendler                 Version 6.0.4
         German                Mario Blättermann            Version 6.0.6, 7.1 - 7.2
         Hungarian             Balázs Úr                    Version 6.0.5 - 7.2.2
         Japanese              Yasuaki Taniguchi            Version 7.1.1
-        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.2.2
-        Polish                Jakub Bogusz                 Version 6.0.5 - 7.2.2
+        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.2.3
+        Polish                Jakub Bogusz                 Version 6.0.5 - 7.2.3
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
-        Russian               Yuri Kozlov                  Version 6.0.6 - 7.2.2
+        Russian               Yuri Kozlov                  Version 6.0.6 - 7.2.3
         Serbian               Мирослав Николић             Version 6.0.5 - 7.2.2
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.2
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.2.2
-        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.2.2
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.2.3
+        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.2.3
 
         Translation of the manual.
         See http://translationproject.org/domain/dos2unix-man.html
@@ -144,6 +146,8 @@ ACKNOWLEDGEMENTS
         Helmut Karlowski      Makefile and PrintVersion() update for freeMiNT.
         Tom Christiansen      Fix for wrong title in HTML manuals.
         Armin Müller          Fixed typo in if condition in write_bom().
+        Philip Rowlands       Reported that dos2unix was not checking for file I/O
+                              errors while reading the input.
 
 
 FINDUTILS

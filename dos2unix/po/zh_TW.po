@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-24 22:02+0200\n"
+"POT-Creation-Date: 2015-06-27 19:22+0200\n"
 "PO-Revision-Date: 2014-03-14 00:43+0800\n"
 "Last-Translator: mail6543210 <mail6543210@yahoo.com.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -476,27 +476,27 @@ msgstr "重新命名「%s」到「%s」錯誤：%s\n"
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          後者為符號連結'%s' 的目標\n"
 
-#: common.c:1156 common.c:1226 common.c:1288
+#: common.c:1156 common.c:1226 common.c:1290
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "略過二進位檔案%s\n"
 
-#: common.c:1159 common.c:1229 common.c:1291
+#: common.c:1159 common.c:1229 common.c:1293
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "未支援%d 編碼頁。\n"
 
-#: common.c:1162 common.c:1232 common.c:1294 common.c:1346
+#: common.c:1162 common.c:1232 common.c:1296 common.c:1350
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "略過 UTF-16 檔案 %s，wchar_t 的大小是 %d 位元組。\n"
 
-#: common.c:1165 common.c:1235 common.c:1297
+#: common.c:1165 common.c:1235 common.c:1299
 #, fuzzy, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
 msgstr "略過 UTF-16 檔案 %s，UTF-16 轉換發生錯誤。\n"
 
-#: common.c:1214 common.c:1279 common.c:1336
+#: common.c:1214 common.c:1281 common.c:1340
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "略過 %s，不是一個普通檔案。\n"
@@ -506,7 +506,7 @@ msgstr "略過 %s，不是一個普通檔案。\n"
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "略過 %s，輸出檔 %s 是一個符號連結。.\n"
 
-#: common.c:1220 common.c:1285 common.c:1341
+#: common.c:1220 common.c:1287 common.c:1345
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr "略過符號連結 %s，目標不是一個普通檔案。\n"
@@ -537,42 +537,42 @@ msgstr "正在轉換 %s 為DOS 格式到 %s...\n"
 #. 3rd %s is encoding of output file.
 #. 4th %s is name of output file.
 #. E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format...
-#: common.c:1255
+#: common.c:1256
 #, fuzzy, c-format
 msgid "converting %s file %s to %s file %s in Unix format...\n"
 msgstr "正在轉換 %s 為Unix 格式到 %s...\n"
 
-#: common.c:1258
+#: common.c:1259
 #, fuzzy, c-format
 msgid "converting %s file %s to %s file %s in Mac format...\n"
 msgstr "正在轉換 %s 為Mac 格式到 %s...\n"
 
-#: common.c:1260
+#: common.c:1261
 #, fuzzy, c-format
 msgid "converting %s file %s to %s file %s in DOS format...\n"
 msgstr "正在轉換 %s 為DOS 格式到 %s...\n"
 
-#: common.c:1265
+#: common.c:1267
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "轉換檔案 %s 到 %s 錯誤\n"
 
-#: common.c:1282
+#: common.c:1284
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "略過符號連結 %s。\n"
 
-#: common.c:1302
+#: common.c:1304
 #, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "正在轉換 %s 為Unix 格式...\n"
 
-#: common.c:1305
+#: common.c:1307
 #, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "正在轉換 %s 為Mac 格式...\n"
 
-#: common.c:1307
+#: common.c:1309
 #, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "正在轉換 %s 為DOS 格式...\n"
@@ -582,72 +582,72 @@ msgstr "正在轉換 %s 為DOS 格式...\n"
 #. 2nd %s is name of input file.
 #. 3rd %s is encoding of output (input file is overwritten).
 #. E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format...
-#: common.c:1316
+#: common.c:1319
 #, fuzzy, c-format
 msgid "converting %s file %s to %s Unix format...\n"
 msgstr "正在轉換 %s 為Unix 格式...\n"
 
-#: common.c:1319
+#: common.c:1322
 #, fuzzy, c-format
 msgid "converting %s file %s to %s Mac format...\n"
 msgstr "正在轉換 %s 為Mac 格式...\n"
 
-#: common.c:1321
+#: common.c:1324
 #, fuzzy, c-format
 msgid "converting %s file %s to %s DOS format...\n"
 msgstr "正在轉換 %s 為DOS 格式...\n"
 
-#: common.c:1326
+#: common.c:1330
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "轉換檔案 %s 錯誤\n"
 
-#: common.c:1392 common.c:1467
+#: common.c:1396 common.c:1471
 #, fuzzy, c-format
 msgid "can not read from input file %s: %s\n"
 msgstr "無法寫入輸出檔：%s\n"
 
-#: common.c:1639
+#: common.c:1643
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr ""
 
-#: common.c:1748 common.c:1785
+#: common.c:1752 common.c:1789
 #, c-format
 msgid "active code page: %d\n"
 msgstr "作用中編碼頁：%d\n"
 
-#: common.c:1797
+#: common.c:1801
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "指定的轉換模式 %s 不合法\n"
 
-#: common.c:1805
+#: common.c:1809
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "選項'%s' 需要一個引數\n"
 
-#: common.c:1816 common.c:1829 common.c:1895
+#: common.c:1820 common.c:1833 common.c:1899
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "新檔模式中未指明檔案 %s 的目的位置\n"
 
-#: common.c:1909
+#: common.c:1913
 #, fuzzy, c-format
 msgid "can not read from input file: %s\n"
 msgstr "無法寫入輸出檔：%s\n"
 
-#: common.c:1921 common.c:1935
+#: common.c:1925 common.c:1939
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "無法寫入輸出檔：%s\n"
 
-#: common.c:2012
+#: common.c:2016
 #, c-format
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr ""
 
-#: common.c:2027
+#: common.c:2031
 #, c-format
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr ""
