@@ -592,9 +592,9 @@ msgid "problems converting file %s\n"
 msgstr "problemen met conversie van bestand %s\n"
 
 #: common.c:1395 common.c:1470
-#, fuzzy, c-format
+#, c-format
 msgid "can not read from input file %s: %s\n"
-msgstr "kan niet schrijven naar uitvoerbestand: %s\n"
+msgstr "kan niet lezen van invoerbestand: %s: %s\n"
 
 #: common.c:1642
 #, c-format
@@ -622,9 +622,9 @@ msgid "target of file %s not specified in new-file mode\n"
 msgstr "doel van bestand %s is niet opgegeven in 'nieuwbestand-modus'\n"
 
 #: common.c:1912
-#, fuzzy, c-format
+#, c-format
 msgid "can not read from input file: %s\n"
-msgstr "kan niet schrijven naar uitvoerbestand: %s\n"
+msgstr "kan niet lezen van invoerbestand: %s\n"
 
 #: common.c:1924 common.c:1938
 #, c-format

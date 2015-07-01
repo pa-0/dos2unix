@@ -1,3 +1,6 @@
+2015-07-01 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 7.2.3
+
 2015-06-27 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Enable UTF-16 by default for MSYS, because MSYS2 supports it.
 	  For compilation on MSYS1 you have to disable it.
