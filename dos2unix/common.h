@@ -158,6 +158,8 @@
   #define R_CNTRL   "r"
   #define W_CNTRL   "w"
 #endif
+#define R_CNTRLW   L"rb"
+#define W_CNTRLW   L"wb"
 
 #define BINARY_FILE 0x1
 #define NO_REGFILE  0x2
@@ -206,6 +208,7 @@
 /* locale conversion targets */
 #define TARGET_UTF8    0
 #define TARGET_GB18030 1
+#define D2U_MAXPATH 2048
 
 typedef struct
 {
