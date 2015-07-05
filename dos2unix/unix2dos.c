@@ -55,6 +55,9 @@
 
 #include "common.h"
 #include "unix2dos.h"
+# if (defined(_WIN32) && !defined(__CYGWIN__))
+#include <windows.h>
+#endif
 #ifdef D2U_UNICODE
 #if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
 # include <langinfo.h>
@@ -477,6 +480,11 @@ int main (int argc, char *argv[])
 # ifdef __MINGW64__
   int _dowildcard = -1; /* enable wildcard expansion for Win64 */
 # endif
+#if (defined(_WIN32) && !defined(__CYGWIN__))
+  wchar_t **wargv;
+
+  wargv = CommandLineToArgvW(GetCommandLineW(), &argc);
+# endif
 
   progname[8] = '\0';
   strcpy(progname,"unix2dos");
@@ -523,9 +531,17 @@ int main (int argc, char *argv[])
   }
 
 #ifdef D2U_UNICODE
-  return parse_options(argc, argv, pFlag, localedir, progname, PrintLicense, ConvertUnixToDos, ConvertUnixToDosW);
+  return parse_options(argc, argv,
+# if (defined(_WIN32) && !defined(__CYGWIN__))
+    wargv,
+# endif
+    pFlag, localedir, progname, PrintLicense, ConvertUnixToDos, ConvertUnixToDosW);
 #else
-  return parse_options(argc, argv, pFlag, localedir, progname, PrintLicense, ConvertUnixToDos);
+  return parse_options(argc, argv,
+# if (defined(_WIN32) && !defined(__CYGWIN__))
+    wargv,
+# endif
+    pFlag, localedir, progname, PrintLicense, ConvertUnixToDos);
 #endif
 }
 

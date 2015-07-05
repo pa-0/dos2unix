@@ -28,10 +28,10 @@
 #include "dos2unix.h"
 #include "querycp.h"
 
-#if defined(D2U_UNICODE)
-#if defined(_WIN32) || defined(__CYGWIN__)
+# if (defined(_WIN32) && !defined(__CYGWIN__))
 #include <windows.h>
 #endif
+#if defined(D2U_UNICODE)
 #if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
 # include <langinfo.h>
 #endif
@@ -1647,7 +1647,11 @@ void get_info_options(char *option, CFlag *pFlag, const char *progname)
   }
 }
 
-int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, const char *progname,
+int parse_options(int argc, char *argv[],
+# if (defined(_WIN32) && !defined(__CYGWIN__))
+                  wchar_t *wargv[],
+#endif
+                  CFlag *pFlag, const char *localedir, const char *progname,
                   void (*PrintLicense)(void),
                   int (*Convert)(FILE*, FILE*, CFlag *, const char *)
 #ifdef D2U_UNICODE

@@ -86,7 +86,7 @@
 #endif
 #include <sys/stat.h>
 #include <errno.h>
-#ifdef D2U_UNICODE
+#if defined(D2U_UNICODE) || defined(_WIN32)
 #include <wchar.h>
 #endif
 
@@ -269,7 +269,11 @@ int ConvertStdio(CFlag *ipFlag, const char *progname,
                  , int (*ConvertW)(FILE*, FILE*, CFlag *, const char *)
 #endif
                   );
-int parse_options(int argc, char *argv[], CFlag *pFlag, const char *localedir, const char *progname,
+int parse_options(int argc, char *argv[],
+# if (defined(_WIN32) && !defined(__CYGWIN__))
+                  wchar_t *wargv[],
+#endif
+                  CFlag *pFlag, const char *localedir, const char *progname,
                   void (*PrintLicense)(void),
                   int (*Convert)(FILE*, FILE*, CFlag *, const char *)
 #ifdef D2U_UNICODE
