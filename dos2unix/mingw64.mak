@@ -12,7 +12,8 @@
 #CRT_GLOB_OBJ = C:/mingw64/mingw/lib/CRT_glob.o
 
 # MSYS2
-CC = gcc
+# We need C++ for d2u_printf in common.c.
+CC = g++
 STRIP = strip
 CRT_GLOB_OBJ = /mingw64/x86_64-w64-mingw32/lib/CRT_glob.o
 

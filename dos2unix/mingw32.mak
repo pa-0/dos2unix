@@ -6,7 +6,8 @@
 # http://sourceforge.net/projects/msys2/
 .PHONY: test check
 
-CC = gcc
+# We need C++ for d2u_printf in common.c.
+CC = g++
 
 # Ruben van Boxem i686-w64-mingw32
 #CRT_GLOB_OBJ = C:/mingw32/i686-w64-mingw32/lib/CRT_glob.o

@@ -1,3 +1,9 @@
+2015-07-07 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Fix d2u_printf() to print Unicode properly in the
+	  Windows Console. This required C++.
+	* mingw*.mak: Use g++ instead of gcc.
+	* vc.mk: Added library shell32.lib for wide arguments.
+
 2015-07-06 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c, unix2dos.c, common.c: Support Unicode file names
 	  on Windows.

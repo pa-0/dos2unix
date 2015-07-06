@@ -34,10 +34,10 @@ all: $(PROGRAMS) $(DOCFILES)
 
 
 dos2unix.exe: dos2unix.obj querycp.obj common.obj
-	$(LINK) $(LDFLAGS) dos2unix.obj querycp.obj common.obj setargv.obj mpr.lib
+	$(LINK) $(LDFLAGS) dos2unix.obj querycp.obj common.obj setargv.obj mpr.lib shell32.lib
 
 unix2dos.exe: unix2dos.obj querycp.obj common.obj
-	$(LINK) $(LDFLAGS) unix2dos.obj querycp.obj common.obj setargv.obj mpr.lib
+	$(LINK) $(LDFLAGS) unix2dos.obj querycp.obj common.obj setargv.obj mpr.lib shell32.lib
 
 
 !if "$(UCS)" == "1"

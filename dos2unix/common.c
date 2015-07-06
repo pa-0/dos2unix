@@ -30,6 +30,8 @@
 
 # if (defined(_WIN32) && !defined(__CYGWIN__))
 #include <windows.h>
+#include <iostream>
+using namespace std;
 #endif
 #if defined(D2U_UNICODE)
 #if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
@@ -100,6 +102,14 @@ void d2u_PrintLastError(const char *progname)
  *
  * The Windows console supports printing of any UTF-16 wide character,
  * regardless of code page, via WriteConsoleW().
+ * The output of WriteConsoleW can NOT be send to a pipe, can not be redirected.
+ * That is a problem if we want to grep output from dos2unix.
+ *
+ * The output of wprintf can be redirected. Problem with wprintf is that it does not
+ * print Unicode characters outside the current ANSI code page.
+ *
+ * The only reliable method for printing Unicode in the Console seems to be to use
+ * C++ cerr/cout, and set the output code page to UTF-8.
  *
  * Dos2unix for Windows translates all directory
  * names to UTF-8, to be able to work with char type strings.
@@ -117,13 +127,9 @@ void d2u_printf( int error, const char* format, ... ) {
    char buf[D2U_MAXPATH];
    char formatmbs[D2U_MAXPATH];
    wchar_t formatwcs[D2U_MAXPATH];
-   HANDLE stduit;
+   UINT outputCP;
 
    va_start(args, format);
-   if (error)
-     stduit =GetStdHandle(STD_ERROR_HANDLE);
-   else
-     stduit =GetStdHandle(STD_OUTPUT_HANDLE);
 
    /* The format string is encoded in the system default
     * Windows ANSI code page. May have been translated
@@ -133,24 +139,17 @@ void d2u_printf( int error, const char* format, ... ) {
    WideCharToMultiByte(CP_UTF8, 0, formatwcs, -1, formatmbs, D2U_MAXPATH, NULL, NULL);
 
    /* Assume the arguments (file names) are in UTF-8 encoding, because
-    * in dos2unix for Windows all treedata files are in UTF-8 format.
+    * in dos2unix for Windows all file names are in UTF-8 format.
     * Print to buffer (UTF-8) */
    vsnprintf( buf, sizeof(buf), formatmbs, args);
-    /* Convert UTF-8 buffer to wide characters, and print to console. */
-   if (MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, D2U_MAXPATH) > 0  ) {
-      /* The output of WriteConsoleW can't be send to a pipe.
-         That is a problem if we want to grep output from dos2unix option -i
-         Try wprintf for stdout. Problem with wprintf is that it does not
-         print characters outside the ANSI code page. */
-      if (error)
-          WriteConsoleW(stduit, wstr, wcslen(wstr), NULL, NULL);
-      else
-          wprintf(L"%s",wstr);
-   } else {
-      /* An error occured. */
-      printf("A:");
-      vprintf( format, args );
-   }
+
+   outputCP = GetConsoleOutputCP();
+   SetConsoleOutputCP(CP_UTF8);
+   if (error)
+     cerr << buf;
+   else
+     cout << buf;
+   SetConsoleOutputCP(outputCP);
 #else
    va_start(args, format);
    if (error)
@@ -572,7 +571,7 @@ int MakeTempFileFrom(const char *OutFN, char **fname_ret)
 #else
   fname_len = strlen(dir) + strlen("/d2utmpXXXXXX") + sizeof (char);
 #endif
-  if (!(fname_str = malloc(fname_len)))
+  if (!(fname_str = (char *)malloc(fname_len)))
     goto make_failed;
   sprintf(fname_str, "%s%s", dir, "/d2utmpXXXXXX");
   *fname_ret = fname_str;

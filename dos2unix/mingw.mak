@@ -7,6 +7,8 @@
 # http://www.mingw.org/
 .PHONY: test check
 
+# We need C++ for d2u_printf in common.c.
+CC = g++
 prefix=c:/usr/local
 ENABLE_NLS=
 
@@ -16,7 +18,7 @@ ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
 endif
 
 all:
-	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f"
+	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC)
 
 test: all
 	cd test; $(MAKE) test
@@ -24,7 +26,7 @@ test: all
 check: test
 
 install:
-	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f"
+	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC)
 
 uninstall:
 	$(MAKE) uninstall EXE=.exe prefix=$(prefix)
