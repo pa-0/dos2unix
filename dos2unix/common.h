@@ -107,10 +107,11 @@
 #include <locale.h>
 #endif
 
-#if  defined(__TURBOC__) || defined(__DJGPP__) || defined(__MINGW32__) || defined(_MSC_VER)
+/* Watcom C has mkstemp, but assume that none of the Windows compilers have it. To make MakeTempFileFrom() simpler */
+#if  defined(__TURBOC__) || defined(__DJGPP__) || defined(_WIN32) /* defined(__MINGW32__) || defined(_MSC_VER) */
 /* Some compilers have no mkstemp().
  * Use mktemp() instead.
- * BORLANDC, DJGPP, MINGW32 */
+ * BORLANDC, DJGPP, MINGW32, MSVC */
 #define NO_MKSTEMP 1
 #endif
 
@@ -273,7 +274,7 @@ int ConvertStdio(CFlag *ipFlag, const char *progname,
 #endif
                   );
 int parse_options(int argc, char *argv[],
-# if (defined(_WIN32) && !defined(__CYGWIN__))
+# ifdef D2U_WINWIDE
                   wchar_t *wargv[],
 #endif
                   CFlag *pFlag, const char *localedir, const char *progname,

@@ -1,3 +1,8 @@
+2015-07-08 Erwin Waterlander <waterlan@xs4all.nl>
+	* dos2unix.c, unix2dos.c, common.c: Unicode file name support
+	  requires D2U_WINWIDE to be defined. There is still a problem
+	  with globbing Unicode file names.
+
 2015-07-07 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Fix d2u_printf() to print Unicode properly in the
 	  Windows Console. This required C++.

@@ -480,9 +480,10 @@ int main (int argc, char *argv[])
 # ifdef __MINGW64__
   int _dowildcard = -1; /* enable wildcard expansion for Win64 */
 # endif
-#if (defined(_WIN32) && !defined(__CYGWIN__))
+#ifdef D2U_WINWIDE
   wchar_t **wargv;
 
+  /* This does not support wildcard expansion (globbing), witch is a big drawback */
   wargv = CommandLineToArgvW(GetCommandLineW(), &argc);
 # endif
 
@@ -532,13 +533,13 @@ int main (int argc, char *argv[])
 
 #ifdef D2U_UNICODE
   return parse_options(argc, argv,
-# if (defined(_WIN32) && !defined(__CYGWIN__))
+# ifdef D2U_WINWIDE
     wargv,
 # endif
     pFlag, localedir, progname, PrintLicense, ConvertUnixToDos, ConvertUnixToDosW);
 #else
   return parse_options(argc, argv,
-# if (defined(_WIN32) && !defined(__CYGWIN__))
+# ifdef D2U_WINWIDE
     wargv,
 # endif
     pFlag, localedir, progname, PrintLicense, ConvertUnixToDos);
