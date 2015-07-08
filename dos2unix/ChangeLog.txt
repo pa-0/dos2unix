@@ -1,3 +1,11 @@
+2015-07-09 Erwin Waterlander <waterlan@xs4all.nl>
+	* *.c: Renamed D2U_WINWIDE to D2U_UNIFILE
+	* mingw64.mak, Makefile: Unicode file name support is enabled
+	  by setting UNIFILE=1.
+	* common.c: Initial version of glob_warg() for wild card expansion
+	  of the wide command line arguments. Expands wide Unicode arguments,
+	  and returns them in UTF-8.
+
 2015-07-08 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c, unix2dos.c, common.c: Unicode file name support
 	  requires D2U_WINWIDE to be defined. There is still a problem

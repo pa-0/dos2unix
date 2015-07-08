@@ -209,7 +209,7 @@
 /* locale conversion targets */
 #define TARGET_UTF8    0
 #define TARGET_GB18030 1
-#define D2U_MAXPATH 2048
+#define D2U_MAX_PATH 2048
 
 typedef struct
 {
@@ -274,7 +274,7 @@ int ConvertStdio(CFlag *ipFlag, const char *progname,
 #endif
                   );
 int parse_options(int argc, char *argv[],
-# ifdef D2U_WINWIDE
+#ifdef D2U_UNIFILE
                   wchar_t *wargv[],
 #endif
                   CFlag *pFlag, const char *localedir, const char *progname,
@@ -291,6 +291,10 @@ void d2u_putwc_error(CFlag *ipFlag, const char *progname);
 wint_t d2u_getwc(FILE *f, int bomtype);
 wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype);
 wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname);
+#endif
+#ifdef D2U_UNIFILE
+#define UNICODE
+int glob_warg(int argc, wchar_t *wargv[], char *argv[]);
 #endif
 
 #endif

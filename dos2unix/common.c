@@ -28,7 +28,7 @@
 #include "dos2unix.h"
 #include "querycp.h"
 
-#ifdef D2U_WINWIDE
+#ifdef D2U_UNIFILE
 #include <windows.h>
 #include <stdarg.h>
 #include <iostream>
@@ -127,11 +127,11 @@ void d2u_PrintLastError(const char *progname)
 
 void d2u_printf( int error, const char* format, ... ) {
    va_list args;
-#ifdef D2U_WINWIDE
-   wchar_t wstr[D2U_MAXPATH];
-   char buf[D2U_MAXPATH];
-   char formatmbs[D2U_MAXPATH];
-   wchar_t formatwcs[D2U_MAXPATH];
+#ifdef D2U_UNIFILE
+   wchar_t wstr[D2U_MAX_PATH];
+   char buf[D2U_MAX_PATH];
+   char formatmbs[D2U_MAX_PATH];
+   wchar_t formatwcs[D2U_MAX_PATH];
    UINT outputCP;
 
    va_start(args, format);
@@ -139,9 +139,9 @@ void d2u_printf( int error, const char* format, ... ) {
    /* The format string is encoded in the system default
     * Windows ANSI code page. May have been translated
     * by gettext. Convert it to wide characters. */
-   MultiByteToWideChar(CP_ACP,0, format, -1, formatwcs, D2U_MAXPATH);
+   MultiByteToWideChar(CP_ACP,0, format, -1, formatwcs, D2U_MAX_PATH);
    /* then convert the format string to UTF-8 */
-   WideCharToMultiByte(CP_UTF8, 0, formatwcs, -1, formatmbs, D2U_MAXPATH, NULL, NULL);
+   WideCharToMultiByte(CP_UTF8, 0, formatwcs, -1, formatmbs, D2U_MAX_PATH, NULL, NULL);
 
    /* Assume the arguments (file names) are in UTF-8 encoding, because
     * in dos2unix for Windows all file names are in UTF-8 format.
@@ -171,11 +171,11 @@ void d2u_printf( int error, const char* format, ... ) {
  */
 int d2u_rename(const char *oldname, const char *newname)
 {
-#ifdef D2U_WINWIDE
-   wchar_t oldnamew[D2U_MAXPATH];
-   wchar_t newnamew[D2U_MAXPATH];
-   MultiByteToWideChar(CP_UTF8, 0, oldname, -1, oldnamew, D2U_MAXPATH);
-   MultiByteToWideChar(CP_UTF8, 0, newname, -1, newnamew, D2U_MAXPATH);
+#ifdef D2U_UNIFILE
+   wchar_t oldnamew[D2U_MAX_PATH];
+   wchar_t newnamew[D2U_MAX_PATH];
+   MultiByteToWideChar(CP_UTF8, 0, oldname, -1, oldnamew, D2U_MAX_PATH);
+   MultiByteToWideChar(CP_UTF8, 0, newname, -1, newnamew, D2U_MAX_PATH);
    return _wrename(oldnamew, newnamew);
 #else
    return rename(oldname, newname);
@@ -188,9 +188,9 @@ int d2u_rename(const char *oldname, const char *newname)
  */
 int d2u_unlink(const char *filename)
 {
-#ifdef D2U_WINWIDE
-   wchar_t filenamew[D2U_MAXPATH];
-   MultiByteToWideChar(CP_UTF8, 0, filename, -1, filenamew, D2U_MAXPATH);
+#ifdef D2U_UNIFILE
+   wchar_t filenamew[D2U_MAX_PATH];
+   MultiByteToWideChar(CP_UTF8, 0, filename, -1, filenamew, D2U_MAX_PATH);
    return _wunlink(filenamew);
 #else
    return unlink(filename);
@@ -207,14 +207,14 @@ int d2u_unlink(const char *filename)
  *
  ******************************************************************/
 
-#ifdef D2U_WINWIDE
+#ifdef D2U_UNIFILE
 
 int symbolic_link(const char *path)
 {
    DWORD attrs;
-   wchar_t pathw[D2U_MAXPATH];
+   wchar_t pathw[D2U_MAX_PATH];
 
-   MultiByteToWideChar(CP_UTF8, 0, path, -1, pathw, D2U_MAXPATH);
+   MultiByteToWideChar(CP_UTF8, 0, path, -1, pathw, D2U_MAX_PATH);
    attrs = GetFileAttributesW(pathw);
 
    if (attrs == INVALID_FILE_ATTRIBUTES)
@@ -264,16 +264,16 @@ int symbolic_link(const char *path)
  ******************************************************************/
 int regfile(char *path, int allowSymlinks, CFlag *ipFlag, const char *progname)
 {
-#ifdef D2U_WINWIDE
+#ifdef D2U_UNIFILE
    struct _stat buf;
-   wchar_t pathw[D2U_MAXPATH];
+   wchar_t pathw[D2U_MAX_PATH];
 #else
    struct stat buf;
 #endif
    char *errstr;
 
-#ifdef D2U_WINWIDE
-   MultiByteToWideChar(CP_UTF8, 0, path, -1, pathw, D2U_MAXPATH);
+#ifdef D2U_UNIFILE
+   MultiByteToWideChar(CP_UTF8, 0, path, -1, pathw, D2U_MAX_PATH);
    if (_wstat(pathw, &buf) == 0) {
 #else
    if (STAT(path, &buf) == 0) {
@@ -334,16 +334,16 @@ int regfile(char *path, int allowSymlinks, CFlag *ipFlag, const char *progname)
  ******************************************************************/
 int regfile_target(char *path, CFlag *ipFlag, const char *progname)
 {
-#ifdef D2U_WINWIDE
+#ifdef D2U_UNIFILE
    struct _stat buf;
-   wchar_t pathw[D2U_MAXPATH];
+   wchar_t pathw[D2U_MAX_PATH];
 #else
    struct stat buf;
 #endif
    char *errstr;
 
-#ifdef D2U_WINWIDE
-   MultiByteToWideChar(CP_UTF8, 0, path, -1, pathw, D2U_MAXPATH);
+#ifdef D2U_UNIFILE
+   MultiByteToWideChar(CP_UTF8, 0, path, -1, pathw, D2U_MAX_PATH);
    if (_wstat(pathw, &buf) == 0) {
 #else
    if (stat(path, &buf) == 0) {
@@ -363,6 +363,46 @@ int regfile_target(char *path, CFlag *ipFlag, const char *progname)
      return(-1);
    }
 }
+
+/*
+ *   glob_warg() expands the command line arguments.
+ *   Input  : wide Unicode arguments.
+ *   Output : argv : expanded arguments in UTF-8 format.
+ *   Returns: new argc value.
+ *            
+ */
+
+#ifdef D2U_UNIFILE
+int glob_warg(int argc, wchar_t *wargv[], char *argv[])
+{
+  int i;
+  int argc_globbed = 0;
+  wchar_t *warg;
+  wchar_t *find_result;
+  char    find_result_utf8[D2U_MAX_PATH];
+  WIN32_FIND_DATA FindFileData;
+  HANDLE hFind;
+
+  for (i=1; i<argc; ++i)
+  {
+    warg = wargv[i];
+
+    hFind = FindFirstFileW(warg, &FindFileData);
+    while (hFind != INVALID_HANDLE_VALUE)
+    {
+       WideCharToMultiByte(CP_UTF8, 0, FindFileData.cFileName, -1, find_result_utf8, D2U_MAX_PATH, NULL, NULL);
+       d2u_printf(2,"%s\n", find_result_utf8);
+
+      if (!FindNextFileW(hFind, &FindFileData)) {
+        FindClose(hFind);
+        hFind = INVALID_HANDLE_VALUE;
+      }
+    }
+  }
+
+  return argc_globbed;
+}
+#endif
 
 void PrintBSDLicense(void)
 {
@@ -523,10 +563,10 @@ void PrintVersion(const char *progname, const char *localedir)
  */
 FILE* OpenInFile(char *ipFN)
 {
-#ifdef D2U_WINWIDE
-  wchar_t pathw[D2U_MAXPATH];
+#ifdef D2U_UNIFILE
+  wchar_t pathw[D2U_MAX_PATH];
 
-  MultiByteToWideChar(CP_UTF8, 0, ipFN, -1, pathw, D2U_MAXPATH);
+  MultiByteToWideChar(CP_UTF8, 0, ipFN, -1, pathw, D2U_MAX_PATH);
   return _wfopen(pathw, R_CNTRLW);
 #else
   return (fopen(ipFN, R_CNTRL));
@@ -573,8 +613,8 @@ int MakeTempFileFrom(const char *OutFN, char **fname_ret)
 #else
   int fd = -1;
 #endif
-#ifdef D2U_WINWIDE
-  wchar_t fname_strw[D2U_MAXPATH];
+#ifdef D2U_UNIFILE
+  wchar_t fname_strw[D2U_MAX_PATH];
   wchar_t *namew;
 #endif
 
@@ -585,8 +625,8 @@ int MakeTempFileFrom(const char *OutFN, char **fname_ret)
 
   dir = dirname(cpy);
 
-#ifdef D2U_WINWIDE
-  fname_len = D2U_MAXPATH;
+#ifdef D2U_UNIFILE
+  fname_len = D2U_MAX_PATH;
 #else
   fname_len = strlen(dir) + strlen("/d2utmpXXXXXX") + sizeof (char);
 #endif
@@ -598,8 +638,8 @@ int MakeTempFileFrom(const char *OutFN, char **fname_ret)
   free(cpy);
 
 #ifdef NO_MKSTEMP
-#ifdef D2U_WINWIDE
-  MultiByteToWideChar(CP_UTF8, 0, fname_str, -1, fname_strw, D2U_MAXPATH);
+#ifdef D2U_UNIFILE
+  MultiByteToWideChar(CP_UTF8, 0, fname_str, -1, fname_strw, D2U_MAX_PATH);
   namew = _wmktemp(fname_strw);
   WideCharToMultiByte(CP_UTF8, 0, namew, -1, fname_str, fname_len, NULL, NULL);
   *fname_ret = fname_str;
@@ -1020,9 +1060,9 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
   FILE *TempF = NULL;
   char *TempPath;
   char *errstr;
-#ifdef D2U_WINWIDE
+#ifdef D2U_UNIFILE
    struct _stat StatBuf;
-   wchar_t pathw[D2U_MAXPATH];
+   wchar_t pathw[D2U_MAX_PATH];
 #else
   struct stat StatBuf;
 #endif
@@ -1070,8 +1110,8 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
   }
 
   /* retrieve ipInFN file date stamp */
-#ifdef D2U_WINWIDE
-   MultiByteToWideChar(CP_UTF8, 0, ipInFN, -1, pathw, D2U_MAXPATH);
+#ifdef D2U_UNIFILE
+   MultiByteToWideChar(CP_UTF8, 0, ipInFN, -1, pathw, D2U_MAX_PATH);
    if (_wstat(pathw, &StatBuf)) {
 #else
   if (stat(ipInFN, &StatBuf)) {
@@ -1407,7 +1447,7 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
 {
   char informat[32];
   char outformat[64];
-# ifdef D2U_WINWIDE
+# ifdef D2U_UNIFILE
   wchar_t informatw[32];
   wchar_t outformatw[64];
 #endif
@@ -1415,7 +1455,7 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
   print_format(pFlag, informat, outformat, sizeof(informat), sizeof(outformat));
 
 /* Change informat and outformat to UTF-8 for d2u_printf. */
-# ifdef D2U_WINWIDE
+# ifdef D2U_UNIFILE
    /* The format string is encoded in the system default
     * Windows ANSI code page. May have been translated
     * by gettext. Convert it to wide characters. */
@@ -1490,7 +1530,7 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
 {
   char informat[10];
   char outformat[32];
-# ifdef D2U_WINWIDE
+# ifdef D2U_UNIFILE
   wchar_t informatw[32];
   wchar_t outformatw[64];
 #endif
@@ -1498,7 +1538,7 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
   print_format(pFlag, informat, outformat, sizeof(informat), sizeof(outformat));
 
 /* Change informat and outformat to UTF-8 for d2u_printf. */
-# ifdef D2U_WINWIDE
+# ifdef D2U_UNIFILE
    /* The format string is encoded in the system default
     * Windows ANSI code page. May have been translated
     * by gettext. Convert it to wide characters. */
@@ -1887,7 +1927,7 @@ void get_info_options(char *option, CFlag *pFlag, const char *progname)
 }
 
 int parse_options(int argc, char *argv[],
-#ifdef D2U_WINWIDE
+#ifdef D2U_UNIFILE
                   wchar_t *wargv[],
 #endif
                   CFlag *pFlag, const char *localedir, const char *progname,
@@ -1903,7 +1943,7 @@ int parse_options(int argc, char *argv[],
   int CanSwitchFileMode = 1;
   int process_options = 1;
   int RetVal = 0;
-  char in_filename[D2U_MAXPATH], out_filename[D2U_MAXPATH];
+  char in_filename[D2U_MAX_PATH], out_filename[D2U_MAX_PATH];
 
   /* variable initialisations */
   pFlag->NewFile = 0;
@@ -2057,7 +2097,7 @@ int parse_options(int argc, char *argv[],
       }
 
       else if ((strcmp(argv[ArgIdx],"-o") == 0) || (strcmp(argv[ArgIdx],"--oldfile") == 0)) {
-#ifdef D2U_WINWIDE
+#ifdef D2U_UNIFILE
         /* Convert wide UTF-16 Unicode file names to UTF-8 */
         WideCharToMultiByte(CP_UTF8, 0, wargv[ArgIdx-1], -1, in_filename, sizeof(in_filename), NULL, NULL);
 #else
@@ -2078,7 +2118,7 @@ int parse_options(int argc, char *argv[],
       }
 
       else if ((strcmp(argv[ArgIdx],"-n") == 0) || (strcmp(argv[ArgIdx],"--newfile") == 0)) {
-#ifdef D2U_WINWIDE
+#ifdef D2U_UNIFILE
         /* Convert wide UTF-16 Unicode file names to UTF-8 */
         WideCharToMultiByte(CP_UTF8, 0, wargv[ArgIdx-1], -1, in_filename, sizeof(in_filename), NULL, NULL);
 #else
@@ -2110,7 +2150,7 @@ int parse_options(int argc, char *argv[],
         if (CanSwitchFileMode)
           CanSwitchFileMode = 0;
         else {
-#ifdef D2U_WINWIDE
+#ifdef D2U_UNIFILE
           /* Convert wide UTF-16 Unicode file names to UTF-8 */
           WideCharToMultiByte(CP_UTF8, 0, wargv[ArgIdx-1], -1, in_filename, sizeof(in_filename), NULL, NULL);
           WideCharToMultiByte(CP_UTF8, 0, wargv[ArgIdx], -1, out_filename, sizeof(out_filename), NULL, NULL);
@@ -2132,7 +2172,7 @@ int parse_options(int argc, char *argv[],
           CanSwitchFileMode = 1;
         }
       } else {
-#ifdef D2U_WINWIDE
+#ifdef D2U_UNIFILE
           /* Convert wide UTF-16 Unicode file names to UTF-8 */
         WideCharToMultiByte(CP_UTF8, 0, wargv[ArgIdx], -1, in_filename, sizeof(in_filename), NULL, NULL);
 #else
@@ -2173,7 +2213,7 @@ int parse_options(int argc, char *argv[],
     return pFlag->error;
   }
 
-# ifdef D2U_WINWIDE
+# ifdef D2U_UNIFILE
    /* Convert wide UTF-16 Unicode file names to UTF-8 */
    WideCharToMultiByte(CP_UTF8, 0, wargv[ArgIdx-1], -1, in_filename, sizeof(in_filename), NULL, NULL);
 #else
