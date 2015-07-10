@@ -28,9 +28,9 @@
 #include "dos2unix.h"
 #include "querycp.h"
 
+#include <stdarg.h>
 #ifdef D2U_UNIFILE
 #include <windows.h>
-#include <stdarg.h>
 #include <iostream>
 using namespace std;
 #elif defined(D2U_UNICODE)
