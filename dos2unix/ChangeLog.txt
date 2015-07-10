@@ -1,3 +1,10 @@
+2015-07-10 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Finished glob_warg().
+	* dos2unix.c, unix2dos.c: Use glob_warg() to expand arguments in
+	  the Windows Command Prompt.
+	* mingw32.mak, mingw.mak: Unicode file name support is enabled
+	  by setting UNIFILE=1.
+
 2015-07-09 Erwin Waterlander <waterlan@xs4all.nl>
 	* *.c: Renamed D2U_WINWIDE to D2U_UNIFILE
 	* mingw64.mak, Makefile: Unicode file name support is enabled

@@ -17,6 +17,7 @@ CRT_GLOB_OBJ = /mingw32/i686-w64-mingw32/lib/CRT_glob.o
 
 prefix=c:/usr/local
 ENABLE_NLS=
+UNIFILE=1
 
 ifdef ENABLE_NLS
 LIBS_EXTRA = -lintl -liconv
@@ -25,7 +26,7 @@ endif
 LIBS_EXTRA += $(CRT_GLOB_OBJ)
 
 all:
-	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) CFLAGS_OS=-I/mingw32/include
+	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) CFLAGS_OS=-I/mingw32/include UNIFILE=$(UNIFILE)
 
 test: all
 	cd test; $(MAKE) test
@@ -33,7 +34,7 @@ test: all
 check: test
 
 install:
-	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) CFLAGS_OS=-I/mingw32/include
+	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) CFLAGS_OS=-I/mingw32/include UNIFILE=$(UNIFILE)
 
 uninstall:
 	$(MAKE) uninstall EXE=.exe prefix=$(prefix)

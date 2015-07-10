@@ -108,7 +108,7 @@
 #endif
 
 /* Watcom C has mkstemp, but assume that none of the Windows compilers have it. To make MakeTempFileFrom() simpler */
-#if  defined(__TURBOC__) || defined(__DJGPP__) || defined(_WIN32) /* defined(__MINGW32__) || defined(_MSC_VER) */
+#if  defined(__TURBOC__) || defined(__DJGPP__) || defined(__MINGW32__) || defined(_MSC_VER)
 /* Some compilers have no mkstemp().
  * Use mktemp() instead.
  * BORLANDC, DJGPP, MINGW32, MSVC */
@@ -274,9 +274,6 @@ int ConvertStdio(CFlag *ipFlag, const char *progname,
 #endif
                   );
 int parse_options(int argc, char *argv[],
-#ifdef D2U_UNIFILE
-                  wchar_t *wargv[],
-#endif
                   CFlag *pFlag, const char *localedir, const char *progname,
                   void (*PrintLicense)(void),
                   int (*Convert)(FILE*, FILE*, CFlag *, const char *)
@@ -291,10 +288,11 @@ void d2u_putwc_error(CFlag *ipFlag, const char *progname);
 wint_t d2u_getwc(FILE *f, int bomtype);
 wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype);
 wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname);
+void d2u_printf( int error, const char* format, ... );
 #endif
 #ifdef D2U_UNIFILE
 #define UNICODE
-int glob_warg(int argc, wchar_t *wargv[], char *argv[]);
+int glob_warg(int argc, wchar_t *wargv[], char ***argv);
 #endif
 
 #endif

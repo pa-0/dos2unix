@@ -1,3 +1,7 @@
+2015-??-??: Version 7.3
+
+  * New: Unicode file name support in the Windows Command Prompt
+
 2015-07-01: Version 7.2.3
 
   * Fix: Check for file I/O errors while reading input files, and added

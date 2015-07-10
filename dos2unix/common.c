@@ -94,7 +94,7 @@ void d2u_PrintLastError(const char *progname)
 #endif
 
 /*
- * d2u_printf()  : printf wrapper, print in Windows Console in Unicode mode,
+ * d2u_printf()  : printf wrapper, print in Windows Command Prompt in Unicode mode,
  *                 to have consistent output. Regardless of active code page.
  *
  * Windows Unicode: Print Windows ANSI encoded format with UTF-8 encoded arguments.
@@ -113,7 +113,7 @@ void d2u_PrintLastError(const char *progname)
  * The output of wprintf can be redirected. Problem with wprintf is that it does not
  * print Unicode characters outside the current ANSI code page.
  *
- * The only reliable method for printing Unicode in the Console seems to be to use
+ * The only reliable method for printing Unicode in the Command Prompt seems to be to use
  * C++ cerr/cout, and set the output code page to UTF-8.
  *
  * Dos2unix for Windows translates all directory
@@ -365,7 +365,7 @@ int regfile_target(char *path, CFlag *ipFlag, const char *progname)
 }
 
 /*
- *   glob_warg() expands the command line arguments.
+ *   glob_warg() expands the wide command line arguments.
  *   Input  : wide Unicode arguments.
  *   Output : argv : expanded arguments in UTF-8 format.
  *   Returns: new argc value.
@@ -373,34 +373,60 @@ int regfile_target(char *path, CFlag *ipFlag, const char *progname)
  */
 
 #ifdef D2U_UNIFILE
-int glob_warg(int argc, wchar_t *wargv[], char *argv[])
+int glob_warg(int argc, wchar_t *wargv[], char ***argv)
 {
   int i;
-  int argc_globbed = 0;
+  int argc_glob = 0;
   wchar_t *warg;
   wchar_t *find_result;
   char    find_result_utf8[D2U_MAX_PATH];
+  char  *arg;
+  char  **argv_new;
+  int len;
+  int found;
   WIN32_FIND_DATA FindFileData;
   HANDLE hFind;
+
+  argv_new = *argv;
+
+  len = WideCharToMultiByte(CP_UTF8, 0, wargv[0], -1, NULL, 0, NULL, NULL);
+  arg = (char *)malloc((size_t)len);
+  WideCharToMultiByte(CP_UTF8, 0, wargv[argc_glob], -1, arg, len, NULL, NULL);
+  argv_new[argc_glob] = arg;
 
   for (i=1; i<argc; ++i)
   {
     warg = wargv[i];
+    found = 0;
 
     hFind = FindFirstFileW(warg, &FindFileData);
     while (hFind != INVALID_HANDLE_VALUE)
     {
-       WideCharToMultiByte(CP_UTF8, 0, FindFileData.cFileName, -1, find_result_utf8, D2U_MAX_PATH, NULL, NULL);
-       d2u_printf(2,"%s\n", find_result_utf8);
+       found = 1;
+       ++argc_glob;
+       len =(size_t) WideCharToMultiByte(CP_UTF8, 0, FindFileData.cFileName, -1, NULL, 0, NULL, NULL);
+       arg = (char *)malloc((size_t)len);
+       WideCharToMultiByte(CP_UTF8, 0, FindFileData.cFileName, -1, arg, len, NULL, NULL);
+       argv_new = (char **)realloc(argv_new, (argc_glob+1)*sizeof(char**));
+       argv_new[argc_glob] = arg;
 
       if (!FindNextFileW(hFind, &FindFileData)) {
         FindClose(hFind);
         hFind = INVALID_HANDLE_VALUE;
       }
     }
+    if (found == 0) {
+    /* Not a file. Just copy the argument */
+       ++argc_glob;
+       len =(size_t) WideCharToMultiByte(CP_UTF8, 0, warg, -1, NULL, 0, NULL, NULL);
+       arg = (char *)malloc((size_t)len);
+       WideCharToMultiByte(CP_UTF8, 0, warg, -1, arg, len, NULL, NULL);
+       argv_new = (char **)realloc(argv_new, (argc_glob+1)*sizeof(char**));
+       argv_new[argc_glob] = arg;
+    }
   }
-
-  return argc_globbed;
+  *argv = argv_new;
+  return ++argc_glob;
 }
 #endif
 
@@ -544,6 +570,13 @@ void PrintVersion(const char *progname, const char *localedir)
   printf("%s", _("With Unicode UTF-16 support.\n"));
 #else
   printf("%s", _("Without Unicode UTF-16 support.\n"));
+#endif
+#ifdef _WIN32
+#ifdef D2U_UNIFILE
+  printf("%s", _("With Unicode file name support.\n"));
+#else
+  printf("%s", _("Without Unicode file name support.\n"));
+#endif
 #endif
 #ifdef ENABLE_NLS
   printf("%s", _("With native language support.\n"));
@@ -1927,9 +1960,6 @@ void get_info_options(char *option, CFlag *pFlag, const char *progname)
 }
 
 int parse_options(int argc, char *argv[],
-#ifdef D2U_UNIFILE
-                  wchar_t *wargv[],
-#endif
                   CFlag *pFlag, const char *localedir, const char *progname,
                   void (*PrintLicense)(void),
                   int (*Convert)(FILE*, FILE*, CFlag *, const char *)
@@ -1943,7 +1973,6 @@ int parse_options(int argc, char *argv[],
   int CanSwitchFileMode = 1;
   int process_options = 1;
   int RetVal = 0;
-  char in_filename[D2U_MAX_PATH], out_filename[D2U_MAX_PATH];
 
   /* variable initialisations */
   pFlag->NewFile = 0;
@@ -2097,18 +2126,10 @@ int parse_options(int argc, char *argv[],
       }
 
       else if ((strcmp(argv[ArgIdx],"-o") == 0) || (strcmp(argv[ArgIdx],"--oldfile") == 0)) {
-#ifdef D2U_UNIFILE
-        /* Convert wide UTF-16 Unicode file names to UTF-8 */
-        WideCharToMultiByte(CP_UTF8, 0, wargv[ArgIdx-1], -1, in_filename, sizeof(in_filename), NULL, NULL);
-#else
-        strncpy(in_filename,argv[ArgIdx-1],sizeof(in_filename));
-        if (strlen(argv[ArgIdx-1]) > sizeof(in_filename))
-          in_filename[sizeof(in_filename)-1] = '\0';
-#endif
         /* last convert not paired */
         if (!CanSwitchFileMode) {
           fprintf(stderr,"%s: ",progname);
-          d2u_printf(1, _("target of file %s not specified in new-file mode\n"), in_filename);
+          d2u_printf(1, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
           pFlag->error = 1;
           ShouldExit = 1;
           pFlag->stdio_mode = 0;
@@ -2118,18 +2139,10 @@ int parse_options(int argc, char *argv[],
       }
 
       else if ((strcmp(argv[ArgIdx],"-n") == 0) || (strcmp(argv[ArgIdx],"--newfile") == 0)) {
-#ifdef D2U_UNIFILE
-        /* Convert wide UTF-16 Unicode file names to UTF-8 */
-        WideCharToMultiByte(CP_UTF8, 0, wargv[ArgIdx-1], -1, in_filename, sizeof(in_filename), NULL, NULL);
-#else
-        strncpy(in_filename,argv[ArgIdx-1],sizeof(in_filename));
-        if (strlen(argv[ArgIdx-1]) > sizeof(in_filename))
-          in_filename[sizeof(in_filename)-1] = '\0';
-#endif
         /* last convert not paired */
         if (!CanSwitchFileMode) {
           fprintf(stderr,"%s: ",progname);
-          d2u_printf(1, _("target of file %s not specified in new-file mode\n"), in_filename);
+          d2u_printf(1, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
           pFlag->error = 1;
           ShouldExit = 1;
           pFlag->stdio_mode = 0;
@@ -2150,47 +2163,27 @@ int parse_options(int argc, char *argv[],
         if (CanSwitchFileMode)
           CanSwitchFileMode = 0;
         else {
-#ifdef D2U_UNIFILE
-          /* Convert wide UTF-16 Unicode file names to UTF-8 */
-          WideCharToMultiByte(CP_UTF8, 0, wargv[ArgIdx-1], -1, in_filename, sizeof(in_filename), NULL, NULL);
-          WideCharToMultiByte(CP_UTF8, 0, wargv[ArgIdx], -1, out_filename, sizeof(out_filename), NULL, NULL);
-#else
-          strncpy(in_filename,argv[ArgIdx-1],sizeof(in_filename));
-          if (strlen(argv[ArgIdx-1]) > sizeof(in_filename))
-            in_filename[sizeof(in_filename)-1] = '\0';
-          strncpy(out_filename,argv[ArgIdx],sizeof(out_filename));
-          if (strlen(argv[ArgIdx]) > sizeof(out_filename))
-            in_filename[sizeof(out_filename)-1] = '\0';
-#endif
 #ifdef D2U_UNICODE
-          RetVal = ConvertNewFile(in_filename, out_filename, pFlag, progname, Convert, ConvertW);
+          RetVal = ConvertNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag, progname, Convert, ConvertW);
 #else
-          RetVal = ConvertNewFile(in_filename, out_filename, pFlag, progname, Convert);
+          RetVal = ConvertNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag, progname, Convert);
 #endif
           if (pFlag->verbose)
-            print_messages_newfile(pFlag, in_filename, out_filename, progname, RetVal);
+            print_messages_newfile(pFlag, argv[ArgIdx-1], argv[ArgIdx], progname, RetVal);
           CanSwitchFileMode = 1;
         }
       } else {
-#ifdef D2U_UNIFILE
-          /* Convert wide UTF-16 Unicode file names to UTF-8 */
-        WideCharToMultiByte(CP_UTF8, 0, wargv[ArgIdx], -1, in_filename, sizeof(in_filename), NULL, NULL);
-#else
-        strncpy(in_filename,argv[ArgIdx],sizeof(in_filename));
-        if (strlen(argv[ArgIdx]) > sizeof(in_filename))
-          in_filename[sizeof(in_filename)-1] = '\0';
-#endif
         if (pFlag->file_info) {
-          RetVal = GetFileInfo(in_filename, pFlag, progname);
-          print_messages_info(pFlag, in_filename, progname);
+          RetVal = GetFileInfo(argv[ArgIdx], pFlag, progname);
+          print_messages_info(pFlag, argv[ArgIdx], progname);
         } else {
 #ifdef D2U_UNICODE
-          RetVal = ConvertNewFile(in_filename, in_filename, pFlag, progname, Convert, ConvertW);
+          RetVal = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert, ConvertW);
 #else
-          RetVal = ConvertNewFile(in_filename, in_filename, pFlag, progname, Convert);
+          RetVal = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert);
 #endif
           if (pFlag->verbose)
-            print_messages_oldfile(pFlag, in_filename, progname, RetVal);
+            print_messages_oldfile(pFlag, argv[ArgIdx], progname, RetVal);
         }
       }
     }
@@ -2213,17 +2206,9 @@ int parse_options(int argc, char *argv[],
     return pFlag->error;
   }
 
-# ifdef D2U_UNIFILE
-   /* Convert wide UTF-16 Unicode file names to UTF-8 */
-   WideCharToMultiByte(CP_UTF8, 0, wargv[ArgIdx-1], -1, in_filename, sizeof(in_filename), NULL, NULL);
-#else
-   strncpy(in_filename,argv[ArgIdx-1],sizeof(in_filename));
-   if (strlen(argv[ArgIdx-1]) > sizeof(in_filename))
-     in_filename[sizeof(in_filename)-1] = '\0';
-#endif
   if (!CanSwitchFileMode) {
     fprintf(stderr,"%s: ",progname);
-    fprintf(stderr, _("target of file %s not specified in new-file mode\n"), in_filename);
+    fprintf(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
     pFlag->error = 1;
   }
   return pFlag->error;

@@ -480,12 +480,26 @@ int main (int argc, char *argv[])
 # ifdef __MINGW64__
   int _dowildcard = -1; /* enable wildcard expansion for Win64 */
 # endif
-#ifdef D2U_UNIFILE
-  wchar_t **wargv;
+  int  argc_new;
+  char **argv_new;
 
-  /* This does not support wildcard expansion (globbing), witch is a big drawback */
+#ifdef D2U_UNIFILE
+  /* Get arguments in wide Unicode format in the Windows Command Prompt */
+  wchar_t **wargv;
+  char ***argv_glob;
+
+  /* This does not support wildcard expansion (globbing) */
   wargv = CommandLineToArgvW(GetCommandLineW(), &argc);
-# endif
+
+  argv_glob = (char ***)malloc(sizeof(char***));
+  *argv_glob = (char **)malloc(sizeof(char**));
+  /* Glob the arguments and convert them to UTF-8 */
+  argc_new = glob_warg(argc, wargv, argv_glob);
+  argv_new = *argv_glob;
+#else  
+  argc_new = argc;
+  argv_new = argv;
+#endif
 
   progname[8] = '\0';
   strcpy(progname,"unix2dos");
@@ -532,17 +546,9 @@ int main (int argc, char *argv[])
   }
 
 #ifdef D2U_UNICODE
-  return parse_options(argc, argv,
-# ifdef D2U_UNIFILE
-    wargv,
-# endif
-    pFlag, localedir, progname, PrintLicense, ConvertUnixToDos, ConvertUnixToDosW);
+  return parse_options(argc_new, argv_new, pFlag, localedir, progname, PrintLicense, ConvertUnixToDos, ConvertUnixToDosW);
 #else
-  return parse_options(argc, argv,
-# ifdef D2U_UNIFILE
-    wargv,
-# endif
-    pFlag, localedir, progname, PrintLicense, ConvertUnixToDos);
+  return parse_options(argc_new, argv_new, pFlag, localedir, progname, PrintLicense, ConvertUnixToDos);
 #endif
 }
 

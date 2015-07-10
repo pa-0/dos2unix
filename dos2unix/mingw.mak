@@ -11,6 +11,7 @@
 CC = g++
 prefix=c:/usr/local
 ENABLE_NLS=
+UNIFILE=1
 
 ifdef ENABLE_NLS
 LIBS_EXTRA = -lintl -liconv
@@ -18,7 +19,7 @@ ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
 endif
 
 all:
-	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC)
+	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) UNIFILE=$(UNIFILE)
 
 test: all
 	cd test; $(MAKE) test
@@ -26,7 +27,7 @@ test: all
 check: test
 
 install:
-	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC)
+	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) UNIFILE=$(UNIFILE)
 
 uninstall:
 	$(MAKE) uninstall EXE=.exe prefix=$(prefix)
