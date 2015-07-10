@@ -292,6 +292,7 @@ void d2u_printf( int error, const char* format, ... );
 #endif
 #ifdef D2U_UNIFILE
 #define UNICODE
+#define _UNICODE
 int glob_warg(int argc, wchar_t *wargv[], char ***argv);
 #endif
 

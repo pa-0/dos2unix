@@ -378,12 +378,13 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv)
   int i;
   int argc_glob = 0;
   wchar_t *warg;
-  wchar_t *find_result;
-  char    find_result_utf8[D2U_MAX_PATH];
+  wchar_t *path;
+  wchar_t *path_and_filename;
+  wchar_t *ptr;
   char  *arg;
   char  **argv_new;
   int len;
-  int found;
+  int found, add_path;
   WIN32_FIND_DATA FindFileData;
   HANDLE hFind;
 
@@ -398,15 +399,36 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv)
   {
     warg = wargv[i];
     found = 0;
+    add_path = 0;
+    /* FindFileData.cFileName has the path stripped off. We need to add it again. */
+    path = _wcsdup(warg);
+    /* replace all back slashes with slashes */
+    while ( (ptr = wcschr(path,L'\\')) != NULL) {
+      *ptr = L'/';
+    }
+    if ( (ptr = wcsrchr(path,L'/')) != NULL) {
+      ptr++;
+      *ptr = L'\0';
+      add_path = 1;
+    }
 
     hFind = FindFirstFileW(warg, &FindFileData);
     while (hFind != INVALID_HANDLE_VALUE)
     {
+       len = wcslen(path) + wcslen(FindFileData.cFileName) + 2;
+       path_and_filename = (wchar_t *)malloc(len*sizeof(wchar_t));
+       if (add_path) {
+         wcsncpy_s(path_and_filename, len, path, wcslen(path));
+         wcsncat_s(path_and_filename, len, FindFileData.cFileName, wcslen(FindFileData.cFileName));
+       } else {
+         wcsncpy_s(path_and_filename, len, FindFileData.cFileName, wcslen(path));
+       }
+       
        found = 1;
        ++argc_glob;
-       len =(size_t) WideCharToMultiByte(CP_UTF8, 0, FindFileData.cFileName, -1, NULL, 0, NULL, NULL);
+       len =(size_t) WideCharToMultiByte(CP_UTF8, 0, path_and_filename, -1, NULL, 0, NULL, NULL);
        arg = (char *)malloc((size_t)len);
-       WideCharToMultiByte(CP_UTF8, 0, FindFileData.cFileName, -1, arg, len, NULL, NULL);
+       WideCharToMultiByte(CP_UTF8, 0, path_and_filename, -1, arg, len, NULL, NULL);
        argv_new = (char **)realloc(argv_new, (argc_glob+1)*sizeof(char**));
        argv_new[argc_glob] = arg;
 
