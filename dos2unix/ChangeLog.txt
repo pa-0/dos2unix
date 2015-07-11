@@ -1,3 +1,7 @@
+2015-07-11 Erwin Waterlander <waterlan@xs4all.nl>
+	* mingw32.mak, mingw64.mak: Add extra required DLLs for binary
+	  package with Unicode file name support.
+
 2015-07-10 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Finished glob_warg().
 	* dos2unix.c, unix2dos.c: Use glob_warg() to expand arguments in

@@ -23,6 +23,12 @@ ifdef ENABLE_NLS
 LIBS_EXTRA = -lintl -liconv
 ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll bin/libgcc_s_dw2-1.dll bin/libwinpthread-1.dll
 endif
+ifdef UNIFILE
+ZIPOBJ_EXTRA += bin/libstdc++-6.dll
+ifndef ENABLE_NLS
+ZIPOBJ_EXTRA += bin/libgcc_s_dw2-1.dll
+endif
+endif
 LIBS_EXTRA += $(CRT_GLOB_OBJ)
 
 all:
