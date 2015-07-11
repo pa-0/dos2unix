@@ -26,7 +26,7 @@ endif
 ifdef UNIFILE
 ZIPOBJ_EXTRA += bin/libstdc++-6.dll
 ifndef ENABLE_NLS
-ZIPOBJ_EXTRA += bin/libgcc_s_dw2-1.dll
+ZIPOBJ_EXTRA += bin/libgcc_s_dw2-1.dll bin/libwinpthread-1.dll
 endif
 endif
 LIBS_EXTRA += $(CRT_GLOB_OBJ)
