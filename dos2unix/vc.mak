@@ -3,6 +3,8 @@
 
 !include version.mk
 
+UNIFILE = 1
+
 CC = cl.exe /nologo
 LINK = link.exe /nologo
 SRCDIR = .
@@ -42,6 +44,9 @@ unix2dos.exe: unix2dos.obj querycp.obj common.obj
 
 !if "$(UCS)" == "1"
 CFLAGS = $(CFLAGS) -DD2U_UNICODE
+!endif
+!if "$(UNIFILE)" == "1"
+CFLAGS = $(CFLAGS) -DD2U_UNIFILE /Tp
 !endif
 
 dos2unix.obj :  $(SRCDIR)\dos2unix.c $(SRCDIR)\querycp.h $(SRCDIR)\common.h

@@ -6,18 +6,23 @@
 # http://sourceforge.net/projects/msys2/
 .PHONY: test check
 
-# We need C++ for d2u_printf in common.c.
-CC = g++
-
 # Ruben van Boxem i686-w64-mingw32
 #CRT_GLOB_OBJ = C:/mingw32/i686-w64-mingw32/lib/CRT_glob.o
+# We need C++ for d2u_printf in common.c.
+
+UNIFILE=1
 
 # MSYS2
+ifdef UNIFILE
+# We need C++ for d2u_printf in common.c.
+CC = g++
+else
+CC = gcc
+endif
 CRT_GLOB_OBJ = /mingw32/i686-w64-mingw32/lib/CRT_glob.o
 
 prefix=c:/usr/local
 ENABLE_NLS=
-UNIFILE=1
 
 ifdef ENABLE_NLS
 LIBS_EXTRA = -lintl -liconv

@@ -91,6 +91,27 @@ void d2u_PrintLastError(const char *progname)
 
     LocalFree(lpMsgBuf);
 }
+
+
+int d2u_WideCharToMultiByte(UINT CodePage, DWORD dwFlags, LPCWSTR lpWideCharStr, int cchWideChar, LPSTR lpMultiByteStr, int cbMultiByte, LPCSTR lpDefaultChar, LPBOOL lpUsedDefaultChar)
+{
+  int i;
+
+  if ( (i = WideCharToMultiByte(CodePage, dwFlags, lpWideCharStr, cchWideChar, lpMultiByteStr, cbMultiByte, lpDefaultChar, lpUsedDefaultChar)) == 0)
+      d2u_PrintLastError("dos2unix");
+
+  return i;
+}
+
+int d2u_MultiByteToWideChar(UINT CodePage, DWORD dwFlags, LPCSTR lpMultiByteStr, int cbMultiByte, LPWSTR lpWideCharStr, int cchWideChar)
+{
+  int i;
+
+  if ( (i = MultiByteToWideChar(CodePage, dwFlags, lpMultiByteStr, cbMultiByte, lpWideCharStr, cchWideChar)) == 0)
+      d2u_PrintLastError("dos2unix");
+  return i;
+}
+
 #endif
 
 /*
@@ -106,19 +127,20 @@ void d2u_PrintLastError(const char *progname)
  * can't be encoded in the default system Windows ANSI code page.
  *
  * The Windows console supports printing of any UTF-16 wide character,
- * regardless of code page, via WriteConsoleW().
+ * regardless of code page, via WriteConsoleW(). WriteConsoleW() is most reliable.
  * The output of WriteConsoleW can NOT be send to a pipe, can not be redirected.
- * That is a problem if we want to grep output from dos2unix.
+ * That is big a problem, because we want to be able to grep output from dos2unix.
  *
  * The output of wprintf can be redirected. Problem with wprintf is that it does not
  * print Unicode characters outside the current ANSI code page.
  *
- * The only reliable method for printing Unicode in the Command Prompt seems to be to use
- * C++ cerr/cout, and set the output code page to UTF-8.
+ * The best method for printing Unicode in the Command Prompt seems to be to use
+ * C++ cerr/cout, and set the output code page to UTF-8. This is using mingw-w64.
+ * When using MSVC we get squares for the Unicode characters outside the ANSI code page.
  *
  * Dos2unix for Windows translates all directory
  * names to UTF-8, to be able to work with char type strings.
- * This is done to keep the code portable.
+ * This is also done to keep the code portable.
  *
  * Dos2unix's messages are encoded in the default Windows ANSI code page,
  * which can be translated with gettext. Gettext/libintl recodes
@@ -139,9 +161,9 @@ void d2u_printf( int error, const char* format, ... ) {
    /* The format string is encoded in the system default
     * Windows ANSI code page. May have been translated
     * by gettext. Convert it to wide characters. */
-   MultiByteToWideChar(CP_ACP,0, format, -1, formatwcs, D2U_MAX_PATH);
+   d2u_MultiByteToWideChar(CP_ACP,0, format, -1, formatwcs, D2U_MAX_PATH);
    /* then convert the format string to UTF-8 */
-   WideCharToMultiByte(CP_UTF8, 0, formatwcs, -1, formatmbs, D2U_MAX_PATH, NULL, NULL);
+   d2u_WideCharToMultiByte(CP_UTF8, 0, formatwcs, -1, formatmbs, D2U_MAX_PATH, NULL, NULL);
 
    /* Assume the arguments (file names) are in UTF-8 encoding, because
     * in dos2unix for Windows all file names are in UTF-8 format.
@@ -174,8 +196,8 @@ int d2u_rename(const char *oldname, const char *newname)
 #ifdef D2U_UNIFILE
    wchar_t oldnamew[D2U_MAX_PATH];
    wchar_t newnamew[D2U_MAX_PATH];
-   MultiByteToWideChar(CP_UTF8, 0, oldname, -1, oldnamew, D2U_MAX_PATH);
-   MultiByteToWideChar(CP_UTF8, 0, newname, -1, newnamew, D2U_MAX_PATH);
+   d2u_MultiByteToWideChar(CP_UTF8, 0, oldname, -1, oldnamew, D2U_MAX_PATH);
+   d2u_MultiByteToWideChar(CP_UTF8, 0, newname, -1, newnamew, D2U_MAX_PATH);
    return _wrename(oldnamew, newnamew);
 #else
    return rename(oldname, newname);
@@ -190,7 +212,7 @@ int d2u_unlink(const char *filename)
 {
 #ifdef D2U_UNIFILE
    wchar_t filenamew[D2U_MAX_PATH];
-   MultiByteToWideChar(CP_UTF8, 0, filename, -1, filenamew, D2U_MAX_PATH);
+   d2u_MultiByteToWideChar(CP_UTF8, 0, filename, -1, filenamew, D2U_MAX_PATH);
    return _wunlink(filenamew);
 #else
    return unlink(filename);
@@ -214,7 +236,7 @@ int symbolic_link(const char *path)
    DWORD attrs;
    wchar_t pathw[D2U_MAX_PATH];
 
-   MultiByteToWideChar(CP_UTF8, 0, path, -1, pathw, D2U_MAX_PATH);
+   d2u_MultiByteToWideChar(CP_UTF8, 0, path, -1, pathw, D2U_MAX_PATH);
    attrs = GetFileAttributesW(pathw);
 
    if (attrs == INVALID_FILE_ATTRIBUTES)
@@ -273,7 +295,7 @@ int regfile(char *path, int allowSymlinks, CFlag *ipFlag, const char *progname)
    char *errstr;
 
 #ifdef D2U_UNIFILE
-   MultiByteToWideChar(CP_UTF8, 0, path, -1, pathw, D2U_MAX_PATH);
+   d2u_MultiByteToWideChar(CP_UTF8, 0, path, -1, pathw, D2U_MAX_PATH);
    if (_wstat(pathw, &buf) == 0) {
 #else
    if (STAT(path, &buf) == 0) {
@@ -343,7 +365,7 @@ int regfile_target(char *path, CFlag *ipFlag, const char *progname)
    char *errstr;
 
 #ifdef D2U_UNIFILE
-   MultiByteToWideChar(CP_UTF8, 0, path, -1, pathw, D2U_MAX_PATH);
+   d2u_MultiByteToWideChar(CP_UTF8, 0, path, -1, pathw, D2U_MAX_PATH);
    if (_wstat(pathw, &buf) == 0) {
 #else
    if (stat(path, &buf) == 0) {
@@ -390,9 +412,9 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv)
 
   argv_new = *argv;
 
-  len = WideCharToMultiByte(CP_UTF8, 0, wargv[0], -1, NULL, 0, NULL, NULL);
+  len = d2u_WideCharToMultiByte(CP_UTF8, 0, wargv[0], -1, NULL, 0, NULL, NULL);
   arg = (char *)malloc((size_t)len);
-  WideCharToMultiByte(CP_UTF8, 0, wargv[argc_glob], -1, arg, len, NULL, NULL);
+  d2u_WideCharToMultiByte(CP_UTF8, 0, wargv[argc_glob], -1, arg, len, NULL, NULL);
   argv_new[argc_glob] = arg;
 
   for (i=1; i<argc; ++i)
@@ -426,9 +448,9 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv)
        
        found = 1;
        ++argc_glob;
-       len =(size_t) WideCharToMultiByte(CP_UTF8, 0, path_and_filename, -1, NULL, 0, NULL, NULL);
+       len =(size_t) d2u_WideCharToMultiByte(CP_UTF8, 0, path_and_filename, -1, NULL, 0, NULL, NULL);
        arg = (char *)malloc((size_t)len);
-       WideCharToMultiByte(CP_UTF8, 0, path_and_filename, -1, arg, len, NULL, NULL);
+       d2u_WideCharToMultiByte(CP_UTF8, 0, path_and_filename, -1, arg, len, NULL, NULL);
        argv_new = (char **)realloc(argv_new, (argc_glob+1)*sizeof(char**));
        argv_new[argc_glob] = arg;
 
@@ -440,9 +462,9 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv)
     if (found == 0) {
     /* Not a file. Just copy the argument */
        ++argc_glob;
-       len =(size_t) WideCharToMultiByte(CP_UTF8, 0, warg, -1, NULL, 0, NULL, NULL);
+       len =(size_t) d2u_WideCharToMultiByte(CP_UTF8, 0, warg, -1, NULL, 0, NULL, NULL);
        arg = (char *)malloc((size_t)len);
-       WideCharToMultiByte(CP_UTF8, 0, warg, -1, arg, len, NULL, NULL);
+       d2u_WideCharToMultiByte(CP_UTF8, 0, warg, -1, arg, len, NULL, NULL);
        argv_new = (char **)realloc(argv_new, (argc_glob+1)*sizeof(char**));
        argv_new[argc_glob] = arg;
     }
@@ -621,7 +643,7 @@ FILE* OpenInFile(char *ipFN)
 #ifdef D2U_UNIFILE
   wchar_t pathw[D2U_MAX_PATH];
 
-  MultiByteToWideChar(CP_UTF8, 0, ipFN, -1, pathw, D2U_MAX_PATH);
+  d2u_MultiByteToWideChar(CP_UTF8, 0, ipFN, -1, pathw, D2U_MAX_PATH);
   return _wfopen(pathw, R_CNTRLW);
 #else
   return (fopen(ipFN, R_CNTRL));
@@ -694,9 +716,9 @@ int MakeTempFileFrom(const char *OutFN, char **fname_ret)
 
 #ifdef NO_MKSTEMP
 #ifdef D2U_UNIFILE
-  MultiByteToWideChar(CP_UTF8, 0, fname_str, -1, fname_strw, D2U_MAX_PATH);
+  d2u_MultiByteToWideChar(CP_UTF8, 0, fname_str, -1, fname_strw, D2U_MAX_PATH);
   namew = _wmktemp(fname_strw);
-  WideCharToMultiByte(CP_UTF8, 0, namew, -1, fname_str, fname_len, NULL, NULL);
+  d2u_WideCharToMultiByte(CP_UTF8, 0, namew, -1, fname_str, fname_len, NULL, NULL);
   *fname_ret = fname_str;
   if ((fd = _wfopen(fname_strw, W_CNTRLW)) == NULL)
     goto make_failed;
@@ -1166,7 +1188,7 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
 
   /* retrieve ipInFN file date stamp */
 #ifdef D2U_UNIFILE
-   MultiByteToWideChar(CP_UTF8, 0, ipInFN, -1, pathw, D2U_MAX_PATH);
+   d2u_MultiByteToWideChar(CP_UTF8, 0, ipInFN, -1, pathw, D2U_MAX_PATH);
    if (_wstat(pathw, &StatBuf)) {
 #else
   if (stat(ipInFN, &StatBuf)) {
@@ -1514,11 +1536,11 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
    /* The format string is encoded in the system default
     * Windows ANSI code page. May have been translated
     * by gettext. Convert it to wide characters. */
-   MultiByteToWideChar(CP_ACP,0, informat, -1, informatw, sizeof(informat));
-   MultiByteToWideChar(CP_ACP,0, outformat, -1, outformatw, sizeof(outformat));
+   d2u_MultiByteToWideChar(CP_ACP,0, informat, -1, informatw, sizeof(informat));
+   d2u_MultiByteToWideChar(CP_ACP,0, outformat, -1, outformatw, sizeof(outformat));
    /* then convert the format string to UTF-8 */
-   WideCharToMultiByte(CP_UTF8, 0, informatw, -1, informat, sizeof(informat), NULL, NULL);
-   WideCharToMultiByte(CP_UTF8, 0, outformatw, -1, outformat, sizeof(outformat), NULL, NULL);
+   d2u_WideCharToMultiByte(CP_UTF8, 0, informatw, -1, informat, sizeof(informat), NULL, NULL);
+   d2u_WideCharToMultiByte(CP_UTF8, 0, outformatw, -1, outformat, sizeof(outformat), NULL, NULL);
 #endif
 
   if (pFlag->status & NO_REGFILE) {
@@ -1597,11 +1619,11 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
    /* The format string is encoded in the system default
     * Windows ANSI code page. May have been translated
     * by gettext. Convert it to wide characters. */
-   MultiByteToWideChar(CP_ACP,0, informat, -1, informatw, sizeof(informat));
-   MultiByteToWideChar(CP_ACP,0, outformat, -1, outformatw, sizeof(outformat));
+   d2u_MultiByteToWideChar(CP_ACP,0, informat, -1, informatw, sizeof(informat));
+   d2u_MultiByteToWideChar(CP_ACP,0, outformat, -1, outformatw, sizeof(outformat));
    /* then convert the format string to UTF-8 */
-   WideCharToMultiByte(CP_UTF8, 0, informatw, -1, informat, sizeof(informat), NULL, NULL);
-   WideCharToMultiByte(CP_UTF8, 0, outformatw, -1, outformat, sizeof(outformat), NULL, NULL);
+   d2u_WideCharToMultiByte(CP_UTF8, 0, informatw, -1, informat, sizeof(informat), NULL, NULL);
+   d2u_WideCharToMultiByte(CP_UTF8, 0, outformatw, -1, outformat, sizeof(outformat), NULL, NULL);
 #endif
 
   if (pFlag->status & NO_REGFILE) {
