@@ -1,6 +1,7 @@
 2015-07-12 Erwin Waterlander <waterlan@xs4all.nl>
 	* vc.mak: Enable Unicode file names.
 	* common.c: Check output of WideCharToMultiByte and MultiByteToWideChar.
+	* common.c: Fixed a problem in glob_warg().
 	* mingw*.mak: Use g++ only when UNIFILE==1.
 	* test/test.bat: Windows batch script that demonstrates how to use Unicode
 	  file names in a script.

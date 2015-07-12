@@ -443,7 +443,7 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv)
          wcsncpy_s(path_and_filename, len, path, wcslen(path));
          wcsncat_s(path_and_filename, len, FindFileData.cFileName, wcslen(FindFileData.cFileName));
        } else {
-         wcsncpy_s(path_and_filename, len, FindFileData.cFileName, wcslen(path));
+         wcsncpy_s(path_and_filename, len, FindFileData.cFileName, wcslen(FindFileData.cFileName));
        }
        
        found = 1;
