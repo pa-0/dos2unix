@@ -8,22 +8,13 @@
 .PHONY: test check
 
 UNIFILE=1
-ifdef UNIFILE
-# We need C++ for d2u_printf in common.c.
-CC = g++
-else
 CC = gcc
-endif
 prefix=c:/usr/local
 ENABLE_NLS=
 
 ifdef ENABLE_NLS
 LIBS_EXTRA = -lintl -liconv
 ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
-endif
-ifdef UNIFILE
-ZIPOBJ_EXTRA += bin/libstdc++-6.dll
-ZIPOBJ_EXTRA += bin/libgcc_s_dw2-1.dll
 endif
 
 all:

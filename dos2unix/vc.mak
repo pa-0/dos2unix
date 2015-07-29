@@ -46,7 +46,7 @@ unix2dos.exe: unix2dos.obj querycp.obj common.obj
 CFLAGS = $(CFLAGS) -DD2U_UNICODE
 !endif
 !if "$(UNIFILE)" == "1"
-CFLAGS = $(CFLAGS) -DD2U_UNIFILE /Tp
+CFLAGS = $(CFLAGS) -DD2U_UNIFILE
 !endif
 
 dos2unix.obj :  $(SRCDIR)\dos2unix.c $(SRCDIR)\querycp.h $(SRCDIR)\common.h

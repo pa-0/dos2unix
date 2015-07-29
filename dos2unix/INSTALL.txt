@@ -173,6 +173,21 @@ UNICODE SUPPORT
     Unicode UTF-16 is not supported by the DOS and OS/2 versions.
 
 
+UNICODE FILE NAME SUPPORT ON WINDOWS
+
+    Since version 7.3 dos2unix can read and write on Windows file names
+    with Unicode characters. Prior to version 7.3 dos2unix could only open
+    files with characters in the system ANSI code page.
+
+    To see if dos2unix on Windows has unicode file name support type dos2unix -V.
+
+    Unicode file name support on Windows is enabled by setting UNIFILE=1 in
+    the makefile or on the make command line.
+
+    Unicode file name support is by default enabled for MinGW and MSVC compiler.
+    It is disabled and not supported for the Watcom compiler.
+
+
 DOCUMENTATION
 
     Manual pages are generated from Perl POD files.

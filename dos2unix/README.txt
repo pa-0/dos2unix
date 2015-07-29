@@ -57,7 +57,7 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2-7.2.3  2009-2015
+        Erwin Waterlander       version 3.2-7.3    2009-2015
         Christian Wurll         version 3.1        1998
         Bernd Johannes Wuebben  version 3.0        1998
         Benjamin Lin            version 1.1-2.3    1994-1995
@@ -77,25 +77,25 @@ TRANSLATORS
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
         Danish                Joe Hansen                   Version 7.2.3
         Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4
-        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.2.3
+        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
         Esperanto             Benno Schulenberg            Version 6.0.5 - 7.2.2
-        French                Frédéric Marchal             Version 6.0.5 - 7.2.3
+        French                Frédéric Marchal             Version 6.0.5 - 7.3
         German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0,
                                                            7.2.2 - 7.2.3
         German                Lars Wendler                 Version 6.0.4
         German                Mario Blättermann            Version 6.0.6, 7.1 - 7.2
         Hungarian             Balázs Úr                    Version 6.0.5 - 7.2.3
         Japanese              Yasuaki Taniguchi            Version 7.1.1
-        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.2.3
-        Polish                Jakub Bogusz                 Version 6.0.5 - 7.2.3
+        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.3
+        Polish                Jakub Bogusz                 Version 6.0.5 - 7.3
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
-        Russian               Yuri Kozlov                  Version 6.0.6 - 7.2.3
+        Russian               Yuri Kozlov                  Version 6.0.6 - 7.3
         Serbian               Мирослав Николић             Version 6.0.5 - 7.2.2
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.2
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.2.3
-        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.2.3
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.3
+        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.3
 
         Translation of the manual.
         See http://translationproject.org/domain/dos2unix-man.html

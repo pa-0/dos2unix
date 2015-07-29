@@ -6,10 +6,10 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.2.3-beta3\n"
+"Project-Id-Version: dos2unix 7.3-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-12 20:02+0200\n"
-"PO-Revision-Date: 2015-06-25 21:34+0300\n"
+"POT-Creation-Date: 2015-07-20 10:24+0200\n"
+"PO-Revision-Date: 2015-07-22 10:33+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
@@ -76,7 +76,7 @@ msgstr ""
 "Усі права застережено.\n"
 "\n"
 
-#: common.c:479
+#: common.c:472
 msgid ""
 "Redistribution and use in source and binary forms, with or without\n"
 "modification, are permitted provided that the following conditions\n"
@@ -105,7 +105,7 @@ msgstr ""
 "   від відповідальності у документації і/або інших супровідних матеріалах.)\n"
 "\n"
 
-#: common.c:489
+#: common.c:482
 msgid ""
 "THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n"
 "EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
@@ -131,67 +131,67 @@ msgstr ""
 "OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN\n"
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 
-#: common.c:514
+#: common.c:507
 #, c-format
 msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
 msgstr "Користування: %s [параметри] [файл ...] [-n вхідний_файл результат ...]\n"
 
-#: common.c:515
+#: common.c:508
 #, c-format
 msgid " -ascii                convert only line breaks (default)\n"
 msgstr " -ascii                перетворити лише символи розриву рядків (типово)\n"
 
-#: common.c:516
+#: common.c:509
 #, c-format
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
 msgstr " -iso                  виконати перетворення з кодування DOS до кодування ISO-8859-1\n"
 
-#: common.c:517
+#: common.c:510
 #, c-format
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
 msgstr "   -1252               використати кодову таблицю 1252 Windows (західноєвропейські мови)\n"
 
-#: common.c:518
+#: common.c:511
 #, c-format
 msgid "   -437                use DOS code page 437 (US) (default)\n"
 msgstr "   -437                використовувати кодову сторінку DOS 437 (США) (типово)\n"
 
-#: common.c:519
+#: common.c:512
 #, c-format
 msgid "   -850                use DOS code page 850 (Western European)\n"
 msgstr "   -850                використовувати кодову сторінку DOS 850 (західноєвропейські мови)\n"
 
-#: common.c:520
+#: common.c:513
 #, c-format
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
 msgstr "   -860                використовувати сторінку DOS 860 (португальська)\n"
 
-#: common.c:521
+#: common.c:514
 #, c-format
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
 msgstr "   -863                використовувати сторінку DOS 863 (канадська французька)\n"
 
-#: common.c:522
+#: common.c:515
 #, c-format
 msgid "   -865                use DOS code page 865 (Nordic)\n"
 msgstr "   -865                використовувати сторінку DOS 865 (скандинавські мови)\n"
 
-#: common.c:523
+#: common.c:516
 #, c-format
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
 msgstr " -7                    перетворювати 8-бітові символи на 7-бітові\n"
 
-#: common.c:525
+#: common.c:518
 #, c-format
 msgid " -b, --keep-bom        keep Byte Order Mark\n"
 msgstr " -b, --keep-bom        зберегти позначку порядку байтів (BOM)\n"
 
-#: common.c:527
+#: common.c:520
 #, c-format
 msgid " -b, --keep-bom        keep Byte Order Mark (default)\n"
 msgstr " -b, --keep-bom        зберегти позначку порядку байтів (типово)\n"
 
-#: common.c:528
+#: common.c:521
 #, c-format
 msgid ""
 " -c, --convmode        conversion mode\n"
@@ -200,22 +200,22 @@ msgstr ""
 " -c, --convmode        режим перетворення\n"
 "   режим               ascii, 7bit, iso, mac, типовим є ascii\n"
 
-#: common.c:530
+#: common.c:523
 #, c-format
 msgid " -f, --force           force conversion of binary files\n"
 msgstr " -f, --force           примусове перетворення бінарних файлів\n"
 
-#: common.c:533
+#: common.c:526
 #, c-format
 msgid " -gb, --gb18030        convert UTF-16 to GB18030\n"
 msgstr " -gb, --gb18030        перетворити UTF-16 на GB18030\n"
 
-#: common.c:536
+#: common.c:529
 #, c-format
 msgid " -h, --help            display this help text\n"
 msgstr " -h, --help            показати це довідкове повідомлення\n"
 
-#: common.c:537
+#: common.c:530
 #, c-format
 msgid ""
 " -i, --info[=FLAGS]    display file information\n"
@@ -224,27 +224,27 @@ msgstr ""
 " -i, --info[=ПРАПОРЦІ] показати дані щодо файла\n"
 "   файл ...            файли, які слід проаналізувати\n"
 
-#: common.c:539
+#: common.c:532
 #, c-format
 msgid " -k, --keepdate        keep output file date\n"
 msgstr " -k, --keepdate        зберігати дату створення файла для результату\n"
 
-#: common.c:540
+#: common.c:533
 #, c-format
 msgid " -L, --license         display software license\n"
 msgstr " -L, --license         показати ліцензійну угоду щодо програмного забезпечення\n"
 
-#: common.c:541
+#: common.c:534
 #, c-format
 msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline         вставити додатковий символ розриву рядка\n"
 
-#: common.c:542
+#: common.c:535
 #, c-format
 msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
 msgstr " -b, --add-bom         додати позначку порядку байтів (типово UTF-8)\n"
 
-#: common.c:543
+#: common.c:536
 #, c-format
 msgid ""
 " -n, --newfile         write to new file\n"
@@ -255,7 +255,7 @@ msgstr ""
 "   вхідний_файл        початковий файл у режимі створення файлів\n"
 "   результат           файл результату у режимі створення файлів\n"
 
-#: common.c:546
+#: common.c:539
 #, c-format
 msgid ""
 " -o, --oldfile         write to old file (default)\n"
@@ -264,52 +264,52 @@ msgstr ""
 " -o, --oldfile         записати до старого файла (типово)\n"
 "   файл ...            файли, які слід перетворити у режимі без створення файлів\n"
 
-#: common.c:548
+#: common.c:541
 #, c-format
 msgid " -q, --quiet           quiet mode, suppress all warnings\n"
 msgstr " -q, --quiet           режим без повідомлень, не показувати попередження\n"
 
-#: common.c:550
+#: common.c:543
 #, c-format
 msgid " -r, --remove-bom      remove Byte Order Mark (default)\n"
 msgstr " -r, --remove-bom      вилучити позначку порядку байтів (типово)\n"
 
-#: common.c:552
+#: common.c:545
 #, c-format
 msgid " -r, --remove-bom      remove Byte Order Mark\n"
 msgstr " -r, --remove-bom      вилучити позначку порядку байтів (BOM)\n"
 
-#: common.c:553
+#: common.c:546
 #, c-format
 msgid " -s, --safe            skip binary files (default)\n"
 msgstr " -s, --safe            пропускати двійкові файли (типово)\n"
 
-#: common.c:555
+#: common.c:548
 #, c-format
 msgid " -u,  --keep-utf16     keep UTF-16 encoding\n"
 msgstr " -u,  --keep-utf16     зберегти кодування UTF-16\n"
 
-#: common.c:556
+#: common.c:549
 #, c-format
 msgid " -ul, --assume-utf16le assume that the input format is UTF-16LE\n"
 msgstr " -ul, --assume-utf16le припускати, що вхідним форматом є UTF-16LE\n"
 
-#: common.c:557
+#: common.c:550
 #, c-format
 msgid " -ub, --assume-utf16be assume that the input format is UTF-16BE\n"
 msgstr " -ub, --assume-utf16be припускати, що вхідним форматом є UTF-16BE\n"
 
-#: common.c:559
+#: common.c:552
 #, c-format
 msgid " -v,  --verbose        verbose operation\n"
 msgstr " -v,  --verbose        режим докладних повідомлень\n"
 
-#: common.c:561
+#: common.c:554
 #, c-format
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
 msgstr " -F, --follow-symlink  переходити за символічними посиланням і перетворювати файли, на які вони вказують\n"
 
-#: common.c:564
+#: common.c:557
 #, c-format
 msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
@@ -318,239 +318,232 @@ msgstr ""
 " -R, --replace-symlink замінити символічні посилання перетвореними файлами\n"
 "                         (початкові файли, на які вони вказують, змінено не буде)\n"
 
-#: common.c:566
+#: common.c:559
 #, c-format
 msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr " -S, --skip-symlink    не змінювати символічні посилання та файли, на які вони посилаються (типово)\n"
 
-#: common.c:568
+#: common.c:561
 #, c-format
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         показати дані щодо номера версії\n"
 
-#: common.c:580
+#: common.c:573
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "DOS, 16-бітова версія (WATCOMC).\n"
 
-#: common.c:582
+#: common.c:575
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "DOS, 16-бітова версія (TURBOC).\n"
 
-#: common.c:584
+#: common.c:577
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "DOS, 32-бітова версія (WATCOMC).\n"
 
-#: common.c:586
+#: common.c:579
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "DOS, 32-бітова версія (DJGPP).\n"
 
-#: common.c:588
+#: common.c:581
 msgid "MSYS version.\n"
 msgstr "Версія MSYS.\n"
 
-#: common.c:590
+#: common.c:583
 msgid "Cygwin version.\n"
 msgstr "Версія Cygwin.\n"
 
-#: common.c:592
+#: common.c:585
 msgid "Windows 64 bit version (MinGW-w64).\n"
 msgstr "Windows, 64-бітова версія (MinGW-w64).\n"
 
-#: common.c:594
+#: common.c:587
 msgid "Windows 32 bit version (WATCOMC).\n"
 msgstr "Windows, 32-бітова версія (WATCOMC).\n"
 
-#: common.c:596
+#: common.c:589
 msgid "Windows 32 bit version (MinGW-w64).\n"
 msgstr "Windows, 32-бітова версія (MinGW-w64).\n"
 
-#: common.c:598
+#: common.c:591
 msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Windows, 32-бітова версія (MinGW)\n"
 
-#: common.c:600
+#: common.c:593
 #, c-format
 msgid "Windows 64 bit version (MSVC %d).\n"
 msgstr "Windows, 64-бітова версія (MSVC %d).\n"
 
-#: common.c:602
+#: common.c:595
 #, c-format
 msgid "Windows 32 bit version (MSVC %d).\n"
 msgstr "Windows, 32-бітова версія (MSVC %d).\n"
 
-#: common.c:604
+#: common.c:597
 msgid "OS/2 version (WATCOMC).\n"
 msgstr "Версія для OS/2 (WATCOMC).\n"
 
-#: common.c:606
+#: common.c:599
 msgid "OS/2 version (EMX).\n"
 msgstr "Версія для OS/2 (EMX).\n"
 
-#: common.c:608
+#: common.c:601
 #, c-format
 msgid "%s version.\n"
 msgstr "Версія %s.\n"
 
-#: common.c:614
+#: common.c:607
 msgid "With Unicode UTF-16 support.\n"
 msgstr "З підтримкою Unicode UTF-16.\n"
 
-#: common.c:616
+#: common.c:609
 msgid "Without Unicode UTF-16 support.\n"
 msgstr "Без підтримки Unicode UTF-16.\n"
 
-#: common.c:620
-#, fuzzy
+#: common.c:613
 msgid "With Unicode file name support.\n"
-msgstr "З підтримкою Unicode UTF-16.\n"
+msgstr "З підтримкою назв файлів у Unicode.\n"
 
-#: common.c:622
-#, fuzzy
+#: common.c:615
 msgid "Without Unicode file name support.\n"
-msgstr "Без підтримки Unicode UTF-16.\n"
+msgstr "Без підтримки Unicode у назвах файлів.\n"
 
-#: common.c:626
+#: common.c:619
 msgid "With native language support.\n"
 msgstr "З підтримкою природної мови.\n"
 
-#: common.c:931 common.c:938 common.c:945 common.c:952 common.c:964
-#: common.c:971
+#: common.c:924 common.c:931 common.c:938 common.c:945 common.c:957
+#: common.c:964
 #, c-format
 msgid "Writing %s BOM.\n"
 msgstr "Записуємо позначку порядку байтів %s.\n"
 
-#: common.c:931 common.c:984 common.c:1493 common.c:1514
+#: common.c:924 common.c:980 common.c:1501 common.c:1522
 msgid "UTF-16LE"
 msgstr "UTF-16LE"
 
-#: common.c:938 common.c:989 common.c:1495 common.c:1516
+#: common.c:931 common.c:983 common.c:1503 common.c:1524
 msgid "UTF-16BE"
 msgstr "UTF-16BE"
 
-#: common.c:945 common.c:964 common.c:999 common.c:1506
+#: common.c:938 common.c:957 common.c:989 common.c:1514
 msgid "GB18030"
 msgstr "GB18030"
 
-#: common.c:952 common.c:971 common.c:994 common.c:1508
+#: common.c:945 common.c:964 common.c:986 common.c:1516
 msgid "UTF-8"
 msgstr "UTF-8"
 
-#: common.c:983 common.c:988 common.c:993 common.c:998
-#, fuzzy, c-format
-msgid "Input file %s "
+#: common.c:1009
+#, c-format
+msgid "Input file %s has %s BOM.\n"
 msgstr "У вхідному файлі %s позначкою порядку байтів є %s.\n"
 
-#: common.c:984 common.c:989 common.c:994 common.c:999
-#, fuzzy, c-format
-msgid "has %s BOM.\n"
-msgstr "Записуємо позначку порядку байтів %s.\n"
-
-#: common.c:1037 common.c:1080
+#: common.c:1045 common.c:1088
 #, c-format
 msgid "Assuming UTF-16LE encoding.\n"
 msgstr "Припускаємо кодування UTF-16LE.\n"
 
-#: common.c:1041 common.c:1084
+#: common.c:1049 common.c:1092
 #, c-format
 msgid "Assuming UTF-16BE encoding.\n"
 msgstr "Припускаємо кодування UTF-16BE.\n"
 
-#: common.c:1214
+#: common.c:1222
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
 msgstr "Не вдалося відкрити файл для виведення тимчасових даних: %s\n"
 
-#: common.c:1221
+#: common.c:1229
 #, c-format
 msgid "using %s as temporary file\n"
 msgstr "використовуємо %s як тимчасовий файл\n"
 
-#: common.c:1285
-#, fuzzy, c-format
-msgid "Failed to write to temporary output file %s: "
-msgstr "Не вдалося записати дані до тимчасового файла виведення %s: %s\n"
+#: common.c:1293
+#, c-format
+msgid "Failed to write to temporary output file %s:"
+msgstr "Не вдалося записати дані до тимчасового файла виведення %s:"
 
-#: common.c:1316
-#, fuzzy, c-format
-msgid "Failed to change the permissions of temporary output file %s: "
-msgstr "Не вдалося змінити права доступу до тимчасового файла виведення даних %s: %s\n"
+#: common.c:1324
+#, c-format
+msgid "Failed to change the permissions of temporary output file %s:"
+msgstr "Не вдалося змінити права доступу до тимчасового файла виведення даних %s:"
 
-#: common.c:1333
-#, fuzzy, c-format
-msgid "Failed to change the owner and group of temporary output file %s: "
-msgstr "Не вдалося змінити власника і групу тимчасового файла виведення даних %s: %s\n"
+#: common.c:1341
+#, c-format
+msgid "Failed to change the owner and group of temporary output file %s:"
+msgstr "Не вдалося змінити власника і групу тимчасового файла виведення даних %s:"
 
-#: common.c:1380
+#: common.c:1388
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
 msgstr "проблеми з обробкою символічного посилання «%s»\n"
 
-#: common.c:1381 common.c:1413
+#: common.c:1389 common.c:1421
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          файл результатів залишився у «%s»\n"
 
-#: common.c:1407
-#, fuzzy, c-format
-msgid "problems renaming '%s' to '%s': "
-msgstr "проблеми з перейменуванням «%s» на «%s»: %s\n"
+#: common.c:1415
+#, c-format
+msgid "problems renaming '%s' to '%s':"
+msgstr "проблеми з перейменуванням «%s» на «%s»:"
 
-#: common.c:1411
+#: common.c:1419
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          на який посилається символічне посилання «%s»\n"
 
-#: common.c:1474 common.c:1560 common.c:1640
+#: common.c:1482 common.c:1568 common.c:1648
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "Пропускаємо двійковий файл %s\n"
 
-#: common.c:1477 common.c:1563 common.c:1643
+#: common.c:1485 common.c:1571 common.c:1651
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "підтримки кодової сторінки %d не передбачено.\n"
 
-#: common.c:1480 common.c:1566 common.c:1646 common.c:1700
+#: common.c:1488 common.c:1574 common.c:1654 common.c:1708
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "Пропускаємо файл у кодуванні UTF-16, %s, розміром wchar_t є %d байтів.\n"
 
-#: common.c:1483 common.c:1569 common.c:1649
+#: common.c:1491 common.c:1577 common.c:1657
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
 msgstr "Пропускаємо файл у кодуванні UTF-16, %s, сталася помилка під час перетворення даних UTF-16 у рядку %u.\n"
 
-#: common.c:1548 common.c:1631 common.c:1690
+#: common.c:1556 common.c:1639 common.c:1698
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "Пропускаємо %s, не є звичайним файлом.\n"
 
-#: common.c:1551
+#: common.c:1559
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "Пропускаємо %s, файл результату, %s, є символічним посиланням.\n"
 
-#: common.c:1554 common.c:1637 common.c:1695
+#: common.c:1562 common.c:1645 common.c:1703
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr "Пропускаємо символічне посилання %s, призначення не є звичайним файлом.\n"
 
-#: common.c:1557
+#: common.c:1565
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr "Пропускаємо %s, об’єкт, на який посилається символічне посилання %s, не є звичайним файлом.\n"
 
-#: common.c:1574
+#: common.c:1582
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "перетворюємо файл %s на файл %s у форматі Unix...\n"
 
-#: common.c:1577
+#: common.c:1585
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "перетворюємо файл %s на файл %s у форматі Mac...\n"
 
-#: common.c:1579
+#: common.c:1587
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "перетворюємо файл %s на файл %s у форматі DOS...\n"
@@ -561,42 +554,42 @@ msgstr "перетворюємо файл %s на файл %s у форматі 
 #. 3rd %s is encoding of output file.
 #. 4th %s is name of output file.
 #. E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format...
-#: common.c:1590
+#: common.c:1598
 #, c-format
 msgid "converting %s file %s to %s file %s in Unix format...\n"
 msgstr "перетворюємо файл у кодуванні %s %s на файл у кодуванні %s %s у форматі Unix...\n"
 
-#: common.c:1593
+#: common.c:1601
 #, c-format
 msgid "converting %s file %s to %s file %s in Mac format...\n"
 msgstr "перетворюємо файл у кодуванні %s %s на файл у кодуванні %s %s у форматі Mac...\n"
 
-#: common.c:1595
+#: common.c:1603
 #, c-format
 msgid "converting %s file %s to %s file %s in DOS format...\n"
 msgstr "перетворюємо файл у кодуванні %s %s на файл у кодуванні %s %s у форматі DOS...\n"
 
-#: common.c:1601
+#: common.c:1609
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "під час перетворення файла %s на файл %s виникли проблеми\n"
 
-#: common.c:1634
+#: common.c:1642
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "Пропускаємо символічне посилання %s.\n"
 
-#: common.c:1654
+#: common.c:1662
 #, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "перетворюємо файл %s до формату Unix...\n"
 
-#: common.c:1657
+#: common.c:1665
 #, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "перетворюємо файл %s до формату Mac...\n"
 
-#: common.c:1659
+#: common.c:1667
 #, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "перетворюємо файл %s до формату DOS...\n"
@@ -606,75 +599,78 @@ msgstr "перетворюємо файл %s до формату DOS...\n"
 #. 2nd %s is name of input file.
 #. 3rd %s is encoding of output (input file is overwritten).
 #. E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format...
-#: common.c:1669
+#: common.c:1677
 #, c-format
 msgid "converting %s file %s to %s Unix format...\n"
 msgstr "перетворюємо файл у кодуванні %s %s до формату %s Unix...\n"
 
-#: common.c:1672
+#: common.c:1680
 #, c-format
 msgid "converting %s file %s to %s Mac format...\n"
 msgstr "перетворюємо файл у кодуванні %s %s до формату %s Mac...\n"
 
-#: common.c:1674
+#: common.c:1682
 #, c-format
 msgid "converting %s file %s to %s DOS format...\n"
 msgstr "перетворюємо файл у кодуванні %s %s до формату %s DOS...\n"
 
-#: common.c:1680
+#: common.c:1688
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "під час перетворення файла %s виникли проблеми\n"
 
-#: common.c:1746 common.c:1823
-#, fuzzy, c-format
-msgid "can not read from input file %s: "
-msgstr "не вдалося прочитати дані із файла вхідних даних %s: %s\n"
+#: common.c:1754 common.c:1831
+#, c-format
+msgid "can not read from input file %s:"
+msgstr "не вдалося прочитати дані із файла вхідних даних %s:"
 
-#: common.c:1998
+#: common.c:2006
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "помилковий прапорець «%c» для параметра -i або --info\n"
 
-#: common.c:2108 common.c:2145
+#: common.c:2116 common.c:2153
 #, c-format
 msgid "active code page: %d\n"
 msgstr "активна кодова сторінка: %d\n"
 
-#: common.c:2157
+#: common.c:2165
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "вказано некоректний режим перетворення %s\n"
 
-#: common.c:2165
+#: common.c:2173
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "до параметра «%s» слід вказувати аргумент\n"
 
-#: common.c:2176 common.c:2189 common.c:2255
+#: common.c:2184 common.c:2197 common.c:2263
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "не вказано призначення для файла %s у режимі створення файлів\n"
 
-#: common.c:2269
+#: common.c:2277
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "не вдалося прочитати дані із файла вхідних даних: %s\n"
 
-#: common.c:2281 common.c:2295
+#: common.c:2289 common.c:2303
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "не вдалося виконати запис до файла результатів: %s\n"
 
-#: common.c:2372
+#: common.c:2380
 #, c-format
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "помилка: некоректна пара заміщення. Пропущено нижній компонент.\n"
 
-#: common.c:2387
+#: common.c:2395
 #, c-format
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "помилка: некоректна пара заміщення. Пропущено верхній компонент.\n"
+
+#~ msgid "can not read from input file %s: %s\n"
+#~ msgstr "не вдалося прочитати дані із файла вхідних даних %s: %s\n"
 
 #~ msgid "WINVER 0x%X\n"
 #~ msgstr "WINVER 0x%X\n"

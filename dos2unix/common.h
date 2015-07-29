@@ -288,12 +288,12 @@ void d2u_putwc_error(CFlag *ipFlag, const char *progname);
 wint_t d2u_getwc(FILE *f, int bomtype);
 wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype);
 wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname);
-void d2u_printf( int error, const char* format, ... );
+void d2u_printf( FILE *stream, const char* format, ... );
 #endif
 #ifdef D2U_UNIFILE
 #define UNICODE
 #define _UNICODE
-int glob_warg(int argc, wchar_t *wargv[], char ***argv);
+int glob_warg(int argc, wchar_t *wargv[], char ***argv, CFlag *ipFlag, const char *progname);
 #endif
 
 #endif

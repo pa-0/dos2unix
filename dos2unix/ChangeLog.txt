@@ -1,3 +1,28 @@
+2015-07-29 Erwin Waterlander <waterlan@xs4all.nl>
+	* INSTALL.txt: Updated with information about Unicode file name
+	  support on Windows.
+	* po/*.po: Included several translation updates. See README.txt.
+	* test/test.bat: Renamed to test/testcmd.bat.
+	* test/testps8.ps1: PowerShell script in UTF-8 format using Unicode file names.
+	* test/testps16.ps1: PowerShell script in UTF-16 format using Unicode file names.
+
+2015-07-23 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: glob_warg(): Check for malloc/realloc errors.
+	* dos2unix.c, unix2dos.c: Check for malloc errors.
+
+2015-07-20 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: print_bom(). Fix split message for translators.
+
+2015-07-18 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: d2u_printf(). Use wprintf to print UTF-8.
+	  MinGW-w64 g++ (4.9.2) had some problems printing UTF-8. After first
+	  UTF-8 file name was printed the rest of UTF-8 was printed blank.
+	  This problem was in Windows Console. The problem was not there in
+	  ConEmu. MSVC (2013) does not have this problem. Using gcc and wprintf
+	  is OK in Windows Console and ConEmu.
+	* mingw*.mak: Switch back to use gcc always.
+	* common.c: Fix messages ending with space, for translators.
+
 2015-07-12 Erwin Waterlander <waterlan@xs4all.nl>
 	* vc.mak: Enable Unicode file names.
 	* common.c: Check output of WideCharToMultiByte and MultiByteToWideChar.

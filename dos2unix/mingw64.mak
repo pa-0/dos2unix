@@ -14,12 +14,7 @@
 UNIFILE=1
 
 # MSYS2
-ifdef UNIFILE
-# We need C++ for d2u_printf in common.c.
-CC = g++
-else
 CC = gcc
-endif
 STRIP = strip
 CRT_GLOB_OBJ = /mingw64/x86_64-w64-mingw32/lib/CRT_glob.o
 
@@ -29,9 +24,6 @@ ENABLE_NLS=
 ifdef ENABLE_NLS
 LIBS_EXTRA = -lintl -liconv
 ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
-endif
-ifdef UNIFILE
-ZIPOBJ_EXTRA += bin/libstdc++-6.dll bin/libgcc_s_seh-1.dll bin/libwinpthread-1.dll
 endif
 LIBS_EXTRA += $(CRT_GLOB_OBJ)
 

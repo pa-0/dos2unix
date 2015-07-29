@@ -510,24 +510,6 @@ int main (int argc, char *argv[])
   int  argc_new;
   char **argv_new;
 
-#ifdef D2U_UNIFILE
-  /* Get arguments in wide Unicode format in the Windows Command Prompt */
-  wchar_t **wargv;
-  char ***argv_glob;
-
-  /* This does not support wildcard expansion (globbing) */
-  wargv = CommandLineToArgvW(GetCommandLineW(), &argc);
-
-  argv_glob = (char ***)malloc(sizeof(char***));
-  *argv_glob = (char **)malloc(sizeof(char**));
-  /* Glob the arguments and convert them to UTF-8 */
-  argc_new = glob_warg(argc, wargv, argv_glob);
-  argv_new = *argv_glob;
-#else  
-  argc_new = argc;
-  argv_new = argv;
-#endif
-
   progname[8] = '\0';
   strcpy(progname,"dos2unix");
 
@@ -559,6 +541,11 @@ int main (int argc, char *argv[])
 
   /* variable initialisations */
   pFlag = (CFlag*)malloc(sizeof(CFlag));
+  if (pFlag == NULL) {
+    fprintf(stderr, "dos2unix:");
+    fprintf(stderr, " %s\n", strerror(errno));
+    return errno;
+  }
   pFlag->FromToMode = FROMTO_DOS2UNIX;  /* default dos2unix */
   pFlag->keep_bom = 0;
 
@@ -571,6 +558,28 @@ int main (int argc, char *argv[])
     pFlag->FromToMode = FROMTO_MAC2UNIX;
     strcpy(progname,"mac2unix");
   }
+
+#ifdef D2U_UNIFILE
+  /* Get arguments in wide Unicode format in the Windows Command Prompt */
+  wchar_t **wargv;
+  char ***argv_glob;
+
+  /* This does not support wildcard expansion (globbing) */
+  wargv = CommandLineToArgvW(GetCommandLineW(), &argc);
+
+  argv_glob = (char ***)malloc(sizeof(char***));
+  if (argv_glob == NULL) {
+    fprintf(stderr, "%s:", progname);
+    fprintf(stderr, " %s\n", strerror(errno));
+    return errno;
+  }
+  /* Glob the arguments and convert them to UTF-8 */
+  argc_new = glob_warg(argc, wargv, argv_glob, pFlag, progname);
+  argv_new = *argv_glob;
+#else  
+  argc_new = argc;
+  argv_new = argv;
+#endif
 
 #ifdef D2U_UNICODE
   return parse_options(argc_new, argv_new, pFlag, localedir, progname, PrintLicense, ConvertDosToUnix, ConvertDosToUnixW);

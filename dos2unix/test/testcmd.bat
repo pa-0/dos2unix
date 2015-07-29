@@ -1,3 +1,4 @@
+@echo off
 REM This script demonstrates how to use Unicode file names
 REM in a batch script.
 REM This script is in UTF-8 encoding.
