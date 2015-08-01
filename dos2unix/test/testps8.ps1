@@ -3,3 +3,6 @@
 # This script is in UTF-8 encoding, with BOM.
 
 dos2unix -i uni_el_αρχείο.txt uni_zh_文件.txt
+
+echo "test select-string:"
+dos2unix -i uni* | select-string -encoding utf8 -pattern αρχ

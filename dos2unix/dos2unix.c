@@ -208,8 +208,8 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
             ipFlag->status |= BINARY_FILE ;
             if (ipFlag->verbose) {
               if ((ipFlag->stdio_mode) && (!ipFlag->error)) ipFlag->error = 1;
-              fprintf(stderr, "%s: ", progname);
-              fprintf(stderr, _("Binary symbol 0x00%02X found at line %u\n"),TempChar, line_nr);
+              d2u_fprintf(stderr, "%s: ", progname);
+              d2u_fprintf(stderr, _("Binary symbol 0x00%02X found at line %u\n"),TempChar, line_nr);
             }
             break;
           }
@@ -245,8 +245,8 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
             ipFlag->status |= BINARY_FILE ;
             if (ipFlag->verbose) {
               if ((ipFlag->stdio_mode) && (!ipFlag->error)) ipFlag->error = 1;
-              fprintf(stderr, "%s: ", progname);
-              fprintf(stderr, _("Binary symbol 0x00%02X found at line %u\n"), TempChar, line_nr);
+              d2u_fprintf(stderr, "%s: ", progname);
+              d2u_fprintf(stderr, _("Binary symbol 0x00%02X found at line %u\n"), TempChar, line_nr);
             }
             break;
           }
@@ -301,16 +301,16 @@ int ConvertDosToUnixW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
       default: /* unknown FromToMode */
       ;
 #if DEBUG
-      fprintf(stderr, "%s: ", progname);
-      fprintf(stderr, _("program error, invalid conversion mode %d\n"),ipFlag->FromToMode);
+      d2u_fprintf(stderr, "%s: ", progname);
+      d2u_fprintf(stderr, _("program error, invalid conversion mode %d\n"),ipFlag->FromToMode);
       exit(1);
 #endif
     }
     if (ipFlag->status & UNICODE_CONVERSION_ERROR)
         ipFlag->line_nr = line_nr;
     if ((RetVal == 0) && (ipFlag->verbose > 1)) {
-      fprintf(stderr, "%s: ", progname);
-      fprintf(stderr, _("Converted %u out of %u line breaks.\n"), converted, line_nr -1);
+      d2u_fprintf(stderr, "%s: ", progname);
+      d2u_fprintf(stderr, _("Converted %u out of %u line breaks.\n"), converted, line_nr -1);
     }
     return RetVal;
 }
@@ -367,8 +367,8 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
       ConvTable = D2UAsciiTable;
 
     if ((ipFlag->ConvMode > CONVMODE_7BIT) && (ipFlag->verbose)) { /* not ascii or 7bit */
-       fprintf(stderr, "%s: ", progname);
-       fprintf(stderr, _("using code page %d.\n"), ipFlag->ConvMode);
+       d2u_fprintf(stderr, "%s: ", progname);
+       d2u_fprintf(stderr, _("using code page %d.\n"), ipFlag->ConvMode);
     }
 
     /* CR-LF -> LF */
@@ -391,8 +391,8 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
             ipFlag->status |= BINARY_FILE ;
             if (ipFlag->verbose) {
               if ((ipFlag->stdio_mode) && (!ipFlag->error)) ipFlag->error = 1;
-              fprintf(stderr, "%s: ", progname);
-              fprintf(stderr, _("Binary symbol 0x%02X found at line %u\n"),TempChar, line_nr);
+              d2u_fprintf(stderr, "%s: ", progname);
+              d2u_fprintf(stderr, _("Binary symbol 0x%02X found at line %u\n"),TempChar, line_nr);
             }
             break;
           }
@@ -428,8 +428,8 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
             ipFlag->status |= BINARY_FILE ;
             if (ipFlag->verbose) {
               if ((ipFlag->stdio_mode) && (!ipFlag->error)) ipFlag->error = 1;
-              fprintf(stderr, "%s: ", progname);
-              fprintf(stderr, _("Binary symbol 0x%02X found at line %u\n"),TempChar, line_nr);
+              d2u_fprintf(stderr, "%s: ", progname);
+              d2u_fprintf(stderr, _("Binary symbol 0x%02X found at line %u\n"),TempChar, line_nr);
             }
             break;
           }
@@ -484,14 +484,14 @@ int ConvertDosToUnix(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
       default: /* unknown FromToMode */
       ;
 #if DEBUG
-      fprintf(stderr, "%s: ", progname);
-      fprintf(stderr, _("program error, invalid conversion mode %d\n"),ipFlag->FromToMode);
+      d2u_fprintf(stderr, "%s: ", progname);
+      d2u_fprintf(stderr, _("program error, invalid conversion mode %d\n"),ipFlag->FromToMode);
       exit(1);
 #endif
     }
     if ((RetVal == 0) && (ipFlag->verbose > 1)) {
-      fprintf(stderr, "%s: ", progname);
-      fprintf(stderr, _("Converted %u out of %u line breaks.\n"),converted, line_nr -1);
+      d2u_fprintf(stderr, "%s: ", progname);
+      d2u_fprintf(stderr, _("Converted %u out of %u line breaks.\n"),converted, line_nr -1);
     }
     return RetVal;
 }
@@ -521,8 +521,8 @@ int main (int argc, char *argv[])
       if (strlen(ptr) < sizeof(localedir))
          strcpy(localedir,ptr);
       else {
-         fprintf(stderr,"%s: ",progname);
-         fprintf(stderr, "%s", _("error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"));
+         d2u_fprintf(stderr,"%s: ",progname);
+         d2u_ansi_fprintf(stderr, "%s", _("error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"));
          strcpy(localedir,LOCALEDIR);
       }
    }
@@ -542,8 +542,8 @@ int main (int argc, char *argv[])
   /* variable initialisations */
   pFlag = (CFlag*)malloc(sizeof(CFlag));
   if (pFlag == NULL) {
-    fprintf(stderr, "dos2unix:");
-    fprintf(stderr, " %s\n", strerror(errno));
+    d2u_fprintf(stderr, "dos2unix:");
+    d2u_ansi_fprintf(stderr, " %s\n", strerror(errno));
     return errno;
   }
   pFlag->FromToMode = FROMTO_DOS2UNIX;  /* default dos2unix */
@@ -569,8 +569,8 @@ int main (int argc, char *argv[])
 
   argv_glob = (char ***)malloc(sizeof(char***));
   if (argv_glob == NULL) {
-    fprintf(stderr, "%s:", progname);
-    fprintf(stderr, " %s\n", strerror(errno));
+    d2u_fprintf(stderr, "%s:", progname);
+    d2u_ansi_fprintf(stderr, " %s\n", strerror(errno));
     return errno;
   }
   /* Glob the arguments and convert them to UTF-8 */

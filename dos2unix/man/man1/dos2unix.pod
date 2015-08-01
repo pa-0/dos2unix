@@ -513,6 +513,31 @@ BOM. Use option C<-r> to remove the BOM.
 
 Dos2unix and unix2dos write always a BOM when option C<-m> is used.
 
+=head2 Unicode file names on Windows
+
+Dos2unix has optional support for reading and writing Unicode file names in the
+Windows Command Prompt. That means that dos2unix can open files that have
+characters in the name that are not part of the default system ANSI code page.
+To see if dos2unix for Windows was built with Unicode file name support type
+C<dos2unix -V>.
+
+Unicode file names displayed in the Command Prompt by dos2unix may not appear
+correctly. You may need to change the font of the Command Prompt from the
+default raster font to a TTF font in the Command Prompt's properties. On a
+Western Regional Windows this us usually the Lucida Console font.
+
+When you use a TTF font in the Command Prompt you may still see some characters
+being displayed as squares with a question mark in it. This is because the font
+does not include those characters. To have the file names always displayed
+correctly you have to use a more advanced console like ConEmu. ConEmu will
+automatically select the correct font for each character.
+
+Dos2unix with Unicode file name support prints all its messages to the console
+in UTF-8 encoding. When you redirect the console output to a file you will get
+an UTF-8 encoded file. Piping the console output to another tool, e.g. grep(1),
+may not work as expected, because a lot of tools on Windows are not able to
+handle UTF-8. 
+
 =head2 Unicode examples
 
 Convert from Windows UTF-16 (with BOM) to Unix UTF-8:

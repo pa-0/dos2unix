@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man 7.2.1-beta1\n"
-"POT-Creation-Date: 2015-02-15 10:51+0100\n"
+"POT-Creation-Date: 2015-08-01 12:21+0300\n"
 "PO-Revision-Date: 2015-03-16 20:52+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -986,16 +986,41 @@ msgstr "Dos2unix та unix2dos завжди записують до файла �
 
 #. type: =head2
 #: dos2unix.pod:516
+msgid "Unicode file names on Windows"
+msgstr ""
+
+#. type: textblock
+#: dos2unix.pod:518
+msgid "Dos2unix has optional support for reading and writing Unicode file names in the Windows Command Prompt. That means that dos2unix can open files that have characters in the name that are not part of the default system ANSI code page.  To see if dos2unix for Windows was built with Unicode file name support type C<dos2unix -V>."
+msgstr ""
+
+#. type: textblock
+#: dos2unix.pod:524
+msgid "Unicode file names displayed in the Command Prompt by dos2unix may not appear correctly. You may need to change the font of the Command Prompt from the default raster font to a TTF font in the Command Prompt's properties. On a Western Regional Windows this us usually the Lucida Console font."
+msgstr ""
+
+#. type: textblock
+#: dos2unix.pod:529
+msgid "When you use a TTF font in the Command Prompt you may still see some characters being displayed as squares with a question mark in it. This is because the font does not include those characters. To have the file names always displayed correctly you have to use a more advanced console like ConEmu. ConEmu will automatically select the correct font for each character."
+msgstr ""
+
+#. type: textblock
+#: dos2unix.pod:535
+msgid "Dos2unix with Unicode file name support prints all its messages to the console in UTF-8 encoding. When you redirect the console output to a file you will get an UTF-8 encoded file. Piping the console output to another tool, e.g. grep(1), may not work as expected, because a lot of tools on Windows are not able to handle UTF-8."
+msgstr ""
+
+#. type: =head2
+#: dos2unix.pod:541
 msgid "Unicode examples"
 msgstr "Приклади для Unicode"
 
 #. type: textblock
-#: dos2unix.pod:518
+#: dos2unix.pod:543
 msgid "Convert from Windows UTF-16 (with BOM) to Unix UTF-8:"
 msgstr "Перетворити дані з Windows UTF-16 (з позначкою порядку байтів (BOM)) у формат Unix UTF-8:"
 
 #. type: verbatim
-#: dos2unix.pod:520
+#: dos2unix.pod:545
 #, no-wrap
 msgid ""
 "    dos2unix -n in.txt out.txt\n"
@@ -1005,12 +1030,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:522
+#: dos2unix.pod:547
 msgid "Convert from Windows UTF-16LE (without BOM) to Unix UTF-8:"
 msgstr "Перетворити дані у форматі Windows UTF-16LE (без BOM) на дані у форматі UTF-8 Unix:"
 
 #. type: verbatim
-#: dos2unix.pod:524
+#: dos2unix.pod:549
 #, no-wrap
 msgid ""
 "    dos2unix -ul -n in.txt out.txt\n"
@@ -1020,12 +1045,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:526
+#: dos2unix.pod:551
 msgid "Convert from Unix UTF-8 to Windows UTF-8 with BOM:"
 msgstr "Перетворити дані у кодуванні UTF-8 Unix на дані у кодуванні Windows UTF-8 без BOM:"
 
 #. type: verbatim
-#: dos2unix.pod:528
+#: dos2unix.pod:553
 #, no-wrap
 msgid ""
 "    unix2dos -m -n in.txt out.txt\n"
@@ -1035,12 +1060,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:530
+#: dos2unix.pod:555
 msgid "Convert from Unix UTF-8 to Windows UTF-16:"
 msgstr "Перетворити дані у кодуванні UTF-8 Unix на дані у кодуванні Windows UTF-16:"
 
 #. type: verbatim
-#: dos2unix.pod:532
+#: dos2unix.pod:557
 #, no-wrap
 msgid ""
 "    unix2dos < in.txt | iconv -f UTF-8 -t UTF-16 > out.txt\n"
@@ -1050,47 +1075,47 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: dos2unix.pod:534
+#: dos2unix.pod:559
 msgid "GB18030"
 msgstr "GB18030"
 
 #. type: textblock
-#: dos2unix.pod:536
+#: dos2unix.pod:561
 msgid "GB18030 is a Chinese government standard. A mandatory subset of the GB18030 standard is officially required for all software products sold in China. See also L<http://en.wikipedia.org/wiki/GB_18030>."
 msgstr "GB18030 є китайським урядовим стандартом. Підтримка обов’язкової підмножини стандарту GB18030 є неодмінною вимогою до будь-яких програмних продуктів, які продаються у Китаї. Див. також L<http://en.wikipedia.org/wiki/GB_18030>."
 
 #. type: textblock
-#: dos2unix.pod:540
+#: dos2unix.pod:565
 msgid "GB18030 is fully compatible with Unicode, and can be considered an unicode transformation format. Like UTF-8, GB18030 is compatible with ASCII. GB18030 is also compatible with Windows code page 936, also known as GBK."
 msgstr "Кодування GB18030 є повністю сумісним із Unicode. Його можна розглядати як формат перетворення unicode. Подібно до UTF-8, GB18030 є сумісним із ASCII. GB18030 також є сумісним із кодовою сторінкою Windows 936, яку ще називають GBK."
 
 #. type: textblock
-#: dos2unix.pod:544
+#: dos2unix.pod:569
 msgid "On Unix/Linux UTF-16 files are converted to GB18030 when the locale encoding is set to GB18030. Note that this will only work if the locale is supported by the system. Use command C<locale -a> to get the list of supported locales."
 msgstr "У Unix/Linux файли UTF-16 буде перетворено до кодування GB18030, якщо кодуванням локалі є GB18030. Зауважте, що це спрацює, лише якщо підтримку локалі передбачено у системі. Щоб отримати список підтримуваних локалей, скористайтеся командою C<locale -a>."
 
 #. type: textblock
-#: dos2unix.pod:548
+#: dos2unix.pod:573
 msgid "On Windows you need to use option C<-gb> to convert UTF-16 files to GB18030."
 msgstr "У Windows для перетворення файлів UTF-16 на файли GB18030 слід вказати параметр C<-gb>."
 
 #. type: textblock
-#: dos2unix.pod:550
+#: dos2unix.pod:575
 msgid "GB18030 encoded files can have a Byte Order Mark, like Unicode files."
 msgstr "У файлах у кодуванні GB18030 може міститися позначка порядку байтів, так само, як у файлах у кодуванні Unicode."
 
 #. type: =head1
-#: dos2unix.pod:552
+#: dos2unix.pod:577
 msgid "EXAMPLES"
 msgstr "ПРИКЛАДИ"
 
 #. type: textblock
-#: dos2unix.pod:554
+#: dos2unix.pod:579
 msgid "Read input from 'stdin' and write output to 'stdout':"
 msgstr "Прочитати вхідні дані зі стандартного джерела (stdin) і записати результат до стандартного виведення (stdout):"
 
 #. type: verbatim
-#: dos2unix.pod:556
+#: dos2unix.pod:581
 #, no-wrap
 msgid ""
 "    dos2unix\n"
@@ -1102,12 +1127,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:559
+#: dos2unix.pod:584
 msgid "Convert and replace a.txt. Convert and replace b.txt:"
 msgstr "Перетворити дані у a.txt і замістити цей файл. Перетворити дані у b.txt і замістити цей файл:"
 
 #. type: verbatim
-#: dos2unix.pod:561
+#: dos2unix.pod:586
 #, no-wrap
 msgid ""
 "    dos2unix a.txt b.txt\n"
@@ -1119,12 +1144,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:564
+#: dos2unix.pod:589
 msgid "Convert and replace a.txt in ascii conversion mode:"
 msgstr "Перетворити дані у a.txt і замістити файл у режимі перетворення ascii:"
 
 #. type: verbatim
-#: dos2unix.pod:566
+#: dos2unix.pod:591
 #, no-wrap
 msgid ""
 "    dos2unix a.txt\n"
@@ -1134,99 +1159,99 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:568
+#: dos2unix.pod:593
 msgid "Convert and replace a.txt in ascii conversion mode, convert and replace b.txt in 7bit conversion mode:"
 msgstr "Перетворити дані у a.txt і замістити файл у режимі перетворення ascii. Перетворити дані у b.txt і замістити цей файл у режимі 7-бітового перетворення:"
-
-#. type: verbatim
-#: dos2unix.pod:571
-#, no-wrap
-msgid ""
-"    dos2unix a.txt -c 7bit b.txt\n"
-"    dos2unix -c ascii a.txt -c 7bit b.txt\n"
-"    dos2unix -ascii a.txt -7 b.txt\n"
-"\n"
-msgstr ""
-"    dos2unix a.txt -c 7bit b.txt\n"
-"    dos2unix -c ascii a.txt -c 7bit b.txt\n"
-"    dos2unix -ascii a.txt -7 b.txt\n"
-"\n"
-
-#. type: textblock
-#: dos2unix.pod:575
-msgid "Convert a.txt from Mac to Unix format:"
-msgstr "Перетворити файл a.txt з формату Mac на формат Unix:"
-
-#. type: verbatim
-#: dos2unix.pod:577
-#, no-wrap
-msgid ""
-"    dos2unix -c mac a.txt\n"
-"    mac2unix a.txt\n"
-"\n"
-msgstr ""
-"    dos2unix -c mac a.txt\n"
-"    mac2unix a.txt\n"
-"\n"
-
-#. type: textblock
-#: dos2unix.pod:580
-msgid "Convert a.txt from Unix to Mac format:"
-msgstr "Перетворити файл a.txt з формату Unix на формат Mac:"
-
-#. type: verbatim
-#: dos2unix.pod:582
-#, no-wrap
-msgid ""
-"    unix2dos -c mac a.txt\n"
-"    unix2mac a.txt\n"
-"\n"
-msgstr ""
-"    unix2dos -c mac a.txt\n"
-"    unix2mac a.txt\n"
-"\n"
-
-#. type: textblock
-#: dos2unix.pod:585
-msgid "Convert and replace a.txt while keeping original date stamp:"
-msgstr "Перетворити дані у a.txt, замістити цей файл і зберегти часову позначку початкового файла:"
-
-#. type: verbatim
-#: dos2unix.pod:587
-#, no-wrap
-msgid ""
-"    dos2unix -k a.txt\n"
-"    dos2unix -k -o a.txt\n"
-"\n"
-msgstr ""
-"    dos2unix -k a.txt\n"
-"    dos2unix -k -o a.txt\n"
-"\n"
-
-#. type: textblock
-#: dos2unix.pod:590
-msgid "Convert a.txt and write to e.txt:"
-msgstr "Перетворити дані у файлі a.txt і записати результати до файла e.txt:"
-
-#. type: verbatim
-#: dos2unix.pod:592
-#, no-wrap
-msgid ""
-"    dos2unix -n a.txt e.txt\n"
-"\n"
-msgstr ""
-"    dos2unix -n a.txt e.txt\n"
-"\n"
-
-#. type: textblock
-#: dos2unix.pod:594
-msgid "Convert a.txt and write to e.txt, keep date stamp of e.txt same as a.txt:"
-msgstr "Перетворити дані у файлі a.txt і записати результати до файла e.txt. Скопіювати часову позначку файла a.txt для файла e.txt:"
 
 #. type: verbatim
 #: dos2unix.pod:596
 #, no-wrap
 msgid ""
+"    dos2unix a.txt -c 7bit b.txt\n"
+"    dos2unix -c ascii a.txt -c 7bit b.txt\n"
+"    dos2unix -ascii a.txt -7 b.txt\n"
+"\n"
+msgstr ""
+"    dos2unix a.txt -c 7bit b.txt\n"
+"    dos2unix -c ascii a.txt -c 7bit b.txt\n"
+"    dos2unix -ascii a.txt -7 b.txt\n"
+"\n"
+
+#. type: textblock
+#: dos2unix.pod:600
+msgid "Convert a.txt from Mac to Unix format:"
+msgstr "Перетворити файл a.txt з формату Mac на формат Unix:"
+
+#. type: verbatim
+#: dos2unix.pod:602
+#, no-wrap
+msgid ""
+"    dos2unix -c mac a.txt\n"
+"    mac2unix a.txt\n"
+"\n"
+msgstr ""
+"    dos2unix -c mac a.txt\n"
+"    mac2unix a.txt\n"
+"\n"
+
+#. type: textblock
+#: dos2unix.pod:605
+msgid "Convert a.txt from Unix to Mac format:"
+msgstr "Перетворити файл a.txt з формату Unix на формат Mac:"
+
+#. type: verbatim
+#: dos2unix.pod:607
+#, no-wrap
+msgid ""
+"    unix2dos -c mac a.txt\n"
+"    unix2mac a.txt\n"
+"\n"
+msgstr ""
+"    unix2dos -c mac a.txt\n"
+"    unix2mac a.txt\n"
+"\n"
+
+#. type: textblock
+#: dos2unix.pod:610
+msgid "Convert and replace a.txt while keeping original date stamp:"
+msgstr "Перетворити дані у a.txt, замістити цей файл і зберегти часову позначку початкового файла:"
+
+#. type: verbatim
+#: dos2unix.pod:612
+#, no-wrap
+msgid ""
+"    dos2unix -k a.txt\n"
+"    dos2unix -k -o a.txt\n"
+"\n"
+msgstr ""
+"    dos2unix -k a.txt\n"
+"    dos2unix -k -o a.txt\n"
+"\n"
+
+#. type: textblock
+#: dos2unix.pod:615
+msgid "Convert a.txt and write to e.txt:"
+msgstr "Перетворити дані у файлі a.txt і записати результати до файла e.txt:"
+
+#. type: verbatim
+#: dos2unix.pod:617
+#, no-wrap
+msgid ""
+"    dos2unix -n a.txt e.txt\n"
+"\n"
+msgstr ""
+"    dos2unix -n a.txt e.txt\n"
+"\n"
+
+#. type: textblock
+#: dos2unix.pod:619
+msgid "Convert a.txt and write to e.txt, keep date stamp of e.txt same as a.txt:"
+msgstr "Перетворити дані у файлі a.txt і записати результати до файла e.txt. Скопіювати часову позначку файла a.txt для файла e.txt:"
+
+#. type: verbatim
+#: dos2unix.pod:621
+#, no-wrap
+msgid ""
 "    dos2unix -k -n a.txt e.txt\n"
 "\n"
 msgstr ""
@@ -1234,12 +1259,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:598
+#: dos2unix.pod:623
 msgid "Convert and replace a.txt, convert b.txt and write to e.txt:"
 msgstr "Перетворити дані у a.txt і замістити цей файл. Перетворити дані у b.txt і записати результат до e.txt:"
 
 #. type: verbatim
-#: dos2unix.pod:600
+#: dos2unix.pod:625
 #, no-wrap
 msgid ""
 "    dos2unix a.txt -n b.txt e.txt\n"
@@ -1251,12 +1276,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:603
+#: dos2unix.pod:628
 msgid "Convert c.txt and write to e.txt, convert and replace a.txt, convert and replace b.txt, convert d.txt and write to f.txt:"
 msgstr "Перетворити дані у c.txt і записати результати до e.txt. Перетворити дані у a.txt і замістити ними цей файл. Перетворити дані у b.txt і замістити ними цей файл. Перетворити дані у d.txt і записати результати до f.txt:"
 
 #. type: verbatim
-#: dos2unix.pod:606
+#: dos2unix.pod:631
 #, no-wrap
 msgid ""
 "    dos2unix -n c.txt e.txt -o a.txt b.txt -n d.txt f.txt\n"
@@ -1266,17 +1291,17 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: dos2unix.pod:608
+#: dos2unix.pod:633
 msgid "RECURSIVE CONVERSION"
 msgstr "РЕКУРСИВНЕ ПЕРЕТВОРЕННЯ"
 
 #. type: textblock
-#: dos2unix.pod:610
+#: dos2unix.pod:635
 msgid "Use dos2unix in combination with the find(1) and xargs(1) commands to recursively convert text files in a directory tree structure. For instance to convert all .txt files in the directory tree under the current directory type:"
 msgstr "Для рекурсивного перетворення текстових файлів у ієрархії каталогів слід використовувати dos2unix у поєднанні з програмами find(1) та xargs(1). Наприклад, щоб виконати перетворення усіх файлів .txt у структурі підкаталогів поточного каталогу, віддайте таку команду:"
 
 #. type: verbatim
-#: dos2unix.pod:614
+#: dos2unix.pod:639
 #, no-wrap
 msgid ""
 "    find . -name *.txt |xargs dos2unix\n"
@@ -1286,22 +1311,22 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: dos2unix.pod:616
+#: dos2unix.pod:641
 msgid "LOCALIZATION"
 msgstr "ЛОКАЛІЗАЦІЯ"
 
 #. type: =item
-#: dos2unix.pod:620
+#: dos2unix.pod:645
 msgid "B<LANG>"
 msgstr "B<LANG>"
 
 #. type: textblock
-#: dos2unix.pod:622
+#: dos2unix.pod:647
 msgid "The primary language is selected with the environment variable LANG. The LANG variable consists out of several parts. The first part is in small letters the language code. The second is optional and is the country code in capital letters, preceded with an underscore. There is also an optional third part: character encoding, preceded with a dot. A few examples for POSIX standard type shells:"
 msgstr "Основна мова визначається за допомогою змінної середовища LANG. Значення змінної LANG складається з декількох частин. Перша частина записується малими літерами і визначає код мови. Друга частина є необов’язковою, визначає код країни і записується прописними літерами, відокремлюється від першої частини символом підкреслювання. Передбачено також необов’язкову третю частину: кодування. Ця частина відокремлюється від другої частини крапкою. Ось декілька прикладів для командних оболонок стандартного типу POSIX:"
 
 #. type: verbatim
-#: dos2unix.pod:629
+#: dos2unix.pod:654
 #, no-wrap
 msgid ""
 "    export LANG=nl               Dutch\n"
@@ -1323,47 +1348,47 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:637
+#: dos2unix.pod:662
 msgid "For a complete list of language and country codes see the gettext manual: L<http://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html>"
 msgstr "Повний список мов та кодів країн наведено у підручнику з gettext: L<http://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html>"
 
 #. type: textblock
-#: dos2unix.pod:640
+#: dos2unix.pod:665
 msgid "On Unix systems you can use the command locale(1) to get locale specific information."
 msgstr "У системах Unix для отримання даних щодо локалі можна скористатися командою locale(1)."
 
 #. type: =item
-#: dos2unix.pod:643
+#: dos2unix.pod:668
 msgid "B<LANGUAGE>"
 msgstr "B<LANGUAGE>"
 
 #. type: textblock
-#: dos2unix.pod:645
+#: dos2unix.pod:670
 msgid "With the LANGUAGE environment variable you can specify a priority list of languages, separated by colons. Dos2unix gives preference to LANGUAGE over LANG.  For instance, first Dutch and then German: C<LANGUAGE=nl:de>. You have to first enable localization, by setting LANG (or LC_ALL) to a value other than \"C\", before you can use a language priority list through the LANGUAGE variable. See also the gettext manual: L<http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
 msgstr "За допомогою змінної середовища LANGUAGE ви можете вказати список пріоритеності мов. Записи у списку слід відокремлювати двокрапками. Програма dos2unix надає перевагу LANGUAGE над LANG. Наприклад, перша голландська, далі німецька: C<LANGUAGE=nl:de>. Спочатку вам слід увімкнути локалізацію, встановивши для змінної LANG (або LC_ALL) значення, відмінне від «C». Далі ви зможете використовувати список пріоритетності мов за допомогою змінної LANGUAGE. Додаткові відомості можна знайти у підручнику з gettext: L<http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
 
 #. type: textblock
-#: dos2unix.pod:653
+#: dos2unix.pod:678
 msgid "If you select a language which is not available you will get the standard English messages."
 msgstr "Якщо вами буде вибрано мову, перекладу якою немає, буде показано стандартні повідомлення англійською мовою."
 
 #. type: =item
-#: dos2unix.pod:657
+#: dos2unix.pod:682
 msgid "B<DOS2UNIX_LOCALEDIR>"
 msgstr "B<DOS2UNIX_LOCALEDIR>"
 
 #. type: textblock
-#: dos2unix.pod:659
+#: dos2unix.pod:684
 msgid "With the environment variable DOS2UNIX_LOCALEDIR the LOCALEDIR set during compilation can be overruled. LOCALEDIR is used to find the language files. The GNU default value is C</usr/local/share/locale>.  Option B<--version> will display the LOCALEDIR that is used."
 msgstr "Змінну LOCALEDIR, встановлену під час збирання програми, можна змінити за допомогою змінної середовища DOS2UNIX_LOCALEDIR. LOCALEDIR використовується для пошуку файлів перекладів. Типовим значенням у системах GNU є C</usr/local/share/locale>. Переглянути поточне значення змінної LOCALEDIR можна переглянути за допомогою параметра B<--version>."
 
 #. type: textblock
-#: dos2unix.pod:664
+#: dos2unix.pod:689
 msgid "Example (POSIX shell):"
 msgstr "Приклад (командна оболонка POSIX):"
 
 #. type: verbatim
-#: dos2unix.pod:666
+#: dos2unix.pod:691
 #, no-wrap
 msgid ""
 "    export DOS2UNIX_LOCALEDIR=$HOME/share/locale\n"
@@ -1373,72 +1398,72 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: dos2unix.pod:671
+#: dos2unix.pod:696
 msgid "RETURN VALUE"
 msgstr "ПОВЕРНУТЕ ЗНАЧЕННЯ"
 
 #. type: textblock
-#: dos2unix.pod:673
+#: dos2unix.pod:698
 msgid "On success, zero is returned.  When a system error occurs the last system error will be returned. For other errors 1 is returned."
 msgstr "Якщо завдання вдасться успішно виконати, програма поверне нульовий код виходу. Якщо станеться системна помилка, буде повернуто код цієї помилки. Якщо станеться якась інша помилка, буде повернуто код 1."
 
 #. type: textblock
-#: dos2unix.pod:676
+#: dos2unix.pod:701
 msgid "The return value is always zero in quiet mode, except when wrong command-line options are used."
 msgstr "У режимі без повідомлень повернутим значенням завжди буде нуль, якщо вказано правильні параметри командного рядка."
 
 #. type: =head1
-#: dos2unix.pod:679
+#: dos2unix.pod:704
 msgid "STANDARDS"
 msgstr "СТАНДАРТИ"
 
 #. type: textblock
-#: dos2unix.pod:681
+#: dos2unix.pod:706
 msgid "L<http://en.wikipedia.org/wiki/Text_file>"
 msgstr "L<http://en.wikipedia.org/wiki/Text_file>"
 
 #. type: textblock
-#: dos2unix.pod:683
+#: dos2unix.pod:708
 msgid "L<http://en.wikipedia.org/wiki/Carriage_return>"
 msgstr "L<http://uk.wikipedia.org/wiki/Carriage_return>"
 
 #. type: textblock
-#: dos2unix.pod:685
+#: dos2unix.pod:710
 msgid "L<http://en.wikipedia.org/wiki/Newline>"
 msgstr "L<http://uk.wikipedia.org/wiki/Newline>"
 
 #. type: textblock
-#: dos2unix.pod:687
+#: dos2unix.pod:712
 msgid "L<http://en.wikipedia.org/wiki/Unicode>"
 msgstr "L<http://uk.wikipedia.org/wiki/Unicode>"
 
 #. type: =head1
-#: dos2unix.pod:689
+#: dos2unix.pod:714
 msgid "AUTHORS"
 msgstr "АВТОРИ"
 
 #. type: textblock
-#: dos2unix.pod:691
+#: dos2unix.pod:716
 msgid "Benjamin Lin - <blin@socs.uts.edu.au>, Bernd Johannes Wuebben (mac2unix mode) - <wuebben@kde.org>, Christian Wurll (add extra newline) - <wurll@ira.uka.de>, Erwin Waterlander - <waterlan@xs4all.nl> (maintainer)"
 msgstr "Benjamin Lin - <blin@socs.uts.edu.au>, Bernd Johannes Wuebben (режим mac2unix) - <wuebben@kde.org>, Christian Wurll (додатковий новий рядок) - <wurll@ira.uka.de>, Erwin Waterlander - <waterlan@xs4all.nl> (супровідник)"
 
 #. type: textblock
-#: dos2unix.pod:696
+#: dos2unix.pod:721
 msgid "Project page: L<http://waterlan.home.xs4all.nl/dos2unix.html>"
 msgstr "Сторінка проекту: L<http://waterlan.home.xs4all.nl/dos2unix.html>"
 
 #. type: textblock
-#: dos2unix.pod:698
+#: dos2unix.pod:723
 msgid "SourceForge page: L<http://sourceforge.net/projects/dos2unix/>"
 msgstr "Сторінка на SourceForge: L<http://sourceforge.net/projects/dos2unix/>"
 
 #. type: =head1
-#: dos2unix.pod:700
+#: dos2unix.pod:725
 msgid "SEE ALSO"
 msgstr "ТАКОЖ ПЕРЕГЛЯНЬТЕ"
 
 #. type: textblock
-#: dos2unix.pod:702
+#: dos2unix.pod:727
 msgid "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 msgstr "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 
