@@ -1,3 +1,8 @@
+2015-08-05 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: New option -D, --display-encoding, to set the encoding used
+	  for the text messages displayed in the Windows console. Possible
+	  values are: ansi, unicode, utf8.
+
 2015-08-01 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Renamed d2u_printf() to d2u_fprintf().
 	* common.c: Fix d2u_fprintf() to work correctly when Native Language

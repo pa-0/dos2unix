@@ -206,6 +206,10 @@
 #define FILE_UTF8    3  /* UTF-8 */
 #define FILE_GB18030 4  /* GB18030 */
 
+#define D2U_DISPLAY_ANSI    0
+#define D2U_DISPLAY_UNICODE 1
+#define D2U_DISPLAY_UTF8    2
+
 /* locale conversion targets */
 #define TARGET_UTF8    0
 #define TARGET_GB18030 1

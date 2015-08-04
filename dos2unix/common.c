@@ -57,6 +57,10 @@
 # endif
 #endif
 
+/* global variable */
+#ifdef D2U_UNIFILE
+int d2u_display_encoding = D2U_DISPLAY_ANSI ;
+#endif
 
 /*
  * Print last system error on Windows.
@@ -139,7 +143,8 @@ int d2u_MultiByteToWideChar(UINT CodePage, DWORD dwFlags, LPCSTR lpMultiByteStr,
  * - The arguments are encoded in UTF-8.
  *
  * There are several methods for printing Unicode in the Windows Console, but
- * none of them is perfect.
+ * none of them is perfect. There are so many issues that I decided to go back
+ * to ANSI by default.
  */
 
 void d2u_fprintf( FILE *stream, const char* format, ... ) {
@@ -149,9 +154,9 @@ void d2u_fprintf( FILE *stream, const char* format, ... ) {
    char formatmbs[D2U_MAX_PATH];
    wchar_t formatwcs[D2U_MAX_PATH];
    UINT outputCP;
-/*   wchar_t wstr[D2U_MAX_PATH];
+   wchar_t wstr[D2U_MAX_PATH];
    int prevmode;
-   HANDLE out_handle;
+/*   HANDLE out_handle;
 
    if (stream == stderr)
      out_handle =GetStdHandle(STD_ERROR_HANDLE);
@@ -172,45 +177,69 @@ void d2u_fprintf( FILE *stream, const char* format, ... ) {
     * Print to buffer (UTF-8) */
    vsnprintf(buf, sizeof(buf), formatmbs, args);
 
+   if (d2u_display_encoding == D2U_DISPLAY_UTF8) {
+
    /* Using UTF-8 has my preference. The following method works fine when NLS is
       disabled. But when I enable NLS (ENABLE_NLS=1) all non-ASCII characters are
       printed as a square with a question mark in it. This will make the screen
       output of dos2unix for most languages unreadable.
       When I redirect the output to a file, the output is correct UTF-8. I don't
-      know why NLS causes wrong printed text in the console */
+      know why NLS causes wrong printed text in the console. I just turn NLS off.
+      A disadvantage of this method is that all non-ASCII characters are printed
+      wrongly when the console uses raster font (which is the default).
+      I tried on a Chinese Windows 7 (code page 936) and then all non-ASCII
+      is printed wrongly, using raster and TrueType font. Only in ConEmu I
+      get correct output. I'm afraid that most people use the default Command Prompt
+      and PowerShell consolse, so for many people the text will be unreadable.
+      On a Chinese Windows there was a lot of flickering during the printing of the
+      lines of text. This is not acceptable.
+ */
 #ifdef ENABLE_NLS
-   /* temporarely disable NLS */
-   setlocale (LC_ALL, "C");
+      /* temporarely disable NLS */
+      setlocale (LC_ALL, "C");
 #endif
-   /* print UTF-8 buffer to console in UTF-8 mode */
-   outputCP = GetConsoleOutputCP();
-   SetConsoleOutputCP(CP_UTF8);
-   fwprintf(stream,L"%S",buf);
-   SetConsoleOutputCP(outputCP);
+       /* print UTF-8 buffer to console in UTF-8 mode */
+      outputCP = GetConsoleOutputCP();
+      SetConsoleOutputCP(CP_UTF8);
+      fwprintf(stream,L"%S",buf);
+      SetConsoleOutputCP(outputCP);
 #ifdef ENABLE_NLS
-   /* re-enable NLS */
-   setlocale (LC_ALL, "");
+      /* re-enable NLS */
+      setlocale (LC_ALL, "");
 #endif
 
-   /* Another method for printing Unicode is using WriteConsoleW().
-      WriteConsoleW always prints output correct in the console, but
-      WriteConsoleW has one big disadvantage. The output of WriteConsoleW
-      can't be redirected. The output can't be piped to a log file. */
-   /* Convert UTF-8 buffer to wide characters. */
-   //d2u_MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, D2U_MAX_PATH);
-   //WriteConsoleW(out_handle, wstr, wcslen(wstr), NULL, NULL);
-
-   /* Printing UTF-16 works correctly, with and without NLS enabled. The downside
-      is that it is UTF-16. When this is redirected to a file it gives a big mess.*/
-   //d2u_MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, D2U_MAX_PATH);
-   //prevmode = _setmode(_fileno(stream), _O_U16TEXT);
-   //fwprintf(stream,L"%ls",wstr);
-   //_setmode(_fileno(stream), prevmode);
-
-   /* The following method does not give correct output. I don't know why. */
+   /* The following UTF-8 method does not give correct output. I don't know why. */
    //prevmode = _setmode(_fileno(stream), _O_U8TEXT);
    //fwprintf(stream,L"%S",buf);
    //_setmode(_fileno(stream), prevmode);
+
+   } else if (d2u_display_encoding == D2U_DISPLAY_UNICODE) {
+
+   /* Another method for printing Unicode is using WriteConsoleW().
+      WriteConsoleW always prints output correct in the console. Even when
+      using raster font WriteConsoleW prints correctly when possible.
+      WriteConsoleW has one big disadvantage: The output of WriteConsoleW
+      can't be redirected. The output can't be piped to a log file. */
+       /* Convert UTF-8 buffer to wide characters. */
+       //d2u_MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, D2U_MAX_PATH);
+       //WriteConsoleW(out_handle, wstr, wcslen(wstr), NULL, NULL);
+
+   /* Printing UTF-16 works correctly like WriteConsoleW, with and without NLS enabled.
+      Works also good with raster fonts. In a Chinese CP936 locale it works correctly
+      in the Windows Command Prompt. The downside is that it is UTF-16. When this is
+      redirected to a file it gives a big mess. It is not compatible with ASCII. So
+      even a simple ASCII grep on the screen output will not work. */
+      d2u_MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, D2U_MAX_PATH);
+      prevmode = _setmode(_fileno(stream), _O_U16TEXT);
+      fwprintf(stream,L"%ls",wstr);
+      _setmode(_fileno(stream), prevmode);
+   } else {
+      d2u_MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, D2U_MAX_PATH);
+      /* Convert the whole message to ANSI, some Unicode characters may fail to translate to ANSI */
+      d2u_WideCharToMultiByte(CP_ACP, 0, wstr, -1, buf, D2U_MAX_PATH, NULL, NULL);
+      fprintf(stream,"%s",buf);
+   }
+
 #else
    va_start(args, format);
    vfprintf(stream, format, args);
@@ -611,6 +640,10 @@ void PrintUsage(const char *progname)
     printf(_(" -b, --keep-bom        keep Byte Order Mark (default)\n"));
   printf(_(" -c, --convmode        conversion mode\n\
    convmode            ascii, 7bit, iso, mac, default to ascii\n"));
+#ifdef D2U_UNIFILE
+  printf(_(" -D, --display-enc     display encoding\n\
+   encoding            ansi, unicode, utf8, default to ansi\n"));
+#endif
   printf(_(" -f, --force           force conversion of binary files\n"));
 #ifdef D2U_UNICODE
 #if (defined(_WIN32) && !defined(__CYGWIN__))
@@ -2268,6 +2301,33 @@ int parse_options(int argc, char *argv[],
           pFlag->stdio_mode = 0;
         }
       }
+
+#ifdef D2U_UNIFILE
+      else if ((strcmp(argv[ArgIdx],"-D") == 0) || (strcmp(argv[ArgIdx],"--display-enc") == 0)) {
+        if (++ArgIdx < argc) {
+          if (strcmpi(argv[ArgIdx],"ansi") == 0)
+            d2u_display_encoding = D2U_DISPLAY_ANSI;
+          else if (strcmpi(argv[ArgIdx], "unicode") == 0)
+            d2u_display_encoding = D2U_DISPLAY_UNICODE;
+          else if (strcmpi(argv[ArgIdx], "utf8") == 0) {
+            d2u_display_encoding = D2U_DISPLAY_UTF8;
+          } else {
+            d2u_fprintf(stderr,"%s: ",progname);
+            d2u_fprintf(stderr, _("invalid %s display encoding specified\n"),argv[ArgIdx]);
+            pFlag->error = 1;
+            ShouldExit = 1;
+            pFlag->stdio_mode = 0;
+          }
+        } else {
+          ArgIdx--;
+          d2u_fprintf(stderr,"%s: ",progname);
+          d2u_fprintf(stderr,_("option '%s' requires an argument\n"),argv[ArgIdx]);
+          pFlag->error = 1;
+          ShouldExit = 1;
+          pFlag->stdio_mode = 0;
+        }
+      }
+#endif
 
       else if ((strcmp(argv[ArgIdx],"-o") == 0) || (strcmp(argv[ArgIdx],"--oldfile") == 0)) {
         /* last convert not paired */
