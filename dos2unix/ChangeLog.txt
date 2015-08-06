@@ -1,3 +1,7 @@
+2015-08-06 Erwin Waterlander <waterlan@xs4all.nl>
+	* man/man1/dos2unix.pod: Updated section "Unicode file names on Windows"
+	  and described new option -D, --display-enc.
+
 2015-08-05 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: New option -D, --display-encoding, to set the encoding used
 	  for the text messages displayed in the Windows console. Possible

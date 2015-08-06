@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-01 09:44+0200\n"
+"POT-Creation-Date: 2015-08-06 22:03+0200\n"
 "PO-Revision-Date: 2015-07-21 08:05+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -76,7 +76,7 @@ msgstr ""
 "Giữ toàn bộ bản quyền.\n"
 "\n"
 
-#: common.c:563
+#: common.c:593
 msgid ""
 "Redistribution and use in source and binary forms, with or without\n"
 "modification, are permitted provided that the following conditions\n"
@@ -97,7 +97,7 @@ msgstr ""
 "   bản phân phối.\n"
 "\n"
 
-#: common.c:573
+#: common.c:603
 msgid ""
 "THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n"
 "EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
@@ -112,67 +112,67 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: common.c:598
+#: common.c:628
 #, c-format
 msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
 msgstr "Cách dùng: %s [các-tùy-chọn] [tập-tin …] [-n tập-tin-vào tập-tin-ra …]\n"
 
-#: common.c:599
+#: common.c:629
 #, c-format
 msgid " -ascii                convert only line breaks (default)\n"
 msgstr " -ascii                chỉ chuyển đổi các ngắt dòng (mặc định)\n"
 
-#: common.c:600
+#: common.c:630
 #, c-format
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
 msgstr " -iso                  chuyển đổi giữa DOS và ISO-8859-1\n"
 
-#: common.c:601
+#: common.c:631
 #, c-format
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
 msgstr "   -1252               dùng trang mã Windows 1252 (Tây Âu)\n"
 
-#: common.c:602
+#: common.c:632
 #, c-format
 msgid "   -437                use DOS code page 437 (US) (default)\n"
 msgstr "   -437                dùng trang mã DOS 437 (US) (mặc định)\n"
 
-#: common.c:603
+#: common.c:633
 #, c-format
 msgid "   -850                use DOS code page 850 (Western European)\n"
 msgstr "   -850                dùng trang mã DOS 850 (Tây Âu)\n"
 
-#: common.c:604
+#: common.c:634
 #, c-format
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
 msgstr "   -860                dùng trang mã DOS 860 (Bồ Đào Nha)\n"
 
-#: common.c:605
+#: common.c:635
 #, c-format
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
 msgstr "   -863                dùng trang mã DOS 863 (Ca Na Đa Pháp)\n"
 
-#: common.c:606
+#: common.c:636
 #, c-format
 msgid "   -865                use DOS code page 865 (Nordic)\n"
 msgstr "   -865                dùng trang mã DOS 865 (Bắc Âu)\n"
 
-#: common.c:607
+#: common.c:637
 #, c-format
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
 msgstr " -7                    chuyển đổi các ký tự 8 bit thành 7 bit\n"
 
-#: common.c:609
+#: common.c:639
 #, c-format
 msgid " -b, --keep-bom        keep Byte Order Mark\n"
 msgstr " -b, --keep-bom        giữ nguyên “Byte Order Mark”\n"
 
-#: common.c:611
+#: common.c:641
 #, c-format
 msgid " -b, --keep-bom        keep Byte Order Mark (default)\n"
 msgstr " -b, --keep-bom        giữ nguyên “Byte Order Mark” (mặc định)\n"
 
-#: common.c:612
+#: common.c:642
 #, c-format
 msgid ""
 " -c, --convmode        conversion mode\n"
@@ -181,22 +181,31 @@ msgstr ""
 " -c, --convmode        chế độ chuyển đổi\n"
 "   chế độ chuyển đổi:  ascii, 7bit, iso, mac, mặc định là ascii\n"
 
-#: common.c:614
+#: common.c:645
+#, fuzzy, c-format
+msgid ""
+" -D, --display-enc     set encoding of displayed text messages\n"
+"   encoding            ansi, unicode, utf8, default to ansi\n"
+msgstr ""
+" -c, --convmode        chế độ chuyển đổi\n"
+"   chế độ chuyển đổi:  ascii, 7bit, iso, mac, mặc định là ascii\n"
+
+#: common.c:648
 #, c-format
 msgid " -f, --force           force conversion of binary files\n"
 msgstr " -f, --force           bắt buộc chuyển đổi các tập tin nhị phân\n"
 
-#: common.c:617
+#: common.c:651
 #, c-format
 msgid " -gb, --gb18030        convert UTF-16 to GB18030\n"
 msgstr " -gb, --gb18030        đổi từ UTF-16 sang GB18030\n"
 
-#: common.c:620
+#: common.c:654
 #, c-format
 msgid " -h, --help            display this help text\n"
 msgstr " -h, --help            hiển thị trợ giúp này\n"
 
-#: common.c:621
+#: common.c:655
 #, c-format
 msgid ""
 " -i, --info[=FLAGS]    display file information\n"
@@ -205,27 +214,27 @@ msgstr ""
 " -i, --info[=CỜ]       hiển thị thông tin tập tin\n"
 "   tập-tin …           các tập tin cần phân tích\n"
 
-#: common.c:623
+#: common.c:657
 #, c-format
 msgid " -k, --keepdate        keep output file date\n"
 msgstr " -k, --keepdate        giữ nguyên ngày tháng tập tin đầu ra\n"
 
-#: common.c:624
+#: common.c:658
 #, c-format
 msgid " -L, --license         display software license\n"
 msgstr " -L, --license         hiển thị giấy phép dùng phần mềm\n"
 
-#: common.c:625
+#: common.c:659
 #, c-format
 msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline         bổ xung thêm dòng mới\n"
 
-#: common.c:626
+#: common.c:660
 #, c-format
 msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
 msgstr " -m, --add-bom         thêm “Byte Order Mark” (mặc định UTF-8)\n"
 
-#: common.c:627
+#: common.c:661
 #, c-format
 msgid ""
 " -n, --newfile         write to new file\n"
@@ -236,7 +245,7 @@ msgstr ""
 "   tập-tin-vào         tập tin gốc trong chế độ tập-tin-mới\n"
 "   tập-tin-ra          tập tin đầu ra trong chế độ tập-tin-mới\n"
 
-#: common.c:630
+#: common.c:664
 #, c-format
 msgid ""
 " -o, --oldfile         write to old file (default)\n"
@@ -245,52 +254,52 @@ msgstr ""
 " -o, --oldfile         ghi vào tập tin cũ (mặc định)\n"
 "   tập-tin …           các tập tin cần chuyển đổi trong chế độ tập-tin-cũ\n"
 
-#: common.c:632
+#: common.c:666
 #, c-format
 msgid " -q, --quiet           quiet mode, suppress all warnings\n"
 msgstr " -q, --quiet           chế độ im lặng, chặn mọi cảnh báo\n"
 
-#: common.c:634
+#: common.c:668
 #, c-format
 msgid " -r, --remove-bom      remove Byte Order Mark (default)\n"
 msgstr " -r, --remove-bom      gỡ bỏ “Byte Order Mark” (mặc định)\n"
 
-#: common.c:636
+#: common.c:670
 #, c-format
 msgid " -r, --remove-bom      remove Byte Order Mark\n"
 msgstr " -r, --remove-bom      gỡ bỏ “Byte Order Mark”\n"
 
-#: common.c:637
+#: common.c:671
 #, c-format
 msgid " -s, --safe            skip binary files (default)\n"
 msgstr " -s, --safe            bỏ qua tập tin nhị phân (mặc định)\n"
 
-#: common.c:639
+#: common.c:673
 #, c-format
 msgid " -u,  --keep-utf16     keep UTF-16 encoding\n"
 msgstr " -u,  --keep-utf16     giữ bảng mã UTF-16\n"
 
-#: common.c:640
+#: common.c:674
 #, c-format
 msgid " -ul, --assume-utf16le assume that the input format is UTF-16LE\n"
 msgstr " -ul, --assume-utf16le coi rằng định dạng đầu vào là UTF-16LE\n"
 
-#: common.c:641
+#: common.c:675
 #, c-format
 msgid " -ub, --assume-utf16be assume that the input format is UTF-16BE\n"
 msgstr " -ub, --assume-utf16be coi rằng định dạng đầu vào là UTF-16BE\n"
 
-#: common.c:643
+#: common.c:677
 #, c-format
 msgid " -v,  --verbose        verbose operation\n"
 msgstr " -v,  --verbose        thông báo chi tiết\n"
 
-#: common.c:645
+#: common.c:679
 #, c-format
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
 msgstr " -F, --follow-symlink  theo liên kết mềm và chuyển đổi đích\n"
 
-#: common.c:648
+#: common.c:682
 #, c-format
 msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
@@ -299,230 +308,230 @@ msgstr ""
 " -R, --replace-symlink thay thế liên kết mềm bằng tập tin đã chuyển đổi\n"
 "                   (các tập tin đích nguyên gốc thì để nguyên không thay đổi)\n"
 
-#: common.c:650
+#: common.c:684
 #, c-format
 msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr " -S, --skip-symlink    giữ liên kết mềm và đích không thay đổi (mặc định)\n"
 
-#: common.c:652
+#: common.c:686
 #, c-format
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         hiển thị số hiệu phiên bản\n"
 
-#: common.c:664
+#: common.c:698
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "Phiên bản DOS 16 bit (WATCOMC).\n"
 
-#: common.c:666
+#: common.c:700
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "Phiên bản DOS 16 bit (TURBOC).\n"
 
-#: common.c:668
+#: common.c:702
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "Phiên bản DOS 32 bit (WATCOMC).\n"
 
-#: common.c:670
+#: common.c:704
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "Phiên bản DOS 32 bit (DJGPP).\n"
 
-#: common.c:672
+#: common.c:706
 msgid "MSYS version.\n"
 msgstr "Phiên bản MSYS.\n"
 
-#: common.c:674
+#: common.c:708
 msgid "Cygwin version.\n"
 msgstr "Phiên bản Cygwin.\n"
 
-#: common.c:676
+#: common.c:710
 msgid "Windows 64 bit version (MinGW-w64).\n"
 msgstr "Phiên bản Windows 64 bit (MinGW-w64).\n"
 
-#: common.c:678
+#: common.c:712
 msgid "Windows 32 bit version (WATCOMC).\n"
 msgstr "Phiên bản Windows 32 bit (WATCOMC).\n"
 
-#: common.c:680
+#: common.c:714
 msgid "Windows 32 bit version (MinGW-w64).\n"
 msgstr "Phiên bản Windows 32 bit (MinGW-w64).\n"
 
-#: common.c:682
+#: common.c:716
 msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Phiên bản Windows 32 bit (MinGW).\n"
 
-#: common.c:684
+#: common.c:718
 #, c-format
 msgid "Windows 64 bit version (MSVC %d).\n"
 msgstr "Phiên bản Windows 64 bit (MSVC %d).\n"
 
-#: common.c:686
+#: common.c:720
 #, c-format
 msgid "Windows 32 bit version (MSVC %d).\n"
 msgstr "Phiên bản Windows 32 bit (MSVC %d).\n"
 
-#: common.c:688
+#: common.c:722
 msgid "OS/2 version (WATCOMC).\n"
 msgstr "Phiên bản OS/2 (WATCOMC).\n"
 
-#: common.c:690
+#: common.c:724
 msgid "OS/2 version (EMX).\n"
 msgstr "Phiên bản OS/2 (EMX).\n"
 
-#: common.c:692
+#: common.c:726
 #, c-format
 msgid "%s version.\n"
 msgstr "Phiên bản %s.\n"
 
-#: common.c:698
+#: common.c:732
 msgid "With Unicode UTF-16 support.\n"
 msgstr "Có hỗ trợ Unicode UTF-16.\n"
 
-#: common.c:700
+#: common.c:734
 msgid "Without Unicode UTF-16 support.\n"
 msgstr "Không hỗ trợ Unicode UTF-16.\n"
 
-#: common.c:704
+#: common.c:738
 msgid "With Unicode file name support.\n"
 msgstr "Có hỗ trợ tên tập tin dạng Unicode.\n"
 
-#: common.c:706
+#: common.c:740
 msgid "Without Unicode file name support.\n"
 msgstr "Không hỗ trợ tên tập tin dạng Unicode.\n"
 
-#: common.c:710
+#: common.c:744
 msgid "With native language support.\n"
 msgstr "Có hỗ trợ bản địa hóa ngôn ngữ.\n"
 
-#: common.c:1015 common.c:1022 common.c:1029 common.c:1036 common.c:1048
-#: common.c:1055
+#: common.c:1049 common.c:1056 common.c:1063 common.c:1070 common.c:1082
+#: common.c:1089
 #, c-format
 msgid "Writing %s BOM.\n"
 msgstr "Đang ghi %s BOM.\n"
 
-#: common.c:1015 common.c:1071 common.c:1593 common.c:1614
+#: common.c:1049 common.c:1105 common.c:1627 common.c:1648
 msgid "UTF-16LE"
 msgstr "UTF-16LE"
 
-#: common.c:1022 common.c:1074 common.c:1595 common.c:1616
+#: common.c:1056 common.c:1108 common.c:1629 common.c:1650
 msgid "UTF-16BE"
 msgstr "UTF-16BE"
 
-#: common.c:1029 common.c:1048 common.c:1080 common.c:1606
+#: common.c:1063 common.c:1082 common.c:1114 common.c:1640
 msgid "GB18030"
 msgstr "GB18030"
 
-#: common.c:1036 common.c:1055 common.c:1077 common.c:1608
+#: common.c:1070 common.c:1089 common.c:1111 common.c:1642
 msgid "UTF-8"
 msgstr "UTF-8"
 
-#: common.c:1100
+#: common.c:1134
 #, c-format
 msgid "Input file %s has %s BOM.\n"
 msgstr "Tập tin đầu vào %s có %s BOM.\n"
 
-#: common.c:1136 common.c:1179
+#: common.c:1170 common.c:1213
 msgid "Assuming UTF-16LE encoding.\n"
 msgstr "Coi là bảng mã UTF-16LE.\n"
 
-#: common.c:1140 common.c:1183
+#: common.c:1174 common.c:1217
 msgid "Assuming UTF-16BE encoding.\n"
 msgstr "Coi là bảng mã UTF-16BE.\n"
 
-#: common.c:1313
+#: common.c:1347
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
 msgstr "Gặp lỗi khi mở tập tin đầu ra tạm thời: %s\n"
 
-#: common.c:1320
+#: common.c:1354
 #, c-format
 msgid "using %s as temporary file\n"
 msgstr "đang dùng %s làm tập tin tạm\n"
 
-#: common.c:1385
+#: common.c:1419
 #, c-format
 msgid "Failed to write to temporary output file %s:"
 msgstr "Gặp lỗi khi ghi vào tập tin đầu ra tạm thời %s:"
 
-#: common.c:1416
+#: common.c:1450
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s:"
 msgstr "Gặp lỗi khi thay đổi quyền hạn của tập tin đầu ra tạm %s:"
 
-#: common.c:1433
+#: common.c:1467
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s:"
 msgstr "Gặp lỗi khi đổi chủ sở hữu và nhóm của tập tin đầu ra tạm %s:"
 
-#: common.c:1480
+#: common.c:1514
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
 msgstr "gặp lỗi khi phân giải liên kết mềm “%s”\n"
 
-#: common.c:1481 common.c:1513
+#: common.c:1515 common.c:1547
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          tập tin đầu ra còn trong “%s”\n"
 
-#: common.c:1507
+#: common.c:1541
 #, c-format
 msgid "problems renaming '%s' to '%s':"
 msgstr "gặp lỗi khi đổi tên “%s” thành “%s”:"
 
-#: common.c:1511
+#: common.c:1545
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          cái là đích của liên kết mềm “%s”\n"
 
-#: common.c:1574 common.c:1660 common.c:1740
+#: common.c:1608 common.c:1694 common.c:1774
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "Bỏ qua tập tin nhị phân %s\n"
 
-#: common.c:1577 common.c:1663 common.c:1743
+#: common.c:1611 common.c:1697 common.c:1777
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "không hỗ trợ trang mã %d.\n"
 
-#: common.c:1580 common.c:1666 common.c:1746 common.c:1800
+#: common.c:1614 common.c:1700 common.c:1780 common.c:1834
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "Bỏ qua tập tin UTF-16 %s, cỡ của wchar_t không phải là %d byte.\n"
 
-#: common.c:1583 common.c:1669 common.c:1749
+#: common.c:1617 common.c:1703 common.c:1783
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
 msgstr "Bỏ qua tập tin UTF-16 %s, đã xảy ra lỗi chuyển đổi UTF-16 trên dòng %u.\n"
 
-#: common.c:1648 common.c:1731 common.c:1790
+#: common.c:1682 common.c:1765 common.c:1824
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "Bỏ qua %s, đây không phải là tập tin thường.\n"
 
-#: common.c:1651
+#: common.c:1685
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "Bỏ qua %s, tập tin đầu ra %s là một liên kết mềm.\n"
 
-#: common.c:1654 common.c:1737 common.c:1795
+#: common.c:1688 common.c:1771 common.c:1829
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr "Bỏ qua liên kết mềm %s, đích của nó không phải là một tập tin thường.\n"
 
-#: common.c:1657
+#: common.c:1691
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr "Bỏ qua liên kết mềm %s, đích %s của liên kết mềm không phải là một tập tin thường.\n"
 
-#: common.c:1674
+#: common.c:1708
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "Đang chuyển đổi tập tin %s thành tập tin “%s” theo định dạng Unix…\n"
 
-#: common.c:1677
+#: common.c:1711
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "Đang chuyển đổi tập tin “%s” thành tập tin “%s” theo định dạng Mac…\n"
 
-#: common.c:1679
+#: common.c:1713
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "Đang chuyển đổi tập tin “%s” thành tập tin “%s” theo định dạng DOS…\n"
@@ -533,42 +542,42 @@ msgstr "Đang chuyển đổi tập tin “%s” thành tập tin “%s” theo 
 #. 3rd %s is encoding of output file.
 #. 4th %s is name of output file.
 #. E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format...
-#: common.c:1690
+#: common.c:1724
 #, c-format
 msgid "converting %s file %s to %s file %s in Unix format...\n"
 msgstr "Đang chuyển đổi tập tin %s “%s” thành tập tin “%s” theo định dạng Unix %s…\n"
 
-#: common.c:1693
+#: common.c:1727
 #, c-format
 msgid "converting %s file %s to %s file %s in Mac format...\n"
 msgstr "Đang chuyển đổi tập tin %s “%s” thành tập tin “%s” theo định dạng Mac %s…\n"
 
-#: common.c:1695
+#: common.c:1729
 #, c-format
 msgid "converting %s file %s to %s file %s in DOS format...\n"
 msgstr "Đang chuyển đổi tập tin %s “%s” thành tập tin “%s” theo định dạng DOS %s…\n"
 
-#: common.c:1701
+#: common.c:1735
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "Đang chuyển đổi tập tin %s thành tập tin %s\n"
 
-#: common.c:1734
+#: common.c:1768
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "Bỏ qua liên kết mềm %s.\n"
 
-#: common.c:1754
+#: common.c:1788
 #, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "Đang chuyển đổi tập tin “%s” sang định dạng Unix…\n"
 
-#: common.c:1757
+#: common.c:1791
 #, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "Đang chuyển đổi tập tin “%s” sang định dạng Mac…\n"
 
-#: common.c:1759
+#: common.c:1793
 #, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "Đang chuyển đổi tập tin “%s” sang định dạng DOS…\n"
@@ -578,71 +587,76 @@ msgstr "Đang chuyển đổi tập tin “%s” sang định dạng DOS…\n"
 #. 2nd %s is name of input file.
 #. 3rd %s is encoding of output (input file is overwritten).
 #. E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format...
-#: common.c:1769
+#: common.c:1803
 #, c-format
 msgid "converting %s file %s to %s Unix format...\n"
 msgstr "Đang chuyển đổi tập tin %s “%s” sang định dạng Unix %s…\n"
 
-#: common.c:1772
+#: common.c:1806
 #, c-format
 msgid "converting %s file %s to %s Mac format...\n"
 msgstr "Đang chuyển đổi tập tin %s “%s” sang định dạng Mac %s…\n"
 
-#: common.c:1774
+#: common.c:1808
 #, c-format
 msgid "converting %s file %s to %s DOS format...\n"
 msgstr "Đang chuyển đổi tập tin %s “%s” sang định dạng DOS %s…\n"
 
-#: common.c:1780
+#: common.c:1814
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "gặp trục trặc khi chuyển đổi tập tin %s\n"
 
-#: common.c:1846 common.c:1923
+#: common.c:1880 common.c:1957
 #, c-format
 msgid "can not read from input file %s:"
 msgstr "không thể đọc từ tập tin đầu vào %s:"
 
-#: common.c:2098
+#: common.c:2132
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "cờ “%c” cho tùy chọn -i hay --info bị sai\n"
 
-#: common.c:2208 common.c:2245
+#: common.c:2242 common.c:2279
 #, c-format
 msgid "active code page: %d\n"
 msgstr "trang mã đang hoạt động: %d\n"
 
-#: common.c:2257
+#: common.c:2291
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "đã đưa ra chế độ chuyển đổi %s không hợp lệ\n"
 
-#: common.c:2265
+#: common.c:2299 common.c:2325
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "tùy chọn “%s” yêu cầu một đối số\n"
 
-#: common.c:2276 common.c:2289 common.c:2355
+#: common.c:2317
+#, fuzzy, c-format
+msgid "invalid %s display encoding specified\n"
+msgstr "đã đưa ra chế độ chuyển đổi %s không hợp lệ\n"
+
+#: common.c:2337 common.c:2350 common.c:2416
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "đích của tập tin %s không được chỉ định trong chế độ tập-tin-mới\n"
 
-#: common.c:2369
+#: common.c:2430
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "không thể đọc từ tập tin đầu vào: %s\n"
 
-#: common.c:2381 common.c:2395
+#: common.c:2442 common.c:2456
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "không thể ghi vào tập tin đầu ra: %s\n"
 
-#: common.c:2472
+#: common.c:2533
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "lỗi: Cặp thay thế không hợp lệ. Thiếu cái thay thế dưới.\n"
 
-#: common.c:2487
+#: common.c:2548
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "lỗi: Cặp thay thế không hợp lệ. Thiếu cái thay thế trên.\n"
 

@@ -233,9 +233,10 @@ void d2u_fprintf( FILE *stream, const char* format, ... ) {
       prevmode = _setmode(_fileno(stream), _O_U16TEXT);
       fwprintf(stream,L"%ls",wstr);
       _setmode(_fileno(stream), prevmode);
-   } else {
+   } else {  /* ANSI */
       d2u_MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, D2U_MAX_PATH);
-      /* Convert the whole message to ANSI, some Unicode characters may fail to translate to ANSI */
+      /* Convert the whole message to ANSI, some Unicode characters may fail to translate to ANSI.
+         They will be displayed as a question mark. */
       d2u_WideCharToMultiByte(CP_ACP, 0, wstr, -1, buf, D2U_MAX_PATH, NULL, NULL);
       fprintf(stream,"%s",buf);
    }
@@ -641,7 +642,7 @@ void PrintUsage(const char *progname)
   printf(_(" -c, --convmode        conversion mode\n\
    convmode            ascii, 7bit, iso, mac, default to ascii\n"));
 #ifdef D2U_UNIFILE
-  printf(_(" -D, --display-enc     display encoding\n\
+  printf(_(" -D, --display-enc     set encoding of displayed text messages\n\
    encoding            ansi, unicode, utf8, default to ansi\n"));
 #endif
   printf(_(" -f, --force           force conversion of binary files\n"));
