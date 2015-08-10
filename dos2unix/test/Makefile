@@ -56,5 +56,8 @@ wcstombs:
 	@echo "====> test wcstombs() GB18030"
 	LC_ALL=zh_CN.GB18030 ./wcstombs_test
 
+testu16: testu16.c
+	gcc $< -o $@
+
 clean:
 	rm -f out*.txt in_link.txt wcstombs_test
