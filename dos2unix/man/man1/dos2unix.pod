@@ -163,8 +163,7 @@ file name support. This option has no effect on the actual file names
 read and written, only on how they are displayed.
 
 There are several methods for displaying text in a Windows console based on the
-encoding of the text. They all have their different advantages and
-disadvantages.
+encoding of the text. They all have their own advantages and disadvantages.
 
 
 =over 4
@@ -213,6 +212,7 @@ In a ConEmu console the utf8 encoding method works well.
 
 =back
 
+The default method can be changed with environment variable DOS2UNIX_DISPLAY_ENC.
 
 =item B<-f, --force>
 
@@ -583,7 +583,7 @@ characters in the name that are not part of the default system ANSI code page.
 To see if dos2unix for Windows was built with Unicode file name support type
 C<dos2unix -V>.
 
-There are some issues with displaying Unicode file names in a Windows Console.
+There are some issues with displaying Unicode file names in a Windows console.
 See option C<-D>, C<--display-enc>. The file names may be displayed wrongly in
 the console, but the files will be written with the correct name.
 

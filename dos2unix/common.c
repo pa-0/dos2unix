@@ -192,7 +192,8 @@ void d2u_fprintf( FILE *stream, const char* format, ... ) {
       get correct output. I'm afraid that most people use the default Command Prompt
       and PowerShell consolse, so for many people the text will be unreadable.
       On a Chinese Windows there was a lot of flickering during the printing of the
-      lines of text. This is not acceptable.
+      lines of text. This is not acceptable, but I'm not sure it this was because the
+      Windows Command Prompt was broken. It sometimes crashes.
  */
 #ifdef ENABLE_NLS
       /* temporarely disable NLS */
@@ -228,7 +229,11 @@ void d2u_fprintf( FILE *stream, const char* format, ... ) {
       Works also good with raster fonts. In a Chinese CP936 locale it works correctly
       in the Windows Command Prompt. The downside is that it is UTF-16. When this is
       redirected to a file it gives a big mess. It is not compatible with ASCII. So
-      even a simple ASCII grep on the screen output will not work. */
+      even a simple ASCII grep on the screen output will not work.
+      When the output is redirected in a Windows Command Prompt to a file all line breaks end up as a single
+      0d0a (instead of 0d00 0a00), which makes it a corrupt UTF-16 file.
+      In PowerShell you get correct line breaks 0d00 0a00 when you redirect to a file, but there are
+      null characters (0000) inserted after each character. */
       d2u_MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, D2U_MAX_PATH);
       prevmode = _setmode(_fileno(stream), _O_U16TEXT);
       fwprintf(stream,L"%ls",wstr);
@@ -1909,7 +1914,7 @@ void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename, const char *pro
       d2u_fprintf(stdout, "  text  ");
   }
   d2u_fprintf(stdout, "  %s",filename);
-  printf("\n");
+  d2u_fprintf(stdout, "\n");
 }
 #endif
 
@@ -1986,8 +1991,8 @@ void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename, const char *prog
     else
       d2u_fprintf(stdout, "  text  ");
   }
-  d2u_fprintf(stdout,"  %s",filename);
-  printf("\n");
+  d2u_fprintf(stdout, "  %s",filename);
+  d2u_fprintf(stdout, "\n");
 }
 
 int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
@@ -2151,6 +2156,9 @@ int parse_options(int argc, char *argv[],
   int CanSwitchFileMode = 1;
   int process_options = 1;
   int RetVal = 0;
+#ifdef D2U_UNIFILE
+  char *ptr;
+#endif
 
   /* variable initialisations */
   pFlag->NewFile = 0;
@@ -2168,6 +2176,18 @@ int parse_options(int argc, char *argv[],
   pFlag->keep_utf16 = 0;
   pFlag->file_info = 0;
   pFlag->locale_target = TARGET_UTF8;
+
+#ifdef D2U_UNIFILE
+   ptr = getenv("DOS2UNIX_DISPLAY_ENC");
+   if (ptr != NULL) {
+      if (strncmp(ptr, "ansi", sizeof("ansi")) == 0)
+         d2u_display_encoding = D2U_DISPLAY_ANSI;
+      else if (strncmp(ptr, "unicode", sizeof("unicode")) == 0)
+         d2u_display_encoding = D2U_DISPLAY_UNICODE;
+      else if (strncmp(ptr, "utf8", sizeof("utf8")) == 0)
+         d2u_display_encoding = D2U_DISPLAY_UTF8;
+   }
+#endif
 
   while ((++ArgIdx < argc) && (!ShouldExit))
   {

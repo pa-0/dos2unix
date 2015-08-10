@@ -1,3 +1,8 @@
+2015-08-10 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Default method for printing Unicode can be changed with
+	  environment variable DOS2UNIX_DISPLAY_ENC.
+	* man/man1/dos2unix.pod: Small update on option -D.
+
 2015-08-08 Erwin Waterlander <waterlan@xs4all.nl>
 	* man/man1/dos2unix.pod: Small update on option -D. Added tip for recursive
 	  conversion in a Windows Command Prompt.
