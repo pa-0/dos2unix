@@ -3,14 +3,18 @@
 #include <fcntl.h>
 #include <io.h>
 
+/* This program demonstrates that when Unicode printed text is redirected to
+   a file, the file is not in correct UTF-16.
+*/
 
 int main () {
 
   int prevmode;
 
 /*
-  When the output of this program is redirected to a file in Windows Command Prompt
-  you get narrow line breaks in it. Except the last one.
+  When the output of this program is redirected to a file in Windows Command
+  Prompt you get narrow line breaks (0d0a) in it. It should be 0d00 0a00
+  for a line break.
 
 c:\test>.\testu16.exe > o.txt
 
@@ -18,8 +22,8 @@ c:\test>xxd o.txt
 0000000: 6f00 6e00 6500 0d0a 0074 0077 006f 000d  o.n.e....t.w.o..
 0000010: 0a00 7400 6800 7200 6500 6500 0d0a 00    ..t.h.r.e.e....
 
-  When the output is redirected to a file in PowerShell, null characters are
-  inserted.
+  When the output is redirected to a file in PowerShell, null characters
+  0000 are inserted.
 
 PS C:\test> .\testu16.exe > p.txt
 PS C:\test> xxd p.txt
