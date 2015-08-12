@@ -4,9 +4,9 @@
 # Frédéric Marchal <fmarchal@perso.be>, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.2.1-beta1\n"
-"POT-Creation-Date: 2015-08-10 21:41+0300\n"
-"PO-Revision-Date: 2015-04-03 16:56+0200\n"
+"Project-Id-Version: dos2unix-man-7.3-beta8\n"
+"POT-Creation-Date: 2015-08-10 22:31+0200\n"
+"PO-Revision-Date: 2015-08-11 18:56+0200\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -235,84 +235,82 @@ msgstr "Change le mode de conversion. MODE_CONV prend l'une des valeurs: I<ascii
 #. type: =item
 #: dos2unix.pod:155
 msgid "B<-D, --display-enc ENCODING>"
-msgstr ""
+msgstr "B<-D, --display-enc ENCODAGE>"
 
 #. type: textblock
 #: dos2unix.pod:157
-#, fuzzy
-#| msgid "Set conversion mode. Where CONVMODE is one of: I<ascii>, I<7bit>, I<iso>, I<mac> with ascii being the default."
 msgid "Set encoding of displayed text. Where ENCODING is one of: I<ansi>, I<unicode>, I<utf8> with ansi being the default."
-msgstr "Change le mode de conversion. MODE_CONV prend l'une des valeurs: I<ascii>, I<7bit>, I<iso>, I<mac>. Ascii est la valeur par défaut."
+msgstr "Choisi l'encodage des textes affichés. L'ENCODAGE peut être : I<ansi>, I<unicode>, I<utf8>. La valeur par défaut est ansi."
 
 #. type: textblock
 #: dos2unix.pod:161
 msgid "This option is only available in dos2unix for Windows with Unicode file name support. This option has no effect on the actual file names read and written, only on how they are displayed."
-msgstr ""
+msgstr "Cette option est uniquement disponible dans dos2unix pour Windows avec support pour les noms de fichiers Unicode. Cette option n'a aucun effet sur les noms de fichiers lus et écrits. Son effet se limite à leur affichage."
 
 #. type: textblock
 #: dos2unix.pod:165
 msgid "There are several methods for displaying text in a Windows console based on the encoding of the text. They all have their own advantages and disadvantages."
-msgstr ""
+msgstr "Il existe plusieurs méthodes pour afficher du texte dans une console Windows selon l'encodage du texte. Elles ont toutes leurs propres avantages et désavantages."
 
 #. type: =item
 #: dos2unix.pod:171
 msgid "B<ansi>"
-msgstr ""
+msgstr "B<ansi>"
 
 #. type: textblock
 #: dos2unix.pod:173
 msgid "Dos2unix's default method is to use ANSI encoded text. The advantage is that it is backwards compatible. It works with raster and TrueType fonts. In some regions you may need to change the active DOS OEM code page to the Windows system ANSI code page using the C<chcp> command, because dos2unix uses the Windows system code page."
-msgstr ""
+msgstr "La méthode par défaut de dos2unix est d'utiliser du texte encodé en ANSI. Elle a l'avantage d'être rétro compatible. Elle fonctionne avec des polices raster ou TrueType. Dans certaines régions, vous pouvez avoir besoin d'utiliser la commande C<chcp> pour remplacer le code page DOS OEM actif par le code ANSI système de Windows car dos2unix utilise le code page système de Windows."
 
 #. type: textblock
 #: dos2unix.pod:179
 msgid "The disadvantage of ansi is that international file names with characters not inside the system default code page are not displayed properly. You will see a question mark, or a wrong symbol instead. When you don't work with foreign file names this method is OK."
-msgstr ""
+msgstr "Le désavantage de ansi est que les noms de fichiers internationaux avec des caractères en dehors du code page système par défaut ne sont pas affichés correctement. Vous verrez un point d'interrogation ou un mauvais symbole à leur place. Cette méthode est acceptable si vous ne travaillez pas avec des noms de fichiers étrangers."
 
 #. type: =item
 #: dos2unix.pod:184
 msgid "B<unicode>"
-msgstr ""
+msgstr "B<unicode>"
 
 #. type: textblock
 #: dos2unix.pod:186
 msgid "The advantage of unicode (the Windows name for UTF-16) encoding is that text is usually properly displayed. There is no need to change the active code page.  You may need to set the console's font to a TrueType font to have international characters displayed properly. When a character is not included in the TrueType font you usually see a small square, sometimes with a question mark in it."
-msgstr ""
+msgstr "L'avantage de l'encodage unicode (le nom de Windows pour UTF-16) est que le texte est habituellement affiché correctement. Il n'est pas nécessaire de changer le code page actif. Vous pouvez avoir besoin de remplacer la police de la console par une police TrueType pour afficher les caractères internationaux correctement. Lorsqu'un caractère n'est pas inclus dans la police TrueType, il sera généralement remplacé par un petit carré, parfois avec un point d'interrogation à l'intérieur."
 
 #. type: textblock
 #: dos2unix.pod:192
 msgid "When you use the ConEmu console all text is displayed properly, because ConEmu automatically selects a good font."
-msgstr ""
+msgstr "Lorsque vous utilisez la console ConEmu, les textes sont affichés correctement car ConEmu sélectionne automatiquement une bonne police."
 
 #. type: textblock
 #: dos2unix.pod:195
 msgid "The disadvantage of unicode is that it is UTF-16. It is not compatible with ASCII. The output is not easy to handle when you redirect it to another program or a file. Redirection to a file does not give a correct UTF-16 file."
-msgstr ""
+msgstr "Le désavantage de unicode est que c'est de l'UTF-16. Il n'est pas compatible avec ASCII. La sortie n'est pas facilement gérée quand vous la redirigez vers un autre programme ou un fichier. Rediriger la sortie vers un fichier ne donne pas un fichier UTF-16 correct."
 
 #. type: =item
 #: dos2unix.pod:199
 msgid "B<utf8>"
-msgstr ""
+msgstr "B<utf8>"
 
 #. type: textblock
 #: dos2unix.pod:201
 msgid "The advantage of utf8 is that it is UTF-8. It is compatible with ASCII and when you redirect it to a file you get a proper UTF-8 file. You need to set the console's font to a TrueType font."
-msgstr ""
+msgstr "L'avantage de utf8 est que c'est de l'UTF-8. Il est compatible avec ASCII et, lorsque vous le redirigez vers un fichier, vous obtenez un fichier UTF-8 correct. Vous devez utiliser une police TrueType dans la console."
 
 #. type: textblock
 #: dos2unix.pod:205
 msgid "The disadvantage is that when you use the default raster font all non-ASCII characters are displayed wrong. Not only unicode file names, but also translated messages become unreadable. On Windows configured for an East-Asian region you may see a lot of flickering of the console when the messages are displayed."
-msgstr ""
+msgstr "Le désavantage est que, si vous utilisez la police raster par défaut, tous les caractères non ASCII sont mal affichés. Pas uniquement les noms de fichiers unicode ! Les messages traduits deviennent inintelligibles. Sous Windows configuré pour une région de l'est de l'Asie, vous pouvez observer énormément de scintillements dans la console quand des messages sont affichés."
 
 #. type: textblock
 #: dos2unix.pod:211
 msgid "In a ConEmu console the utf8 encoding method works well."
-msgstr ""
+msgstr "Dans une console ConEmu, l'encodage utf8 fonctionne bien."
 
 #. type: textblock
 #: dos2unix.pod:215
 msgid "The default method can be changed with environment variable DOS2UNIX_DISPLAY_ENC."
-msgstr ""
+msgstr "La méthode par défaut peut être changée avec la variable d'environnement DOS2UNIX_DISPLAY_ENC."
 
 #. type: =item
 #: dos2unix.pod:217
@@ -1066,17 +1064,17 @@ msgstr "Dos2unix et unix2dos écrivent toujours une BOM quand l'option C<-m> est
 #. type: =head2
 #: dos2unix.pod:578
 msgid "Unicode file names on Windows"
-msgstr ""
+msgstr "Noms de fichiers unicode sous Windows"
 
 #. type: textblock
 #: dos2unix.pod:580
 msgid "Dos2unix has optional support for reading and writing Unicode file names in the Windows Command Prompt. That means that dos2unix can open files that have characters in the name that are not part of the default system ANSI code page.  To see if dos2unix for Windows was built with Unicode file name support type C<dos2unix -V>."
-msgstr ""
+msgstr "Dos2unix supporte, en option, la lecture et l'écriture de noms de fichiers Unicode dans la ligne de commande de Windows. Cela signifie que dos2unix peut ouvrir des fichiers qui ont, dans leur nom, des caractères n'appartenant pas au code page système ANSI par défaut. Pour voir si dos2unix pour Windows a été compilé avec le support des noms de fichiers Unicode, tapez C<dos2unix -V>."
 
 #. type: textblock
 #: dos2unix.pod:586
 msgid "There are some issues with displaying Unicode file names in a Windows console.  See option C<-D>, C<--display-enc>. The file names may be displayed wrongly in the console, but the files will be written with the correct name."
-msgstr ""
+msgstr "Il y a quelques soucis avec l'affichage de noms de fichiers Unicode dans une console Windows. Voyez l'option C<-D>, C<--display-enc>. Les noms de fichiers peuvent être mal affichés dans la console mais les fichiers seront écrits avec les bons noms."
 
 #. type: =head2
 #: dos2unix.pod:590
@@ -1371,33 +1369,29 @@ msgstr "Utilisez dos2unix avec les commandes find(1) et xargs(1) pour convertir 
 
 #. type: verbatim
 #: dos2unix.pod:688
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name *.txt |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find . -name '*.txt' |xargs dos2unix\n"
 "\n"
 msgstr ""
-"    find . -name *.txt |xargs dos2unix\n"
+"    find . -name '*.txt' |xargs dos2unix\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:690
 msgid "In a Windows Command Prompt the following command can be used:"
-msgstr ""
+msgstr "En ligne de commande sous Windows, la commande suivante peut être utilisée :"
 
 #. type: verbatim
 #: dos2unix.pod:692
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name *.txt |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    for /R %G in (*.txt) do dos2unix \"%G\"\n"
 "\n"
 msgstr ""
-"    find . -name *.txt |xargs dos2unix\n"
+"    for /R %G in (*.txt) do dos2unix \"%G\"\n"
+"\n"
+"    find /R %G in \n"
 "\n"
 
 #. type: =head1

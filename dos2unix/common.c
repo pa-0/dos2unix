@@ -233,7 +233,8 @@ void d2u_fprintf( FILE *stream, const char* format, ... ) {
       When the output is redirected in a Windows Command Prompt to a file all line breaks end up as a single
       0d0a (instead of 0d00 0a00), which makes it a corrupt UTF-16 file.
       In PowerShell you get correct line breaks 0d00 0a00 when you redirect to a file, but there are
-      null characters (0000) inserted after each character. */
+      null characters (0000) inserted after each character.
+      See also test/testu16.c.    */
       d2u_MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, D2U_MAX_PATH);
       prevmode = _setmode(_fileno(stream), _O_U16TEXT);
       fwprintf(stream,L"%ls",wstr);
