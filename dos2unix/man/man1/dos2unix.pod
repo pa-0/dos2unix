@@ -192,15 +192,16 @@ font you usually see a small square, sometimes with a question mark in it.
 When you use the ConEmu console all text is displayed properly, because ConEmu
 automatically selects a good font.
 
-The disadvantage of unicode is that it is UTF-16. It is not compatible with
-ASCII. The output is not easy to handle when you redirect it to another program
-or a file. Redirection to a file does not give a correct UTF-16 file.
+The disadvantage of unicode is that it is not compatible with ASCII. The output
+is not easy to handle when you redirect it to another program or a file.
+Redirection to a file does not give a correct UTF-16 file.
 
 =item B<utf8>
 
-The advantage of utf8 is that it is UTF-8. It is compatible with ASCII and when
+The advantage of utf8 is that it is compatible with ASCII and when
 you redirect it to a file you get a proper UTF-8 file. You need to set the
-console's font to a TrueType font.
+console's font to a TrueType font. With a TrueType font the text is displayed
+similar as with the C<unicode> encoding.
 
 The disadvantage is that when you use the default raster font all non-ASCII
 characters are displayed wrong. Not only unicode file names, but also
@@ -212,7 +213,8 @@ In a ConEmu console the utf8 encoding method works well.
 
 =back
 
-The default method can be changed with environment variable DOS2UNIX_DISPLAY_ENC.
+The default encoding can be changed with environment variable DOS2UNIX_DISPLAY_ENC
+by setting it to C<unicode> or C<utf8>.
 
 =item B<-f, --force>
 
