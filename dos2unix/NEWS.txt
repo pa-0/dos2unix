@@ -1,6 +1,7 @@
 2015-??-??: Version 7.3
 
-  * New: Unicode file name support in the Windows Command Prompt
+  * New: Unicode file name support on Windows.
+  * Fix: Options -ul and -ub caused option -i to report wrong BOM for no_bom.
 
 2015-07-01: Version 7.2.3
 

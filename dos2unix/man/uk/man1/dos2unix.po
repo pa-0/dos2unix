@@ -6,9 +6,9 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3-beta8\n"
-"POT-Creation-Date: 2015-08-13 08:57+0300\n"
-"PO-Revision-Date: 2015-08-11 14:25+0300\n"
+"Project-Id-Version: dos2unix-man 7.3-beta9\n"
+"POT-Creation-Date: 2015-08-13 09:03+0200\n"
+"PO-Revision-Date: 2015-08-14 10:42+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
@@ -287,10 +287,8 @@ msgstr "Якщо ви користуєтеся консоллю ConEmu, весь
 
 #. type: textblock
 #: dos2unix.pod:195
-#, fuzzy
-#| msgid "The disadvantage of unicode is that it is UTF-16. It is not compatible with ASCII. The output is not easy to handle when you redirect it to another program or a file. Redirection to a file does not give a correct UTF-16 file."
 msgid "The disadvantage of unicode is that it is not compatible with ASCII. The output is not easy to handle when you redirect it to another program or a file.  Redirection to a file does not give a correct UTF-16 file."
-msgstr "Недоліком unicode є те, що це UTF-16. Це кодування несумісне з ASCII. Обробка виведених даних є непростою, якщо ви передаватимете ці дані до іншої програми або файла. Переспрямовування даних до файла призведе до створення некоректного файла UTF-16."
+msgstr "Недоліком unicode є те, що це кодування несумісне з ASCII. Обробка виведених даних є непростою, якщо ви передаватимете ці дані до іншої програми або файла. Переспрямовування даних до файла призведе до створення некоректного файла UTF-16."
 
 #. type: =item
 #: dos2unix.pod:199
@@ -299,10 +297,8 @@ msgstr "B<utf8>"
 
 #. type: textblock
 #: dos2unix.pod:201
-#, fuzzy
-#| msgid "The advantage of utf8 is that it is UTF-8. It is compatible with ASCII and when you redirect it to a file you get a proper UTF-8 file. You need to set the console's font to a TrueType font."
 msgid "The advantage of utf8 is that it is compatible with ASCII and when you redirect it to a file you get a proper UTF-8 file. You need to set the console's font to a TrueType font. With a TrueType font the text is displayed similar as with the C<unicode> encoding."
-msgstr "Перевагою utf8 є те, що це UTF-8. Це кодування сумісне з ASCII і, якщо ви переспрямуєте дані до файла, буде створено коректний файл UTF-8. Вам слід встановити шрифт консолі TrueType."
+msgstr "Перевагою utf8 є те, що це кодування сумісне з ASCII і, якщо ви переспрямуєте дані до файла, буде створено коректний файл UTF-8. Вам слід встановити шрифт консолі TrueType. Якщо використано шрифт TrueType, текст буде показано подібно до того, як його показано, якщо визначено кодування C<unicode>."
 
 #. type: textblock
 #: dos2unix.pod:206
@@ -316,10 +312,8 @@ msgstr "У консолі ConEmu добре працює спосіб кодув
 
 #. type: textblock
 #: dos2unix.pod:216
-#, fuzzy
-#| msgid "The default method can be changed with environment variable DOS2UNIX_DISPLAY_ENC."
 msgid "The default encoding can be changed with environment variable DOS2UNIX_DISPLAY_ENC by setting it to C<unicode> or C<utf8>."
-msgstr "Типовий спосіб можна змінити за допомогою змінної середовища DOS2UNIX_DISPLAY_ENC."
+msgstr "Типове кодування можна змінити за допомогою змінної середовища DOS2UNIX_DISPLAY_ENC встановленням для неї значення C<unicode> або C<utf8>."
 
 #. type: =item
 #: dos2unix.pod:219

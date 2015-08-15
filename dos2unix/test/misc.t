@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Requires perl-Test-Simple installation.
-use Test::Simple tests => 20;
+use Test::Simple tests => 22;
 
 $suffix = "";
 if (-e "../dos2unix.exe") {
@@ -99,6 +99,14 @@ ok( $? == 0, 'Option -u must not disable -m on ASCII input');
 system("$DOS2UNIX -i dos.txt unix.txt mac.txt mixed.txt utf16le.txt utf16be.txt utf16len.txt utf8unix.txt utf8dos.txt gb18030.txt > outinfo.txt");
 system("$DOS2UNIX outinfo.txt; diff info.txt outinfo.txt");
 ok( $? == 0, 'Option -i, --info');
+
+system("$DOS2UNIX -ul -i utf16le.txt utf16len.txt utf8unxb.txt gb18030.txt > outinfo.txt");
+system("$DOS2UNIX outinfo.txt; diff info_ul.txt outinfo.txt");
+ok( $? == 0, 'Option -i, --info combined with -ul');
+
+system("$DOS2UNIX -ub -i utf16be.txt utf16ben.txt utf8unxb.txt gb18030.txt > outinfo.txt");
+system("$DOS2UNIX outinfo.txt; diff info_ub.txt outinfo.txt");
+ok( $? == 0, 'Option -i, --info combined with -ub');
 
 system("$DOS2UNIX -v -n gb18030.txt out_unix.txt; cmp out_unix.txt gb18030u.txt");
 ok( $? == 0, 'Remove GB18030 BOM');

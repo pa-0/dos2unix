@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.2-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-12 19:11+0200\n"
+"POT-Creation-Date: 2015-08-15 18:34+0200\n"
 "PO-Revision-Date: 2015-01-18 10:54+0100\n"
 "Last-Translator: Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
@@ -629,51 +629,51 @@ msgstr "problemas convirtiendo el archivo %s\n"
 msgid "can not read from input file %s:"
 msgstr "no puedo escribir al archivo de salida: %s\n"
 
-#: common.c:2138
+#: common.c:2136
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "'%c' es un valor incorrecto para la opción -i o --info\n"
 
-#: common.c:2263 common.c:2300
+#: common.c:2261 common.c:2298
 #, c-format
 msgid "active code page: %d\n"
 msgstr "Página de códigos activa: %d\n"
 
-#: common.c:2312
+#: common.c:2310
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "modo de conversión %s especificado es inválido\n"
 
-#: common.c:2320 common.c:2346
+#: common.c:2318 common.c:2344
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "el parámetro '%s' requiere un argumento\n"
 
-#: common.c:2338
+#: common.c:2336
 #, fuzzy, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "modo de conversión %s especificado es inválido\n"
 
-#: common.c:2358 common.c:2371 common.c:2437
+#: common.c:2356 common.c:2369 common.c:2435
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "el destino del archivo %s no se especificó en el modo de archivo nuevo\n"
 
-#: common.c:2451
+#: common.c:2449
 #, fuzzy, c-format
 msgid "can not read from input file: %s\n"
 msgstr "no puedo escribir al archivo de salida: %s\n"
 
-#: common.c:2463 common.c:2477
+#: common.c:2461 common.c:2475
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "no puedo escribir al archivo de salida: %s\n"
 
-#: common.c:2554
+#: common.c:2552
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr ""
 
-#: common.c:2569
+#: common.c:2567
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr ""
 

@@ -1,3 +1,8 @@
+2015-08-15 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Fix: Options -ul and -ub caused option -i to
+	  report wrong BOM for no_bom.
+	* test: Added two new tests for combination of -ul/-ub with -i.
+
 2015-08-13 Erwin Waterlander <waterlan@xs4all.nl>
 	* man/man1/dos2unix.pod: Small update on option -D.
 

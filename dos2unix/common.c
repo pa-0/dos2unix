@@ -1843,7 +1843,7 @@ void print_messages_info(const CFlag *pFlag, const char *infile, const char *pro
 }
 
 #ifdef D2U_UNICODE
-void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename, const char *progname)
+void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, const char *progname)
 {
   wint_t TempChar;
   wint_t PreviousChar = 0;
@@ -1907,7 +1907,7 @@ void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename, const char *pro
   if (ipFlag->file_info & INFO_MAC)
     d2u_fprintf(stdout, "  %6u", lb_mac);
   if (ipFlag->file_info & INFO_BOM)
-    print_bom_info(ipFlag->bomtype);
+    print_bom_info(bomtype);
   if (ipFlag->file_info & INFO_TEXT) {
     if (ipFlag->status & BINARY_FILE)
       d2u_fprintf(stdout, "  binary");
@@ -1919,7 +1919,7 @@ void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename, const char *pro
 }
 #endif
 
-void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename, const char *progname)
+void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, const char *progname)
 {
   int TempChar;
   int PreviousChar = 0;
@@ -1985,7 +1985,7 @@ void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename, const char *prog
   if (ipFlag->file_info & INFO_MAC)
     d2u_fprintf(stdout, "  %6u", lb_mac);
   if (ipFlag->file_info & INFO_BOM)
-    print_bom_info(ipFlag->bomtype);
+    print_bom_info(bomtype);
   if (ipFlag->file_info & INFO_TEXT) {
     if (ipFlag->status & BINARY_FILE)
       d2u_fprintf(stdout, "  binary");
@@ -2001,7 +2001,7 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
   int RetVal = 0;
   FILE *InF = NULL;
   char *errstr;
-  int bomtype_orig = FILE_MBS;
+  int bomtype_orig = FILE_MBS; /* messages must print the real bomtype, not the assumed bomtype */
 
   ipFlag->status = 0 ;
 
@@ -2039,16 +2039,15 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
 #ifdef D2U_UNICODE
   if (!RetVal) {
     if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
-      FileInfoW(InF, ipFlag, ipInFN, progname);
+      FileInfoW(InF, ipFlag, ipInFN, bomtype_orig, progname);
     } else {
-      FileInfo(InF, ipFlag, ipInFN, progname);
+      FileInfo(InF, ipFlag, ipInFN, bomtype_orig, progname);
     }
   }
 #else
   if (!RetVal)
-    FileInfo(InF, ipFlag, ipInFN, progname);
+    FileInfo(InF, ipFlag, ipInFN, bomtype_orig, progname);
 #endif
-  ipFlag->bomtype = bomtype_orig; /* messages must print the real bomtype, not the assumed bomtype */
 
    /* can close in file? */
   if ((InF) && (fclose(InF) == EOF))
@@ -2060,7 +2059,7 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
 int GetFileInfoStdio(CFlag *ipFlag, const char *progname)
 {
   int RetVal = 0;
-  int bomtype_orig = FILE_MBS;
+  int bomtype_orig = FILE_MBS; /* messages must print the real bomtype, not the assumed bomtype */
 
   ipFlag->status = 0 ;
 
@@ -2086,16 +2085,15 @@ int GetFileInfoStdio(CFlag *ipFlag, const char *progname)
 #ifdef D2U_UNICODE
   if (!RetVal) {
     if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
-      FileInfoW(stdin, ipFlag, "", progname);
+      FileInfoW(stdin, ipFlag, "", bomtype_orig, progname);
     } else {
-      FileInfo(stdin, ipFlag, "", progname);
+      FileInfo(stdin, ipFlag, "", bomtype_orig, progname);
     }
   }
 #else
   if (!RetVal)
-    FileInfo(stdin, ipFlag, "", progname);
+    FileInfo(stdin, ipFlag, "", bomtype_orig, progname);
 #endif
-  ipFlag->bomtype = bomtype_orig; /* messages must print the real bomtype, not the assumed bomtype */
 
   return RetVal;
 }
