@@ -7,10 +7,10 @@
 # Benno Schulenberg <benno@vertaalt.nl>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.3-beta4\n"
+"Project-Id-Version: dos2unix 7.3-beta8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-15 18:34+0200\n"
-"PO-Revision-Date: 2015-07-23 19:18+0200\n"
+"POT-Creation-Date: 2015-08-18 19:14+0200\n"
+"PO-Revision-Date: 2015-08-15 10:02+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -182,13 +182,13 @@ msgstr ""
 "   MODUS                'ascii', '7bit', 'iso', of 'mac' (standaard is 'ascii')\n"
 
 #: common.c:651
-#, fuzzy, c-format
+#, c-format
 msgid ""
 " -D, --display-enc     set encoding of displayed text messages\n"
 "   encoding            ansi, unicode, utf8, default to ansi\n"
 msgstr ""
-" -c, --convmode         te gebruiken conversiemodus\n"
-"   MODUS                'ascii', '7bit', 'iso', of 'mac' (standaard is 'ascii')\n"
+" -D, --display-enc      te gebruiken codering voor getoonde berichten\n"
+"   CODERING             'ansi', 'unicode', of 'utf8' (standaard is 'ansi')\n"
 
 #: common.c:654
 #, c-format
@@ -633,9 +633,9 @@ msgid "option '%s' requires an argument\n"
 msgstr "optie '%s' vereist een argument\n"
 
 #: common.c:2336
-#, fuzzy, c-format
+#, c-format
 msgid "invalid %s display encoding specified\n"
-msgstr "ongeldige conversiemodus %s opgegeven\n"
+msgstr "ongeldige weergavecodering %s opgegeven\n"
 
 #: common.c:2356 common.c:2369 common.c:2435
 #, c-format
