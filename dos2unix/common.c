@@ -230,10 +230,10 @@ void d2u_fprintf( FILE *stream, const char* format, ... ) {
       in the Windows Command Prompt. The downside is that it is UTF-16. When this is
       redirected to a file it gives a big mess. It is not compatible with ASCII. So
       even a simple ASCII grep on the screen output will not work.
-      When the output is redirected in a Windows Command Prompt to a file all line breaks end up as a single
-      0d0a (instead of 0d00 0a00), which makes it a corrupt UTF-16 file.
+      When the output is redirected in a Windows Command Prompt to a file all line breaks end up as
+      0d0a 00 (instead of 0d00 0a00), which makes it a corrupt UTF-16 file.
       In PowerShell you get correct line breaks 0d00 0a00 when you redirect to a file, but there are
-      null characters (0000) inserted after each character.
+      null characters (0000) inserted, as if it is UTF-32 with UTF-16 BOM and UTF-16 line breaks.
       See also test/testu16.c.    */
       d2u_MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, D2U_MAX_PATH);
       prevmode = _setmode(_fileno(stream), _O_U16TEXT);
