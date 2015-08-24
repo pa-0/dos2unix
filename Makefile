@@ -18,11 +18,14 @@ help:
 RELEASE_DIR_DOS2UNIX = dos2unix-$(DOS2UNIX_VERSION)
 RELEASE_DIR_D2U = d2u$(DOS2UNIX_VERSION_SHORT)
 
+
+SVN_EXPORT = svn export ${SVNREPO}/trunk/dos2unix ../${RELEASE_DIR_DOS2UNIX}
+
 # Target: dist - Create source code distribution packages
 dist:
 	rm -rf ../${RELEASE_DIR_DOS2UNIX}
 	rm -rf ../${RELEASE_DIR_D2U}
-	svn export ${SVNREPO}/trunk/dos2unix ../${RELEASE_DIR_DOS2UNIX}
+	${SVN_EXPORT}
 	# Include doc files, to make it easier to build dos2unix.
 	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) man txt html
 	# Make sure .po files are up to date.
@@ -42,6 +45,16 @@ dist:
 	cd .. ; tar cvzf ${RELEASE_DIR_DOS2UNIX}.tar.gz ${RELEASE_DIR_DOS2UNIX}
 	cd .. ; rm -f ${RELEASE_DIR_D2U}.zip
 	cd .. ; zip -r ${RELEASE_DIR_D2U}.zip ${RELEASE_DIR_D2U}
+
+
+# When SourceForge is down...
+distlocal:
+	cd dos2unix ; $(MAKE) maintainer-clean
+	mv dos2unix/po/incoming poincoming
+	mv dos2unix/man/incoming manincoming
+	$(MAKE) dist SVN_EXPORT="cp -Rp dos2unix ../${RELEASE_DIR_DOS2UNIX}"
+	mv poincoming dos2unix/po/incoming
+	mv manincoming dos2unix/man/incoming
 
 # Create pgp signature. Required for Debian Linux.
 # See http://narfation.org/2013/06/23/signed-upstream-tarballs-in-debian
