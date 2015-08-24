@@ -1,3 +1,6 @@
+2015-08-24 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 7.3
+
 2015-08-15 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Fix: Options -ul and -ub caused option -i to
 	  report wrong BOM for no_bom.

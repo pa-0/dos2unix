@@ -8,9 +8,9 @@
 # Benno Schulenberg <benno@vertaalt.nl>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.2.1-beta1\n"
-"POT-Creation-Date: 2015-08-13 08:57+0300\n"
-"PO-Revision-Date: 2015-03-22 17:57+0100\n"
+"Project-Id-Version: dos2unix-man-7.3-beta9\n"
+"POT-Creation-Date: 2015-08-13 09:03+0200\n"
+"PO-Revision-Date: 2015-08-23 11:11+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -240,19 +240,17 @@ msgstr "De te gebruiken conversiemodus.  CONVERSIEMODUS kan zijn: I<ascii>, I<7b
 #. type: =item
 #: dos2unix.pod:155
 msgid "B<-D, --display-enc ENCODING>"
-msgstr ""
+msgstr "B<-D>, B<--display-enc CODERING>"
 
 #. type: textblock
 #: dos2unix.pod:157
-#, fuzzy
-#| msgid "Set conversion mode. Where CONVMODE is one of: I<ascii>, I<7bit>, I<iso>, I<mac> with ascii being the default."
 msgid "Set encoding of displayed text. Where ENCODING is one of: I<ansi>, I<unicode>, I<utf8> with ansi being the default."
-msgstr "De te gebruiken conversiemodus.  CONVERSIEMODUS kan zijn: I<ascii>, I<7bit>, I<iso>, of I<mac>, waarbij ascii de standaardinstelling is."
+msgstr "De te gebruiken tekencodering voor weergegeven tekst.  CODERING kan zijn: I<ansii>, I<unicode>, of I<utf8>, waarbij ansi de standaardinstelling is."
 
 #. type: textblock
 #: dos2unix.pod:161
 msgid "This option is only available in dos2unix for Windows with Unicode file name support. This option has no effect on the actual file names read and written, only on how they are displayed."
-msgstr ""
+msgstr "Deze optie is alleen beschikbaar in dos2unix voor Windows met Unicode-bestandsnaam-ondersteuning.  Deze optie heeft geen effect op de gelezen en geschreven bestandsnamen, maar alleen op hoe deze weergegeven worden."
 
 #. type: textblock
 #: dos2unix.pod:165
@@ -262,7 +260,7 @@ msgstr ""
 #. type: =item
 #: dos2unix.pod:171
 msgid "B<ansi>"
-msgstr ""
+msgstr "B<ansi>"
 
 #. type: textblock
 #: dos2unix.pod:173
@@ -277,7 +275,7 @@ msgstr ""
 #. type: =item
 #: dos2unix.pod:184
 msgid "B<unicode>"
-msgstr ""
+msgstr "B<unicode>"
 
 #. type: textblock
 #: dos2unix.pod:186
@@ -297,7 +295,7 @@ msgstr ""
 #. type: =item
 #: dos2unix.pod:199
 msgid "B<utf8>"
-msgstr ""
+msgstr "B<utf8>"
 
 #. type: textblock
 #: dos2unix.pod:201
@@ -641,7 +639,7 @@ msgstr "B<-q>, B<--quiet>"
 #. type: textblock
 #: dos2unix.pod:366
 msgid "Quiet mode. Suppress all warnings and messages. The return value is zero.  Except when wrong command-line options are used."
-msgstr "Stille werking.  Alle waarschuwingen onderdrukken.  De aflsuitwaarde is nul, behalve wanneer verkeerde opties worden gegeven."
+msgstr "Stille werking.  Alle waarschuwingen onderdrukken.  De afsluitwaarde is nul, behalve wanneer verkeerde opties worden gegeven."
 
 #. type: =item
 #: dos2unix.pod:369
@@ -1071,17 +1069,17 @@ msgstr "Dos2unix en unix2dos schrijven altijd een BOM wanneer optie C<-m> gebrui
 #. type: =head2
 #: dos2unix.pod:580
 msgid "Unicode file names on Windows"
-msgstr ""
+msgstr "Unicode-bestandsnamen op Windows"
 
 #. type: textblock
 #: dos2unix.pod:582
 msgid "Dos2unix has optional support for reading and writing Unicode file names in the Windows Command Prompt. That means that dos2unix can open files that have characters in the name that are not part of the default system ANSI code page.  To see if dos2unix for Windows was built with Unicode file name support type C<dos2unix -V>."
-msgstr ""
+msgstr "Dos2unix heeft optionele ondersteuning voor het lezen en schrijven van Unicode-bestandsnamen in de Windows Opdrachtprompt.  Dit betekent dat dos2unix bestanden kan openen waarvan de naam tekens bevat die niet voorkomen in de standaard ANSI-codetabel.  Om te zien of dos2unix voor Windows gecompileerd werd met ondersteuning voor Unicode-bestandsnamen, typt u C<dos2unix -V>."
 
 #. type: textblock
 #: dos2unix.pod:588
 msgid "There are some issues with displaying Unicode file names in a Windows console.  See option C<-D>, C<--display-enc>. The file names may be displayed wrongly in the console, but the files will be written with the correct name."
-msgstr ""
+msgstr "Er zijn enige problemen met het weergeven van Unicode-bestandsnamen in een Windows-console; zie bij optie C<-D>, C<--display-enc>.  De bestandsnamen kunnen verkeerd weergegeven worden, maar de bestanden zullen geschreven worden met de correcte naam."
 
 #. type: =head2
 #: dos2unix.pod:592
@@ -1376,33 +1374,27 @@ msgstr "Gebruik dos2unix in combinatie met de opdrachten B<find>(1) en B<xargs>(
 
 #. type: verbatim
 #: dos2unix.pod:690
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name *.txt |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find . -name '*.txt' |xargs dos2unix\n"
 "\n"
 msgstr ""
-"    find . -name *.txt |xargs dos2unix\n"
+"    find . -name '*.txt' | xargs dos2unix\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:692
 msgid "In a Windows Command Prompt the following command can be used:"
-msgstr ""
+msgstr "In een Windows Opdrachtprompt kan de volgende opdracht gebruikt worden:"
 
 #. type: verbatim
 #: dos2unix.pod:694
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name *.txt |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    for /R %G in (*.txt) do dos2unix \"%G\"\n"
 "\n"
 msgstr ""
-"    find . -name *.txt |xargs dos2unix\n"
+"    for /R %G in (*.txt) do dos2unix \"%G\"\n"
 "\n"
 
 #. type: =head1

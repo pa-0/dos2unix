@@ -79,7 +79,7 @@ TRANSLATORS
         Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
-        Esperanto             Benno Schulenberg            Version 6.0.5 - 7.2.2
+        Esperanto             Benno Schulenberg            Version 6.0.5 - 7.3
         French                Frédéric Marchal             Version 6.0.5 - 7.3
         German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0,
                                                            7.2.2 - 7.2.3
@@ -102,7 +102,7 @@ TRANSLATORS
 
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 7.2
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
-        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.2.1
+        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3
         French                Frédéric Marchal             Version 6.0.5 - 7.3
         German                Mario Blättermann            Version 6.0.5 - 7.3
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.2.1
