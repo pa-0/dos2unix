@@ -18,7 +18,7 @@ ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
 endif
 
 all:
-	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) UNIFILE=$(UNIFILE)
+	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) UNIFILE=$(UNIFILE) CFLAGS_OS=-D_O_U16TEXT=0x20000
 
 test: all
 	cd test; $(MAKE) test
@@ -26,7 +26,7 @@ test: all
 check: test
 
 install:
-	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) UNIFILE=$(UNIFILE)
+	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="cp -f" CC=$(CC) UNIFILE=$(UNIFILE) CFLAGS_OS=-D_O_U16TEXT=0x20000
 
 uninstall:
 	$(MAKE) uninstall EXE=.exe prefix=$(prefix)

@@ -1,3 +1,6 @@
+2015-08-26 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c, mingw.mak: Fix compilation for mingw.org.
+
 2015-08-24 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 7.3
 

@@ -547,10 +547,10 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv, CFlag *ipFlag, const cha
       path_and_filename = (wchar_t *)malloc(len*sizeof(wchar_t));
       if (path_and_filename == NULL) goto glob_failed;
       if (add_path) {
-        wcsncpy_s(path_and_filename, len, path, wcslen(path));
-        wcsncat_s(path_and_filename, len, FindFileData.cFileName, wcslen(FindFileData.cFileName));
+        wcsncpy(path_and_filename, path, wcslen(path)+1);
+        wcsncat(path_and_filename, FindFileData.cFileName, wcslen(FindFileData.cFileName)+1);
       } else {
-        wcsncpy_s(path_and_filename, len, FindFileData.cFileName, wcslen(FindFileData.cFileName));
+        wcsncpy(path_and_filename, FindFileData.cFileName, wcslen(FindFileData.cFileName)+1);
       }
 
       found = 1;
