@@ -1,3 +1,6 @@
+2015-08-31 zwpwjwtz <zwpwjwtz@126.com>
+	* po/zh_CN.po: New simplified Chinese translation.
+
 2015-08-26 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c, mingw.mak: Fix compilation for mingw.org.
 
