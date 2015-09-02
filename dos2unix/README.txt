@@ -149,6 +149,8 @@ ACKNOWLEDGEMENTS
         Armin Müller          Fixed typo in if condition in write_bom().
         Philip Rowlands       Reported that dos2unix was not checking for file I/O
                               errors while reading the input.
+        Baruch Siach          Fix compilation error "'wchar_t' undeclared"
+                              when Unicode support is disabled.
 
 
 FINDUTILS

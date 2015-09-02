@@ -1,3 +1,14 @@
+2015-09-02 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Fix message printed, when dos2unix without Unicode support
+	  converts an UTF-16 file with only a BOM and no text. Output format was not
+	  printed. This fixed compile warning "unused parameter 'lout'".
+	* common.h: Fixed compile warning "implicit declaration of function 'd2u_printf'"
+	  when Unicode support is disabled.
+
+2015-09-02 Baruch Siach
+	* common.c: Fix compilation error "'wchar_t' undeclared"
+	  when Unicode support is disabled.
+
 2015-08-31 zwpwjwtz <zwpwjwtz@126.com>
 	* po/zh_CN.po: New simplified Chinese translation.
 

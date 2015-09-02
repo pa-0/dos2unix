@@ -37,10 +37,8 @@
 #endif
 #endif
 
-#if defined(D2U_UNICODE)
 #if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
 # include <langinfo.h>
-#endif
 #endif
 
 #if defined(__GLIBC__)
@@ -1615,12 +1613,14 @@ void print_messages_stdio(const CFlag *pFlag, const char *progname)
     } else if (pFlag->status & WRONG_CODEPAGE) {
       d2u_fprintf(stderr,"%s: ",progname);
       d2u_fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
+#ifdef D2U_UNICODE
     } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
       d2u_fprintf(stderr,"%s: ",progname);
       d2u_fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), "stdin", (int)sizeof(wchar_t));
     } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
       d2u_fprintf(stderr,"%s: ",progname);
       d2u_fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"), "stdin", pFlag->line_nr);
+#endif
     }
 }
 
@@ -1635,7 +1635,6 @@ void print_format(const CFlag *pFlag, char *informat, char *outformat, size_t li
     strncpy(informat,_("UTF-16BE"),lin);
   informat[lin-1]='\0';
 
-#ifdef D2U_UNICODE
   if ((pFlag->bomtype == FILE_UTF16LE)||(pFlag->bomtype == FILE_UTF16BE)) {
 #if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
     strncpy(outformat,nl_langinfo(CODESET),lout);
@@ -1657,7 +1656,6 @@ void print_format(const CFlag *pFlag, char *informat, char *outformat, size_t li
     }
     outformat[lout-1]='\0';
   }
-#endif
 }
 
 void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *outfile, const char *progname, const int RetVal)
@@ -1701,12 +1699,14 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
   } else if (pFlag->status & WRONG_CODEPAGE) {
     d2u_fprintf(stderr,"%s: ",progname);
     d2u_fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
+#ifdef D2U_UNICODE
   } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
     d2u_fprintf(stderr,"%s: ",progname);
     d2u_fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
   } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
     d2u_fprintf(stderr,"%s: ",progname);
     d2u_fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"), infile, pFlag->line_nr);
+#endif
   } else {
     d2u_fprintf(stderr,"%s: ",progname);
     if (informat[0] == '\0') {
@@ -1781,12 +1781,14 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
   } else if (pFlag->status & WRONG_CODEPAGE) {
     d2u_fprintf(stderr,"%s: ",progname);
     d2u_fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
+#ifdef D2U_UNICODE
   } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
     d2u_fprintf(stderr,"%s: ",progname);
     d2u_fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
   } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
     d2u_fprintf(stderr,"%s: ",progname);
     d2u_fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"), infile, pFlag->line_nr);
+#endif
   } else {
     d2u_fprintf(stderr,"%s: ",progname);
     if (informat[0] == '\0') {
@@ -1834,11 +1836,13 @@ void print_messages_info(const CFlag *pFlag, const char *infile, const char *pro
       d2u_fprintf(stderr,"%s: ",progname);
       d2u_fprintf(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
     }
+#ifdef D2U_UNICODE
   } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
     if (pFlag->verbose) {
       d2u_fprintf(stderr,"%s: ",progname);
       d2u_fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
     }
+#endif
   }
 }
 
