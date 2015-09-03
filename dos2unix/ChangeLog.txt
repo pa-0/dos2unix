@@ -1,3 +1,8 @@
+2015-09-03 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Skip UTF-16 files when UTF-16 conversion is not supported.
+	  Do not even try to convert. Conversion could go wrong when the
+	  UTF-16 file has no 8-bit binary symbols.
+
 2015-09-02 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Fix message printed, when dos2unix without Unicode support
 	  converts an UTF-16 file with only a BOM and no text. Output format was not

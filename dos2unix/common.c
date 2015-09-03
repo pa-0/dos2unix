@@ -1228,6 +1228,16 @@ int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, co
   }
   if (ipFlag->verbose > 1)
     print_bom(ipFlag->bomtype, ipInFN, progname);
+#ifndef D2U_UNICODE
+  /* It is possible that an UTF-16 has no 8-bit binary symbols. We must stop
+   * processing an UTF-16 file when UTF-16 is not supported. Don't trust on
+   * finding a binary symbol.
+   */
+  if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
+    ipFlag->status |= UNICODE_NOT_SUPPORTED ;
+    return -1;
+  }
+#endif
 #ifdef D2U_UNICODE
   if ((ipFlag->bomtype == FILE_MBS) && (ipFlag->ConvMode == CONVMODE_UTF16LE))
     ipFlag->bomtype = FILE_UTF16LE;
@@ -1620,6 +1630,10 @@ void print_messages_stdio(const CFlag *pFlag, const char *progname)
     } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
       d2u_fprintf(stderr,"%s: ",progname);
       d2u_fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"), "stdin", pFlag->line_nr);
+#else
+    } else if (pFlag->status & UNICODE_NOT_SUPPORTED) {
+      d2u_fprintf(stderr,"%s: ",progname);
+      d2u_fprintf(stderr, _("Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"), "stdin", progname);
 #endif
     }
 }
@@ -1706,6 +1720,10 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
   } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
     d2u_fprintf(stderr,"%s: ",progname);
     d2u_fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"), infile, pFlag->line_nr);
+#else
+  } else if (pFlag->status & UNICODE_NOT_SUPPORTED) {
+    d2u_fprintf(stderr,"%s: ",progname);
+    d2u_fprintf(stderr, _("Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"), infile, progname);
 #endif
   } else {
     d2u_fprintf(stderr,"%s: ",progname);
@@ -1788,6 +1806,10 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
   } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
     d2u_fprintf(stderr,"%s: ",progname);
     d2u_fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"), infile, pFlag->line_nr);
+#else
+  } else if (pFlag->status & UNICODE_NOT_SUPPORTED) {
+    d2u_fprintf(stderr,"%s: ",progname);
+    d2u_fprintf(stderr, _("Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"), infile, progname);
 #endif
   } else {
     d2u_fprintf(stderr,"%s: ",progname);

@@ -171,6 +171,7 @@
 #define LOCALE_NOT_UTF 0x40     /* Locale not an Unicode Transformation Format */
 #define WCHAR_T_TOO_SMALL 0x80
 #define UNICODE_CONVERSION_ERROR 0x100
+#define UNICODE_NOT_SUPPORTED 0x200
 
 #define CONVMODE_ASCII   0
 #define CONVMODE_UTF16LE 1
