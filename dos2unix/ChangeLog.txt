@@ -1,3 +1,6 @@
+2015-09-05 zwpwjwtz <zwpwjwtz@126.com>
+	* man/zh_CN/man1/dos2unix.po: New simplified Chinese translation of the manual.
+
 2015-09-03 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Skip UTF-16 files when UTF-16 conversion is not supported.
 	  Do not even try to convert. Conversion could go wrong when the

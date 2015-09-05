@@ -102,6 +102,7 @@ TRANSLATORS
         See http://translationproject.org/domain/dos2unix-man.html
 
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 7.2
+        Chinese (simplified)  zwpwjwtz                     Version 7.3
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3
         French                Frédéric Marchal             Version 6.0.5 - 7.3
