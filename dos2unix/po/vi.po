@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.3-beta8\n"
+"Project-Id-Version: dos2unix 7.3.1-beta5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-03 21:32+0200\n"
-"PO-Revision-Date: 2015-08-12 07:13+0700\n"
+"PO-Revision-Date: 2015-09-16 08:01+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
 "Language: vi\n"
@@ -426,7 +426,7 @@ msgstr "UTF-8"
 #: common.c:1138
 #, c-format
 msgid "Input file %s has %s BOM.\n"
-msgstr "Tập tin đầu vào %s có %s BOM.\n"
+msgstr "Tập tin đầu vào %s có BOM %s.\n"
 
 #: common.c:1174 common.c:1217
 msgid "Assuming UTF-16LE encoding.\n"
@@ -502,9 +502,9 @@ msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\
 msgstr "Bỏ qua tập tin UTF-16 %s, đã xảy ra lỗi chuyển đổi UTF-16 trên dòng %u.\n"
 
 #: common.c:1636 common.c:1726 common.c:1812
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"
-msgstr "Bỏ qua tập tin UTF-16 %s, đã xảy ra lỗi chuyển đổi UTF-16 trên dòng %u.\n"
+msgstr "Bỏ qua tập tin UTF-16 %s, chuyển đổi UTF-16 không được hỗ trợ ở phiên bản này của %s.\n"
 
 #: common.c:1700 common.c:1789 common.c:1854
 #, c-format

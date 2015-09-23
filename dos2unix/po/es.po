@@ -7,10 +7,10 @@
 # Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail.com>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.2-beta5\n"
+"Project-Id-Version: dos2unix 7.3.1-beta5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-03 21:32+0200\n"
-"PO-Revision-Date: 2015-01-18 10:54+0100\n"
+"PO-Revision-Date: 2015-09-20 14:17+0200\n"
 "Last-Translator: Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.3\n"
+"X-Generator: Poedit 1.8.4\n"
 
 #: dos2unix.c:79
 msgid ""
@@ -197,13 +197,13 @@ msgstr ""
 "   modo_de_conversion  ascii, 7bit, iso, mac, por defecto es ascii\n"
 
 #: common.c:649
-#, fuzzy, c-format
+#, c-format
 msgid ""
 " -D, --display-enc     set encoding of displayed text messages\n"
 "   encoding            ansi, unicode, utf8, default to ansi\n"
 msgstr ""
-" -c, --convmode        modo de conversión\n"
-"   modo_de_conversion  ascii, 7bit, iso, mac, por defecto es ascii\n"
+" -D, --display-enc     establece la codificación de los mensajes de texto que se muestran\n"
+"   codificación            ansi, unicode, utf8, default to ansi\n"
 
 #: common.c:652
 #, c-format
@@ -405,12 +405,10 @@ msgid "Without Unicode UTF-16 support.\n"
 msgstr "Sin soporte Unicode UTF-16.\n"
 
 #: common.c:742
-#, fuzzy
 msgid "With Unicode file name support.\n"
 msgstr "Con soporte Unicode UTF-16.\n"
 
 #: common.c:744
-#, fuzzy
 msgid "Without Unicode file name support.\n"
 msgstr "Sin soporte Unicode UTF-16.\n"
 
@@ -441,7 +439,7 @@ msgid "UTF-8"
 msgstr "UTF-8"
 
 #: common.c:1138
-#, fuzzy, c-format
+#, c-format
 msgid "Input file %s has %s BOM.\n"
 msgstr "El archivo de entrada %s tiene BOM %s.\n"
 
@@ -456,7 +454,7 @@ msgstr "Se asume codificación UTF-16BE.\n"
 #: common.c:1361
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
-msgstr "Falló al abrir el archivo de salida temporal: %s\n"
+msgstr "Error al abrir el archivo de salida temporal: %s\n"
 
 #: common.c:1368
 #, c-format
@@ -464,19 +462,19 @@ msgid "using %s as temporary file\n"
 msgstr "usando %s como archivo temporal\n"
 
 #: common.c:1433
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to write to temporary output file %s:"
-msgstr "Falló al escribir el archivo de salida temporal %s: %s\n"
+msgstr "Error al escribir el archivo de salida temporal %s:"
 
 #: common.c:1464
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to change the permissions of temporary output file %s:"
-msgstr "Error al cambiar los permisos del archivo temporal de salida %s: %s\n"
+msgstr "Error al cambiar los permisos del archivo temporal de salida %s:"
 
 #: common.c:1481
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to change the owner and group of temporary output file %s:"
-msgstr "Error al cambiar el propietario y grupo del archivo temporal de salida %s: %s\n"
+msgstr "Error al cambiar el propietario y grupo del archivo temporal de salida %s:"
 
 #: common.c:1528
 #, c-format
@@ -489,9 +487,9 @@ msgid "          output file remains in '%s'\n"
 msgstr "          el archivo de salida permanece en '%s'\n"
 
 #: common.c:1555
-#, fuzzy, c-format
+#, c-format
 msgid "problems renaming '%s' to '%s':"
-msgstr "problemas al renombrar '%s' como '%s': %s\n"
+msgstr "problemas al renombrar '%s' como '%s':"
 
 #: common.c:1559
 #, c-format
@@ -514,14 +512,14 @@ msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "Ignorando archivo UTF-16 %s, el tamaño de wchar_t es %d bytes.\n"
 
 #: common.c:1632 common.c:1722 common.c:1808
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
-msgstr "Ignorando archivo UTF-16 %s, ocurrió un error de conversión a UTF-16.\n"
+msgstr "Ignorando archivo UTF-16 %s, ocurrió un error de conversión a UTF-16 en la línea %u.\n"
 
 #: common.c:1636 common.c:1726 common.c:1812
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"
-msgstr "Ignorando archivo UTF-16 %s, ocurrió un error de conversión a UTF-16.\n"
+msgstr "Ignorando archivo UTF-16 %s, la conversión a UTF-16 no está soportada en esta versión de %s.\n"
 
 #: common.c:1700 common.c:1789 common.c:1854
 #, c-format
@@ -630,9 +628,9 @@ msgid "problems converting file %s\n"
 msgstr "problemas convirtiendo el archivo %s\n"
 
 #: common.c:1912 common.c:1989
-#, fuzzy, c-format
+#, c-format
 msgid "can not read from input file %s:"
-msgstr "no puedo escribir al archivo de salida: %s\n"
+msgstr "no puedo escribir al archivo de salida: %s"
 
 #: common.c:2162
 #, c-format
@@ -655,9 +653,9 @@ msgid "option '%s' requires an argument\n"
 msgstr "el parámetro '%s' requiere un argumento\n"
 
 #: common.c:2362
-#, fuzzy, c-format
+#, c-format
 msgid "invalid %s display encoding specified\n"
-msgstr "modo de conversión %s especificado es inválido\n"
+msgstr "el modo de conversión %s especificado no es válido\n"
 
 #: common.c:2382 common.c:2395 common.c:2461
 #, c-format
@@ -665,7 +663,7 @@ msgid "target of file %s not specified in new-file mode\n"
 msgstr "el destino del archivo %s no se especificó en el modo de archivo nuevo\n"
 
 #: common.c:2475
-#, fuzzy, c-format
+#, c-format
 msgid "can not read from input file: %s\n"
 msgstr "no puedo escribir al archivo de salida: %s\n"
 
@@ -676,15 +674,11 @@ msgstr "no puedo escribir al archivo de salida: %s\n"
 
 #: common.c:2578
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
-msgstr ""
+msgstr "error: Par sustituto no válido. Falta el sustituto bajo.\n"
 
 #: common.c:2593
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
-msgstr ""
-
-#, fuzzy
-#~ msgid "has %s BOM.\n"
-#~ msgstr "Escribiendo BOM %s.\n"
+msgstr "error: Par sustituto no válido. Falta el sustituto alto.\n"
 
 #~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
 #~ msgstr "Ignorando archivo UTF-16 %s, la codificación actual no es UTF-8.\n"

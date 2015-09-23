@@ -1,3 +1,7 @@
+2015-09-23 Erwin Waterlander <waterlan@xs4all.nl>
+	* man/man1/dos2unix.pod: Added two examples for option -i, --info.
+	* po/*.po: Updated several translations. See README.txt.
+
 2015-09-05 zwpwjwtz <zwpwjwtz@126.com>
 	* man/zh_CN/man1/dos2unix.po: New simplified Chinese translation of the manual.
 

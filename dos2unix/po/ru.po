@@ -6,12 +6,12 @@
 # Yuri Kozlov <yuray@komyakino.ru>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-7.3-beta8\n"
+"Project-Id-Version: dos2unix-7.3.1-beta5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-03 21:32+0200\n"
-"PO-Revision-Date: 2015-08-11 19:13+0300\n"
+"PO-Revision-Date: 2015-09-16 19:02+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
-"Language-Team: Russian <gnu@mx.ru>\n"
+"Language-Team: Russian <gnu@d07.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -514,9 +514,9 @@ msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\
 msgstr "Пропуск файла %s с UTF-16, возникла ошибка преобразования UTF-16 в строке %u.\n"
 
 #: common.c:1636 common.c:1726 common.c:1812
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"
-msgstr "Пропуск файла %s с UTF-16, возникла ошибка преобразования UTF-16 в строке %u.\n"
+msgstr "Пропуск файла %s с UTF-16, преобразование UTF-16 не поддерживается в этой версии %s.\n"
 
 #: common.c:1700 common.c:1789 common.c:1854
 #, c-format

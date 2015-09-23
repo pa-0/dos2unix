@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-7.3-beta8\n"
+"Project-Id-Version: dos2unix-7.3.1-beta5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-03 21:32+0200\n"
-"PO-Revision-Date: 2015-08-11 11:34+0100\n"
+"PO-Revision-Date: 2015-09-16 07:44+0100\n"
 "Last-Translator: Åka Sikrom <a4@hush.com>\n"
 "Language-Team: Norwegian Bokmaal <i18n-nb@lister.ping.uio.no>\n"
 "Language: Norwegian Bokmål\n"
@@ -512,9 +512,9 @@ msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\
 msgstr "Hopper over UTF-16-fil %s. Det oppstod en UTF-16-konverteringsfeil på linje %u.\n"
 
 #: common.c:1636 common.c:1726 common.c:1812
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"
-msgstr "Hopper over UTF-16-fil %s. Det oppstod en UTF-16-konverteringsfeil på linje %u.\n"
+msgstr "Hopper over fila %s. Konvertering av UTF-16 støttes ikke av denne versjonen av %s.\n"
 
 #: common.c:1700 common.c:1789 common.c:1854
 #, c-format

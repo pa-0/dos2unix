@@ -305,6 +305,14 @@ List the files that have Unix line breaks:
 
     unix2dos -ic *.txt
 
+Convert only files that have DOS line breaks and leave the other files untouched:
+
+    dos2unix -ic *.txt | xargs dos2unix
+
+Find text files that have DOS line breaks:
+
+    find -name '*.txt' | xargs dos2unix -ic
+
 =item B<-k, --keepdate>
 
 Keep the date stamp of output file same as input file.

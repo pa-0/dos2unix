@@ -6,10 +6,10 @@
 # Philipp Thomas <pth@suse.de>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.2.3-beta3\n"
+"Project-Id-Version: dos2unix 7.3.1-beta5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-03 21:32+0200\n"
-"PO-Revision-Date: 2015-06-26 15:27+0200\n"
+"PO-Revision-Date: 2015-09-15 16:30+0200\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
@@ -198,13 +198,13 @@ msgstr ""
 "   convmode            ascii, 7bit, iso, mac, Standard ist nach ascii\n"
 
 #: common.c:649
-#, fuzzy, c-format
+#, c-format
 msgid ""
 " -D, --display-enc     set encoding of displayed text messages\n"
 "   encoding            ansi, unicode, utf8, default to ansi\n"
 msgstr ""
-" -c, --convmode        gibt den Umwandlungsmodus an\n"
-"   convmode            ascii, 7bit, iso, mac, Standard ist nach ascii\n"
+" -D, --display-enc     die Kodierung für angezeigte Meldungen setzen\n"
+"   encoding            ansi, unicode, utf8, Vorgabe ist ansi\n"
 
 #: common.c:652
 #, c-format
@@ -408,14 +408,12 @@ msgid "Without Unicode UTF-16 support.\n"
 msgstr "Ohne Unterstützung für Unicode UTF-16.\n"
 
 #: common.c:742
-#, fuzzy
 msgid "With Unicode file name support.\n"
-msgstr "Mit Unterstützung für Unicode UTF-16.\n"
+msgstr "Mit Unterstützung für Unicode-Dateinamen.\n"
 
 #: common.c:744
-#, fuzzy
 msgid "Without Unicode file name support.\n"
-msgstr "Ohne Unterstützung für Unicode UTF-16.\n"
+msgstr "Ohne Unterstützung für Unicode-Dateinamen.\n"
 
 #: common.c:748
 msgid "With native language support.\n"
@@ -444,7 +442,7 @@ msgid "UTF-8"
 msgstr "UTF-8"
 
 #: common.c:1138
-#, fuzzy, c-format
+#, c-format
 msgid "Input file %s has %s BOM.\n"
 msgstr "Die EIngabedatei %s hat ein %s BOM.\n"
 
@@ -467,19 +465,19 @@ msgid "using %s as temporary file\n"
 msgstr "%s wird als temporäre Datei verwendet\n"
 
 #: common.c:1433
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to write to temporary output file %s:"
-msgstr "Die temporäre Ausgabedatei %s konnte nicht geschrieben werden: %s\n"
+msgstr "Die temporäre Ausgabedatei %s konnte nicht geschrieben werden:"
 
 #: common.c:1464
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to change the permissions of temporary output file %s:"
-msgstr "Das Ändern der Rechte der temporären Ausgabedatei %s scheiterte: %s\n"
+msgstr "Das Ändern der Rechte der temporären Ausgabedatei %s scheiterte:"
 
 #: common.c:1481
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to change the owner and group of temporary output file %s:"
-msgstr "Das Ändern des Eigentümers und der Gruppe der temporären Ausgabedatei %s scheiterte: %s\n"
+msgstr "Das Ändern des Eigentümers und der Gruppe der temporären Ausgabedatei %s scheiterte:"
 
 #: common.c:1528
 #, c-format
@@ -492,9 +490,9 @@ msgid "          output file remains in '%s'\n"
 msgstr "          Die Ausgabedatei verbleibt in »%s«\n"
 
 #: common.c:1555
-#, fuzzy, c-format
+#, c-format
 msgid "problems renaming '%s' to '%s':"
-msgstr "Beim Umbenennen von »%s« zu »%s« sind Probleme aufgetreten: %s\n"
+msgstr "Beim Umbenennen von »%s« zu »%s« sind Probleme aufgetreten:"
 
 #: common.c:1559
 #, c-format
@@ -522,9 +520,9 @@ msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\
 msgstr "UTF-16-Datei %s wird übersprungen, da beim Umwandeln ein Fehler in Zeile %u auftrat.\n"
 
 #: common.c:1636 common.c:1726 common.c:1812
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"
-msgstr "UTF-16-Datei %s wird übersprungen, da beim Umwandeln ein Fehler in Zeile %u auftrat.\n"
+msgstr "UTF-16-Datei %s wird übersprungen, da die Umwandlung von UTF-16 in dieser Version von %s nicht unterstützt wird.\n"
 
 #: common.c:1700 common.c:1789 common.c:1854
 #, c-format
@@ -633,9 +631,9 @@ msgid "problems converting file %s\n"
 msgstr "Beim Umwandeln von Datei %s sind Probleme aufgetreten\n"
 
 #: common.c:1912 common.c:1989
-#, fuzzy, c-format
+#, c-format
 msgid "can not read from input file %s:"
-msgstr "Aus der Eingabedatei %s kann nicht gelesen werden: %s\n"
+msgstr "Aus der Eingabedatei %s kann nicht gelesen werden:"
 
 #: common.c:2162
 #, c-format
@@ -658,9 +656,9 @@ msgid "option '%s' requires an argument\n"
 msgstr "Die Option »%s« benötigt ein Argument\n"
 
 #: common.c:2362
-#, fuzzy, c-format
+#, c-format
 msgid "invalid %s display encoding specified\n"
-msgstr "Der angegebene Umwandlungsmodus %s ist unzulässig\n"
+msgstr "Die angegebene Ausgabekodierung %s ist unzulässig\n"
 
 #: common.c:2382 common.c:2395 common.c:2461
 #, c-format
@@ -685,9 +683,8 @@ msgstr "Fehler: Ungültiges Surrogate-Paar. Das Low-Surrogate fehlt.\n"
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "Fehler: Ungültiges Surrogate-Paar. Das High-Surrogate fehlt.\n"
 
-#, fuzzy
-#~ msgid "has %s BOM.\n"
-#~ msgstr "Das %s BOM wird geschrieben.\n"
+#~ msgid "can not read from input file %s: %s\n"
+#~ msgstr "Aus der Eingabedatei %s kann nicht gelesen werden: %s\n"
 
 #~ msgid "WINVER 0x%X\n"
 #~ msgstr "WINVER 0x%X\n"
