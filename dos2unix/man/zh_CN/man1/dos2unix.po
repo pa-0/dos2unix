@@ -4,9 +4,9 @@
 # zwpwjwtz <zwpwjwtz@126.com>, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.3-beta9\n"
-"POT-Creation-Date: 2015-09-23 19:55+0200\n"
-"PO-Revision-Date: 2015-09-05 00:02+0800\n"
+"Project-Id-Version: dos2unix-man-7.3.1-beta6\n"
+"POT-Creation-Date: 2015-09-23 20:09+0200\n"
+"PO-Revision-Date: 2015-09-24 18:56+0800\n"
 "Last-Translator: zwpwjwtz <zwpwjwtz@126.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -540,39 +540,31 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:308
 msgid "Convert only files that have DOS line breaks and leave the other files untouched:"
-msgstr ""
+msgstr "只转换含有DOS断行符的文件，保持其他文件不变："
 
 #. type: verbatim
 #: dos2unix.pod:310
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -ic *.txt | xargs dos2unix\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    dos2unix -ic *.txt | xargs dos2unix\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:312
-#, fuzzy
-#| msgid "List the files that have DOS line breaks:"
 msgid "Find text files that have DOS line breaks:"
-msgstr "列出含有DOS断行符的文件："
+msgstr "查找含有DOS断行符的文本文件："
 
 #. type: verbatim
 #: dos2unix.pod:314
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find -name '*.txt' | xargs dos2unix -ic\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    find -name '*.txt' | xargs dos2unix -ic\n"
 "\n"
 
 #. type: =item

@@ -73,12 +73,12 @@ TRANSLATORS
 
         Brazilian Portuguese  Enrico Nicoletto             Version 6.0.5
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.6 - 7.2
-        Chinese (simplified)  zwpwjwtz                     Version 7.3
+        Chinese (simplified)  zwpwjwtz                     Version 7.3.1
         Chinese (traditional) mail6543210                  Version 6.0.5
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
         Danish                Joe Hansen                   Version 7.2.3 - 7.3
         Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4
-        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3
+        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3.1
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
         Esperanto             Benno Schulenberg            Version 6.0.5 - 7.3
         French                Frédéric Marchal             Version 6.0.5 - 7.3.1
@@ -102,15 +102,15 @@ TRANSLATORS
         See http://translationproject.org/domain/dos2unix-man.html
 
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 7.2
-        Chinese (simplified)  zwpwjwtz                     Version 7.3
+        Chinese (simplified)  zwpwjwtz                     Version 7.3.1
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
-        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3
-        French                Frédéric Marchal             Version 6.0.5 - 7.3
-        German                Mario Blättermann            Version 6.0.5 - 7.3
+        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3.1
+        French                Frédéric Marchal             Version 6.0.5 - 7.3.1
+        German                Mario Blättermann            Version 6.0.5 - 7.3.1
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.3
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.2.1
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.3
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.3.1
 
 
 ACKNOWLEDGEMENTS

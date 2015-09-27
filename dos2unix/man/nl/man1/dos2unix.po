@@ -8,9 +8,9 @@
 # Benno Schulenberg <benno@vertaalt.nl>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.3-beta9\n"
-"POT-Creation-Date: 2015-09-23 19:55+0200\n"
-"PO-Revision-Date: 2015-08-23 11:11+0200\n"
+"Project-Id-Version: dos2unix-man-7.3.1-beta6\n"
+"POT-Creation-Date: 2015-09-23 20:09+0200\n"
+"PO-Revision-Date: 2015-09-24 09:55+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -544,39 +544,31 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:308
 msgid "Convert only files that have DOS line breaks and leave the other files untouched:"
-msgstr ""
+msgstr "Alleen bestanden die DOS-regeleindes bevatten converteren en andere bestanden ongemoeid laten:"
 
 #. type: verbatim
 #: dos2unix.pod:310
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -ic *.txt | xargs dos2unix\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' | xargs dos2unix\n"
+"    dos2unix -ic *.txt | xargs dos2unix\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:312
-#, fuzzy
-#| msgid "List the files that have DOS line breaks:"
 msgid "Find text files that have DOS line breaks:"
-msgstr "De bestanden opsommen die DOS-regeleindes bevatten:"
+msgstr "De bestanden vinden die DOS-regeleindes bevatten:"
 
 #. type: verbatim
 #: dos2unix.pod:314
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find -name '*.txt' | xargs dos2unix -ic\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' | xargs dos2unix\n"
+"    find -name '*.txt' | xargs dos2unix -ic\n"
 "\n"
 
 #. type: =item

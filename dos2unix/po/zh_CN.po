@@ -4,10 +4,10 @@
 # zwpwjwtz <zwpwjwtz@126.com>, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.3-beta8\n"
+"Project-Id-Version: dos2unix 7.3.1-beta5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-03 21:32+0200\n"
-"PO-Revision-Date: 2015-08-30 19:47+0800\n"
+"PO-Revision-Date: 2015-09-24 18:57+0800\n"
 "Last-Translator: zwpwjwtz <zwpwjwtz@126.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -512,9 +512,9 @@ msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\
 msgstr "跳过 UTF-16 文件 %s，UTF-16 转换发生错误于第 %u 行。\n"
 
 #: common.c:1636 common.c:1726 common.c:1812
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"
-msgstr "跳过 UTF-16 文件 %s，UTF-16 转换发生错误于第 %u 行。\n"
+msgstr "跳过 UTF-16 文件 %s，本版本 %s 不支持UTF-16。\n"
 
 #: common.c:1700 common.c:1789 common.c:1854
 #, c-format

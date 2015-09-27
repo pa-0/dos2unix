@@ -7,10 +7,10 @@
 # Benno Schulenberg <benno@vertaalt.nl>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.3-beta8\n"
+"Project-Id-Version: dos2unix 7.3.1-beta5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-03 21:32+0200\n"
-"PO-Revision-Date: 2015-08-15 10:02+0200\n"
+"PO-Revision-Date: 2015-09-24 09:48+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -494,17 +494,17 @@ msgstr "Codetabel %d wordt niet ondersteund.\n"
 #: common.c:1629 common.c:1719 common.c:1805 common.c:1865
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
-msgstr "UTF-16-bestand %s wordt overgeslagen, de grootte van 'wchar_t' is %d bytes.\n"
+msgstr "UTF-16-bestand %s wordt overgeslagen; de grootte van 'wchar_t' is %d bytes.\n"
 
 #: common.c:1632 common.c:1722 common.c:1808
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
-msgstr "UTF-16-bestand %s wordt overgeslagen, er is een UTF-16-conversiefout opgetreden op regel %u.\n"
+msgstr "UTF-16-bestand %s wordt overgeslagen; er is een UTF-16-conversiefout opgetreden op regel %u.\n"
 
 #: common.c:1636 common.c:1726 common.c:1812
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"
-msgstr "UTF-16-bestand %s wordt overgeslagen, er is een UTF-16-conversiefout opgetreden op regel %u.\n"
+msgstr "UTF-16-bestand %s wordt overgeslagen; UTF-16-conversie wordt niet ondersteund in deze versie van %s.\n"
 
 #: common.c:1700 common.c:1789 common.c:1854
 #, c-format
@@ -514,7 +514,7 @@ msgstr "%s wordt overgeslagen, omdat het geen regulier bestand is.\n"
 #: common.c:1703
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
-msgstr "%s wordt overgeslagen, uitvoerbestand %s is een symbolische koppeling.\n"
+msgstr "%s wordt overgeslagen; uitvoerbestand %s is een symbolische koppeling.\n"
 
 #: common.c:1706 common.c:1795 common.c:1859
 #, c-format

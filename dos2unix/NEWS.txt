@@ -1,3 +1,9 @@
+2015-??-??: Version 7.3.1
+
+  * New: Simplified Chinese translation of messages and manual.
+  * Fix: Compilation error "'wchar_t' undeclared" when Unicode support is disabled.
+  * Fix: Compilation errors when MinGW compiler was used (MinGW-w64 was OK). 
+
 2015-08-24: Version 7.3
 
   * New: Unicode file name support on Windows.

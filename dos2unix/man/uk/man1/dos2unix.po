@@ -6,9 +6,9 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3-beta9\n"
-"POT-Creation-Date: 2015-09-23 19:55+0200\n"
-"PO-Revision-Date: 2015-08-14 10:42+0300\n"
+"Project-Id-Version: dos2unix-man 7.3.1-beta6\n"
+"POT-Creation-Date: 2015-09-23 20:09+0200\n"
+"PO-Revision-Date: 2015-09-24 10:45+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
@@ -542,39 +542,31 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:308
 msgid "Convert only files that have DOS line breaks and leave the other files untouched:"
-msgstr ""
+msgstr "Перетворити лише файли із розривами рядків DOS і не чіпати інших файлів:"
 
 #. type: verbatim
 #: dos2unix.pod:310
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -ic *.txt | xargs dos2unix\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    dos2unix -ic *.txt | xargs dos2unix\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:312
-#, fuzzy
-#| msgid "List the files that have DOS line breaks:"
 msgid "Find text files that have DOS line breaks:"
-msgstr "Вивести список файлів, у яких є символи розриву рядків DOS:"
+msgstr "Знайти текстові файли і розривами рядків DOS:"
 
 #. type: verbatim
 #: dos2unix.pod:314
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find -name '*.txt' | xargs dos2unix -ic\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    find -name '*.txt' | xargs dos2unix -ic\n"
 "\n"
 
 #. type: =item
