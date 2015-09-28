@@ -4,9 +4,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3-beta9\n"
-"POT-Creation-Date: 2015-09-23 19:55+0200\n"
-"PO-Revision-Date: 2015-08-29 16:45+0200\n"
+"Project-Id-Version: dos2unix-man 7.3.1-beta6\n"
+"POT-Creation-Date: 2015-09-23 20:09+0200\n"
+"PO-Revision-Date: 2015-09-28 19:36+0200\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "Language: pl\n"
@@ -538,39 +538,31 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:308
 msgid "Convert only files that have DOS line breaks and leave the other files untouched:"
-msgstr ""
+msgstr "Konwersja tylko plików mających DOS-owe końce linii, pozostawienie pozostałych bez zmian:"
 
 #. type: verbatim
 #: dos2unix.pod:310
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -ic *.txt | xargs dos2unix\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    dos2unix -ic *.txt | xargs dos2unix\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:312
-#, fuzzy
-#| msgid "List the files that have DOS line breaks:"
 msgid "Find text files that have DOS line breaks:"
-msgstr "Wypisanie listy plików zawierających DOS-owe końce linii:"
+msgstr "Wyszukanie plików tekstowych zawierających DOS-owe końce linii:"
 
 #. type: verbatim
 #: dos2unix.pod:314
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find -name '*.txt' | xargs dos2unix -ic\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    find -name '*.txt' | xargs dos2unix -ic\n"
 "\n"
 
 #. type: =item
