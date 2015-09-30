@@ -1,3 +1,6 @@
+2015-09-30 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 7.3.1
+
 2015-09-23 Erwin Waterlander <waterlan@xs4all.nl>
 	* man/man1/dos2unix.pod: Added two examples for option -i, --info.
 	* po/*.po: Updated several translations. See README.txt.
