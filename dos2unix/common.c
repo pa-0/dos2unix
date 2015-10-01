@@ -29,15 +29,13 @@
 #include "querycp.h"
 
 #include <stdarg.h>
-#ifdef D2U_UNIFILE
-#include <windows.h>
-#elif defined(D2U_UNICODE)
-#if defined(_WIN32)
+
+#if defined(D2U_UNIFILE) || (defined(D2U_UNICODE) && defined(_WIN32))
 #include <windows.h>
 #endif
-#if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
+
+#if defined(D2U_UNICODE) && !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
 # include <langinfo.h>
-#endif
 #endif
 
 #if defined(__GLIBC__)
