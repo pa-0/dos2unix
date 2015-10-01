@@ -32,13 +32,12 @@
 #ifdef D2U_UNIFILE
 #include <windows.h>
 #elif defined(D2U_UNICODE)
-#if defined(_WIN32) || defined(__CYGWIN__)
+#if defined(_WIN32)
 #include <windows.h>
 #endif
-#endif
-
 #if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
 # include <langinfo.h>
+#endif
 #endif
 
 #if defined(__GLIBC__)
@@ -1649,6 +1648,7 @@ void print_format(const CFlag *pFlag, char *informat, char *outformat, size_t li
     strncpy(informat,_("UTF-16BE"),lin);
   informat[lin-1]='\0';
 
+#ifdef D2U_UNICODE
   if ((pFlag->bomtype == FILE_UTF16LE)||(pFlag->bomtype == FILE_UTF16BE)) {
 #if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
     strncpy(outformat,nl_langinfo(CODESET),lout);
@@ -1670,6 +1670,7 @@ void print_format(const CFlag *pFlag, char *informat, char *outformat, size_t li
     }
     outformat[lout-1]='\0';
   }
+#endif
 }
 
 void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *outfile, const char *progname, const int RetVal)
