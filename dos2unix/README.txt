@@ -73,6 +73,7 @@ TRANSLATORS
 
         Brazilian Portuguese  Enrico Nicoletto             Version 6.0.5
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.6 - 7.2
+        Brazilian Portuguese  Rafael Fontenelle            Version 7.3.1
         Chinese (simplified)  zwpwjwtz                     Version 7.3.1
         Chinese (traditional) mail6543210                  Version 6.0.5
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
@@ -102,6 +103,7 @@ TRANSLATORS
         See http://translationproject.org/domain/dos2unix-man.html
 
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 7.2
+        Brazilian Portuguese  Rafael Fontenelle            Version 7.3.1
         Chinese (simplified)  zwpwjwtz                     Version 7.3.1
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3.1

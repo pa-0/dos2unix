@@ -1,3 +1,7 @@
+2015-10-09 Rafael Fontenelle <rffontenelle@gmail.com>
+	* po/pt_BR.po: Updated Brazilian Portuguese translation.
+	* man/pt_BR.po/man1/dos2unix.po: Updated Brazilian Portuguese translation.
+
 2015-10-01 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Fix compilation for MSYS 1.
 
@@ -149,6 +153,9 @@
 	* common.c: Don't print "converting file ... to ..." when there was an error.
 	* common.c: Fixed false warning while reading BOM from zero byte file.
 	  Was introduced on 2015-06-24.
+
+2014-06-27 Joe Hansen <joedalton2@yahoo.dk>
+	* po/da.po: Updated Danish translation.
 
 2015-06-24 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Bug fix. Check for file I/O errors with every file access.
