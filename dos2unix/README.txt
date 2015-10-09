@@ -76,7 +76,7 @@ TRANSLATORS
         Chinese (simplified)  zwpwjwtz                     Version 7.3.1
         Chinese (traditional) mail6543210                  Version 6.0.5
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
-        Danish                Joe Hansen                   Version 7.2.3 - 7.3
+        Danish                Joe Hansen                   Version 7.2.3 - 7.3.1
         Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3.1
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
