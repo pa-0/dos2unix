@@ -154,6 +154,8 @@ ACKNOWLEDGEMENTS
                               errors while reading the input.
         Baruch Siach          Fix compilation error "'wchar_t' undeclared"
                               when Unicode support is disabled.
+        Ulf-Dietrich Braumann Reported that the -iso option was misinterpreted
+                              as a corrupted -i option.
 
 
 FINDUTILS

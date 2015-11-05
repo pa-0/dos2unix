@@ -1,6 +1,6 @@
 2015-11-05 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Fix option -iso. The -iso option was misinterpreted
-	  as a corrupted -i option.
+	  as a corrupted -i option. Thanks to report of Ulf-Dietrich Braumann.
 	* test/iso.t: Added two tests for option -iso.
 
 2015-10-09 Rafael Fontenelle <rffontenelle@gmail.com>
