@@ -30,10 +30,10 @@ $UNIX2MAC = "../unix2mac" . $suffix;
 # with the non-convertable characters replaced with a dot.
 
 system("$DOS2UNIX -v -iso -437 -n chardos.txt out_unix.txt; cmp out_unix.txt iso_437.txt");
-ok( $? == 0, 'DOS to Unix conversion, cp437 to iso88591' );
+ok( $? == 0, 'DOS to Unix conversion, cp437 to iso88591 with option -iso' );
 
 system("$DOS2UNIX -v -437 -n chardos.txt out_unix.txt; cmp out_unix.txt iso_437.txt");
-ok( $? == 0, 'DOS to Unix conversion, cp437 to iso88591' );
+ok( $? == 0, 'DOS to Unix conversion, cp437 to iso88591 without option -iso' );
 
 system("$DOS2UNIX -v -850 -n chardos.txt out_unix.txt; cmp out_unix.txt iso_850.txt");
 ok( $? == 0, 'DOS to Unix conversion, cp850 to iso88591' );
@@ -69,10 +69,10 @@ ok( $? == 0, 'DOS to Unix conversion, cp1252 to iso88591' );
 # with the non-convertable characters replaced with a dot.
 
 system("$UNIX2DOS -v -iso -437 -n charunix.txt out_dos.txt; cmp out_dos.txt cp_437.txt");
-ok( $? == 0, 'Unix to DOS conversion, iso88591 to cp437' );
+ok( $? == 0, 'Unix to DOS conversion, iso88591 to cp437 with option -iso' );
 
 system("$UNIX2DOS -v -437 -n charunix.txt out_dos.txt; cmp out_dos.txt cp_437.txt");
-ok( $? == 0, 'Unix to DOS conversion, iso88591 to cp437' );
+ok( $? == 0, 'Unix to DOS conversion, iso88591 to cp437 without option -iso' );
 
 system("$UNIX2DOS -v -850 -n charunix.txt out_dos.txt; cmp out_dos.txt cp_850.txt");
 ok( $? == 0, 'Unix to DOS conversion, iso88591 to cp850' );
