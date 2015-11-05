@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-01 22:45+0200\n"
+"POT-Creation-Date: 2015-11-05 20:11+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -589,7 +589,7 @@ msgstr ""
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr ""
 
-#: common.c:2286 common.c:2323
+#: common.c:2280 common.c:2323
 #, c-format
 msgid "active code page: %d\n"
 msgstr ""

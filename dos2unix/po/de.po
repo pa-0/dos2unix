@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.1-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-01 22:45+0200\n"
+"POT-Creation-Date: 2015-11-05 20:11+0100\n"
 "PO-Revision-Date: 2015-09-15 16:30+0200\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -640,7 +640,7 @@ msgstr "Aus der Eingabedatei %s kann nicht gelesen werden:"
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "falsches Flag »%c« für Option -i oder --info\n"
 
-#: common.c:2286 common.c:2323
+#: common.c:2280 common.c:2323
 #, c-format
 msgid "active code page: %d\n"
 msgstr "Aktive Codepage: %d\n"

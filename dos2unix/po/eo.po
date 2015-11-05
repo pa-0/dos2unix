@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3-beta8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-01 22:45+0200\n"
+"POT-Creation-Date: 2015-11-05 20:11+0100\n"
 "PO-Revision-Date: 2015-08-23 11:37+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -622,7 +622,7 @@ msgstr "ne eblas legi el eniga dosiero %s:"
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "malĝusta flago '%c' por opcio '-i' aŭ '--info'\n"
 
-#: common.c:2286 common.c:2323
+#: common.c:2280 common.c:2323
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktiva kodpaĝo: %d\n"

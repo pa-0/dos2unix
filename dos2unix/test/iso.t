@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Requires perl-Test-Simple installation.
-use Test::Simple tests => 12;
+use Test::Simple tests => 14;
 
 $suffix = "";
 if (-e "../dos2unix.exe") {
@@ -28,6 +28,9 @@ $UNIX2MAC = "../unix2mac" . $suffix;
 #
 # You now see the same characters as in the Windows Command Prompt
 # with the non-convertable characters replaced with a dot.
+
+system("$DOS2UNIX -v -iso -437 -n chardos.txt out_unix.txt; cmp out_unix.txt iso_437.txt");
+ok( $? == 0, 'DOS to Unix conversion, cp437 to iso88591' );
 
 system("$DOS2UNIX -v -437 -n chardos.txt out_unix.txt; cmp out_unix.txt iso_437.txt");
 ok( $? == 0, 'DOS to Unix conversion, cp437 to iso88591' );
@@ -64,6 +67,9 @@ ok( $? == 0, 'DOS to Unix conversion, cp1252 to iso88591' );
 #
 # You now see the same characters as in the Mintty terminal
 # with the non-convertable characters replaced with a dot.
+
+system("$UNIX2DOS -v -iso -437 -n charunix.txt out_dos.txt; cmp out_dos.txt cp_437.txt");
+ok( $? == 0, 'Unix to DOS conversion, iso88591 to cp437' );
 
 system("$UNIX2DOS -v -437 -n charunix.txt out_dos.txt; cmp out_dos.txt cp_437.txt");
 ok( $? == 0, 'Unix to DOS conversion, iso88591 to cp437' );

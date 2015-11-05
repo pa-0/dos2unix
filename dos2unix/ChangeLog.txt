@@ -1,3 +1,7 @@
+2015-11-05 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Fix option -iso. The -iso option was misinterpreted
+	  as a corrupted -i option.
+
 2015-10-09 Rafael Fontenelle <rffontenelle@gmail.com>
 	* po/pt_BR.po: Updated Brazilian Portuguese translation.
 	* man/pt_BR.po/man1/dos2unix.po: Updated Brazilian Portuguese translation.

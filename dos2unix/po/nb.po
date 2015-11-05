@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-7.3.1-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-01 22:45+0200\n"
+"POT-Creation-Date: 2015-11-05 20:11+0100\n"
 "PO-Revision-Date: 2015-09-16 07:44+0100\n"
 "Last-Translator: Åka Sikrom <a4@hush.com>\n"
 "Language-Team: Norwegian Bokmaal <i18n-nb@lister.ping.uio.no>\n"
@@ -632,7 +632,7 @@ msgstr "klarte ikke å lese fra inndata-fil %s."
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "«%c» er et ugyldig flagg for -i (--info)\n"
 
-#: common.c:2286 common.c:2323
+#: common.c:2280 common.c:2323
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktiv kodeside: %d\n"

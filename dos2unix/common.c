@@ -2246,13 +2246,7 @@ int parse_options(int argc, char *argv[],
         pFlag->verbose = 2;
       else if ((strcmp(argv[ArgIdx],"-l") == 0) || (strcmp(argv[ArgIdx],"--newline") == 0))
         pFlag->NewLine = 1;
-      else if (strcmp(argv[ArgIdx],"--info") == 0)
-        pFlag->file_info |= INFO_DEFAULT;
-      else if (strncmp(argv[ArgIdx],"--info=", (size_t)7) == 0) {
-        get_info_options(argv[ArgIdx]+7, pFlag, progname);
-      } else if (strncmp(argv[ArgIdx],"-i", (size_t)2) == 0) {
-        get_info_options(argv[ArgIdx]+2, pFlag, progname);
-      } else if ((strcmp(argv[ArgIdx],"-m") == 0) || (strcmp(argv[ArgIdx],"--add-bom") == 0))
+      else if ((strcmp(argv[ArgIdx],"-m") == 0) || (strcmp(argv[ArgIdx],"--add-bom") == 0))
         pFlag->add_bom = 1;
       else if ((strcmp(argv[ArgIdx],"-r") == 0) || (strcmp(argv[ArgIdx],"--remove-bom") == 0)) {
         pFlag->keep_bom = 0;
@@ -2308,7 +2302,13 @@ int parse_options(int argc, char *argv[],
       else if ((strcmp(argv[ArgIdx],"-ub") == 0) || (strcmp(argv[ArgIdx],"--assume-utf16be") == 0))
         pFlag->ConvMode = CONVMODE_UTF16BE;
 #endif
-      else if ((strcmp(argv[ArgIdx],"-c") == 0) || (strcmp(argv[ArgIdx],"--convmode") == 0)) {
+      else if (strcmp(argv[ArgIdx],"--info") == 0)
+        pFlag->file_info |= INFO_DEFAULT;
+      else if (strncmp(argv[ArgIdx],"--info=", (size_t)7) == 0) {
+        get_info_options(argv[ArgIdx]+7, pFlag, progname);
+      } else if (strncmp(argv[ArgIdx],"-i", (size_t)2) == 0) {
+        get_info_options(argv[ArgIdx]+2, pFlag, progname);
+      } else if ((strcmp(argv[ArgIdx],"-c") == 0) || (strcmp(argv[ArgIdx],"--convmode") == 0)) {
         if (++ArgIdx < argc) {
           if (strcmpi(argv[ArgIdx],"ascii") == 0) { /* Benjamin Lin's legacy options */
             pFlag->ConvMode = CONVMODE_ASCII;
