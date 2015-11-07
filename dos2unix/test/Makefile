@@ -1,6 +1,7 @@
-TESTS = ascii.t iso.t utf8.t utf16.t misc.t
+TESTS = ascii.t iso.t utf8.t misc.t
 
 d2u_os=$(shell uname -s)
+UCS = 1
 
 # Checking WIN32 version in MSYS shell.
 ifeq ($(findstring MINGW,$(d2u_os)),MINGW)
@@ -17,6 +18,10 @@ endif
 # Windows version does not support symlinks like the Unix version.
 ifneq ($(findstring MINGW,$(d2u_os)),MINGW)
 TESTS += symlink.t
+endif
+
+ifeq ($(UCS),1)
+TESTS +=utf16.t
 endif
 
 

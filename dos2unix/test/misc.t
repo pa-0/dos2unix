@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Requires perl-Test-Simple installation.
-use Test::Simple tests => 22;
+use Test::Simple tests => 13;
 
 $suffix = "";
 if (-e "../dos2unix.exe") {
@@ -22,12 +22,6 @@ ok( $? == 0, 'DOS to Unix conversion, stdin/out' );
 
 system("$UNIX2DOS -v < unix.txt > out_dos.txt; cmp out_dos.txt dos.txt");
 ok( $? == 0, 'Unix to DOS conversion, stdin/out' );
-
-system("cat utf16le.txt | $DOS2UNIX -v > out_unix.txt; cmp out_unix.txt utf8unix.txt");
-ok( $? == 0, 'UTF-16LE with BOM to UTF-8, stdin/out' );
-
-system("cat utf16u.txt | $UNIX2DOS -v -u > out_dos.txt; cmp out_dos.txt utf16.txt");
-ok( $? == 0, 'UTF-16LE with BOM to UTF-16LE, stdin/out' );
 
 system("$DOS2UNIX -v -n utf16len.txt out_bin.txt");
 # file out_bin.txt may not exist.
@@ -81,32 +75,9 @@ ok( $? == 0, 'Dos2unix, force ASCII file with binary symbols' );
 system("$UNIX2DOS -v -f -n unix_bin.txt out_dos.txt; cmp out_dos.txt dos_bin.txt");
 ok( $? == 0, 'Unix2dos, force ASCII file with binary symbols' );
 
-system("$DOS2UNIX -v -7 -n utf16le.txt out_unix.txt chardos.txt out_u7.txt; cmp out_unix.txt utf8unix.txt");
-ok( $? == 0, '7bit disabled for utf16');
-
-system("cmp out_u7.txt charu7.txt");
-ok( $? == 0, '7bit enabled again, dos2unix');
-
-system("$UNIX2DOS -v -7 -n utf8unxb.txt out_dos.txt charunix.txt out_d7.txt; cmp out_dos.txt utf8dos.txt");
-ok( $? == 0, '7bit disabled for utf8 with BOM');
-
-system("cmp out_d7.txt chard7.txt");
-ok( $? == 0, '7bit enabled again, unix2dos');
-
-system("$UNIX2DOS -v -u -m -n unix.txt out_dos.txt; cmp out_dos.txt dos_bom.txt");
-ok( $? == 0, 'Option -u must not disable -m on ASCII input');
-
-system("$DOS2UNIX -i dos.txt unix.txt mac.txt mixed.txt utf16le.txt utf16be.txt utf16len.txt utf8unix.txt utf8dos.txt gb18030.txt > outinfo.txt");
+system("$DOS2UNIX -i dos.txt unix.txt mac.txt mixed.txt utf16len.txt utf8unix.txt utf8dos.txt gb18030.txt > outinfo.txt");
 system("$DOS2UNIX outinfo.txt; diff info.txt outinfo.txt");
 ok( $? == 0, 'Option -i, --info');
-
-system("$DOS2UNIX -ul -i utf16le.txt utf16len.txt utf8unxb.txt gb18030.txt > outinfo.txt");
-system("$DOS2UNIX outinfo.txt; diff info_ul.txt outinfo.txt");
-ok( $? == 0, 'Option -i, --info combined with -ul');
-
-system("$DOS2UNIX -ub -i utf16be.txt utf16ben.txt utf8unxb.txt gb18030.txt > outinfo.txt");
-system("$DOS2UNIX outinfo.txt; diff info_ub.txt outinfo.txt");
-ok( $? == 0, 'Option -i, --info combined with -ub');
 
 system("$DOS2UNIX -v -n gb18030.txt out_unix.txt; cmp out_unix.txt gb18030u.txt");
 ok( $? == 0, 'Remove GB18030 BOM');

@@ -1,3 +1,6 @@
+2015-11-07 Erwin Waterlander <waterlan@xs4all.nl>
+	* test: Be able to run tests when UTF-16 support is not enabled (UCS=).
+
 2015-11-05 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Fix option -iso. The -iso option was misinterpreted
 	  as a corrupted -i option. Thanks to report of Ulf-Dietrich Braumann.
