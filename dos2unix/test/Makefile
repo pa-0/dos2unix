@@ -15,9 +15,11 @@ TESTS += gb18030.t
 endif
 endif
 
-# Windows version does not support symlinks like the Unix version.
+# DOS and Windows version do not support symlinks like the Unix version.
+ifeq ($(DJGPP),)
 ifneq ($(findstring MINGW,$(d2u_os)),MINGW)
 TESTS += symlink.t
+endif
 endif
 
 ifeq ($(UCS),1)

@@ -1,6 +1,6 @@
 2015-11-08 Erwin Waterlander <waterlan@xs4all.nl>
-	* Makefile, djgpp.mak: Make it possible to run test suite in DJGPP
-	  environment. $SHELL must point to sh or bash.
+	* Makefile, djgpp.mak, test/Makefile: Make it possible to run test
+	  suite in DJGPP environment. $SHELL must point to sh or bash.
 
 2015-11-07 Erwin Waterlander <waterlan@xs4all.nl>
 	* test: Be able to run tests when UTF-16 support is not enabled (UCS=).
