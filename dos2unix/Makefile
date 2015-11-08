@@ -447,7 +447,11 @@ man/zh_CN/man1/$(PACKAGE).$(HTMLEXT) : man/zh_CN/man1/$(PACKAGE).pod
 	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/Mac - Unix文件格式转换器" $< > $@
 
 test: all
-	cd test; $(MAKE) test
+ifneq ($(DJGPP),)
+	cd test; $(MAKE) test UCS= SHELL=$(shell which sh)
+else
+	cd test; $(MAKE) test UCS=$(UCS)
+endif
 
 check: test
 

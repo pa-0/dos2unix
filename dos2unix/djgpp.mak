@@ -21,6 +21,11 @@ docsubdir = dos2unix
 all:
 	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f" docsubdir=$(docsubdir) UCS=
 
+test: all
+	cd test; $(MAKE) test UCS= SHELL=$(shell which sh) 
+
+check: test
+
 install:
 	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK_MAN="cp -f" docsubdir=$(docsubdir) UCS=
 
