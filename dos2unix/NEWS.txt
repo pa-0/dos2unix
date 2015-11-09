@@ -1,3 +1,9 @@
+2015-??-??: Version 7.3.2
+
+  * New: Swedish translation of messages and manual.
+  * Fix: The -iso option was misinterpreted as a corrupted -i option.
+  * Fix: Fix compilation for MSYS 1.
+
 2015-09-30: Version 7.3.1
 
   * New: Simplified Chinese translation of messages and manual.

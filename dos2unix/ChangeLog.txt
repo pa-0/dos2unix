@@ -1,3 +1,7 @@
+2015-11-09 Sebastian Rasmussen <sebras@gmail.com>
+	* po/sv.po: New Swedish translation of the messages.
+	* man/sv/man1/dos2unix.po: New Swedish translation of the manual.
+
 2015-11-08 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile, djgpp.mak, test/Makefile: Make it possible to run test
 	  suite in DJGPP environment. $SHELL must point to sh or bash.
