@@ -51,17 +51,17 @@ msgstr "BESKRIVNING"
 #. type: textblock
 #: dos2unix.pod:63
 msgid "The Dos2unix package includes utilities C<dos2unix> and C<unix2dos> to convert plain text files in DOS or Mac format to Unix format and vice versa."
-msgstr "Paketet Dos2unix inkluderar verktygen C<dos2unix> och C<unix2dos> som konverterar oformaterade textfiler i DOS eller Mac-format till Unix format och vice versa."
+msgstr "Paketet Dos2unix inkluderar verktygen C<dos2unix> och C<unix2dos> som konverterar oformaterade textfiler i DOS- eller Mac-format till Unix format och vice versa."
 
 #. type: textblock
 #: dos2unix.pod:66
 msgid "In DOS/Windows text files a line break, also known as newline, is a combination of two characters: a Carriage Return (CR) followed by a Line Feed (LF). In Unix text files a line break is a single character: the Line Feed (LF). In Mac text files, prior to Mac OS X, a line break was single Carriage Return (CR)  character. Nowadays Mac OS uses Unix style (LF) line breaks."
-msgstr "Textfiler i DOS/Windows har en radbrytning, också känd som nyrad, som är en kombination av två tecken: vagnretur (Carriage Return, CR) åtföljt av radmatning (Line Feed, LF). Textfiler i Unix har en radbrytning som är ett enda tecken: radmatning (Line Feed, LF). Textfiler för Mac, tidigare än Mac OS X, hade en radbrytning som var en enda vagnretur (Carriage Return, CR). Numera använde Mac OS radbrytning i Unix-stil (LF)."
+msgstr "Textfiler i DOS/Windows har en radbrytning, också känd som nyrad, som är en kombination av två tecken: vagnretur (Carriage Return, CR) åtföljt av radmatning (Line Feed, LF). Textfiler i Unix har en radbrytning som är ett enda tecken: radmatning (Line Feed, LF). Textfiler för Mac, innan Mac OS X, hade en radbrytning som var en enda vagnretur (Carriage Return, CR). Numera använder Mac OS radbrytning i Unix-stil (LF)."
 
 #. type: textblock
 #: dos2unix.pod:72
 msgid "Besides line breaks Dos2unix can also convert the encoding of files. A few DOS code pages can be converted to Unix Latin-1. And Windows Unicode (UTF-16)  files can be converted to Unix Unicode (UTF-8) files."
-msgstr "Förutom radbrytningar så kan Dos2unix också konvertera filers kodning. Några DOS teckentabeller kan konverteras till Unix Latin-1. Och filer som använder Windows Unicode (UTF-16) kan konverteras till Unix Unicode (UTF-8)."
+msgstr "Förutom radbrytningar så kan Dos2unix också konvertera filers kodning. Några DOS-teckentabeller kan konverteras till Unix Latin-1. Och filer som använder Windows Unicode (UTF-16) kan konverteras till Unix Unicode (UTF-8)."
 
 #. type: textblock
 #: dos2unix.pod:76
@@ -141,7 +141,7 @@ msgstr "B<-iso>"
 #. type: textblock
 #: dos2unix.pod:112
 msgid "Conversion between DOS and ISO-8859-1 character set. See also section CONVERSION MODES."
-msgstr "Konvertering mellan DOS och ISO-8859-1 teckentabeller. Se vidare stycket KONVERTERINGSLÄGEN."
+msgstr "Konvertering mellan DOS- och ISO-8859-1-teckentabeller. Se vidare stycket KONVERTERINGSLÄGEN."
 
 #. type: =item
 #: dos2unix.pod:115
@@ -151,7 +151,7 @@ msgstr "B<-1252>"
 #. type: textblock
 #: dos2unix.pod:117
 msgid "Use Windows code page 1252 (Western European)."
-msgstr "Använd Windows teckentabell 1252 (Västeuropeisk)."
+msgstr "Använd Windows-teckentabell 1252 (Västeuropeisk)."
 
 #. type: =item
 #: dos2unix.pod:119
@@ -161,7 +161,7 @@ msgstr "B<-437>"
 #. type: textblock
 #: dos2unix.pod:121
 msgid "Use DOS code page 437 (US). This is the default code page used for ISO conversion."
-msgstr "Använd DOS teckentabell 437 (USA). Detta är standardteckentabellen som används för ISO-konvertering."
+msgstr "Använd DOS-teckentabell 437 (USA). Detta är standardteckentabellen som används för ISO-konvertering."
 
 #. type: =item
 #: dos2unix.pod:123
@@ -171,7 +171,7 @@ msgstr "B<-850>"
 #. type: textblock
 #: dos2unix.pod:125
 msgid "Use DOS code page 850 (Western European)."
-msgstr "Använd DOS teckentabell 850 (Västeuropeisk)."
+msgstr "Använd DOS-teckentabell 850 (Västeuropeisk)."
 
 #. type: =item
 #: dos2unix.pod:127
@@ -181,7 +181,7 @@ msgstr "B<-860>"
 #. type: textblock
 #: dos2unix.pod:129
 msgid "Use DOS code page 860 (Portuguese)."
-msgstr "Använd DOS teckentabell 860 (Portugisisk)."
+msgstr "Använd DOS-teckentabell 860 (Portugisisk)."
 
 #. type: =item
 #: dos2unix.pod:131
@@ -191,7 +191,7 @@ msgstr "B<-863>"
 #. type: textblock
 #: dos2unix.pod:133
 msgid "Use DOS code page 863 (French Canadian)."
-msgstr "Använd DOS teckentabell 863 (Fransk-kanadensisk)."
+msgstr "Använd DOS-teckentabell 863 (Fransk-kanadensisk)."
 
 #. type: =item
 #: dos2unix.pod:135
@@ -201,7 +201,7 @@ msgstr "B<-865>"
 #. type: textblock
 #: dos2unix.pod:137
 msgid "Use DOS code page 865 (Nordic)."
-msgstr "Använd DOS teckentabell 865 (Nordisk)."
+msgstr "Använd DOS-teckentabell 865 (Nordisk)."
 
 #. type: =item
 #: dos2unix.pod:139
@@ -221,7 +221,7 @@ msgstr "B<-b, --keep-bom>"
 #. type: textblock
 #: dos2unix.pod:145
 msgid "Keep Byte Order Mark (BOM). When the input file has a BOM, write a BOM in the output file. This is the default behavior when converting to DOS line breaks. See also option C<-r>."
-msgstr "Behåll byteordningsmarkering (Byte ORder Mark, BOM). Om infilen har en BOM, skriv en BOM i utfilen. Detta är standardbeteendet vid konvertering av DOS radbrytningar. Se vidare flaggan C<-r>."
+msgstr "Behåll byteordningsmarkering (Byte Order Mark, BOM). Om infilen har en BOM, skriv en BOM i utfilen. Detta är standardbeteendet vid konvertering av DOS-radbrytningar. Se vidare flaggan C<-r>."
 
 #. type: =item
 #: dos2unix.pod:149
@@ -261,12 +261,12 @@ msgstr "B<ansi>"
 #. type: textblock
 #: dos2unix.pod:173
 msgid "Dos2unix's default method is to use ANSI encoded text. The advantage is that it is backwards compatible. It works with raster and TrueType fonts. In some regions you may need to change the active DOS OEM code page to the Windows system ANSI code page using the C<chcp> command, because dos2unix uses the Windows system code page."
-msgstr "Dos2unix standardmetod är att använda ANSI-kodad text. Fördelen är att den är bakåtkompatibel. Det fungerar med raster- och TrueType-fonter. I vissa regioner kan du behöva ändra den aktiva DOS OEM-kodsidan till Windows-systemets ANSI-kodsida genom att använda kommandot C<chcp>, eftersom dos2unix använder Windows-systemets kodsida."
+msgstr "Dos2unix standardmetod är att använda ANSI-kodad text. Fördelen är att den är bakåtkompatibel. Det fungerar med raster- och TrueType-teckensnitt. I vissa regioner kan du behöva ändra den aktiva DOS OEM-teckentabellen till Windows-systemets ANSI-teckentabell genom att använda kommandot C<chcp>, eftersom dos2unix använder Windows-systemets teckentabell."
 
 #. type: textblock
 #: dos2unix.pod:179
 msgid "The disadvantage of ansi is that international file names with characters not inside the system default code page are not displayed properly. You will see a question mark, or a wrong symbol instead. When you don't work with foreign file names this method is OK."
-msgstr "Nackdelen med ansi är att internationella filnamn med tecken som inte finns i systemets standardkodsida inte visas korrekt. Du kommer att se frågetecken, eller en felaktig symbol istället. När du inte arbetar med utländska filnamn är denna metoden OK."
+msgstr "Nackdelen med ansi är att internationella filnamn med tecken som inte finns i systemets standardteckentabell inte visas korrekt. Du kommer att se frågetecken, eller en felaktig symbol istället. När du inte arbetar med utländska filnamn är denna metoden OK."
 
 #. type: =item
 #: dos2unix.pod:184
@@ -276,12 +276,12 @@ msgstr "B<unicode>"
 #. type: textblock
 #: dos2unix.pod:186
 msgid "The advantage of unicode (the Windows name for UTF-16) encoding is that text is usually properly displayed. There is no need to change the active code page.  You may need to set the console's font to a TrueType font to have international characters displayed properly. When a character is not included in the TrueType font you usually see a small square, sometimes with a question mark in it."
-msgstr "Fördelen med unicode-kodning (Windows-namnet för UTF-16) är att text vanligtvis visas korrekt. Det finns inget behov av att ändra den aktiva kodsidan. Du kan behöva ställa in konsolens teckensnitt till ett TrueType-teckensnitt för att få internationella tecken att visas korrekt. När ett tecken inte finns inkluderat i TrueType-teckensnittet kommer du vanligtvis att se en liten ruta, ibland med ett frågetecken inuti."
+msgstr "Fördelen med unicode-kodning (Windows-namnet för UTF-16) är att text vanligtvis visas korrekt. Det finns inget behov av att ändra den aktiva teckentabellen. Du kan behöva ställa in konsolens teckensnitt till ett TrueType-teckensnitt för att få internationella tecken att visas korrekt. När ett tecken inte finns inkluderat i TrueType-teckensnittet kommer du vanligtvis att se en liten ruta, ibland med ett frågetecken inuti."
 
 #. type: textblock
 #: dos2unix.pod:192
 msgid "When you use the ConEmu console all text is displayed properly, because ConEmu automatically selects a good font."
-msgstr "När du använde ConEmu-konsolen kommer all text att visas korrekt eftersom ConEmu automatiskt väljer ett bra teckensnitt."
+msgstr "När du använder ConEmu-konsolen kommer all text att visas korrekt eftersom ConEmu automatiskt väljer ett bra teckensnitt."
 
 #. type: textblock
 #: dos2unix.pod:195
@@ -331,7 +331,7 @@ msgstr "B<-gb, --gb18030>"
 #. type: textblock
 #: dos2unix.pod:225
 msgid "On Windows UTF-16 files are by default converted to UTF-8, regardless of the locale setting. Use this option to convert UTF-16 files to GB18030. This option is only available on Windows. See also section GB18030."
-msgstr "Under Windows konverteras UTF-16-file som standard till UTF-8, oavsett vilken lokalinställning som är gjord. Använd denna flagga för att konvertera UTF-16-filer till GB18030. Denna flagga finns bara tillgänglig i Windows. Se vidare i avsnittet GB18030."
+msgstr "Under Windows konverteras UTF-16-filer som standard till UTF-8, oavsett vilken lokalinställning som är gjord. Använd denna flagga för att konvertera UTF-16-filer till GB18030. Denna flagga finns bara tillgänglig i Windows. Se vidare i avsnittet GB18030."
 
 #. type: =item
 #: dos2unix.pod:229
@@ -600,7 +600,7 @@ msgstr "Lägg till ytterligare nyrad."
 #. type: textblock
 #: dos2unix.pod:328
 msgid "B<dos2unix>: Only DOS line breaks are changed to two Unix line breaks.  In Mac mode only Mac line breaks are changed to two Unix line breaks."
-msgstr "B<dos2unix>: Endast DOS-radbrytningar ändras till två Unix-radbrytningar. I Mac-läge ändra endast Mac-radbrytningar till två Unix-radbrytningar."
+msgstr "B<dos2unix>: Endast DOS-radbrytningar ändras till två Unix-radbrytningar. I Mac-läge ändras endast Mac-radbrytningar till två Unix-radbrytningar."
 
 #. type: textblock
 #: dos2unix.pod:332
@@ -635,7 +635,7 @@ msgstr "B<-n, --newfile INFIL UTFIL …>"
 #. type: textblock
 #: dos2unix.pod:349
 msgid "New file mode. Convert file INFILE and write output to file OUTFILE.  File names must be given in pairs and wildcard names should I<not> be used or you I<will> lose your files."
-msgstr "Nyfilsläge. Konvertera filen INFIL och skriv utfilen UTFIL. Filnamnen måste ange is par och jokertecken i namnen ska I<inte> användas annars I<kommer> du att förlora filer."
+msgstr "Nyfilsläge. Konvertera filen INFIL och skriv utfilen UTFIL. Filnamnen måste ange i par och jokertecken i namnen ska I<inte> användas annars I<kommer> du att förlora filer."
 
 #. type: textblock
 #: dos2unix.pod:353
@@ -850,7 +850,7 @@ msgstr "Tecken konverteras mellan DOS teckenuppsättning (teckentabell) och ISO 
 #. type: textblock
 #: dos2unix.pod:475
 msgid "When only option C<-iso> is used dos2unix will try to determine the active code page. When this is not possible dos2unix will use default code page CP437, which is mainly used in the USA.  To force a specific code page use options C<-437> (US), C<-850> (Western European), C<-860> (Portuguese), C<-863> (French Canadian), or C<-865> (Nordic).  Windows code page CP1252 (Western European) is also supported with option C<-1252>. For other code pages use dos2unix in combination with iconv(1).  Iconv can convert between a long list of character encodings."
-msgstr "När enbart flaggan C<-iso> används kommer dos2unix att försöka avgöra den aktiva teckentabellen. När detta inte är möjligt kommer dos2unix att använda standardteckentabellen CP437, vilken huvudsakligen används i USA. För att tvinga en specifik tackentabell använd flaggorna C<-437> (USA), C<-850> (Västeuropeisk), C<-860> (Portugisisk), C<-863> (Fransk-kanadensisk) eller C<-865> (Nordisk). Det finns också stöd för Windows teckentabell CP-1252 (Västeuropeisk) via flaggan C<-1252>. För andra teckentabeller använd dos2unix i kombination med iconv(1). iconv kan konvertera mellan en lång lista av teckenkodningar."
+msgstr "När enbart flaggan C<-iso> används kommer dos2unix att försöka avgöra den aktiva teckentabellen. När detta inte är möjligt kommer dos2unix att använda standardteckentabellen CP437, vilken huvudsakligen används i USA. För att tvinga en specifik tackentabell använd flaggorna C<-437> (USA), C<-850> (Västeuropeisk), C<-860> (Portugisisk), C<-863> (Fransk-kanadensisk) eller C<-865> (Nordisk). Det finns också stöd för Windows-teckentabell CP-1252 (Västeuropeisk) via flaggan C<-1252>. För andra teckentabeller använd dos2unix i kombination med iconv(1). iconv kan konvertera mellan en lång lista av teckenkodningar."
 
 #. type: textblock
 #: dos2unix.pod:484
@@ -865,7 +865,7 @@ msgstr "Några exempel:"
 #. type: textblock
 #: dos2unix.pod:488
 msgid "Convert from DOS default code page to Unix Latin-1:"
-msgstr "Konvertera från DOS standardkodsida till Unix Latin-1:"
+msgstr "Konvertera från DOS standardteckentabell till Unix Latin-1:"
 
 #. type: verbatim
 #: dos2unix.pod:490
@@ -925,7 +925,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:504
 msgid "Convert from Unix Latin-1 to DOS default code page:"
-msgstr "Konvertera från Unix Latin-1 till DOS standardkodsida:"
+msgstr "Konvertera från Unix Latin-1 till DOS-standardteckentabell:"
 
 #. type: verbatim
 #: dos2unix.pod:506
@@ -1100,7 +1100,7 @@ msgstr "Unicode-filnamn under Windows"
 #. type: textblock
 #: dos2unix.pod:590
 msgid "Dos2unix has optional support for reading and writing Unicode file names in the Windows Command Prompt. That means that dos2unix can open files that have characters in the name that are not part of the default system ANSI code page.  To see if dos2unix for Windows was built with Unicode file name support type C<dos2unix -V>."
-msgstr "Dos2unix har valfritt stöd för läsning och skri8vning av Unicode-filnamn i Windows kommandoprompt. Detta innebär att dos2unix kan öppna filer som har tecken i sina namn som inte är en del av systemets atandard ANSI-kodsida. För att se om dos2unix för Windows byggdes med stöd för Unicode-filnamn skriv C<dos2unix -V>."
+msgstr "Dos2unix har valfritt stöd för läsning och skri8vning av Unicode-filnamn i Windows kommandoprompt. Detta innebär att dos2unix kan öppna filer som har tecken i sina namn som inte är en del av systemets atandard ANSI-teckentabell. För att se om dos2unix för Windows byggdes med stöd för Unicode-filnamn skriv C<dos2unix -V>."
 
 #. type: textblock
 #: dos2unix.pod:596
@@ -1185,7 +1185,7 @@ msgstr "GB18030 är en standard från Kinesiska regeringen. En obligatorisk delm
 #. type: textblock
 #: dos2unix.pod:624
 msgid "GB18030 is fully compatible with Unicode, and can be considered an unicode transformation format. Like UTF-8, GB18030 is compatible with ASCII. GB18030 is also compatible with Windows code page 936, also known as GBK."
-msgstr "GB18030 är fullständigt kompatibel med Unicode och kan anses vara ett överföringsformat för unicode. Precis som UTF-8 är GB18030 kompatibel med ASCII. GB18030 är också kompatibel med Windows kodsida 936, också känd som GBK."
+msgstr "GB18030 är fullständigt kompatibel med Unicode och kan anses vara ett överföringsformat för unicode. Precis som UTF-8 är GB18030 kompatibel med ASCII. GB18030 är också kompatibel med Windows-teckentabell 936, också känd som GBK."
 
 #. type: textblock
 #: dos2unix.pod:628

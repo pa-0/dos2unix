@@ -268,7 +268,7 @@ msgstr ""
 #: common.c:670
 #, c-format
 msgid " -q, --quiet           quiet mode, suppress all warnings\n"
-msgstr " -q, --quiet           tyst läge, undertryck alla varningar\n"
+msgstr " -q, --quiet           tyst läge, dölj alla varningar\n"
 
 #: common.c:672
 #, c-format
@@ -316,7 +316,7 @@ msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
 "                         (original target files remain unchanged)\n"
 msgstr ""
-" -R, --replace-symlink ersätt symboliska länka med konverterade filer\n"
+" -R, --replace-symlink ersätt symboliska länkar med konverterade filer\n"
 "                         (de ursprungliga målfilerna förblir oförändrade)\n"
 
 #: common.c:688
@@ -460,17 +460,17 @@ msgstr "använder %s som temporär fil\n"
 #: common.c:1433
 #, c-format
 msgid "Failed to write to temporary output file %s:"
-msgstr "Misslyckades att skriva till temporära utmatningsfil %s:"
+msgstr "Misslyckades att skriva till temporär utmatningsfil %s:"
 
 #: common.c:1464
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s:"
-msgstr "Misslyckades att ändra rättigheterna för temporära utmatningsfil %s:"
+msgstr "Misslyckades att ändra rättigheterna för temporär utmatningsfil %s:"
 
 #: common.c:1481
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s:"
-msgstr "Misslyckades att ändra ägare och grupp för temporära utmatningsfil %s:"
+msgstr "Misslyckades att ändra ägare och grupp för temporär utmatningsfil %s:"
 
 #: common.c:1528
 #, c-format
@@ -495,7 +495,7 @@ msgstr "                             vilken är målet för den symboliska länk
 #: common.c:1622 common.c:1712 common.c:1798
 #, c-format
 msgid "Skipping binary file %s\n"
-msgstr "Hoppar över binär fil %s\n"
+msgstr "Hoppar över binärfil %s\n"
 
 #: common.c:1625 common.c:1715 common.c:1801
 #, c-format
