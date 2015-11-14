@@ -446,6 +446,9 @@ man/uk/man1/$(PACKAGE).$(HTMLEXT) : man/uk/man1/$(PACKAGE).pod
 man/zh_CN/man1/$(PACKAGE).$(HTMLEXT) : man/zh_CN/man1/$(PACKAGE).pod
 	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/Mac - Unix文件格式转换器" $< > $@
 
+man/sv/man1/$(PACKAGE).$(HTMLEXT) : man/sv/man1/$(PACKAGE).pod
+	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - textfilsformatskonverterare från DOS/Mac till Unix och vice versa" $< > $@
+
 test: all
 ifneq ($(DJGPP),)
 	cd test; $(MAKE) test UCS= SHELL=$(shell which sh)
