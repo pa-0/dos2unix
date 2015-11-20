@@ -1,3 +1,7 @@
+2015-11-20 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Automatically detect if we are on MSYS 1 or 2.
+	  Unicode support is disabled for MSYS 1.
+
 2015-11-09 Sebastian Rasmussen <sebras@gmail.com>
 	* po/sv.po: New Swedish translation of the messages.
 	* man/sv/man1/dos2unix.po: New Swedish translation of the manual.

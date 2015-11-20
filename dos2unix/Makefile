@@ -179,6 +179,10 @@ ifeq (msys,$(D2U_OS))
 	CC=gcc
 	EXE = .exe
 	VERSIONSUFFIX	= -msys
+# MSYS 1 does not support locales and no Unicode.
+ifeq ($(shell ./test/chk_loc.sh en_US.utf8),no)
+UCS =
+endif
 ifdef ENABLE_NLS
 	LIBS_EXTRA = -lintl -liconv
 endif
