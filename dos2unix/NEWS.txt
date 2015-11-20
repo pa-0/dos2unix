@@ -1,4 +1,4 @@
-2015-??-??: Version 7.3.2
+2015-11-20: Version 7.3.2
 
   * New: Swedish translation of messages and manual.
   * Updated: Danish and Brazilian Portuguese translations.
