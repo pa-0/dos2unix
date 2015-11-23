@@ -1,0 +1,8 @@
+open sftp://waterlan,dos2unix@frs.sourceforge.net
+cd /home/frs/project/d/do/dos2unix/dos2unix
+mkdir 7.3.2
+cd 7.3.2
+mput dos2unix-7.3.2.tar.gz d2u732.zip d2u732b.zip d2u732pm.zip dos2unix-7.3.2-win32.zip dos2unix-7.3.2-win64.zip dos2unix-7.3.2-win32-nls.zip dos2unix-7.3.2-win64-nls.zip d2u732/ChangeLog.txt
+mput README.txt
+mput dos2unix-7.3.2.tar.gz.asc
+exit
