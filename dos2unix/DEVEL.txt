@@ -50,7 +50,7 @@ of several DOS code pages to and from ISO-8859-1. These conversions are also
 part of the SunOS dos2unix implementation after which this implementation has
 been modeled. Although these conversions are not much used these days they have
 been added for the sake completeness. Conversion of CP1252 was added, because
-it is used a lot in the Western world and almost identical to ISO-8859-1. There
+it is used a lot in the Western world. It's almost identical to ISO-8859-1. There
 is no intention to add other conversions to and from ISO-8859-1.
 
 Conversion from UTF-16 was added, because the world is moving to Unicode.
@@ -72,7 +72,7 @@ language. Diacritics are hardly used. The other end of the spectrum is an
 Unicode only world. All languages of the world are supported. Dos2unix aims to
 support these two ends of the spectrum: ASCII and Unicode. Other encoding
 transformations are left to specialized programs like iconv and recode. The few
-conversion modes to and from ISO=8859-1 are only there for legacy reasons.
+conversion modes to and from ISO-8859-1 are only there for legacy reasons.
 
 In the ASCII days DOS to Unix text file conversion, and vice versa, was only
 converting line breaks.  In the Unicode era it is not only line break
