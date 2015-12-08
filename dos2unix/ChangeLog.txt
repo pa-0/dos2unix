@@ -1,3 +1,7 @@
+2015-12-08 Erwin Waterlander <waterlan@xs4all.nl>
+	* DEVEL.txt: New text file with information about why dos2unix is made
+	  like it is.
+
 2015-11-20 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 7.3.2
 	* Makefile: Automatically detect if we are on MSYS 1 or 2.

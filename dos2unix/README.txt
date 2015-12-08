@@ -11,6 +11,7 @@ FILE LIST
         ChangeLog.txt         : Detailed change log for programmers.
         TODO.txt              : Things to do.
         BUGS.txt              : Known bugs and instructions on reporting new ones.
+        DEVEL.txt             : Information about dos2unix' implementation choices.
         man/man1/dos2unix.txt : Dos2unix manual, text format.
         man/man1/dos2unix.htm : Dos2unix manual, HTML format.
 
