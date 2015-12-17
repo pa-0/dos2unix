@@ -9,7 +9,7 @@ breaks at once. Or automatically detect the line break type and convert to the
 other side.
 
   Smart conversions could lead to unexpected behaviour. For instance when a
-dos2unix is run on file with only Unix line breaks and the line breaks are
+dos2unix is run on a file with only Unix line breaks and the line breaks are
 flipped to the other side. This dos2unix implementation does exactly what you
 tell it to do. When you run 'dos2unix' only DOS line breaks are converted to
 Unix line breaks. Unix line breaks stay in the file. Seen from a DOS or Unix
