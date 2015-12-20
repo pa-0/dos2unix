@@ -1,3 +1,8 @@
+2015-12-20 Erwin Waterlander <waterlan@xs4all.nl>
+	* Moved Subversion repository to Git repository.
+	  git clone git://git.code.sf.net/p/dos2unix/gitcode dos2unix-gitcode
+	* Removed execution permission from text and source files.
+
 2015-12-08 Erwin Waterlander <waterlan@xs4all.nl>
 	* DEVEL.txt: New text file with information about why dos2unix is made
 	  like it is.
