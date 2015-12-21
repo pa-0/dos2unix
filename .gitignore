@@ -1,0 +1,16 @@
+*.bak
+*~
+*.tmp
+
+
+*.swp
+*.mo
+*.o
+*.exe
+
+*.1
+*.htm
+*.html
+dos2unix.txt
+dos2unix-man.pot
+dos2unix/man/*/man1/*.pod
