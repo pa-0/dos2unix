@@ -101,8 +101,18 @@ DEBUG
 
         make clean install DEBUG=1
 
-    With debug enabled dos2unix will print extra information
-    and you can debug the source code in gdb.
+    With debug enabled you can debug the source code in gdb.
+
+
+DEBUG MESSAGES
+
+    Extra debug messages can be enabled by adding DEBUGMSG=1
+    to the make command. Example:
+
+        make clean install DEBUGMSG=1
+
+    With debug messages enabled dos2unix will print extra information
+    about accessing the file system.
 
 
 NATIVE LANGUAGE SUPPORT

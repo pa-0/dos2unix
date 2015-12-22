@@ -53,7 +53,10 @@ UNIX2MAC	= unix2mac
 ENABLE_NLS	= 1
 # Large File Support (LFS)
 LFS             = 1
+# DEBUG=1 adds the -g option to CFLAGS, for adding debug symbols.
 DEBUG = 0
+# DEBUGMSG=1 adds -DDEBUG=1 to CFLAGS, for extra verbose messages.
+DEBUGMSG = 0
 UCS = 1
 
 EXE=
@@ -278,7 +281,7 @@ CFLAGS		+= -Wall -Wextra -Wconversion $(RPM_OPT_FLAGS) $(CPPFLAGS) $(CFLAGS_USER
 EXTRA_CFLAGS	= -DVER_REVISION=\"$(DOS2UNIX_VERSION)\" \
 		  -DVER_DATE=\"$(DOS2UNIX_DATE)\" \
 		  -DVER_AUTHOR=\"$(DOS2UNIX_AUTHOR)\" \
-		  -DDEBUG=$(DEBUG) \
+		  -DDEBUG=$(DEBUGMSG) \
 		  $(CFLAGS_OS) \
 		  $(CFLAGS_COMPILER)
 
