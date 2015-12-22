@@ -3,6 +3,8 @@
 	  DEBUG=1 will add option -g to CFLAGS for debugging with gdb.
 	  DEBUGMSG=1 makes dos2unix print extra messages about accessing the
 	  file system.
+	* Makefile: Use GNU standard variables INSTALL_DATA and INSTALL_PROGRAM
+	  for installation.
 
 2015-12-20 Erwin Waterlander <waterlan@xs4all.nl>
 	* Moved Subversion repository to Git repository.
