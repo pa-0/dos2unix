@@ -24,6 +24,7 @@ dist:
 	rm -rf ../${RELEASE_DIR_D2U}
 	git clone ${GITREPO} ../clone
 	mv ../clone/dos2unix ../${RELEASE_DIR_DOS2UNIX}
+	rm -rf ../clone
 	# Include doc files, to make it easier to build dos2unix.
 	cd ../${RELEASE_DIR_DOS2UNIX} ; $(MAKE) man txt html
 	# Make sure .po files are up to date.
