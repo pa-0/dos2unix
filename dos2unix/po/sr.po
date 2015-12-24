@@ -4,10 +4,10 @@
 # Мирослав Николић <miroslavnikolic@rocketmail.com>, 2014—2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-7.2-beta5\n"
+"Project-Id-Version: dos2unix-7.3.1-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-05 20:11+0100\n"
-"PO-Revision-Date: 2015-04-12 11:01+0200\n"
+"POT-Creation-Date: 2015-12-24 01:13+0100\n"
+"PO-Revision-Date: 2015-12-23 18:31+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
 "Language: sr\n"
@@ -185,13 +185,13 @@ msgstr ""
 "   режим претварања    аскри, 7бита, исо, мек, подразумева аскри\n"
 
 #: common.c:646
-#, fuzzy, c-format
+#, c-format
 msgid ""
 " -D, --display-enc     set encoding of displayed text messages\n"
 "   encoding            ansi, unicode, utf8, default to ansi\n"
 msgstr ""
-" -c, --convmode        режим претварања\n"
-"   режим претварања    аскри, 7бита, исо, мек, подразумева аскри\n"
+" -D, --display-enc     подешава кодирање приказаних порука текста\n"
+"   кодирање            „ansi“, „unicode“, „utf8“, основно је „ansi“\n"
 
 #: common.c:649
 #, c-format
@@ -393,14 +393,12 @@ msgid "Without Unicode UTF-16 support.\n"
 msgstr "Без подршке Јуникода УТФ-16.\n"
 
 #: common.c:739
-#, fuzzy
 msgid "With Unicode file name support.\n"
-msgstr "Са подршком Јуникода УТФ-16.\n"
+msgstr "Са подршком назива датотеке Јуникода.\n"
 
 #: common.c:741
-#, fuzzy
 msgid "Without Unicode file name support.\n"
-msgstr "Без подршке Јуникода УТФ-16.\n"
+msgstr "Без подршке назива датотеке Јуникода.\n"
 
 #: common.c:745
 msgid "With native language support.\n"
@@ -429,7 +427,7 @@ msgid "UTF-8"
 msgstr "УТФ-8"
 
 #: common.c:1135
-#, fuzzy, c-format
+#, c-format
 msgid "Input file %s has %s BOM.\n"
 msgstr "Улазна датотека „%s“ има %s НПБ-а.\n"
 
@@ -452,19 +450,19 @@ msgid "using %s as temporary file\n"
 msgstr "користим „%s“ као привремену датотеку\n"
 
 #: common.c:1430
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to write to temporary output file %s:"
-msgstr "Нисам успео да пишем у привремену излазну датотеку „%s“: %s\n"
+msgstr "Нисам успео да пишем у привремену излазну датотеку „%s“:"
 
 #: common.c:1461
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to change the permissions of temporary output file %s:"
-msgstr "Нисам успео да изменим овлашћења привремене излазне датотеке „%s“: %s\n"
+msgstr "Нисам успео да изменим овлашћења привремене излазне датотеке „%s“:"
 
 #: common.c:1478
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to change the owner and group of temporary output file %s:"
-msgstr "Нисам успео да изменим власника и групу привремене излазне датотеке „%s“: %s\n"
+msgstr "Нисам успео да изменим власника и групу привремене излазне датотеке „%s“:"
 
 #: common.c:1525
 #, c-format
@@ -477,9 +475,9 @@ msgid "          output file remains in '%s'\n"
 msgstr "          излазна датотека остаје у „%s“\n"
 
 #: common.c:1552
-#, fuzzy, c-format
+#, c-format
 msgid "problems renaming '%s' to '%s':"
-msgstr "проблеми преименовања „%s“ у „%s“: %s\n"
+msgstr "проблеми преименовања „%s“ у „%s“:"
 
 #: common.c:1556
 #, c-format
@@ -502,14 +500,14 @@ msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "Прескачем УТФ-16 датотеку „%s“, величина „wchar_t“-а је %d бајта.\n"
 
 #: common.c:1629 common.c:1721 common.c:1807
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
-msgstr "Прескачем УТФ-16 датотеку „%s“, дошло је од грешке УТФ-16 претварања.\n"
+msgstr "Прескачем УТФ-16 датотеку „%s“, дошло је од грешке УТФ-16 претварања у %u. реду.\n"
 
 #: common.c:1633 common.c:1725 common.c:1811
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"
-msgstr "Прескачем УТФ-16 датотеку „%s“, дошло је од грешке УТФ-16 претварања.\n"
+msgstr "Прескачем УТФ-16 датотеку „%s“, УТФ-16 претварање није подржано у овом издању „%s“.\n"
 
 #: common.c:1699 common.c:1788 common.c:1853
 #, c-format
@@ -618,9 +616,9 @@ msgid "problems converting file %s\n"
 msgstr "проблеми претварања датотеке „%s“\n"
 
 #: common.c:1911 common.c:1988
-#, fuzzy, c-format
+#, c-format
 msgid "can not read from input file %s:"
-msgstr "не могу да пишем у излазну датотеку: %s\n"
+msgstr "не могу да читам из улазне датотеке „%s“:"
 
 #: common.c:2161
 #, c-format
@@ -643,9 +641,9 @@ msgid "option '%s' requires an argument\n"
 msgstr "опција „%s“ захтева аргумент\n"
 
 #: common.c:2361
-#, fuzzy, c-format
+#, c-format
 msgid "invalid %s display encoding specified\n"
-msgstr "наведен је неисправан „%s“ режим претварања\n"
+msgstr "наведено је неисправно кодирање „%s“ приказа\n"
 
 #: common.c:2381 common.c:2394 common.c:2460
 #, c-format
@@ -653,9 +651,9 @@ msgid "target of file %s not specified in new-file mode\n"
 msgstr "мета датотеке „%s“ није наведена у режиму нове датотеке\n"
 
 #: common.c:2474
-#, fuzzy, c-format
+#, c-format
 msgid "can not read from input file: %s\n"
-msgstr "не могу да пишем у излазну датотеку: %s\n"
+msgstr "не могу да читам из улазне датотеке: „%s“\n"
 
 #: common.c:2486 common.c:2500
 #, c-format
@@ -664,15 +662,11 @@ msgstr "не могу да пишем у излазну датотеку: %s\n"
 
 #: common.c:2577
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
-msgstr ""
+msgstr "грешка: Неисправан пар надометка. Недостаје нижи надометак.\n"
 
 #: common.c:2592
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
-msgstr ""
-
-#, fuzzy
-#~ msgid "has %s BOM.\n"
-#~ msgstr "Записујем %s НПБ-а.\n"
+msgstr "грешка: Неисправан пар надометка. Недостаје виши надометак.\n"
 
 #~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
 #~ msgstr "Прескачем УТФ-16 датотеку „%s“, кодни рспоред текућег језика није УТФ-8.\n"
