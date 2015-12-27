@@ -249,6 +249,8 @@ Example output:
     50       0       0  UTF-8     text    utf8dos.txt
      2     418     219  no_bom    binary  dos2unix.exe
 
+Note that sometimes a binary file can be mistaken for a text file. See also option C<-s>.
+
 Optionally extra flags can be set to change the output. One or more flags
 can be added.
 
@@ -383,6 +385,12 @@ See also option C<-b>.
 =item B<-s, --safe>
 
 Skip binary files (default).
+
+The skipping of binary files is done to avoid accidental mistakes. Be aware
+that the detection of binary files is not 100% foolproof. Input files are
+scanned for binary symbols which are typically not found in text files. It is
+possible that a binary file contains only normal text characters. Such a binary
+file will mistakenly be seen as a text file.
 
 =item B<-u, --keep-utf16>
 

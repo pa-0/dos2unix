@@ -1,4 +1,6 @@
 2015-12-27 Erwin Waterlander <waterlan@xs4all.nl>
+	* man/man1/dos2unix.pod: Manual update. Binary file detection is not
+	  foolproof.
 	* Moved Git repository:
 	  git clone git://git.code.sf.net/p/dos2unix/dos2unix
 
