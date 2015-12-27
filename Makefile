@@ -1,6 +1,6 @@
 include dos2unix/version.mk
 
-GITREPO = git://git.code.sf.net/p/dos2unix/gitcode
+GITREPO = git://git.code.sf.net/p/dos2unix/dos2unix
 
 all: help
 

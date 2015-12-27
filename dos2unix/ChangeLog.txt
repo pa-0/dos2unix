@@ -1,3 +1,7 @@
+2015-12-27 Erwin Waterlander <waterlan@xs4all.nl>
+	* Moved Git repository:
+	  git clone git://git.code.sf.net/p/dos2unix/dos2unix
+
 2015-12-22 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Split DEBUG=1 into DEBUG=1 and DEBUGMSG=1.
 	  DEBUG=1 will add option -g to CFLAGS for debugging with gdb.
