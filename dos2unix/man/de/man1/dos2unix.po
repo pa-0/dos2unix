@@ -5,16 +5,16 @@
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.3.1-beta6\n"
-"POT-Creation-Date: 2015-12-27 08:23+0100\n"
-"PO-Revision-Date: 2015-09-25 19:05+0200\n"
+"Project-Id-Version: dos2unix-man-7.3.3-beta1\n"
+"POT-Creation-Date: 2015-12-27 08:32+0100\n"
+"PO-Revision-Date: 2015-12-28 21:28+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.5\n"
 
 #. type: =head1
 #: dos2unix.pod:52
@@ -390,7 +390,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:252
 msgid "Note that sometimes a binary file can be mistaken for a text file. See also option C<-s>."
-msgstr ""
+msgstr "Beachten sie, dass manchmal eine Binärdatei fälschlicherweise als Textdatei erkannt wird. Siehe auch Option C<-s>."
 
 #. type: textblock
 #: dos2unix.pod:254
@@ -695,7 +695,7 @@ msgstr "überspringt Binärdateien (Vorgabe)."
 #. type: textblock
 #: dos2unix.pod:389
 msgid "The skipping of binary files is done to avoid accidental mistakes. Be aware that the detection of binary files is not 100% foolproof. Input files are scanned for binary symbols which are typically not found in text files. It is possible that a binary file contains only normal text characters. Such a binary file will mistakenly be seen as a text file."
-msgstr ""
+msgstr "Binärdateien werden übersprungen, damit unerwünschtes Fehlverhalten vermieden wird. Denken Sie daran, dass die Erkennung nicht 100% sicher funktioniert. Die übergebenen Dateien werden auf Binärsymbole überprüft, die typischerweise in Textdateien nicht vorkommen. Es ist jedoch möglich, dass eine Binärdatei ausschließlich gewöhnliche Textzeichen enthält. Eine solche Binärdatei wird dann fälschlicherweise als Textdatei angesehen."
 
 #. type: =item
 #: dos2unix.pod:395

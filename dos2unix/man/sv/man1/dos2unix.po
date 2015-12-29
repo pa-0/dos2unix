@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3.1-beta6\n"
-"POT-Creation-Date: 2015-12-27 08:23+0100\n"
-"PO-Revision-Date: 2015-11-08 15:17+0100\n"
+"Project-Id-Version: dos2unix-man 7.3.3-beta1\n"
+"POT-Creation-Date: 2015-12-27 08:32+0100\n"
+"PO-Revision-Date: 2015-12-28 22:47+0100\n"
 "Last-Translator: Sebastian Rasmussen <sebras@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -24,7 +24,7 @@ msgstr "NAMN"
 #. type: textblock
 #: dos2unix.pod:54
 msgid "dos2unix - DOS/Mac to Unix and vice versa text file format converter"
-msgstr "dos2unix - textfilsformatskonverterare från DOS/Mac till Unix och vice versa"
+msgstr "dos2unix - konverterare för textfilsformat från DOS/Mac till Unix och vice versa"
 
 #. type: =head1
 #: dos2unix.pod:56
@@ -226,7 +226,7 @@ msgstr "Behåll byteordningsmarkering (Byte Order Mark, BOM). Om infilen har en 
 #. type: =item
 #: dos2unix.pod:149
 msgid "B<-c, --convmode CONVMODE>"
-msgstr "B<-c, --convmode KONVERTERINGLÄGE>"
+msgstr "B<-c, --convmode KONVERTERINGSLÄGE>"
 
 #. type: textblock
 #: dos2unix.pod:151
@@ -390,7 +390,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:252
 msgid "Note that sometimes a binary file can be mistaken for a text file. See also option C<-s>."
-msgstr ""
+msgstr "Notera att en binärfil ibland kan misstas för en textfil. Se vidare flaggan C<-s>."
 
 #. type: textblock
 #: dos2unix.pod:254
@@ -645,7 +645,7 @@ msgstr "Nyfilsläge. Konvertera filen INFIL och skriv utfilen UTFIL. Filnamnen m
 #. type: textblock
 #: dos2unix.pod:355
 msgid "The person who starts the conversion in new file (paired) mode will be the owner of the converted file. The read/write permissions of the new file will be the permissions of the original file minus the umask(1) of the person who runs the conversion."
-msgstr "Användaren som påbörjar konverteringen i nyfilsläge (paratläge) kommer att bli ägaren till den konverterade filen. Läs-/skrivbehörigheter för den nya filen kommer att vara samma behörigheter som för originalfilen minus umask(1) för användaren som kör konverteringen."
+msgstr "Användaren som påbörjar konverteringen i nyfilsläge (parat läge) kommer att bli ägaren till den konverterade filen. Läs-/skrivbehörigheter för den nya filen kommer att vara samma behörigheter som för originalfilen minus umask(1) för användaren som kör konverteringen."
 
 #. type: =item
 #: dos2unix.pod:360
@@ -695,7 +695,7 @@ msgstr "Hoppa över binära filer (standard)."
 #. type: textblock
 #: dos2unix.pod:389
 msgid "The skipping of binary files is done to avoid accidental mistakes. Be aware that the detection of binary files is not 100% foolproof. Input files are scanned for binary symbols which are typically not found in text files. It is possible that a binary file contains only normal text characters. Such a binary file will mistakenly be seen as a text file."
-msgstr ""
+msgstr "Binärfiler hoppas över för att undvika oavsiktliga misstag. Var medveten om att detektering av binärfiler inte är 100% säker. Infiler genomsöks efter binära symboler som typiskt inte återfinns i textfiler. Det är möjligt att en binärfil enbart innehåller texttecken. En sådan binärfil kommer oavsiktligt att ses som en textfil."
 
 #. type: =item
 #: dos2unix.pod:395
@@ -775,7 +775,7 @@ msgstr "B<-R, --replace-symlink>"
 #. type: textblock
 #: dos2unix.pod:434
 msgid "Replace symbolic links with converted files (original target files remain unchanged)."
-msgstr "Ersätt symboliska länkar med konverterade filer (original målfilerna förblir oförändrade)."
+msgstr "Ersätt symboliska länkar med konverterade filer (originalmålfilerna förblir oförändrade)."
 
 #. type: =item
 #: dos2unix.pod:437
@@ -860,7 +860,7 @@ msgstr "Tecken konverteras mellan DOS teckenuppsättning (teckentabell) och ISO 
 #. type: textblock
 #: dos2unix.pod:483
 msgid "When only option C<-iso> is used dos2unix will try to determine the active code page. When this is not possible dos2unix will use default code page CP437, which is mainly used in the USA.  To force a specific code page use options C<-437> (US), C<-850> (Western European), C<-860> (Portuguese), C<-863> (French Canadian), or C<-865> (Nordic).  Windows code page CP1252 (Western European) is also supported with option C<-1252>. For other code pages use dos2unix in combination with iconv(1).  Iconv can convert between a long list of character encodings."
-msgstr "När enbart flaggan C<-iso> används kommer dos2unix att försöka avgöra den aktiva teckentabellen. När detta inte är möjligt kommer dos2unix att använda standardteckentabellen CP437, vilken huvudsakligen används i USA. För att tvinga en specifik tackentabell använd flaggorna C<-437> (USA), C<-850> (Västeuropeisk), C<-860> (Portugisisk), C<-863> (Fransk-kanadensisk) eller C<-865> (Nordisk). Det finns också stöd för Windows-teckentabell CP-1252 (Västeuropeisk) via flaggan C<-1252>. För andra teckentabeller använd dos2unix i kombination med iconv(1). iconv kan konvertera mellan en lång lista av teckenkodningar."
+msgstr "När enbart flaggan C<-iso> används kommer dos2unix att försöka avgöra den aktiva teckentabellen. När detta inte är möjligt kommer dos2unix att använda standardteckentabellen CP437, vilken huvudsakligen används i USA. För att tvinga en specifik teckentabell använd flaggorna C<-437> (USA), C<-850> (Västeuropeisk), C<-860> (Portugisisk), C<-863> (Fransk-kanadensisk) eller C<-865> (Nordisk). Det finns också stöd för Windows-teckentabell CP-1252 (Västeuropeisk) via flaggan C<-1252>. För andra teckentabeller använd dos2unix i kombination med iconv(1). iconv kan konvertera mellan en lång lista av teckenkodningar."
 
 #. type: textblock
 #: dos2unix.pod:492
@@ -1533,7 +1533,7 @@ msgstr "Om allt går bra kommer noll att returneras. När ett systemfel uppstår
 #. type: textblock
 #: dos2unix.pod:772
 msgid "The return value is always zero in quiet mode, except when wrong command-line options are used."
-msgstr "Returvärdet är alltid noll i tystläge, utom när felaktiga kommandoradsflaggor används."
+msgstr "Returvärdet är alltid noll i tyst läge, utom när felaktiga kommandoradsflaggor används."
 
 #. type: =head1
 #: dos2unix.pod:775

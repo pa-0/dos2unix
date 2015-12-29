@@ -4,9 +4,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3.1-beta6\n"
-"POT-Creation-Date: 2015-12-27 08:23+0100\n"
-"PO-Revision-Date: 2015-09-28 19:36+0200\n"
+"Project-Id-Version: dos2unix-man 7.3.3-beta1\n"
+"POT-Creation-Date: 2015-12-27 08:32+0100\n"
+"PO-Revision-Date: 2015-12-28 21:15+0100\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "Language: pl\n"
@@ -388,7 +388,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:252
 msgid "Note that sometimes a binary file can be mistaken for a text file. See also option C<-s>."
-msgstr ""
+msgstr "Uwaga: czasami plik binarny może być błędnie rozpoznany jako tekstowy. P. także opcja C<-s>."
 
 #. type: textblock
 #: dos2unix.pod:254
@@ -693,7 +693,7 @@ msgstr "Pominięcie plików binarnych (domyślne)."
 #. type: textblock
 #: dos2unix.pod:389
 msgid "The skipping of binary files is done to avoid accidental mistakes. Be aware that the detection of binary files is not 100% foolproof. Input files are scanned for binary symbols which are typically not found in text files. It is possible that a binary file contains only normal text characters. Such a binary file will mistakenly be seen as a text file."
-msgstr ""
+msgstr "Pomijanie plików binarnych ma na celu zapobieżenie przypadkowym błędom. Uwaga: wykrywanie plików binarnych nie jest w 100% odporne na błędy. Pliki wejściowe są przeszukiwane pod kątem symboli binarnych, które zwykle nie występują w plikach tekstowych. Może się zdarzyć, że plik binarny zawiera tylko zwykłe znaki tekstowe. Taki plik binarny będzie błędnie widziany jako plik tekstowy."
 
 #. type: =item
 #: dos2unix.pod:395

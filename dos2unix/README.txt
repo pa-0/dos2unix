@@ -110,12 +110,12 @@ TRANSLATORS
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3.1
         French                Frédéric Marchal             Version 6.0.5 - 7.3.1
-        German                Mario Blättermann            Version 6.0.5 - 7.3.1
-        Polish                Jakub Bogusz                 Version 6.0.5 - 7.3.1
+        German                Mario Blättermann            Version 6.0.5 - 7.3.3
+        Polish                Jakub Bogusz                 Version 6.0.5 - 7.3.3
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.2.1
-        Swedish               Sebastian Rasmussen          Version 7.3.2
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.3.1
+        Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.3.3
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.3.3
 
 
 ACKNOWLEDGEMENTS

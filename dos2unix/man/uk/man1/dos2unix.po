@@ -6,9 +6,9 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3.1-beta6\n"
-"POT-Creation-Date: 2015-12-27 08:23+0100\n"
-"PO-Revision-Date: 2015-09-24 10:45+0300\n"
+"Project-Id-Version: dos2unix-man 7.3.3-beta1\n"
+"POT-Creation-Date: 2015-12-27 08:32+0100\n"
+"PO-Revision-Date: 2015-12-28 22:12+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
@@ -392,7 +392,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:252
 msgid "Note that sometimes a binary file can be mistaken for a text file. See also option C<-s>."
-msgstr ""
+msgstr "Зауважте, що іноді бінарні файли помилково розпізнаються як текстові. Див. також параметр C<-s>."
 
 #. type: textblock
 #: dos2unix.pod:254
@@ -697,7 +697,7 @@ msgstr "Пропускати двійкові файли (типово)."
 #. type: textblock
 #: dos2unix.pod:389
 msgid "The skipping of binary files is done to avoid accidental mistakes. Be aware that the detection of binary files is not 100% foolproof. Input files are scanned for binary symbols which are typically not found in text files. It is possible that a binary file contains only normal text characters. Such a binary file will mistakenly be seen as a text file."
-msgstr ""
+msgstr "Пропускання бінарних файлів реалізовано для того, щоб уникнути випадкових помилок. Майте на увазі, що визначення бінарних файлів не є 100% точним. Програма просто шукає у файлах бінарні символи, які типово не трапляються у текстових файлах. Може так статися, що у бінарному файлі містяться лише звичайні текстові символи. Такий бінарний файл буде помилково сприйнято програмою як текстовий."
 
 #. type: =item
 #: dos2unix.pod:395
