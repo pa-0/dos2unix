@@ -4,17 +4,17 @@
 # zwpwjwtz <zwpwjwtz@126.com>, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.3.1-beta6\n"
-"POT-Creation-Date: 2015-12-27 08:23+0100\n"
-"PO-Revision-Date: 2015-09-24 18:56+0800\n"
-"Last-Translator: zwpwjwtz <zwpwjwtz@126.com>\n"
+"Project-Id-Version: dos2unix-man-7.3.3-beta1\n"
+"POT-Creation-Date: 2015-12-27 08:32+0100\n"
+"PO-Revision-Date: 2015-12-30 10:06+0800\n"
+"Last-Translator: Tianze Wang <zwpwjwtz@126.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.5\n"
 
 #. type: =head1
 #: dos2unix.pod:52
@@ -390,7 +390,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:252
 msgid "Note that sometimes a binary file can be mistaken for a text file. See also option C<-s>."
-msgstr ""
+msgstr "注意，二进制文件有时会被误判为文本文件。参见选项 C<-s>。"
 
 #. type: textblock
 #: dos2unix.pod:254
@@ -695,7 +695,7 @@ msgstr "跳过二进制文件（默认）。"
 #. type: textblock
 #: dos2unix.pod:389
 msgid "The skipping of binary files is done to avoid accidental mistakes. Be aware that the detection of binary files is not 100% foolproof. Input files are scanned for binary symbols which are typically not found in text files. It is possible that a binary file contains only normal text characters. Such a binary file will mistakenly be seen as a text file."
-msgstr ""
+msgstr "跳过二进制文件是为了避免可能的错误。请注意，对二进制文件的探测并不能做到100%准确。程序通过扫描二进制文件所特有的标记来将其与文本文件区分开来，但有的二进制文件可能只包含普通的文本字符，这样的文件就会被误判为文本文件。"
 
 #. type: =item
 #: dos2unix.pod:395

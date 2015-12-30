@@ -6,17 +6,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3.1-beta6\n"
+"Project-Id-Version: dos2unix-man 7.3.3-beta1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-27 08:23+0100\n"
-"PO-Revision-Date: 2015-10-09 04:40-0300\n"
+"POT-Creation-Date: 2015-12-27 08:32+0100\n"
+"PO-Revision-Date: 2015-12-30 01:10-0200\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge.net>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.6\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. type: =head1
@@ -393,7 +393,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:252
 msgid "Note that sometimes a binary file can be mistaken for a text file. See also option C<-s>."
-msgstr ""
+msgstr "Note que em algumas vezes um arquivo binário pode ser confundido com um arquivo texto. Veja também a opção C<-s>."
 
 #. type: textblock
 #: dos2unix.pod:254
@@ -698,7 +698,7 @@ msgstr "Ignora arquivo binários (padrão)."
 #. type: textblock
 #: dos2unix.pod:389
 msgid "The skipping of binary files is done to avoid accidental mistakes. Be aware that the detection of binary files is not 100% foolproof. Input files are scanned for binary symbols which are typically not found in text files. It is possible that a binary file contains only normal text characters. Such a binary file will mistakenly be seen as a text file."
-msgstr ""
+msgstr "A ação de ignorar arquivos binários é feita para evitar equívocos acidentais. Fique ciente de que a detecção de arquivos binários não é 100% à prova de erros. Arquivos de entrada são analisados por símbolos binários que, geralmente, não são encontrados em arquivos textos. É possível que um arquivo binário contenha apenas caracteres de texto normais. tal arquivo binário pode ser acidentalmente visto como um arquivo de texto."
 
 #. type: =item
 #: dos2unix.pod:395
