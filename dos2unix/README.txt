@@ -108,7 +108,7 @@ TRANSLATORS
         Brazilian Portuguese  Rafael Fontenelle            Version 7.3.2 - 7.3.3
         Chinese (simplified)  Tianze Wang                  Version 7.3.1 - 7.3.3
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
-        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3.1
+        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3.3
         French                Frédéric Marchal             Version 6.0.5 - 7.3.3
         German                Mario Blättermann            Version 6.0.5 - 7.3.3
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.3.3

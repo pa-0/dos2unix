@@ -5,12 +5,12 @@
 # “Hm!  I can see those old men shake their heads.”
 #
 # Erwin Waterlander <waterlan@xs4all.nl>, 2014.
-# Benno Schulenberg <benno@vertaalt.nl>, 2014, 2015.
+# Benno Schulenberg <benno@vertaalt.nl>, 2014, 2015, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.3.1-beta6\n"
-"POT-Creation-Date: 2015-12-27 08:23+0100\n"
-"PO-Revision-Date: 2015-09-24 09:55+0200\n"
+"Project-Id-Version: dos2unix-man-7.3.3-beta1\n"
+"POT-Creation-Date: 2015-12-27 08:32+0100\n"
+"PO-Revision-Date: 2016-01-01 17:59+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -394,7 +394,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:252
 msgid "Note that sometimes a binary file can be mistaken for a text file. See also option C<-s>."
-msgstr ""
+msgstr "Merk op dat een binair bestand soms voor een tekstbestand aangezien kan worden.  Zie ook optie C<-s>."
 
 #. type: textblock
 #: dos2unix.pod:254
@@ -699,7 +699,7 @@ msgstr "Binaire bestanden overslaan (standaard)."
 #. type: textblock
 #: dos2unix.pod:389
 msgid "The skipping of binary files is done to avoid accidental mistakes. Be aware that the detection of binary files is not 100% foolproof. Input files are scanned for binary symbols which are typically not found in text files. It is possible that a binary file contains only normal text characters. Such a binary file will mistakenly be seen as a text file."
-msgstr ""
+msgstr "Binaire bestanden worden overgeslagen om vergissingen te voorkomen.  Het detecteren van binaire bestanden is echter niet 100% betrouwbaar.  Invoerbestanden worden gescand op binaire tekens die gewoonlijk niet in tekstbestanden voorkomen.  Maar het is mogelijk dat een binair bestand enkel normale teksttekens bevat.  Zo'n binair bestand zal dan foutief als een tekstbestand gezien worden."
 
 #. type: =item
 #: dos2unix.pod:395
