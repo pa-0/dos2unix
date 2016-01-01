@@ -62,4 +62,5 @@ pgpsend:
 # Target: tag - Create a tag
 tag:
 	git tag -a dos2unix-${DOS2UNIX_VERSION} -m "Tagging dos2unix release ${DOS2UNIX_VERSION}."
+	git push origin dos2unix-${DOS2UNIX_VERSION}
 
