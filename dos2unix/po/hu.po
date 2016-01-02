@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.2.3-beta3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-05 20:11+0100\n"
+"POT-Creation-Date: 2016-01-02 16:12+0100\n"
 "PO-Revision-Date: 2015-06-30 13:38+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -19,8 +19,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: dos2unix.c:79
+#, fuzzy, c-format
 msgid ""
-"Copyright (C) 2009-2015 Erwin Waterlander\n"
+"Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
 "Copyright (C) 1998      Bernd Johannes Wuebben (Version 3.0)\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
@@ -64,8 +65,9 @@ msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "hiba: a DOS2UNIX_LOCALEDIR környezeti változó értéke túl hosszú.\n"
 
 #: unix2dos.c:69
+#, fuzzy, c-format
 msgid ""
-"Copyright (C) 2009-2015 Erwin Waterlander\n"
+"Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
