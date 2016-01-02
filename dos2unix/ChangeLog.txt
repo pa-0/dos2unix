@@ -1,3 +1,8 @@
+2016-01-02 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Compilation for mingw, mingw32-w64, and mingw64-w64
+	  works out of the box.
+	* mingw*.mak: Deleted.
+
 2015-12-27 Erwin Waterlander <waterlan@xs4all.nl>
 	* man/man1/dos2unix.pod: Manual update. Binary file detection is not
 	  foolproof.

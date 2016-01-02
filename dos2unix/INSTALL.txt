@@ -231,22 +231,15 @@ DOCUMENTATION
 
 WINDOWS 32 BIT PORT
 
-    Using Mingw compiler <http://www.mingw.org>:
-
-        make -f mingw.mak clean
-        make -f mingw.mak
-        make -f mingw.mak strip
-        make -f mingw.mak install
-
-    Using MinGW-w64 compiler <http://mingw-w64.sourceforge.net>:
+    Using Mingw <http://www.mingw.org>, or MinGW-w64
+    <http://mingw-w64.sourceforge.net>.
     I am using the MSYS2 project <http://sourceforge.net/projects/msys2/>
-    which includes the MinGW-w64 compiler and an updated MSYS shell based
-    on Cygwin 1.7.
+    which includes the MinGW-w64 compiler.
 
-        make -f mingw32.mak clean
-        make -f mingw32.mak
-        make -f mingw32.mak strip
-        make -f mingw32.mak install
+        make clean
+        make
+        make strip
+        make install
 
     Or use Open Watcom and type:
 
@@ -271,15 +264,14 @@ WINDOWS 32 BIT PORT
 WINDOWS 64 BIT PORT
 
     To compile a version for 64 bit Windows, get the Mingw-w64 compiler
-    <http://mingw-w64.sourceforge.net>, and use makefile mingw64.mak:
+    <http://mingw-w64.sourceforge.net>.
     I am using the MSYS2 project <http://sourceforge.net/projects/msys2/>
-    which includes the MinGW-w64 compiler and an updated MSYS shell based
-    on Cygwin 1.7.
+    which includes the MinGW-w64 compiler.
 
-        make -f mingw64.mak clean
-        make -f mingw64.mak
-        make -f mingw64.mak strip
-        make -f mingw64.mak install
+        make clean
+        make
+        make strip
+        make install
 
     Or use Microsoft Visual C++. Visual Studio Express supports
     out of the box C/C++ compilation for 64-bit applications since
@@ -342,4 +334,3 @@ OS/2 PORT
         wmake -f wccos2.mak clean
         wmake -f wccos2.mak
         wmake -f wccos2.mak install
-
