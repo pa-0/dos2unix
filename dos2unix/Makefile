@@ -1,6 +1,6 @@
 # Author: Erwin Waterlander
 #
-#   Copyright (C) 2009-2015 Erwin Waterlander
+#   Copyright (C) 2009-2016 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -58,6 +58,7 @@ DEBUG = 0
 # DEBUGMSG=1 adds -DDEBUG=1 to CFLAGS, for extra verbose messages.
 DEBUGMSG = 0
 UCS = 1
+DIST_TARGET = dist-tgz
 
 EXE=
 
@@ -145,6 +146,12 @@ endif
 endif
 
 ifndef D2U_OS
+ifeq ($(findstring MINGW64,$(d2u_os)),MINGW64)
+	D2U_OS = mingw64
+endif
+endif
+
+ifndef D2U_OS
 ifneq ($(DJGPP),)
 	D2U_OS = msdos
 endif
@@ -177,16 +184,20 @@ endif
 	# Cygwin packaging standard avoids version numbers on
 	# documentation directories.
 	docsubdir	= $(PACKAGE)
-	VERSIONSUFFIX	= -cygwin
+	MACHINE := $(subst -pc-cygwin,,$(shell gcc -dumpmachine))
+	VERSIONSUFFIX	= -cygwin-$(MACHINE)
 endif
 
 ifeq (msys,$(D2U_OS))
 	CC=gcc
 	EXE = .exe
-	VERSIONSUFFIX	= -msys
+	MACHINE := $(subst -pc-msys,,$(shell gcc -dumpmachine))
 # MSYS 1 does not support locales and no Unicode.
 ifeq ($(shell ./test/chk_loc.sh en_US.utf8),no)
-UCS =
+	UCS =
+	VERSIONSUFFIX = -msys1-$(MACHINE)
+else
+	VERSIONSUFFIX = -msys2-$(MACHINE)
 endif
 ifdef ENABLE_NLS
 	LIBS_EXTRA = -lintl -liconv
@@ -194,17 +205,46 @@ endif
 endif
 
 ifeq (mingw32,$(D2U_OS))
+	CC=gcc
 	prefix=c:/usr/local
 	EXE = .exe
-	VERSIONSUFFIX	= -win32
+	VERSIONSUFFIX = -win32
 	LINK = cp -f
+	UNIFILE=1
+	DIST_TARGET = dist-zip
 ifdef ENABLE_NLS
 	LIBS_EXTRA = -lintl -liconv
 	ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
 endif
 ifeq ($(findstring w64-mingw32,$(shell gcc -dumpmachine)),w64-mingw32)
+# Mingw-w64
 	CFLAGS_COMPILER = -DD2U_COMPILER=MINGW32_W64
+ifdef ENABLE_NLS
+	ZIPOBJ_EXTRA += bin/libgcc_s_dw2-1.dll bin/libwinpthread-1.dll
 endif
+	CRT_GLOB_OBJ = /mingw32/i686-w64-mingw32/lib/CRT_glob.o
+	LIBS_EXTRA += $(CRT_GLOB_OBJ)
+	CFLAGS_OS=-I/mingw32/include
+else
+	CFLAGS_OS=-D_O_U16TEXT=0x20000
+endif
+endif
+
+ifeq (mingw64,$(D2U_OS))
+	CC=gcc
+	prefix=c:/usr/local64
+	EXE = .exe
+	VERSIONSUFFIX = -win64
+	LINK = cp -f
+	UNIFILE=1
+	DIST_TARGET = dist-zip
+ifdef ENABLE_NLS
+	LIBS_EXTRA = -lintl -liconv
+	ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
+endif
+	CRT_GLOB_OBJ = /mingw64/x86_64-w64-mingw32/lib/CRT_glob.o
+	LIBS_EXTRA += $(CRT_GLOB_OBJ)
+	CFLAGS_OS=-I/mingw64/include
 endif
 
 ifeq (msdos,$(D2U_OS))
@@ -227,6 +267,7 @@ ifeq (os/2,$(D2U_OS))
 	LINK_MAN = cp -f
 	UCS =
 	LDFLAGS_EXTRA = -Zargs-wild
+	DIST_TARGET = dist-zip
 ifdef ENABLE_NLS
 	LIBS_EXTRA += -lintl -liconv
 endif
@@ -632,7 +673,7 @@ dist-tbz:
 	cd $(prefix) ; tar cvjf $(TBZFILE) $(ZIPOBJ)
 	mv $(prefix)/$(TBZFILE) ..
 
-dist: dist-tgz
+dist: $(DIST_TARGET)
 
 strip:
 	$(STRIP) $(BIN)
