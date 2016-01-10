@@ -233,21 +233,36 @@ WINDOWS 32 BIT PORT
 
     Using Mingw <http://www.mingw.org>, or MinGW-w64
     <http://mingw-w64.sourceforge.net>.
+
+    I  advise to use mingw-w64, because mingw-w64 has support for
+    Large File Support (LFS), and mingw doesn't. LFS is the ability to
+    read/write files larger than 2GB or 4GB on a 32 bit operation system.
+    LFS also makes processing files on network drives more reliable. I have
+    had a problem report that output files were not always writen when files
+    on a network drive were concurrently processed. By switching from
+    mingw to mingw-w64 the problem was solved.
+    Earlier I got a problem report of accessing small files on a Windows
+    network drive from Debian Linux. Here also the solution was LFS.
+    Since dos2unix 6.0.4 (2013-12-30) I build the binary win32 packages
+    with mingw-w64.
+
     I am using the MSYS2 project <http://sourceforge.net/projects/msys2/>
     which includes the MinGW-w64 compiler.
+
+    Type these commands to build with mingw(-w64):
 
         make clean
         make
         make strip
         make install
 
-    Or use Open Watcom and type:
+    Using Open Watcom:
 
         wmake -f wccwin32.mak clean
         wmake -f wccwin32.mak
         wmake -f wccwin32.mak install
 
-    Or use Microsoft Visual C++ and type:
+    Using Microsoft Visual C++:
 
         nmake /f vc.mak clean
         nmake /f vc.mak
