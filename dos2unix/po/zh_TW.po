@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-02 16:12+0100\n"
+"POT-Creation-Date: 2016-01-12 07:18+0100\n"
 "PO-Revision-Date: 2014-03-14 00:43+0800\n"
 "Last-Translator: mail6543210 <mail6543210@yahoo.com.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -130,62 +130,52 @@ msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
 msgstr "用法: %s [選項] [file ...] [-n infile outfile ...]\n"
 
 #: common.c:630
-#, c-format
 msgid " -ascii                convert only line breaks (default)\n"
 msgstr " -ascii                只轉換換行字元(預設)\n"
 
 #: common.c:631
-#, c-format
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
 msgstr " -iso                  在DOS 和ISO-8859-1 字元集間轉換\n"
 
 #: common.c:632
-#, c-format
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
 msgstr "   -1252               使用Windows 1252 編碼頁(西歐)\n"
 
 #: common.c:633
-#, c-format
 msgid "   -437                use DOS code page 437 (US) (default)\n"
 msgstr "   -437                使用DOS 437 編碼頁(US) (預設)\n"
 
 #: common.c:634
-#, c-format
 msgid "   -850                use DOS code page 850 (Western European)\n"
 msgstr "   -850                使用DOS 850 編碼頁(西歐)\n"
 
 #: common.c:635
-#, c-format
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
 msgstr "   -860                使用DOS 860 編碼頁(葡萄牙)\n"
 
 #: common.c:636
-#, c-format
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
 msgstr "   -863                使用DOS 863 編碼頁(加拿大法語)\n"
 
 #: common.c:637
-#, c-format
 msgid "   -865                use DOS code page 865 (Nordic)\n"
 msgstr "   -865                使用DOS 865 編碼頁(北歐)\n"
 
 #: common.c:638
-#, c-format
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
 msgstr " -7                    轉換8 位元字元到7 位元空間\n"
 
 #: common.c:640
-#, fuzzy, c-format
+#, fuzzy
 msgid " -b, --keep-bom        keep Byte Order Mark\n"
 msgstr " -m, --add-bom         加入UTF-8 BOM\n"
 
 #: common.c:642
-#, fuzzy, c-format
+#, fuzzy
 msgid " -b, --keep-bom        keep Byte Order Mark (default)\n"
 msgstr " -m, --add-bom         加入UTF-8 BOM\n"
 
 #: common.c:643
-#, c-format
 msgid ""
 " -c, --convmode        conversion mode\n"
 "   convmode            ascii, 7bit, iso, mac, default to ascii\n"
@@ -194,7 +184,7 @@ msgstr ""
 "   convmode            ascii, 7bit, iso, mac, 預設為ascii\n"
 
 #: common.c:646
-#, fuzzy, c-format
+#, fuzzy
 msgid ""
 " -D, --display-enc     set encoding of displayed text messages\n"
 "   encoding            ansi, unicode, utf8, default to ansi\n"
@@ -203,22 +193,19 @@ msgstr ""
 "   convmode            ascii, 7bit, iso, mac, 預設為ascii\n"
 
 #: common.c:649
-#, c-format
 msgid " -f, --force           force conversion of binary files\n"
 msgstr " -f, --force           強制轉換二進位檔案\n"
 
 #: common.c:652
-#, c-format
 msgid " -gb, --gb18030        convert UTF-16 to GB18030\n"
 msgstr ""
 
 #: common.c:655
-#, c-format
 msgid " -h, --help            display this help text\n"
 msgstr " -h, --help            顯示本說明文字\n"
 
 #: common.c:656
-#, fuzzy, c-format
+#, fuzzy
 msgid ""
 " -i, --info[=FLAGS]    display file information\n"
 "   file ...            files to analyze\n"
@@ -227,27 +214,23 @@ msgstr ""
 "   file ...            原檔模式中要轉換的檔案\n"
 
 #: common.c:658
-#, c-format
 msgid " -k, --keepdate        keep output file date\n"
 msgstr " -k, --keepdate        保留輸出檔時間\n"
 
 #: common.c:659
-#, c-format
 msgid " -L, --license         display software license\n"
 msgstr " -L, --license         顯示軟體授權\n"
 
 #: common.c:660
-#, c-format
 msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline         加入額外的換行\n"
 
 #: common.c:661
-#, fuzzy, c-format
+#, fuzzy
 msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
 msgstr " -m, --add-bom         加入UTF-8 BOM\n"
 
 #: common.c:662
-#, c-format
 msgid ""
 " -n, --newfile         write to new file\n"
 "   infile              original file in new-file mode\n"
@@ -258,7 +241,6 @@ msgstr ""
 "   outfile             新檔模式中的輸出檔案\n"
 
 #: common.c:665
-#, c-format
 msgid ""
 " -o, --oldfile         write to old file (default)\n"
 "   file ...            files to convert in old-file mode\n"
@@ -267,52 +249,44 @@ msgstr ""
 "   file ...            原檔模式中要轉換的檔案\n"
 
 #: common.c:667
-#, c-format
 msgid " -q, --quiet           quiet mode, suppress all warnings\n"
 msgstr " -q, --quiet           安靜模式，抑制所有警告\n"
 
 #: common.c:669
-#, fuzzy, c-format
+#, fuzzy
 msgid " -r, --remove-bom      remove Byte Order Mark (default)\n"
 msgstr " -m, --add-bom         加入UTF-8 BOM\n"
 
 #: common.c:671
-#, fuzzy, c-format
+#, fuzzy
 msgid " -r, --remove-bom      remove Byte Order Mark\n"
 msgstr " -m, --add-bom         加入UTF-8 BOM\n"
 
 #: common.c:672
-#, c-format
 msgid " -s, --safe            skip binary files (default)\n"
 msgstr " -s, --safe            略過二進位檔案(預設)\n"
 
 #: common.c:674
-#, c-format
 msgid " -u,  --keep-utf16     keep UTF-16 encoding\n"
 msgstr ""
 
 #: common.c:675
-#, c-format
 msgid " -ul, --assume-utf16le assume that the input format is UTF-16LE\n"
 msgstr " -ul, --assume-utf16le 假設輸入檔格式為UTF-16LE\n"
 
 #: common.c:676
-#, c-format
 msgid " -ub, --assume-utf16be assume that the input format is UTF-16BE\n"
 msgstr " -ub, --assume-utf16be 假設輸入檔格式為UTF-16BE\n"
 
 #: common.c:678
-#, c-format
 msgid " -v,  --verbose        verbose operation\n"
 msgstr ""
 
 #: common.c:680
-#, c-format
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
 msgstr " -F, --follow-symlink  依循符號連結轉換其目標檔案\n"
 
 #: common.c:683
-#, c-format
 msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
 "                         (original target files remain unchanged)\n"
@@ -321,12 +295,10 @@ msgstr ""
 "                         (原連結目標檔案保持不變)\n"
 
 #: common.c:685
-#, c-format
 msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr " -S, --skip-symlink    保持符號連結及其目標不變(預設)\n"
 
 #: common.c:687
-#, c-format
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         顯示版本號碼\n"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.1-beta3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-02 16:12+0100\n"
+"POT-Creation-Date: 2016-01-12 07:18+0100\n"
 "PO-Revision-Date: 2014-11-07 11:35+0000\n"
 "Last-Translator: YASUAKI TANIGUCHI <yasuakit@gmail.com>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -131,62 +131,50 @@ msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
 msgstr "使用法: %s [options] [file ...] [-n infile outfile ...]\n"
 
 #: common.c:630
-#, c-format
 msgid " -ascii                convert only line breaks (default)\n"
 msgstr " -ascii                改行のみ変換する (既定)\n"
 
 #: common.c:631
-#, c-format
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
 msgstr " -iso                  DOS と ISO-8859-1 文字セット間で変換する\n"
 
 #: common.c:632
-#, c-format
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
 msgstr "   -1252               Windows コードページ 1252 (西欧) を使用する\n"
 
 #: common.c:633
-#, c-format
 msgid "   -437                use DOS code page 437 (US) (default)\n"
 msgstr "   -437                DOS コードページ 437 (US) を使用する (既定)\n"
 
 #: common.c:634
-#, c-format
 msgid "   -850                use DOS code page 850 (Western European)\n"
 msgstr "   -850                DOS コードページ 850 (西欧) を使用する\n"
 
 #: common.c:635
-#, c-format
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
 msgstr "   -860                DOS コードページ 860 (ポルトガル語) を使用する\n"
 
 #: common.c:636
-#, c-format
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
 msgstr "   -863                DOS コードページ 863 (カナダのフランス語) を使用する\n"
 
 #: common.c:637
-#, c-format
 msgid "   -865                use DOS code page 865 (Nordic)\n"
 msgstr "   -865                DOS コードページ 865 (北欧) を使用する\n"
 
 #: common.c:638
-#, c-format
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
 msgstr " -7                    8 ビット文字を 7 ビットに変換する\n"
 
 #: common.c:640
-#, c-format
 msgid " -b, --keep-bom        keep Byte Order Mark\n"
 msgstr " -b, --keep-bom        バイト順マークを保つ\n"
 
 #: common.c:642
-#, c-format
 msgid " -b, --keep-bom        keep Byte Order Mark (default)\n"
 msgstr " -b, --keep-bom        バイト順マークを残す (既定)\n"
 
 #: common.c:643
-#, c-format
 msgid ""
 " -c, --convmode        conversion mode\n"
 "   convmode            ascii, 7bit, iso, mac, default to ascii\n"
@@ -195,7 +183,7 @@ msgstr ""
 "   convmode            ascii, 7bit, iso, mac, 既定は ascii\n"
 
 #: common.c:646
-#, fuzzy, c-format
+#, fuzzy
 msgid ""
 " -D, --display-enc     set encoding of displayed text messages\n"
 "   encoding            ansi, unicode, utf8, default to ansi\n"
@@ -204,22 +192,18 @@ msgstr ""
 "   convmode            ascii, 7bit, iso, mac, 既定は ascii\n"
 
 #: common.c:649
-#, c-format
 msgid " -f, --force           force conversion of binary files\n"
 msgstr " -f, --force           バイナリファイルを強制的に変換する\n"
 
 #: common.c:652
-#, c-format
 msgid " -gb, --gb18030        convert UTF-16 to GB18030\n"
 msgstr ""
 
 #: common.c:655
-#, c-format
 msgid " -h, --help            display this help text\n"
 msgstr " -h, --help            このヘルプメッセージを表示する\n"
 
 #: common.c:656
-#, c-format
 msgid ""
 " -i, --info[=FLAGS]    display file information\n"
 "   file ...            files to analyze\n"
@@ -228,27 +212,22 @@ msgstr ""
 "   file ...            分析するファイル\n"
 
 #: common.c:658
-#, c-format
 msgid " -k, --keepdate        keep output file date\n"
 msgstr " -k, --keepdate        ファイルの日付を保持する\n"
 
 #: common.c:659
-#, c-format
 msgid " -L, --license         display software license\n"
 msgstr " -L, --license         ソフトウェアライセンスを表示する\n"
 
 #: common.c:660
-#, c-format
 msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline         改行を追加する\n"
 
 #: common.c:661
-#, c-format
 msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
 msgstr " -m, --add-bom         バイト順マークを加える (UTF-8 の既定)\n"
 
 #: common.c:662
-#, c-format
 msgid ""
 " -n, --newfile         write to new file\n"
 "   infile              original file in new-file mode\n"
@@ -259,7 +238,6 @@ msgstr ""
 "   outfile             このモードでの出力ファイル\n"
 
 #: common.c:665
-#, c-format
 msgid ""
 " -o, --oldfile         write to old file (default)\n"
 "   file ...            files to convert in old-file mode\n"
@@ -268,52 +246,42 @@ msgstr ""
 "   file ...            このモードでの変換するファイル\n"
 
 #: common.c:667
-#, c-format
 msgid " -q, --quiet           quiet mode, suppress all warnings\n"
 msgstr " -q, --quiet           抑止モード、全ての警告を抑止する\n"
 
 #: common.c:669
-#, c-format
 msgid " -r, --remove-bom      remove Byte Order Mark (default)\n"
 msgstr " -r, --remove-bom      バイト順マークを削除する (既定)\n"
 
 #: common.c:671
-#, c-format
 msgid " -r, --remove-bom      remove Byte Order Mark\n"
 msgstr " -r, --remove-bom      バイト順マークを削除する\n"
 
 #: common.c:672
-#, c-format
 msgid " -s, --safe            skip binary files (default)\n"
 msgstr " -s, --safe            バイナリファイルをスキップする (既定)\n"
 
 #: common.c:674
-#, c-format
 msgid " -u,  --keep-utf16     keep UTF-16 encoding\n"
 msgstr " -u,  --keep-utf16     UTF-16 エンコーディングを保つ\n"
 
 #: common.c:675
-#, c-format
 msgid " -ul, --assume-utf16le assume that the input format is UTF-16LE\n"
 msgstr " -ul, --assume-utf16le 入力の形式を UTF-16LE と見なす\n"
 
 #: common.c:676
-#, c-format
 msgid " -ub, --assume-utf16be assume that the input format is UTF-16BE\n"
 msgstr " -ub, --assume-utf16be 入力の形式を UTF-16BE と見なす\n"
 
 #: common.c:678
-#, c-format
 msgid " -v,  --verbose        verbose operation\n"
 msgstr " -v,  --verbose        冗長表示をする\n"
 
 #: common.c:680
-#, c-format
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
 msgstr " -F, --follow-symlink  シンボリックリンクを辿り、対象を変換する\n"
 
 #: common.c:683
-#, c-format
 msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
 "                         (original target files remain unchanged)\n"
@@ -322,12 +290,10 @@ msgstr ""
 "                         (元の対象ファイルは変更されずそのまま残る)\n"
 
 #: common.c:685
-#, c-format
 msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr " -S, --skip-symlink    シンボリックリンクを辿らず、対象をそのままにする (既定)\n"
 
 #: common.c:687
-#, c-format
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         バージョン番号を表示する\n"
 

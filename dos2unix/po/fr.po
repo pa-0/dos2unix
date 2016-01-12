@@ -1,13 +1,13 @@
 # Message français pour dos2unix.
-# Copyright (C) 2015 Erwin Waterlander (msgids)
+# Copyright (C) 2016 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
 # Frédéric Marchal <fmarchal@perso.be>, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-7.3.1-beta5\n"
+"Project-Id-Version: dos2unix-7.3.3-beta2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-02 16:12+0100\n"
-"PO-Revision-Date: 2015-09-15 20:26+0200\n"
+"POT-Creation-Date: 2016-01-12 23:16+0100\n"
+"PO-Revision-Date: 2016-01-12 20:04+0100\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms:  nplurals=2; plural=(n > 1);\n"
 
 #: dos2unix.c:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
@@ -26,7 +26,7 @@ msgid ""
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Copyright (C) 2009-2015 Erwin Waterlander\n"
+"Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
 "Copyright (C) 1998      Bernd Johannes Wuebben (Version 3.0)\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
@@ -63,14 +63,14 @@ msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "erreur: La valeur de la variable d'environnement DOS2UNIX_LOCALEDIR est trop longue.\n"
 
 #: unix2dos.c:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Copyright (C) 2009-2015 Erwin Waterlander\n"
+"Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "Tous droits réservés.\n"
 "\n"
@@ -127,62 +127,50 @@ msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
 msgstr "Usage: %s [options] [fichier …] [-n fichier_entrée fichier_sortie …]\n"
 
 #: common.c:630
-#, c-format
 msgid " -ascii                convert only line breaks (default)\n"
 msgstr " -ascii                converti uniquement les sauts de ligne (par défaut)\n"
 
 #: common.c:631
-#, c-format
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
 msgstr " -iso                  conversion entre les jeux de caractères DOS et ISO-8859-1\n"
 
 #: common.c:632
-#, c-format
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
 msgstr "   -1252               utilise le code page 1252 de Windows (Europe de l'ouest)\n"
 
 #: common.c:633
-#, c-format
 msgid "   -437                use DOS code page 437 (US) (default)\n"
 msgstr "   -437                utilise le code page 437 du DOS (US) (par défaut)\n"
 
 #: common.c:634
-#, c-format
 msgid "   -850                use DOS code page 850 (Western European)\n"
 msgstr "   -850                utilise le code page 850 du DOS (Europe de l'ouest)\n"
 
 #: common.c:635
-#, c-format
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
 msgstr "   -860                utilise le code page 860 du DOS (Portugais)\n"
 
 #: common.c:636
-#, c-format
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
 msgstr "   -863                utilise le code page 863 du DOS (Français Canadien)\n"
 
 #: common.c:637
-#, c-format
 msgid "   -865                use DOS code page 865 (Nordic)\n"
 msgstr "   -865                utilise le code page 865 du DOS (Nordique)\n"
 
 #: common.c:638
-#, c-format
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
 msgstr " -7                    converti les caractères 8 bits vers l'espace 7 bits\n"
 
 #: common.c:640
-#, c-format
 msgid " -b, --keep-bom        keep Byte Order Mark\n"
 msgstr " -b, --keep-bom        garde la marque d'ordre des octets\n"
 
 #: common.c:642
-#, c-format
 msgid " -b, --keep-bom        keep Byte Order Mark (default)\n"
 msgstr " -b, --keep-bom        garde la marque d'ordre des octets (par défaut)\n"
 
 #: common.c:643
-#, c-format
 msgid ""
 " -c, --convmode        conversion mode\n"
 "   convmode            ascii, 7bit, iso, mac, default to ascii\n"
@@ -191,7 +179,6 @@ msgstr ""
 "   modeconv            ascii, 7bit, iso, mac, ascii par défaut\n"
 
 #: common.c:646
-#, c-format
 msgid ""
 " -D, --display-enc     set encoding of displayed text messages\n"
 "   encoding            ansi, unicode, utf8, default to ansi\n"
@@ -200,22 +187,18 @@ msgstr ""
 "   encodage            ansi, unicode ou utf8 (ansi par défaut)\n"
 
 #: common.c:649
-#, c-format
 msgid " -f, --force           force conversion of binary files\n"
 msgstr " -f, --force           force la conversion de fichiers binaires\n"
 
 #: common.c:652
-#, c-format
 msgid " -gb, --gb18030        convert UTF-16 to GB18030\n"
 msgstr " -gb, --gb18030        converti UTF-16 en GB18030\n"
 
 #: common.c:655
-#, c-format
 msgid " -h, --help            display this help text\n"
 msgstr " -h, --help            affiche ce texte d'aide\n"
 
 #: common.c:656
-#, c-format
 msgid ""
 " -i, --info[=FLAGS]    display file information\n"
 "   file ...            files to analyze\n"
@@ -224,27 +207,22 @@ msgstr ""
 "   fichier …           fichiers à analyser\n"
 
 #: common.c:658
-#, c-format
 msgid " -k, --keepdate        keep output file date\n"
 msgstr " -k, --keepdate        conserve la date du fichier de sortie\n"
 
 #: common.c:659
-#, c-format
 msgid " -L, --license         display software license\n"
 msgstr " -L, --license         affiche la licence du logiciel\n"
 
 #: common.c:660
-#, c-format
 msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline         ajoute des sauts de ligne supplémentaires\n"
 
 #: common.c:661
-#, c-format
 msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
 msgstr " -m, --add-bom        ajoute la marque d'ordre des octets (par défaut avec UTF-8)\n"
 
 #: common.c:662
-#, c-format
 msgid ""
 " -n, --newfile         write to new file\n"
 "   infile              original file in new-file mode\n"
@@ -255,7 +233,6 @@ msgstr ""
 "   fichier_sortie      fichier de sortie dans le mode « nouveau fichier »\n"
 
 #: common.c:665
-#, c-format
 msgid ""
 " -o, --oldfile         write to old file (default)\n"
 "   file ...            files to convert in old-file mode\n"
@@ -264,52 +241,42 @@ msgstr ""
 "   fichier …           fichiers à convertir dans le mode « ancien fichier »\n"
 
 #: common.c:667
-#, c-format
 msgid " -q, --quiet           quiet mode, suppress all warnings\n"
 msgstr " -q, --quiet           mode silencieux, supprime tous les avertissements\n"
 
 #: common.c:669
-#, c-format
 msgid " -r, --remove-bom      remove Byte Order Mark (default)\n"
 msgstr " -r, --remove-bom      supprime la marque d'ordre des octets (par défaut)\n"
 
 #: common.c:671
-#, c-format
 msgid " -r, --remove-bom      remove Byte Order Mark\n"
 msgstr " -r, --remove-bom      supprime la marque d'ordre des octets\n"
 
 #: common.c:672
-#, c-format
 msgid " -s, --safe            skip binary files (default)\n"
 msgstr " -s, --safe            ignore les fichiers binaires (par défaut)\n"
 
 #: common.c:674
-#, c-format
 msgid " -u,  --keep-utf16     keep UTF-16 encoding\n"
 msgstr " -u,  --keep-utf16     conserve l'encodage UTF-16\n"
 
 #: common.c:675
-#, c-format
 msgid " -ul, --assume-utf16le assume that the input format is UTF-16LE\n"
 msgstr " -ul, --assume-utf16le suppose que le format d'entrée est UTF-16LE\n"
 
 #: common.c:676
-#, c-format
 msgid " -ub, --assume-utf16be assume that the input format is UTF-16BE\n"
 msgstr " -ub, --assume-utf16be suppose que le format d'entrée est UTF-16BE\n"
 
 #: common.c:678
-#, c-format
 msgid " -v,  --verbose        verbose operation\n"
 msgstr " -v,  --verbose        opération verbeuse\n"
 
 #: common.c:680
-#, c-format
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
 msgstr " -F, --follow-symlink  suit les liens symboliques et converti les cibles\n"
 
 #: common.c:683
-#, c-format
 msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
 "                         (original target files remain unchanged)\n"
@@ -318,12 +285,10 @@ msgstr ""
 "                         (les fichiers cibles originaux restent inchangés)\n"
 
 #: common.c:685
-#, c-format
 msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr " -S, --skip-symlink    conserve les liens symboliques et les cibles inchangés (par défaut)\n"
 
 #: common.c:687
-#, c-format
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         affiche le numéro de version\n"
 
