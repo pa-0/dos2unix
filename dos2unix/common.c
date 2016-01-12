@@ -591,7 +591,7 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv, CFlag *ipFlag, const cha
 
 void PrintBSDLicense(void)
 {
-  printf("%s", _("\
+  d2u_ansi_fprintf(stdout,"%s", _("\
 Redistribution and use in source and binary forms, with or without\n\
 modification, are permitted provided that the following conditions\n\
 are met:\n\
@@ -601,7 +601,7 @@ are met:\n\
    notice in the documentation and/or other materials provided with\n\
    the distribution.\n\n\
 "));
-  printf("%s", _("\
+  d2u_ansi_fprintf(stdout,"%s", _("\
 THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n\
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n\
 IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR\n\
@@ -626,130 +626,130 @@ int is_dos2unix(const char *progname)
 
 void PrintUsage(const char *progname)
 {
-  printf(_("Usage: %s [options] [file ...] [-n infile outfile ...]\n"), progname);
-  printf(_(" -ascii                convert only line breaks (default)\n"));
-  printf(_(" -iso                  conversion between DOS and ISO-8859-1 character set\n"));
-  printf(_("   -1252               use Windows code page 1252 (Western European)\n"));
-  printf(_("   -437                use DOS code page 437 (US) (default)\n"));
-  printf(_("   -850                use DOS code page 850 (Western European)\n"));
-  printf(_("   -860                use DOS code page 860 (Portuguese)\n"));
-  printf(_("   -863                use DOS code page 863 (French Canadian)\n"));
-  printf(_("   -865                use DOS code page 865 (Nordic)\n"));
-  printf(_(" -7                    convert 8 bit characters to 7 bit space\n"));
+  d2u_ansi_fprintf(stdout,_("Usage: %s [options] [file ...] [-n infile outfile ...]\n"), progname);
+  d2u_ansi_fprintf(stdout,_(" -ascii                convert only line breaks (default)\n"));
+  d2u_ansi_fprintf(stdout,_(" -iso                  conversion between DOS and ISO-8859-1 character set\n"));
+  d2u_ansi_fprintf(stdout,_("   -1252               use Windows code page 1252 (Western European)\n"));
+  d2u_ansi_fprintf(stdout,_("   -437                use DOS code page 437 (US) (default)\n"));
+  d2u_ansi_fprintf(stdout,_("   -850                use DOS code page 850 (Western European)\n"));
+  d2u_ansi_fprintf(stdout,_("   -860                use DOS code page 860 (Portuguese)\n"));
+  d2u_ansi_fprintf(stdout,_("   -863                use DOS code page 863 (French Canadian)\n"));
+  d2u_ansi_fprintf(stdout,_("   -865                use DOS code page 865 (Nordic)\n"));
+  d2u_ansi_fprintf(stdout,_(" -7                    convert 8 bit characters to 7 bit space\n"));
   if (is_dos2unix(progname))
-    printf(_(" -b, --keep-bom        keep Byte Order Mark\n"));
+    d2u_ansi_fprintf(stdout,_(" -b, --keep-bom        keep Byte Order Mark\n"));
   else
-    printf(_(" -b, --keep-bom        keep Byte Order Mark (default)\n"));
-  printf(_(" -c, --convmode        conversion mode\n\
+    d2u_ansi_fprintf(stdout,_(" -b, --keep-bom        keep Byte Order Mark (default)\n"));
+  d2u_ansi_fprintf(stdout,_(" -c, --convmode        conversion mode\n\
    convmode            ascii, 7bit, iso, mac, default to ascii\n"));
 #ifdef D2U_UNIFILE
-  printf(_(" -D, --display-enc     set encoding of displayed text messages\n\
+  d2u_ansi_fprintf(stdout,_(" -D, --display-enc     set encoding of displayed text messages\n\
    encoding            ansi, unicode, utf8, default to ansi\n"));
 #endif
-  printf(_(" -f, --force           force conversion of binary files\n"));
+  d2u_ansi_fprintf(stdout,_(" -f, --force           force conversion of binary files\n"));
 #ifdef D2U_UNICODE
 #if (defined(_WIN32) && !defined(__CYGWIN__))
-  printf(_(" -gb, --gb18030        convert UTF-16 to GB18030\n"));
+  d2u_ansi_fprintf(stdout,_(" -gb, --gb18030        convert UTF-16 to GB18030\n"));
 #endif
 #endif
-  printf(_(" -h, --help            display this help text\n"));
-  printf(_(" -i, --info[=FLAGS]    display file information\n\
+  d2u_ansi_fprintf(stdout,_(" -h, --help            display this help text\n"));
+  d2u_ansi_fprintf(stdout,_(" -i, --info[=FLAGS]    display file information\n\
    file ...            files to analyze\n"));
-  printf(_(" -k, --keepdate        keep output file date\n"));
-  printf(_(" -L, --license         display software license\n"));
-  printf(_(" -l, --newline         add additional newline\n"));
-  printf(_(" -m, --add-bom         add Byte Order Mark (default UTF-8)\n"));
-  printf(_(" -n, --newfile         write to new file\n\
+  d2u_ansi_fprintf(stdout,_(" -k, --keepdate        keep output file date\n"));
+  d2u_ansi_fprintf(stdout,_(" -L, --license         display software license\n"));
+  d2u_ansi_fprintf(stdout,_(" -l, --newline         add additional newline\n"));
+  d2u_ansi_fprintf(stdout,_(" -m, --add-bom         add Byte Order Mark (default UTF-8)\n"));
+  d2u_ansi_fprintf(stdout,_(" -n, --newfile         write to new file\n\
    infile              original file in new-file mode\n\
    outfile             output file in new-file mode\n"));
-  printf(_(" -o, --oldfile         write to old file (default)\n\
+  d2u_ansi_fprintf(stdout,_(" -o, --oldfile         write to old file (default)\n\
    file ...            files to convert in old-file mode\n"));
-  printf(_(" -q, --quiet           quiet mode, suppress all warnings\n"));
+  d2u_ansi_fprintf(stdout,_(" -q, --quiet           quiet mode, suppress all warnings\n"));
   if (is_dos2unix(progname))
-    printf(_(" -r, --remove-bom      remove Byte Order Mark (default)\n"));
+    d2u_ansi_fprintf(stdout,_(" -r, --remove-bom      remove Byte Order Mark (default)\n"));
   else
-    printf(_(" -r, --remove-bom      remove Byte Order Mark\n"));
-  printf(_(" -s, --safe            skip binary files (default)\n"));
+    d2u_ansi_fprintf(stdout,_(" -r, --remove-bom      remove Byte Order Mark\n"));
+  d2u_ansi_fprintf(stdout,_(" -s, --safe            skip binary files (default)\n"));
 #ifdef D2U_UNICODE
-  printf(_(" -u,  --keep-utf16     keep UTF-16 encoding\n"));
-  printf(_(" -ul, --assume-utf16le assume that the input format is UTF-16LE\n"));
-  printf(_(" -ub, --assume-utf16be assume that the input format is UTF-16BE\n"));
+  d2u_ansi_fprintf(stdout,_(" -u,  --keep-utf16     keep UTF-16 encoding\n"));
+  d2u_ansi_fprintf(stdout,_(" -ul, --assume-utf16le assume that the input format is UTF-16LE\n"));
+  d2u_ansi_fprintf(stdout,_(" -ub, --assume-utf16be assume that the input format is UTF-16BE\n"));
 #endif
-  printf(_(" -v,  --verbose        verbose operation\n"));
+  d2u_ansi_fprintf(stdout,_(" -v,  --verbose        verbose operation\n"));
 #ifdef S_ISLNK
-  printf(_(" -F, --follow-symlink  follow symbolic links and convert the targets\n"));
+  d2u_ansi_fprintf(stdout,_(" -F, --follow-symlink  follow symbolic links and convert the targets\n"));
 #endif
 #if defined(S_ISLNK) || (defined(_WIN32) && !defined(__CYGWIN__))
-  printf(_(" -R, --replace-symlink replace symbolic links with converted files\n\
+  d2u_ansi_fprintf(stdout,_(" -R, --replace-symlink replace symbolic links with converted files\n\
                          (original target files remain unchanged)\n"));
-  printf(_(" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"));
+  d2u_ansi_fprintf(stdout,_(" -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"));
 #endif
-  printf(_(" -V, --version         display version number\n"));
+  d2u_ansi_fprintf(stdout,_(" -V, --version         display version number\n"));
 }
 
 #define MINGW32_W64 1
 
 void PrintVersion(const char *progname, const char *localedir)
 {
-  printf("%s %s (%s)\n", progname, VER_REVISION, VER_DATE);
+  d2u_ansi_fprintf(stdout,"%s %s (%s)\n", progname, VER_REVISION, VER_DATE);
 #if DEBUG
-  printf("VER_AUTHOR: %s\n", VER_AUTHOR);
+  d2u_ansi_fprintf(stdout,"VER_AUTHOR: %s\n", VER_AUTHOR);
 #endif
 #if defined(__WATCOMC__) && defined(__I86__)
-  printf("%s", _("DOS 16 bit version (WATCOMC).\n"));
+  d2u_ansi_fprintf(stdout,"%s", _("DOS 16 bit version (WATCOMC).\n"));
 #elif defined(__TURBOC__) && defined(__MSDOS__)
-  printf("%s", _("DOS 16 bit version (TURBOC).\n"));
+  d2u_ansi_fprintf(stdout,"%s", _("DOS 16 bit version (TURBOC).\n"));
 #elif defined(__WATCOMC__) && defined(__DOS__)
-  printf("%s", _("DOS 32 bit version (WATCOMC).\n"));
+  d2u_ansi_fprintf(stdout,"%s", _("DOS 32 bit version (WATCOMC).\n"));
 #elif defined(__DJGPP__)
-  printf("%s", _("DOS 32 bit version (DJGPP).\n"));
+  d2u_ansi_fprintf(stdout,"%s", _("DOS 32 bit version (DJGPP).\n"));
 #elif defined(__MSYS__)
-  printf("%s", _("MSYS version.\n"));
+  d2u_ansi_fprintf(stdout,"%s", _("MSYS version.\n"));
 #elif defined(__CYGWIN__)
-  printf("%s", _("Cygwin version.\n"));
+  d2u_ansi_fprintf(stdout,"%s", _("Cygwin version.\n"));
 #elif defined(__WIN64__) && defined(__MINGW64__)
-  printf("%s", _("Windows 64 bit version (MinGW-w64).\n"));
+  d2u_ansi_fprintf(stdout,"%s", _("Windows 64 bit version (MinGW-w64).\n"));
 #elif defined(__WATCOMC__) && defined(__NT__)
-  printf("%s", _("Windows 32 bit version (WATCOMC).\n"));
+  d2u_ansi_fprintf(stdout,"%s", _("Windows 32 bit version (WATCOMC).\n"));
 #elif defined(_WIN32) && defined(__MINGW32__) && (D2U_COMPILER == MINGW32_W64)
-  printf("%s", _("Windows 32 bit version (MinGW-w64).\n"));
+  d2u_ansi_fprintf(stdout,"%s", _("Windows 32 bit version (MinGW-w64).\n"));
 #elif defined(_WIN32) && defined(__MINGW32__)
-  printf("%s", _("Windows 32 bit version (MinGW).\n"));
+  d2u_ansi_fprintf(stdout,"%s", _("Windows 32 bit version (MinGW).\n"));
 #elif defined(_WIN64) && defined(_MSC_VER)
-  printf(_("Windows 64 bit version (MSVC %d).\n"),_MSC_VER);
+  d2u_ansi_fprintf(stdout,_("Windows 64 bit version (MSVC %d).\n"),_MSC_VER);
 #elif defined(_WIN32) && defined(_MSC_VER)
-  printf(_("Windows 32 bit version (MSVC %d).\n"),_MSC_VER);
+  d2u_ansi_fprintf(stdout,_("Windows 32 bit version (MSVC %d).\n"),_MSC_VER);
 #elif defined (__OS2__) && defined(__WATCOMC__) /* OS/2 Warp */
-  printf("%s", _("OS/2 version (WATCOMC).\n"));
+  d2u_ansi_fprintf(stdout,"%s", _("OS/2 version (WATCOMC).\n"));
 #elif defined (__OS2__) && defined(__EMX__) /* OS/2 Warp */
-  printf("%s", _("OS/2 version (EMX).\n"));
+  d2u_ansi_fprintf(stdout,"%s", _("OS/2 version (EMX).\n"));
 #elif defined(__OS)
-  printf(_("%s version.\n"), __OS);
+  d2u_ansi_fprintf(stdout,_("%s version.\n"), __OS);
 #endif
 #if defined(_WIN32) && defined(WINVER)
-  printf("WINVER 0x%X\n",WINVER);
+  d2u_ansi_fprintf(stdout,"WINVER 0x%X\n",WINVER);
 #endif
 #ifdef D2U_UNICODE
-  printf("%s", _("With Unicode UTF-16 support.\n"));
+  d2u_ansi_fprintf(stdout,"%s", _("With Unicode UTF-16 support.\n"));
 #else
-  printf("%s", _("Without Unicode UTF-16 support.\n"));
+  d2u_ansi_fprintf(stdout,"%s", _("Without Unicode UTF-16 support.\n"));
 #endif
 #ifdef _WIN32
 #ifdef D2U_UNIFILE
-  printf("%s", _("With Unicode file name support.\n"));
+  d2u_ansi_fprintf(stdout,"%s", _("With Unicode file name support.\n"));
 #else
-  printf("%s", _("Without Unicode file name support.\n"));
+  d2u_ansi_fprintf(stdout,"%s", _("Without Unicode file name support.\n"));
 #endif
 #endif
 #ifdef ENABLE_NLS
-  printf("%s", _("With native language support.\n"));
+  d2u_ansi_fprintf(stdout,"%s", _("With native language support.\n"));
 #else
-  printf("%s", "Without native language support.\n");
+  d2u_ansi_fprintf(stdout,"%s", "Without native language support.\n");
 #endif
 #ifdef ENABLE_NLS
-  printf("LOCALEDIR: %s\n", localedir);
+  d2u_ansi_fprintf(stdout,"LOCALEDIR: %s\n", localedir);
 #endif
-  printf("http://waterlan.home.xs4all.nl/dos2unix.html\n");
+  d2u_ansi_fprintf(stdout,"http://waterlan.home.xs4all.nl/dos2unix.html\n");
 }
 
 

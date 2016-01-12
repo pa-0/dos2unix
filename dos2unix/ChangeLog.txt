@@ -1,3 +1,13 @@
+2016-01-13 Erwin Waterlander <waterlan@xs4all.nl>
+	* *.c: Use d2u_ansi_fprintf() for printing the help text, version
+	  information and license. It appears that printing Chinese text
+	  properly in a Windows Command Prompt in a Chinese regional setting
+	  requires the Unicode method. I would expect that standard printf()
+	  would work for ANSI CP936 encoded text. My tests show that I need to
+	  use option "-D unicode" to get proper output. When I use the ansi method
+	  I get wrong output, but when I redirect that to a text file, I get
+	  proper CP936 output in the text file.
+
 2016-01-02 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Compilation for mingw, mingw32-w64, and mingw64-w64
 	  works out of the box.

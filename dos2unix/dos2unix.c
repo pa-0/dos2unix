@@ -76,7 +76,7 @@
 
 void PrintLicense(void)
 {
-  printf(_("\
+  d2u_ansi_fprintf(stdout,_("\
 Copyright (C) 2009-%d Erwin Waterlander\n\
 Copyright (C) 1998      Christian Wurll (Version 3.1)\n\
 Copyright (C) 1998      Bernd Johannes Wuebben (Version 3.0)\n\

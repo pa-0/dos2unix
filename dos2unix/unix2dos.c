@@ -66,7 +66,7 @@
 
 void PrintLicense(void)
 {
-  printf(_("\
+  d2u_ansi_fprintf(stdout,_("\
 Copyright (C) 2009-%d Erwin Waterlander\n\
 Copyright (C) 1994-1995 Benjamin Lin\n\
 All rights reserved.\n\n"),2016);
