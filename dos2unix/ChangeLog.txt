@@ -1,3 +1,15 @@
+2016-01-16 Erwin Waterlander <waterlan@xs4all.nl>
+	* *.c: Fixed printing of East-Asian ANSI multi-byte encoded text on Windows.
+	  It appears that when setlocale() sets the locale to "" in the beginning
+	  of main(), which is done for gettext translations, multi-byte ANSI is
+	  printed wrongly. On windows we need to set the locale to "C" to make East-
+	  Asian text printed correctly. On Unix setting the locale to "C" would
+	  disable the gettext translations, but on Windows it keeps working.
+	* test/cp936.c: New test program that proves that setlocale(LC_ALL, "")
+	  breaks printf() on Windows for Chinese CP936 encoded text.
+	* common.h, *.c: Created macro D2U_FPRINTF, for correct printing of text
+	  when Unicode file names support is disabled.
+
 2016-01-13 Erwin Waterlander <waterlan@xs4all.nl>
 	* *.c: Use d2u_ansi_fprintf() for printing the help text, version
 	  information and license. It appears that printing Chinese text

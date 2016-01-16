@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2009-2015 Erwin Waterlander
+ *   Copyright (C) 2009-2016 Erwin Waterlander
  *   All rights reserved.
  *
  *   Redistribution and use in source and binary forms, with or without
@@ -84,8 +84,8 @@ void d2u_PrintLastError(const char *progname)
     /* Display the error message */
 
     /* MessageBox(NULL, (LPCTSTR)lpMsgBuf, TEXT("Error"), MB_OK); */
-    fprintf(stderr, "%s: ",progname);
-#ifdef D2U_UNIFILE
+    D2U_FPRINTF(stderr, "%s: ",progname);
+#ifdef _UNICODE
     fwprintf(stderr, L"%ls\n",(LPCTSTR)lpMsgBuf);
 #else
     fprintf(stderr, "%s\n",(LPCTSTR)lpMsgBuf);
@@ -174,12 +174,7 @@ void d2u_fprintf( FILE *stream, const char* format, ... ) {
 
    if (d2u_display_encoding == D2U_DISPLAY_UTF8) {
 
-   /* Using UTF-8 has my preference. The following method works fine when NLS is
-      disabled. But when I enable NLS (ENABLE_NLS=1) all non-ASCII characters are
-      printed as a square with a question mark in it. This will make the screen
-      output of dos2unix for most languages unreadable.
-      When I redirect the output to a file, the output is correct UTF-8. I don't
-      know why NLS causes wrong printed text in the console. I just turn NLS off.
+   /*
       A disadvantage of this method is that all non-ASCII characters are printed
       wrongly when the console uses raster font (which is the default).
       I tried on a Chinese Windows 7 (code page 936) and then all non-ASCII
@@ -187,22 +182,13 @@ void d2u_fprintf( FILE *stream, const char* format, ... ) {
       get correct output. I'm afraid that most people use the default Command Prompt
       and PowerShell consolse, so for many people the text will be unreadable.
       On a Chinese Windows there was a lot of flickering during the printing of the
-      lines of text. This is not acceptable, but I'm not sure it this was because the
-      Windows Command Prompt was broken. It sometimes crashes.
+      lines of text. This is not acceptable.
  */
-#ifdef ENABLE_NLS
-      /* temporarely disable NLS */
-      setlocale (LC_ALL, "C");
-#endif
        /* print UTF-8 buffer to console in UTF-8 mode */
       outputCP = GetConsoleOutputCP();
       SetConsoleOutputCP(CP_UTF8);
       fwprintf(stream,L"%S",buf);
       SetConsoleOutputCP(outputCP);
-#ifdef ENABLE_NLS
-      /* re-enable NLS */
-      setlocale (LC_ALL, "");
-#endif
 
    /* The following UTF-8 method does not give correct output. I don't know why. */
    //prevmode = _setmode(_fileno(stream), _O_U8TEXT);
@@ -239,6 +225,7 @@ void d2u_fprintf( FILE *stream, const char* format, ... ) {
       /* Convert the whole message to ANSI, some Unicode characters may fail to translate to ANSI.
          They will be displayed as a question mark. */
       d2u_WideCharToMultiByte(CP_ACP, 0, wstr, -1, buf, D2U_MAX_PATH, NULL, NULL);
+      /* When the locale is set, East-Asian ANSI text is not printed correctly. */
       fprintf(stream,"%s",buf);
    }
 
@@ -398,29 +385,29 @@ int regfile(char *path, int allowSymlinks, CFlag *ipFlag, const char *progname)
    if (STAT(path, &buf) == 0) {
 #endif
 #if DEBUG
-      d2u_fprintf(stderr, "%s: %s", progname, path);
-      d2u_fprintf(stderr, " MODE 0%o ", buf.st_mode);
+      D2U_FPRINTF(stderr, "%s: %s", progname, path);
+      D2U_FPRINTF(stderr, " MODE 0%o ", buf.st_mode);
 #ifdef S_ISSOCK
       if (S_ISSOCK(buf.st_mode))
-         d2u_fprintf(stderr, " (socket)");
+         D2U_FPRINTF(stderr, " (socket)");
 #endif
 #ifdef S_ISLNK
       if (S_ISLNK(buf.st_mode))
-         d2u_fprintf(stderr, " (symbolic link)");
+         D2U_FPRINTF(stderr, " (symbolic link)");
 #endif
       if (S_ISREG(buf.st_mode))
-         d2u_fprintf(stderr, " (regular file)");
+         D2U_FPRINTF(stderr, " (regular file)");
 #ifdef S_ISBLK
       if (S_ISBLK(buf.st_mode))
-         d2u_fprintf(stderr, " (block device)");
+         D2U_FPRINTF(stderr, " (block device)");
 #endif
       if (S_ISDIR(buf.st_mode))
-         d2u_fprintf(stderr, " (directory)");
+         D2U_FPRINTF(stderr, " (directory)");
       if (S_ISCHR(buf.st_mode))
-         d2u_fprintf(stderr, " (character device)");
+         D2U_FPRINTF(stderr, " (character device)");
       if (S_ISFIFO(buf.st_mode))
-         d2u_fprintf(stderr, " (FIFO)");
-      d2u_fprintf(stderr, "\n");
+         D2U_FPRINTF(stderr, " (FIFO)");
+      D2U_FPRINTF(stderr, "\n");
 #endif
       if ((S_ISREG(buf.st_mode))
 #ifdef S_ISLNK
@@ -435,7 +422,7 @@ int regfile(char *path, int allowSymlinks, CFlag *ipFlag, const char *progname)
      if (ipFlag->verbose) {
        ipFlag->error = errno;
        errstr = strerror(errno);
-       d2u_fprintf(stderr, "%s: %s:", progname, path);
+       D2U_FPRINTF(stderr, "%s: %s:", progname, path);
        d2u_ansi_fprintf(stderr, " %s\n", errstr);
      }
      return(-1);
@@ -476,7 +463,7 @@ int regfile_target(char *path, CFlag *ipFlag, const char *progname)
      if (ipFlag->verbose) {
        ipFlag->error = errno;
        errstr = strerror(errno);
-       d2u_fprintf(stderr, "%s: %s:", progname, path);
+       D2U_FPRINTF(stderr, "%s: %s:", progname, path);
        d2u_ansi_fprintf(stderr, " %s\n", errstr);
      }
      return(-1);
@@ -583,7 +570,7 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv, CFlag *ipFlag, const cha
   glob_failed:
   ipFlag->error = errno;
   errstr = strerror(errno);
-  d2u_fprintf(stderr, "%s:", progname);
+  D2U_FPRINTF(stderr, "%s:", progname);
   d2u_ansi_fprintf(stderr, " %s\n", errstr);
   return -1;
 }
@@ -890,7 +877,7 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progna
     if (ipFlag->verbose) {
       ipFlag->error = errno;
       errstr = strerror(errno);
-      d2u_fprintf(stderr, "%s: %s:", progname, lFN);
+      D2U_FPRINTF(stderr, "%s: %s:", progname, lFN);
       d2u_ansi_fprintf(stderr, " %s\n", errstr);
     }
     RetVal = -1;
@@ -902,7 +889,7 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progna
       if (ipFlag->verbose) {
         ipFlag->error = errno;
         errstr = strerror(errno);
-        d2u_fprintf(stderr, "%s: %s:", progname, lFN);
+        D2U_FPRINTF(stderr, "%s: %s:", progname, lFN);
         d2u_ansi_fprintf(stderr, " %s\n", errstr);
       }
       RetVal = -1;
@@ -920,7 +907,7 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progna
       if (ipFlag->verbose) {
         ipFlag->error = errno;
         errstr = strerror(errno);
-        d2u_fprintf(stderr, "%s: %s:", progname, lFN);
+        D2U_FPRINTF(stderr, "%s: %s:", progname, lFN);
         d2u_ansi_fprintf(stderr, " %s\n", errstr);
       }
       RetVal = -1;
@@ -932,7 +919,7 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progna
         if (ipFlag->verbose) {
           ipFlag->error = errno;
           errstr = strerror(errno);
-          d2u_fprintf(stderr, "%s: %s:", progname, lFN);
+          D2U_FPRINTF(stderr, "%s: %s:", progname, lFN);
           d2u_ansi_fprintf(stderr, " %s\n", errstr);
         }
         free(targetFN);
@@ -1046,28 +1033,28 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
       case FILE_UTF16LE:   /* UTF-16 Little Endian */
         if (fprintf(f, "%s", "\xFF\xFE") < 0) return NULL;
         if (ipFlag->verbose > 1) {
-          d2u_fprintf(stderr, "%s: ", progname);
+          D2U_FPRINTF(stderr, "%s: ", progname);
           d2u_ansi_fprintf(stderr, _("Writing %s BOM.\n"), _("UTF-16LE"));
         }
         break;
       case FILE_UTF16BE:   /* UTF-16 Big Endian */
         if (fprintf(f, "%s", "\xFE\xFF") < 0) return NULL;
         if (ipFlag->verbose > 1) {
-          d2u_fprintf(stderr, "%s: ", progname);
+          D2U_FPRINTF(stderr, "%s: ", progname);
           d2u_ansi_fprintf(stderr, _("Writing %s BOM.\n"), _("UTF-16BE"));
         }
         break;
       case FILE_GB18030:  /* GB18030 */
         if (fprintf(f, "%s", "\x84\x31\x95\x33") < 0) return NULL;
         if (ipFlag->verbose > 1) {
-          d2u_fprintf(stderr, "%s: ", progname);
+          D2U_FPRINTF(stderr, "%s: ", progname);
           d2u_ansi_fprintf(stderr, _("Writing %s BOM.\n"), _("GB18030"));
         }
         break;
       default:      /* UTF-8 */
         if (fprintf(f, "%s", "\xEF\xBB\xBF") < 0) return NULL;
         if (ipFlag->verbose > 1) {
-          d2u_fprintf(stderr, "%s: ", progname);
+          D2U_FPRINTF(stderr, "%s: ", progname);
           d2u_ansi_fprintf(stderr, _("Writing %s BOM.\n"), _("UTF-8"));
         }
       ;
@@ -1079,14 +1066,14 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
         if (fprintf(f, "%s", "\x84\x31\x95\x33") < 0) return NULL; /* GB18030 */
         if (ipFlag->verbose > 1)
         {
-          d2u_fprintf(stderr, "%s: ", progname);
+          D2U_FPRINTF(stderr, "%s: ", progname);
           d2u_ansi_fprintf(stderr, _("Writing %s BOM.\n"), _("GB18030"));
         }
      } else {
         if (fprintf(f, "%s", "\xEF\xBB\xBF") < 0) return NULL; /* UTF-8 */
         if (ipFlag->verbose > 1)
         {
-          d2u_fprintf(stderr, "%s: ", progname);
+          D2U_FPRINTF(stderr, "%s: ", progname);
           d2u_ansi_fprintf(stderr, _("Writing %s BOM.\n"), _("UTF-8"));
         }
      }
@@ -1131,8 +1118,8 @@ void print_bom (const int bomtype, const char *filename, const char *progname)
     d2u_WideCharToMultiByte(CP_UTF8, 0, informatw, -1, informat, sizeof(informat), NULL, NULL);
 #endif
 
-    d2u_fprintf(stderr, "%s: ", progname);
-    d2u_fprintf(stderr, _("Input file %s has %s BOM.\n"), filename, informat);
+    D2U_FPRINTF(stderr, "%s: ", progname);
+    D2U_FPRINTF(stderr, _("Input file %s has %s BOM.\n"), filename, informat);
   }
 
 }
@@ -1143,19 +1130,19 @@ void print_bom_info (const int bomtype)
    that process the output may not work in other than English locales. */
     switch (bomtype) {
     case FILE_UTF16LE:   /* UTF-16 Little Endian */
-      d2u_fprintf(stdout, "  UTF-16LE");
+      D2U_FPRINTF(stdout, "  UTF-16LE");
       break;
     case FILE_UTF16BE:   /* UTF-16 Big Endian */
-      d2u_fprintf(stdout, "  UTF-16BE");
+      D2U_FPRINTF(stdout, "  UTF-16BE");
       break;
     case FILE_UTF8:      /* UTF-8 */
-      d2u_fprintf(stdout, "  UTF-8   ");
+      D2U_FPRINTF(stdout, "  UTF-8   ");
       break;
     case FILE_GB18030:   /* GB18030 */
-      d2u_fprintf(stdout, "  GB18030 ");
+      D2U_FPRINTF(stdout, "  GB18030 ");
       break;
     default:
-      d2u_fprintf(stdout, "  no_bom  ");
+      D2U_FPRINTF(stdout, "  no_bom  ");
     ;
   }
 }
@@ -1167,12 +1154,12 @@ int check_unicode_info(FILE *InF, CFlag *ipFlag, const char *progname, int *bomt
 #ifdef D2U_UNICODE
   if (ipFlag->verbose > 1) {
     if (ipFlag->ConvMode == CONVMODE_UTF16LE) {
-      d2u_fprintf(stderr, "%s: ", progname);
-      d2u_fprintf(stderr, _("Assuming UTF-16LE encoding.\n") );
+      D2U_FPRINTF(stderr, "%s: ", progname);
+      D2U_FPRINTF(stderr, _("Assuming UTF-16LE encoding.\n") );
     }
     if (ipFlag->ConvMode == CONVMODE_UTF16BE) {
-      d2u_fprintf(stderr, "%s: ", progname);
-      d2u_fprintf(stderr, _("Assuming UTF-16BE encoding.\n") );
+      D2U_FPRINTF(stderr, "%s: ", progname);
+      D2U_FPRINTF(stderr, _("Assuming UTF-16BE encoding.\n") );
     }
   }
 #endif
@@ -1210,12 +1197,12 @@ int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, co
 #ifdef D2U_UNICODE
   if (ipFlag->verbose > 1) {
     if (ipFlag->ConvMode == CONVMODE_UTF16LE) {
-      d2u_fprintf(stderr, "%s: ", progname);
-      d2u_fprintf(stderr, _("Assuming UTF-16LE encoding.\n") );
+      D2U_FPRINTF(stderr, "%s: ", progname);
+      D2U_FPRINTF(stderr, _("Assuming UTF-16LE encoding.\n") );
     }
     if (ipFlag->ConvMode == CONVMODE_UTF16BE) {
-      d2u_fprintf(stderr, "%s: ", progname);
-      d2u_fprintf(stderr, _("Assuming UTF-16BE encoding.\n") );
+      D2U_FPRINTF(stderr, "%s: ", progname);
+      D2U_FPRINTF(stderr, _("Assuming UTF-16BE encoding.\n") );
     }
   }
 #endif
@@ -1340,7 +1327,7 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
     if (ipFlag->verbose) {
       ipFlag->error = errno;
       errstr = strerror(errno);
-      d2u_fprintf(stderr, "%s: %s:", progname, ipInFN);
+      D2U_FPRINTF(stderr, "%s: %s:", progname, ipInFN);
       d2u_ansi_fprintf(stderr, " %s\n", errstr);
     }
     RetVal = -1;
@@ -1354,15 +1341,15 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
     if (ipFlag->verbose) {
       ipFlag->error = errno;
       errstr = strerror(errno);
-      d2u_fprintf(stderr, "%s: ", progname);
+      D2U_FPRINTF(stderr, "%s: ", progname);
       d2u_ansi_fprintf(stderr, _("Failed to open temporary output file: %s\n"), errstr);
     }
     RetVal = -1;
   }
 
 #if DEBUG
-  d2u_fprintf(stderr, "%s: ", progname);
-  d2u_fprintf(stderr, _("using %s as temporary file\n"), TempPath);
+  D2U_FPRINTF(stderr, "%s: ", progname);
+  D2U_FPRINTF(stderr, _("using %s as temporary file\n"), TempPath);
 #endif
 
   /* can open in file? */
@@ -1371,7 +1358,7 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
     if (InF == NULL) {
       ipFlag->error = errno;
       errstr = strerror(errno);
-      d2u_fprintf(stderr, "%s: %s:", progname, ipInFN);
+      D2U_FPRINTF(stderr, "%s: %s:", progname, ipInFN);
       d2u_ansi_fprintf(stderr, " %s\n", errstr);
       RetVal = -1;
     }
@@ -1385,7 +1372,7 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
     if ((TempF=OpenOutFile(fd)) == NULL) {
       ipFlag->error = errno;
       errstr = strerror(errno);
-      d2u_fprintf(stderr, "%s:", progname);
+      D2U_FPRINTF(stderr, "%s:", progname);
       d2u_ansi_fprintf(stderr, " %s\n", errstr);
 #endif
       fclose (InF);
@@ -1426,8 +1413,8 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
        if (ipFlag->verbose) {
          ipFlag->error = errno;
          errstr = strerror(errno);
-         d2u_fprintf(stderr, "%s: ", progname);
-         d2u_fprintf(stderr, _("Failed to write to temporary output file %s:"), TempPath);
+         D2U_FPRINTF(stderr, "%s: ", progname);
+         D2U_FPRINTF(stderr, _("Failed to write to temporary output file %s:"), TempPath);
          d2u_ansi_fprintf(stderr, " %s\n", errstr);
        }
       RetVal = -1;
@@ -1457,8 +1444,8 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
        if (ipFlag->verbose) {
          ipFlag->error = errno;
          errstr = strerror(errno);
-         d2u_fprintf(stderr, "%s: ", progname);
-         d2u_fprintf(stderr, _("Failed to change the permissions of temporary output file %s:"), TempPath);
+         D2U_FPRINTF(stderr, "%s: ", progname);
+         D2U_FPRINTF(stderr, _("Failed to change the permissions of temporary output file %s:"), TempPath);
          d2u_ansi_fprintf(stderr, " %s\n", errstr);
        }
     }
@@ -1474,8 +1461,8 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
         if (ipFlag->verbose) {
           ipFlag->error = errno;
           errstr = strerror(errno);
-          d2u_fprintf(stderr, "%s: ", progname);
-          d2u_fprintf(stderr, _("Failed to change the owner and group of temporary output file %s:"), TempPath);
+          D2U_FPRINTF(stderr, "%s: ", progname);
+          D2U_FPRINTF(stderr, _("Failed to change the owner and group of temporary output file %s:"), TempPath);
           d2u_ansi_fprintf(stderr, " %s\n", errstr);
         }
         RetVal = -1;
@@ -1492,7 +1479,7 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
       if (ipFlag->verbose) {
         ipFlag->error = errno;
         errstr = strerror(errno);
-        d2u_fprintf(stderr, "%s: %s:", progname, TempPath);
+        D2U_FPRINTF(stderr, "%s: %s:", progname, TempPath);
         d2u_ansi_fprintf(stderr, " %s\n", errstr);
       }
       RetVal = -1;
@@ -1505,7 +1492,7 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
       if (ipFlag->verbose) {
         ipFlag->error = errno;
         errstr = strerror(errno);
-        d2u_fprintf(stderr, "%s: %s:", progname, TempPath);
+        D2U_FPRINTF(stderr, "%s: %s:", progname, TempPath);
         d2u_ansi_fprintf(stderr, " %s\n", errstr);
       }
       RetVal = -1;
@@ -1521,9 +1508,9 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
       ResolveSymlinkResult = ResolveSymbolicLink(ipOutFN, &TargetFN, ipFlag, progname);
       if (ResolveSymlinkResult < 0) {
         if (ipFlag->verbose) {
-          d2u_fprintf(stderr, "%s: ", progname);
-          d2u_fprintf(stderr, _("problems resolving symbolic link '%s'\n"), ipOutFN);
-          d2u_fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
+          D2U_FPRINTF(stderr, "%s: ", progname);
+          D2U_FPRINTF(stderr, _("problems resolving symbolic link '%s'\n"), ipOutFN);
+          D2U_FPRINTF(stderr, _("          output file remains in '%s'\n"), TempPath);
         }
         RetVal = -1;
       }
@@ -1537,7 +1524,7 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
       if (ipFlag->verbose) {
         ipFlag->error = errno;
         errstr = strerror(errno);
-        d2u_fprintf(stderr, "%s: %s:", progname, TargetFN);
+        D2U_FPRINTF(stderr, "%s: %s:", progname, TargetFN);
         d2u_ansi_fprintf(stderr, " %s\n", errstr);
       }
       RetVal = -1;
@@ -1548,14 +1535,14 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
       if (ipFlag->verbose) {
         ipFlag->error = errno;
         errstr = strerror(errno);
-        d2u_fprintf(stderr, "%s: ", progname);
-        d2u_fprintf(stderr, _("problems renaming '%s' to '%s':"), TempPath, TargetFN);
+        D2U_FPRINTF(stderr, "%s: ", progname);
+        D2U_FPRINTF(stderr, _("problems renaming '%s' to '%s':"), TempPath, TargetFN);
         d2u_ansi_fprintf(stderr, " %s\n", errstr);
 #ifdef S_ISLNK
         if (ResolveSymlinkResult > 0)
-          d2u_fprintf(stderr, _("          which is the target of symbolic link '%s'\n"), ipOutFN);
+          D2U_FPRINTF(stderr, _("          which is the target of symbolic link '%s'\n"), ipOutFN);
 #endif
-        d2u_fprintf(stderr, _("          output file remains in '%s'\n"), TempPath);
+        D2U_FPRINTF(stderr, _("          output file remains in '%s'\n"), TempPath);
       }
       RetVal = -1;
     }
@@ -1615,22 +1602,22 @@ int ConvertStdio(CFlag *ipFlag, const char *progname,
 void print_messages_stdio(const CFlag *pFlag, const char *progname)
 {
     if (pFlag->status & BINARY_FILE) {
-      d2u_fprintf(stderr,"%s: ",progname);
-      d2u_fprintf(stderr, _("Skipping binary file %s\n"), "stdin");
+      D2U_FPRINTF(stderr,"%s: ",progname);
+      D2U_FPRINTF(stderr, _("Skipping binary file %s\n"), "stdin");
     } else if (pFlag->status & WRONG_CODEPAGE) {
-      d2u_fprintf(stderr,"%s: ",progname);
-      d2u_fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
+      D2U_FPRINTF(stderr,"%s: ",progname);
+      D2U_FPRINTF(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
 #ifdef D2U_UNICODE
     } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
-      d2u_fprintf(stderr,"%s: ",progname);
-      d2u_fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), "stdin", (int)sizeof(wchar_t));
+      D2U_FPRINTF(stderr,"%s: ",progname);
+      D2U_FPRINTF(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), "stdin", (int)sizeof(wchar_t));
     } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
-      d2u_fprintf(stderr,"%s: ",progname);
-      d2u_fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"), "stdin", pFlag->line_nr);
+      D2U_FPRINTF(stderr,"%s: ",progname);
+      D2U_FPRINTF(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"), "stdin", pFlag->line_nr);
 #else
     } else if (pFlag->status & UNICODE_NOT_SUPPORTED) {
-      d2u_fprintf(stderr,"%s: ",progname);
-      d2u_fprintf(stderr, _("Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"), "stdin", progname);
+      D2U_FPRINTF(stderr,"%s: ",progname);
+      D2U_FPRINTF(stderr, _("Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"), "stdin", progname);
 #endif
     }
 }
@@ -1695,45 +1682,45 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
 #endif
 
   if (pFlag->status & NO_REGFILE) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("Skipping %s, not a regular file.\n"), infile);
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("Skipping %s, not a regular file.\n"), infile);
   } else if (pFlag->status & OUTPUTFILE_SYMLINK) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("Skipping %s, output file %s is a symbolic link.\n"), infile, outfile);
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("Skipping %s, output file %s is a symbolic link.\n"), infile, outfile);
   } else if (pFlag->status & INPUT_TARGET_NO_REGFILE) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
   } else if (pFlag->status & OUTPUT_TARGET_NO_REGFILE) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("Skipping %s, target of symbolic link %s is not a regular file.\n"), infile, outfile);
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("Skipping %s, target of symbolic link %s is not a regular file.\n"), infile, outfile);
   } else if (pFlag->status & BINARY_FILE) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("Skipping binary file %s\n"), infile);
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("Skipping binary file %s\n"), infile);
   } else if (pFlag->status & WRONG_CODEPAGE) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
 #ifdef D2U_UNICODE
   } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
   } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"), infile, pFlag->line_nr);
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"), infile, pFlag->line_nr);
 #else
   } else if (pFlag->status & UNICODE_NOT_SUPPORTED) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"), infile, progname);
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"), infile, progname);
 #endif
   } else {
-    d2u_fprintf(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr,"%s: ",progname);
     if (informat[0] == '\0') {
       if (is_dos2unix(progname)) {
-        if (!RetVal) d2u_fprintf(stderr, _("converting file %s to file %s in Unix format...\n"), infile, outfile);
+        if (!RetVal) D2U_FPRINTF(stderr, _("converting file %s to file %s in Unix format...\n"), infile, outfile);
       } else {
         if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
-          if (!RetVal) d2u_fprintf(stderr, _("converting file %s to file %s in Mac format...\n"), infile, outfile);
+          if (!RetVal) D2U_FPRINTF(stderr, _("converting file %s to file %s in Mac format...\n"), infile, outfile);
         } else {
-          if (!RetVal) d2u_fprintf(stderr, _("converting file %s to file %s in DOS format...\n"), infile, outfile);
+          if (!RetVal) D2U_FPRINTF(stderr, _("converting file %s to file %s in DOS format...\n"), infile, outfile);
         }
       }
     } else {
@@ -1744,18 +1731,18 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
 3rd %s is encoding of output file.
 4th %s is name of output file.
 E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format... */
-        if (!RetVal) d2u_fprintf(stderr, _("converting %s file %s to %s file %s in Unix format...\n"), informat, infile, outformat, outfile);
+        if (!RetVal) D2U_FPRINTF(stderr, _("converting %s file %s to %s file %s in Unix format...\n"), informat, infile, outformat, outfile);
       } else {
         if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
-          if (!RetVal) d2u_fprintf(stderr, _("converting %s file %s to %s file %s in Mac format...\n"), informat, infile, outformat, outfile);
+          if (!RetVal) D2U_FPRINTF(stderr, _("converting %s file %s to %s file %s in Mac format...\n"), informat, infile, outformat, outfile);
         } else {
-          if (!RetVal) d2u_fprintf(stderr, _("converting %s file %s to %s file %s in DOS format...\n"), informat, infile, outformat, outfile);
+          if (!RetVal) D2U_FPRINTF(stderr, _("converting %s file %s to %s file %s in DOS format...\n"), informat, infile, outformat, outfile);
         }
       }
     }
     if (RetVal) {
-      d2u_fprintf(stderr,"%s: ",progname);
-      d2u_fprintf(stderr, _("problems converting file %s to file %s\n"), infile, outfile);
+      D2U_FPRINTF(stderr,"%s: ",progname);
+      D2U_FPRINTF(stderr, _("problems converting file %s to file %s\n"), infile, outfile);
     }
   }
 }
@@ -1784,42 +1771,42 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
 #endif
 
   if (pFlag->status & NO_REGFILE) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("Skipping %s, not a regular file.\n"), infile);
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("Skipping %s, not a regular file.\n"), infile);
   } else if (pFlag->status & OUTPUTFILE_SYMLINK) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("Skipping symbolic link %s.\n"), infile);
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("Skipping symbolic link %s.\n"), infile);
   } else if (pFlag->status & INPUT_TARGET_NO_REGFILE) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
   } else if (pFlag->status & BINARY_FILE) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("Skipping binary file %s\n"), infile);
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("Skipping binary file %s\n"), infile);
   } else if (pFlag->status & WRONG_CODEPAGE) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
 #ifdef D2U_UNICODE
   } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
   } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"), infile, pFlag->line_nr);
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"), infile, pFlag->line_nr);
 #else
   } else if (pFlag->status & UNICODE_NOT_SUPPORTED) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"), infile, progname);
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"), infile, progname);
 #endif
   } else {
-    d2u_fprintf(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr,"%s: ",progname);
     if (informat[0] == '\0') {
       if (is_dos2unix(progname)) {
-        if (!RetVal) d2u_fprintf(stderr, _("converting file %s to Unix format...\n"), infile);
+        if (!RetVal) D2U_FPRINTF(stderr, _("converting file %s to Unix format...\n"), infile);
       } else {
         if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
-          if (!RetVal) d2u_fprintf(stderr, _("converting file %s to Mac format...\n"), infile);
+          if (!RetVal) D2U_FPRINTF(stderr, _("converting file %s to Mac format...\n"), infile);
         } else {
-          if (!RetVal) d2u_fprintf(stderr, _("converting file %s to DOS format...\n"), infile);
+          if (!RetVal) D2U_FPRINTF(stderr, _("converting file %s to DOS format...\n"), infile);
         }
       }
     } else {
@@ -1829,18 +1816,18 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
 2nd %s is name of input file.
 3rd %s is encoding of output (input file is overwritten).
 E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format... */
-        if (!RetVal) d2u_fprintf(stderr, _("converting %s file %s to %s Unix format...\n"), informat, infile, outformat);
+        if (!RetVal) D2U_FPRINTF(stderr, _("converting %s file %s to %s Unix format...\n"), informat, infile, outformat);
       } else {
         if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
-          if (!RetVal) d2u_fprintf(stderr, _("converting %s file %s to %s Mac format...\n"), informat, infile, outformat);
+          if (!RetVal) D2U_FPRINTF(stderr, _("converting %s file %s to %s Mac format...\n"), informat, infile, outformat);
         } else {
-          if (!RetVal) d2u_fprintf(stderr, _("converting %s file %s to %s DOS format...\n"), informat, infile, outformat);
+          if (!RetVal) D2U_FPRINTF(stderr, _("converting %s file %s to %s DOS format...\n"), informat, infile, outformat);
         }
       }
     }
     if (RetVal) {
-      d2u_fprintf(stderr,"%s: ",progname);
-      d2u_fprintf(stderr, _("problems converting file %s\n"), infile);
+      D2U_FPRINTF(stderr,"%s: ",progname);
+      D2U_FPRINTF(stderr, _("problems converting file %s\n"), infile);
     }
   }
 }
@@ -1849,19 +1836,19 @@ void print_messages_info(const CFlag *pFlag, const char *infile, const char *pro
 {
   if (pFlag->status & NO_REGFILE) {
     if (pFlag->verbose) {
-      d2u_fprintf(stderr,"%s: ",progname);
-      d2u_fprintf(stderr, _("Skipping %s, not a regular file.\n"), infile);
+      D2U_FPRINTF(stderr,"%s: ",progname);
+      D2U_FPRINTF(stderr, _("Skipping %s, not a regular file.\n"), infile);
     }
   } else if (pFlag->status & INPUT_TARGET_NO_REGFILE) {
     if (pFlag->verbose) {
-      d2u_fprintf(stderr,"%s: ",progname);
-      d2u_fprintf(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
+      D2U_FPRINTF(stderr,"%s: ",progname);
+      D2U_FPRINTF(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
     }
 #ifdef D2U_UNICODE
   } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
     if (pFlag->verbose) {
-      d2u_fprintf(stderr,"%s: ",progname);
-      d2u_fprintf(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
+      D2U_FPRINTF(stderr,"%s: ",progname);
+      D2U_FPRINTF(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
     }
 #endif
   }
@@ -1907,8 +1894,8 @@ void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, co
     ipFlag->error = errno;
     if (ipFlag->verbose) {
       errstr = strerror(errno);
-      d2u_fprintf(stderr, "%s: ", progname);
-      d2u_fprintf(stderr, _("can not read from input file %s:"), filename);
+      D2U_FPRINTF(stderr, "%s: ", progname);
+      D2U_FPRINTF(stderr, _("can not read from input file %s:"), filename);
       d2u_ansi_fprintf(stderr, " %s\n", errstr);
     }
     return;
@@ -1926,21 +1913,21 @@ void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, co
   }
 
   if (ipFlag->file_info & INFO_DOS)
-    d2u_fprintf(stdout, "  %6u", lb_dos);
+    D2U_FPRINTF(stdout, "  %6u", lb_dos);
   if (ipFlag->file_info & INFO_UNIX)
-    d2u_fprintf(stdout, "  %6u", lb_unix);
+    D2U_FPRINTF(stdout, "  %6u", lb_unix);
   if (ipFlag->file_info & INFO_MAC)
-    d2u_fprintf(stdout, "  %6u", lb_mac);
+    D2U_FPRINTF(stdout, "  %6u", lb_mac);
   if (ipFlag->file_info & INFO_BOM)
     print_bom_info(bomtype);
   if (ipFlag->file_info & INFO_TEXT) {
     if (ipFlag->status & BINARY_FILE)
-      d2u_fprintf(stdout, "  binary");
+      D2U_FPRINTF(stdout, "  binary");
     else
-      d2u_fprintf(stdout, "  text  ");
+      D2U_FPRINTF(stdout, "  text  ");
   }
-  d2u_fprintf(stdout, "  %s",filename);
-  d2u_fprintf(stdout, "\n");
+  D2U_FPRINTF(stdout, "  %s",filename);
+  D2U_FPRINTF(stdout, "\n");
 }
 #endif
 
@@ -1984,8 +1971,8 @@ void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, con
     ipFlag->error = errno;
     if (ipFlag->verbose) {
       errstr = strerror(errno);
-      d2u_fprintf(stderr, "%s: ", progname);
-      d2u_fprintf(stderr, _("can not read from input file %s:"), filename);
+      D2U_FPRINTF(stderr, "%s: ", progname);
+      D2U_FPRINTF(stderr, _("can not read from input file %s:"), filename);
       d2u_ansi_fprintf(stderr, " %s\n", errstr);
     }
     return;
@@ -2004,21 +1991,21 @@ void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, con
   }
 
   if (ipFlag->file_info & INFO_DOS)
-    d2u_fprintf(stdout, "  %6u", lb_dos);
+    D2U_FPRINTF(stdout, "  %6u", lb_dos);
   if (ipFlag->file_info & INFO_UNIX)
-    d2u_fprintf(stdout, "  %6u", lb_unix);
+    D2U_FPRINTF(stdout, "  %6u", lb_unix);
   if (ipFlag->file_info & INFO_MAC)
-    d2u_fprintf(stdout, "  %6u", lb_mac);
+    D2U_FPRINTF(stdout, "  %6u", lb_mac);
   if (ipFlag->file_info & INFO_BOM)
     print_bom_info(bomtype);
   if (ipFlag->file_info & INFO_TEXT) {
     if (ipFlag->status & BINARY_FILE)
-      d2u_fprintf(stdout, "  binary");
+      D2U_FPRINTF(stdout, "  binary");
     else
-      d2u_fprintf(stdout, "  text  ");
+      D2U_FPRINTF(stdout, "  text  ");
   }
-  d2u_fprintf(stdout, "  %s",filename);
-  d2u_fprintf(stdout, "\n");
+  D2U_FPRINTF(stdout, "  %s",filename);
+  D2U_FPRINTF(stdout, "\n");
 }
 
 int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
@@ -2050,7 +2037,7 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
   if (InF == NULL) {
     ipFlag->error = errno;
     errstr = strerror(errno);
-    d2u_fprintf(stderr, "%s: %s: ", progname, ipInFN);
+    D2U_FPRINTF(stderr, "%s: %s: ", progname, ipInFN);
     d2u_ansi_fprintf(stderr, "%s\n", errstr);
     RetVal = -1;
   }
@@ -2157,8 +2144,8 @@ void get_info_options(char *option, CFlag *pFlag, const char *progname)
       default:
        /* Terminate the program on a wrong option. If pFlag->file_info is
           zero and the program goes on, it may do unwanted conversions. */
-        d2u_fprintf(stderr,"%s: ",progname);
-        d2u_fprintf(stderr,_("wrong flag '%c' for option -i or --info\n"), *ptr);
+        D2U_FPRINTF(stderr,"%s: ",progname);
+        D2U_FPRINTF(stderr,_("wrong flag '%c' for option -i or --info\n"), *ptr);
         exit(1);
       ;
     }
@@ -2276,8 +2263,8 @@ int parse_options(int argc, char *argv[],
       else if (strcmp(argv[ArgIdx],"-iso") == 0) {
         pFlag->ConvMode = (int)query_con_codepage();
         if (pFlag->verbose) {
-           d2u_fprintf(stderr,"%s: ",progname);
-           d2u_fprintf(stderr,_("active code page: %d\n"), pFlag->ConvMode);
+           D2U_FPRINTF(stderr,"%s: ",progname);
+           D2U_FPRINTF(stderr,_("active code page: %d\n"), pFlag->ConvMode);
         }
         if (pFlag->ConvMode < 2)
            pFlag->ConvMode = CONVMODE_437;
@@ -2319,8 +2306,8 @@ int parse_options(int argc, char *argv[],
           else if (strcmpi(argv[ArgIdx], "iso") == 0) {
             pFlag->ConvMode = (int)query_con_codepage();
             if (pFlag->verbose) {
-               d2u_fprintf(stderr,"%s: ",progname);
-               d2u_fprintf(stderr,_("active code page: %d\n"), pFlag->ConvMode);
+               D2U_FPRINTF(stderr,"%s: ",progname);
+               D2U_FPRINTF(stderr,_("active code page: %d\n"), pFlag->ConvMode);
             }
             if (pFlag->ConvMode < 2)
                pFlag->ConvMode = CONVMODE_437;
@@ -2331,16 +2318,16 @@ int parse_options(int argc, char *argv[],
             else
               pFlag->FromToMode = FROMTO_UNIX2MAC;
           } else {
-            d2u_fprintf(stderr,"%s: ",progname);
-            d2u_fprintf(stderr, _("invalid %s conversion mode specified\n"),argv[ArgIdx]);
+            D2U_FPRINTF(stderr,"%s: ",progname);
+            D2U_FPRINTF(stderr, _("invalid %s conversion mode specified\n"),argv[ArgIdx]);
             pFlag->error = 1;
             ShouldExit = 1;
             pFlag->stdio_mode = 0;
           }
         } else {
           ArgIdx--;
-          d2u_fprintf(stderr,"%s: ",progname);
-          d2u_fprintf(stderr,_("option '%s' requires an argument\n"),argv[ArgIdx]);
+          D2U_FPRINTF(stderr,"%s: ",progname);
+          D2U_FPRINTF(stderr,_("option '%s' requires an argument\n"),argv[ArgIdx]);
           pFlag->error = 1;
           ShouldExit = 1;
           pFlag->stdio_mode = 0;
@@ -2357,16 +2344,16 @@ int parse_options(int argc, char *argv[],
           else if (strcmpi(argv[ArgIdx], "utf8") == 0) {
             d2u_display_encoding = D2U_DISPLAY_UTF8;
           } else {
-            d2u_fprintf(stderr,"%s: ",progname);
-            d2u_fprintf(stderr, _("invalid %s display encoding specified\n"),argv[ArgIdx]);
+            D2U_FPRINTF(stderr,"%s: ",progname);
+            D2U_FPRINTF(stderr, _("invalid %s display encoding specified\n"),argv[ArgIdx]);
             pFlag->error = 1;
             ShouldExit = 1;
             pFlag->stdio_mode = 0;
           }
         } else {
           ArgIdx--;
-          d2u_fprintf(stderr,"%s: ",progname);
-          d2u_fprintf(stderr,_("option '%s' requires an argument\n"),argv[ArgIdx]);
+          D2U_FPRINTF(stderr,"%s: ",progname);
+          D2U_FPRINTF(stderr,_("option '%s' requires an argument\n"),argv[ArgIdx]);
           pFlag->error = 1;
           ShouldExit = 1;
           pFlag->stdio_mode = 0;
@@ -2377,8 +2364,8 @@ int parse_options(int argc, char *argv[],
       else if ((strcmp(argv[ArgIdx],"-o") == 0) || (strcmp(argv[ArgIdx],"--oldfile") == 0)) {
         /* last convert not paired */
         if (!CanSwitchFileMode) {
-          d2u_fprintf(stderr,"%s: ",progname);
-          d2u_fprintf(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
+          D2U_FPRINTF(stderr,"%s: ",progname);
+          D2U_FPRINTF(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
           pFlag->error = 1;
           ShouldExit = 1;
           pFlag->stdio_mode = 0;
@@ -2390,8 +2377,8 @@ int parse_options(int argc, char *argv[],
       else if ((strcmp(argv[ArgIdx],"-n") == 0) || (strcmp(argv[ArgIdx],"--newfile") == 0)) {
         /* last convert not paired */
         if (!CanSwitchFileMode) {
-          d2u_fprintf(stderr,"%s: ",progname);
-          d2u_fprintf(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
+          D2U_FPRINTF(stderr,"%s: ",progname);
+          D2U_FPRINTF(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
           pFlag->error = 1;
           ShouldExit = 1;
           pFlag->stdio_mode = 0;
@@ -2456,8 +2443,8 @@ int parse_options(int argc, char *argv[],
   }
 
   if (!CanSwitchFileMode) {
-    d2u_fprintf(stderr,"%s: ",progname);
-    d2u_fprintf(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
+    D2U_FPRINTF(stderr,"%s: ",progname);
+    D2U_FPRINTF(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
     pFlag->error = 1;
   }
   return pFlag->error;
@@ -2470,7 +2457,7 @@ void d2u_getc_error(CFlag *ipFlag, const char *progname)
     ipFlag->error = errno;
     if (ipFlag->verbose) {
       errstr = strerror(errno);
-      d2u_fprintf(stderr, "%s: ", progname);
+      D2U_FPRINTF(stderr, "%s: ", progname);
       d2u_ansi_fprintf(stderr, _("can not read from input file: %s\n"), errstr);
     }
 }
@@ -2482,7 +2469,7 @@ void d2u_putc_error(CFlag *ipFlag, const char *progname)
     ipFlag->error = errno;
     if (ipFlag->verbose) {
       errstr = strerror(errno);
-      d2u_fprintf(stderr, "%s: ", progname);
+      D2U_FPRINTF(stderr, "%s: ", progname);
       d2u_ansi_fprintf(stderr, _("can not write to output file: %s\n"), errstr);
     }
 }
@@ -2496,7 +2483,7 @@ void d2u_putwc_error(CFlag *ipFlag, const char *progname)
       ipFlag->error = errno;
       if (ipFlag->verbose) {
         errstr = strerror(errno);
-        d2u_fprintf(stderr, "%s: ", progname);
+        D2U_FPRINTF(stderr, "%s: ", progname);
         d2u_ansi_fprintf(stderr, _("can not write to output file: %s\n"), errstr);
       }
     }
@@ -2573,8 +2560,8 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
 
    /* check for lead without a trail */
    if ((lead >= 0xd800) && (lead < 0xdc00) && ((wc < 0xdc00) || (wc >= 0xe000))) {
-      d2u_fprintf(stderr, "%s: ", progname);
-      d2u_fprintf(stderr, _("error: Invalid surrogate pair. Missing low surrogate.\n"));
+      D2U_FPRINTF(stderr, "%s: ", progname);
+      D2U_FPRINTF(stderr, _("error: Invalid surrogate pair. Missing low surrogate.\n"));
       ipFlag->status |= UNICODE_CONVERSION_ERROR ;
       return(WEOF);
    }
@@ -2588,8 +2575,8 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
 
       /* check for trail without a lead */
       if ((lead < 0xd800) || (lead >= 0xdc00)) {
-         d2u_fprintf(stderr, "%s: ", progname);
-         d2u_fprintf(stderr, _("error: Invalid surrogate pair. Missing high surrogate.\n"));
+         D2U_FPRINTF(stderr, "%s: ", progname);
+         D2U_FPRINTF(stderr, _("error: Invalid surrogate pair. Missing high surrogate.\n"));
          ipFlag->status |= UNICODE_CONVERSION_ERROR ;
          return(WEOF);
       }
@@ -2670,7 +2657,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
       d2u_PrintLastError(progname);
 #else
       errstr = strerror(errno);
-      d2u_fprintf(stderr, "%s:", progname);
+      D2U_FPRINTF(stderr, "%s:", progname);
       d2u_ansi_fprintf(stderr, " %s\n", errstr);
 #endif
       ipFlag->status |= UNICODE_CONVERSION_ERROR ;

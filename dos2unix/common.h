@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2009-2014 Erwin Waterlander
+ *   Copyright (C) 2009-2016 Erwin Waterlander
  *   All rights reserved.
  *
  *   Redistribution and use in source and binary forms, with or without
@@ -299,7 +299,10 @@ void d2u_ansi_fprintf( FILE *stream, const char* format, ... );
 #ifdef D2U_UNIFILE
 #define UNICODE
 #define _UNICODE
+#define D2U_FPRINTF d2u_fprintf
 int glob_warg(int argc, wchar_t *wargv[], char ***argv, CFlag *ipFlag, const char *progname);
+#else
+#define D2U_FPRINTF d2u_ansi_fprintf
 #endif
 
 #endif

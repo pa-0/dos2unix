@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.1-beta3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-12 07:18+0100\n"
+"POT-Creation-Date: 2016-01-16 02:06+0100\n"
 "PO-Revision-Date: 2014-11-07 11:35+0000\n"
 "Last-Translator: YASUAKI TANIGUCHI <yasuakit@gmail.com>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -76,7 +76,7 @@ msgstr ""
 "\n"
 
 # ライセンス条項なので翻訳しません
-#: common.c:594
+#: common.c:581
 msgid ""
 "Redistribution and use in source and binary forms, with or without\n"
 "modification, are permitted provided that the following conditions\n"
@@ -99,7 +99,7 @@ msgstr ""
 "\n"
 
 # ライセンス条項なので翻訳しません
-#: common.c:604
+#: common.c:591
 msgid ""
 "THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n"
 "EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
@@ -125,56 +125,56 @@ msgstr ""
 "OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN\n"
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 
-#: common.c:629
+#: common.c:616
 #, c-format
 msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
 msgstr "使用法: %s [options] [file ...] [-n infile outfile ...]\n"
 
-#: common.c:630
+#: common.c:617
 msgid " -ascii                convert only line breaks (default)\n"
 msgstr " -ascii                改行のみ変換する (既定)\n"
 
-#: common.c:631
+#: common.c:618
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
 msgstr " -iso                  DOS と ISO-8859-1 文字セット間で変換する\n"
 
-#: common.c:632
+#: common.c:619
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
 msgstr "   -1252               Windows コードページ 1252 (西欧) を使用する\n"
 
-#: common.c:633
+#: common.c:620
 msgid "   -437                use DOS code page 437 (US) (default)\n"
 msgstr "   -437                DOS コードページ 437 (US) を使用する (既定)\n"
 
-#: common.c:634
+#: common.c:621
 msgid "   -850                use DOS code page 850 (Western European)\n"
 msgstr "   -850                DOS コードページ 850 (西欧) を使用する\n"
 
-#: common.c:635
+#: common.c:622
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
 msgstr "   -860                DOS コードページ 860 (ポルトガル語) を使用する\n"
 
-#: common.c:636
+#: common.c:623
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
 msgstr "   -863                DOS コードページ 863 (カナダのフランス語) を使用する\n"
 
-#: common.c:637
+#: common.c:624
 msgid "   -865                use DOS code page 865 (Nordic)\n"
 msgstr "   -865                DOS コードページ 865 (北欧) を使用する\n"
 
-#: common.c:638
+#: common.c:625
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
 msgstr " -7                    8 ビット文字を 7 ビットに変換する\n"
 
-#: common.c:640
+#: common.c:627
 msgid " -b, --keep-bom        keep Byte Order Mark\n"
 msgstr " -b, --keep-bom        バイト順マークを保つ\n"
 
-#: common.c:642
+#: common.c:629
 msgid " -b, --keep-bom        keep Byte Order Mark (default)\n"
 msgstr " -b, --keep-bom        バイト順マークを残す (既定)\n"
 
-#: common.c:643
+#: common.c:630
 msgid ""
 " -c, --convmode        conversion mode\n"
 "   convmode            ascii, 7bit, iso, mac, default to ascii\n"
@@ -182,7 +182,7 @@ msgstr ""
 " -c, --convmode        変換モード\n"
 "   convmode            ascii, 7bit, iso, mac, 既定は ascii\n"
 
-#: common.c:646
+#: common.c:633
 #, fuzzy
 msgid ""
 " -D, --display-enc     set encoding of displayed text messages\n"
@@ -191,19 +191,19 @@ msgstr ""
 " -c, --convmode        変換モード\n"
 "   convmode            ascii, 7bit, iso, mac, 既定は ascii\n"
 
-#: common.c:649
+#: common.c:636
 msgid " -f, --force           force conversion of binary files\n"
 msgstr " -f, --force           バイナリファイルを強制的に変換する\n"
 
-#: common.c:652
+#: common.c:639
 msgid " -gb, --gb18030        convert UTF-16 to GB18030\n"
 msgstr ""
 
-#: common.c:655
+#: common.c:642
 msgid " -h, --help            display this help text\n"
 msgstr " -h, --help            このヘルプメッセージを表示する\n"
 
-#: common.c:656
+#: common.c:643
 msgid ""
 " -i, --info[=FLAGS]    display file information\n"
 "   file ...            files to analyze\n"
@@ -211,23 +211,23 @@ msgstr ""
 " -i, --info[=FLAGS]    ファイル情報を表示する\n"
 "   file ...            分析するファイル\n"
 
-#: common.c:658
+#: common.c:645
 msgid " -k, --keepdate        keep output file date\n"
 msgstr " -k, --keepdate        ファイルの日付を保持する\n"
 
-#: common.c:659
+#: common.c:646
 msgid " -L, --license         display software license\n"
 msgstr " -L, --license         ソフトウェアライセンスを表示する\n"
 
-#: common.c:660
+#: common.c:647
 msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline         改行を追加する\n"
 
-#: common.c:661
+#: common.c:648
 msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
 msgstr " -m, --add-bom         バイト順マークを加える (UTF-8 の既定)\n"
 
-#: common.c:662
+#: common.c:649
 msgid ""
 " -n, --newfile         write to new file\n"
 "   infile              original file in new-file mode\n"
@@ -237,7 +237,7 @@ msgstr ""
 "   infile              このモードでの入力ファイル\n"
 "   outfile             このモードでの出力ファイル\n"
 
-#: common.c:665
+#: common.c:652
 msgid ""
 " -o, --oldfile         write to old file (default)\n"
 "   file ...            files to convert in old-file mode\n"
@@ -245,43 +245,43 @@ msgstr ""
 " -o, --oldfile         元のファイルに書き込む (既定)\n"
 "   file ...            このモードでの変換するファイル\n"
 
-#: common.c:667
+#: common.c:654
 msgid " -q, --quiet           quiet mode, suppress all warnings\n"
 msgstr " -q, --quiet           抑止モード、全ての警告を抑止する\n"
 
-#: common.c:669
+#: common.c:656
 msgid " -r, --remove-bom      remove Byte Order Mark (default)\n"
 msgstr " -r, --remove-bom      バイト順マークを削除する (既定)\n"
 
-#: common.c:671
+#: common.c:658
 msgid " -r, --remove-bom      remove Byte Order Mark\n"
 msgstr " -r, --remove-bom      バイト順マークを削除する\n"
 
-#: common.c:672
+#: common.c:659
 msgid " -s, --safe            skip binary files (default)\n"
 msgstr " -s, --safe            バイナリファイルをスキップする (既定)\n"
 
-#: common.c:674
+#: common.c:661
 msgid " -u,  --keep-utf16     keep UTF-16 encoding\n"
 msgstr " -u,  --keep-utf16     UTF-16 エンコーディングを保つ\n"
 
-#: common.c:675
+#: common.c:662
 msgid " -ul, --assume-utf16le assume that the input format is UTF-16LE\n"
 msgstr " -ul, --assume-utf16le 入力の形式を UTF-16LE と見なす\n"
 
-#: common.c:676
+#: common.c:663
 msgid " -ub, --assume-utf16be assume that the input format is UTF-16BE\n"
 msgstr " -ub, --assume-utf16be 入力の形式を UTF-16BE と見なす\n"
 
-#: common.c:678
+#: common.c:665
 msgid " -v,  --verbose        verbose operation\n"
 msgstr " -v,  --verbose        冗長表示をする\n"
 
-#: common.c:680
+#: common.c:667
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
 msgstr " -F, --follow-symlink  シンボリックリンクを辿り、対象を変換する\n"
 
-#: common.c:683
+#: common.c:670
 msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
 "                         (original target files remain unchanged)\n"
@@ -289,235 +289,235 @@ msgstr ""
 " -R, --replace-symlink シンボリックリンクを変換後の対象ファイルに置換する\n"
 "                         (元の対象ファイルは変更されずそのまま残る)\n"
 
-#: common.c:685
+#: common.c:672
 msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr " -S, --skip-symlink    シンボリックリンクを辿らず、対象をそのままにする (既定)\n"
 
-#: common.c:687
+#: common.c:674
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         バージョン番号を表示する\n"
 
-#: common.c:699
+#: common.c:686
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "DOS 16 ビットバージョン (WATCOMC)。\n"
 
-#: common.c:701
+#: common.c:688
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "DOS 16 ビットバージョン (TURBOC)。\n"
 
-#: common.c:703
+#: common.c:690
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "DOS 32 ビットバージョン (WATCOMC)。\n"
 
-#: common.c:705
+#: common.c:692
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "DOS 32 ビットバージョン (DJGPP)。\n"
 
-#: common.c:707
+#: common.c:694
 msgid "MSYS version.\n"
 msgstr "MSYS バージョン。\n"
 
-#: common.c:709
+#: common.c:696
 msgid "Cygwin version.\n"
 msgstr "Cygwin バージョン。\n"
 
-#: common.c:711
+#: common.c:698
 msgid "Windows 64 bit version (MinGW-w64).\n"
 msgstr "Windows 64 ビットバージョン (MinGW-w64)。\n"
 
-#: common.c:713
+#: common.c:700
 msgid "Windows 32 bit version (WATCOMC).\n"
 msgstr "Windows 32 ビットバージョン (WATCOMC)。\n"
 
-#: common.c:715
+#: common.c:702
 msgid "Windows 32 bit version (MinGW-w64).\n"
 msgstr "Windows 32 ビットバージョン (MinGW-w64)。\n"
 
-#: common.c:717
+#: common.c:704
 msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Windows 32 ビットバージョン (MinGW)。\n"
 
-#: common.c:719
+#: common.c:706
 #, c-format
 msgid "Windows 64 bit version (MSVC %d).\n"
 msgstr "Windows 64 ビットバージョン (MSVC %d)。\n"
 
-#: common.c:721
+#: common.c:708
 #, c-format
 msgid "Windows 32 bit version (MSVC %d).\n"
 msgstr "Windows 32 ビットバージョン (MSVC %d)。\n"
 
-#: common.c:723
+#: common.c:710
 msgid "OS/2 version (WATCOMC).\n"
 msgstr "OS/2 バージョン (WATCOMC)。\n"
 
-#: common.c:725
+#: common.c:712
 msgid "OS/2 version (EMX).\n"
 msgstr "OS/2 バージョン (EMX)。\n"
 
-#: common.c:727
+#: common.c:714
 #, fuzzy, c-format
 msgid "%s version.\n"
 msgstr "MSYS バージョン。\n"
 
-#: common.c:733
+#: common.c:720
 msgid "With Unicode UTF-16 support.\n"
 msgstr "Unicode UTF-16 サポート付き。\n"
 
-#: common.c:735
+#: common.c:722
 msgid "Without Unicode UTF-16 support.\n"
 msgstr "Unicode UTF-16 サポート無し。\n"
 
-#: common.c:739
+#: common.c:726
 #, fuzzy
 msgid "With Unicode file name support.\n"
 msgstr "Unicode UTF-16 サポート付き。\n"
 
-#: common.c:741
+#: common.c:728
 #, fuzzy
 msgid "Without Unicode file name support.\n"
 msgstr "Unicode UTF-16 サポート無し。\n"
 
-#: common.c:745
+#: common.c:732
 msgid "With native language support.\n"
 msgstr "ネイティブ言語サポート。\n"
 
-#: common.c:1050 common.c:1057 common.c:1064 common.c:1071 common.c:1083
-#: common.c:1090
+#: common.c:1037 common.c:1044 common.c:1051 common.c:1058 common.c:1070
+#: common.c:1077
 #, c-format
 msgid "Writing %s BOM.\n"
 msgstr ""
 
-#: common.c:1050 common.c:1106 common.c:1644 common.c:1665
+#: common.c:1037 common.c:1093 common.c:1631 common.c:1652
 msgid "UTF-16LE"
 msgstr ""
 
-#: common.c:1057 common.c:1109 common.c:1646 common.c:1667
+#: common.c:1044 common.c:1096 common.c:1633 common.c:1654
 msgid "UTF-16BE"
 msgstr ""
 
-#: common.c:1064 common.c:1083 common.c:1115 common.c:1657
+#: common.c:1051 common.c:1070 common.c:1102 common.c:1644
 msgid "GB18030"
 msgstr ""
 
-#: common.c:1071 common.c:1090 common.c:1112 common.c:1659
+#: common.c:1058 common.c:1077 common.c:1099 common.c:1646
 msgid "UTF-8"
 msgstr ""
 
-#: common.c:1135
+#: common.c:1122
 #, c-format
 msgid "Input file %s has %s BOM.\n"
 msgstr ""
 
-#: common.c:1171 common.c:1214
+#: common.c:1158 common.c:1201
 msgid "Assuming UTF-16LE encoding.\n"
 msgstr "UTF-16LE エンコーディングと見なしています。\n"
 
-#: common.c:1175 common.c:1218
+#: common.c:1162 common.c:1205
 msgid "Assuming UTF-16BE encoding.\n"
 msgstr "UTF-16BE エンコーディングと見なしています。\n"
 
-#: common.c:1358
+#: common.c:1345
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
 msgstr "一時出力ファイルを開くのに失敗しました: %s\n"
 
-#: common.c:1365
+#: common.c:1352
 #, c-format
 msgid "using %s as temporary file\n"
 msgstr "%s を一時ファイルとして使用しています\n"
 
-#: common.c:1430
+#: common.c:1417
 #, fuzzy, c-format
 msgid "Failed to write to temporary output file %s:"
 msgstr "一時出力ファイル %s を開くのに失敗しました: %s\n"
 
-#: common.c:1461
+#: common.c:1448
 #, fuzzy, c-format
 msgid "Failed to change the permissions of temporary output file %s:"
 msgstr "一時出力ファイル %s のパーミッション変更に失敗しました: %s\n"
 
-#: common.c:1478
+#: common.c:1465
 #, fuzzy, c-format
 msgid "Failed to change the owner and group of temporary output file %s:"
 msgstr "一時出力ファイル %s の所有者とグループの変更に失敗しました: %s\n"
 
-#: common.c:1525
+#: common.c:1512
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
 msgstr "シンボリックリンク '%s' の解決中に問題が発生しました\n"
 
-#: common.c:1526 common.c:1558
+#: common.c:1513 common.c:1545
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          出力ファイルは '%s' に残っています\n"
 
-#: common.c:1552
+#: common.c:1539
 #, fuzzy, c-format
 msgid "problems renaming '%s' to '%s':"
 msgstr " '%s' から '%s' への名前変更で問題が発生しました: %s\n"
 
-#: common.c:1556
+#: common.c:1543
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr ""
 
-#: common.c:1619 common.c:1711 common.c:1797
+#: common.c:1606 common.c:1698 common.c:1784
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "バイナリファイル %s をスキップしています\n"
 
-#: common.c:1622 common.c:1714 common.c:1800
+#: common.c:1609 common.c:1701 common.c:1787
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "コードページ %d はサポートされていません\n"
 
-#: common.c:1626 common.c:1718 common.c:1804 common.c:1864
+#: common.c:1613 common.c:1705 common.c:1791 common.c:1851
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "UTF-16 ファイル %s をスキップしています。wchar_t のサイズは %d バイトです。\n"
 
-#: common.c:1629 common.c:1721 common.c:1807
+#: common.c:1616 common.c:1708 common.c:1794
 #, fuzzy, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
 msgstr "UTF-16 ファイル %s をスキップしています。UTF-16 変換でエラーが発生しました。\n"
 
-#: common.c:1633 common.c:1725 common.c:1811
+#: common.c:1620 common.c:1712 common.c:1798
 #, fuzzy, c-format
 msgid "Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"
 msgstr "UTF-16 ファイル %s をスキップしています。UTF-16 変換でエラーが発生しました。\n"
 
-#: common.c:1699 common.c:1788 common.c:1853
+#: common.c:1686 common.c:1775 common.c:1840
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "%s をスキップしています。通常ファイルではありません。\n"
 
-#: common.c:1702
+#: common.c:1689
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "%s をスキップしています。出力ファイル %s はシンボリックリンクです。\n"
 
-#: common.c:1705 common.c:1794 common.c:1858
+#: common.c:1692 common.c:1781 common.c:1845
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr "シンボリックリンク %s をスキップしています。対象が通常ファイルではありません。\n"
 
-#: common.c:1708
+#: common.c:1695
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr "%s をスキップしています。シンボリックリンク %s を辿った先が通常ファイルではありません。\n"
 
-#: common.c:1731
+#: common.c:1718
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "%s から %s へ Unix 形式でファイル変換しています。\n"
 
-#: common.c:1734
+#: common.c:1721
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "%s から %s へ Mac 形式でファイル変換しています。\n"
 
-#: common.c:1736
+#: common.c:1723
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "%s から %s へ DOS 形式で変換しています。\n"
@@ -528,42 +528,42 @@ msgstr "%s から %s へ DOS 形式で変換しています。\n"
 #. 3rd %s is encoding of output file.
 #. 4th %s is name of output file.
 #. E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format...
-#: common.c:1747
+#: common.c:1734
 #, fuzzy, c-format
 msgid "converting %s file %s to %s file %s in Unix format...\n"
 msgstr "%s から %s へ Unix 形式でファイル変換しています。\n"
 
-#: common.c:1750
+#: common.c:1737
 #, fuzzy, c-format
 msgid "converting %s file %s to %s file %s in Mac format...\n"
 msgstr "%s から %s へ Mac 形式でファイル変換しています。\n"
 
-#: common.c:1752
+#: common.c:1739
 #, fuzzy, c-format
 msgid "converting %s file %s to %s file %s in DOS format...\n"
 msgstr "%s から %s へ DOS 形式で変換しています。\n"
 
-#: common.c:1758
+#: common.c:1745
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "ファイル %s からファイル %s へ変換中に問題が発生しました\n"
 
-#: common.c:1791
+#: common.c:1778
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "シンボリックリンク %s をスキップしています。\n"
 
-#: common.c:1817
+#: common.c:1804
 #, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "ファイル %s を Unix 形式へ変換しています。\n"
 
-#: common.c:1820
+#: common.c:1807
 #, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "ファイル %s を Mac 形式へ変換しています。\n"
 
-#: common.c:1822
+#: common.c:1809
 #, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "ファイル %s を DOS 形式へ変換しています。\n"
@@ -573,76 +573,76 @@ msgstr "ファイル %s を DOS 形式へ変換しています。\n"
 #. 2nd %s is name of input file.
 #. 3rd %s is encoding of output (input file is overwritten).
 #. E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format...
-#: common.c:1832
+#: common.c:1819
 #, fuzzy, c-format
 msgid "converting %s file %s to %s Unix format...\n"
 msgstr "ファイル %s を Unix 形式へ変換しています。\n"
 
-#: common.c:1835
+#: common.c:1822
 #, fuzzy, c-format
 msgid "converting %s file %s to %s Mac format...\n"
 msgstr "ファイル %s を Mac 形式へ変換しています。\n"
 
-#: common.c:1837
+#: common.c:1824
 #, fuzzy, c-format
 msgid "converting %s file %s to %s DOS format...\n"
 msgstr "ファイル %s を DOS 形式へ変換しています。\n"
 
-#: common.c:1843
+#: common.c:1830
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "ファイル %s 変換中に問題が発生しました。\n"
 
-#: common.c:1911 common.c:1988
+#: common.c:1898 common.c:1975
 #, fuzzy, c-format
 msgid "can not read from input file %s:"
 msgstr "出力ファイルに書き込めません: %s\n"
 
-#: common.c:2161
+#: common.c:2148
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "オプション -i または --info に対する間違ったフラグ '%c' です。\n"
 
-#: common.c:2280 common.c:2323
+#: common.c:2267 common.c:2310
 #, c-format
 msgid "active code page: %d\n"
 msgstr "有効なコードページ: %d\n"
 
-#: common.c:2335
+#: common.c:2322
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "無効な %s 変換モードが指定されました\n"
 
-#: common.c:2343 common.c:2369
+#: common.c:2330 common.c:2356
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "オプション '%s' には引数が必要です。\n"
 
-#: common.c:2361
+#: common.c:2348
 #, fuzzy, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "無効な %s 変換モードが指定されました\n"
 
-#: common.c:2381 common.c:2394 common.c:2460
+#: common.c:2368 common.c:2381 common.c:2447
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "対象ファイル %s が新規ファイルモードで指定されていません\n"
 
-#: common.c:2474
+#: common.c:2461
 #, fuzzy, c-format
 msgid "can not read from input file: %s\n"
 msgstr "出力ファイルに書き込めません: %s\n"
 
-#: common.c:2486 common.c:2500
+#: common.c:2473 common.c:2487
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "出力ファイルに書き込めません: %s\n"
 
-#: common.c:2577
+#: common.c:2564
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr ""
 
-#: common.c:2592
+#: common.c:2579
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr ""
 
