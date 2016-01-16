@@ -505,7 +505,7 @@ int main (int argc, char *argv[])
 /* setlocale() is also needed for nl_langinfo() */
 #if (defined(_WIN32) && !defined(__CYGWIN__))
 /* When the locale is set to "" on Windows all East-Asian multi-byte ANSI encoded text is printed
-   wrongly when you use standard printf(). See also test/cp936.c.
+   wrongly when you use standard printf(). Also UTF-8 code is printed wrongly. See also test/setlocale.c.
    When we set the locale to "C" gettext still translates the messages on Windows. On Unix this would disable
    gettext. */
    setlocale (LC_ALL, "C");

@@ -140,6 +140,10 @@ int d2u_MultiByteToWideChar(UINT CodePage, DWORD dwFlags, LPCSTR lpMultiByteStr,
  * There are several methods for printing Unicode in the Windows Console, but
  * none of them is perfect. There are so many issues that I decided to go back
  * to ANSI by default.
+ *
+ * The use of setlocale() has influence on this function when ANSI or UTF-8 is
+ * printed. See also dos2unix.c and unix2dos.c and test/setlocale.c and
+ * test/setlocale.png.
  */
 
 void d2u_fprintf( FILE *stream, const char* format, ... ) {
@@ -174,8 +178,7 @@ void d2u_fprintf( FILE *stream, const char* format, ... ) {
 
    if (d2u_display_encoding == D2U_DISPLAY_UTF8) {
 
-   /*
-      A disadvantage of this method is that all non-ASCII characters are printed
+   /* A disadvantage of this method is that all non-ASCII characters are printed
       wrongly when the console uses raster font (which is the default).
       I tried on a Chinese Windows 7 (code page 936) and then all non-ASCII
       is printed wrongly, using raster and TrueType font. Only in ConEmu I
@@ -225,7 +228,6 @@ void d2u_fprintf( FILE *stream, const char* format, ... ) {
       /* Convert the whole message to ANSI, some Unicode characters may fail to translate to ANSI.
          They will be displayed as a question mark. */
       d2u_WideCharToMultiByte(CP_ACP, 0, wstr, -1, buf, D2U_MAX_PATH, NULL, NULL);
-      /* When the locale is set, East-Asian ANSI text is not printed correctly. */
       fprintf(stream,"%s",buf);
    }
 
@@ -242,7 +244,8 @@ void d2u_fprintf( FILE *stream, const char* format, ... ) {
    Format and arguments are in ANSI format.
    Redirect the printing to d2u_fprintf such that the output
    format is consistent. To prevent a mix of ANSI/UTF-8/UTF-16
-   encodings in the print output.
+   encodings in the print output. Mixed format printing may get the whole
+   console mixed up.
  */
 
 void d2u_ansi_fprintf( FILE *stream, const char* format, ... ) {

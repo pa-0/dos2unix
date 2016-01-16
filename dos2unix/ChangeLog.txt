@@ -6,8 +6,10 @@
 	  printed wrongly. On windows we need to set the locale to "C" to make East-
 	  Asian text printed correctly. On Unix setting the locale to "C" would
 	  disable the gettext translations, but on Windows it keeps working.
-	* test/cp936.c: New test program that proves that setlocale(LC_ALL, "")
-	  breaks printf() on Windows for Chinese CP936 encoded text.
+	* test/setlocale.c: New test program that proves that setlocale(LC_ALL, "")
+	  breaks printf() on Windows for Chinese CP936 encoded text in a CP936
+	  regional setting, and for UTF-8 text.
+	* test/setlocale.png: Example output of the test program.
 	* common.h, *.c: Created macro D2U_FPRINTF, for correct printing of text
 	  when Unicode file names support is disabled.
 
