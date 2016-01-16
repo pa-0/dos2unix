@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-16 02:06+0100\n"
+"POT-Creation-Date: 2016-01-16 19:39+0100\n"
 "PO-Revision-Date: 2014-03-14 00:43+0800\n"
 "Last-Translator: mail6543210 <mail6543210@yahoo.com.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -76,7 +76,7 @@ msgstr ""
 "保留所有權利。\n"
 "\n"
 
-#: common.c:581
+#: common.c:584
 msgid ""
 "Redistribution and use in source and binary forms, with or without\n"
 "modification, are permitted provided that the following conditions\n"
@@ -98,7 +98,7 @@ msgstr ""
 "   the distribution.\n"
 "\n"
 
-#: common.c:591
+#: common.c:594
 msgid ""
 "THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n"
 "EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
@@ -124,58 +124,58 @@ msgstr ""
 "OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN\n"
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 
-#: common.c:616
+#: common.c:619
 #, c-format
 msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
 msgstr "用法: %s [選項] [file ...] [-n infile outfile ...]\n"
 
-#: common.c:617
+#: common.c:620
 msgid " -ascii                convert only line breaks (default)\n"
 msgstr " -ascii                只轉換換行字元(預設)\n"
 
-#: common.c:618
+#: common.c:621
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
 msgstr " -iso                  在DOS 和ISO-8859-1 字元集間轉換\n"
 
-#: common.c:619
+#: common.c:622
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
 msgstr "   -1252               使用Windows 1252 編碼頁(西歐)\n"
 
-#: common.c:620
+#: common.c:623
 msgid "   -437                use DOS code page 437 (US) (default)\n"
 msgstr "   -437                使用DOS 437 編碼頁(US) (預設)\n"
 
-#: common.c:621
+#: common.c:624
 msgid "   -850                use DOS code page 850 (Western European)\n"
 msgstr "   -850                使用DOS 850 編碼頁(西歐)\n"
 
-#: common.c:622
+#: common.c:625
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
 msgstr "   -860                使用DOS 860 編碼頁(葡萄牙)\n"
 
-#: common.c:623
+#: common.c:626
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
 msgstr "   -863                使用DOS 863 編碼頁(加拿大法語)\n"
 
-#: common.c:624
+#: common.c:627
 msgid "   -865                use DOS code page 865 (Nordic)\n"
 msgstr "   -865                使用DOS 865 編碼頁(北歐)\n"
 
-#: common.c:625
+#: common.c:628
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
 msgstr " -7                    轉換8 位元字元到7 位元空間\n"
 
-#: common.c:627
+#: common.c:630
 #, fuzzy
 msgid " -b, --keep-bom        keep Byte Order Mark\n"
 msgstr " -m, --add-bom         加入UTF-8 BOM\n"
 
-#: common.c:629
+#: common.c:632
 #, fuzzy
 msgid " -b, --keep-bom        keep Byte Order Mark (default)\n"
 msgstr " -m, --add-bom         加入UTF-8 BOM\n"
 
-#: common.c:630
+#: common.c:633
 msgid ""
 " -c, --convmode        conversion mode\n"
 "   convmode            ascii, 7bit, iso, mac, default to ascii\n"
@@ -183,7 +183,7 @@ msgstr ""
 " -c, --convmode        轉換模式\n"
 "   convmode            ascii, 7bit, iso, mac, 預設為ascii\n"
 
-#: common.c:633
+#: common.c:636
 #, fuzzy
 msgid ""
 " -D, --display-enc     set encoding of displayed text messages\n"
@@ -192,19 +192,19 @@ msgstr ""
 " -c, --convmode        轉換模式\n"
 "   convmode            ascii, 7bit, iso, mac, 預設為ascii\n"
 
-#: common.c:636
+#: common.c:639
 msgid " -f, --force           force conversion of binary files\n"
 msgstr " -f, --force           強制轉換二進位檔案\n"
 
-#: common.c:639
+#: common.c:642
 msgid " -gb, --gb18030        convert UTF-16 to GB18030\n"
 msgstr ""
 
-#: common.c:642
+#: common.c:645
 msgid " -h, --help            display this help text\n"
 msgstr " -h, --help            顯示本說明文字\n"
 
-#: common.c:643
+#: common.c:646
 #, fuzzy
 msgid ""
 " -i, --info[=FLAGS]    display file information\n"
@@ -213,24 +213,24 @@ msgstr ""
 " -o, --oldfile         寫入原檔案(預設)\n"
 "   file ...            原檔模式中要轉換的檔案\n"
 
-#: common.c:645
+#: common.c:648
 msgid " -k, --keepdate        keep output file date\n"
 msgstr " -k, --keepdate        保留輸出檔時間\n"
 
-#: common.c:646
+#: common.c:649
 msgid " -L, --license         display software license\n"
 msgstr " -L, --license         顯示軟體授權\n"
 
-#: common.c:647
+#: common.c:650
 msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline         加入額外的換行\n"
 
-#: common.c:648
+#: common.c:651
 #, fuzzy
 msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
 msgstr " -m, --add-bom         加入UTF-8 BOM\n"
 
-#: common.c:649
+#: common.c:652
 msgid ""
 " -n, --newfile         write to new file\n"
 "   infile              original file in new-file mode\n"
@@ -240,7 +240,7 @@ msgstr ""
 "   infile              新檔模式中的原始檔案\n"
 "   outfile             新檔模式中的輸出檔案\n"
 
-#: common.c:652
+#: common.c:655
 msgid ""
 " -o, --oldfile         write to old file (default)\n"
 "   file ...            files to convert in old-file mode\n"
@@ -248,45 +248,45 @@ msgstr ""
 " -o, --oldfile         寫入原檔案(預設)\n"
 "   file ...            原檔模式中要轉換的檔案\n"
 
-#: common.c:654
+#: common.c:657
 msgid " -q, --quiet           quiet mode, suppress all warnings\n"
 msgstr " -q, --quiet           安靜模式，抑制所有警告\n"
 
-#: common.c:656
+#: common.c:659
 #, fuzzy
 msgid " -r, --remove-bom      remove Byte Order Mark (default)\n"
 msgstr " -m, --add-bom         加入UTF-8 BOM\n"
 
-#: common.c:658
+#: common.c:661
 #, fuzzy
 msgid " -r, --remove-bom      remove Byte Order Mark\n"
 msgstr " -m, --add-bom         加入UTF-8 BOM\n"
 
-#: common.c:659
+#: common.c:662
 msgid " -s, --safe            skip binary files (default)\n"
 msgstr " -s, --safe            略過二進位檔案(預設)\n"
 
-#: common.c:661
+#: common.c:664
 msgid " -u,  --keep-utf16     keep UTF-16 encoding\n"
 msgstr ""
 
-#: common.c:662
+#: common.c:665
 msgid " -ul, --assume-utf16le assume that the input format is UTF-16LE\n"
 msgstr " -ul, --assume-utf16le 假設輸入檔格式為UTF-16LE\n"
 
-#: common.c:663
+#: common.c:666
 msgid " -ub, --assume-utf16be assume that the input format is UTF-16BE\n"
 msgstr " -ub, --assume-utf16be 假設輸入檔格式為UTF-16BE\n"
 
-#: common.c:665
+#: common.c:668
 msgid " -v,  --verbose        verbose operation\n"
 msgstr ""
 
-#: common.c:667
+#: common.c:670
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
 msgstr " -F, --follow-symlink  依循符號連結轉換其目標檔案\n"
 
-#: common.c:670
+#: common.c:673
 msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
 "                         (original target files remain unchanged)\n"
@@ -294,235 +294,235 @@ msgstr ""
 " -R, --replace-symlink 取代符號連結為轉換後的檔案\n"
 "                         (原連結目標檔案保持不變)\n"
 
-#: common.c:672
+#: common.c:675
 msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr " -S, --skip-symlink    保持符號連結及其目標不變(預設)\n"
 
-#: common.c:674
+#: common.c:677
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         顯示版本號碼\n"
 
-#: common.c:686
+#: common.c:689
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "DOS 16 位元版本(WATCOMC)。\n"
 
-#: common.c:688
+#: common.c:691
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "DOS 16 位元版本(TURBOC)。\n"
 
-#: common.c:690
+#: common.c:693
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "DOS 32 位元版本(WATCOMC)。\n"
 
-#: common.c:692
+#: common.c:695
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "DOS 32 位元版本(DJGPP)。\n"
 
-#: common.c:694
+#: common.c:697
 msgid "MSYS version.\n"
 msgstr "MSYS 版本。\n"
 
-#: common.c:696
+#: common.c:699
 msgid "Cygwin version.\n"
 msgstr "Cygwin 版本。\n"
 
-#: common.c:698
+#: common.c:701
 msgid "Windows 64 bit version (MinGW-w64).\n"
 msgstr "Windows 64 位元版本(MinGW-w64)。\n"
 
-#: common.c:700
+#: common.c:703
 msgid "Windows 32 bit version (WATCOMC).\n"
 msgstr "Windows 32 位元版本(WATCOMC)。\n"
 
-#: common.c:702
+#: common.c:705
 msgid "Windows 32 bit version (MinGW-w64).\n"
 msgstr "Windows 32 位元版本(MinGW-w64)。\n"
 
-#: common.c:704
+#: common.c:707
 msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Windows 32 位元版本(MinGW)。\n"
 
-#: common.c:706
+#: common.c:709
 #, c-format
 msgid "Windows 64 bit version (MSVC %d).\n"
 msgstr "Windows 64 位元版本(MSVC %d)。\n"
 
-#: common.c:708
+#: common.c:711
 #, c-format
 msgid "Windows 32 bit version (MSVC %d).\n"
 msgstr "Windows 32 位元版本(MSVC %d)。\n"
 
-#: common.c:710
+#: common.c:713
 msgid "OS/2 version (WATCOMC).\n"
 msgstr "OS/2 版本(WATCOMC)。\n"
 
-#: common.c:712
+#: common.c:715
 msgid "OS/2 version (EMX).\n"
 msgstr "OS/2 版本(EMX)。\n"
 
-#: common.c:714
+#: common.c:717
 #, fuzzy, c-format
 msgid "%s version.\n"
 msgstr "MSYS 版本。\n"
 
-#: common.c:720
+#: common.c:723
 msgid "With Unicode UTF-16 support.\n"
 msgstr "有Unicode UTF-16 支援。\n"
 
-#: common.c:722
+#: common.c:725
 msgid "Without Unicode UTF-16 support.\n"
 msgstr "無Unicode UTF-16 支援。\n"
 
-#: common.c:726
+#: common.c:729
 #, fuzzy
 msgid "With Unicode file name support.\n"
 msgstr "有Unicode UTF-16 支援。\n"
 
-#: common.c:728
+#: common.c:731
 #, fuzzy
 msgid "Without Unicode file name support.\n"
 msgstr "無Unicode UTF-16 支援。\n"
 
-#: common.c:732
+#: common.c:735
 msgid "With native language support.\n"
 msgstr "含本地語言支援。\n"
 
-#: common.c:1037 common.c:1044 common.c:1051 common.c:1058 common.c:1070
-#: common.c:1077
+#: common.c:1040 common.c:1047 common.c:1054 common.c:1061 common.c:1073
+#: common.c:1080
 #, c-format
 msgid "Writing %s BOM.\n"
 msgstr ""
 
-#: common.c:1037 common.c:1093 common.c:1631 common.c:1652
+#: common.c:1040 common.c:1096 common.c:1634 common.c:1655
 msgid "UTF-16LE"
 msgstr ""
 
-#: common.c:1044 common.c:1096 common.c:1633 common.c:1654
+#: common.c:1047 common.c:1099 common.c:1636 common.c:1657
 msgid "UTF-16BE"
 msgstr ""
 
-#: common.c:1051 common.c:1070 common.c:1102 common.c:1644
+#: common.c:1054 common.c:1073 common.c:1105 common.c:1647
 msgid "GB18030"
 msgstr ""
 
-#: common.c:1058 common.c:1077 common.c:1099 common.c:1646
+#: common.c:1061 common.c:1080 common.c:1102 common.c:1649
 msgid "UTF-8"
 msgstr ""
 
-#: common.c:1122
+#: common.c:1125
 #, c-format
 msgid "Input file %s has %s BOM.\n"
 msgstr ""
 
-#: common.c:1158 common.c:1201
+#: common.c:1161 common.c:1204
 msgid "Assuming UTF-16LE encoding.\n"
 msgstr ""
 
-#: common.c:1162 common.c:1205
+#: common.c:1165 common.c:1208
 msgid "Assuming UTF-16BE encoding.\n"
 msgstr ""
 
-#: common.c:1345
+#: common.c:1348
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
 msgstr "暫存檔 %s 開啟失敗\n"
 
-#: common.c:1352
+#: common.c:1355
 #, c-format
 msgid "using %s as temporary file\n"
 msgstr "使用 %s 作為暫存檔\n"
 
-#: common.c:1417
+#: common.c:1420
 #, fuzzy, c-format
 msgid "Failed to write to temporary output file %s:"
 msgstr "暫存檔寫入失敗%s：%s\n"
 
-#: common.c:1448
+#: common.c:1451
 #, fuzzy, c-format
 msgid "Failed to change the permissions of temporary output file %s:"
 msgstr "輸出暫存檔 %s 權限變更失敗：%s\n"
 
-#: common.c:1465
+#: common.c:1468
 #, fuzzy, c-format
 msgid "Failed to change the owner and group of temporary output file %s:"
 msgstr "輸出暫存檔 %s 擁有者及群組變更失敗：%s\n"
 
-#: common.c:1512
+#: common.c:1515
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
 msgstr "解析符號連結'%s' 發生問題\n"
 
-#: common.c:1513 common.c:1545
+#: common.c:1516 common.c:1548
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          輸出檔案'%s' 未改變\n"
 
-#: common.c:1539
+#: common.c:1542
 #, fuzzy, c-format
 msgid "problems renaming '%s' to '%s':"
 msgstr "重新命名「%s」到「%s」錯誤：%s\n"
 
-#: common.c:1543
+#: common.c:1546
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          後者為符號連結'%s' 的目標\n"
 
-#: common.c:1606 common.c:1698 common.c:1784
+#: common.c:1609 common.c:1701 common.c:1787
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "略過二進位檔案%s\n"
 
-#: common.c:1609 common.c:1701 common.c:1787
+#: common.c:1612 common.c:1704 common.c:1790
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "未支援%d 編碼頁。\n"
 
-#: common.c:1613 common.c:1705 common.c:1791 common.c:1851
+#: common.c:1616 common.c:1708 common.c:1794 common.c:1854
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "略過 UTF-16 檔案 %s，wchar_t 的大小是 %d 位元組。\n"
 
-#: common.c:1616 common.c:1708 common.c:1794
+#: common.c:1619 common.c:1711 common.c:1797
 #, fuzzy, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
 msgstr "略過 UTF-16 檔案 %s，UTF-16 轉換發生錯誤。\n"
 
-#: common.c:1620 common.c:1712 common.c:1798
+#: common.c:1623 common.c:1715 common.c:1801
 #, fuzzy, c-format
 msgid "Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"
 msgstr "略過 UTF-16 檔案 %s，UTF-16 轉換發生錯誤。\n"
 
-#: common.c:1686 common.c:1775 common.c:1840
+#: common.c:1689 common.c:1778 common.c:1843
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "略過 %s，不是一個普通檔案。\n"
 
-#: common.c:1689
+#: common.c:1692
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "略過 %s，輸出檔 %s 是一個符號連結。.\n"
 
-#: common.c:1692 common.c:1781 common.c:1845
+#: common.c:1695 common.c:1784 common.c:1848
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr "略過符號連結 %s，目標不是一個普通檔案。\n"
 
-#: common.c:1695
+#: common.c:1698
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr "略過 %s，符號連結 %s 目標不是一個普通檔案。\n"
 
-#: common.c:1718
+#: common.c:1721
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "正在轉換 %s 為Unix 格式到 %s...\n"
 
-#: common.c:1721
+#: common.c:1724
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "正在轉換 %s 為Mac 格式到 %s...\n"
 
-#: common.c:1723
+#: common.c:1726
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "正在轉換 %s 為DOS 格式到 %s...\n"
@@ -533,42 +533,42 @@ msgstr "正在轉換 %s 為DOS 格式到 %s...\n"
 #. 3rd %s is encoding of output file.
 #. 4th %s is name of output file.
 #. E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format...
-#: common.c:1734
+#: common.c:1737
 #, fuzzy, c-format
 msgid "converting %s file %s to %s file %s in Unix format...\n"
 msgstr "正在轉換 %s 為Unix 格式到 %s...\n"
 
-#: common.c:1737
+#: common.c:1740
 #, fuzzy, c-format
 msgid "converting %s file %s to %s file %s in Mac format...\n"
 msgstr "正在轉換 %s 為Mac 格式到 %s...\n"
 
-#: common.c:1739
+#: common.c:1742
 #, fuzzy, c-format
 msgid "converting %s file %s to %s file %s in DOS format...\n"
 msgstr "正在轉換 %s 為DOS 格式到 %s...\n"
 
-#: common.c:1745
+#: common.c:1748
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "轉換檔案 %s 到 %s 錯誤\n"
 
-#: common.c:1778
+#: common.c:1781
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "略過符號連結 %s。\n"
 
-#: common.c:1804
+#: common.c:1807
 #, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "正在轉換 %s 為Unix 格式...\n"
 
-#: common.c:1807
+#: common.c:1810
 #, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "正在轉換 %s 為Mac 格式...\n"
 
-#: common.c:1809
+#: common.c:1812
 #, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "正在轉換 %s 為DOS 格式...\n"
@@ -578,76 +578,76 @@ msgstr "正在轉換 %s 為DOS 格式...\n"
 #. 2nd %s is name of input file.
 #. 3rd %s is encoding of output (input file is overwritten).
 #. E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format...
-#: common.c:1819
+#: common.c:1822
 #, fuzzy, c-format
 msgid "converting %s file %s to %s Unix format...\n"
 msgstr "正在轉換 %s 為Unix 格式...\n"
 
-#: common.c:1822
+#: common.c:1825
 #, fuzzy, c-format
 msgid "converting %s file %s to %s Mac format...\n"
 msgstr "正在轉換 %s 為Mac 格式...\n"
 
-#: common.c:1824
+#: common.c:1827
 #, fuzzy, c-format
 msgid "converting %s file %s to %s DOS format...\n"
 msgstr "正在轉換 %s 為DOS 格式...\n"
 
-#: common.c:1830
+#: common.c:1833
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "轉換檔案 %s 錯誤\n"
 
-#: common.c:1898 common.c:1975
+#: common.c:1901 common.c:1978
 #, fuzzy, c-format
 msgid "can not read from input file %s:"
 msgstr "無法寫入輸出檔：%s\n"
 
-#: common.c:2148
+#: common.c:2151
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr ""
 
-#: common.c:2267 common.c:2310
+#: common.c:2270 common.c:2313
 #, c-format
 msgid "active code page: %d\n"
 msgstr "作用中編碼頁：%d\n"
 
-#: common.c:2322
+#: common.c:2325
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "指定的轉換模式 %s 不合法\n"
 
-#: common.c:2330 common.c:2356
+#: common.c:2333 common.c:2359
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "選項'%s' 需要一個引數\n"
 
-#: common.c:2348
+#: common.c:2351
 #, fuzzy, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "指定的轉換模式 %s 不合法\n"
 
-#: common.c:2368 common.c:2381 common.c:2447
+#: common.c:2371 common.c:2384 common.c:2450
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "新檔模式中未指明檔案 %s 的目的位置\n"
 
-#: common.c:2461
+#: common.c:2464
 #, fuzzy, c-format
 msgid "can not read from input file: %s\n"
 msgstr "無法寫入輸出檔：%s\n"
 
-#: common.c:2473 common.c:2487
+#: common.c:2476 common.c:2490
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "無法寫入輸出檔：%s\n"
 
-#: common.c:2564
+#: common.c:2567
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr ""
 
-#: common.c:2579
+#: common.c:2582
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr ""
 

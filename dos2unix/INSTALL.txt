@@ -238,7 +238,7 @@ WINDOWS 32 BIT PORT
     Large File Support (LFS), and mingw doesn't. LFS is the ability to
     read/write files larger than 2GB or 4GB on a 32 bit operation system.
     LFS also makes processing files on network drives more reliable. I have
-    had a problem report that output files were not always writen when files
+    had a problem report that output files were not always written when files
     on a network drive were concurrently processed. By switching from
     mingw to mingw-w64 the problem was solved.
     Earlier I got a problem report of accessing small files on a Windows
