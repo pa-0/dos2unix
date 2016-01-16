@@ -1,5 +1,6 @@
 2016-01-16 Erwin Waterlander <waterlan@xs4all.nl>
-	* *.c: Fixed printing of East-Asian ANSI multi-byte encoded text on Windows.
+	* *.c: Fixed printing of East-Asian ANSI multi-byte encoded text on Windows
+	  with an East-Asian regional setting.
 	  It appears that when setlocale() sets the locale to "" in the beginning
 	  of main(), which is done for gettext translations, multi-byte ANSI is
 	  printed wrongly. On windows we need to set the locale to "C" to make East-
@@ -19,6 +20,9 @@
 	  use option "-D unicode" to get proper output. When I use the ansi method
 	  I get wrong output, but when I redirect that to a text file, I get
 	  proper CP936 output in the text file.
+
+	  PS:
+	  See change of 2016-01-16 above. The cause of the problem was setlocale().
 
 2016-01-02 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Compilation for mingw, mingw32-w64, and mingw64-w64

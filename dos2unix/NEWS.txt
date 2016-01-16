@@ -1,5 +1,6 @@
 2016-??-??: Version 7.3.3
-  * Fixed printing of East-Asian text on Windows.
+  * Fixed printing of East-Asian text on Windows with an East-Asian regional
+    setting.
 
 2015-11-20: Version 7.3.2
 
