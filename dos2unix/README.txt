@@ -91,7 +91,7 @@ TRANSLATORS
         Hungarian             Balázs Úr                    Version 6.0.5 - 7.2.3
         Japanese              Yasuaki Taniguchi            Version 7.1.1
         Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.3.1
-        Polish                Jakub Bogusz                 Version 6.0.5 - 7.3.1
+        Polish                Jakub Bogusz                 Version 6.0.5 - 7.3.3
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
         Russian               Yuri Kozlov                  Version 6.0.6 - 7.3.3
         Serbian               Мирослав Николић             Version 6.0.5 - 7.3.3
@@ -99,7 +99,7 @@ TRANSLATORS
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.3.1
         Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.3.3
         Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.3.3
-        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.3.1
+        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.3.3
 
         Translation of the manual.
         See http://translationproject.org/domain/dos2unix-man.html

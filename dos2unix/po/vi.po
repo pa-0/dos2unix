@@ -1,14 +1,14 @@
 # Vietnamese translations for dos2unix package
 # Bản dịch tiếng Việt cho gói dos2unix.
 # This file is distributed under the same license as the dos2unix package.
-# Trần Ngọc Quân <vnwildman@gmail.com>, 2014, 2015.
+# Trần Ngọc Quân <vnwildman@gmail.com>, 2014, 2015, 2016.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.3.1-beta5\n"
+"Project-Id-Version: dos2unix 7.3.3-beta2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-16 02:06+0100\n"
-"PO-Revision-Date: 2015-09-16 08:01+0700\n"
+"POT-Creation-Date: 2016-01-16 10:57+0100\n"
+"PO-Revision-Date: 2016-01-13 09:01+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
 "Language: vi\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.7\n"
 
 #: dos2unix.c:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
@@ -29,7 +29,7 @@ msgid ""
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Tác quyền (C) 2009-2015 Erwin Waterlander\n"
+"Tác quyền (C) 2009-%d Erwin Waterlander\n"
 "Tác quyền (C) 1998      Christian Wurll (Phiên bản 3.1)\n"
 "Tác quyền (C) 1998      Bernd Johannes Wuebben (Phiên bản 3.0)\n"
 "Tác quyền (C) 1994-1995 Benjamin Lin\n"
@@ -66,14 +66,14 @@ msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "lỗi: Giá trị của biến môi trường DOS2UNIX_LOCALEDIR quá dài.\n"
 
 #: unix2dos.c:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Bản quyền (C) 2009-2015 Erwin Waterlander\n"
+"Bản quyền (C) 2009-%d Erwin Waterlander\n"
 "Bản quyền (C) 1994-1995 Benjamin Lin\n"
 "Giữ toàn bộ bản quyền.\n"
 "\n"
