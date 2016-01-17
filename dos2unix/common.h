@@ -294,15 +294,18 @@ wint_t d2u_getwc(FILE *f, int bomtype);
 wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype);
 wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname);
 #endif
-void d2u_fprintf( FILE *stream, const char* format, ... );
-void d2u_ansi_fprintf( FILE *stream, const char* format, ... );
+
 #ifdef D2U_UNIFILE
 #define UNICODE
 #define _UNICODE
-#define D2U_FPRINTF d2u_fprintf
+#define D2U_UTF8_FPRINTF d2u_utf8_fprintf
+#define D2U_ANSI_FPRINTF d2u_ansi_fprintf
+void d2u_utf8_fprintf( FILE *stream, const char* format, ... );
+void d2u_ansi_fprintf( FILE *stream, const char* format, ... );
 int glob_warg(int argc, wchar_t *wargv[], char ***argv, CFlag *ipFlag, const char *progname);
 #else
-#define D2U_FPRINTF d2u_ansi_fprintf
+#define D2U_UTF8_FPRINTF fprintf
+#define D2U_ANSI_FPRINTF fprintf
 #endif
 
 #endif

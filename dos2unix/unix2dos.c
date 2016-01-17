@@ -66,7 +66,7 @@
 
 void PrintLicense(void)
 {
-  d2u_ansi_fprintf(stdout,_("\
+  D2U_ANSI_FPRINTF(stdout,_("\
 Copyright (C) 2009-%d Erwin Waterlander\n\
 Copyright (C) 1994-1995 Benjamin Lin\n\
 All rights reserved.\n\n"),2016);
@@ -145,8 +145,8 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
             ipFlag->status |= BINARY_FILE ;
             if (ipFlag->verbose) {
               if ((ipFlag->stdio_mode) && (!ipFlag->error)) ipFlag->error = 1;
-              D2U_FPRINTF(stderr, "%s: ", progname);
-              D2U_FPRINTF(stderr, _("Binary symbol 0x00%02X found at line %u\n"), TempChar, line_nr);
+              D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+              D2U_UTF8_FPRINTF(stderr, _("Binary symbol 0x00%02X found at line %u\n"), TempChar, line_nr);
             }
             break;
           }
@@ -205,8 +205,8 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
             ipFlag->status |= BINARY_FILE ;
             if (ipFlag->verbose) {
               if ((ipFlag->stdio_mode) && (!ipFlag->error)) ipFlag->error = 1;
-              D2U_FPRINTF(stderr, "%s: ", progname);
-              D2U_FPRINTF(stderr, _("Binary symbol 0x00%02X found at line %u\n"), TempChar, line_nr);
+              D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+              D2U_UTF8_FPRINTF(stderr, _("Binary symbol 0x00%02X found at line %u\n"), TempChar, line_nr);
             }
             break;
           }
@@ -257,16 +257,16 @@ int ConvertUnixToDosW(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *prog
       default: /* unknown FromToMode */
       ;
 #if DEBUG
-      D2U_FPRINTF(stderr, "%s: ", progname);
-      D2U_FPRINTF(stderr, _("program error, invalid conversion mode %d\n"),ipFlag->FromToMode);
+      D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+      D2U_UTF8_FPRINTF(stderr, _("program error, invalid conversion mode %d\n"),ipFlag->FromToMode);
       exit(1);
 #endif
     }
     if (ipFlag->status & UNICODE_CONVERSION_ERROR)
         ipFlag->line_nr = line_nr;
     if ((RetVal == 0) && (ipFlag->verbose > 1)) {
-      D2U_FPRINTF(stderr, "%s: ", progname);
-      D2U_FPRINTF(stderr, _("Converted %u out of %u line breaks.\n"), converted, line_nr -1);
+      D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+      D2U_UTF8_FPRINTF(stderr, _("Converted %u out of %u line breaks.\n"), converted, line_nr -1);
     }
     return RetVal;
 }
@@ -323,8 +323,8 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
       ConvTable = U2DAsciiTable;
 
     if ((ipFlag->ConvMode > CONVMODE_7BIT) && (ipFlag->verbose)) { /* not ascii or 7bit */
-       D2U_FPRINTF(stderr, "%s: ", progname);
-       D2U_FPRINTF(stderr, _("using code page %d.\n"), ipFlag->ConvMode);
+       D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+       D2U_UTF8_FPRINTF(stderr, _("using code page %d.\n"), ipFlag->ConvMode);
     }
 
     /* LF    -> CR-LF */
@@ -345,8 +345,8 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
             ipFlag->status |= BINARY_FILE ;
             if (ipFlag->verbose) {
               if ((ipFlag->stdio_mode) && (!ipFlag->error)) ipFlag->error = 1;
-              D2U_FPRINTF(stderr, "%s: ", progname);
-              D2U_FPRINTF(stderr, _("Binary symbol 0x%02X found at line %u\n"), TempChar, line_nr);
+              D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+              D2U_UTF8_FPRINTF(stderr, _("Binary symbol 0x%02X found at line %u\n"), TempChar, line_nr);
             }
             break;
           }
@@ -405,8 +405,8 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
             ipFlag->status |= BINARY_FILE ;
             if (ipFlag->verbose) {
               if ((ipFlag->stdio_mode) && (!ipFlag->error)) ipFlag->error = 1;
-              D2U_FPRINTF(stderr, "%s: ", progname);
-              D2U_FPRINTF(stderr, _("Binary symbol 0x%02X found at line %u\n"), TempChar, line_nr);
+              D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+              D2U_UTF8_FPRINTF(stderr, _("Binary symbol 0x%02X found at line %u\n"), TempChar, line_nr);
             }
             break;
           }
@@ -457,14 +457,14 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag, const char *progn
       default: /* unknown FromToMode */
       ;
 #if DEBUG
-      D2U_FPRINTF(stderr, "%s: ", progname);
-      D2U_FPRINTF(stderr, _("program error, invalid conversion mode %d\n"),ipFlag->FromToMode);
+      D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+      D2U_UTF8_FPRINTF(stderr, _("program error, invalid conversion mode %d\n"),ipFlag->FromToMode);
       exit(1);
 #endif
     }
     if ((RetVal == 0) && (ipFlag->verbose > 1)) {
-      D2U_FPRINTF(stderr, "%s: ", progname);
-      D2U_FPRINTF(stderr, _("Converted %u out of %u line breaks.\n"), converted, line_nr -1);
+      D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+      D2U_UTF8_FPRINTF(stderr, _("Converted %u out of %u line breaks.\n"), converted, line_nr -1);
     }
     return RetVal;
 }
@@ -494,8 +494,8 @@ int main (int argc, char *argv[])
       if (strlen(ptr) < sizeof(localedir))
          strcpy(localedir,ptr);
       else {
-         D2U_FPRINTF(stderr,"%s: ",progname);
-         d2u_ansi_fprintf(stderr, "%s", _("error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"));
+         D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
+         D2U_ANSI_FPRINTF(stderr, "%s", _("error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"));
          strcpy(localedir,LOCALEDIR);
       }
    }
@@ -523,8 +523,8 @@ int main (int argc, char *argv[])
   /* variable initialisations */
   pFlag = (CFlag*)malloc(sizeof(CFlag));
   if (pFlag == NULL) {
-    D2U_FPRINTF(stderr, "unix2dos:");
-    d2u_ansi_fprintf(stderr, " %s\n", strerror(errno));
+    D2U_UTF8_FPRINTF(stderr, "unix2dos:");
+    D2U_ANSI_FPRINTF(stderr, " %s\n", strerror(errno));
     return errno;
   }
   pFlag->FromToMode = FROMTO_UNIX2DOS;  /* default unix2dos */
@@ -550,8 +550,8 @@ int main (int argc, char *argv[])
 
   argv_glob = (char ***)malloc(sizeof(char***));
   if (argv_glob == NULL) {
-    D2U_FPRINTF(stderr, "%s:", progname);
-    d2u_ansi_fprintf(stderr, " %s\n", strerror(errno));
+    D2U_UTF8_FPRINTF(stderr, "%s:", progname);
+    D2U_ANSI_FPRINTF(stderr, " %s\n", strerror(errno));
     return errno;
   }
   /* Glob the arguments and convert them to UTF-8 */
