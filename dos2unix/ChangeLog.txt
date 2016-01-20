@@ -6,6 +6,7 @@
 	  methods add a BOM to stdout, which is required for correct redirection
 	  in PowerShell.
 	* man/man1/dos2unix.pod: Updated manual for option -D.
+	* test/testps16.ps1, test/testps8.ps1: Fixed select-string test.
 
 2016-01-16 Erwin Waterlander <waterlan@xs4all.nl>
 	* *.c: Fixed printing of East-Asian ANSI multi-byte encoded text on Windows
