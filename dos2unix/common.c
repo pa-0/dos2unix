@@ -155,13 +155,8 @@ void d2u_utf8_fprintf( FILE *stream, const char* format, ... ) {
    UINT outputCP;
    wchar_t wstr[D2U_MAX_PATH];
    int prevmode;
-/*   HANDLE out_handle;
+   static int BOM_printed = 0;
 
-   if (stream == stderr)
-     out_handle =GetStdHandle(STD_ERROR_HANDLE);
-   else
-     out_handle =GetStdHandle(STD_OUTPUT_HANDLE);
-*/
    va_start(args, format);
 
    /* The format string is encoded in the system default
@@ -176,7 +171,7 @@ void d2u_utf8_fprintf( FILE *stream, const char* format, ... ) {
     * Print to buffer (UTF-8) */
    vsnprintf(buf, sizeof(buf), formatmbs, args);
 
-   if (d2u_display_encoding == D2U_DISPLAY_UTF8) {
+   if ((d2u_display_encoding == D2U_DISPLAY_UTF8) || (d2u_display_encoding == D2U_DISPLAY_UTF8BOM)) {
 
    /* A disadvantage of this method is that all non-ASCII characters are printed
       wrongly when the console uses raster font (which is the default).
@@ -190,6 +185,12 @@ void d2u_utf8_fprintf( FILE *stream, const char* format, ... ) {
        /* print UTF-8 buffer to console in UTF-8 mode */
       outputCP = GetConsoleOutputCP();
       SetConsoleOutputCP(CP_UTF8);
+      if (! BOM_printed) {
+          if (d2u_display_encoding == D2U_DISPLAY_UTF8BOM)
+              fwprintf(stream, L"%S","\xEF\xBB\xBF");
+        //if (fprintf(f, "%s", "\xEF\xBB\xBF") < 0) return NULL; /* UTF-8 */
+          BOM_printed = 1;
+      }
       fwprintf(stream,L"%S",buf);
       SetConsoleOutputCP(outputCP);
 
@@ -198,32 +199,25 @@ void d2u_utf8_fprintf( FILE *stream, const char* format, ... ) {
      fwprintf(stream,L"%S",buf);
      _setmode(_fileno(stream), prevmode); */
 
-   } else if (d2u_display_encoding == D2U_DISPLAY_UNICODE) {
+   } else if ((d2u_display_encoding == D2U_DISPLAY_UNICODE) || (d2u_display_encoding == D2U_DISPLAY_UNICODEBOM)) {
 
-   /* Another method for printing Unicode is using WriteConsoleW().
-      WriteConsoleW always prints output correct in the console. Even when
-      using raster font WriteConsoleW prints correctly when possible.
-      WriteConsoleW has one big disadvantage: The output of WriteConsoleW
-      can't be redirected. The output can't be piped to a log file. */
-       /* Convert UTF-8 buffer to wide characters. */
-       //d2u_MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, D2U_MAX_PATH);
-       //WriteConsoleW(out_handle, wstr, wcslen(wstr), NULL, NULL);
-
-   /* Printing UTF-16 works correctly like WriteConsoleW, with and without NLS enabled.
-      Works also good with raster fonts. In a Chinese CP936 locale it works correctly
-      in the Windows Command Prompt. The downside is that it is UTF-16. When this is
-      redirected to a file it gives a big mess. It is not compatible with ASCII. So
-      even a simple ASCII grep on the screen output will not work.
-      When the output is redirected in a Windows Command Prompt to a file all line breaks end up as
-      0d0a 00 (instead of 0d00 0a00), which makes it a corrupt UTF-16 file.
-      In PowerShell you get correct line breaks 0d00 0a00 when you redirect to a file, but there are
-      null characters (0000) inserted, as if it is UTF-32 with UTF-16 BOM and UTF-16 line breaks.
-      See also test/testu16.c.    */
+   /* Printing UTF-16 works correctly. Works also good with raster fonts.
+      No need to change the OEM code page to the system ANSI code page.
+    */
       d2u_MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, D2U_MAX_PATH);
       prevmode = _setmode(_fileno(stream), _O_U16TEXT);
+      if (! BOM_printed) {
+          /* For correct redirection in PowerShell we need to print a BOM */
+          if (d2u_display_encoding == D2U_DISPLAY_UNICODEBOM)
+              fwprintf(stream, L"\xfeff");
+          BOM_printed = 1;
+      }
       fwprintf(stream,L"%ls",wstr);
+      fflush(stream);  /* Flushing is required to get correct UTF-16 when stdout is redirected. */
       _setmode(_fileno(stream), prevmode);
+
    } else {  /* ANSI */
+
       d2u_MultiByteToWideChar(CP_UTF8,0, buf, -1, wstr, D2U_MAX_PATH);
       /* Convert the whole message to ANSI, some Unicode characters may fail to translate to ANSI.
          They will be displayed as a question mark. */
@@ -2190,8 +2184,12 @@ int parse_options(int argc, char *argv[],
          d2u_display_encoding = D2U_DISPLAY_ANSI;
       else if (strncmp(ptr, "unicode", sizeof("unicode")) == 0)
          d2u_display_encoding = D2U_DISPLAY_UNICODE;
+      else if (strncmp(ptr, "unicodebom", sizeof("unicodebom")) == 0)
+         d2u_display_encoding = D2U_DISPLAY_UNICODEBOM;
       else if (strncmp(ptr, "utf8", sizeof("utf8")) == 0)
          d2u_display_encoding = D2U_DISPLAY_UTF8;
+      else if (strncmp(ptr, "utf8bom", sizeof("utf8bom")) == 0)
+         d2u_display_encoding = D2U_DISPLAY_UTF8BOM;
    }
 #endif
 
@@ -2336,8 +2334,12 @@ int parse_options(int argc, char *argv[],
             d2u_display_encoding = D2U_DISPLAY_ANSI;
           else if (strcmpi(argv[ArgIdx], "unicode") == 0)
             d2u_display_encoding = D2U_DISPLAY_UNICODE;
-          else if (strcmpi(argv[ArgIdx], "utf8") == 0) {
+          else if (strcmpi(argv[ArgIdx], "unicodebom") == 0)
+            d2u_display_encoding = D2U_DISPLAY_UNICODEBOM;
+          else if (strcmpi(argv[ArgIdx], "utf8") == 0)
             d2u_display_encoding = D2U_DISPLAY_UTF8;
+          else if (strcmpi(argv[ArgIdx], "utf8bom") == 0) {
+            d2u_display_encoding = D2U_DISPLAY_UTF8BOM;
           } else {
             D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
             D2U_UTF8_FPRINTF(stderr, _("invalid %s display encoding specified\n"),argv[ArgIdx]);

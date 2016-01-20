@@ -8,5 +8,8 @@ dos2unix -i uni_el_αρχείο.txt uni_zh_文件.txt
 
 echo "test select-string:"
 
-# The following is not working. Why?
+# select-string requires a BOM.
+$env:DOS2UNIX_DISPLAY_ENC = "utf8bom"
 dos2unix -i uni* | select-string -encoding utf8 -pattern αρχ
+
+$env:DOS2UNIX_DISPLAY_ENC = ""

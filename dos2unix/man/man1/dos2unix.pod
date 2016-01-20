@@ -181,7 +181,7 @@ inside the system default code page are not displayed properly. You will
 see a question mark, or a wrong symbol instead. When you don't work with
 foreign file names this method is OK.
 
-=item B<unicode>
+=item B<unicode, unicodebom>
 
 The advantage of unicode (the Windows name for UTF-16) encoding is that text is
 usually properly displayed. There is no need to change the active code page.
@@ -193,10 +193,16 @@ When you use the ConEmu console all text is displayed properly, because ConEmu
 automatically selects a good font.
 
 The disadvantage of unicode is that it is not compatible with ASCII. The output
-is not easy to handle when you redirect it to another program or a file.
-Redirection to a file does not give a correct UTF-16 file.
+is not easy to handle when you redirect it to another program.
 
-=item B<utf8>
+When method C<unicodebom> is used the Unicode text will be preceded with a BOM
+(Byte Order Mark). A BOM is required for correct redirection or piping in
+PowerShell. Here is a PowerShell example:
+
+    dos2unix -D unicodebom -i *.txt | select-string -encoding unicode -pattern PATTERN
+
+
+=item B<utf8, utf8bom>
 
 The advantage of utf8 is that it is compatible with ASCII and when
 you redirect it to a file you get a proper UTF-8 file. You need to set the
@@ -210,6 +216,12 @@ region you may see a lot of flickering of the console when the messages are
 displayed.
 
 In a ConEmu console the utf8 encoding method works well.
+
+When method C<utf8bom> is used the UTF-8 text will be preceded with a BOM
+(Byte Order Mark). A BOM is required for correct redirection or piping in
+PowerShell. Here is a PowerShell example:
+
+    dos2unix -D utf8bom -i *.txt | select-string -encoding utf8 -pattern PATTERN
 
 =back
 

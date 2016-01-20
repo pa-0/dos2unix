@@ -1,3 +1,12 @@
+2016-01-20 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Fixed printing text in unicode UTF-16 mode, such that when stdout
+	  is redirected to a file, a correct UTF-16 file is created.
+	  Thanks to Hans Passant.
+	* common.c: Added display encoding methods "unicodebom" and "utf8bom". These
+	  methods add a BOM to stdout, which is required for correct redirection
+	  in PowerShell.
+	* man/man1/dos2unix.pod: Updated manual for option -D.
+
 2016-01-16 Erwin Waterlander <waterlan@xs4all.nl>
 	* *.c: Fixed printing of East-Asian ANSI multi-byte encoded text on Windows
 	  with an East-Asian regional setting.
