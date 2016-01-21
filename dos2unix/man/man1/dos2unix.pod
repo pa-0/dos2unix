@@ -1,7 +1,7 @@
 /*
 #  Copyright and License
 #
-#   Copyright (C) 2009-2015 Erwin Waterlander
+#   Copyright (C) 2009-2016 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -155,7 +155,7 @@ with ascii being the default.
 =item B<-D, --display-enc ENCODING>
 
 Set encoding of displayed text. Where ENCODING is one of:
-I<ansi>, I<unicode>, I<utf8>
+I<ansi>, I<unicode>, I<unicodebom>, I<utf8>, I<utf8bom>
 with ansi being the default.
 
 This option is only available in dos2unix for Windows with Unicode
@@ -204,8 +204,7 @@ PowerShell. Here is a PowerShell example:
 
 =item B<utf8, utf8bom>
 
-The advantage of utf8 is that it is compatible with ASCII and when
-you redirect it to a file you get a proper UTF-8 file. You need to set the
+The advantage of utf8 is that it is compatible with ASCII. You need to set the
 console's font to a TrueType font. With a TrueType font the text is displayed
 similar as with the C<unicode> encoding.
 
@@ -226,7 +225,7 @@ PowerShell. Here is a PowerShell example:
 =back
 
 The default encoding can be changed with environment variable DOS2UNIX_DISPLAY_ENC
-by setting it to C<unicode> or C<utf8>.
+by setting it to C<unicode>, C<unicodebom>, C<utf8>, or C<utf8bom>.
 
 =item B<-f, --force>
 

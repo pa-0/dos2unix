@@ -8,7 +8,7 @@ REM This script will only run on Windows 7 and higher.
 
 REM switch to UTF-8 code page
 chcp 65001
-dos2unix -i uni_el_αρχείο.txt uni_zh_文件.txt
+dos2unix -D unicode -i uni_el_αρχείο.txt uni_zh_文件.txt
 
 REM set code page back to original value
 chcp 850
