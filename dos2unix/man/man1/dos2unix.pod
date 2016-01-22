@@ -85,7 +85,9 @@ Dos2unix was modelled after dos2unix under SunOS/Solaris.  There is one
 important difference with the original SunOS/Solaris version. This version does
 by default in-place conversion (old file mode), while the original
 SunOS/Solaris version only supports paired conversion (new file mode). See also
-options C<-o> and C<-n>.
+options C<-o> and C<-n>. Another difference is that the SunOS/Solaris version
+uses by default I<iso> mode conversion while this version uses by default I<ascii>
+mode conversion.
 
 =head1 OPTIONS
 
@@ -197,9 +199,7 @@ is not easy to handle when you redirect it to another program.
 
 When method C<unicodebom> is used the Unicode text will be preceded with a BOM
 (Byte Order Mark). A BOM is required for correct redirection or piping in
-PowerShell. Here is a PowerShell example:
-
-    dos2unix -D unicodebom -i *.txt | select-string -encoding unicode -pattern PATTERN
+PowerShell.
 
 
 =item B<utf8, utf8bom>
@@ -218,9 +218,8 @@ In a ConEmu console the utf8 encoding method works well.
 
 When method C<utf8bom> is used the UTF-8 text will be preceded with a BOM
 (Byte Order Mark). A BOM is required for correct redirection or piping in
-PowerShell. Here is a PowerShell example:
+PowerShell.
 
-    dos2unix -D utf8bom -i *.txt | select-string -encoding utf8 -pattern PATTERN
 
 =back
 
