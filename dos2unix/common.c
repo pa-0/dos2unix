@@ -175,12 +175,12 @@ void d2u_utf8_fprintf( FILE *stream, const char* format, ... ) {
 
    /* A disadvantage of this method is that all non-ASCII characters are printed
       wrongly when the console uses raster font (which is the default).
-      I tried on a Chinese Windows 7 (code page 936) and then all non-ASCII
-      is printed wrongly, using raster and TrueType font. Only in ConEmu I
-      get correct output. I'm afraid that most people use the default Command Prompt
-      and PowerShell consolse, so for many people the text will be unreadable.
-      On a Chinese Windows there was a lot of flickering during the printing of the
-      lines of text. This is not acceptable.
+      When I switch the system ANSI code page to 936 (Simplified Chinese) or 932 (Japanese)
+      I see lot of flickering in the console when I print UTF-8.
+      The cause could be that I have a Dutch Windows installation, and when the console is
+      switched to UTF-8 mode (CP65001) the font is switched back to Western font (Lucida Console,
+      Consolas). These are the only fonts which I can select when I set the code page in the
+      console to 65001 with chcp, while the system ANSI code is 936 or 932.
    */
        /* print UTF-8 buffer to console in UTF-8 mode */
       outputCP = GetConsoleOutputCP();
@@ -188,7 +188,6 @@ void d2u_utf8_fprintf( FILE *stream, const char* format, ... ) {
       if (! BOM_printed) {
           if (d2u_display_encoding == D2U_DISPLAY_UTF8BOM)
               fwprintf(stream, L"%S","\xEF\xBB\xBF");
-        //if (fprintf(f, "%s", "\xEF\xBB\xBF") < 0) return NULL; /* UTF-8 */
           BOM_printed = 1;
       }
       fwprintf(stream,L"%S",buf);
