@@ -78,7 +78,7 @@ TRANSLATORS
         Chinese (simplified)  Tianze Wang                  Version 7.3.1 - 7.3.3
         Chinese (traditional) mail6543210                  Version 6.0.5
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
-        Danish                Joe Hansen                   Version 7.2.3 - 7.3.2
+        Danish                Joe Hansen                   Version 7.2.3 - 7.3.3
         Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3.1
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
