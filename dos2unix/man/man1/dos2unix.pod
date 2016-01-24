@@ -719,6 +719,11 @@ In a Windows Command Prompt the following command can be used:
 
     for /R %G in (*.txt) do dos2unix "%G"
 
+PowerShell users can use the following command in Windows PowerShell:
+
+    get-childitem -path . -filter '*.txt' -recurse | foreach-object {dos2unix $_.Fullname}
+
+
 =head1 LOCALIZATION
 
 =over 4
