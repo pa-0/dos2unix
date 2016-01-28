@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-7.3.3-beta1\n"
+"Project-Id-Version: dos2unix-7.3.3-beta2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-22 21:53+0100\n"
-"PO-Revision-Date: 2016-01-04 14:42+0100\n"
+"PO-Revision-Date: 2016-01-28 10:26+0100\n"
 "Last-Translator: Åka Sikrom <a4@hush.com>\n"
 "Language-Team: Norwegian Bokmaal <i18n-nb@lister.ping.uio.no>\n"
 "Language: Norwegian Bokmål\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: dos2unix.c:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
@@ -28,7 +28,7 @@ msgid ""
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Opphavsrett (C) 2009-2015 Erwin Waterlander\n"
+"Opphavsrett (C) 2009-%d Erwin Waterlander\n"
 "Opphavsrett (C) 1998      Christian Wurll (Versjon 3.1)\n"
 "Opphavsrett (C) 1998      Bernd Johannes Wuebben (Versjon 3.0)\n"
 "Opphavsrett (C) 1994-1995 Benjamin Lin\n"
@@ -65,14 +65,14 @@ msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "feil: Verdien av miljøvariabelen DOS2UNIX_LOCALEDIR er for lang.\n"
 
 #: unix2dos.c:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Opphavsrett (C) 2009-2015 Erwin Waterlander\n"
+"Opphavsrett (C) 2009-%d Erwin Waterlander\n"
 "Opphavsrett (C) 1994-1995 Benjamin Lin\n"
 "Alle rettigheter tilhører rettighetshaveren.\n"
 "\n"

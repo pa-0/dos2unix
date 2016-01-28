@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3.3-beta1\n"
-"POT-Creation-Date: 2016-01-24 10:33+0100\n"
-"PO-Revision-Date: 2015-12-28 22:47+0100\n"
+"Project-Id-Version: dos2unix-man 7.3.3-beta6\n"
+"POT-Creation-Date: 2016-01-24 10:43+0100\n"
+"PO-Revision-Date: 2016-01-28 10:25+0100\n"
 "Last-Translator: Sebastian Rasmussen <sebras@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -51,7 +51,7 @@ msgstr "BESKRIVNING"
 #. type: textblock
 #: dos2unix.pod:63
 msgid "The Dos2unix package includes utilities C<dos2unix> and C<unix2dos> to convert plain text files in DOS or Mac format to Unix format and vice versa."
-msgstr "Paketet Dos2unix inkluderar verktygen C<dos2unix> och C<unix2dos> som konverterar oformaterade textfiler i DOS- eller Mac-format till Unix format och vice versa."
+msgstr "Paketet Dos2unix inkluderar verktygen C<dos2unix> och C<unix2dos> som konverterar oformaterade textfiler i DOS- eller Mac-format till Unix-format och vice versa."
 
 #. type: textblock
 #: dos2unix.pod:66
@@ -80,10 +80,8 @@ msgstr "Symboliska länkar och deras mål förblir oförändrade som standard. S
 
 #. type: textblock
 #: dos2unix.pod:84
-#, fuzzy
-#| msgid "Dos2unix was modelled after dos2unix under SunOS/Solaris.  There is one important difference with the original SunOS/Solaris version. This version does by default in-place conversion (old file mode), while the original SunOS/Solaris version only supports paired conversion (new file mode). See also options C<-o> and C<-n>."
 msgid "Dos2unix was modelled after dos2unix under SunOS/Solaris.  There is one important difference with the original SunOS/Solaris version. This version does by default in-place conversion (old file mode), while the original SunOS/Solaris version only supports paired conversion (new file mode). See also options C<-o> and C<-n>. Another difference is that the SunOS/Solaris version uses by default I<iso> mode conversion while this version uses by default I<ascii> mode conversion."
-msgstr "Dos2unix modellerades efter dos2unix från SunOS/Solaris. Det finns en viktig skillnad gentemot originalversionen för SunOS/Solaris. Denna versionen gör som standard konverteringen på plats (gammalfilsläge), medan originalversionen från SunOS/Solaris bara hade stöd för parad konvertering (nyfilsläge). Se vidare flaggorna C<-o> och C<-n>."
+msgstr "Dos2unix modellerades efter dos2unix från SunOS/Solaris. Det finns en viktig skillnad gentemot originalversionen för SunOS/Solaris. Denna versionen gör som standard konverteringen på plats (gammalfilsläge), medan originalversionen från SunOS/Solaris bara hade stöd för parad konvertering (nyfilsläge). Se vidare flaggorna C<-o> och C<-n>. En annan skillnad är att SunOS/Solaris-versionen som standard använder I<iso>-lägeskonvertering medan denna version som standard använder I<ascii>-lägeskonvertering."
 
 #. type: =head1
 #: dos2unix.pod:92
@@ -98,7 +96,7 @@ msgstr "B<-->"
 #. type: textblock
 #: dos2unix.pod:98
 msgid "Treat all following options as file names. Use this option if you want to convert files whose names start with a dash. For instance to convert a file named \"-foo\", you can use this command:"
-msgstr "Behandla alla efterföljande flaggor som filnamn. Använd denna flagg om du vill konvertera filer vars namn börjar med bindestreck. För att till exempel konvertera en fil med namnet “-foo“ kan du använda detta kommando:"
+msgstr "Behandla alla efterföljande flaggor som filnamn. Använd denna flagga om du vill konvertera filer vars namn börjar med bindestreck. För att till exempel konvertera en fil med namnet “-foo“ kan du använda detta kommando:"
 
 #. type: verbatim
 #: dos2unix.pod:102
@@ -242,10 +240,8 @@ msgstr "B<-D, --display-enc KODNING>"
 
 #. type: textblock
 #: dos2unix.pod:159
-#, fuzzy
-#| msgid "Set encoding of displayed text. Where ENCODING is one of: I<ansi>, I<unicode>, I<utf8> with ansi being the default."
 msgid "Set encoding of displayed text. Where ENCODING is one of: I<ansi>, I<unicode>, I<unicodebom>, I<utf8>, I<utf8bom> with ansi being the default."
-msgstr "Ställ in kodning för visad text. Där KODNING är en av: I<ansi>, I<unicode>, I<utf8> där ansi är standardvalet."
+msgstr "Ställ in kodning för visad text. Där KODNING är en av: I<ansi>, I<unicode>, I<unicodebom>, I<utf8>, I<utf8bom> där ansi är standardvalet."
 
 #. type: textblock
 #: dos2unix.pod:163
@@ -274,10 +270,8 @@ msgstr "Nackdelen med ansi är att internationella filnamn med tecken som inte f
 
 #. type: =item
 #: dos2unix.pod:186
-#, fuzzy
-#| msgid "B<unicode>"
 msgid "B<unicode, unicodebom>"
-msgstr "B<unicode>"
+msgstr "B<unicode, unicodebom>"
 
 #. type: textblock
 #: dos2unix.pod:188
@@ -291,29 +285,23 @@ msgstr "När du använder ConEmu-konsolen kommer all text att visas korrekt efte
 
 #. type: textblock
 #: dos2unix.pod:197
-#, fuzzy
-#| msgid "The disadvantage of unicode is that it is not compatible with ASCII. The output is not easy to handle when you redirect it to another program or a file.  Redirection to a file does not give a correct UTF-16 file."
 msgid "The disadvantage of unicode is that it is not compatible with ASCII. The output is not easy to handle when you redirect it to another program."
-msgstr "Nackdelen med unicode är att den inte är kompatibel med ASCII. Utmatningen är inte lätt att hantera när du omdirigerar den till ett annat program eller en fil. Omdirigering till en fil kommer inte att ge en korrekt UTF-16-fil."
+msgstr "Nackdelen med unicode är att den inte är kompatibel med ASCII. Utmatningen är inte lätt att hantera när du omdirigerar den till ett annat program eller en fil."
 
 #. type: textblock
 #: dos2unix.pod:200
 msgid "When method C<unicodebom> is used the Unicode text will be preceded with a BOM (Byte Order Mark). A BOM is required for correct redirection or piping in PowerShell."
-msgstr ""
+msgstr "När metod C<unicodebom> används kommer Unicode-texten att föregås av en BOM (byteordningsmarkering, Byte Order Mark). En BOM krävs för korrekt omdirigering eller rörledning i PowerShell."
 
 #. type: =item
 #: dos2unix.pod:205
-#, fuzzy
-#| msgid "B<utf8>"
 msgid "B<utf8, utf8bom>"
-msgstr "B<utf8>"
+msgstr "B<utf8, utf8bom>"
 
 #. type: textblock
 #: dos2unix.pod:207
-#, fuzzy
-#| msgid "The advantage of utf8 is that it is compatible with ASCII and when you redirect it to a file you get a proper UTF-8 file. You need to set the console's font to a TrueType font. With a TrueType font the text is displayed similar as with the C<unicode> encoding."
 msgid "The advantage of utf8 is that it is compatible with ASCII. You need to set the console's font to a TrueType font. With a TrueType font the text is displayed similar as with the C<unicode> encoding."
-msgstr "Fördelen med utf8 är att den är kompatibel med ASCII och när du omdirigerar den till en fil kommer du att få en korrekt UTF-8-fil. Du måste ställa in konsolens teckensnitt till ett TrueType-teckensnitt. Med ett TrueType-teckensnitt kommer text att visas på liknande sätt som med C<unicode>-kodningen."
+msgstr "Fördelen med utf8 är att den är kompatibel med ASCII. Du måste ställa in konsolens teckensnitt till ett TrueType-teckensnitt. Med ett TrueType-teckensnitt kommer text att visas på liknande sätt som med C<unicode>-kodningen."
 
 #. type: textblock
 #: dos2unix.pod:211
@@ -328,14 +316,12 @@ msgstr "I ConEmu-konsolen fungerar utf8-kodningsmetoden väl."
 #. type: textblock
 #: dos2unix.pod:219
 msgid "When method C<utf8bom> is used the UTF-8 text will be preceded with a BOM (Byte Order Mark). A BOM is required for correct redirection or piping in PowerShell."
-msgstr ""
+msgstr "När metod C<utf8bom> används kommer UTF-8-texten att föregås av en BOM (byteordningsmarkering, Byte Order Mark). En BOM krävs för korrekt omdirigering eller rörledning i PowerShell."
 
 #. type: textblock
 #: dos2unix.pod:226
-#, fuzzy
-#| msgid "The default encoding can be changed with environment variable DOS2UNIX_DISPLAY_ENC by setting it to C<unicode> or C<utf8>."
 msgid "The default encoding can be changed with environment variable DOS2UNIX_DISPLAY_ENC by setting it to C<unicode>, C<unicodebom>, C<utf8>, or C<utf8bom>."
-msgstr "Standardkodningen kan ändras via miljövariabeln DOS2UNIX_DISPLAY_ENC genom att sätta den till C<unicode> eller C<utf8>."
+msgstr "Standardkodningen kan ändras via miljövariabeln DOS2UNIX_DISPLAY_ENC genom att sätta den till C<unicode>, C<unicodebom>, C<utf8> or C<utf8bom>."
 
 #. type: =item
 #: dos2unix.pod:229
@@ -1034,7 +1020,7 @@ msgstr "Kodningar"
 #. type: textblock
 #: dos2unix.pod:547
 msgid "There exist different Unicode encodings. On Unix and Linux Unicode files are typically encoded in UTF-8 encoding. On Windows Unicode text files can be encoded in UTF-8, UTF-16, or UTF-16 big endian, but are mostly encoded in UTF-16 format."
-msgstr "Det finns flera olika Unicode kodningar. I Unix och Liinux kodas filer vanligtvis med UTF-8-kodning. I Windows kan Unicode-textfiler kodas i UTF-8, UTF-16 eller UTF-16 rak byteordning (big endian), men kodas mestadels i UTF-16-format."
+msgstr "Det finns flera olika Unicode kodningar. I Unix och Linux kodas filer vanligtvis med UTF-8-kodning. I Windows kan Unicode-textfiler kodas i UTF-8, UTF-16 eller UTF-16 rak byteordning (big endian), men kodas mestadels i UTF-16-format."
 
 #. type: =head2
 #: dos2unix.pod:552
@@ -1054,7 +1040,7 @@ msgstr "Alla versioner av dos2unix och unix2dos kan konvertera UTF-8-kodade file
 #. type: textblock
 #: dos2unix.pod:560
 msgid "Dos2unix and unix2dos with Unicode UTF-16 support, can read little and big endian UTF-16 encoded text files. To see if dos2unix was built with UTF-16 support type C<dos2unix -V>."
-msgstr "Dos2unix och unix2dos med Uncode-UTF-16-stöd, kan läsa UTF-16-kodade textfiler i omvänd och rak byteordning (little och big endian). För att se om dos2unix byggts med UTF-16-stöd skriv C<dos2unix -V>."
+msgstr "Dos2unix och unix2dos med Unicode-UTF-16-stöd, kan läsa UTF-16-kodade textfiler i omvänd och rak byteordning (little och big endian). För att se om dos2unix byggts med UTF-16-stöd skriv C<dos2unix -V>."
 
 #. type: textblock
 #: dos2unix.pod:564
@@ -1134,7 +1120,7 @@ msgstr "Unicode-filnamn under Windows"
 #. type: textblock
 #: dos2unix.pod:608
 msgid "Dos2unix has optional support for reading and writing Unicode file names in the Windows Command Prompt. That means that dos2unix can open files that have characters in the name that are not part of the default system ANSI code page.  To see if dos2unix for Windows was built with Unicode file name support type C<dos2unix -V>."
-msgstr "Dos2unix har valfritt stöd för läsning och skri8vning av Unicode-filnamn i Windows kommandoprompt. Detta innebär att dos2unix kan öppna filer som har tecken i sina namn som inte är en del av systemets atandard ANSI-teckentabell. För att se om dos2unix för Windows byggdes med stöd för Unicode-filnamn skriv C<dos2unix -V>."
+msgstr "Dos2unix har valfritt stöd för läsning och skrivning av Unicode-filnamn i Windows kommandoprompt. Detta innebär att dos2unix kan öppna filer som har tecken i sina namn som inte är en del av systemets atandard ANSI-teckentabell. För att se om dos2unix för Windows byggdes med stöd för Unicode-filnamn skriv C<dos2unix -V>."
 
 #. type: textblock
 #: dos2unix.pod:614
@@ -1460,7 +1446,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:722
 msgid "PowerShell users can use the following command in Windows PowerShell:"
-msgstr ""
+msgstr "PowerShell-användare kan använda följande kommando i Windows PowerShell:"
 
 #. type: verbatim
 #: dos2unix.pod:724
@@ -1469,6 +1455,8 @@ msgid ""
 "    get-childitem -path . -filter '*.txt' -recurse | foreach-object {dos2unix $_.Fullname}\n"
 "\n"
 msgstr ""
+"    get-childitem -path . -filter '*.txt' -recurse | foreach-object {dos2unix $_.Fullname}\n"
+"\n"
 
 #. type: =head1
 #: dos2unix.pod:727

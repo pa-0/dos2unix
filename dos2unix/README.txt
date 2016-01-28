@@ -90,7 +90,7 @@ TRANSLATORS
         German                Mario Blättermann            Version 6.0.6, 7.1 - 7.2
         Hungarian             Balázs Úr                    Version 6.0.5 - 7.2.3
         Japanese              Yasuaki Taniguchi            Version 7.1.1
-        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.3.1
+        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.3.3
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.3.3
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
         Russian               Yuri Kozlov                  Version 6.0.6 - 7.3.3

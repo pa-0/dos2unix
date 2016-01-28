@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: dos2unix 7.3.3-beta2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-22 21:53+0100\n"
-"PO-Revision-Date: 2016-01-12 12:48+0100\n"
+"PO-Revision-Date: 2016-01-28 10:27+0100\n"
 "Last-Translator: Sebastian Rasmussen <sebras@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -111,8 +111,8 @@ msgid ""
 "OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN\n"
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
-"DENNA MJUKVARA TILLHANDAHÅLLS AV UPPHOVSRÄTTSINNEHAVAREN I “BEFINTLIGT\n"
-"SKICK“ (AS IS) OCH ANSVAR FÖR UTTRYCKLIGA ELLER UNDERFÖRSTÅDDA,\n"
+"DENNA MJUKVARA TILLHANDAHÅLLS AV UPPHOVSRÄTTSINNEHAVAREN I ”BEFINTLIGT\n"
+"SKICK” (AS IS) OCH ANSVAR FÖR UTTRYCKLIGA ELLER UNDERFÖRSTÅDDA,\n"
 "INKLUSIVE, MEN INTE BEGRÄNSAT TILL UNDERFÖRSTÅDDA GARANTIER VID KÖP\n"
 "OCH LÄMPLIGHET FÖR ETT VISST ÄNDAMÅL AVVISAS. INTE I NÅGOT FALL SKALL\n"
 "UPPHOVSRÄTTSINNEHAVAREN VARA SKYLDIG UTGE ERSÄTTNING FÖR DIREKT,\n"
@@ -233,7 +233,7 @@ msgid ""
 "   outfile             output file in new-file mode\n"
 msgstr ""
 " -n, --newfile         skriv till ny fil\n"
-"   infil               originafil i nyfilsläge\n"
+"   infil               originalfil i nyfilsläge\n"
 "   utfil               utmatningsfil i nyfilsläge\n"
 
 #: common.c:640
@@ -270,7 +270,7 @@ msgstr " -ul, --assume-utf16le förmoda att inmatningsformatet är UTF-16LE\n"
 
 #: common.c:651
 msgid " -ub, --assume-utf16be assume that the input format is UTF-16BE\n"
-msgstr " -ub, --assume-utf16be förmoda att inmatningsformatet är UTF16-BE\n"
+msgstr " -ub, --assume-utf16be förmoda att inmatningsformatet är UTF-16BE\n"
 
 #: common.c:653
 msgid " -v,  --verbose        verbose operation\n"
@@ -442,12 +442,12 @@ msgstr "Misslyckades att ändra ägare och grupp för temporär utmatningsfil %s
 #: common.c:1500
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
-msgstr "fel uppstod vid upplösning av symbolisk länk “%s“\n"
+msgstr "fel uppstod vid upplösning av symbolisk länk ”%s”\n"
 
 #: common.c:1501 common.c:1533
 #, c-format
 msgid "          output file remains in '%s'\n"
-msgstr "                             utfil förblir i “%s“\n"
+msgstr "          utfil förblir i ”%s”\n"
 
 #: common.c:1527
 #, c-format
@@ -457,7 +457,7 @@ msgstr "fel när '%s' bytte namn till '%s':"
 #: common.c:1531
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
-msgstr "                             vilken är målet för den symboliska länken “%s“\n"
+msgstr "          vilken är målet för den symboliska länken ”%s”\n"
 
 #: common.c:1594 common.c:1686 common.c:1772
 #, c-format
@@ -613,7 +613,7 @@ msgstr "ogiltigt konverteringsläge %s angivet\n"
 #: common.c:2322 common.c:2352
 #, c-format
 msgid "option '%s' requires an argument\n"
-msgstr "flaggan “%s“ kräver ett argument\n"
+msgstr "flaggan ”%s” kräver ett argument\n"
 
 #: common.c:2344
 #, c-format

@@ -1,12 +1,12 @@
 # Polish translation for dos2unix man.
 # This file is distributed under the same license as the dos2unix package.
-# Jakub Bogusz <qboosh@pld-linux.org>, 2014-2015.
+# Jakub Bogusz <qboosh@pld-linux.org>, 2014-2016.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3.3-beta1\n"
-"POT-Creation-Date: 2016-01-24 10:33+0100\n"
-"PO-Revision-Date: 2015-12-28 21:15+0100\n"
+"Project-Id-Version: dos2unix-man 7.3.3-beta6\n"
+"POT-Creation-Date: 2016-01-24 10:43+0100\n"
+"PO-Revision-Date: 2016-01-27 21:38+0100\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "Language: pl\n"
@@ -78,10 +78,8 @@ msgstr "Dowiązania symboliczne i ich cele są domyślnie pozostawiane bez zmian
 
 #. type: textblock
 #: dos2unix.pod:84
-#, fuzzy
-#| msgid "Dos2unix was modelled after dos2unix under SunOS/Solaris.  There is one important difference with the original SunOS/Solaris version. This version does by default in-place conversion (old file mode), while the original SunOS/Solaris version only supports paired conversion (new file mode). See also options C<-o> and C<-n>."
 msgid "Dos2unix was modelled after dos2unix under SunOS/Solaris.  There is one important difference with the original SunOS/Solaris version. This version does by default in-place conversion (old file mode), while the original SunOS/Solaris version only supports paired conversion (new file mode). See also options C<-o> and C<-n>. Another difference is that the SunOS/Solaris version uses by default I<iso> mode conversion while this version uses by default I<ascii> mode conversion."
-msgstr "Dos2unix powstał na podstawie narzędzia dos2unix z systemu SunOS/Solaris. Jest jedna istotna różnica w stosunku do oryginalnej wersji z SunOS-a/Solarisa: ta wersja domyślnie wykonuje konwersję w miejscu (tryb starego pliku), podczas gdy oryginalna obsługiwała tylko konwersję parami (tryb nowego pliku) - p. także opcje C<-o> i C<-n>."
+msgstr "Dos2unix powstał na podstawie narzędzia dos2unix z systemu SunOS/Solaris. Jest jedna istotna różnica w stosunku do oryginalnej wersji z SunOS-a/Solarisa: ta wersja domyślnie wykonuje konwersję w miejscu (tryb starego pliku), podczas gdy oryginalna obsługiwała tylko konwersję parami (tryb nowego pliku) - p. także opcje C<-o> i C<-n>. Ponadto wersja z SunOS-a/Solarisa domyślnie wykonuje konwersję w trybie I<iso>, podczas gdy ta wersja domyślnie wykonuje konwersję w trybie I<ascii>."
 
 #. type: =head1
 #: dos2unix.pod:92
@@ -240,10 +238,8 @@ msgstr "B<-D, --display-enc KODOWANIE>"
 
 #. type: textblock
 #: dos2unix.pod:159
-#, fuzzy
-#| msgid "Set encoding of displayed text. Where ENCODING is one of: I<ansi>, I<unicode>, I<utf8> with ansi being the default."
 msgid "Set encoding of displayed text. Where ENCODING is one of: I<ansi>, I<unicode>, I<unicodebom>, I<utf8>, I<utf8bom> with ansi being the default."
-msgstr "Ustawienie kodowania wyświetlanego tekstu. KODOWANIE to jedno z: I<ansi>, I<unicode>, I<utf8>, przy czym domyślne to ansi."
+msgstr "Ustawienie kodowania wyświetlanego tekstu. KODOWANIE to jedno z: I<ansi>, I<unicode>, I<unicodebom>, I<utf8>, I<utf8bom>, przy czym domyślne to ansi."
 
 #. type: textblock
 #: dos2unix.pod:163
@@ -272,10 +268,8 @@ msgstr "Wadą kodowania ansi jest fakt, że międzynarodowe nazwy plików ze zna
 
 #. type: =item
 #: dos2unix.pod:186
-#, fuzzy
-#| msgid "B<unicode>"
 msgid "B<unicode, unicodebom>"
-msgstr "B<unicode>"
+msgstr "B<unicode, unicodebom>"
 
 #. type: textblock
 #: dos2unix.pod:188
@@ -289,29 +283,23 @@ msgstr "W przypadku używania konsoli ConEmu cały tekst jest wyświetlany popra
 
 #. type: textblock
 #: dos2unix.pod:197
-#, fuzzy
-#| msgid "The disadvantage of unicode is that it is not compatible with ASCII. The output is not easy to handle when you redirect it to another program or a file.  Redirection to a file does not give a correct UTF-16 file."
 msgid "The disadvantage of unicode is that it is not compatible with ASCII. The output is not easy to handle when you redirect it to another program."
-msgstr "Wadą kodowania unicode jest niezgodność z ASCII. Wyjście nie jest łatwe do obsłużenia w przypadku przekierowania do innego programu lub pliku. Przekierowanie do pliku nie generuje poprawnego pliku w UTF-16."
+msgstr "Wadą kodowania unicode jest niezgodność z ASCII. Wyjście nie jest łatwe do obsłużenia w przypadku przekierowania do innego programu lub pliku."
 
 #. type: textblock
 #: dos2unix.pod:200
 msgid "When method C<unicodebom> is used the Unicode text will be preceded with a BOM (Byte Order Mark). A BOM is required for correct redirection or piping in PowerShell."
-msgstr ""
+msgstr "W przypadku użycia metody C<unicodebom>, tekst w unikodzie jest poprzedzony znakiem BOM (Byte Order Mark). BOM jest wymagany do poprawnego przekierowania lub przekazywania przez potok w powłoce PowerShell."
 
 #. type: =item
 #: dos2unix.pod:205
-#, fuzzy
-#| msgid "B<utf8>"
 msgid "B<utf8, utf8bom>"
-msgstr "B<utf8>"
+msgstr "B<utf8, utf8bom>"
 
 #. type: textblock
 #: dos2unix.pod:207
-#, fuzzy
-#| msgid "The advantage of utf8 is that it is compatible with ASCII and when you redirect it to a file you get a proper UTF-8 file. You need to set the console's font to a TrueType font. With a TrueType font the text is displayed similar as with the C<unicode> encoding."
 msgid "The advantage of utf8 is that it is compatible with ASCII. You need to set the console's font to a TrueType font. With a TrueType font the text is displayed similar as with the C<unicode> encoding."
-msgstr "Zaletą kodowania utf8 jest zgodność z ASCII; kiedy przekierowuje się wyjście do pliku, uzyskuje się właściwy plik w UTF-8. Trzeba ustawić font konsoli na font TrueType. Przy użyciu fontu TrueType tekst jest wyświetlany podobnie do kodowania C<unicode>."
+msgstr "Zaletą kodowania utf8 jest zgodność z ASCII. Trzeba ustawić font konsoli na font TrueType. Przy użyciu fontu TrueType tekst jest wyświetlany podobnie do kodowania C<unicode>."
 
 #. type: textblock
 #: dos2unix.pod:211
@@ -326,14 +314,12 @@ msgstr "W konsoli ConEmu metoda kodowania utf8 działa dobrze."
 #. type: textblock
 #: dos2unix.pod:219
 msgid "When method C<utf8bom> is used the UTF-8 text will be preceded with a BOM (Byte Order Mark). A BOM is required for correct redirection or piping in PowerShell."
-msgstr ""
+msgstr "W przypadku użycia metody C<utf8bom>, tekst w UTF-8 jest poprzedzony znakiem BOM (Byte Order Mark). BOM jest wymagany do poprawnego przekierowania lub przekazywania przez potok w powłoce PowerShell."
 
 #. type: textblock
 #: dos2unix.pod:226
-#, fuzzy
-#| msgid "The default encoding can be changed with environment variable DOS2UNIX_DISPLAY_ENC by setting it to C<unicode> or C<utf8>."
 msgid "The default encoding can be changed with environment variable DOS2UNIX_DISPLAY_ENC by setting it to C<unicode>, C<unicodebom>, C<utf8>, or C<utf8bom>."
-msgstr "Domyślne kodowanie można zmienić przy użyciu zmiennej środowiskowej DOS2UNIX_DISPLAY_ENC, ustawiając ją na C<unicode> lub C<utf8>."
+msgstr "Domyślne kodowanie można zmienić przy użyciu zmiennej środowiskowej DOS2UNIX_DISPLAY_ENC, ustawiając ją na C<unicode>, C<unicodebom>, C<utf8> lub C<utf8bom>."
 
 #. type: =item
 #: dos2unix.pod:229
@@ -1458,7 +1444,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:722
 msgid "PowerShell users can use the following command in Windows PowerShell:"
-msgstr ""
+msgstr "Użytkownicy powłoki PowerShell mogą użyć następującego polecenia w Windows PowerShell:"
 
 #. type: verbatim
 #: dos2unix.pod:724
@@ -1467,6 +1453,8 @@ msgid ""
 "    get-childitem -path . -filter '*.txt' -recurse | foreach-object {dos2unix $_.Fullname}\n"
 "\n"
 msgstr ""
+"    get-childitem -path . -filter '*.txt' -recurse | foreach-object {dos2unix $_.Fullname}\n"
+"\n"
 
 #. type: =head1
 #: dos2unix.pod:727
