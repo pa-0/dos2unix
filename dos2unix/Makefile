@@ -408,9 +408,9 @@ po/%.po : $(POT)
 	touch $@
 
 %.po : man/man1/dos2unix.pod
-	$(MAKE) -C man/man1 $(subst man/,../,$@)
+	$(MAKE) -C man/man1 $(subst po-man/,../../po-man/,$@)
 
-%.pod : %.po
+man/%/man1/dos2unix.pod : po-man/%.po
 	$(MAKE) -C man/man1 $(subst man/,../,$@)
 
 # empty recipe to break circular dependency

@@ -1,3 +1,9 @@
+2016-01-28 Erwin Waterlander <waterlan@xs4all.nl>
+	* man/*/man1/dos2unix.po: Moved all manual .po file to directory
+	  po-man/. The .po files are now in their original name.
+	* Makefile, man/man1/Makefile: Build international manuals from
+	  the .po files in folder po-man/.
+
 2016-01-20 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Fixed printing text in unicode UTF-16 mode on Windows,
 	  so that when it is redirected to a file, a correct UTF-16 file
