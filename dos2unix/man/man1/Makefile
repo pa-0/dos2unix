@@ -68,12 +68,13 @@ MANPAGE		= $(MANDEST)$(PACKAGE).$(MANSECT)
 POD2MAN		= pod2man
 POD2MAN_FLAGS	=
 
-POFILES = $(wildcard ../*/man1/dos2unix.po)
-PODFILES = $(patsubst %.po,%.pod,$(POFILES))
+POFILES = $(wildcard ../../po-man/*.po)
+PODFILES = $(patsubst ../../po-man/%.po,../%/man1/dos2unix.pod,$(POFILES))
 MAN_OBJECTS = dos2unix.1 $(patsubst %.pod,%.1,$(PODFILES))
 
-all: $(MAN_OBJECTS) dos2unix-man.pot
+MKDIR = mkdir
 
+all: $(MAN_OBJECTS) ../../po-man/dos2unix-man.pot
 
 # Issues:
 
@@ -85,7 +86,7 @@ all: $(MAN_OBJECTS) dos2unix-man.pot
 
 # Dos2unix 6.0.5: Forget Latin-1, we do now only UTF-8.
 
-dos2unix-man.pot : dos2unix.pod
+../../po-man/dos2unix-man.pot : dos2unix.pod
 	po4a-updatepo -f pod -m $< -p $@ --msgmerge-opt --no-wrap
 
 %.po : dos2unix.pod
@@ -95,7 +96,8 @@ dos2unix-man.pot : dos2unix.pod
 
 # Create pod files from po.
 # Fix problem that =encoding is before =pod command.
-%.pod : %.po
+../%/man1/dos2unix.pod : ../../po-man/%.po
+	$(MKDIR) -p $(dir $@)
 	po4a-translate -f pod -m dos2unix.pod -k 70 -p $< > $@
 	perl -ni.bak -e 'print unless /=encoding UTF-8/' $@
 	perl -pli.bak -e 's/=pod/=pod\n\n=encoding UTF-8/' $@
@@ -120,7 +122,7 @@ dos2unix.pod : ;
 
 clean:
 	rm -f $(MAN_OBJECTS)
-	rm -f dos2unix-man.pot
+	rm -f ../../po-man/dos2unix-man.pot
 	rm -f $(PODFILES)
 
 # End of of Makefile part

@@ -99,9 +99,9 @@ HTMLEXT = htm
 DOCFILES	= man/man1/$(PACKAGE).txt man/man1/$(PACKAGE).$(HTMLEXT)
 INSTALL_OBJS_DOC = README.txt INSTALL.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt $(DOCFILES)
 
-MANPOTFILE      = man/man1/dos2unix-man.pot
-MANPOFILES      = $(wildcard man/*/man1/dos2unix.po)
-PODFILES	= $(patsubst %.po,%.pod,$(MANPOFILES))
+MANPOTFILE      = po-man/dos2unix-man.pot
+MANPOFILES      = $(wildcard po-man/*.po)
+PODFILES	= $(patsubst po-man/%.po,man/%/man1/dos2unix.pod,$(MANPOFILES))
 PODFILES_ALL	= man/man1/dos2unix.pod $(PODFILES)
 MANFILES	= $(patsubst %.pod,%.1,$(PODFILES))
 TXTFILES	= $(patsubst %.pod,%.txt,$(PODFILES_ALL))
@@ -392,7 +392,7 @@ $(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
 	$(LINK) $< $@
 
 $(MANPOTFILE) : man/man1/dos2unix.pod
-	$(MAKE) -C man/man1 $(notdir $@)
+	$(MAKE) -C man/man1 ../../po-man/$(notdir $@)
 
 #  WARNING: Backward-incompatibility since GNU make 3.82.
 #  The pattern-specific variables and pattern rules are now applied in the
@@ -442,7 +442,7 @@ getpo:
 	rsync -Lrtvz  translationproject.org::tp/latest/dos2unix/  po/incoming/
 
 getpoman:
-	rsync -Lrtvz  translationproject.org::tp/latest/dos2unix-man/  man/incoming/
+	rsync -Lrtvz  translationproject.org::tp/latest/dos2unix-man/  po-man/incoming/
 
 %.mo : %.po
 	msgfmt -c $< -o $@
@@ -618,7 +618,7 @@ maintainer-clean: distclean
 	rm -f man/man1/*.1
 	rm -f man/man1/*.txt
 	rm -f man/man1/*.$(HTMLEXT)
-	rm -f man/man1/dos2unix-man.pot
+	rm -f po-man/dos2unix-man.pot
 	rm -f man/*/man1/*.1
 	rm -f man/*/man1/*.txt
 	rm -f man/*/man1/*.pod
