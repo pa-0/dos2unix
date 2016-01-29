@@ -3,7 +3,7 @@
 #   Copyright information
 #
 #	Copyright (C) 2010 Jari Aalto
-#	Copyright (C) 2010-2015 Erwin Waterlander
+#	Copyright (C) 2010-2016 Erwin Waterlander
 #
 #   License
 #

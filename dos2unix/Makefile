@@ -99,9 +99,11 @@ HTMLEXT = htm
 DOCFILES	= man/man1/$(PACKAGE).txt man/man1/$(PACKAGE).$(HTMLEXT)
 INSTALL_OBJS_DOC = README.txt INSTALL.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt $(DOCFILES)
 
-MANPOTFILE      = po-man/dos2unix-man.pot
-MANPOFILES      = $(wildcard po-man/*.po)
-PODFILES	= $(patsubst po-man/%.po,man/%/man1/dos2unix.pod,$(MANPOFILES))
+ifdef ENABLE_NLS
+	MANPOTFILE      = po-man/dos2unix-man.pot
+	MANPOFILES      = $(wildcard po-man/*.po)
+	PODFILES	= $(patsubst po-man/%.po,man/%/man1/dos2unix.pod,$(MANPOFILES))
+endif
 PODFILES_ALL	= man/man1/dos2unix.pod $(PODFILES)
 MANFILES	= $(patsubst %.pod,%.1,$(PODFILES))
 TXTFILES	= $(patsubst %.pod,%.txt,$(PODFILES_ALL))
