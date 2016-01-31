@@ -532,12 +532,12 @@ else
 	cd $(DESTDIR)$(man1dir); $(LINK_MAN) $(PACKAGE).1 $(UNIX2DOS).1
 	cd $(DESTDIR)$(man1dir); $(LINK_MAN) $(PACKAGE).1 $(UNIX2MAC).1
 endif
+ifdef ENABLE_NLS
 	$(foreach manfile, $(MANFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ;)
 	$(foreach manfile, $(MANFILES), $(INSTALL_DATA) $(manfile) $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ;)
 	$(foreach manfile, $(MANFILES), cd $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ; $(LINK_MAN) $(PACKAGE).1 $(MAC2UNIX).1 ;)
 	$(foreach manfile, $(MANFILES), cd $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ; $(LINK_MAN) $(PACKAGE).1 $(UNIX2DOS).1 ;)
 	$(foreach manfile, $(MANFILES), cd $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ; $(LINK_MAN) $(PACKAGE).1 $(UNIX2MAC).1 ;)
-ifdef ENABLE_NLS
 	@echo "-- install-mo"
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
 	$(foreach mofile, $(MOFILES), $(INSTALL_DATA) $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
@@ -551,6 +551,9 @@ install-doc: $(INSTALL_OBJS_DOC)
 	@echo "-- install-doc"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
 	$(INSTALL_DATA) $(INSTALL_OBJS_DOC) $(DESTDIR)$(docdir)
+	$(foreach pdffile, $(wildcard man/man1/*.pdf), $(INSTALL_DATA) $(pdffile) $(DESTDIR)$(docdir) ;)
+	$(foreach psfile, $(wildcard man/man1/*.ps), $(INSTALL_DATA) $(psfile) $(DESTDIR)$(docdir) ;)
+ifdef ENABLE_NLS
 	# Install translated manuals when they have been generated.
 	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
 	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(INSTALL_DATA) $(txtfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
@@ -558,10 +561,9 @@ install-doc: $(INSTALL_OBJS_DOC)
 	$(foreach htmlfile, $(wildcard man/*/man1/*.$(HTMLEXT)), $(INSTALL_DATA) $(htmlfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
 	$(foreach pdffile, $(wildcard man/*/man1/*.pdf), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(pdffile),)) ;)
 	$(foreach pdffile, $(wildcard man/*/man1/*.pdf), $(INSTALL_DATA) $(pdffile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(pdffile),)) ;)
-	$(foreach pdffile, $(wildcard man/man1/*.pdf), $(INSTALL_DATA) $(pdffile) $(DESTDIR)$(docdir) ;)
 	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
 	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(INSTALL_DATA) $(psfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
-	$(foreach psfile, $(wildcard man/man1/*.ps), $(INSTALL_DATA) $(psfile) $(DESTDIR)$(docdir) ;)
+endif
 
 uninstall:
 	@echo "-- target: uninstall"
@@ -569,15 +571,18 @@ uninstall:
 	-rm -f $(DESTDIR)$(bindir)/$(MAC2UNIX_BIN)
 	-rm -f $(DESTDIR)$(bindir)/$(UNIX2DOS_BIN)
 	-rm -f $(DESTDIR)$(bindir)/$(UNIX2MAC_BIN)
-ifdef ENABLE_NLS
-	$(foreach mofile, $(MOFILES), rm -f $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
-endif
 	-rm -f $(DESTDIR)$(mandir)/man1/$(PACKAGE).1
 	-rm -f $(DESTDIR)$(mandir)/man1/$(MAC2UNIX).1
 	-rm -f $(DESTDIR)$(mandir)/man1/$(UNIX2DOS).1
 	-rm -f $(DESTDIR)$(mandir)/man1/$(UNIX2MAC).1
-	$(foreach manfile, $(MANFILES), rm -f $(DESTDIR)$(datarootdir)/$(manfile) ;)
 	-rm -rf $(DESTDIR)$(docdir)
+ifdef ENABLE_NLS
+	$(foreach mofile, $(MOFILES), rm -f $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
+	$(foreach manfile, $(MANFILES), rm -f $(DESTDIR)$(datarootdir)/$(manfile) ;)
+	$(foreach manfile, $(MANFILES), rm -f $(DESTDIR)$(datarootdir)/$(dir $(manfile))$(MAC2UNIX).1 ;)
+	$(foreach manfile, $(MANFILES), rm -f $(DESTDIR)$(datarootdir)/$(dir $(manfile))$(UNIX2DOS).1 ;)
+	$(foreach manfile, $(MANFILES), rm -f $(DESTDIR)$(datarootdir)/$(dir $(manfile))$(UNIX2MAC).1 ;)
+endif
 
 mostlyclean:
 	rm -f *.o
@@ -637,41 +642,42 @@ ZIPOBJ	= bin/$(BIN) \
 	  share/man/man1/$(MAC2UNIX).1 \
 	  share/man/man1/$(UNIX2DOS).1 \
 	  share/man/man1/$(UNIX2MAC).1 \
-	  share/man/*/man1/$(PACKAGE).1 \
-	  share/man/*/man1/$(MAC2UNIX).1 \
-	  share/man/*/man1/$(UNIX2DOS).1 \
-	  share/man/*/man1/$(UNIX2MAC).1 \
-	  share/doc/$(docsubdir) \
+	  share/doc/$(docsubdir)/*.* \
 	  $(ZIPOBJ_EXTRA)
 
 ifdef ENABLE_NLS
 ZIPOBJ += share/locale/*/LC_MESSAGES/$(PACKAGE).mo
+ZIPOBJ += share/man/*/man1/$(PACKAGE).1 \
+	  share/man/*/man1/$(MAC2UNIX).1 \
+	  share/man/*/man1/$(UNIX2DOS).1 \
+	  share/man/*/man1/$(UNIX2MAC).1
+ZIPOBJ += share/doc/$(docsubdir)/*/*
 endif
 
 ZIPFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX)$(NLSSUFFIX).zip
 TGZFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX)$(NLSSUFFIX).tar.gz
 TBZFILE = $(PACKAGE)-$(DOS2UNIX_VERSION)$(VERSIONSUFFIX)$(NLSSUFFIX).tar.bz2
 
-dist-zip:
+dist-convert/%:
 	rm -f $(prefix)/$(ZIPFILE)
-	cd $(prefix) ; unix2dos --keepdate share/man/man1/*.1 share/man/*/man1/*.1
-	-cd $(prefix) ; unix2dos --keepdate --add-bom share/doc/$(docsubdir)/*.txt share/doc/$(docsubdir)/*/*.txt
-	-cd $(prefix) ; unix2dos --keepdate share/doc/$(docsubdir)/*.$(HTMLEXT) share/doc/$(docsubdir)/*/*.$(HTMLEXT)
-	cd $(prefix) ; unix2dos --keepdate share/man/*/man1/$(PACKAGE).1 share/man/*/man1/$(MAC2UNIX).1 share/man/*/man1/$(UNIX2DOS).1 share/man/*/man1/$(UNIX2MAC).1
+	cd $(prefix) ; $* --keepdate share/man/man1/$(PACKAGE).1 share/man/man1/$(MAC2UNIX).1 share/man/man1/$(UNIX2DOS).1 share/man/man1/$(UNIX2MAC).1
+	cd $(prefix) ; $* --keepdate --add-bom share/doc/$(docsubdir)/*.txt
+	cd $(prefix) ; $* --keepdate share/doc/$(docsubdir)/*.$(HTMLEXT)
+ifdef ENABLE_NLS
+	cd $(prefix) ; $* --keepdate share/man/*/man1/$(PACKAGE).1 share/man/*/man1/$(MAC2UNIX).1 share/man/*/man1/$(UNIX2DOS).1 share/man/*/man1/$(UNIX2MAC).1
+	cd $(prefix) ; $* --keepdate --add-bom share/doc/$(docsubdir)/*/*.txt
+	cd $(prefix) ; $* --keepdate share/doc/$(docsubdir)/*/*.$(HTMLEXT)
+endif
+
+dist-zip: dist-convert/unix2dos
 	cd $(prefix) ; zip -r $(ZIPFILE) $(ZIPOBJ)
 	mv -f $(prefix)/$(ZIPFILE) ..
 
-dist-tgz:
-	cd $(prefix) ; dos2unix --keepdate share/man/man1/*.1 share/man/*/man1/*.1
-	-cd $(prefix) ; dos2unix --keepdate share/doc/$(docsubdir)/*.txt share/doc/$(docsubdir)/*/*.txt
-	-cd $(prefix) ; dos2unix --keepdate share/doc/$(docsubdir)/*.$(HTMLEXT) share/doc/$(docsubdir)/*/*.$(HTMLEXT)
+dist-tgz: dist-convert/dos2unix
 	cd $(prefix) ; tar cvzf $(TGZFILE) $(ZIPOBJ)
 	mv $(prefix)/$(TGZFILE) ..
 
-dist-tbz:
-	cd $(prefix) ; dos2unix --keepdate share/man/man1/*.1 share/man/*/man1/*.1
-	-cd $(prefix) ; dos2unix --keepdate share/doc/$(docsubdir)/*.txt dos2unix share/doc/$(docsubdir)/*/*.txt
-	-cd $(prefix) ; dos2unix --keepdate share/doc/$(docsubdir)/*.$(HTMLEXT) dos2unix share/doc/$(docsubdir)/*/*.$(HTMLEXT)
+dist-tbz: dist-convert/dos2unix
 	cd $(prefix) ; tar cvjf $(TBZFILE) $(ZIPOBJ)
 	mv $(prefix)/$(TBZFILE) ..
 

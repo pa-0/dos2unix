@@ -159,6 +159,9 @@ ACKNOWLEDGEMENTS
                               when Unicode support is disabled.
         Ulf-Dietrich Braumann Reported that the -iso option was misinterpreted
                               as a corrupted -i option.
+        Hans Passant          Correct redirection of unicode UTF-16 screen output.
+        anonymous             Don't install international man pages when NLS
+                              is disabled.
 
 
 FINDUTILS

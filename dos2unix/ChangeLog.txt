@@ -1,10 +1,14 @@
+2016-01-31 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Don't package international man pages
+	  when ENABLE_NLS is empty.
+
 2016-01-29 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Don't install international man pages when ENABLE_NLS
 	  is empty. Thanks to anonymous.
 
 2016-01-28 Erwin Waterlander <waterlan@xs4all.nl>
 	* man/*/man1/dos2unix.po: Moved all manual .po file to directory
-	  po-man/. The .po files are now in their original name.
+	  po-man/. The .po files now have their original name.
 	* Makefile, man/man1/Makefile: Build international manuals from
 	  the .po files in folder po-man/.
 
