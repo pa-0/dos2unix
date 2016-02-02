@@ -52,10 +52,11 @@
 # endif
 #endif
 
-/* global variable */
+/* global variables */
 #ifdef D2U_UNIFILE
 int d2u_display_encoding = D2U_DISPLAY_ANSI ;
 #endif
+int header_done = 0;
 
 /*
  * Print last system error on Windows.
@@ -1842,6 +1843,57 @@ void print_messages_info(const CFlag *pFlag, const char *infile, const char *pro
   }
 }
 
+void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb_dos, unsigned int lb_unix, unsigned int lb_mac)
+{
+  const char *ptr;
+
+  if (ipFlag->file_info & INFO_CONVERT) {
+    if ((ipFlag->FromToMode == FROMTO_DOS2UNIX) && (lb_dos == 0))
+      return;
+    if (((ipFlag->FromToMode == FROMTO_UNIX2DOS)||(ipFlag->FromToMode == FROMTO_UNIX2MAC)) && (lb_unix == 0))
+      return;
+    if ((ipFlag->FromToMode == FROMTO_MAC2UNIX) && (lb_mac == 0))
+      return;
+    if ((ipFlag->Force == 0) && (ipFlag->status & BINARY_FILE))
+      return;
+  }
+
+  if ((ipFlag->file_info & INFO_HEADER) && (! header_done)) {
+    if (ipFlag->file_info & INFO_DOS)
+      D2U_UTF8_FPRINTF(stdout, "     DOS");
+    if (ipFlag->file_info & INFO_UNIX)
+      D2U_UTF8_FPRINTF(stdout, "    UNIX");
+    if (ipFlag->file_info & INFO_MAC)
+      D2U_UTF8_FPRINTF(stdout, "     MAC");
+    if (ipFlag->file_info & INFO_BOM)
+      D2U_UTF8_FPRINTF(stdout, "  BOM     ");
+    if (ipFlag->file_info & INFO_TEXT)
+      D2U_UTF8_FPRINTF(stdout, "  TEXT  ");
+    D2U_UTF8_FPRINTF(stdout, "  FILE\n");
+    header_done = 1;
+  }
+
+  if (ipFlag->file_info & INFO_DOS)
+    D2U_UTF8_FPRINTF(stdout, "  %6u", lb_dos);
+  if (ipFlag->file_info & INFO_UNIX)
+    D2U_UTF8_FPRINTF(stdout, "  %6u", lb_unix);
+  if (ipFlag->file_info & INFO_MAC)
+    D2U_UTF8_FPRINTF(stdout, "  %6u", lb_mac);
+  if (ipFlag->file_info & INFO_BOM)
+    print_bom_info(bomtype);
+  if (ipFlag->file_info & INFO_TEXT) {
+    if (ipFlag->status & BINARY_FILE)
+      D2U_UTF8_FPRINTF(stdout, "  binary");
+    else
+      D2U_UTF8_FPRINTF(stdout, "  text  ");
+  }
+  if ((ipFlag->file_info & INFO_NOPATH) && (((ptr=strrchr(filename,'/')) != NULL) || ((ptr=strrchr(filename,'\\')) != NULL)) )
+    ptr++;
+  else
+    ptr = filename;
+  D2U_UTF8_FPRINTF(stdout, "  %s\n",ptr);
+}
+
 #ifdef D2U_UNICODE
 void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, const char *progname)
 {
@@ -1889,33 +1941,8 @@ void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, co
     return;
   }
 
-  if (ipFlag->file_info & INFO_CONVERT) {
-    if ((ipFlag->FromToMode == FROMTO_DOS2UNIX) && (lb_dos == 0))
-      return;
-    if (((ipFlag->FromToMode == FROMTO_UNIX2DOS)||(ipFlag->FromToMode == FROMTO_UNIX2MAC)) && (lb_unix == 0))
-      return;
-    if ((ipFlag->FromToMode == FROMTO_MAC2UNIX) && (lb_mac == 0))
-      return;
-    if ((ipFlag->Force == 0) && (ipFlag->status & BINARY_FILE))
-      return;
-  }
+  printInfo(ipFlag, filename, bomtype, lb_dos, lb_unix, lb_mac);
 
-  if (ipFlag->file_info & INFO_DOS)
-    D2U_UTF8_FPRINTF(stdout, "  %6u", lb_dos);
-  if (ipFlag->file_info & INFO_UNIX)
-    D2U_UTF8_FPRINTF(stdout, "  %6u", lb_unix);
-  if (ipFlag->file_info & INFO_MAC)
-    D2U_UTF8_FPRINTF(stdout, "  %6u", lb_mac);
-  if (ipFlag->file_info & INFO_BOM)
-    print_bom_info(bomtype);
-  if (ipFlag->file_info & INFO_TEXT) {
-    if (ipFlag->status & BINARY_FILE)
-      D2U_UTF8_FPRINTF(stdout, "  binary");
-    else
-      D2U_UTF8_FPRINTF(stdout, "  text  ");
-  }
-  D2U_UTF8_FPRINTF(stdout, "  %s",filename);
-  D2U_UTF8_FPRINTF(stdout, "\n");
 }
 #endif
 
@@ -1966,34 +1993,7 @@ void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, con
     return;
   }
 
-
-  if (ipFlag->file_info & INFO_CONVERT) {
-    if ((ipFlag->FromToMode == FROMTO_DOS2UNIX) && (lb_dos == 0))
-      return;
-    if (((ipFlag->FromToMode == FROMTO_UNIX2DOS)||(ipFlag->FromToMode == FROMTO_UNIX2MAC)) && (lb_unix == 0))
-      return;
-    if ((ipFlag->FromToMode == FROMTO_MAC2UNIX) && (lb_mac == 0))
-      return;
-    if ((ipFlag->Force == 0) && (ipFlag->status & BINARY_FILE))
-      return;
-  }
-
-  if (ipFlag->file_info & INFO_DOS)
-    D2U_UTF8_FPRINTF(stdout, "  %6u", lb_dos);
-  if (ipFlag->file_info & INFO_UNIX)
-    D2U_UTF8_FPRINTF(stdout, "  %6u", lb_unix);
-  if (ipFlag->file_info & INFO_MAC)
-    D2U_UTF8_FPRINTF(stdout, "  %6u", lb_mac);
-  if (ipFlag->file_info & INFO_BOM)
-    print_bom_info(bomtype);
-  if (ipFlag->file_info & INFO_TEXT) {
-    if (ipFlag->status & BINARY_FILE)
-      D2U_UTF8_FPRINTF(stdout, "  binary");
-    else
-      D2U_UTF8_FPRINTF(stdout, "  text  ");
-  }
-  D2U_UTF8_FPRINTF(stdout, "  %s",filename);
-  D2U_UTF8_FPRINTF(stdout, "\n");
+  printInfo(ipFlag, filename, bomtype, lb_dos, lb_unix, lb_mac);
 }
 
 int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
@@ -2101,6 +2101,7 @@ int GetFileInfoStdio(CFlag *ipFlag, const char *progname)
 void get_info_options(char *option, CFlag *pFlag, const char *progname)
 {
   char *ptr;
+  int default_info = 1;
 
   ptr = option;
 
@@ -2113,21 +2114,33 @@ void get_info_options(char *option, CFlag *pFlag, const char *progname)
     switch (*ptr) {
       case 'd':   /* Print nr of DOS line breaks. */
         pFlag->file_info |= INFO_DOS;
+        default_info = 0;
         break;
       case 'u':   /* Print nr of Unix line breaks. */
         pFlag->file_info |= INFO_UNIX;
+        default_info = 0;
         break;
       case 'm':   /* Print nr of Mac line breaks. */
         pFlag->file_info |= INFO_MAC;
+        default_info = 0;
         break;
       case 'b':   /* Print BOM. */
         pFlag->file_info |= INFO_BOM;
+        default_info = 0;
         break;
       case 't':   /* Text or binary. */
         pFlag->file_info |= INFO_TEXT;
+        default_info = 0;
         break;
       case 'c':   /* Print only files that would be converted. */
         pFlag->file_info |= INFO_CONVERT;
+        default_info = 0;
+        break;
+      case 'h':   /* Print a header. */
+        pFlag->file_info |= INFO_HEADER;
+        break;
+      case 'p':   /* Remove path from file names. */
+        pFlag->file_info |= INFO_NOPATH;
         break;
       default:
        /* Terminate the program on a wrong option. If pFlag->file_info is
@@ -2139,6 +2152,8 @@ void get_info_options(char *option, CFlag *pFlag, const char *progname)
     }
     ptr++;
   }
+  if (default_info)
+    pFlag->file_info |= INFO_DEFAULT;
 }
 
 int parse_options(int argc, char *argv[],

@@ -1,12 +1,12 @@
 # Chinese (simplified) translations for dos2unix-man.
 # Copyright (C) 2014 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
-# zwpwjwtz <zwpwjwtz@126.com>, 2015.
+# Tianze Wang <zwpwjwtz@126.com>, 2015, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.3.3-beta1\n"
-"POT-Creation-Date: 2016-01-24 10:33+0100\n"
-"PO-Revision-Date: 2015-12-30 10:06+0800\n"
+"Project-Id-Version: dos2unix-man-7.3.3-beta6\n"
+"POT-Creation-Date: 2016-01-24 10:43+0100\n"
+"PO-Revision-Date: 2016-01-30 23:07+0800\n"
 "Last-Translator: Tianze Wang <zwpwjwtz@126.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.6\n"
 
 #. type: =head1
 #: dos2unix.pod:52
@@ -80,10 +80,8 @@ msgstr "符号链接和其所指向的目标默认不会被转换。可以用选
 
 #. type: textblock
 #: dos2unix.pod:84
-#, fuzzy
-#| msgid "Dos2unix was modelled after dos2unix under SunOS/Solaris.  There is one important difference with the original SunOS/Solaris version. This version does by default in-place conversion (old file mode), while the original SunOS/Solaris version only supports paired conversion (new file mode). See also options C<-o> and C<-n>."
 msgid "Dos2unix was modelled after dos2unix under SunOS/Solaris.  There is one important difference with the original SunOS/Solaris version. This version does by default in-place conversion (old file mode), while the original SunOS/Solaris version only supports paired conversion (new file mode). See also options C<-o> and C<-n>. Another difference is that the SunOS/Solaris version uses by default I<iso> mode conversion while this version uses by default I<ascii> mode conversion."
-msgstr "Dos2unix由SunOS/Solaris下的版本改写而成。这两个版本间有一个重大差异：本版本默认进行原位转换（旧文件模式），而原来SunOS/Solaris下的版本只支持配对转换（新文件模式）。参见选项 C<-o> 和 C<-n>。"
+msgstr "Dos2unix由SunOS/Solaris下的版本改写而成。这两个版本间有一个重大差异：本版本默认进行原位转换（旧文件模式），而原来SunOS/Solaris下的版本只支持配对转换（新文件模式），参见选项 C<-o> 和 C<-n>。还有一个区别是SunOS/Solaris下的版本默认使用 I<iso> 模式，而本版本默认使用 I<ascii> 模式。"
 
 #. type: =head1
 #: dos2unix.pod:92
@@ -242,10 +240,8 @@ msgstr "B<-D, --display-enc ENCODAGE>"
 
 #. type: textblock
 #: dos2unix.pod:159
-#, fuzzy
-#| msgid "Set encoding of displayed text. Where ENCODING is one of: I<ansi>, I<unicode>, I<utf8> with ansi being the default."
 msgid "Set encoding of displayed text. Where ENCODING is one of: I<ansi>, I<unicode>, I<unicodebom>, I<utf8>, I<utf8bom> with ansi being the default."
-msgstr "设置显示文本的编码。编码可以为：I<ansi>、I<unicode>、I<utf8>，默认为ansi。"
+msgstr "设置显示文本的编码。编码可以为：I<ansi>、I<unicode>、I<unicodebom>、I<utf8>、I<utf8bom>，默认为 ansi。"
 
 #. type: textblock
 #: dos2unix.pod:163
@@ -274,10 +270,8 @@ msgstr "ansi的缺点是含有非系统默认编码页中字符的国际化文�
 
 #. type: =item
 #: dos2unix.pod:186
-#, fuzzy
-#| msgid "B<unicode>"
 msgid "B<unicode, unicodebom>"
-msgstr "B<unicode>"
+msgstr "B<unicode，unicodebom>"
 
 #. type: textblock
 #: dos2unix.pod:188
@@ -291,29 +285,23 @@ msgstr "当你使用ConEmu终端时，所以的文本将会被正确显示，因
 
 #. type: textblock
 #: dos2unix.pod:197
-#, fuzzy
-#| msgid "The disadvantage of unicode is that it is not compatible with ASCII. The output is not easy to handle when you redirect it to another program or a file.  Redirection to a file does not give a correct UTF-16 file."
 msgid "The disadvantage of unicode is that it is not compatible with ASCII. The output is not easy to handle when you redirect it to another program."
-msgstr "Unicode的缺点在于它与ASCII不兼容。当你将输出重定向到其他程序或文件时，它可能不那么容易控制。重定向到文件无法得到正确的UTF-16文件。"
+msgstr "Unicode的缺点在于它与ASCII不兼容。当你将输出重定向到其他程序或文件时，它可能不那么容易控制"
 
 #. type: textblock
 #: dos2unix.pod:200
 msgid "When method C<unicodebom> is used the Unicode text will be preceded with a BOM (Byte Order Mark). A BOM is required for correct redirection or piping in PowerShell."
-msgstr ""
+msgstr "当使用 C<unicodebom> 方法时，将会在Unicode文本前添加一个BOM（字节序标记）。在PowerShell中，需要根据BOM来进行正确的重定向或管道输出。"
 
 #. type: =item
 #: dos2unix.pod:205
-#, fuzzy
-#| msgid "B<utf8>"
 msgid "B<utf8, utf8bom>"
-msgstr "B<utf8>"
+msgstr "B<utf8，utf8bom>"
 
 #. type: textblock
 #: dos2unix.pod:207
-#, fuzzy
-#| msgid "The advantage of utf8 is that it is compatible with ASCII and when you redirect it to a file you get a proper UTF-8 file. You need to set the console's font to a TrueType font. With a TrueType font the text is displayed similar as with the C<unicode> encoding."
 msgid "The advantage of utf8 is that it is compatible with ASCII. You need to set the console's font to a TrueType font. With a TrueType font the text is displayed similar as with the C<unicode> encoding."
-msgstr "utf8的优点在于它与ASCII兼容，并且当你将输出重定向到文件时，文件将会为正确的UTF-8格式。你需要设置终端的字体为TrueType字体。使用TrueType字体可以使得文本得以正确显示，就像使用 C<unicode> 编码时那样。"
+msgstr "utf8的优点在于它与ASCII兼容。你需要设置终端的字体为TrueType字体。使用TrueType字体可以使得文本得以正确显示，就像使用 C<unicode> 编码时那样。"
 
 #. type: textblock
 #: dos2unix.pod:211
@@ -328,14 +316,12 @@ msgstr "在ConEmu终端中，utf编码方式可以正常工作。"
 #. type: textblock
 #: dos2unix.pod:219
 msgid "When method C<utf8bom> is used the UTF-8 text will be preceded with a BOM (Byte Order Mark). A BOM is required for correct redirection or piping in PowerShell."
-msgstr ""
+msgstr "当使用 C<utf8bom> 方法时，将会在Unicode文本前添加一个BOM（字节序标记）。在PowerShell中，需要根据BOM来进行正确的重定向或管道输出。"
 
 #. type: textblock
 #: dos2unix.pod:226
-#, fuzzy
-#| msgid "The default encoding can be changed with environment variable DOS2UNIX_DISPLAY_ENC by setting it to C<unicode> or C<utf8>."
 msgid "The default encoding can be changed with environment variable DOS2UNIX_DISPLAY_ENC by setting it to C<unicode>, C<unicodebom>, C<utf8>, or C<utf8bom>."
-msgstr "默认的编码方式可以通过设置 DOS2UNIX_DISPLAY_ENC 环境变量为 C<unicode> 或 C<utf8> 来改变。"
+msgstr "默认的编码方式可以通过设置 DOS2UNIX_DISPLAY_ENC 环境变量为 C<unicode> 、C<unicodebom>、C<utf8> 或 C<utf8bom> 来改变。"
 
 #. type: =item
 #: dos2unix.pod:229
@@ -1462,7 +1448,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:722
 msgid "PowerShell users can use the following command in Windows PowerShell:"
-msgstr ""
+msgstr "PowerShell用户可以在Windows PowerShell中使用如下命令："
 
 #. type: verbatim
 #: dos2unix.pod:724
@@ -1471,6 +1457,8 @@ msgid ""
 "    get-childitem -path . -filter '*.txt' -recurse | foreach-object {dos2unix $_.Fullname}\n"
 "\n"
 msgstr ""
+"    get-childitem -path . -filter '*.txt' -recurse | foreach-object {dos2unix $_.Fullname}\n"
+"\n"
 
 #. type: =head1
 #: dos2unix.pod:727

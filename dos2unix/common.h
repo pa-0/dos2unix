@@ -196,6 +196,8 @@
 #define INFO_TEXT 0x10
 #define INFO_DEFAULT 0x1F
 #define INFO_CONVERT 0x20
+#define INFO_HEADER  0x40
+#define INFO_NOPATH  0x80
 
 #define SYMLINK_SKIP 0
 #define SYMLINK_FOLLOW 1
