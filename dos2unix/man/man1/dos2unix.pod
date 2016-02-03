@@ -293,6 +293,14 @@ Print only the files that would be converted.
 With the C<c> flag dos2unix will print only the files that contain DOS line breaks,
 unix2dos will print only file names that have Unix line breaks.
 
+=item B<h>
+
+Print a header.
+
+=item B<p>
+
+Remove path from the file names.
+
 =back
 
 Examples:

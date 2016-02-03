@@ -3,6 +3,8 @@
     setting.
   * Fixed printing text in unicode UTF-16 mode on Windows, so that when
     it is redirected to a file, a correct UTF-16 file is created.
+  * New flags h (print header) and p (remove path from file name) for
+    option -i, --info
 
 2015-11-20: Version 7.3.2
 

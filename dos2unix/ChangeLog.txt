@@ -2,6 +2,7 @@
 	* common.c: New flags for options -i, --info.
 	  Flag h : print a header.
 	  Flag p : remove path from file name.
+	  Thanks to Alan S. Jones.
 
 2016-01-31 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Don't package international man pages
