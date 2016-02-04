@@ -1,3 +1,6 @@
+2016-02-04 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Changed header for column text/binary to TXTBIN.
+
 2016-02-02 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: New flags for options -i, --info.
 	  Flag h : print a header.

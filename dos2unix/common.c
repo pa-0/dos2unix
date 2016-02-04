@@ -1868,7 +1868,7 @@ void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb
     if (ipFlag->file_info & INFO_BOM)
       D2U_UTF8_FPRINTF(stdout, "  BOM     ");
     if (ipFlag->file_info & INFO_TEXT)
-      D2U_UTF8_FPRINTF(stdout, "  TEXT  ");
+      D2U_UTF8_FPRINTF(stdout, "  TXTBIN");
     D2U_UTF8_FPRINTF(stdout, "  FILE\n");
     header_done = 1;
   }
