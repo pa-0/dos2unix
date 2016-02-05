@@ -299,7 +299,7 @@ Print a header.
 
 =item B<p>
 
-Remove path from the file names.
+Show file names without path.
 
 =back
 

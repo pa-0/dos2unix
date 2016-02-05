@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.3.3-beta1\n"
-"POT-Creation-Date: 2016-02-03 19:24+0100\n"
+"POT-Creation-Date: 2016-02-05 20:14+0100\n"
 "PO-Revision-Date: 2016-01-01 17:59+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -501,7 +501,7 @@ msgstr ""
 
 #. type: textblock
 #: dos2unix.pod:302
-msgid "Remove path from the file names."
+msgid "Show file names without path."
 msgstr ""
 
 #. type: textblock
