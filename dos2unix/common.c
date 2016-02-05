@@ -557,10 +557,12 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv, CFlag *ipFlag, const cha
   return ++argc_glob;
 
   glob_failed:
-  ipFlag->error = errno;
-  errstr = strerror(errno);
-  D2U_UTF8_FPRINTF(stderr, "%s:", progname);
-  D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
+  if (ipFlag->verbose) {
+    ipFlag->error = errno;
+    errstr = strerror(errno);
+    D2U_UTF8_FPRINTF(stderr, "%s:", progname);
+    D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
+  }
   return -1;
 }
 #endif
@@ -1345,10 +1347,12 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
   if (!RetVal) {
     InF=OpenInFile(ipInFN);
     if (InF == NULL) {
-      ipFlag->error = errno;
-      errstr = strerror(errno);
-      D2U_UTF8_FPRINTF(stderr, "%s: %s:", progname, ipInFN);
-      D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
+      if (ipFlag->verbose) {
+        ipFlag->error = errno;
+        errstr = strerror(errno);
+        D2U_UTF8_FPRINTF(stderr, "%s: %s:", progname, ipInFN);
+        D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
+      }
       RetVal = -1;
     }
   }
@@ -1359,10 +1363,12 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
     if ((TempF=fd) == NULL) {
 #else
     if ((TempF=OpenOutFile(fd)) == NULL) {
-      ipFlag->error = errno;
-      errstr = strerror(errno);
-      D2U_UTF8_FPRINTF(stderr, "%s:", progname);
-      D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
+      if (ipFlag->verbose) {
+        ipFlag->error = errno;
+        errstr = strerror(errno);
+        D2U_UTF8_FPRINTF(stderr, "%s:", progname);
+        D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
+      }
 #endif
       fclose (InF);
       InF = NULL;
@@ -2023,10 +2029,12 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
   /* can open in file? */
   InF=OpenInFile(ipInFN);
   if (InF == NULL) {
-    ipFlag->error = errno;
-    errstr = strerror(errno);
-    D2U_UTF8_FPRINTF(stderr, "%s: %s: ", progname, ipInFN);
-    D2U_ANSI_FPRINTF(stderr, "%s\n", errstr);
+    if (ipFlag->verbose) {
+      ipFlag->error = errno;
+      errstr = strerror(errno);
+      D2U_UTF8_FPRINTF(stderr, "%s: %s: ", progname, ipInFN);
+      D2U_ANSI_FPRINTF(stderr, "%s\n", errstr);
+    }
     RetVal = -1;
   }
 
@@ -2664,13 +2672,15 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
    if ( len == (size_t)(-1) ) {
       /* Stop when there is a conversion error */
    /* On Windows we convert UTF-16 always to UTF-8 or GB18030 */
+      if (ipFlag->verbose) {
 #if (defined(_WIN32) && !defined(__CYGWIN__))
-      d2u_PrintLastError(progname);
+        d2u_PrintLastError(progname);
 #else
-      errstr = strerror(errno);
-      D2U_UTF8_FPRINTF(stderr, "%s:", progname);
-      D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
+        errstr = strerror(errno);
+        D2U_UTF8_FPRINTF(stderr, "%s:", progname);
+        D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
 #endif
+      }
       ipFlag->status |= UNICODE_CONVERSION_ERROR ;
       return(WEOF);
    } else {
