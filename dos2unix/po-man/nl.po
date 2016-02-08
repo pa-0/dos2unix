@@ -1,5 +1,5 @@
 # Dutch translations for the dos2unix man page.
-# Copyright (C) 2015 Erwin Waterlander (msgids)
+# Copyright (C) 2016 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
 #
 # “Hm!  I can see those old men shake their heads.”
@@ -8,9 +8,9 @@
 # Benno Schulenberg <benno@vertaalt.nl>, 2014, 2015, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.3.3-beta1\n"
-"POT-Creation-Date: 2016-02-05 20:14+0100\n"
-"PO-Revision-Date: 2016-01-01 17:59+0100\n"
+"Project-Id-Version: dos2unix-man-7.3.3-beta9\n"
+"POT-Creation-Date: 2016-02-05 20:20+0100\n"
+"PO-Revision-Date: 2016-02-08 17:33+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -84,10 +84,8 @@ msgstr "Symbolische koppelingen en hun doelen blijven standaard onaangeroerd.  O
 
 #. type: textblock
 #: dos2unix.pod:84
-#, fuzzy
-#| msgid "Dos2unix was modelled after dos2unix under SunOS/Solaris.  There is one important difference with the original SunOS/Solaris version. This version does by default in-place conversion (old file mode), while the original SunOS/Solaris version only supports paired conversion (new file mode). See also options C<-o> and C<-n>."
 msgid "Dos2unix was modelled after dos2unix under SunOS/Solaris.  There is one important difference with the original SunOS/Solaris version. This version does by default in-place conversion (old file mode), while the original SunOS/Solaris version only supports paired conversion (new file mode). See also options C<-o> and C<-n>. Another difference is that the SunOS/Solaris version uses by default I<iso> mode conversion while this version uses by default I<ascii> mode conversion."
-msgstr "Dos2unix is gemodelleerd naar dos2unix op SunOS/Solaris, maar er is één belangrijk verschil: deze versie van dos2unix voert standaard een vervangende conversie uit (oud-bestand-modus) terwijl de oorspronkelijke SunOS/Solaris-versie alleen de gepaarde conversie (nieuw-bestand-modus) kent.  Zie ook de opties C<-o> en C<-n>."
+msgstr "Dos2unix is gemodelleerd naar dos2unix op SunOS/Solaris, maar er is een belangrijk verschil: deze versie van dos2unix voert standaard een vervangende conversie uit (oud-bestand-modus) terwijl de oorspronkelijke SunOS/Solaris-versie alleen de gepaarde conversie (nieuw-bestand-modus) kent.  Zie ook de opties C<-o> en C<-n>.  Een ander verschil is dat de SunOS/Solaris-versie standaard een conversie in I<iso>-modus doet terwijl deze versie standaard I<ascii>-modus gebruikt."
 
 #. type: =head1
 #: dos2unix.pod:92
@@ -246,10 +244,8 @@ msgstr "B<-D>, B<--display-enc CODERING>"
 
 #. type: textblock
 #: dos2unix.pod:159
-#, fuzzy
-#| msgid "Set encoding of displayed text. Where ENCODING is one of: I<ansi>, I<unicode>, I<utf8> with ansi being the default."
 msgid "Set encoding of displayed text. Where ENCODING is one of: I<ansi>, I<unicode>, I<unicodebom>, I<utf8>, I<utf8bom> with ansi being the default."
-msgstr "De te gebruiken tekencodering voor weergegeven tekst.  CODERING kan zijn: I<ansii>, I<unicode>, of I<utf8>, waarbij ansi de standaardinstelling is."
+msgstr "De te gebruiken tekencodering voor weergegeven tekst.  CODERING kan zijn: I<ansi>, I<unicode>, I<unicodebom>, I<utf8>, of I<utf8bom>, waarbij ansi de standaardinstelling is."
 
 #. type: textblock
 #: dos2unix.pod:163
@@ -278,10 +274,8 @@ msgstr ""
 
 #. type: =item
 #: dos2unix.pod:186
-#, fuzzy
-#| msgid "B<unicode>"
 msgid "B<unicode, unicodebom>"
-msgstr "B<unicode>"
+msgstr "B<unicode>, B<unicodebom>"
 
 #. type: textblock
 #: dos2unix.pod:188
@@ -305,10 +299,8 @@ msgstr ""
 
 #. type: =item
 #: dos2unix.pod:205
-#, fuzzy
-#| msgid "B<utf8>"
 msgid "B<utf8, utf8bom>"
-msgstr "B<utf8>"
+msgstr "B<utf8>, B<utf8bom>"
 
 #. type: textblock
 #: dos2unix.pod:207
@@ -487,22 +479,22 @@ msgstr "Met de vlag C<c> toont dos2unix alleen de bestanden die DOS-regeleindes 
 #. type: =item
 #: dos2unix.pod:296
 msgid "B<h>"
-msgstr ""
+msgstr "B<h>"
 
 #. type: textblock
 #: dos2unix.pod:298
 msgid "Print a header."
-msgstr ""
+msgstr "Een kopregel printen."
 
 #. type: =item
 #: dos2unix.pod:300
 msgid "B<p>"
-msgstr ""
+msgstr "B<p>"
 
 #. type: textblock
 #: dos2unix.pod:302
 msgid "Show file names without path."
-msgstr ""
+msgstr "Bestandsnamen tonen zonder pad."
 
 #. type: textblock
 #: dos2unix.pod:306
