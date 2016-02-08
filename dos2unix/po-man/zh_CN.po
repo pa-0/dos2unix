@@ -4,9 +4,9 @@
 # Tianze Wang <zwpwjwtz@126.com>, 2015, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.3.3-beta6\n"
-"POT-Creation-Date: 2016-02-05 20:14+0100\n"
-"PO-Revision-Date: 2016-01-30 23:07+0800\n"
+"Project-Id-Version: dos2unix-man-7.3.3-beta9\n"
+"POT-Creation-Date: 2016-02-05 20:20+0100\n"
+"PO-Revision-Date: 2016-02-06 19:48+0800\n"
 "Last-Translator: Tianze Wang <zwpwjwtz@126.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -475,22 +475,22 @@ msgstr "若设置了 C<c>标志，dos2unix将只显示含有DOS断行符的文�
 #. type: =item
 #: dos2unix.pod:296
 msgid "B<h>"
-msgstr ""
+msgstr "B<h>"
 
 #. type: textblock
 #: dos2unix.pod:298
 msgid "Print a header."
-msgstr ""
+msgstr "显示头部。"
 
 #. type: =item
 #: dos2unix.pod:300
 msgid "B<p>"
-msgstr ""
+msgstr "B<p>"
 
 #. type: textblock
 #: dos2unix.pod:302
 msgid "Show file names without path."
-msgstr ""
+msgstr "显示不含路径的文件名。"
 
 #. type: textblock
 #: dos2unix.pod:306

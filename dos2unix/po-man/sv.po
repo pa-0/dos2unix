@@ -1,13 +1,13 @@
 # Swedish translation for dos2unix-man.
-# Copyright © 2014-2015 Erwin Waterlander, et al. (msgids)
+# Copyright © 2014-2016 Erwin Waterlander, et al. (msgids)
 # This file is distributed under the same license as the dos2unix package.
-# Sebastian Rasmussen <sebras@gmail.com>, 2014, 2015.
+# Sebastian Rasmussen <sebras@gmail.com>, 2014-2016.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3.3-beta6\n"
-"POT-Creation-Date: 2016-02-05 20:14+0100\n"
-"PO-Revision-Date: 2016-01-28 10:25+0100\n"
+"Project-Id-Version: dos2unix-man 7.3.3-beta9\n"
+"POT-Creation-Date: 2016-02-05 20:20+0100\n"
+"PO-Revision-Date: 2016-02-06 12:02+0100\n"
 "Last-Translator: Sebastian Rasmussen <sebras@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -475,22 +475,22 @@ msgstr "Med C<c>-flaggan kommer dos2unix att skriva ut filerna som innehåller D
 #. type: =item
 #: dos2unix.pod:296
 msgid "B<h>"
-msgstr ""
+msgstr "B<h>"
 
 #. type: textblock
 #: dos2unix.pod:298
 msgid "Print a header."
-msgstr ""
+msgstr "Skriv ut rubrik."
 
 #. type: =item
 #: dos2unix.pod:300
 msgid "B<p>"
-msgstr ""
+msgstr "B<p>"
 
 #. type: textblock
 #: dos2unix.pod:302
 msgid "Show file names without path."
-msgstr ""
+msgstr "Visa filnamn utan sökväg."
 
 #. type: textblock
 #: dos2unix.pod:306

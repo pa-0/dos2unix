@@ -162,8 +162,8 @@ ACKNOWLEDGEMENTS
         Hans Passant          Correct redirection of unicode UTF-16 screen output.
         anonymous             Don't install international man pages when NLS
                               is disabled.
-        Alan S. Jones         New flags h (print header) and p (remove path from file
-                              name) for option -i, --info
+        Alan S. Jones         New flags h (print header) and p (show file names
+                              without path) for option -i, --info
 
 
 FINDUTILS
