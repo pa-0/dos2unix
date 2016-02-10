@@ -5,9 +5,9 @@
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2014-2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.3.3-beta6\n"
-"POT-Creation-Date: 2016-02-05 20:14+0100\n"
-"PO-Revision-Date: 2016-01-27 21:04+0100\n"
+"Project-Id-Version: dos2unix-man-7.3.3-beta9\n"
+"POT-Creation-Date: 2016-02-05 20:20+0100\n"
+"PO-Revision-Date: 2016-02-09 09:37+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
@@ -475,22 +475,22 @@ msgstr "Mit dem Schalter C<c> gibt dos2unix nur die Dateien aus, die DOS-Zeilenu
 #. type: =item
 #: dos2unix.pod:296
 msgid "B<h>"
-msgstr ""
+msgstr "B<h>"
 
 #. type: textblock
 #: dos2unix.pod:298
 msgid "Print a header."
-msgstr ""
+msgstr "gibt eine Kopfzeile aus."
 
 #. type: =item
 #: dos2unix.pod:300
 msgid "B<p>"
-msgstr ""
+msgstr "B<p>"
 
 #. type: textblock
 #: dos2unix.pod:302
 msgid "Show file names without path."
-msgstr ""
+msgstr "zeigt Dateinamen ohne Pfade an."
 
 #. type: textblock
 #: dos2unix.pod:306
