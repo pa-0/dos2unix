@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-05 21:28+0100\n"
+"POT-Creation-Date: 2016-02-10 19:46+0100\n"
 "PO-Revision-Date: 2014-03-14 00:43+0800\n"
 "Last-Translator: mail6543210 <mail6543210@yahoo.com.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -598,56 +598,56 @@ msgstr "正在轉換 %s 為DOS 格式...\n"
 msgid "problems converting file %s\n"
 msgstr "轉換檔案 %s 錯誤\n"
 
-#: common.c:1944 common.c:1996
+#: common.c:1949 common.c:2001
 #, fuzzy, c-format
 msgid "can not read from input file %s:"
 msgstr "無法寫入輸出檔：%s\n"
 
-#: common.c:2157
+#: common.c:2162
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr ""
 
-#: common.c:2282 common.c:2325
+#: common.c:2287 common.c:2330
 #, c-format
 msgid "active code page: %d\n"
 msgstr "作用中編碼頁：%d\n"
 
-#: common.c:2337
+#: common.c:2342
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "指定的轉換模式 %s 不合法\n"
 
-#: common.c:2345 common.c:2375
+#: common.c:2350 common.c:2380
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "選項'%s' 需要一個引數\n"
 
-#: common.c:2367
+#: common.c:2372
 #, fuzzy, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "指定的轉換模式 %s 不合法\n"
 
-#: common.c:2387 common.c:2400 common.c:2466
+#: common.c:2392 common.c:2405 common.c:2471
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "新檔模式中未指明檔案 %s 的目的位置\n"
 
-#: common.c:2480
+#: common.c:2485
 #, fuzzy, c-format
 msgid "can not read from input file: %s\n"
 msgstr "無法寫入輸出檔：%s\n"
 
-#: common.c:2492 common.c:2506
+#: common.c:2497 common.c:2511
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "無法寫入輸出檔：%s\n"
 
-#: common.c:2583
+#: common.c:2588
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr ""
 
-#: common.c:2598
+#: common.c:2603
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr ""
 

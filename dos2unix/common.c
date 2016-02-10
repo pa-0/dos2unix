@@ -1875,7 +1875,9 @@ void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb
       D2U_UTF8_FPRINTF(stdout, "  BOM     ");
     if (ipFlag->file_info & INFO_TEXT)
       D2U_UTF8_FPRINTF(stdout, "  TXTBIN");
-    D2U_UTF8_FPRINTF(stdout, "  FILE\n");
+    if (*filename != '\0')
+      D2U_UTF8_FPRINTF(stdout, "  FILE");
+    D2U_UTF8_FPRINTF(stdout, "\n");
     header_done = 1;
   }
 
@@ -1893,11 +1895,14 @@ void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb
     else
       D2U_UTF8_FPRINTF(stdout, "  text  ");
   }
-  if ((ipFlag->file_info & INFO_NOPATH) && (((ptr=strrchr(filename,'/')) != NULL) || ((ptr=strrchr(filename,'\\')) != NULL)) )
-    ptr++;
-  else
-    ptr = filename;
-  D2U_UTF8_FPRINTF(stdout, "  %s\n",ptr);
+  if (*filename != '\0') {
+    if ((ipFlag->file_info & INFO_NOPATH) && (((ptr=strrchr(filename,'/')) != NULL) || ((ptr=strrchr(filename,'\\')) != NULL)) )
+      ptr++;
+    else
+      ptr = filename;
+    D2U_UTF8_FPRINTF(stdout, "  %s",ptr);
+  }
+  D2U_UTF8_FPRINTF(stdout, "\n");
 }
 
 #ifdef D2U_UNICODE

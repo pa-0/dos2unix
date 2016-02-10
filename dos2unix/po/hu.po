@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.2.3-beta3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-05 21:28+0100\n"
+"POT-Creation-Date: 2016-02-10 19:46+0100\n"
 "PO-Revision-Date: 2015-06-30 13:38+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -597,56 +597,56 @@ msgstr "a(z) %s kódolású %s fájl átalakítása %s kódolású DOS formátum
 msgid "problems converting file %s\n"
 msgstr "hiba a(z) %s fájl átalakításakor\n"
 
-#: common.c:1944 common.c:1996
+#: common.c:1949 common.c:2001
 #, fuzzy, c-format
 msgid "can not read from input file %s:"
 msgstr "nem sikerült olvasni a(z) %s bemeneti fájlból: %s\n"
 
-#: common.c:2157
+#: common.c:2162
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "hibás „%c” jelző a -i vagy --info kapcsolókhoz\n"
 
-#: common.c:2282 common.c:2325
+#: common.c:2287 common.c:2330
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktív kódlap: %d\n"
 
-#: common.c:2337
+#: common.c:2342
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "érvénytelen %s átalakítási mód lett megadva\n"
 
-#: common.c:2345 common.c:2375
+#: common.c:2350 common.c:2380
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "a(z) „%s” kapcsolóhoz argumentum szükséges\n"
 
-#: common.c:2367
+#: common.c:2372
 #, fuzzy, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "érvénytelen %s átalakítási mód lett megadva\n"
 
-#: common.c:2387 common.c:2400 common.c:2466
+#: common.c:2392 common.c:2405 common.c:2471
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "a(z) %s fájl célja nincs megadva az új-fájl módban\n"
 
-#: common.c:2480
+#: common.c:2485
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "nem sikerült olvasni a bemeneti fájlból: %s\n"
 
-#: common.c:2492 common.c:2506
+#: common.c:2497 common.c:2511
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "nem sikerült írni a kimeneti fájlba: %s\n"
 
-#: common.c:2583
+#: common.c:2588
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "hiba: Érvénytelen helyettesítő pár. Hiányzó alacsony helyettesítő.\n"
 
-#: common.c:2598
+#: common.c:2603
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "hiba: Érvénytelen helyettesítő pár. Hiányzó magas helyettesítő.\n"
 

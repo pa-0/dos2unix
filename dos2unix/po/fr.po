@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-7.3.3-beta2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-05 21:28+0100\n"
+"POT-Creation-Date: 2016-02-10 19:46+0100\n"
 "PO-Revision-Date: 2016-01-12 20:04+0100\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -586,56 +586,56 @@ msgstr "conversion du fichier %s %s au format DOS %s…\n"
 msgid "problems converting file %s\n"
 msgstr "problèmes lors de la conversion du fichier %s\n"
 
-#: common.c:1944 common.c:1996
+#: common.c:1949 common.c:2001
 #, c-format
 msgid "can not read from input file %s:"
 msgstr "impossible de lire depuis le fichier d'entrée %s :"
 
-#: common.c:2157
+#: common.c:2162
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "mauvais fanion « %c » pour l'option -i ou --info\n"
 
-#: common.c:2282 common.c:2325
+#: common.c:2287 common.c:2330
 #, c-format
 msgid "active code page: %d\n"
 msgstr "code page actif : %d\n"
 
-#: common.c:2337
+#: common.c:2342
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "mode de conversion %s spécifié invalide\n"
 
-#: common.c:2345 common.c:2375
+#: common.c:2350 common.c:2380
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "l'option « %s » requiert un argument\n"
 
-#: common.c:2367
+#: common.c:2372
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "l'encodage %s spécifié pour l'affichage est invalide\n"
 
-#: common.c:2387 common.c:2400 common.c:2466
+#: common.c:2392 common.c:2405 common.c:2471
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "la cible du fichier %s n'est pas spécifiée en mode nouveau fichier\n"
 
-#: common.c:2480
+#: common.c:2485
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "impossible de lire depuis le fichier d'entrée : %s\n"
 
-#: common.c:2492 common.c:2506
+#: common.c:2497 common.c:2511
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "impossible d'écrire dans le fichier de sortie : %s\n"
 
-#: common.c:2583
+#: common.c:2588
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "erreur: Demi-codet invalide. Le demi-codet bas est manquant.\n"
 
-#: common.c:2598
+#: common.c:2603
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "erreur: Demi-codet invalide. Le demi-codet haut est manquant.\n"
 

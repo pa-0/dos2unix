@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.3-beta2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-05 21:28+0100\n"
+"POT-Creation-Date: 2016-02-10 19:46+0100\n"
 "PO-Revision-Date: 2016-01-23 12:07+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -591,55 +591,55 @@ msgstr "omdanner %s-filen %s til %s-DOS-format …\n"
 msgid "problems converting file %s\n"
 msgstr "problemer under omdannelse af fil %s\n"
 
-#: common.c:1944 common.c:1996
+#: common.c:1949 common.c:2001
 #, c-format
 msgid "can not read from input file %s:"
 msgstr "kan ikke læse fra inputfilen %s:"
 
-#: common.c:2157
+#: common.c:2162
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "forkert flag »%c« for tilvalget -i eller --info\n"
 
-#: common.c:2282 common.c:2325
+#: common.c:2287 common.c:2330
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktuel tegnkodningstabel: %d\n"
 
-#: common.c:2337
+#: common.c:2342
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "ugyldig %s omdannelsestilstand specificeret\n"
 
-#: common.c:2345 common.c:2375
+#: common.c:2350 common.c:2380
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "tilvalg \"%s\" kræver et argument\n"
 
-#: common.c:2367
+#: common.c:2372
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "ugyldig %s visningstilstand specificeret\n"
 
-#: common.c:2387 common.c:2400 common.c:2466
+#: common.c:2392 common.c:2405 common.c:2471
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "mål for fil %s er ikke angivet i ny-fil-tilstand\n"
 
-#: common.c:2480
+#: common.c:2485
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "kan ikke læse fra inputfil: %s\n"
 
-#: common.c:2492 common.c:2506
+#: common.c:2497 common.c:2511
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "kan ikke skrive til outputfil: %s\n"
 
-#: common.c:2583
+#: common.c:2588
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "fejl: Ugyldigt surrogatpar. Mangler lav surrogat.\n"
 
-#: common.c:2598
+#: common.c:2603
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "fejl: Ugyldigt surrogatpar. Mangler høj surrogat.\n"

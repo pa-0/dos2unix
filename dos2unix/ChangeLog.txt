@@ -1,3 +1,6 @@
+2016-02-10 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Don't print FILE column of header in stdio mode.
+
 2016-02-05 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Fix. Dos2unix was not quiet in all cases when
 	  option -q was used.
