@@ -663,8 +663,8 @@ GB18030 encoded files can have a Byte Order Mark, like Unicode files.
 
 Read input from 'stdin' and write output to 'stdout':
 
-    dos2unix
-    dos2unix -l -c mac
+    dos2unix < a.txt
+    cat a.txt | dos2unix
 
 Convert and replace a.txt. Convert and replace b.txt:
 

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.2.1-beta1\n"
-"POT-Creation-Date: 2016-02-05 20:15+0100\n"
+"POT-Creation-Date: 2016-02-11 20:33+0100\n"
 "PO-Revision-Date: 2015-03-19 09:38+0100\n"
 "Last-Translator: Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
@@ -1267,14 +1267,16 @@ msgstr "Lee la entrada desde 'stdin' y escribe la salida a 'stdout':"
 
 #. type: verbatim
 #: dos2unix.pod:666
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "    find . -name *.txt |xargs dos2unix\n"
+#| "\n"
 msgid ""
-"    dos2unix\n"
-"    dos2unix -l -c mac\n"
+"    dos2unix < a.txt\n"
+"    cat a.txt | dos2unix\n"
 "\n"
 msgstr ""
-"    dos2unix\n"
-"    dos2unix -l -c mac\n"
+"    find . -name *.txt |xargs dos2unix\n"
 "\n"
 
 #. type: textblock
@@ -1651,6 +1653,15 @@ msgstr "VÉASE TAMBIÉN"
 #: dos2unix.pod:821
 msgid "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 msgstr "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
+
+#~ msgid ""
+#~ "    dos2unix\n"
+#~ "    dos2unix -l -c mac\n"
+#~ "\n"
+#~ msgstr ""
+#~ "    dos2unix\n"
+#~ "    dos2unix -l -c mac\n"
+#~ "\n"
 
 #~ msgid "The Windows versions of dos2unix and unix2dos convert UTF-16 encoded files always to UTF-8 encoded files. Unix versions of dos2unix/unix2dos convert UTF-16 encoded files to the locale character encoding when it is set to UTF-8.  Use the locale(1) command to find out what the locale character encoding is."
 #~ msgstr "Las versiones Windows de dos2unix y unix2dos siempre convierten ficheros Codificados como UTF-16 a UTF-8. Las versiones Unix de dos2unix/unix2dos convierten ficheros UTF-16 a la codificación de caracteres local cuando es configurado a UTF-8. Emplee el comando locale(1) para determinar cual es la codificación de caracteres local."

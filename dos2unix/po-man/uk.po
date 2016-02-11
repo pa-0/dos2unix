@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man 7.3.3-beta9\n"
-"POT-Creation-Date: 2016-02-05 20:20+0100\n"
+"POT-Creation-Date: 2016-02-11 20:33+0100\n"
 "PO-Revision-Date: 2016-02-06 14:39+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -1256,14 +1256,16 @@ msgstr "Прочитати вхідні дані зі стандартного �
 
 #. type: verbatim
 #: dos2unix.pod:666
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "    dos2unix -ic *.txt | xargs dos2unix\n"
+#| "\n"
 msgid ""
-"    dos2unix\n"
-"    dos2unix -l -c mac\n"
+"    dos2unix < a.txt\n"
+"    cat a.txt | dos2unix\n"
 "\n"
 msgstr ""
-"    dos2unix\n"
-"    dos2unix -l -c mac\n"
+"    dos2unix -ic *.txt | xargs dos2unix\n"
 "\n"
 
 #. type: textblock
@@ -1636,6 +1638,15 @@ msgstr "ТАКОЖ ПЕРЕГЛЯНЬТЕ"
 #: dos2unix.pod:821
 msgid "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 msgstr "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
+
+#~ msgid ""
+#~ "    dos2unix\n"
+#~ "    dos2unix -l -c mac\n"
+#~ "\n"
+#~ msgstr ""
+#~ "    dos2unix\n"
+#~ "    dos2unix -l -c mac\n"
+#~ "\n"
 
 #~ msgid "Freecode: L<http://freecode.com/projects/dos2unix>"
 #~ msgstr "Freecode: L<http://freecode.com/projects/dos2unix>"
