@@ -1,4 +1,4 @@
-2016-??-??: Version 7.3.3
+2016-02-13: Version 7.3.3
   * Fixed printing of East-Asian text on Windows with an East-Asian regional
     setting.
   * Fixed printing text in unicode UTF-16 mode on Windows, so that when
