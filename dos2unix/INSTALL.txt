@@ -82,6 +82,11 @@ SELF-TESTS
     To check the native Windows ports you need to run the tests in
     the MSYS2 shell.
 
+    To run the tests in a DJGPP environment you need to make sure
+    that the bash shell is available (sh.exe). And you need to be
+    in an environment that supports long file names (LFN), e.g. on
+    32 bit Windows.
+
 INSTALLATION NAMES
 
     By default the 'install' target will install the program in

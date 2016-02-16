@@ -592,7 +592,7 @@ mostlyclean:
 	rm -f man/man1/*.bak man/man1/*~
 	rm -f man/*/man1/*.bak man/*/man1/*~
 	rm -f po/*.bak po/*~
-	rm -f po/*.mo
+	rm -f po/*.mo po-man/*~
 	cd test; $(MAKE) clean
 
 # Don't distribute PostScript and PDF manuals in the source package.
