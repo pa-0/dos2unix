@@ -365,7 +365,6 @@ int regfile(char *path, int allowSymlinks, CFlag *ipFlag, const char *progname)
 #else
    struct stat buf;
 #endif
-   char *errstr;
 
 #ifdef D2U_UNIFILE
    d2u_MultiByteToWideChar(CP_UTF8, 0, path, -1, pathw, D2U_MAX_PATH);
@@ -410,7 +409,7 @@ int regfile(char *path, int allowSymlinks, CFlag *ipFlag, const char *progname)
    else {
      if (ipFlag->verbose) {
        ipFlag->error = errno;
-       errstr = strerror(errno);
+       char *errstr = strerror(errno);
        D2U_UTF8_FPRINTF(stderr, "%s: %s:", progname, path);
        D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
      }
@@ -435,7 +434,6 @@ int regfile_target(char *path, CFlag *ipFlag, const char *progname)
 #else
    struct stat buf;
 #endif
-   char *errstr;
 
 #ifdef D2U_UNIFILE
    d2u_MultiByteToWideChar(CP_UTF8, 0, path, -1, pathw, D2U_MAX_PATH);
@@ -451,7 +449,7 @@ int regfile_target(char *path, CFlag *ipFlag, const char *progname)
    else {
      if (ipFlag->verbose) {
        ipFlag->error = errno;
-       errstr = strerror(errno);
+       char *errstr = strerror(errno);
        D2U_UTF8_FPRINTF(stderr, "%s: %s:", progname, path);
        D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
      }
@@ -531,8 +529,10 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv, CFlag *ipFlag, const cha
       if (argv == NULL) goto glob_failed;
       d2u_WideCharToMultiByte(CP_UTF8, 0, path_and_filename, -1, arg, (int)len, NULL, NULL);
       free(path_and_filename);
-      argv_new = (char **)realloc(argv_new, (size_t)(argc_glob+1)*sizeof(char**));
-      if (argv_new == NULL) goto glob_failed;
+      char  **new_argv_new = (char **)realloc(argv_new, (size_t)(argc_glob+1)*sizeof(char**));
+      if (new_argv_new == NULL) goto glob_failed;
+      else
+        argv_new = new_argv_new;
       argv_new[argc_glob] = arg;
 
       if (!FindNextFileW(hFind, &FindFileData)) {
@@ -548,8 +548,10 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv, CFlag *ipFlag, const cha
       arg = (char *)malloc((size_t)len);
       if (argv == NULL) goto glob_failed;
       d2u_WideCharToMultiByte(CP_UTF8, 0, warg, -1, arg, (int)len, NULL, NULL);
-      argv_new = (char **)realloc(argv_new, (size_t)(argc_glob+1)*sizeof(char**));
-      if (argv_new == NULL) goto glob_failed;
+      char **new_argv_new = (char **)realloc(argv_new, (size_t)(argc_glob+1)*sizeof(char**));
+      if (new_argv_new == NULL) goto glob_failed;
+      else
+        argv_new = new_argv_new;
       argv_new[argc_glob] = arg;
     }
   }
@@ -936,7 +938,6 @@ int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progna
 
 FILE *read_bom (FILE *f, int *bomtype)
 {
-  int bom[4];
   /* BOMs
    * UTF16-LE  ff fe
    * UTF16-BE  fe ff
@@ -948,6 +949,7 @@ FILE *read_bom (FILE *f, int *bomtype)
 
    /* Check for BOM */
    if  (f != NULL) {
+      int bom[4];
       if ((bom[0] = fgetc(f)) == EOF) {
          if (ferror(f)) {
            return NULL;
@@ -1074,10 +1076,7 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
 
 void print_bom (const int bomtype, const char *filename, const char *progname)
 {
-  char informat[64];
-# ifdef D2U_UNIFILE
-  wchar_t informatw[64];
-#endif
+    char informat[64];
 
     switch (bomtype) {
     case FILE_UTF16LE:   /* UTF-16 Little Endian */
@@ -1101,6 +1100,7 @@ void print_bom (const int bomtype, const char *filename, const char *progname)
 
 /* Change informat to UTF-8 for d2u_utf8_fprintf. */
 # ifdef D2U_UNIFILE
+    wchar_t informatw[64];
     /* The format string is encoded in the system default
      * Windows ANSI code page. May have been translated
      * by gettext. Convert it to wide characters. */
@@ -1851,8 +1851,6 @@ void print_messages_info(const CFlag *pFlag, const char *infile, const char *pro
 
 void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb_dos, unsigned int lb_unix, unsigned int lb_mac)
 {
-  const char *ptr;
-
   if (ipFlag->file_info & INFO_CONVERT) {
     if ((ipFlag->FromToMode == FROMTO_DOS2UNIX) && (lb_dos == 0))
       return;
@@ -1896,6 +1894,7 @@ void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb
       D2U_UTF8_FPRINTF(stdout, "  text  ");
   }
   if (*filename != '\0') {
+    const char *ptr;
     if ((ipFlag->file_info & INFO_NOPATH) && (((ptr=strrchr(filename,'/')) != NULL) || ((ptr=strrchr(filename,'\\')) != NULL)) )
       ptr++;
     else
@@ -1913,7 +1912,6 @@ void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, co
   unsigned int lb_dos = 0;
   unsigned int lb_unix = 0;
   unsigned int lb_mac = 0;
-  char *errstr;
 
   ipFlag->status = 0;
 
@@ -1944,7 +1942,7 @@ void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, co
   if ((TempChar == WEOF) && ferror(ipInF)) {
     ipFlag->error = errno;
     if (ipFlag->verbose) {
-      errstr = strerror(errno);
+      char *errstr = strerror(errno);
       D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
       D2U_UTF8_FPRINTF(stderr, _("can not read from input file %s:"), filename);
       D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
@@ -1964,8 +1962,6 @@ void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, con
   unsigned int lb_dos = 0;
   unsigned int lb_unix = 0;
   unsigned int lb_mac = 0;
-  char *errstr;
-
 
   ipFlag->status = 0;
 
@@ -1996,7 +1992,7 @@ void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, con
   if ((TempChar == EOF) && ferror(ipInF)) {
     ipFlag->error = errno;
     if (ipFlag->verbose) {
-      errstr = strerror(errno);
+      char *errstr = strerror(errno);
       D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
       D2U_UTF8_FPRINTF(stderr, _("can not read from input file %s:"), filename);
       D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
@@ -2011,7 +2007,6 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
 {
   int RetVal = 0;
   FILE *InF = NULL;
-  char *errstr;
   int bomtype_orig = FILE_MBS; /* messages must print the real bomtype, not the assumed bomtype */
 
   ipFlag->status = 0 ;
@@ -2036,7 +2031,7 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
   if (InF == NULL) {
     if (ipFlag->verbose) {
       ipFlag->error = errno;
-      errstr = strerror(errno);
+      char *errstr = strerror(errno);
       D2U_UTF8_FPRINTF(stderr, "%s: %s: ", progname, ipInFN);
       D2U_ANSI_FPRINTF(stderr, "%s\n", errstr);
     }
@@ -2452,7 +2447,7 @@ int parse_options(int argc, char *argv[],
   /* no file argument, use stdin and stdout */
   if ( (argc > 0) && pFlag->stdio_mode) {
     if (pFlag->file_info) {
-      RetVal = GetFileInfoStdio(pFlag, progname);
+      GetFileInfoStdio(pFlag, progname);
       print_messages_info(pFlag, "stdin", progname);
     } else {
 #ifdef D2U_UNICODE
@@ -2476,11 +2471,9 @@ int parse_options(int argc, char *argv[],
 
 void d2u_getc_error(CFlag *ipFlag, const char *progname)
 {
-    char *errstr;
-
     ipFlag->error = errno;
     if (ipFlag->verbose) {
-      errstr = strerror(errno);
+      char *errstr = strerror(errno);
       D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
       D2U_ANSI_FPRINTF(stderr, _("can not read from input file: %s\n"), errstr);
     }
@@ -2488,11 +2481,9 @@ void d2u_getc_error(CFlag *ipFlag, const char *progname)
 
 void d2u_putc_error(CFlag *ipFlag, const char *progname)
 {
-    char *errstr;
-
     ipFlag->error = errno;
     if (ipFlag->verbose) {
-      errstr = strerror(errno);
+      char *errstr = strerror(errno);
       D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
       D2U_ANSI_FPRINTF(stderr, _("can not write to output file: %s\n"), errstr);
     }
@@ -2501,12 +2492,10 @@ void d2u_putc_error(CFlag *ipFlag, const char *progname)
 #ifdef D2U_UNICODE
 void d2u_putwc_error(CFlag *ipFlag, const char *progname)
 {
-    char *errstr;
-
     if (!(ipFlag->status & UNICODE_CONVERSION_ERROR)) {
       ipFlag->error = errno;
       if (ipFlag->verbose) {
-        errstr = strerror(errno);
+        char *errstr = strerror(errno);
         D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
         D2U_ANSI_FPRINTF(stderr, _("can not write to output file: %s\n"), errstr);
       }
@@ -2555,17 +2544,15 @@ wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype)
 wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
 {
    static char mbs[8];
-   static wchar_t lead=0x01, trail;  /* lead get's invalid value */
+   static wchar_t lead=0x01;  /* lead get's invalid value */
    static wchar_t wstr[3];
-   size_t i,len;
-   int c_trail, c_lead;
+   size_t len;
 #if (defined(_WIN32) && !defined(__CYGWIN__))
    DWORD dwFlags;
-#else
-   char *errstr;
 #endif
 
    if (ipFlag->keep_utf16) {
+     int c_trail, c_lead;
      if (ipFlag->bomtype == FILE_UTF16LE) { /* UTF16 little endian */
         c_trail = (int)(wc & 0xff00);
         c_trail >>=8;
@@ -2605,7 +2592,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
          return(WEOF);
       }
       /* fprintf(stderr, "UTF-16 trail %x\n",wc); */
-      trail = (wchar_t)wc; /* trail (low) surrogate */
+      wchar_t trail = (wchar_t)wc; /* trail (low) surrogate */
 #if defined(_WIN32) || defined(__CYGWIN__)
       /* On Windows (including Cygwin) wchar_t is 16 bit */
       /* We cannot decode an UTF-16 surrogate pair, because it will
@@ -2681,7 +2668,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
 #if (defined(_WIN32) && !defined(__CYGWIN__))
         d2u_PrintLastError(progname);
 #else
-        errstr = strerror(errno);
+        char *errstr = strerror(errno);
         D2U_UTF8_FPRINTF(stderr, "%s:", progname);
         D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
 #endif
@@ -2689,6 +2676,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
       ipFlag->status |= UNICODE_CONVERSION_ERROR ;
       return(WEOF);
    } else {
+      size_t i;
       for (i=0; i<len; i++) {
          if (fputc(mbs[i], f) == EOF)
             return(WEOF);

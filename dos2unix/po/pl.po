@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.3-beta2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-10 19:46+0100\n"
+"POT-Creation-Date: 2016-03-19 12:40+0100\n"
 "PO-Revision-Date: 2016-01-12 19:39+0100\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -74,7 +74,7 @@ msgstr ""
 "Wszelkie prawa zastrzeżone.\n"
 "\n"
 
-#: common.c:572
+#: common.c:574
 msgid ""
 "Redistribution and use in source and binary forms, with or without\n"
 "modification, are permitted provided that the following conditions\n"
@@ -96,7 +96,7 @@ msgstr ""
 "   dołączonych do dystrybucji.\n"
 "\n"
 
-#: common.c:582
+#: common.c:584
 msgid ""
 "THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n"
 "EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
@@ -122,56 +122,56 @@ msgstr ""
 "W JAKIKOLWIEK SPOSÓB W WYNIKU UŻYCIA TEGO OPROGRAMOWANIA, NAWET JEŚLI\n"
 "OSTRZEŻONO O MOŻLIWOŚCI TAKICH SZKÓD.\n"
 
-#: common.c:607
+#: common.c:609
 #, c-format
 msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
 msgstr "Składnia: %s [opcje] [plik ...] [-n plik_wej plik_wyj ...]\n"
 
-#: common.c:608
+#: common.c:610
 msgid " -ascii                convert only line breaks (default)\n"
 msgstr " -ascii                konwersja tylko końców linii (domyślne)\n"
 
-#: common.c:609
+#: common.c:611
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
 msgstr " -iso                  konwersja między zestawem znaków DOS-a i ISO-8859-1\n"
 
-#: common.c:610
+#: common.c:612
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
 msgstr "   -1252               użycie strony kodowej Windows 1252 (zachodnioeuropejskiej)\n"
 
-#: common.c:611
+#: common.c:613
 msgid "   -437                use DOS code page 437 (US) (default)\n"
 msgstr "   -437                użycie strony kodowej DOS 437 (US; domyślna)\n"
 
-#: common.c:612
+#: common.c:614
 msgid "   -850                use DOS code page 850 (Western European)\n"
 msgstr "   -850                użycie strony kodowej DOS 850 (zachodnioeuropejskiej)\n"
 
-#: common.c:613
+#: common.c:615
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
 msgstr "   -860                użycie strony kodowej DOS 860 (portugalskiej)\n"
 
-#: common.c:614
+#: common.c:616
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
 msgstr "   -863                użycie strony kodowej DOS 863 (kanadyjskiej francuskiej)\n"
 
-#: common.c:615
+#: common.c:617
 msgid "   -865                use DOS code page 865 (Nordic)\n"
 msgstr "   -865                użycie strony kodowej DOS 865 (nordyckiej)\n"
 
-#: common.c:616
+#: common.c:618
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
 msgstr " -7                    konwersja znaków 8-bitowych do przestrzeni 7-bitowej\n"
 
-#: common.c:618
+#: common.c:620
 msgid " -b, --keep-bom        keep Byte Order Mark\n"
 msgstr " -b, --keep-bom        zachowanie znacznika BOM (Byte Order Mark)\n"
 
-#: common.c:620
+#: common.c:622
 msgid " -b, --keep-bom        keep Byte Order Mark (default)\n"
 msgstr " -b, --keep-bom        zachowanie znacznika BOM (Byte Order Mark) (domyślne)\n"
 
-#: common.c:621
+#: common.c:623
 msgid ""
 " -c, --convmode        conversion mode\n"
 "   convmode            ascii, 7bit, iso, mac, default to ascii\n"
@@ -179,7 +179,7 @@ msgstr ""
 " -c, --convmode        tryb konwersji\n"
 "   tryb konwersji      ascii, 7bit, iso, mac; domyślnie ascii\n"
 
-#: common.c:624
+#: common.c:626
 msgid ""
 " -D, --display-enc     set encoding of displayed text messages\n"
 "   encoding            ansi, unicode, utf8, default to ansi\n"
@@ -187,19 +187,19 @@ msgstr ""
 " -D, --display-enc     ustawienie kodowania wyświetlanych komunikatów\n"
 "   kodowanie           ansi, unicode, utf8; domyślnie ansi\n"
 
-#: common.c:627
+#: common.c:629
 msgid " -f, --force           force conversion of binary files\n"
 msgstr " -f, --force           wymuszenie konwersji plików binarnych\n"
 
-#: common.c:630
+#: common.c:632
 msgid " -gb, --gb18030        convert UTF-16 to GB18030\n"
 msgstr " -gb, --gb18030        konwersja UTF-16 do GB18030\n"
 
-#: common.c:633
+#: common.c:635
 msgid " -h, --help            display this help text\n"
 msgstr " -h, --help            wyświetlenie tego opisu\n"
 
-#: common.c:634
+#: common.c:636
 msgid ""
 " -i, --info[=FLAGS]    display file information\n"
 "   file ...            files to analyze\n"
@@ -207,23 +207,23 @@ msgstr ""
 " -i, --info[=FLAGI]    wyświetlenie informacji o pliku\n"
 "   plik ...            pliki do analizy\n"
 
-#: common.c:636
+#: common.c:638
 msgid " -k, --keepdate        keep output file date\n"
 msgstr " -k, --keepdate        zachowanie daty pliku wyjściowego\n"
 
-#: common.c:637
+#: common.c:639
 msgid " -L, --license         display software license\n"
 msgstr " -L, --license         wyświetlenie licencji oprogramowania\n"
 
-#: common.c:638
+#: common.c:640
 msgid " -l, --newline         add additional newline\n"
 msgstr " -l, --newline         dodanie dodatkowego znaku nowej linii\n"
 
-#: common.c:639
+#: common.c:641
 msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
 msgstr " -m, --add-bom         dodanie znacznika BOM (domyślnie UTF-8)\n"
 
-#: common.c:640
+#: common.c:642
 msgid ""
 " -n, --newfile         write to new file\n"
 "   infile              original file in new-file mode\n"
@@ -233,7 +233,7 @@ msgstr ""
 "   plik_wej            plik oryginalny w trybie nowego pliku\n"
 "   plik_wyj            plik wyjściowy w trybie nowego pliku\n"
 
-#: common.c:643
+#: common.c:645
 msgid ""
 " -o, --oldfile         write to old file (default)\n"
 "   file ...            files to convert in old-file mode\n"
@@ -241,43 +241,43 @@ msgstr ""
 " -o, --oldfile         zapis do starego pliku (domyślne)\n"
 "   plik ...            pliki do konwersji w trybie starego pliku\n"
 
-#: common.c:645
+#: common.c:647
 msgid " -q, --quiet           quiet mode, suppress all warnings\n"
 msgstr " -q, --quiet           tryb cichy, pominięcie wszystkich ostrzeżeń\n"
 
-#: common.c:647
+#: common.c:649
 msgid " -r, --remove-bom      remove Byte Order Mark (default)\n"
 msgstr " -r, --remove-bom      usunięcie znacznika BOM (Byte Order Mark) (domyślne)\n"
 
-#: common.c:649
+#: common.c:651
 msgid " -r, --remove-bom      remove Byte Order Mark\n"
 msgstr " -r, --remove-bom      usunięcie znacznika BOM (Byte Order Mark)\n"
 
-#: common.c:650
+#: common.c:652
 msgid " -s, --safe            skip binary files (default)\n"
 msgstr " -s, --safe            pomijanie plików binarnych (domyślne)\n"
 
-#: common.c:652
+#: common.c:654
 msgid " -u,  --keep-utf16     keep UTF-16 encoding\n"
 msgstr " -u,  --keep-utf16     zachowanie kodowania UTF-16\n"
 
-#: common.c:653
+#: common.c:655
 msgid " -ul, --assume-utf16le assume that the input format is UTF-16LE\n"
 msgstr " -ul, --assume-utf16le przyjęcie formatu pliku wejściowego UTF-16LE\n"
 
-#: common.c:654
+#: common.c:656
 msgid " -ub, --assume-utf16be assume that the input format is UTF-16BE\n"
 msgstr " -ub, --assume-utf16be przyjęcie formatu pliku wejściowego UTF-16BE\n"
 
-#: common.c:656
+#: common.c:658
 msgid " -v,  --verbose        verbose operation\n"
 msgstr " -v,  --verbose        działanie ze szczegółowym opisem\n"
 
-#: common.c:658
+#: common.c:660
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
 msgstr " -F, --follow-symlink  podążanie za dowiązaniami symbolicznymi i konwersja celów\n"
 
-#: common.c:661
+#: common.c:663
 msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
 "                         (original target files remain unchanged)\n"
@@ -285,116 +285,116 @@ msgstr ""
 " -R, --replace-symlink zastępowanie dowiązań symbolicznych plikami wynikowymi\n"
 "                         (oryginalne pliki docelowe pozostają bez zmian)\n"
 
-#: common.c:663
+#: common.c:665
 msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr " -S, --skip-symlink    bez zmian dowiązań symbolicznych i celów (domyślne)\n"
 
-#: common.c:665
+#: common.c:667
 msgid " -V, --version         display version number\n"
 msgstr " -V, --version         wyświetlenie numeru wersji\n"
 
-#: common.c:677
+#: common.c:679
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr "Wersja 16-bitowa DOS (WATCOMC).\n"
 
-#: common.c:679
+#: common.c:681
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr "Wersja 16-bitowa DOS (TURBOC).\n"
 
-#: common.c:681
+#: common.c:683
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr "Wersja 32-bitowa DOS (WATCOMC).\n"
 
-#: common.c:683
+#: common.c:685
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr "Wersja 32-bitowa DOS (DJGPP).\n"
 
-#: common.c:685
+#: common.c:687
 msgid "MSYS version.\n"
 msgstr "Wersja MSYS.\n"
 
-#: common.c:687
+#: common.c:689
 msgid "Cygwin version.\n"
 msgstr "Wersja Cygwin.\n"
 
-#: common.c:689
+#: common.c:691
 msgid "Windows 64 bit version (MinGW-w64).\n"
 msgstr "Wersja 64-bitowa Windows (MinGW-w64).\n"
 
-#: common.c:691
+#: common.c:693
 msgid "Windows 32 bit version (WATCOMC).\n"
 msgstr "Wersja 32-bitowa Windows (WATCOMC).\n"
 
-#: common.c:693
+#: common.c:695
 msgid "Windows 32 bit version (MinGW-w64).\n"
 msgstr "Wersja 32-bitowa Windows (MinGW-w64).\n"
 
-#: common.c:695
+#: common.c:697
 msgid "Windows 32 bit version (MinGW).\n"
 msgstr "Wersja 32-bitowa Windows (MinGW).\n"
 
-#: common.c:697
+#: common.c:699
 #, c-format
 msgid "Windows 64 bit version (MSVC %d).\n"
 msgstr "Wersja 64-bitowa Windows (MSVC %d).\n"
 
-#: common.c:699
+#: common.c:701
 #, c-format
 msgid "Windows 32 bit version (MSVC %d).\n"
 msgstr "Wersja 32-bitowa Windows (MSVC %d).\n"
 
-#: common.c:701
+#: common.c:703
 msgid "OS/2 version (WATCOMC).\n"
 msgstr "Wersja OS/2 (WATCOMC).\n"
 
-#: common.c:703
+#: common.c:705
 msgid "OS/2 version (EMX).\n"
 msgstr "Wersja OS/2 (EMX).\n"
 
-#: common.c:705
+#: common.c:707
 #, c-format
 msgid "%s version.\n"
 msgstr "Wersja %s.\n"
 
-#: common.c:711
+#: common.c:713
 msgid "With Unicode UTF-16 support.\n"
 msgstr "Z obsługą Unicode UTF-16.\n"
 
-#: common.c:713
+#: common.c:715
 msgid "Without Unicode UTF-16 support.\n"
 msgstr "Bez obsługi Unicode UTF-16.\n"
 
-#: common.c:717
+#: common.c:719
 msgid "With Unicode file name support.\n"
 msgstr "Z obsługą nazw plików w Unicode.\n"
 
-#: common.c:719
+#: common.c:721
 msgid "Without Unicode file name support.\n"
 msgstr "Bez obsługi nazw plików w Unicode.\n"
 
-#: common.c:723
+#: common.c:725
 msgid "With native language support.\n"
 msgstr "Z obsługą języków narodowych.\n"
 
-#: common.c:1028 common.c:1035 common.c:1042 common.c:1049 common.c:1061
-#: common.c:1068
+#: common.c:1030 common.c:1037 common.c:1044 common.c:1051 common.c:1063
+#: common.c:1070
 #, c-format
 msgid "Writing %s BOM.\n"
 msgstr "Zapis znacznika BOM %s.\n"
 
-#: common.c:1028 common.c:1084 common.c:1626 common.c:1647
+#: common.c:1030 common.c:1083 common.c:1626 common.c:1647
 msgid "UTF-16LE"
 msgstr "UTF-16LE"
 
-#: common.c:1035 common.c:1087 common.c:1628 common.c:1649
+#: common.c:1037 common.c:1086 common.c:1628 common.c:1649
 msgid "UTF-16BE"
 msgstr "UTF-16BE"
 
-#: common.c:1042 common.c:1061 common.c:1093 common.c:1639
+#: common.c:1044 common.c:1063 common.c:1092 common.c:1639
 msgid "GB18030"
 msgstr "GB18030"
 
-#: common.c:1049 common.c:1068 common.c:1090 common.c:1641
+#: common.c:1051 common.c:1070 common.c:1089 common.c:1641
 msgid "UTF-8"
 msgstr "UTF-8"
 
@@ -587,55 +587,55 @@ msgstr "konwersja pliku %s %s do formatu DOS %s...\n"
 msgid "problems converting file %s\n"
 msgstr "problemy z konwersją pliku %s\n"
 
-#: common.c:1949 common.c:2001
+#: common.c:1947 common.c:1997
 #, c-format
 msgid "can not read from input file %s:"
 msgstr "nie można czytać z pliku wejściowego %s:"
 
-#: common.c:2162
+#: common.c:2157
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "błędna flaga '%c' dla opcji -i lub --info\n"
 
-#: common.c:2287 common.c:2330
+#: common.c:2282 common.c:2325
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktywna strona kodowa: %d\n"
 
-#: common.c:2342
+#: common.c:2337
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "podano błędny tryb konwersji %s\n"
 
-#: common.c:2350 common.c:2380
+#: common.c:2345 common.c:2375
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "opcja '%s' wymaga argumentu\n"
 
-#: common.c:2372
+#: common.c:2367
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "podano błędne kodowanie wyświetlania %s\n"
 
-#: common.c:2392 common.c:2405 common.c:2471
+#: common.c:2387 common.c:2400 common.c:2466
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "nie podano celu pliku %s w trybie nowego pliku\n"
 
-#: common.c:2485
+#: common.c:2478
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "nie można czytać z pliku wejściowego: %s\n"
 
-#: common.c:2497 common.c:2511
+#: common.c:2488 common.c:2500
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "nie można zapisać do pliku wyjściowego: %s\n"
 
-#: common.c:2588
+#: common.c:2575
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "błąd: Błędna para zamienna. Brak młodszego zamiennika.\n"
 
-#: common.c:2603
+#: common.c:2590
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "błąd: Błędna para zamienna. Brak starszego zamiennika.\n"

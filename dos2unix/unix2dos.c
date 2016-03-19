@@ -552,6 +552,7 @@ int main (int argc, char *argv[])
   if (argv_glob == NULL) {
     D2U_UTF8_FPRINTF(stderr, "%s:", progname);
     D2U_ANSI_FPRINTF(stderr, " %s\n", strerror(errno));
+    free(pFlag);
     return errno;
   }
   /* Glob the arguments and convert them to UTF-8 */

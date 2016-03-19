@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-10 19:47+0100\n"
+"POT-Creation-Date: 2016-03-19 12:40+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,7 +66,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: common.c:572
+#: common.c:574
 msgid ""
 "Redistribution and use in source and binary forms, with or without\n"
 "modification, are permitted provided that the following conditions\n"
@@ -79,7 +79,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: common.c:582
+#: common.c:584
 msgid ""
 "THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY\n"
 "EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
@@ -94,266 +94,266 @@ msgid ""
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
 
-#: common.c:607
+#: common.c:609
 #, c-format
 msgid "Usage: %s [options] [file ...] [-n infile outfile ...]\n"
 msgstr ""
 
-#: common.c:608
+#: common.c:610
 msgid " -ascii                convert only line breaks (default)\n"
 msgstr ""
 
-#: common.c:609
+#: common.c:611
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
 msgstr ""
 
-#: common.c:610
+#: common.c:612
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
 msgstr ""
 
-#: common.c:611
+#: common.c:613
 msgid "   -437                use DOS code page 437 (US) (default)\n"
 msgstr ""
 
-#: common.c:612
+#: common.c:614
 msgid "   -850                use DOS code page 850 (Western European)\n"
 msgstr ""
 
-#: common.c:613
+#: common.c:615
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
 msgstr ""
 
-#: common.c:614
+#: common.c:616
 msgid "   -863                use DOS code page 863 (French Canadian)\n"
 msgstr ""
 
-#: common.c:615
+#: common.c:617
 msgid "   -865                use DOS code page 865 (Nordic)\n"
 msgstr ""
 
-#: common.c:616
+#: common.c:618
 msgid " -7                    convert 8 bit characters to 7 bit space\n"
 msgstr ""
 
-#: common.c:618
+#: common.c:620
 msgid " -b, --keep-bom        keep Byte Order Mark\n"
 msgstr ""
 
-#: common.c:620
+#: common.c:622
 msgid " -b, --keep-bom        keep Byte Order Mark (default)\n"
 msgstr ""
 
-#: common.c:621
+#: common.c:623
 msgid ""
 " -c, --convmode        conversion mode\n"
 "   convmode            ascii, 7bit, iso, mac, default to ascii\n"
 msgstr ""
 
-#: common.c:624
+#: common.c:626
 msgid ""
 " -D, --display-enc     set encoding of displayed text messages\n"
 "   encoding            ansi, unicode, utf8, default to ansi\n"
 msgstr ""
 
-#: common.c:627
+#: common.c:629
 msgid " -f, --force           force conversion of binary files\n"
 msgstr ""
 
-#: common.c:630
+#: common.c:632
 msgid " -gb, --gb18030        convert UTF-16 to GB18030\n"
 msgstr ""
 
-#: common.c:633
+#: common.c:635
 msgid " -h, --help            display this help text\n"
 msgstr ""
 
-#: common.c:634
+#: common.c:636
 msgid ""
 " -i, --info[=FLAGS]    display file information\n"
 "   file ...            files to analyze\n"
 msgstr ""
 
-#: common.c:636
+#: common.c:638
 msgid " -k, --keepdate        keep output file date\n"
 msgstr ""
 
-#: common.c:637
+#: common.c:639
 msgid " -L, --license         display software license\n"
 msgstr ""
 
-#: common.c:638
+#: common.c:640
 msgid " -l, --newline         add additional newline\n"
 msgstr ""
 
-#: common.c:639
+#: common.c:641
 msgid " -m, --add-bom         add Byte Order Mark (default UTF-8)\n"
 msgstr ""
 
-#: common.c:640
+#: common.c:642
 msgid ""
 " -n, --newfile         write to new file\n"
 "   infile              original file in new-file mode\n"
 "   outfile             output file in new-file mode\n"
 msgstr ""
 
-#: common.c:643
+#: common.c:645
 msgid ""
 " -o, --oldfile         write to old file (default)\n"
 "   file ...            files to convert in old-file mode\n"
 msgstr ""
 
-#: common.c:645
+#: common.c:647
 msgid " -q, --quiet           quiet mode, suppress all warnings\n"
 msgstr ""
 
-#: common.c:647
+#: common.c:649
 msgid " -r, --remove-bom      remove Byte Order Mark (default)\n"
 msgstr ""
 
-#: common.c:649
+#: common.c:651
 msgid " -r, --remove-bom      remove Byte Order Mark\n"
 msgstr ""
 
-#: common.c:650
+#: common.c:652
 msgid " -s, --safe            skip binary files (default)\n"
 msgstr ""
 
-#: common.c:652
+#: common.c:654
 msgid " -u,  --keep-utf16     keep UTF-16 encoding\n"
 msgstr ""
 
-#: common.c:653
+#: common.c:655
 msgid " -ul, --assume-utf16le assume that the input format is UTF-16LE\n"
 msgstr ""
 
-#: common.c:654
+#: common.c:656
 msgid " -ub, --assume-utf16be assume that the input format is UTF-16BE\n"
 msgstr ""
 
-#: common.c:656
+#: common.c:658
 msgid " -v,  --verbose        verbose operation\n"
 msgstr ""
 
-#: common.c:658
+#: common.c:660
 msgid " -F, --follow-symlink  follow symbolic links and convert the targets\n"
 msgstr ""
 
-#: common.c:661
+#: common.c:663
 msgid ""
 " -R, --replace-symlink replace symbolic links with converted files\n"
 "                         (original target files remain unchanged)\n"
 msgstr ""
 
-#: common.c:663
+#: common.c:665
 msgid " -S, --skip-symlink    keep symbolic links and targets unchanged (default)\n"
 msgstr ""
 
-#: common.c:665
+#: common.c:667
 msgid " -V, --version         display version number\n"
 msgstr ""
 
-#: common.c:677
+#: common.c:679
 msgid "DOS 16 bit version (WATCOMC).\n"
 msgstr ""
 
-#: common.c:679
+#: common.c:681
 msgid "DOS 16 bit version (TURBOC).\n"
 msgstr ""
 
-#: common.c:681
+#: common.c:683
 msgid "DOS 32 bit version (WATCOMC).\n"
 msgstr ""
 
-#: common.c:683
+#: common.c:685
 msgid "DOS 32 bit version (DJGPP).\n"
 msgstr ""
 
-#: common.c:685
+#: common.c:687
 msgid "MSYS version.\n"
 msgstr ""
 
-#: common.c:687
+#: common.c:689
 msgid "Cygwin version.\n"
 msgstr ""
 
-#: common.c:689
+#: common.c:691
 msgid "Windows 64 bit version (MinGW-w64).\n"
 msgstr ""
 
-#: common.c:691
+#: common.c:693
 msgid "Windows 32 bit version (WATCOMC).\n"
 msgstr ""
 
-#: common.c:693
+#: common.c:695
 msgid "Windows 32 bit version (MinGW-w64).\n"
 msgstr ""
 
-#: common.c:695
-msgid "Windows 32 bit version (MinGW).\n"
-msgstr ""
-
 #: common.c:697
-#, c-format
-msgid "Windows 64 bit version (MSVC %d).\n"
+msgid "Windows 32 bit version (MinGW).\n"
 msgstr ""
 
 #: common.c:699
 #, c-format
-msgid "Windows 32 bit version (MSVC %d).\n"
+msgid "Windows 64 bit version (MSVC %d).\n"
 msgstr ""
 
 #: common.c:701
-msgid "OS/2 version (WATCOMC).\n"
+#, c-format
+msgid "Windows 32 bit version (MSVC %d).\n"
 msgstr ""
 
 #: common.c:703
-msgid "OS/2 version (EMX).\n"
+msgid "OS/2 version (WATCOMC).\n"
 msgstr ""
 
 #: common.c:705
+msgid "OS/2 version (EMX).\n"
+msgstr ""
+
+#: common.c:707
 #, c-format
 msgid "%s version.\n"
 msgstr ""
 
-#: common.c:711
+#: common.c:713
 msgid "With Unicode UTF-16 support.\n"
 msgstr ""
 
-#: common.c:713
+#: common.c:715
 msgid "Without Unicode UTF-16 support.\n"
 msgstr ""
 
-#: common.c:717
+#: common.c:719
 msgid "With Unicode file name support.\n"
 msgstr ""
 
-#: common.c:719
+#: common.c:721
 msgid "Without Unicode file name support.\n"
 msgstr ""
 
-#: common.c:723
+#: common.c:725
 msgid "With native language support.\n"
 msgstr ""
 
-#: common.c:1028 common.c:1035 common.c:1042 common.c:1049 common.c:1061
-#: common.c:1068
+#: common.c:1030 common.c:1037 common.c:1044 common.c:1051 common.c:1063
+#: common.c:1070
 #, c-format
 msgid "Writing %s BOM.\n"
 msgstr ""
 
-#: common.c:1028 common.c:1084 common.c:1626 common.c:1647
+#: common.c:1030 common.c:1083 common.c:1626 common.c:1647
 msgid "UTF-16LE"
 msgstr ""
 
-#: common.c:1035 common.c:1087 common.c:1628 common.c:1649
+#: common.c:1037 common.c:1086 common.c:1628 common.c:1649
 msgid "UTF-16BE"
 msgstr ""
 
-#: common.c:1042 common.c:1061 common.c:1093 common.c:1639
+#: common.c:1044 common.c:1063 common.c:1092 common.c:1639
 msgid "GB18030"
 msgstr ""
 
-#: common.c:1049 common.c:1068 common.c:1090 common.c:1641
+#: common.c:1051 common.c:1070 common.c:1089 common.c:1641
 msgid "UTF-8"
 msgstr ""
 
@@ -546,55 +546,55 @@ msgstr ""
 msgid "problems converting file %s\n"
 msgstr ""
 
-#: common.c:1949 common.c:2001
+#: common.c:1947 common.c:1997
 #, c-format
 msgid "can not read from input file %s:"
 msgstr ""
 
-#: common.c:2162
+#: common.c:2157
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr ""
 
-#: common.c:2287 common.c:2330
+#: common.c:2282 common.c:2325
 #, c-format
 msgid "active code page: %d\n"
 msgstr ""
 
-#: common.c:2342
+#: common.c:2337
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr ""
 
-#: common.c:2350 common.c:2380
+#: common.c:2345 common.c:2375
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr ""
 
-#: common.c:2372
+#: common.c:2367
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr ""
 
-#: common.c:2392 common.c:2405 common.c:2471
+#: common.c:2387 common.c:2400 common.c:2466
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr ""
 
-#: common.c:2485
+#: common.c:2478
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr ""
 
-#: common.c:2497 common.c:2511
+#: common.c:2488 common.c:2500
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr ""
 
-#: common.c:2588
+#: common.c:2575
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr ""
 
-#: common.c:2603
+#: common.c:2590
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr ""

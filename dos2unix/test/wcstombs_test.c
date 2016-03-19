@@ -9,7 +9,6 @@ int main() {
 
   wchar_t wstr[2];
   char str[5];
-  char *errstr;
   size_t i;
 
   setlocale(LC_ALL, "");
@@ -28,7 +27,7 @@ int main() {
     fprintf(stdout,"PASS\n");
     return 0;
   } else {
-    errstr = strerror(errno);
+    char *errstr = strerror(errno);
     fprintf(stdout,"%s\n",errstr);
     fprintf(stdout,"FAIL\n");
     return 1;

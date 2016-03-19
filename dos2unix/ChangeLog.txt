@@ -1,3 +1,6 @@
+2016-03-19 Erwin Waterlander <waterlan@xs4all.nl>
+	* *.c: Fix all cppcheck warnings.
+
 2016-02-16 Erwin Waterlander <waterlan@xs4all.nl>
 	* djgpp.mak: Support cross compilation from Cygwin.
 
