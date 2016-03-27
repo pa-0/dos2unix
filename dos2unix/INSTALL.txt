@@ -254,6 +254,9 @@ WINDOWS 32 BIT PORT
     I am using the MSYS2 project <http://sourceforge.net/projects/msys2/>
     which includes the MinGW-w64 compiler.
 
+    The MSYS(2) environment is required for building dos2unix with MinGW(-w64).
+
+
     Type these commands to build with mingw(-w64):
 
         make clean
@@ -287,6 +290,8 @@ WINDOWS 64 BIT PORT
     <http://mingw-w64.sourceforge.net>.
     I am using the MSYS2 project <http://sourceforge.net/projects/msys2/>
     which includes the MinGW-w64 compiler.
+
+    The MSYS2 environment is required for building dos2unix with MinGW-w64.
 
         make clean
         make

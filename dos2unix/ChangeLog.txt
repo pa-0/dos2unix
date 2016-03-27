@@ -1,3 +1,7 @@
+2016-03-28 Erwin Waterlander <waterlan@xs4all.nl>
+	* INSTALL.txt: Mention that MSYS(2) is required for building
+	  with MinGW(-w64).
+
 2016-03-19 Erwin Waterlander <waterlan@xs4all.nl>
 	* *.c: Fix all cppcheck warnings.
 
