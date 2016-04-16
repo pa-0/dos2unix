@@ -1,3 +1,8 @@
+2016-04-15 Erwin Waterlander <waterlan@xs4all.nl>
+	* djgpp.mak: Extra comment for DJGPP 2.05. Extra
+	  variable CROSS_COMP.
+	* INSTALL.txt: Extra info for DJGPP.
+
 2016-03-28 Erwin Waterlander <waterlan@xs4all.nl>
 	* INSTALL.txt: Mention that MSYS(2) is required for building
 	  with MinGW(-w64).
