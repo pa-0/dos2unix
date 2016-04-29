@@ -732,7 +732,6 @@ void PrintVersion(const char *progname, const char *localedir)
   D2U_ANSI_FPRINTF(stdout,"http://waterlan.home.xs4all.nl/dos2unix.html\n");
 }
 
-
 /* opens file of name ipFN in read only mode
  * RetVal: NULL if failure
  *         file stream otherwise
@@ -773,21 +772,17 @@ char *dirname(char *path)
 }
 #endif
 
-#ifdef NO_MKSTEMP
 FILE* MakeTempFileFrom(const char *OutFN, char **fname_ret)
-#else
-int MakeTempFileFrom(const char *OutFN, char **fname_ret)
-#endif
 {
   char *cpy = strdup(OutFN);
   char *dir = NULL;
   size_t fname_len = 0;
   char  *fname_str = NULL;
+  FILE *fp = NULL;  /* file pointer */
 #ifdef NO_MKSTEMP
   char *name;
-  FILE *fd = NULL;
 #else
-  int fd = -1;
+  int fd = -1;  /* file descriptor */
 #endif
 #ifdef D2U_UNIFILE
   wchar_t fname_strw[D2U_MAX_PATH];
@@ -819,29 +814,28 @@ int MakeTempFileFrom(const char *OutFN, char **fname_ret)
   namew = _wmktemp(fname_strw);
   d2u_WideCharToMultiByte(CP_UTF8, 0, namew, -1, fname_str, (int)fname_len, NULL, NULL);
   *fname_ret = fname_str;
-  if ((fd = _wfopen(fname_strw, W_CNTRLW)) == NULL)
+  if ((fp = _wfopen(fname_strw, W_CNTRLW)) == NULL)
     goto make_failed;
 #else
   name = mktemp(fname_str);
   *fname_ret = name;
-  if ((fd = fopen(fname_str, W_CNTRL)) == NULL)
+  if ((fp = fopen(fname_str, W_CNTRL)) == NULL)
     goto make_failed;
 #endif
 #else
   if ((fd = mkstemp(fname_str)) == -1)
     goto make_failed;
+
+  if ((fp=OpenOutFile(fd)) == NULL)
+    goto make_failed;
 #endif
 
-  return (fd);
+  return (fp);
 
  make_failed:
   free(*fname_ret);
   *fname_ret = NULL;
-#ifdef NO_MKSTEMP
-  return (NULL);
-#else
-  return (-1);
-#endif
+  return NULL;
 }
 
 /* Test if *lFN is the name of a symbolic link.  If not, set *rFN equal
@@ -1269,11 +1263,6 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
 #ifndef NO_CHMOD
   mode_t mask;
 #endif
-#ifdef NO_MKSTEMP
-  FILE* fd;
-#else
-  int fd;
-#endif
   char *TargetFN = NULL;
   int ResolveSymlinkResult = 0;
 
@@ -1310,8 +1299,8 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
 
   /* retrieve ipInFN file date stamp */
 #ifdef D2U_UNIFILE
-   d2u_MultiByteToWideChar(CP_UTF8, 0, ipInFN, -1, pathw, D2U_MAX_PATH);
-   if (_wstat(pathw, &StatBuf)) {
+  d2u_MultiByteToWideChar(CP_UTF8, 0, ipInFN, -1, pathw, D2U_MAX_PATH);
+  if (_wstat(pathw, &StatBuf)) {
 #else
   if (stat(ipInFN, &StatBuf)) {
 #endif
@@ -1321,14 +1310,23 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
       D2U_UTF8_FPRINTF(stderr, "%s: %s:", progname, ipInFN);
       D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
     }
-    RetVal = -1;
+    return -1;
   }
 
-#ifdef NO_MKSTEMP
-  if((fd = MakeTempFileFrom(ipOutFN, &TempPath))==NULL) {
-#else
-  if((fd = MakeTempFileFrom (ipOutFN, &TempPath)) < 0) {
-#endif
+  /* can open in file? */
+  InF=OpenInFile(ipInFN);
+  if (InF == NULL) {
+    if (ipFlag->verbose) {
+      ipFlag->error = errno;
+      errstr = strerror(errno);
+      D2U_UTF8_FPRINTF(stderr, "%s: %s:", progname, ipInFN);
+      D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
+    }
+    return -1;
+  }
+
+  /* can open temp output file? */
+  if((TempF = MakeTempFileFrom(ipOutFN, &TempPath))==NULL) {
     if (ipFlag->verbose) {
       ipFlag->error = errno;
       errstr = strerror(errno);
@@ -1342,39 +1340,6 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
   D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
   D2U_UTF8_FPRINTF(stderr, _("using %s as temporary file\n"), TempPath);
 #endif
-
-  /* can open in file? */
-  if (!RetVal) {
-    InF=OpenInFile(ipInFN);
-    if (InF == NULL) {
-      if (ipFlag->verbose) {
-        ipFlag->error = errno;
-        errstr = strerror(errno);
-        D2U_UTF8_FPRINTF(stderr, "%s: %s:", progname, ipInFN);
-        D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
-      }
-      RetVal = -1;
-    }
-  }
-
-  /* can open output file? */
-  if ((!RetVal) && (InF)) {
-#ifdef NO_MKSTEMP
-    if ((TempF=fd) == NULL) {
-#else
-    if ((TempF=OpenOutFile(fd)) == NULL) {
-      if (ipFlag->verbose) {
-        ipFlag->error = errno;
-        errstr = strerror(errno);
-        D2U_UTF8_FPRINTF(stderr, "%s:", progname);
-        D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
-      }
-#endif
-      fclose (InF);
-      InF = NULL;
-      RetVal = -1;
-    }
-  }
 
   if (!RetVal)
     if (check_unicode(InF, TempF, ipFlag, ipInFN, progname))
@@ -1399,30 +1364,30 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
 #endif
 
    /* can close in file? */
-  if ((InF) && (fclose(InF) == EOF))
+  if (fclose(InF) == EOF) {
+    if (ipFlag->verbose) {
+      ipFlag->error = errno;
+      errstr = strerror(errno);
+      D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+      D2U_UTF8_FPRINTF(stderr, _("Failed to close input file %s:"), ipInFN);
+      D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
+    }
     RetVal = -1;
+  }
 
   /* can close output file? */
   if (TempF) {
     if (fclose(TempF) == EOF) {
-       if (ipFlag->verbose) {
-         ipFlag->error = errno;
-         errstr = strerror(errno);
-         D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
-         D2U_UTF8_FPRINTF(stderr, _("Failed to write to temporary output file %s:"), TempPath);
-         D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
-       }
+      if (ipFlag->verbose) {
+        ipFlag->error = errno;
+        errstr = strerror(errno);
+        D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+        D2U_UTF8_FPRINTF(stderr, _("Failed to write to temporary output file %s:"), TempPath);
+        D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
+      }
       RetVal = -1;
     }
   }
-
-#ifdef NO_MKSTEMP
-  if(fd!=NULL)
-    fclose(fd);
-#else
-  if(fd>=0)
-    close(fd);
-#endif
 
 #ifndef NO_CHMOD
   if (!RetVal)
@@ -2057,9 +2022,17 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
     FileInfo(InF, ipFlag, ipInFN, bomtype_orig, progname);
 #endif
 
-   /* can close in file? */
-  if ((InF) && (fclose(InF) == EOF))
+  /* can close in file? */
+  if (fclose(InF) == EOF) {
+    if (ipFlag->verbose) {
+      ipFlag->error = errno;
+      char *errstr = strerror(errno);
+      D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+      D2U_UTF8_FPRINTF(stderr, _("Failed to close input file %s:"), ipInFN);
+      D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
+    }
     RetVal = -1;
+  }
 
   return RetVal;
 }

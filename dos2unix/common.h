@@ -257,11 +257,7 @@ FILE* OpenOutFile(int fd);
 #if defined(__TURBOC__) || defined(__MSYS__)
 char *dirname(char *path);
 #endif
-#ifdef NO_MKSTEMP
 FILE* MakeTempFileFrom(const char *OutFN, char **fname_ret);
-#else
-int MakeTempFileFrom(const char *OutFN, char **fname_ret);
-#endif
 int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progname);
 FILE *read_bom (FILE *f, int *bomtype);
 FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname);
