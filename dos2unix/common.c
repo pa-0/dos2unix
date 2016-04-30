@@ -408,8 +408,8 @@ int regfile(char *path, int allowSymlinks, CFlag *ipFlag, const char *progname)
    }
    else {
      if (ipFlag->verbose) {
-       ipFlag->error = errno;
        char *errstr = strerror(errno);
+       ipFlag->error = errno;
        D2U_UTF8_FPRINTF(stderr, "%s: %s:", progname, path);
        D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
      }
@@ -448,8 +448,8 @@ int regfile_target(char *path, CFlag *ipFlag, const char *progname)
    }
    else {
      if (ipFlag->verbose) {
-       ipFlag->error = errno;
        char *errstr = strerror(errno);
+       ipFlag->error = errno;
        D2U_UTF8_FPRINTF(stderr, "%s: %s:", progname, path);
        D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
      }
@@ -512,6 +512,7 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv, CFlag *ipFlag, const cha
     hFind = FindFirstFileW(warg, &FindFileData);
     while (hFind != INVALID_HANDLE_VALUE)
     {
+      char **new_argv_new;
       len = wcslen(path) + wcslen(FindFileData.cFileName) + 2;
       path_and_filename = (wchar_t *)malloc(len*sizeof(wchar_t));
       if (path_and_filename == NULL) goto glob_failed;
@@ -529,7 +530,7 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv, CFlag *ipFlag, const cha
       if (argv == NULL) goto glob_failed;
       d2u_WideCharToMultiByte(CP_UTF8, 0, path_and_filename, -1, arg, (int)len, NULL, NULL);
       free(path_and_filename);
-      char  **new_argv_new = (char **)realloc(argv_new, (size_t)(argc_glob+1)*sizeof(char**));
+      new_argv_new = (char **)realloc(argv_new, (size_t)(argc_glob+1)*sizeof(char**));
       if (new_argv_new == NULL) goto glob_failed;
       else
         argv_new = new_argv_new;
@@ -543,12 +544,13 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv, CFlag *ipFlag, const cha
     free(path);
     if (found == 0) {
     /* Not a file. Just copy the argument */
+      char **new_argv_new;
       ++argc_glob;
       len =(size_t) d2u_WideCharToMultiByte(CP_UTF8, 0, warg, -1, NULL, 0, NULL, NULL);
       arg = (char *)malloc((size_t)len);
       if (argv == NULL) goto glob_failed;
       d2u_WideCharToMultiByte(CP_UTF8, 0, warg, -1, arg, (int)len, NULL, NULL);
-      char **new_argv_new = (char **)realloc(argv_new, (size_t)(argc_glob+1)*sizeof(char**));
+      new_argv_new = (char **)realloc(argv_new, (size_t)(argc_glob+1)*sizeof(char**));
       if (new_argv_new == NULL) goto glob_failed;
       else
         argv_new = new_argv_new;
@@ -749,26 +751,126 @@ FILE* OpenInFile(char *ipFN)
 }
 
 
-/* opens file of name ipFN in write only mode
+/* opens file of name opFN in write only mode
  * RetVal: NULL if failure
  *         file stream otherwise
  */
-FILE* OpenOutFile(int fd)
+FILE* OpenOutFile(char *opFN)
+{
+#ifdef D2U_UNIFILE
+  wchar_t pathw[D2U_MAX_PATH];
+
+  d2u_MultiByteToWideChar(CP_UTF8, 0, opFN, -1, pathw, D2U_MAX_PATH);
+  return _wfopen(pathw, W_CNTRLW);
+#else
+  return (fopen(opFN, W_CNTRL));
+#endif
+}
+
+/* opens file descriptor in write only mode
+ * RetVal: NULL if failure
+ *         file stream otherwise
+ */
+FILE* OpenOutFiled(int fd)
 {
   return (fdopen(fd, W_CNTRL));
 }
 
 #if defined(__TURBOC__) || defined(__MSYS__) || defined(_MSC_VER)
+/* Both dirname() and basename() may modify the contents of path.
+ * It may be desirable to pass a copy. */
 char *dirname(char *path)
 {
   char *ptr;
 
-  if (( path == NULL) || (((ptr=strrchr(path,'/')) == NULL) && ((ptr=strrchr(path,'\\')) == NULL)) )
+  /* replace all back slashes with slashes */
+  while ( (ptr = strchr(path,'\\')) != NULL)
+    *ptr = '/';
+  if (( path == NULL) || ((ptr=strrchr(path,'/')) == NULL))
     return ".";
-  else {
-    *ptr = '\0';
-    return(path);
+
+  if (strcmp(path,"/") == 0)
+    return "/";
+
+  *ptr = '\0';
+  return path;
+}
+
+char *basename(char *path)
+{
+  char *ptr;
+
+  /* replace all back slashes with slashes */
+  while ( (ptr = strchr(path,'\\')) != NULL)
+    *ptr = '/';
+  if (( path == NULL) || ((ptr=strrchr(path,'/')) == NULL))
+    return path ;
+
+  if (strcmp(path,"/") == 0)
+    return "/";
+
+   ptr++;
+   return ptr ;
+
+}
+#endif
+
+/* Standard mktemp() is not safe to use (See mktemp(3)).
+ * On Windows it is recommended to use GetTempFileName() (See MSDN).
+ * This mktemp() wrapper redirects to GetTempFileName() on Windows.
+ */
+#ifdef NO_MKSTEMP
+char *d2u_mktemp(char *template)
+{
+#if defined(_WIN32) && !defined(__CYGWIN__)
+
+  unsigned int uRetVal;
+  char *cpy1 = strdup(template);
+  char *cpy2 = strdup(template);
+  char *dn = dirname(cpy1);
+  char *bn = basename(cpy2);
+  char *ptr;
+#ifdef D2U_UNIFILE /* template is UTF-8 formatted. */
+  wchar_t dnw[MAX_PATH];
+  wchar_t bnw[MAX_PATH];
+  wchar_t szTempFileNamew[MAX_PATH];
+  char *fname_str;
+  d2u_MultiByteToWideChar(CP_UTF8, 0, bn, -1, bnw, MAX_PATH);
+  d2u_MultiByteToWideChar(CP_UTF8, 0, dn, -1, dnw, MAX_PATH);
+  free(cpy1);
+  free(cpy2);
+  uRetVal = GetTempFileNameW(dnw, bnw, 0, szTempFileNamew);
+  if (! uRetVal) {
+    d2u_PrintLastError("dos2unix");
+    return NULL;
   }
+  fname_str = (char *)malloc(MAX_PATH);
+  if (! fname_str)
+    return NULL;
+  d2u_WideCharToMultiByte(CP_UTF8, 0, szTempFileNamew, -1, fname_str, MAX_PATH, NULL, NULL);
+#else
+  char szTempFileName[MAX_PATH];
+  char *fname_str;
+  uRetVal = GetTempFileNameA(dn, bn, 0, szTempFileName);
+  free(cpy1);
+  free(cpy2);
+  if (! uRetVal) {
+    d2u_PrintLastError("dos2unix");
+    return NULL;
+  }
+  fname_str = (char *)malloc(MAX_PATH);
+  if (! fname_str)
+    return NULL;
+  strcpy(fname_str, szTempFileName);
+#endif
+  /* replace all back slashes with slashes */
+  while ( (ptr = strchr(fname_str,'\\')) != NULL)
+    *ptr = '/';
+  return fname_str;
+
+#else
+  return mktemp(template);
+#endif
 }
 #endif
 
@@ -783,10 +885,6 @@ FILE* MakeTempFileFrom(const char *OutFN, char **fname_ret)
   char *name;
 #else
   int fd = -1;  /* file descriptor */
-#endif
-#ifdef D2U_UNIFILE
-  wchar_t fname_strw[D2U_MAX_PATH];
-  wchar_t *namew;
 #endif
 
   *fname_ret = NULL;
@@ -809,33 +907,25 @@ FILE* MakeTempFileFrom(const char *OutFN, char **fname_ret)
   free(cpy);
 
 #ifdef NO_MKSTEMP
-#ifdef D2U_UNIFILE
-  d2u_MultiByteToWideChar(CP_UTF8, 0, fname_str, -1, fname_strw, D2U_MAX_PATH);
-  namew = _wmktemp(fname_strw);
-  d2u_WideCharToMultiByte(CP_UTF8, 0, namew, -1, fname_str, (int)fname_len, NULL, NULL);
-  *fname_ret = fname_str;
-  if ((fp = _wfopen(fname_strw, W_CNTRLW)) == NULL)
+  if ((name = d2u_mktemp(fname_str)) == NULL)
     goto make_failed;
-#else
-  name = mktemp(fname_str);
   *fname_ret = name;
-  if ((fp = fopen(fname_str, W_CNTRL)) == NULL)
+  if ((fp = OpenOutFile(name)) == NULL)
     goto make_failed;
-#endif
 #else
   if ((fd = mkstemp(fname_str)) == -1)
     goto make_failed;
 
-  if ((fp=OpenOutFile(fd)) == NULL)
+  if ((fp=OpenOutFiled(fd)) == NULL)
     goto make_failed;
 #endif
 
   return (fp);
 
- make_failed:
-  free(*fname_ret);
-  *fname_ret = NULL;
-  return NULL;
+  make_failed:
+    free(*fname_ret);
+    *fname_ret = NULL;
+    return NULL;
 }
 
 /* Test if *lFN is the name of a symbolic link.  If not, set *rFN equal
@@ -1071,6 +1161,9 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
 void print_bom (const int bomtype, const char *filename, const char *progname)
 {
     char informat[64];
+#ifdef D2U_UNIFILE
+    wchar_t informatw[64];
+#endif
 
     switch (bomtype) {
     case FILE_UTF16LE:   /* UTF-16 Little Endian */
@@ -1093,8 +1186,7 @@ void print_bom (const int bomtype, const char *filename, const char *progname)
     informat[sizeof(informat)-1] = '\0';
 
 /* Change informat to UTF-8 for d2u_utf8_fprintf. */
-# ifdef D2U_UNIFILE
-    wchar_t informatw[64];
+#ifdef D2U_UNIFILE
     /* The format string is encoded in the system default
      * Windows ANSI code page. May have been translated
      * by gettext. Convert it to wide characters. */
@@ -1995,8 +2087,8 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
   InF=OpenInFile(ipInFN);
   if (InF == NULL) {
     if (ipFlag->verbose) {
-      ipFlag->error = errno;
       char *errstr = strerror(errno);
+      ipFlag->error = errno;
       D2U_UTF8_FPRINTF(stderr, "%s: %s: ", progname, ipInFN);
       D2U_ANSI_FPRINTF(stderr, "%s\n", errstr);
     }
@@ -2025,8 +2117,8 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
   /* can close in file? */
   if (fclose(InF) == EOF) {
     if (ipFlag->verbose) {
-      ipFlag->error = errno;
       char *errstr = strerror(errno);
+      ipFlag->error = errno;
       D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
       D2U_UTF8_FPRINTF(stderr, _("Failed to close input file %s:"), ipInFN);
       D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
@@ -2517,7 +2609,7 @@ wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype)
 wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
 {
    static char mbs[8];
-   static wchar_t lead=0x01;  /* lead get's invalid value */
+   static wchar_t lead=0x01, trail;  /* lead get's invalid value */
    static wchar_t wstr[3];
    size_t len;
 #if (defined(_WIN32) && !defined(__CYGWIN__))
@@ -2565,7 +2657,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
          return(WEOF);
       }
       /* fprintf(stderr, "UTF-16 trail %x\n",wc); */
-      wchar_t trail = (wchar_t)wc; /* trail (low) surrogate */
+      trail = (wchar_t)wc; /* trail (low) surrogate */
 #if defined(_WIN32) || defined(__CYGWIN__)
       /* On Windows (including Cygwin) wchar_t is 16 bit */
       /* We cannot decode an UTF-16 surrogate pair, because it will

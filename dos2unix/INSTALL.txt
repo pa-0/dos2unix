@@ -199,8 +199,11 @@ UNICODE FILE NAME SUPPORT ON WINDOWS
     Unicode file name support on Windows is enabled by setting UNIFILE=1 in
     the makefile or on the make command line.
 
-    Unicode file name support is by default enabled for MinGW and MSVC compiler.
-    It is disabled and not supported for the Watcom compiler.
+    Unicode file name support is by default enabled.
+
+    Dos2unix built with Watcom C is not able to display foreign characters
+    correctly, even when option -D unicode is used. The correct file names
+    are written though.
 
 
 DOCUMENTATION

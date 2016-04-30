@@ -9,7 +9,7 @@ CC = cl.exe /nologo
 LINK = link.exe /nologo
 SRCDIR = .
 
-DEFINES = /DVER_REVISION=\"$(DOS2UNIX_VERSION)\" /DVER_DATE=\"$(DOS2UNIX_DATE)\"
+DEFINES = /DVER_REVISION=\"$(DOS2UNIX_VERSION)\" /DVER_DATE=\"$(DOS2UNIX_DATE)\" /DVER_AUTHOR=\""$(DOS2UNIX_AUTHOR)"\"
 CFLAGS = $(DEFINES)
 
 !ifdef DEBUG
@@ -47,6 +47,9 @@ CFLAGS = $(CFLAGS) -DD2U_UNICODE
 !endif
 !if "$(UNIFILE)" == "1"
 CFLAGS = $(CFLAGS) -DD2U_UNIFILE
+!endif
+!if "$(DEBUGMSG)" == "1"
+CFLAGS = $(CFLAGS) -DDEBUG
 !endif
 
 dos2unix.obj :  $(SRCDIR)\dos2unix.c $(SRCDIR)\querycp.h $(SRCDIR)\common.h

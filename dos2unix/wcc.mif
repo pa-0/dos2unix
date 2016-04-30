@@ -2,6 +2,14 @@
 CFLAGS += -DD2U_UNICODE
 !endif
 
+!ifeq UNIFILE 1
+CFLAGS += -DD2U_UNIFILE -D_O_U16TEXT=0x20000
+!endif
+
+!ifeq DEBUGMSG 1
+CFLAGS += -DDEBUG
+!endif
+
 dos2unix.obj :  $(SRCDIR)\dos2unix.c $(SRCDIR)\querycp.h $(SRCDIR)\common.h
 	$(CC) $(CFLAGS) $(SRCDIR)\dos2unix.c
 

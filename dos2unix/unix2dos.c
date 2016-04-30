@@ -482,6 +482,10 @@ int main (int argc, char *argv[])
 # endif
   int  argc_new;
   char **argv_new;
+#ifdef D2U_UNIFILE
+  wchar_t **wargv;
+  char ***argv_glob;
+#endif
 
   progname[8] = '\0';
   strcpy(progname,"unix2dos");
@@ -542,8 +546,6 @@ int main (int argc, char *argv[])
 
 #ifdef D2U_UNIFILE
   /* Get arguments in wide Unicode format in the Windows Command Prompt */
-  wchar_t **wargv;
-  char ***argv_glob;
 
   /* This does not support wildcard expansion (globbing) */
   wargv = CommandLineToArgvW(GetCommandLineW(), &argc);

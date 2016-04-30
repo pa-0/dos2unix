@@ -1,3 +1,14 @@
+2016-04-30 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: New function d2u_mktemp(). Wrapper for mktemp() that uses
+	  GetTempFileName() on Windows. Use of mktemp() is not safe.
+	* common.h: Use mktemp wrapper also for Watcom C on Windows. Now dos2unix
+	  built with Watcom C can also support Unicode file names on Windows.
+	* wcc*.mak, wcc.mif: Enable  Unicode file name support for Watcom C.
+	* wcc*.mak, wcc.mif, vc.mak: Allow use of DEBUGMSG.
+
+2016-04-29 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Code cleanup. Simplify use of MakeTempFileFrom().
+
 2016-04-15 Erwin Waterlander <waterlan@xs4all.nl>
 	* djgpp.mak: Extra comment for DJGPP 2.05. Extra
 	  variable CROSS_COMP.

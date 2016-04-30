@@ -107,8 +107,13 @@
 #include <locale.h>
 #endif
 
-/* Watcom C has mkstemp, but assume that none of the Windows compilers have it. To make MakeTempFileFrom() simpler */
-#if  defined(__TURBOC__) || defined(__DJGPP__) || defined(__MINGW32__) || defined(_MSC_VER)
+/* Watcom C has mkstemp, but no mktemp().
+ * MinGW has mktemp() and mkstemp(). MinGW mkstemp() is not working for me.
+ * MSVC has mktemp(), but no mkstemp().
+ * Assume that none of the Windows compilers have mkstemp().
+ * On Windows I need something that can also work with Unicode file names (UTF-16).
+ * On Windows GetTempFileName() will be used, as is adviced on MSDN. */
+#if  defined(__TURBOC__) || defined(__DJGPP__) || defined(_WIN32)
 /* Some compilers have no mkstemp().
  * Use mktemp() instead.
  * BORLANDC, DJGPP, MINGW32, MSVC */
@@ -253,7 +258,8 @@ void PrintVersion(const char *progname, const char *localedir);
 void PrintLocaledir(const char *localedir);
 #endif
 FILE* OpenInFile(char *ipFN);
-FILE* OpenOutFile(int fd);
+FILE* OpenOutFile(char *opFN);
+FILE* OpenOutFiled(int fd);
 #if defined(__TURBOC__) || defined(__MSYS__)
 char *dirname(char *path);
 #endif
