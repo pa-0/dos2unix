@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-7.3.3-beta2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-01 09:36+0200\n"
+"POT-Creation-Date: 2016-05-01 21:27+0200\n"
 "PO-Revision-Date: 2016-03-05 09:17+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -382,19 +382,19 @@ msgstr "Нисам успео да пишем у привремену излаз
 msgid "Writing %s BOM.\n"
 msgstr "Записујем %s НПБ-а.\n"
 
-#: common.c:1128 common.c:1184 common.c:1704 common.c:1725
+#: common.c:1128 common.c:1181 common.c:1704 common.c:1725
 msgid "UTF-16LE"
 msgstr "УТФ-16ЛЕ"
 
-#: common.c:1135 common.c:1187 common.c:1706 common.c:1727
+#: common.c:1135 common.c:1184 common.c:1706 common.c:1727
 msgid "UTF-16BE"
 msgstr "УТФ-16БЕ"
 
-#: common.c:1142 common.c:1161 common.c:1193 common.c:1717
+#: common.c:1142 common.c:1161 common.c:1190 common.c:1717
 msgid "GB18030"
 msgstr "ГБ18030"
 
-#: common.c:1149 common.c:1168 common.c:1190 common.c:1719
+#: common.c:1149 common.c:1168 common.c:1187 common.c:1719
 msgid "UTF-8"
 msgstr "УТФ-8"
 
@@ -641,7 +641,7 @@ msgstr "не могу да пишем у излазну датотеку: %s\n"
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "грешка: Неисправан пар надометка. Недостаје нижи надометак.\n"
 
-#: common.c:2676
+#: common.c:2677
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "грешка: Неисправан пар надометка. Недостаје виши надометак.\n"
 

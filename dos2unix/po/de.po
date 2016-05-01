@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.1-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-01 09:36+0200\n"
+"POT-Creation-Date: 2016-05-01 21:27+0200\n"
 "PO-Revision-Date: 2015-09-15 16:30+0200\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -397,19 +397,19 @@ msgstr "Die temporäre Ausgabedatei %s konnte nicht geschrieben werden:"
 msgid "Writing %s BOM.\n"
 msgstr "Das %s BOM wird geschrieben.\n"
 
-#: common.c:1128 common.c:1184 common.c:1704 common.c:1725
+#: common.c:1128 common.c:1181 common.c:1704 common.c:1725
 msgid "UTF-16LE"
 msgstr "UTF-16LE"
 
-#: common.c:1135 common.c:1187 common.c:1706 common.c:1727
+#: common.c:1135 common.c:1184 common.c:1706 common.c:1727
 msgid "UTF-16BE"
 msgstr "UTF-16BE"
 
-#: common.c:1142 common.c:1161 common.c:1193 common.c:1717
+#: common.c:1142 common.c:1161 common.c:1190 common.c:1717
 msgid "GB18030"
 msgstr "GB18030"
 
-#: common.c:1149 common.c:1168 common.c:1190 common.c:1719
+#: common.c:1149 common.c:1168 common.c:1187 common.c:1719
 msgid "UTF-8"
 msgstr "UTF-8"
 
@@ -656,7 +656,7 @@ msgstr "In die Ausgabedatei kann nicht geschrieben werden: %s\n"
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "Fehler: Ungültiges Surrogate-Paar. Das Low-Surrogate fehlt.\n"
 
-#: common.c:2676
+#: common.c:2677
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "Fehler: Ungültiges Surrogate-Paar. Das High-Surrogate fehlt.\n"
 

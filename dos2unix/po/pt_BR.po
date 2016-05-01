@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.3-beta2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-01 09:36+0200\n"
+"POT-Creation-Date: 2016-05-01 21:27+0200\n"
 "PO-Revision-Date: 2016-01-12 06:37-0300\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge.net>\n"
@@ -392,19 +392,19 @@ msgstr "Ocorreu falha ao gravar no arquivo de saída temporário %s:"
 msgid "Writing %s BOM.\n"
 msgstr "Escrevendo %s BOM.\n"
 
-#: common.c:1128 common.c:1184 common.c:1704 common.c:1725
+#: common.c:1128 common.c:1181 common.c:1704 common.c:1725
 msgid "UTF-16LE"
 msgstr "UTF-16LE"
 
-#: common.c:1135 common.c:1187 common.c:1706 common.c:1727
+#: common.c:1135 common.c:1184 common.c:1706 common.c:1727
 msgid "UTF-16BE"
 msgstr "UTF-16BE"
 
-#: common.c:1142 common.c:1161 common.c:1193 common.c:1717
+#: common.c:1142 common.c:1161 common.c:1190 common.c:1717
 msgid "GB18030"
 msgstr "GB18030"
 
-#: common.c:1149 common.c:1168 common.c:1190 common.c:1719
+#: common.c:1149 common.c:1168 common.c:1187 common.c:1719
 msgid "UTF-8"
 msgstr "UTF-8"
 
@@ -653,7 +653,7 @@ msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "erro: par de substitutos inválido. Faltando substituto baixo.\n"
 
 # "surrogate pair" é um termo do UTF-16, havendo traduções na Internet surrogate=substituto
-#: common.c:2676
+#: common.c:2677
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "erro: par de substitutos inválido. Faltando substituto alto.\n"
 

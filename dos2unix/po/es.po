@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.1-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-01 09:36+0200\n"
+"POT-Creation-Date: 2016-05-01 21:27+0200\n"
 "PO-Revision-Date: 2015-09-20 14:17+0200\n"
 "Last-Translator: Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
@@ -394,19 +394,19 @@ msgstr "Error al escribir el archivo de salida temporal %s:"
 msgid "Writing %s BOM.\n"
 msgstr "Escribiendo BOM %s.\n"
 
-#: common.c:1128 common.c:1184 common.c:1704 common.c:1725
+#: common.c:1128 common.c:1181 common.c:1704 common.c:1725
 msgid "UTF-16LE"
 msgstr "UTF-16LE"
 
-#: common.c:1135 common.c:1187 common.c:1706 common.c:1727
+#: common.c:1135 common.c:1184 common.c:1706 common.c:1727
 msgid "UTF-16BE"
 msgstr "UTF-16BE"
 
-#: common.c:1142 common.c:1161 common.c:1193 common.c:1717
+#: common.c:1142 common.c:1161 common.c:1190 common.c:1717
 msgid "GB18030"
 msgstr "GB18030"
 
-#: common.c:1149 common.c:1168 common.c:1190 common.c:1719
+#: common.c:1149 common.c:1168 common.c:1187 common.c:1719
 msgid "UTF-8"
 msgstr "UTF-8"
 
@@ -653,7 +653,7 @@ msgstr "no puedo escribir al archivo de salida: %s\n"
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "error: Par sustituto no válido. Falta el sustituto bajo.\n"
 
-#: common.c:2676
+#: common.c:2677
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "error: Par sustituto no válido. Falta el sustituto alto.\n"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.1-beta3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-01 09:36+0200\n"
+"POT-Creation-Date: 2016-05-01 21:27+0200\n"
 "PO-Revision-Date: 2014-11-07 11:35+0000\n"
 "Last-Translator: YASUAKI TANIGUCHI <yasuakit@gmail.com>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -393,19 +393,19 @@ msgstr "一時出力ファイル %s を開くのに失敗しました: %s\n"
 msgid "Writing %s BOM.\n"
 msgstr ""
 
-#: common.c:1128 common.c:1184 common.c:1704 common.c:1725
+#: common.c:1128 common.c:1181 common.c:1704 common.c:1725
 msgid "UTF-16LE"
 msgstr ""
 
-#: common.c:1135 common.c:1187 common.c:1706 common.c:1727
+#: common.c:1135 common.c:1184 common.c:1706 common.c:1727
 msgid "UTF-16BE"
 msgstr ""
 
-#: common.c:1142 common.c:1161 common.c:1193 common.c:1717
+#: common.c:1142 common.c:1161 common.c:1190 common.c:1717
 msgid "GB18030"
 msgstr ""
 
-#: common.c:1149 common.c:1168 common.c:1190 common.c:1719
+#: common.c:1149 common.c:1168 common.c:1187 common.c:1719
 msgid "UTF-8"
 msgstr ""
 
@@ -652,7 +652,7 @@ msgstr "出力ファイルに書き込めません: %s\n"
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr ""
 
-#: common.c:2676
+#: common.c:2677
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr ""
 

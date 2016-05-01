@@ -1175,9 +1175,6 @@ FILE *write_bom (FILE *f, CFlag *ipFlag, const char *progname)
 void print_bom (const int bomtype, const char *filename, const char *progname)
 {
     char informat[64];
-#ifdef D2U_UNIFILE
-    wchar_t informatw[64];
-#endif
 
     switch (bomtype) {
     case FILE_UTF16LE:   /* UTF-16 Little Endian */
@@ -1197,6 +1194,9 @@ void print_bom (const int bomtype, const char *filename, const char *progname)
   }
 
   if (bomtype > 0) {
+#ifdef D2U_UNIFILE
+    wchar_t informatw[64];
+#endif
     informat[sizeof(informat)-1] = '\0';
 
 /* Change informat to UTF-8 for d2u_utf8_fprintf. */
@@ -2630,7 +2630,7 @@ wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype)
 wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
 {
    static char mbs[8];
-   static wchar_t lead=0x01, trail;  /* lead get's invalid value */
+   static wchar_t lead=0x01;  /* lead get's invalid value */
    static wchar_t wstr[3];
    size_t len;
 #if (defined(_WIN32) && !defined(__CYGWIN__))
@@ -2669,6 +2669,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
       return(wc);
    }
    if ((wc >= 0xdc00) && (wc < 0xe000)) {   /* Surrogate trail */
+      static wchar_t trail;
 
       /* check for trail without a lead */
       if ((lead < 0xd800) || (lead >= 0xdc00)) {
