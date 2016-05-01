@@ -837,8 +837,8 @@ char *d2u_mktemp(char *template)
   char *fname_str;
   int error = 0;
   if (d2u_MultiByteToWideChar(CP_UTF8, 0, dn, -1, NULL, 0) > (MAX_PATH - 15)) {
-      D2U_UTF8_FPRINTF(stderr, "%s:", "dos2unix");
-      D2U_ANSI_FPRINTF(stderr, _("Path for temporary output file is too long: "));
+      D2U_UTF8_FPRINTF(stderr, "%s: ", "dos2unix");
+      D2U_ANSI_FPRINTF(stderr, _("Path for temporary output file is too long:"));
       D2U_UTF8_FPRINTF(stderr, " %s\n", dn);
       error=1;
   }
@@ -1434,17 +1434,24 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
   /* can open temp output file? */
   if((TempF = MakeTempFileFrom(ipOutFN, &TempPath))==NULL) {
     if (ipFlag->verbose) {
-      ipFlag->error = errno;
-      errstr = strerror(errno);
-      D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
-      D2U_ANSI_FPRINTF(stderr, _("Failed to open temporary output file: %s\n"), errstr);
+      if (errno) {
+        ipFlag->error = errno;
+        errstr = strerror(errno);
+        D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+        D2U_ANSI_FPRINTF(stderr, _("Failed to open temporary output file: %s\n"), errstr);
+      } else {
+        /*  In case  there was an error with a Windows API function, errno is 0. */
+        if (!ipFlag->error) ipFlag->error = 1;
+      }
     }
     RetVal = -1;
   }
 
 #if DEBUG
-  D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
-  D2U_UTF8_FPRINTF(stderr, _("using %s as temporary file\n"), TempPath);
+  if (TempPath != NULL) {
+    D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+    D2U_UTF8_FPRINTF(stderr, _("using %s as temporary file\n"), TempPath);
+  }
 #endif
 
   if (!RetVal)
