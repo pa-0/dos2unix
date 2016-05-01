@@ -199,6 +199,10 @@ UNICODE FILE NAME SUPPORT ON WINDOWS
     Unicode file name support on Windows is enabled by setting UNIFILE=1 in
     the makefile or on the make command line.
 
+    To disable Unicode file name support, make UNIFILE empty:
+
+        make UNIFILE=
+
     Unicode file name support is by default enabled.
 
     Dos2unix built with Watcom C is not able to display foreign characters

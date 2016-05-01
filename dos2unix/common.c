@@ -811,7 +811,6 @@ char *basename(char *path)
 
    ptr++;
    return ptr ;
-
 }
 #endif
 
@@ -830,24 +829,38 @@ char *d2u_mktemp(char *template)
   char *dn = dirname(cpy1);
   char *bn = basename(cpy2);
   char *ptr;
+  size_t len;
 #ifdef D2U_UNIFILE /* template is UTF-8 formatted. */
   wchar_t dnw[MAX_PATH];
   wchar_t bnw[MAX_PATH];
   wchar_t szTempFileNamew[MAX_PATH];
   char *fname_str;
-  d2u_MultiByteToWideChar(CP_UTF8, 0, bn, -1, bnw, MAX_PATH);
-  d2u_MultiByteToWideChar(CP_UTF8, 0, dn, -1, dnw, MAX_PATH);
+  int error = 0;
+  if (d2u_MultiByteToWideChar(CP_UTF8, 0, dn, -1, NULL, 0) > (MAX_PATH - 15)) {
+      D2U_UTF8_FPRINTF(stderr, "%s:", "dos2unix");
+      D2U_ANSI_FPRINTF(stderr, _("Path for temporary output file is too long: "));
+      D2U_UTF8_FPRINTF(stderr, " %s\n", dn);
+      error=1;
+  }
+  if ((!error) && (d2u_MultiByteToWideChar(CP_UTF8, 0, dn, -1, dnw, MAX_PATH) == 0))
+    error=1;
+  if ((!error) && (d2u_MultiByteToWideChar(CP_UTF8, 0, bn, -1, bnw, MAX_PATH) == 0))
+    error=1;
   free(cpy1);
   free(cpy2);
+  if (error)
+    return NULL;
   uRetVal = GetTempFileNameW(dnw, bnw, 0, szTempFileNamew);
   if (! uRetVal) {
     d2u_PrintLastError("dos2unix");
     return NULL;
   }
-  fname_str = (char *)malloc(MAX_PATH);
+  len =(size_t) d2u_WideCharToMultiByte(CP_UTF8, 0, szTempFileNamew, -1, NULL, 0, NULL, NULL);
+  fname_str = (char *)malloc(len);
   if (! fname_str)
     return NULL;
-  d2u_WideCharToMultiByte(CP_UTF8, 0, szTempFileNamew, -1, fname_str, MAX_PATH, NULL, NULL);
+  if (d2u_WideCharToMultiByte(CP_UTF8, 0, szTempFileNamew, -1, fname_str, MAX_PATH, NULL, NULL) == 0)
+    return NULL;
 #else
   char szTempFileName[MAX_PATH];
   char *fname_str;
@@ -858,7 +871,8 @@ char *d2u_mktemp(char *template)
     d2u_PrintLastError("dos2unix");
     return NULL;
   }
-  fname_str = (char *)malloc(MAX_PATH);
+  len = strlen(szTempFileName) +1;
+  fname_str = (char *)malloc(len);
   if (! fname_str)
     return NULL;
   strcpy(fname_str, szTempFileName);

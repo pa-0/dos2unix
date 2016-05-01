@@ -113,7 +113,7 @@
  * Assume that none of the Windows compilers have mkstemp().
  * On Windows I need something that can also work with Unicode file names (UTF-16).
  * On Windows GetTempFileName() will be used, as is adviced on MSDN. */
-#if  defined(__TURBOC__) || defined(__DJGPP__) || defined(_WIN32)
+#if  defined(__TURBOC__) || defined(__DJGPP__) || (defined(_WIN32) && !defined(__CYGWIN__))
 /* Some compilers have no mkstemp().
  * Use mktemp() instead.
  * BORLANDC, DJGPP, MINGW32, MSVC */
