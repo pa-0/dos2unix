@@ -1,3 +1,6 @@
+2016-05-02 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Cleanup d2u_mktemp and MakeTempFileFrom(). 
+
 2016-04-30 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: New function d2u_mktemp(). Wrapper for mktemp() that uses
 	  GetTempFileName() on Windows. Use of mktemp() is not safe.

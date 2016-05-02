@@ -786,7 +786,7 @@ char *dirname(char *path)
   /* replace all back slashes with slashes */
   while ( (ptr = strchr(path,'\\')) != NULL)
     *ptr = '/';
-  if (( path == NULL) || ((ptr=strrchr(path,'/')) == NULL))
+  if ((path == NULL) || ((ptr=strrchr(path,'/')) == NULL))
     return ".";
 
   if (strcmp(path,"/") == 0)
@@ -803,7 +803,7 @@ char *basename(char *path)
   /* replace all back slashes with slashes */
   while ( (ptr = strchr(path,'\\')) != NULL)
     *ptr = '/';
-  if (( path == NULL) || ((ptr=strrchr(path,'/')) == NULL))
+  if ((path == NULL) || ((ptr=strrchr(path,'/')) == NULL))
     return path ;
 
   if (strcmp(path,"/") == 0)
@@ -817,6 +817,8 @@ char *basename(char *path)
 /* Standard mktemp() is not safe to use (See mktemp(3)).
  * On Windows it is recommended to use GetTempFileName() (See MSDN).
  * This mktemp() wrapper redirects to GetTempFileName() on Windows.
+ * On Windows template is not modified, the returned pointer has to
+ * be used.
  */
 #ifdef NO_MKSTEMP
 char *d2u_mktemp(char *template)
@@ -824,10 +826,7 @@ char *d2u_mktemp(char *template)
 #if defined(_WIN32) && !defined(__CYGWIN__)
 
   unsigned int uRetVal;
-  char *cpy1 = strdup(template);
-  char *cpy2 = strdup(template);
-  char *dn = dirname(cpy1);
-  char *bn = basename(cpy2);
+  char *cpy1, *cpy2, *dn, *bn;
   char *ptr;
   size_t len;
 #ifdef D2U_UNIFILE /* template is UTF-8 formatted. */
@@ -836,6 +835,19 @@ char *d2u_mktemp(char *template)
   wchar_t szTempFileNamew[MAX_PATH];
   char *fname_str;
   int error = 0;
+#else
+  char szTempFileName[MAX_PATH];
+  char *fname_str;
+#endif
+  if ((cpy1 = strdup(template)) == NULL)
+    return NULL;
+  if ((cpy2 = strdup(template)) == NULL) {
+    free(cpy1);
+    return NULL;
+  }
+  dn = dirname(cpy1);
+  bn = basename(cpy2);
+#ifdef D2U_UNIFILE /* template is UTF-8 formatted. */
   if (d2u_MultiByteToWideChar(CP_UTF8, 0, dn, -1, NULL, 0) > (MAX_PATH - 15)) {
       D2U_UTF8_FPRINTF(stderr, "%s: ", "dos2unix");
       D2U_ANSI_FPRINTF(stderr, _("Path for temporary output file is too long:"));
@@ -862,8 +874,6 @@ char *d2u_mktemp(char *template)
   if (d2u_WideCharToMultiByte(CP_UTF8, 0, szTempFileNamew, -1, fname_str, MAX_PATH, NULL, NULL) == 0)
     return NULL;
 #else
-  char szTempFileName[MAX_PATH];
-  char *fname_str;
   uRetVal = GetTempFileNameA(dn, bn, 0, szTempFileName);
   free(cpy1);
   free(cpy2);
@@ -908,11 +918,7 @@ FILE* MakeTempFileFrom(const char *OutFN, char **fname_ret)
 
   dir = dirname(cpy);
 
-#ifdef D2U_UNIFILE
-  fname_len = D2U_MAX_PATH;
-#else
   fname_len = strlen(dir) + strlen("/d2utmpXXXXXX") + sizeof (char);
-#endif
   if (!(fname_str = (char *)malloc(fname_len)))
     goto make_failed;
   sprintf(fname_str, "%s%s", dir, "/d2utmpXXXXXX");
