@@ -488,7 +488,7 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv, CFlag *ipFlag, const cha
 
   len = (size_t)d2u_WideCharToMultiByte(CP_UTF8, 0, wargv[0], -1, NULL, 0, NULL, NULL);
   arg = (char *)malloc(len);
-  if (argv == NULL) goto glob_failed;
+  if (arg == NULL) goto glob_failed;
   d2u_WideCharToMultiByte(CP_UTF8, 0, wargv[argc_glob], -1, arg, (int)len, NULL, NULL);
   argv_new[argc_glob] = arg;
 
@@ -527,7 +527,7 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv, CFlag *ipFlag, const cha
       ++argc_glob;
       len =(size_t) d2u_WideCharToMultiByte(CP_UTF8, 0, path_and_filename, -1, NULL, 0, NULL, NULL);
       arg = (char *)malloc((size_t)len);
-      if (argv == NULL) goto glob_failed;
+      if (arg == NULL) goto glob_failed;
       d2u_WideCharToMultiByte(CP_UTF8, 0, path_and_filename, -1, arg, (int)len, NULL, NULL);
       free(path_and_filename);
       new_argv_new = (char **)realloc(argv_new, (size_t)(argc_glob+1)*sizeof(char**));
@@ -548,7 +548,7 @@ int glob_warg(int argc, wchar_t *wargv[], char ***argv, CFlag *ipFlag, const cha
       ++argc_glob;
       len =(size_t) d2u_WideCharToMultiByte(CP_UTF8, 0, warg, -1, NULL, 0, NULL, NULL);
       arg = (char *)malloc((size_t)len);
-      if (argv == NULL) goto glob_failed;
+      if (arg == NULL) goto glob_failed;
       d2u_WideCharToMultiByte(CP_UTF8, 0, warg, -1, arg, (int)len, NULL, NULL);
       new_argv_new = (char **)realloc(argv_new, (size_t)(argc_glob+1)*sizeof(char**));
       if (new_argv_new == NULL) goto glob_failed;

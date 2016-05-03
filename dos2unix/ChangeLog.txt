@@ -1,3 +1,6 @@
+2016-05-03 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Fix malloc() check in glob_warg();
+
 2016-05-02 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Cleanup d2u_mktemp and MakeTempFileFrom(). 
 
