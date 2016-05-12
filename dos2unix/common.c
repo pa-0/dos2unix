@@ -786,6 +786,10 @@ char *dirname(char *path)
   /* replace all back slashes with slashes */
   while ( (ptr = strchr(path,'\\')) != NULL)
     *ptr = '/';
+  /* Code checkers may report that the condition (path == NULL) is redundant.
+     E.g. Cppcheck 1.72. The condition (path == NULL) is needed, because
+     the behaviour of strrchr is not specified when it get's a NULL string.
+     The behaviour may be undefined, dependent on the implementation. */
   if ((path == NULL) || ((ptr=strrchr(path,'/')) == NULL))
     return ".";
 
@@ -803,6 +807,10 @@ char *basename(char *path)
   /* replace all back slashes with slashes */
   while ( (ptr = strchr(path,'\\')) != NULL)
     *ptr = '/';
+  /* Code checkers may report that the condition (path == NULL) is redundant.
+     E.g. Cppcheck 1.72. The condition (path == NULL) is needed, because
+     the behaviour of strrchr is not specified when it get's a NULL string.
+     The behaviour may be undefined, dependent on the implementation. */
   if ((path == NULL) || ((ptr=strrchr(path,'/')) == NULL))
     return path ;
 
@@ -1446,7 +1454,7 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
         D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
         D2U_ANSI_FPRINTF(stderr, _("Failed to open temporary output file: %s\n"), errstr);
       } else {
-        /*  In case  there was an error with a Windows API function, errno is 0. */
+        /*  In case temp path was too long on Windows, errno is 0. */
         if (!ipFlag->error) ipFlag->error = 1;
       }
     }
