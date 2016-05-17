@@ -3,13 +3,13 @@
 # Philipp Thomas <pth@suse.de>, 2009, 2010, 2011, 2012.
 # Lars Wendler <polynomial-c@gentoo.org>, 2013.
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2014, 2015.
-# Philipp Thomas <pth@suse.de>, 2014, 2015.
+# Philipp Thomas <pth@suse.de>, 2014, 2015, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.3.1-beta5\n"
+"Project-Id-Version: dos2unix 7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-12 22:42+0200\n"
-"PO-Revision-Date: 2015-09-15 16:30+0200\n"
+"POT-Creation-Date: 2016-05-12 22:50+0200\n"
+"PO-Revision-Date: 2016-05-17 07:50+0200\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: dos2unix.c:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
@@ -29,7 +29,7 @@ msgid ""
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Copyright © 2009-2015 Erwin Waterlander\n"
+"Copyright © 2009-%d Erwin Waterlander\n"
 "Copyright © 1998      Christian Wurll (Version 3.1)\n"
 "Copyright © 1998      Bernd Johannes Wuebben (Version 3.0)\n"
 "Copyright © 1994,1995 Benjamin Lin\n"
@@ -66,14 +66,14 @@ msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "Fehler: Der Inhalt der Umgebungsvariablen DOS2UNIX_LOCALEDIR ist zu lang.\n"
 
 #: unix2dos.c:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Copyright © 2009-2015 Erwin Waterlander\n"
+"Copyright © 2009-%d Erwin Waterlander\n"
 "Copyright © 1994,1995 Benjamin Lin\n"
 "Alle Rechte vorbehalten.\n"
 "\n"
@@ -387,9 +387,8 @@ msgid "With native language support.\n"
 msgstr "Mit Unterstützung von Landessprachen.\n"
 
 #: common.c:861
-#, fuzzy
 msgid "Path for temporary output file is too long:"
-msgstr "Die temporäre Ausgabedatei %s konnte nicht geschrieben werden:"
+msgstr "Der Pfad für die temporäre Ausgabedatei ist zu lang:"
 
 #: common.c:1142 common.c:1149 common.c:1156 common.c:1163 common.c:1175
 #: common.c:1182
@@ -437,9 +436,9 @@ msgid "using %s as temporary file\n"
 msgstr "%s wird als temporäre Datei verwendet\n"
 
 #: common.c:1499 common.c:2158
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to close input file %s:"
-msgstr "Die temporäre Ausgabedatei konnte nicht geöffnet werden: %s\n"
+msgstr "Die Eingabedatei konnte nicht geschlossen werden: %s"
 
 #: common.c:1512
 #, c-format

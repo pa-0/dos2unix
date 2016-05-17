@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.3.3-beta2\n"
+"Project-Id-Version: dos2unix 7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-12 22:42+0200\n"
-"PO-Revision-Date: 2016-01-13 09:01+0700\n"
+"POT-Creation-Date: 2016-05-12 22:50+0200\n"
+"PO-Revision-Date: 2016-05-14 08:17+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
 "Language: vi\n"
@@ -369,9 +369,8 @@ msgid "With native language support.\n"
 msgstr "Có hỗ trợ bản địa hóa ngôn ngữ.\n"
 
 #: common.c:861
-#, fuzzy
 msgid "Path for temporary output file is too long:"
-msgstr "Gặp lỗi khi ghi vào tập tin đầu ra tạm thời %s:"
+msgstr "Đường dẫn cho tập tin xuất tạm quá dài:"
 
 #: common.c:1142 common.c:1149 common.c:1156 common.c:1163 common.c:1175
 #: common.c:1182
@@ -419,9 +418,9 @@ msgid "using %s as temporary file\n"
 msgstr "đang dùng %s làm tập tin tạm\n"
 
 #: common.c:1499 common.c:2158
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to close input file %s:"
-msgstr "Gặp lỗi khi mở tập tin đầu ra tạm thời: %s\n"
+msgstr "Gặp lỗi khi đóng đầu vào %s:"
 
 #: common.c:1512
 #, c-format

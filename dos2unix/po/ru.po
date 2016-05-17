@@ -6,10 +6,10 @@
 # Yuri Kozlov <yuray@komyakino.ru>, 2014, 2015, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-7.3.3-beta2\n"
+"Project-Id-Version: dos2unix-7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-12 22:42+0200\n"
-"PO-Revision-Date: 2016-01-12 18:55+0300\n"
+"POT-Creation-Date: 2016-05-12 22:50+0200\n"
+"PO-Revision-Date: 2016-05-14 07:46+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <gnu@d07.ru>\n"
 "Language: ru\n"
@@ -381,9 +381,8 @@ msgid "With native language support.\n"
 msgstr "С поддержкой родного языка.\n"
 
 #: common.c:861
-#, fuzzy
 msgid "Path for temporary output file is too long:"
-msgstr "Не удалось записать во временный выходной файл %s:"
+msgstr "Слишком длинный путь для временного выходного файла:"
 
 #: common.c:1142 common.c:1149 common.c:1156 common.c:1163 common.c:1175
 #: common.c:1182
@@ -431,9 +430,9 @@ msgid "using %s as temporary file\n"
 msgstr "использование %s в качестве временного файла\n"
 
 #: common.c:1499 common.c:2158
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to close input file %s:"
-msgstr "Не удалось открыть временный выходной файл: %s\n"
+msgstr "Не удалось закрыть входной файл %s:"
 
 #: common.c:1512
 #, c-format

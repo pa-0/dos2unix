@@ -6,10 +6,10 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2014, 2015, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.3.3-beta2\n"
+"Project-Id-Version: dos2unix 7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-12 22:42+0200\n"
-"PO-Revision-Date: 2016-01-12 12:17+0200\n"
+"POT-Creation-Date: 2016-05-12 22:50+0200\n"
+"PO-Revision-Date: 2016-05-13 17:31+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
@@ -33,7 +33,7 @@ msgstr ""
 "© Christian Wurll, 1998 (версія 3.1)\n"
 "© Bernd Johannes Wuebben, 1998 (версія 3.0)\n"
 "© Benjamin Lin, 1994-1995\n"
-"Усі права застережено.\n"
+"Усі права захищено.\n"
 "\n"
 
 #: dos2unix.c:212 dos2unix.c:249 unix2dos.c:149 unix2dos.c:209
@@ -388,9 +388,8 @@ msgid "With native language support.\n"
 msgstr "З підтримкою природної мови.\n"
 
 #: common.c:861
-#, fuzzy
 msgid "Path for temporary output file is too long:"
-msgstr "Не вдалося записати дані до тимчасового файла виведення %s:"
+msgstr "Шлях до тимчасового файла виведення є надто довгим:"
 
 #: common.c:1142 common.c:1149 common.c:1156 common.c:1163 common.c:1175
 #: common.c:1182
@@ -438,9 +437,9 @@ msgid "using %s as temporary file\n"
 msgstr "використовуємо %s як тимчасовий файл\n"
 
 #: common.c:1499 common.c:2158
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to close input file %s:"
-msgstr "Не вдалося відкрити файл для виведення тимчасових даних: %s\n"
+msgstr "Не вдалося закрити файл вхідних даних %s:"
 
 #: common.c:1512
 #, c-format

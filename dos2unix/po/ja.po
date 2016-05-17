@@ -1,23 +1,25 @@
 # Japanese gettext message file for dos2unix
-# Copyright (C) 2014 Erwin Waterlander (msgids)
+# Copyright (C) 2016 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
 # Yasuaki Taniguchi <yasuakit@gmail.com>, 2014.
+# Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>, 2016.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.1-beta3\n"
+"Project-Id-Version: dos2unix 7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-12 22:42+0200\n"
-"PO-Revision-Date: 2014-11-07 11:35+0000\n"
-"Last-Translator: YASUAKI TANIGUCHI <yasuakit@gmail.com>\n"
+"POT-Creation-Date: 2016-05-12 22:50+0200\n"
+"PO-Revision-Date: 2016-05-15 00:11+0900\n"
+"Last-Translator: Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: dos2unix.c:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
@@ -26,7 +28,7 @@ msgid ""
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Copyright (C) 2009-2015 Erwin Waterlander\n"
+"Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
 "Copyright (C) 1998      Bernd Johannes Wuebben (Version 3.0)\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
@@ -63,14 +65,14 @@ msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "エラー: 環境変数 DOS2UNIX_LOCALEDIR の値が長すぎます。\n"
 
 #: unix2dos.c:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Copyright (C) 2009-2015 Erwin Waterlander\n"
+"Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
@@ -183,13 +185,12 @@ msgstr ""
 "   convmode            ascii, 7bit, iso, mac, 既定は ascii\n"
 
 #: common.c:628
-#, fuzzy
 msgid ""
 " -D, --display-enc     set encoding of displayed text messages\n"
 "   encoding            ansi, unicode, utf8, default to ansi\n"
 msgstr ""
-" -c, --convmode        変換モード\n"
-"   convmode            ascii, 7bit, iso, mac, 既定は ascii\n"
+" -D, --display-enc     表示されるメッセージのエンコーディングを設定する\n"
+"   encoding            ansi, unicode, utf8, デフォルトは ansi\n"
 
 #: common.c:631
 msgid " -f, --force           force conversion of binary files\n"
@@ -197,7 +198,7 @@ msgstr " -f, --force           バイナリファイルを強制的に変換す�
 
 #: common.c:634
 msgid " -gb, --gb18030        convert UTF-16 to GB18030\n"
-msgstr ""
+msgstr " -gb, --gb18030        UTF-16 を GB18030 に変換する\n"
 
 #: common.c:637
 msgid " -h, --help            display this help text\n"
@@ -356,9 +357,9 @@ msgid "OS/2 version (EMX).\n"
 msgstr "OS/2 バージョン (EMX)。\n"
 
 #: common.c:709
-#, fuzzy, c-format
+#, c-format
 msgid "%s version.\n"
-msgstr "MSYS バージョン。\n"
+msgstr "%s バージョン。\n"
 
 #: common.c:715
 msgid "With Unicode UTF-16 support.\n"
@@ -369,50 +370,47 @@ msgid "Without Unicode UTF-16 support.\n"
 msgstr "Unicode UTF-16 サポート無し。\n"
 
 #: common.c:721
-#, fuzzy
 msgid "With Unicode file name support.\n"
-msgstr "Unicode UTF-16 サポート付き。\n"
+msgstr "Unicode ファイル名 サポート付き。\n"
 
 #: common.c:723
-#, fuzzy
 msgid "Without Unicode file name support.\n"
-msgstr "Unicode UTF-16 サポート無し。\n"
+msgstr "Unicode ファイル名 サポート無し。\n"
 
 #: common.c:727
 msgid "With native language support.\n"
 msgstr "ネイティブ言語サポート。\n"
 
 #: common.c:861
-#, fuzzy
 msgid "Path for temporary output file is too long:"
-msgstr "一時出力ファイル %s を開くのに失敗しました: %s\n"
+msgstr "一時出力ファイルのパスが長過ぎます:"
 
 #: common.c:1142 common.c:1149 common.c:1156 common.c:1163 common.c:1175
 #: common.c:1182
 #, c-format
 msgid "Writing %s BOM.\n"
-msgstr ""
+msgstr "%s BOM を書き込んでいます。\n"
 
 #: common.c:1142 common.c:1195 common.c:1718 common.c:1739
 msgid "UTF-16LE"
-msgstr ""
+msgstr "UTF-16LE"
 
 #: common.c:1149 common.c:1198 common.c:1720 common.c:1741
 msgid "UTF-16BE"
-msgstr ""
+msgstr "UTF-16BE"
 
 #: common.c:1156 common.c:1175 common.c:1204 common.c:1731
 msgid "GB18030"
-msgstr ""
+msgstr "GB18030"
 
 #: common.c:1163 common.c:1182 common.c:1201 common.c:1733
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: common.c:1227
 #, c-format
 msgid "Input file %s has %s BOM.\n"
-msgstr ""
+msgstr "入力ファイル %s には %s BOM が存在します。\n"
 
 #: common.c:1263 common.c:1306
 msgid "Assuming UTF-16LE encoding.\n"
@@ -433,24 +431,24 @@ msgid "using %s as temporary file\n"
 msgstr "%s を一時ファイルとして使用しています\n"
 
 #: common.c:1499 common.c:2158
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to close input file %s:"
-msgstr "一時出力ファイルを開くのに失敗しました: %s\n"
+msgstr "入力ファイル %s を閉じるのに失敗しました:"
 
 #: common.c:1512
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to write to temporary output file %s:"
-msgstr "一時出力ファイル %s を開くのに失敗しました: %s\n"
+msgstr "一時出力ファイル %s への書き込みに失敗しました:"
 
 #: common.c:1535
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to change the permissions of temporary output file %s:"
-msgstr "一時出力ファイル %s のパーミッション変更に失敗しました: %s\n"
+msgstr "一時出力ファイル %s のパーミッション変更に失敗しました:"
 
 #: common.c:1552
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to change the owner and group of temporary output file %s:"
-msgstr "一時出力ファイル %s の所有者とグループの変更に失敗しました: %s\n"
+msgstr "一時出力ファイル %s の所有者とグループの変更に失敗しました:"
 
 #: common.c:1599
 #, c-format
@@ -463,14 +461,14 @@ msgid "          output file remains in '%s'\n"
 msgstr "          出力ファイルは '%s' に残っています\n"
 
 #: common.c:1626
-#, fuzzy, c-format
+#, c-format
 msgid "problems renaming '%s' to '%s':"
-msgstr " '%s' から '%s' への名前変更で問題が発生しました: %s\n"
+msgstr " '%s' から '%s' への名前変更で問題が発生しました:"
 
 #: common.c:1630
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
-msgstr ""
+msgstr "          これはシンボリックリンク '%s' のターゲットです\n"
 
 #: common.c:1693 common.c:1785 common.c:1871
 #, c-format
@@ -488,14 +486,14 @@ msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "UTF-16 ファイル %s をスキップしています。wchar_t のサイズは %d バイトです。\n"
 
 #: common.c:1703 common.c:1795 common.c:1881
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
-msgstr "UTF-16 ファイル %s をスキップしています。UTF-16 変換でエラーが発生しました。\n"
+msgstr "UTF-16 ファイル %s をスキップしています。%u 行目の UTF-16 変換でエラーが発生しました。\n"
 
 #: common.c:1707 common.c:1799 common.c:1885
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"
-msgstr "UTF-16 ファイル %s をスキップしています。UTF-16 変換でエラーが発生しました。\n"
+msgstr "UTF-16 ファイル %s をスキップしています。UTF-16 変換はこのバージョンの %s ではサポートされていません。\n"
 
 #: common.c:1773 common.c:1862 common.c:1927
 #, c-format
@@ -539,19 +537,19 @@ msgstr "%s から %s へ DOS 形式で変換しています。\n"
 #. 4th %s is name of output file.
 #. E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format...
 #: common.c:1821
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in Unix format...\n"
-msgstr "%s から %s へ Unix 形式でファイル変換しています。\n"
+msgstr "%s ファイルの %s から %s ファイルの %s へ Unix 形式でファイル変換しています...\n"
 
 #: common.c:1824
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in Mac format...\n"
-msgstr "%s から %s へ Mac 形式でファイル変換しています。\n"
+msgstr "%s ファイルの %s から %s ファイルの %s へ Mac 形式でファイル変換しています...\n"
 
 #: common.c:1826
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s file %s in DOS format...\n"
-msgstr "%s から %s へ DOS 形式で変換しています。\n"
+msgstr "%s ファイルの %s から %s ファイルの %s へ DOS 形式で変換しています...\n"
 
 #: common.c:1832
 #, c-format
@@ -584,19 +582,19 @@ msgstr "ファイル %s を DOS 形式へ変換しています。\n"
 #. 3rd %s is encoding of output (input file is overwritten).
 #. E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format...
 #: common.c:1906
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s Unix format...\n"
-msgstr "ファイル %s を Unix 形式へ変換しています。\n"
+msgstr "%s ファイル %s を %s の Unix 形式へ変換しています...\n"
 
 #: common.c:1909
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s Mac format...\n"
-msgstr "ファイル %s を Mac 形式へ変換しています。\n"
+msgstr "%s ファイル %s を %s の Mac 形式へ変換しています。\n"
 
 #: common.c:1911
-#, fuzzy, c-format
+#, c-format
 msgid "converting %s file %s to %s DOS format...\n"
-msgstr "ファイル %s を DOS 形式へ変換しています。\n"
+msgstr "%s ファイル %s を %s の DOS 形式へ変換しています。\n"
 
 #: common.c:1917
 #, c-format
@@ -604,9 +602,9 @@ msgid "problems converting file %s\n"
 msgstr "ファイル %s 変換中に問題が発生しました。\n"
 
 #: common.c:2039 common.c:2089
-#, fuzzy, c-format
+#, c-format
 msgid "can not read from input file %s:"
-msgstr "出力ファイルに書き込めません: %s\n"
+msgstr "入力ファイル %s から読み込めません:"
 
 #: common.c:2257
 #, c-format
@@ -629,9 +627,9 @@ msgid "option '%s' requires an argument\n"
 msgstr "オプション '%s' には引数が必要です。\n"
 
 #: common.c:2467
-#, fuzzy, c-format
+#, c-format
 msgid "invalid %s display encoding specified\n"
-msgstr "無効な %s 変換モードが指定されました\n"
+msgstr "無効な %s 表示エンコーディングが指定されました\n"
 
 #: common.c:2487 common.c:2500 common.c:2566
 #, c-format
@@ -639,9 +637,9 @@ msgid "target of file %s not specified in new-file mode\n"
 msgstr "対象ファイル %s が新規ファイルモードで指定されていません\n"
 
 #: common.c:2578
-#, fuzzy, c-format
+#, c-format
 msgid "can not read from input file: %s\n"
-msgstr "出力ファイルに書き込めません: %s\n"
+msgstr "入力ファイルから読み込めません: %s\n"
 
 #: common.c:2588 common.c:2600
 #, c-format
@@ -650,12 +648,11 @@ msgstr "出力ファイルに書き込めません: %s\n"
 
 #: common.c:2675
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
-msgstr ""
+msgstr "エラー: 無効なサロゲートペアです。下位サロゲートがありません。\n"
 
 #: common.c:2691
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
-msgstr ""
+msgstr "エラー: 無効なサロゲートペアです。上位サロゲートがありません。\n"
 
-#, fuzzy
-#~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8 or GB18030.\n"
+#~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
 #~ msgstr "UTF-16 ファイル %s をスキップしています。現在のロケールの文字エンコーディングは UTF-8 ではありません。\n"

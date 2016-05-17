@@ -18,6 +18,7 @@ RELEASE_DIR_DOS2UNIX = dos2unix-$(DOS2UNIX_VERSION)
 RELEASE_DIR_D2U = d2u$(DOS2UNIX_VERSION_SHORT)
 
 
+# Target: dist - Create source packages for distribution.
 dist:
 	rm -rf ../clone
 	rm -rf ../${RELEASE_DIR_DOS2UNIX}

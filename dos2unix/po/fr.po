@@ -1,13 +1,13 @@
 # Message français pour dos2unix.
 # Copyright (C) 2016 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
-# Frédéric Marchal <fmarchal@perso.be>, 2015.
+# Frédéric Marchal <fmarchal@perso.be>, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-7.3.3-beta2\n"
+"Project-Id-Version: dos2unix-7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-12 22:42+0200\n"
-"PO-Revision-Date: 2016-01-12 20:04+0100\n"
+"POT-Creation-Date: 2016-05-12 22:50+0200\n"
+"PO-Revision-Date: 2016-05-13 13:32+0200\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -376,9 +376,8 @@ msgid "With native language support.\n"
 msgstr "Avec support pour la langue native.\n"
 
 #: common.c:861
-#, fuzzy
 msgid "Path for temporary output file is too long:"
-msgstr "Échec d'écriture dans le fichier temporaire de sortie %s :"
+msgstr "Le chemin pour le fichier de sortie temporaire est trop long :"
 
 #: common.c:1142 common.c:1149 common.c:1156 common.c:1163 common.c:1175
 #: common.c:1182
@@ -426,9 +425,9 @@ msgid "using %s as temporary file\n"
 msgstr "utilise %s comme fichier temporaire\n"
 
 #: common.c:1499 common.c:2158
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to close input file %s:"
-msgstr "Échec à l'ouverture du fichier temporaire de sortie : %s\n"
+msgstr "Échec à la fermeture du fichier d'entrée %s :"
 
 #: common.c:1512
 #, c-format

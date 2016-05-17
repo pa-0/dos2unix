@@ -74,32 +74,33 @@ TRANSLATORS
 
         Brazilian Portuguese  Enrico Nicoletto             Version 6.0.5
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.6 - 7.2
-        Brazilian Portuguese  Rafael Fontenelle            Version 7.3.2 - 7.3.3
+        Brazilian Portuguese  Rafael Fontenelle            Version 7.3.2 - 7.3.4
         Chinese (simplified)  Tianze Wang                  Version 7.3.1 - 7.3.3
         Chinese (traditional) mail6543210                  Version 6.0.5
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
-        Danish                Joe Hansen                   Version 7.2.3 - 7.3.3
+        Danish                Joe Hansen                   Version 7.2.3 - 7.3.4
         Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3.1
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
         Esperanto             Benno Schulenberg            Version 6.0.5 - 7.3
-        French                Frédéric Marchal             Version 6.0.5 - 7.3.3
+        French                Frédéric Marchal             Version 6.0.5 - 7.3.4
         German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0,
-                                                           7.2.2 - 7.3.1
+                                                           7.2.2 - 7.3.4
         German                Lars Wendler                 Version 6.0.4
         German                Mario Blättermann            Version 6.0.6, 7.1 - 7.2
         Hungarian             Balázs Úr                    Version 6.0.5 - 7.2.3
         Japanese              Yasuaki Taniguchi            Version 7.1.1
+        Japanese              Takeshi Hamasaki             Version 7.3.4
         Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.3.3
-        Polish                Jakub Bogusz                 Version 6.0.5 - 7.3.3
+        Polish                Jakub Bogusz                 Version 6.0.5 - 7.3.4
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
-        Russian               Yuri Kozlov                  Version 6.0.6 - 7.3.3
+        Russian               Yuri Kozlov                  Version 6.0.6 - 7.3.4
         Serbian               Мирослав Николић             Version 6.0.5 - 7.3.4
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.3.1
-        Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.3.3
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.3.3
-        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.3.3
+        Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.3.4
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.3.4
+        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.3.4
 
         Translation of the manual.
         See http://translationproject.org/domain/dos2unix-man.html
