@@ -58,11 +58,11 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2-7.3.3  2009-2016
-        Christian Wurll         version 3.1        1998
-        Bernd Johannes Wuebben  version 3.0        1998
-        Benjamin Lin            version 1.1-2.3    1994-1995
-        John Birchfield         version 1.0        1989
+        Erwin Waterlander       version 3.2 - 7.3.4  2009-2016
+        Christian Wurll         version 3.1          1998
+        Bernd Johannes Wuebben  version 3.0          1998
+        Benjamin Lin            version 1.1 - 2.3    1994-1995
+        John Birchfield         version 1.0          1989
 
 TRANSLATORS
 
@@ -80,7 +80,7 @@ TRANSLATORS
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
         Danish                Joe Hansen                   Version 7.2.3 - 7.3.4
         Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4
-        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3.1
+        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3.4
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
         Esperanto             Benno Schulenberg            Version 6.0.5 - 7.3
         French                Frédéric Marchal             Version 6.0.5 - 7.3.4

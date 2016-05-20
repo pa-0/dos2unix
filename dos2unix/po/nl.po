@@ -1,14 +1,14 @@
 # Dutch translations for dos2unix, a DOS/Mac to Unix text-file format converter.
 # This file is distributed under the same license as the dos2unix package.
 #
-# Erwin Waterlander <waterlan@xs4all.nl>, 2009-2014.
 # Benno Schulenberg <benno@vertaalt.nl>, 2014, 2015, 2016.
+# Erwin Waterlander <waterlan@xs4all.nl>, 2009-2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.3.3-beta2\n"
+"Project-Id-Version: dos2unix 7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-12 22:42+0200\n"
-"PO-Revision-Date: 2016-05-06 12:18+0200\n"
+"POT-Creation-Date: 2016-05-12 22:50+0200\n"
+"PO-Revision-Date: 2016-05-20 09:58+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -367,9 +367,8 @@ msgid "With native language support.\n"
 msgstr "Met ondersteuning voor taalregio's.\n"
 
 #: common.c:861
-#, fuzzy
 msgid "Path for temporary output file is too long:"
-msgstr "Kan niet schrijven naar tijdelijk uitvoerbestand %s:"
+msgstr "Pad voor tijdelijk uitvoerbestand is te lang:"
 
 #: common.c:1142 common.c:1149 common.c:1156 common.c:1163 common.c:1175
 #: common.c:1182
@@ -417,9 +416,9 @@ msgid "using %s as temporary file\n"
 msgstr "%s wordt als tijdelijk bestand gebruikt\n"
 
 #: common.c:1499 common.c:2158
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to close input file %s:"
-msgstr "Kan tijdelijk uitvoerbestand niet openen: %s\n"
+msgstr "Sluiten van invoerbestand %s is mislukt:"
 
 #: common.c:1512
 #, c-format
@@ -644,4 +643,4 @@ msgstr "fout: ongeldig surrogaatpaar -- het hoge deel ontbreekt\n"
 #~ msgstr "heeft een %s-BOM.\n"
 
 #~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
-#~ msgstr "UTF-16-bestand %s wordt overgeslagen, de tekencodering van de huidige taalregio is niet UTF-8.\n"
+#~ msgstr "UTF-16-bestand %s wordt overgeslagen; de tekencodering van de huidige taalregio is niet UTF-8.\n"

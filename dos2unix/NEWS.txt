@@ -1,5 +1,7 @@
 2016-??-??: Version 7.3.4
-  * Safer temp file creation on Windows.
+  * Safer temporary file creation on Windows.
+  * Code cleanup.
+  * Updated translations.
 
 2016-02-13: Version 7.3.3
   * Fixed printing of East-Asian text on Windows with an East-Asian regional
