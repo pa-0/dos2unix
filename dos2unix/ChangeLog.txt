@@ -1,3 +1,7 @@
+2016-05-24 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 7.3.4
+	* djgpp.mak: Fix targets install and dist by setting SHELL variable.
+
 2016-05-03 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Fix malloc() check in glob_warg();
 

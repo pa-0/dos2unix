@@ -13,6 +13,12 @@ LINK = ln -sf
 # with DJGPP 2.05 do not work.
 #LINK = cp -f
 
+# On DOS we need to set SHELL to sh.exe or bash.exe, otherwise targets may fail
+# (targets install and dist fail certainly). SHELL can't be overridden in this
+# make level. It sticks to command.com (at least with DJGPP 2.03 make 3.79.1).
+# SHELL has to be set in a parent process, so we pass it to the sub make instances.
+D2U_MAKESHELL=$(shell which sh)
+
 CROSS_COMP=0
 
 ifeq ($(findstring CYGWIN,$(d2u_os)),CYGWIN)
@@ -41,27 +47,27 @@ ZIPOBJ_EXTRA = bin/cwsdpmi.exe
 docsubdir = dos2unix
 
 all:
-	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="$(LINK)" LINK_MAN="cp -f" docsubdir=$(docsubdir) UCS= CC=$(CC) D2U_OS=msdos
+	$(MAKE) all EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="$(LINK)" LINK_MAN="cp -f" docsubdir=$(docsubdir) UCS= CC=$(CC) D2U_OS=msdos SHELL=$(D2U_MAKESHELL)
 
 test: all
-	cd test; $(MAKE) test UCS= SHELL=$(shell which sh) 
+	cd test; $(MAKE) test UCS= SHELL=$(D2U_MAKESHELL) 
 
 check: test
 
 install:
-	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="$(LINK)" LINK_MAN="cp -f" docsubdir=$(docsubdir) UCS= CC=$(CC) D2U_OS=msdos
+	$(MAKE) install EXE=.exe ENABLE_NLS=$(ENABLE_NLS) LIBS_EXTRA="$(LIBS_EXTRA)" prefix=$(prefix) LINK="$(LINK)" LINK_MAN="cp -f" docsubdir=$(docsubdir) UCS= CC=$(CC) D2U_OS=msdos SHELL=$(D2U_MAKESHELL)
 
 uninstall:
-	$(MAKE) uninstall EXE=.exe prefix=$(prefix) docsubdir=$(docsubdir)
+	$(MAKE) uninstall EXE=.exe prefix=$(prefix) docsubdir=$(docsubdir) SHELL=$(D2U_MAKESHELL)
 
 clean:
-	$(MAKE) clean EXE=.exe ENABLE_NLS=$(ENABLE_NLS) prefix=$(prefix)
+	$(MAKE) clean EXE=.exe ENABLE_NLS=$(ENABLE_NLS) prefix=$(prefix) SHELL=$(D2U_MAKESHELL)
 
 mostlyclean:
-	$(MAKE) mostlyclean EXE=.exe ENABLE_NLS=$(ENABLE_NLS) prefix=$(prefix)
+	$(MAKE) mostlyclean EXE=.exe ENABLE_NLS=$(ENABLE_NLS) prefix=$(prefix) SHELL=$(D2U_MAKESHELL)
 
 dist:
-	$(MAKE) dist-zip EXE=.exe prefix=$(prefix) VERSIONSUFFIX="$(VERSIONSUFFIX)" ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" ENABLE_NLS=$(ENABLE_NLS) ZIPFILE=${ZIPFILE} docsubdir=$(docsubdir)
+	$(MAKE) dist-zip EXE=.exe prefix=$(prefix) VERSIONSUFFIX="$(VERSIONSUFFIX)" ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" ENABLE_NLS=$(ENABLE_NLS) ZIPFILE=${ZIPFILE} docsubdir=$(docsubdir) SHELL=$(D2U_MAKESHELL)
 
 strip:
 	$(MAKE) strip LINK="$(LINK)" LINK_MAN="cp -f" EXE=.exe STRIP=$(STRIP)
