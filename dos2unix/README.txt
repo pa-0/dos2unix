@@ -91,7 +91,7 @@ TRANSLATORS
         Hungarian             Balázs Úr                    Version 6.0.5 - 7.2.3
         Japanese              Yasuaki Taniguchi            Version 7.1.1
         Japanese              Takeshi Hamasaki             Version 7.3.4
-        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.3.3
+        Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.3.4
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.3.4
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
         Russian               Yuri Kozlov                  Version 6.0.6 - 7.3.4
