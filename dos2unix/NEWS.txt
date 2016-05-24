@@ -1,4 +1,4 @@
-2016-??-??: Version 7.3.4
+2016-05-24: Version 7.3.4
   * Safer temporary file creation on Windows.
   * Code cleanup.
   * Updated translations.

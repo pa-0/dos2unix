@@ -333,6 +333,11 @@ DOS PORT, 32 BIT
         make -f djgpp.mak strip
         make -f djgpp.mak install
 
+    Cross compilation with djgpp.mak works out-of-the-box in Cygwin if
+    you have djgpp-gcc-core installed. On Linux you can add CROSS_COMP=1
+    to the command line.
+
+
     Or use Open Watcom
     Cross compiling from Windows 32 bit. This works.
 
