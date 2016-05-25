@@ -800,6 +800,7 @@ char *dirname(char *path)
   return path;
 }
 
+#ifdef NO_MKSTEMP
 char *basename(char *path)
 {
   char *ptr;
@@ -820,6 +821,7 @@ char *basename(char *path)
    ptr++;
    return ptr ;
 }
+#endif
 #endif
 
 /* Standard mktemp() is not safe to use (See mktemp(3)).
