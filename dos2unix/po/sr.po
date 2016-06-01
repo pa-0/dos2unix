@@ -4,10 +4,10 @@
 # Мирослав Николић <miroslavnikolic@rocketmail.com>, 2014—2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-7.3.3-beta2\n"
+"Project-Id-Version: dos2unix-7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-25 21:49+0200\n"
-"PO-Revision-Date: 2016-03-05 09:17+0200\n"
+"PO-Revision-Date: 2016-05-29 19:36+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
 "Language: sr\n"
@@ -372,9 +372,8 @@ msgid "With native language support.\n"
 msgstr "Са подршком матерњег језика.\n"
 
 #: common.c:863
-#, fuzzy
 msgid "Path for temporary output file is too long:"
-msgstr "Нисам успео да пишем у привремену излазну датотеку „%s“:"
+msgstr "Путања за привремену излазну датотеку је предуга:"
 
 #: common.c:1144 common.c:1151 common.c:1158 common.c:1165 common.c:1177
 #: common.c:1184
@@ -422,9 +421,9 @@ msgid "using %s as temporary file\n"
 msgstr "користим „%s“ као привремену датотеку\n"
 
 #: common.c:1501 common.c:2160
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to close input file %s:"
-msgstr "Нисам успео да отворим привремену излазну датотеку: %s\n"
+msgstr "Нисам успео да затворим улазну датотеку „%s“:"
 
 #: common.c:1514
 #, c-format

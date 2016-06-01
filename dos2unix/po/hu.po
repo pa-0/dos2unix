@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the dos2unix package.
 #
 # Balázs Úr <urbalazs@gmail.com>, 2014, 2015.
+# Gabor Kelemen <kelemeng@gnome.hu>, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.2.3-beta3\n"
+"Project-Id-Version: dos2unix 7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-25 21:49+0200\n"
-"PO-Revision-Date: 2015-06-30 13:38+0200\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"PO-Revision-Date: 2016-05-28 23:02+0200\n"
+"Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: dos2unix.c:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (Version 3.1)\n"
@@ -28,7 +29,7 @@ msgid ""
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Copyright (C) 2009-2015 Erwin Waterlander\n"
+"Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (3.1-es verzió)\n"
 "Copyright (C) 1998      Bernd Johannes Wuebben (3.0-s verzió)\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
@@ -65,14 +66,14 @@ msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "hiba: a DOS2UNIX_LOCALEDIR környezeti változó értéke túl hosszú.\n"
 
 #: unix2dos.c:69
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Copyright (C) 2009-2015 Erwin Waterlander\n"
+"Copyright (C) 2009-%d Erwin Waterlander\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
 "Minden jog fenntartva.\n"
 "\n"
@@ -185,13 +186,12 @@ msgstr ""
 "   convmode            ascii, 7bit, iso, mac, alapértelmezetten asci\n"
 
 #: common.c:628
-#, fuzzy
 msgid ""
 " -D, --display-enc     set encoding of displayed text messages\n"
 "   encoding            ansi, unicode, utf8, default to ansi\n"
 msgstr ""
-" -c, --convmode        átalakítási mód\n"
-"   convmode            ascii, 7bit, iso, mac, alapértelmezetten asci\n"
+" -D, --display-enc     megjelenített szöveges üzenetek kódolásának megadása\n"
+"                         lehetőségek: ansi, unicode, utf8, alapértelmezett: ansi\n"
 
 #: common.c:631
 msgid " -f, --force           force conversion of binary files\n"
@@ -373,23 +373,20 @@ msgid "Without Unicode UTF-16 support.\n"
 msgstr "Unicode UTF-16 támogatás nélkül.\n"
 
 #: common.c:721
-#, fuzzy
 msgid "With Unicode file name support.\n"
-msgstr "Unicode UTF-16 támogatással.\n"
+msgstr "Unicode fájlnévtámogatással.\n"
 
 #: common.c:723
-#, fuzzy
 msgid "Without Unicode file name support.\n"
-msgstr "Unicode UTF-16 támogatás nélkül.\n"
+msgstr "Unicode fájlnévtámogatás nélkül.\n"
 
 #: common.c:727
 msgid "With native language support.\n"
 msgstr "Natív nyelvi támogatással.\n"
 
 #: common.c:863
-#, fuzzy
 msgid "Path for temporary output file is too long:"
-msgstr "Nem sikerült írni a(z) %s átmeneti kimeneti fájlba: %s\n"
+msgstr "Az átmeneti kimeneti fájl útvonala túl hosszú:"
 
 #: common.c:1144 common.c:1151 common.c:1158 common.c:1165 common.c:1177
 #: common.c:1184
@@ -414,7 +411,7 @@ msgid "UTF-8"
 msgstr "UTF-8"
 
 #: common.c:1229
-#, fuzzy, c-format
+#, c-format
 msgid "Input file %s has %s BOM.\n"
 msgstr "A(z) %s bemeneti fájl %s BOM-mal rendelkezik.\n"
 
@@ -437,24 +434,24 @@ msgid "using %s as temporary file\n"
 msgstr "%s használata átmeneti fájlként\n"
 
 #: common.c:1501 common.c:2160
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to close input file %s:"
-msgstr "Nem sikerült megnyitni az átmeneti kimeneti fájlt: %s\n"
+msgstr "A(z) %s bemeneti fájl bezárása sikertelen:"
 
 #: common.c:1514
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to write to temporary output file %s:"
-msgstr "Nem sikerült írni a(z) %s átmeneti kimeneti fájlba: %s\n"
+msgstr "Nem sikerült írni a(z) %s átmeneti kimeneti fájlba:"
 
 #: common.c:1537
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to change the permissions of temporary output file %s:"
-msgstr "Nem sikerült megváltoztatni a(z) %s átmeneti kimeneti fájl jogosultságait: %s\n"
+msgstr "Nem sikerült megváltoztatni a(z) %s átmeneti kimeneti fájl jogosultságait:"
 
 #: common.c:1554
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to change the owner and group of temporary output file %s:"
-msgstr "Nem sikerült megváltoztatni a(z) %s átmeneti kimeneti fájl tulajdonosát és csoportját: %s\n"
+msgstr "Nem sikerült megváltoztatni a(z) %s átmeneti kimeneti fájl tulajdonosát és csoportját:"
 
 #: common.c:1601
 #, c-format
@@ -464,17 +461,17 @@ msgstr "hiba a(z) „%s” szimbolikus link feloldásakor\n"
 #: common.c:1602 common.c:1634
 #, c-format
 msgid "          output file remains in '%s'\n"
-msgstr "          kimeneti fájl maradt ebben: „%s”\n"
+msgstr "          a kimeneti fájl itt marad: „%s”\n"
 
 #: common.c:1628
-#, fuzzy, c-format
+#, c-format
 msgid "problems renaming '%s' to '%s':"
-msgstr "hiba a(z) „%s” átnevezésekor erre: „%s”: %s\n"
+msgstr "hiba a(z) „%s” átnevezésekor erre: „%s”:"
 
 #: common.c:1632
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
-msgstr "          mi a(z) „%s” szimbolikus link célja\n"
+msgstr "          ami a(z) „%s” szimbolikus link célja\n"
 
 #: common.c:1695 common.c:1787 common.c:1873
 #, c-format
@@ -497,9 +494,9 @@ msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\
 msgstr "A(z) %s UTF-16 fájl kihagyása, egy UTF-16 átalakítási hiba történt a(z) %u. sorban.\n"
 
 #: common.c:1709 common.c:1801 common.c:1887
-#, fuzzy, c-format
+#, c-format
 msgid "Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"
-msgstr "A(z) %s UTF-16 fájl kihagyása, egy UTF-16 átalakítási hiba történt a(z) %u. sorban.\n"
+msgstr "A(z) %s UTF-16 fájl kihagyása, az UTF-16 átalakítás nem támogatott a %s ezen verziójában.\n"
 
 #: common.c:1775 common.c:1864 common.c:1929
 #, c-format
@@ -608,9 +605,9 @@ msgid "problems converting file %s\n"
 msgstr "hiba a(z) %s fájl átalakításakor\n"
 
 #: common.c:2041 common.c:2091
-#, fuzzy, c-format
+#, c-format
 msgid "can not read from input file %s:"
-msgstr "nem sikerült olvasni a(z) %s bemeneti fájlból: %s\n"
+msgstr "nem sikerült olvasni a(z) %s bemeneti fájlból:"
 
 #: common.c:2259
 #, c-format
@@ -633,9 +630,9 @@ msgid "option '%s' requires an argument\n"
 msgstr "a(z) „%s” kapcsolóhoz argumentum szükséges\n"
 
 #: common.c:2469
-#, fuzzy, c-format
+#, c-format
 msgid "invalid %s display encoding specified\n"
-msgstr "érvénytelen %s átalakítási mód lett megadva\n"
+msgstr "érvénytelen %s megjelenítési kódolás lett megadva\n"
 
 #: common.c:2489 common.c:2502 common.c:2568
 #, c-format
@@ -660,9 +657,8 @@ msgstr "hiba: Érvénytelen helyettesítő pár. Hiányzó alacsony helyettesít
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "hiba: Érvénytelen helyettesítő pár. Hiányzó magas helyettesítő.\n"
 
-#, fuzzy
-#~ msgid "has %s BOM.\n"
-#~ msgstr "%s BOM írása.\n"
+#~ msgid "can not read from input file %s: %s\n"
+#~ msgstr "nem sikerült olvasni a(z) %s bemeneti fájlból: %s\n"
 
 #~ msgid "WINVER 0x%X\n"
 #~ msgstr "WINVER 0x%X\n"
