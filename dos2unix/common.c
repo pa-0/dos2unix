@@ -2099,7 +2099,6 @@ void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, con
 
 int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
 {
-  int RetVal = 0;
   FILE *InF = NULL;
   int bomtype_orig = FILE_MBS; /* messages must print the real bomtype, not the assumed bomtype */
 
@@ -2129,26 +2128,22 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
       D2U_UTF8_FPRINTF(stderr, "%s: %s: ", progname, ipInFN);
       D2U_ANSI_FPRINTF(stderr, "%s\n", errstr);
     }
-    RetVal = -1;
+    return -1;
   }
 
 
-  if (!RetVal)
-    if (check_unicode_info(InF, ipFlag, progname, &bomtype_orig))
-      RetVal = -1;
+  if (check_unicode_info(InF, ipFlag, progname, &bomtype_orig))
+   return -1;
 
   /* info sucessful? */
 #ifdef D2U_UNICODE
-  if (!RetVal) {
-    if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
-      FileInfoW(InF, ipFlag, ipInFN, bomtype_orig, progname);
-    } else {
-      FileInfo(InF, ipFlag, ipInFN, bomtype_orig, progname);
-    }
+  if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
+    FileInfoW(InF, ipFlag, ipInFN, bomtype_orig, progname);
+  } else {
+    FileInfo(InF, ipFlag, ipInFN, bomtype_orig, progname);
   }
 #else
-  if (!RetVal)
-    FileInfo(InF, ipFlag, ipInFN, bomtype_orig, progname);
+  FileInfo(InF, ipFlag, ipInFN, bomtype_orig, progname);
 #endif
 
   /* can close in file? */
@@ -2160,10 +2155,10 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
       D2U_UTF8_FPRINTF(stderr, _("Failed to close input file %s:"), ipInFN);
       D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
     }
-    RetVal = -1;
+    return -1;
   }
 
-  return RetVal;
+  return 0;
 }
 
 int GetFileInfoStdio(CFlag *ipFlag, const char *progname)

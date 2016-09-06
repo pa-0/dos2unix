@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.2.1-beta1\n"
-"POT-Creation-Date: 2016-02-11 20:33+0100\n"
+"POT-Creation-Date: 2016-09-06 21:21+0200\n"
 "PO-Revision-Date: 2015-03-19 09:38+0100\n"
 "Last-Translator: Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
@@ -15,6 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Generator: Poedit 1.7.5\n"
 
 #. type: =head1
@@ -1269,14 +1270,16 @@ msgstr "Lee la entrada desde 'stdin' y escribe la salida a 'stdout':"
 #: dos2unix.pod:666
 #, fuzzy, no-wrap
 #| msgid ""
-#| "    find . -name *.txt |xargs dos2unix\n"
+#| "    dos2unix -k a.txt\n"
+#| "    dos2unix -k -o a.txt\n"
 #| "\n"
 msgid ""
 "    dos2unix < a.txt\n"
 "    cat a.txt | dos2unix\n"
 "\n"
 msgstr ""
-"    find . -name *.txt |xargs dos2unix\n"
+"    dos2unix -k a.txt\n"
+"    dos2unix -k -o a.txt\n"
 "\n"
 
 #. type: textblock

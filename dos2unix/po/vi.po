@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-25 21:49+0200\n"
+"POT-Creation-Date: 2016-09-06 21:07+0200\n"
 "PO-Revision-Date: 2016-05-14 08:17+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -15,6 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-Basepath: ../\n"
 "X-Generator: Gtranslator 2.91.7\n"
@@ -417,7 +418,7 @@ msgstr "Gặp lỗi khi mở tập tin đầu ra tạm thời: %s\n"
 msgid "using %s as temporary file\n"
 msgstr "đang dùng %s làm tập tin tạm\n"
 
-#: common.c:1501 common.c:2160
+#: common.c:1501 common.c:2155
 #, c-format
 msgid "Failed to close input file %s:"
 msgstr "Gặp lỗi khi đóng đầu vào %s:"
@@ -593,51 +594,51 @@ msgstr "gặp trục trặc khi chuyển đổi tập tin %s\n"
 msgid "can not read from input file %s:"
 msgstr "không thể đọc từ tập tin đầu vào %s:"
 
-#: common.c:2259
+#: common.c:2254
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "cờ “%c” cho tùy chọn -i hay --info bị sai\n"
 
-#: common.c:2384 common.c:2427
+#: common.c:2379 common.c:2422
 #, c-format
 msgid "active code page: %d\n"
 msgstr "trang mã đang hoạt động: %d\n"
 
-#: common.c:2439
+#: common.c:2434
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "đã đưa ra chế độ chuyển đổi %s không hợp lệ\n"
 
-#: common.c:2447 common.c:2477
+#: common.c:2442 common.c:2472
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "tùy chọn “%s” yêu cầu một đối số\n"
 
-#: common.c:2469
+#: common.c:2464
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "đã đưa ra bảng mã hiển thị không hợp lệ %s\n"
 
-#: common.c:2489 common.c:2502 common.c:2568
+#: common.c:2484 common.c:2497 common.c:2563
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "đích của tập tin %s không được chỉ định trong chế độ tập-tin-mới\n"
 
-#: common.c:2580
+#: common.c:2575
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "không thể đọc từ tập tin đầu vào: %s\n"
 
-#: common.c:2590 common.c:2602
+#: common.c:2585 common.c:2597
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "không thể ghi vào tập tin đầu ra: %s\n"
 
-#: common.c:2677
+#: common.c:2672
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "lỗi: Cặp thay thế không hợp lệ. Thiếu cái thay thế dưới.\n"
 
-#: common.c:2693
+#: common.c:2688
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "lỗi: Cặp thay thế không hợp lệ. Thiếu cái thay thế trên.\n"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3-beta8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-25 21:49+0200\n"
+"POT-Creation-Date: 2016-09-06 21:07+0200\n"
 "PO-Revision-Date: 2015-08-23 11:37+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
 
@@ -418,7 +419,7 @@ msgstr "Malsukcesis malfermi provizoran eligan dosieron: %s\n"
 msgid "using %s as temporary file\n"
 msgstr "uziĝas %s kiel provizora dosiero\n"
 
-#: common.c:1501 common.c:2160
+#: common.c:1501 common.c:2155
 #, fuzzy, c-format
 msgid "Failed to close input file %s:"
 msgstr "Malsukcesis malfermi provizoran eligan dosieron: %s\n"
@@ -594,51 +595,51 @@ msgstr "problemoj dum konverto de dosiero %s\n"
 msgid "can not read from input file %s:"
 msgstr "ne eblas legi el eniga dosiero %s:"
 
-#: common.c:2259
+#: common.c:2254
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "malĝusta flago '%c' por opcio '-i' aŭ '--info'\n"
 
-#: common.c:2384 common.c:2427
+#: common.c:2379 common.c:2422
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktiva kodpaĝo: %d\n"
 
-#: common.c:2439
+#: common.c:2434
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "malvalida konvertmoduso %s indikatas\n"
 
-#: common.c:2447 common.c:2477
+#: common.c:2442 common.c:2472
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "opcio '%s' bezonas argumenton\n"
 
-#: common.c:2469
+#: common.c:2464
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "malvalida montra kodprezento %s indikatas\n"
 
-#: common.c:2489 common.c:2502 common.c:2568
+#: common.c:2484 common.c:2497 common.c:2563
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "celo de dosiero %s ne indikatas (en novdosiera moduso)\n"
 
-#: common.c:2580
+#: common.c:2575
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "ne eblas legi el eniga dosiero: %s\n"
 
-#: common.c:2590 common.c:2602
+#: common.c:2585 common.c:2597
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "ne eblas skribi al eliga dosiero: %s\n"
 
-#: common.c:2677
+#: common.c:2672
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "eraro: nevalida surogata paro -- mankas la baza parto\n"
 
-#: common.c:2693
+#: common.c:2688
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "eraro: nevalida surogata paro -- mankas la supra parto\n"
 

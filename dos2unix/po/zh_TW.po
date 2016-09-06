@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-25 21:49+0200\n"
+"POT-Creation-Date: 2016-09-06 21:07+0200\n"
 "PO-Revision-Date: 2014-03-14 00:43+0800\n"
 "Last-Translator: mail6543210 <mail6543210@yahoo.com.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -14,6 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Generator: Poedit 1.6.4\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
@@ -27,7 +28,7 @@ msgid ""
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Copyright (C) 2009-2015 Erwin Waterlander\n"
+"Copyright (C) 2009-2014 Erwin Waterlander\n"
 "Copyright (C) 1998      Christian Wurll (版本 3.1)\n"
 "Copyright (C) 1998      Bernd Johannes Wuebben (版本 3.0)\n"
 "Copyright (C) 1994-1995 Benjamin Lin\n"
@@ -35,9 +36,9 @@ msgstr ""
 "\n"
 
 #: dos2unix.c:212 dos2unix.c:249 unix2dos.c:149 unix2dos.c:209
-#, c-format
+#, fuzzy, c-format
 msgid "Binary symbol 0x00%02X found at line %u\n"
-msgstr "找到二進位符號0x00%02X 在第%u 行\n"
+msgstr "找到二進位符號0x00%02X 在第%d 行\n"
 
 #: dos2unix.c:305 dos2unix.c:488 unix2dos.c:261 unix2dos.c:461
 #, c-format
@@ -55,9 +56,9 @@ msgid "using code page %d.\n"
 msgstr "使用 %d 編碼頁。\n"
 
 #: dos2unix.c:395 dos2unix.c:432 unix2dos.c:349 unix2dos.c:409
-#, c-format
+#, fuzzy, c-format
 msgid "Binary symbol 0x%02X found at line %u\n"
-msgstr "找到二進位符號0x%02X 在第%u 行\n"
+msgstr "找到二進位符號0x%02X 在第%d 行\n"
 
 #: dos2unix.c:529 unix2dos.c:502
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
@@ -71,7 +72,7 @@ msgid ""
 "All rights reserved.\n"
 "\n"
 msgstr ""
-"Copyright © 2009-2015 Erwin Waterlander\n"
+"Copyright © 2009-2014 Erwin Waterlander\n"
 "Copyright © 1994-1995 Benjamin Lin\n"
 "保留所有權利。\n"
 "\n"
@@ -184,13 +185,10 @@ msgstr ""
 "   convmode            ascii, 7bit, iso, mac, 預設為ascii\n"
 
 #: common.c:628
-#, fuzzy
 msgid ""
 " -D, --display-enc     set encoding of displayed text messages\n"
 "   encoding            ansi, unicode, utf8, default to ansi\n"
 msgstr ""
-" -c, --convmode        轉換模式\n"
-"   convmode            ascii, 7bit, iso, mac, 預設為ascii\n"
 
 #: common.c:631
 msgid " -f, --force           force conversion of binary files\n"
@@ -249,8 +247,11 @@ msgstr ""
 "   file ...            原檔模式中要轉換的檔案\n"
 
 #: common.c:649
+#, fuzzy
 msgid " -q, --quiet           quiet mode, suppress all warnings\n"
-msgstr " -q, --quiet           安靜模式，抑制所有警告\n"
+msgstr ""
+" -q, --quiet           安靜模式，抑制所有警告\n"
+"                         (標準輸出入模式下永遠啟用)\n"
 
 #: common.c:651
 #, fuzzy
@@ -390,7 +391,7 @@ msgstr "含本地語言支援。\n"
 #: common.c:863
 #, fuzzy
 msgid "Path for temporary output file is too long:"
-msgstr "暫存檔寫入失敗%s：%s\n"
+msgstr "暫存檔 %s 開啟失敗\n"
 
 #: common.c:1144 common.c:1151 common.c:1158 common.c:1165 common.c:1177
 #: common.c:1184
@@ -437,7 +438,7 @@ msgstr "暫存檔 %s 開啟失敗\n"
 msgid "using %s as temporary file\n"
 msgstr "使用 %s 作為暫存檔\n"
 
-#: common.c:1501 common.c:2160
+#: common.c:1501 common.c:2155
 #, fuzzy, c-format
 msgid "Failed to close input file %s:"
 msgstr "暫存檔 %s 開啟失敗\n"
@@ -613,57 +614,53 @@ msgstr "轉換檔案 %s 錯誤\n"
 msgid "can not read from input file %s:"
 msgstr "無法寫入輸出檔：%s\n"
 
-#: common.c:2259
+#: common.c:2254
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr ""
 
-#: common.c:2384 common.c:2427
+#: common.c:2379 common.c:2422
 #, c-format
 msgid "active code page: %d\n"
 msgstr "作用中編碼頁：%d\n"
 
-#: common.c:2439
+#: common.c:2434
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "指定的轉換模式 %s 不合法\n"
 
-#: common.c:2447 common.c:2477
+#: common.c:2442 common.c:2472
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "選項'%s' 需要一個引數\n"
 
-#: common.c:2469
+#: common.c:2464
 #, fuzzy, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "指定的轉換模式 %s 不合法\n"
 
-#: common.c:2489 common.c:2502 common.c:2568
+#: common.c:2484 common.c:2497 common.c:2563
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "新檔模式中未指明檔案 %s 的目的位置\n"
 
-#: common.c:2580
+#: common.c:2575
 #, fuzzy, c-format
 msgid "can not read from input file: %s\n"
 msgstr "無法寫入輸出檔：%s\n"
 
-#: common.c:2590 common.c:2602
+#: common.c:2585 common.c:2597
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "無法寫入輸出檔：%s\n"
 
-#: common.c:2677
+#: common.c:2672
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr ""
 
-#: common.c:2693
+#: common.c:2688
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr ""
 
-#, fuzzy
-#~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8 or GB18030.\n"
+#~ msgid "Skipping UTF-16 file %s, the current locale character encoding is not UTF-8.\n"
 #~ msgstr "略過 UTF-16 檔案 %s，目前語言字元編碼並非UTF-8。\n"
-
-#~ msgid " -m, --add-bom         add UTF-8 Byte Order Mark\n"
-#~ msgstr " -m, --add-bom         加入UTF-8 BOM\n"

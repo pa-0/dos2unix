@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-25 21:49+0200\n"
+"POT-Creation-Date: 2016-09-06 21:07+0200\n"
 "PO-Revision-Date: 2016-05-17 07:50+0200\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -16,6 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
@@ -435,7 +436,7 @@ msgstr "Die temporäre Ausgabedatei konnte nicht geöffnet werden: %s\n"
 msgid "using %s as temporary file\n"
 msgstr "%s wird als temporäre Datei verwendet\n"
 
-#: common.c:1501 common.c:2160
+#: common.c:1501 common.c:2155
 #, c-format
 msgid "Failed to close input file %s:"
 msgstr "Die Eingabedatei konnte nicht geschlossen werden: %s"
@@ -611,51 +612,51 @@ msgstr "Beim Umwandeln von Datei %s sind Probleme aufgetreten\n"
 msgid "can not read from input file %s:"
 msgstr "Aus der Eingabedatei %s kann nicht gelesen werden:"
 
-#: common.c:2259
+#: common.c:2254
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "falsches Flag »%c« für Option -i oder --info\n"
 
-#: common.c:2384 common.c:2427
+#: common.c:2379 common.c:2422
 #, c-format
 msgid "active code page: %d\n"
 msgstr "Aktive Codepage: %d\n"
 
-#: common.c:2439
+#: common.c:2434
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "Der angegebene Umwandlungsmodus %s ist unzulässig\n"
 
-#: common.c:2447 common.c:2477
+#: common.c:2442 common.c:2472
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "Die Option »%s« benötigt ein Argument\n"
 
-#: common.c:2469
+#: common.c:2464
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "Die angegebene Ausgabekodierung %s ist unzulässig\n"
 
-#: common.c:2489 common.c:2502 common.c:2568
+#: common.c:2484 common.c:2497 common.c:2563
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "Das Ziel der Datei %s wurde für den Neudatei-Modus nicht angegeben\n"
 
-#: common.c:2580
+#: common.c:2575
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "Aus der Eingabedatei kann nicht gelesen werden: %s\n"
 
-#: common.c:2590 common.c:2602
+#: common.c:2585 common.c:2597
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "In die Ausgabedatei kann nicht geschrieben werden: %s\n"
 
-#: common.c:2677
+#: common.c:2672
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "Fehler: Ungültiges Surrogate-Paar. Das Low-Surrogate fehlt.\n"
 
-#: common.c:2693
+#: common.c:2688
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "Fehler: Ungültiges Surrogate-Paar. Das High-Surrogate fehlt.\n"
 

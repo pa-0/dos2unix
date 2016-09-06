@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-25 21:49+0200\n"
-"PO-Revision-Date: 2016-05-14 08:40+0200\n"
+"POT-Creation-Date: 2016-09-06 21:07+0200\n"
+"PO-Revision-Date: 2016-07-31 15:38+0800\n"
 "Last-Translator: Sebastian Rasmussen <sebras@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 1.8.8\n"
 
 #: dos2unix.c:79
 #, c-format
@@ -92,7 +93,8 @@ msgstr ""
 "modifiering, är tillåten givet att följande villkor är uppfyllda:\n"
 "1. Omdistribution av källkod måste behålla den ovanstående notisen om\n"
 "   upphovsrätt, denna lista av villkor och den efterföljande \n"
-"   ansvarsfriskrivningen.2. Omdistribution i binär form måste återge den ovanstående notisen om\n"
+"   ansvarsfriskrivningen.\n"
+"2. Omdistribution i binär form måste återge den ovanstående notisen om\n"
 "   upphovsrätt i dokumentationen och/eller annat material som följer\n"
 "   med distributionen.\n"
 "\n"
@@ -140,7 +142,7 @@ msgstr " -iso                  konvertering mellan DOS och ISO-8859-1 teckenupps
 
 #: common.c:614
 msgid "   -1252               use Windows code page 1252 (Western European)\n"
-msgstr "   -1252               använd Windows teckentabell 1252 (Västeuropeisk)\n"
+msgstr "   -1252               använd Windows teckentabell 1252 (västeuropeisk)\n"
 
 #: common.c:615
 msgid "   -437                use DOS code page 437 (US) (default)\n"
@@ -148,7 +150,7 @@ msgstr "   -437                använd DOS teckentabell 437 (USA) (standard)\n"
 
 #: common.c:616
 msgid "   -850                use DOS code page 850 (Western European)\n"
-msgstr "   -850                använd DOS teckentabell 850 (Västeuropeisk)\n"
+msgstr "   -850                använd DOS teckentabell 850 (västeuropeisk)\n"
 
 #: common.c:617
 msgid "   -860                use DOS code page 860 (Portuguese)\n"
@@ -216,7 +218,7 @@ msgstr " -k, --keepdate        behåll datum för utmatningsfilen\n"
 
 #: common.c:641
 msgid " -L, --license         display software license\n"
-msgstr " -L, --license         visa mjukvarulicensen\n"
+msgstr " -L, --license         visa programvarulicensen\n"
 
 #: common.c:642
 msgid " -l, --newline         add additional newline\n"
@@ -428,7 +430,7 @@ msgstr "Misslyckades att öppna temporär utmatningsfil: %s\n"
 msgid "using %s as temporary file\n"
 msgstr "använder %s som temporär fil\n"
 
-#: common.c:1501 common.c:2160
+#: common.c:1501 common.c:2155
 #, c-format
 msgid "Failed to close input file %s:"
 msgstr "Misslyckades att stänga inmatningsfil %s:"
@@ -491,7 +493,7 @@ msgstr "Hoppar över UTF-16-fil %s, ett UTF-16-konverteringsfel inträffade på 
 #: common.c:1709 common.c:1801 common.c:1887
 #, c-format
 msgid "Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"
-msgstr "Hoppar över UTF-16 fil %s, UTF-16-konvertering saknar stöd i denna version av %s.\n"
+msgstr "Hoppar över UTF-16-fil %s, UTF-16-konvertering saknar stöd i denna version av %s.\n"
 
 #: common.c:1775 common.c:1864 common.c:1929
 #, c-format
@@ -604,50 +606,50 @@ msgstr "fel vid konvertering av fil %s\n"
 msgid "can not read from input file %s:"
 msgstr "kan inte läsa från inmatningsfil %s:"
 
-#: common.c:2259
+#: common.c:2254
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "felaktig flagga '%c' för argumentet -i eller --info\n"
 
-#: common.c:2384 common.c:2427
+#: common.c:2379 common.c:2422
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktiv teckentabell: %d\n"
 
-#: common.c:2439
+#: common.c:2434
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "ogiltigt konverteringsläge %s angivet\n"
 
-#: common.c:2447 common.c:2477
+#: common.c:2442 common.c:2472
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "flaggan ”%s” kräver ett argument\n"
 
-#: common.c:2469
+#: common.c:2464
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "ogiltig %s-kodning angiven\n"
 
-#: common.c:2489 common.c:2502 common.c:2568
+#: common.c:2484 common.c:2497 common.c:2563
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "målet för fil %s specificerades inte i nyfilsläge\n"
 
-#: common.c:2580
+#: common.c:2575
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "kan inte läsa från inmatningsfil: %s\n"
 
-#: common.c:2590 common.c:2602
+#: common.c:2585 common.c:2597
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "kan inte skriva till utfil: %s\n"
 
-#: common.c:2677
+#: common.c:2672
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "fel: Ogiltigt surrogatpar. Den lägre delen av surrogatparet saknas.\n"
 
-#: common.c:2693
+#: common.c:2688
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "fel: Ogiltigt surrogatpar. Den högre delen av surrogatparet saknas.\n"
