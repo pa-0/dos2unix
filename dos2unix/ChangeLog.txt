@@ -1,3 +1,6 @@
+2016-09-20 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Code cleanup.
+
 2016-09-06 Erwin Waterlander <waterlan@xs4all.nl>
 	* dos2unix.c,unix2dos.c,common.c: Code cleanup.
 

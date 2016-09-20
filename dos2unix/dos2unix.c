@@ -520,14 +520,14 @@ int main (int argc, char *argv[])
 #ifdef ENABLE_NLS
    ptr = getenv("DOS2UNIX_LOCALEDIR");
    if (ptr == NULL)
-      strncpy(localedir,LOCALEDIR,sizeof(localedir));
+      d2u_strncpy(localedir,LOCALEDIR,sizeof(localedir));
    else {
       if (strlen(ptr) < sizeof(localedir))
-         strncpy(localedir,ptr,sizeof(localedir));
+         d2u_strncpy(localedir,ptr,sizeof(localedir));
       else {
          D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
          D2U_ANSI_FPRINTF(stderr, "%s", _("error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"));
-         strncpy(localedir,LOCALEDIR,sizeof(localedir));
+         d2u_strncpy(localedir,LOCALEDIR,sizeof(localedir));
       }
    }
 #endif

@@ -300,6 +300,7 @@ wint_t d2u_getwc(FILE *f, int bomtype);
 wint_t d2u_ungetwc(wint_t wc, FILE *f, int bomtype);
 wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname);
 #endif
+char *d2u_strncpy(char *dest, const char *src, size_t dest_size);
 
 #ifdef D2U_UNIFILE
 #define UNICODE

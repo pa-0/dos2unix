@@ -58,6 +58,42 @@ int d2u_display_encoding = D2U_DISPLAY_ANSI ;
 #endif
 int header_done = 0;
 
+/* Copy string src to dest, and null terminate dest.
+   dest_size must be the buffer size of dest. */
+char *d2u_strncpy(char *dest, const char *src, size_t dest_size)
+{
+    strncpy(dest,src,dest_size);
+    dest[dest_size-1] = '\0';
+#ifdef DEBUG
+    if(strlen(src) > (dest_size-1)) {
+        D2U_UTF8_FPRINTF(stderr, "Text %s has been truncated from %d to %d characters in %s to prevent a buffer overflow.\n", src, (int)strlen(src), (int)dest_size, "d2u_strncpy()");
+    }
+#endif
+    return dest;
+}
+
+int d2u_fclose (FILE *fp, const char *filename, CFlag *ipFlag, const char *m, const char *progname)
+{
+  if (fclose(fp) != 0) {
+    if (ipFlag->verbose) {
+      ipFlag->error = errno;
+      D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+      if (m[0] == 'w')
+        D2U_UTF8_FPRINTF(stderr, _("Failed to write to temporary output file %s:"), filename);
+      else
+        D2U_UTF8_FPRINTF(stderr, _("Failed to close input file %s:"), filename);
+      D2U_ANSI_FPRINTF(stderr, " %s\n", strerror(errno));
+    }
+    return EOF;
+  }
+#if DEBUG
+  else
+     fprintf(stderr, "%s: Closing file \"%s\" OK.\n", progname, filename);
+#endif
+  return 0;
+}
+
+
 /*
  * Print last system error on Windows.
  *
@@ -895,7 +931,7 @@ char *d2u_mktemp(char *template)
   fname_str = (char *)malloc(len);
   if (! fname_str)
     return NULL;
-  strcpy(fname_str, szTempFileName);
+  d2u_strncpy(fname_str, szTempFileName,len);
 #endif
   /* replace all back slashes with slashes */
   while ( (ptr = strchr(fname_str,'\\')) != NULL)
@@ -1194,16 +1230,16 @@ void print_bom (const int bomtype, const char *filename, const char *progname)
 
     switch (bomtype) {
     case FILE_UTF16LE:   /* UTF-16 Little Endian */
-      strncpy(informat,_("UTF-16LE"),sizeof(informat));
+      d2u_strncpy(informat,_("UTF-16LE"),sizeof(informat));
       break;
     case FILE_UTF16BE:   /* UTF-16 Big Endian */
-      strncpy(informat,_("UTF-16BE"),sizeof(informat));
+      d2u_strncpy(informat,_("UTF-16BE"),sizeof(informat));
       break;
     case FILE_UTF8:      /* UTF-8 */
-      strncpy(informat,_("UTF-8"),sizeof(informat));
+      d2u_strncpy(informat,_("UTF-8"),sizeof(informat));
       break;
     case FILE_GB18030:      /* GB18030 */
-      strncpy(informat,_("GB18030"),sizeof(informat));
+      d2u_strncpy(informat,_("GB18030"),sizeof(informat));
       break;
     default:
     ;
@@ -1493,29 +1529,13 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
 #endif
 
    /* can close in file? */
-  if (fclose(InF) == EOF) {
-    if (ipFlag->verbose) {
-      ipFlag->error = errno;
-      errstr = strerror(errno);
-      D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
-      D2U_UTF8_FPRINTF(stderr, _("Failed to close input file %s:"), ipInFN);
-      D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
-    }
+  if (d2u_fclose(InF, ipInFN, ipFlag, "r", progname) == EOF)
     RetVal = -1;
-  }
 
   /* can close output file? */
   if (TempF) {
-    if (fclose(TempF) == EOF) {
-      if (ipFlag->verbose) {
-        ipFlag->error = errno;
-        errstr = strerror(errno);
-        D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
-        D2U_UTF8_FPRINTF(stderr, _("Failed to write to temporary output file %s:"), TempPath);
-        D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
-      }
+    if (d2u_fclose(TempF, TempPath, ipFlag, "w", progname) == EOF)
       RetVal = -1;
-    }
   }
 
 #ifndef NO_CHMOD
@@ -1717,30 +1737,30 @@ void print_format(const CFlag *pFlag, char *informat, char *outformat, size_t li
   outformat[0]='\0';
 
   if (pFlag->bomtype == FILE_UTF16LE)
-    strncpy(informat,_("UTF-16LE"),lin);
+    d2u_strncpy(informat,_("UTF-16LE"),lin);
   if (pFlag->bomtype == FILE_UTF16BE)
-    strncpy(informat,_("UTF-16BE"),lin);
+    d2u_strncpy(informat,_("UTF-16BE"),lin);
   informat[lin-1]='\0';
 
 #ifdef D2U_UNICODE
   if ((pFlag->bomtype == FILE_UTF16LE)||(pFlag->bomtype == FILE_UTF16BE)) {
 #if !defined(__MSDOS__) && !defined(_WIN32) && !defined(__OS2__)  /* Unix, Cygwin */
-    strncpy(outformat,nl_langinfo(CODESET),lout);
+    d2u_strncpy(outformat,nl_langinfo(CODESET),lout);
 #endif
 
 #if defined(_WIN32) && !defined(__CYGWIN__) /* Windows, not Cygwin */
     if (pFlag->locale_target == TARGET_GB18030)
-      strncpy(outformat, _("GB18030"),lout);
+      d2u_strncpy(outformat, _("GB18030"),lout);
     else
-      strncpy(outformat, _("UTF-8"),lout);
+      d2u_strncpy(outformat, _("UTF-8"),lout);
 #endif
 
     if (pFlag->keep_utf16)
     {
       if (pFlag->bomtype == FILE_UTF16LE)
-        strncpy(outformat,_("UTF-16LE"),lout);
+        d2u_strncpy(outformat,_("UTF-16LE"),lout);
       if (pFlag->bomtype == FILE_UTF16BE)
-        strncpy(outformat,_("UTF-16BE"),lout);
+        d2u_strncpy(outformat,_("UTF-16BE"),lout);
     }
     outformat[lout-1]='\0';
   }
@@ -2132,8 +2152,10 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
   }
 
 
-  if (check_unicode_info(InF, ipFlag, progname, &bomtype_orig))
-   return -1;
+  if (check_unicode_info(InF, ipFlag, progname, &bomtype_orig)) {
+    d2u_fclose(InF, ipInFN, ipFlag, "r", progname);
+    return -1;
+  }
 
   /* info sucessful? */
 #ifdef D2U_UNICODE
@@ -2147,16 +2169,8 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
 #endif
 
   /* can close in file? */
-  if (fclose(InF) == EOF) {
-    if (ipFlag->verbose) {
-      char *errstr = strerror(errno);
-      ipFlag->error = errno;
-      D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
-      D2U_UTF8_FPRINTF(stderr, _("Failed to close input file %s:"), ipInFN);
-      D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
-    }
+  if (d2u_fclose(InF, ipInFN, ipFlag, "r", progname) == EOF)
     return -1;
-  }
 
   return 0;
 }
