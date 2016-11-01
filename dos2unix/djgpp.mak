@@ -13,6 +13,9 @@ LINK = ln -sf
 # with DJGPP 2.05 do not work.
 #LINK = cp -f
 
+# The install and dist targets can be run in MSYS. The OS variable must be
+# forced to msdos, otherwise extra targets will get build in MSYS.
+
 # On DOS we need to set SHELL to sh.exe or bash.exe, otherwise targets may fail
 # (targets install and dist fail certainly). SHELL can't be overridden in this
 # make level. It sticks to command.com (at least with DJGPP 2.03 make 3.79.1).

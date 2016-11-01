@@ -419,7 +419,7 @@ man/%/man1/dos2unix.pod : po-man/%.po
 man/man1/dos2unix.pod : ;
 
 %.1 : %.pod
-	$(MAKE) -C man/man1 $(subst man/,../,$@)
+	$(MAKE) -C man/man1 PODCENTER=$(DOS2UNIX_DATE) $(subst man/,../,$@)
 
 mofiles: $(MOFILES)
 

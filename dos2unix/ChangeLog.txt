@@ -1,3 +1,9 @@
+2016-11-01 Jari Aalto <jari.aalto@cante.net>
+	* Makefile: Reproducible date in man pages.
+	* test/Makefile: Disable by default colored output. To enable colored
+	  output add PROVE_OPT=--color to the make command line.
+	* test/chk_loc.sh: Check for missing argument.
+
 2016-09-20 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Code cleanup.
 

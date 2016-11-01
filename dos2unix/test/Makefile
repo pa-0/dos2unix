@@ -26,35 +26,36 @@ ifeq ($(UCS),1)
 TESTS +=utf16.t
 endif
 
+PROVE_OPT ?= --nocolor
 
 all: test
 
 check: test
 
 test:
-	prove -v $(TESTS)
+	prove -v $(PROVE_OPT) $(TESTS)
 
 
 ascii:
-	prove -v $@.t
+	prove -v $(PROVE_OPT) $@.t
 
 iso:
-	prove -v $@.t
+	prove -v $(PROVE_OPT) $@.t
 
 misc:
-	prove -v $@.t
+	prove -v $(PROVE_OPT) $@.t
 
 utf8:
-	prove -v $@.t
+	prove -v $(PROVE_OPT) $@.t
 
 utf16:
-	prove -v $@.t
+	prove -v $(PROVE_OPT) $@.t
 
 gb18030:
-	prove -v $@.t
+	prove -v $(PROVE_OPT) $@.t
 
 symlink:
-	prove -v $@.t
+	prove -v $(PROVE_OPT) $@.t
 
 wcstombs:
 	$(CC) -Wall -Wextra wcstombs_test.c -o wcstombs_test

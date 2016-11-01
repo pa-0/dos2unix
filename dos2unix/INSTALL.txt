@@ -87,6 +87,18 @@ SELF-TESTS
     in an environment that supports long file names (LFN), e.g. on
     32 bit Windows.
 
+
+    To run the tests:
+
+        make test
+
+
+    Via the make variable PROVE_OPT extra arguments can be given to
+    the prove command. E.g.:
+
+        make test PROVE_OPT=--color
+
+
 INSTALLATION NAMES
 
     By default the 'install' target will install the program in
