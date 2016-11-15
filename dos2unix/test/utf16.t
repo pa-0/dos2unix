@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Requires perl-Test-Simple installation.
-use Test::Simple tests => 34;
+use Test::Simple tests => 32;
 
 $suffix = "";
 if (-e "../dos2unix.exe") {
@@ -21,7 +21,12 @@ $MAC2UNIX = "../mac2unix" . $suffix;
 $UNIX2DOS = "../unix2dos" . $suffix;
 $UNIX2MAC = "../unix2mac" . $suffix;
 
-$ENV{'LC_ALL'} = 'en_US.UTF-8';
+if (defined $ENV{'D2U_UTF8_LOCALE'}) {
+  $ENV{'LC_ALL'} = $ENV{'D2U_UTF8_LOCALE'};
+} else {
+  print "error: Environment variable D2U_UTF8_LOCALE is not set.";
+  exit 1;
+}
 
 system("$DOS2UNIX -v -n utf16le.txt out_unix.txt; cmp out_unix.txt utf8unix.txt");
 ok( $? == 0, 'DOS UTF-16LE to Unix UTF-8' );
@@ -98,12 +103,6 @@ ok( $? == 0, '7bit disabled for utf16');
 
 system("cmp out_u7.txt charu7.txt");
 ok( $? == 0, '7bit enabled again, dos2unix');
-
-system("$UNIX2DOS -v -7 -n utf8unxb.txt out_dos.txt charunix.txt out_d7.txt; cmp out_dos.txt utf8dos.txt");
-ok( $? == 0, '7bit disabled for utf8 with BOM');
-
-system("cmp out_d7.txt chard7.txt");
-ok( $? == 0, '7bit enabled again, unix2dos');
 
 system("$DOS2UNIX -i dos.txt unix.txt mac.txt mixed.txt utf16le.txt utf16be.txt utf16len.txt utf8unix.txt utf8dos.txt gb18030.txt > outinfo.txt");
 system("$DOS2UNIX outinfo.txt; diff info_ucs.txt outinfo.txt");

@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Requires perl-Test-Simple installation.
-use Test::Simple tests => 13;
+use Test::Simple tests => 14;
 
 $suffix = "";
 if (-e "../dos2unix.exe") {
@@ -12,10 +12,14 @@ $MAC2UNIX = "../mac2unix" . $suffix;
 $UNIX2DOS = "../unix2dos" . $suffix;
 $UNIX2MAC = "../unix2mac" . $suffix;
 
-$ENV{'LC_ALL'} = 'en_US.UTF-8';
-
 system("$DOS2UNIX -v -7 -n chardos.txt out_unix.txt; cmp out_unix.txt charu7.txt");
 ok( $? == 0, '7bit');
+
+system("$UNIX2DOS -v -7 -n utf8unxb.txt out_dos.txt charunix.txt out_d7.txt; cmp out_dos.txt utf8dos.txt");
+ok( $? == 0, '7bit disabled for utf8 with BOM');
+
+system("cmp out_d7.txt chard7.txt");
+ok( $? == 0, '7bit enabled again, unix2dos');
 
 system("$DOS2UNIX -v < dos.txt > out_unix.txt; cmp out_unix.txt unix.txt");
 ok( $? == 0, 'DOS to Unix conversion, stdin/out' );
@@ -78,6 +82,3 @@ ok( $? == 0, 'Unix2dos, force ASCII file with binary symbols' );
 system("$DOS2UNIX -i dos.txt unix.txt mac.txt mixed.txt utf16len.txt utf8unix.txt utf8dos.txt gb18030.txt > outinfo.txt");
 system("$DOS2UNIX outinfo.txt; diff info.txt outinfo.txt");
 ok( $? == 0, 'Option -i, --info');
-
-system("$DOS2UNIX -v -n gb18030.txt out_unix.txt; cmp out_unix.txt gb18030u.txt");
-ok( $? == 0, 'Remove GB18030 BOM');
