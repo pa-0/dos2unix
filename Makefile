@@ -46,7 +46,7 @@ dist:
 	cd .. ; rm -f ${RELEASE_DIR_D2U}.zip
 	cd .. ; zip -r ${RELEASE_DIR_D2U}.zip ${RELEASE_DIR_D2U}
 
-# Create package from local git repo.
+# Target: distlocal - Create package from local git repo.
 distlocal:
 	$(MAKE) dist GITREPO=${PWD}
 

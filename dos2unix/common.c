@@ -1335,7 +1335,6 @@ int check_unicode_info(FILE *InF, CFlag *ipFlag, const char *progname, int *bomt
 
 int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, const char *progname)
 {
-  int RetVal = 0;
 
 #ifdef D2U_UNICODE
   if (ipFlag->verbose > 1) {
@@ -1378,7 +1377,7 @@ int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, co
       /* A decoded UTF-16 surrogate pair must fit in a wchar_t */
       ipFlag->status |= WCHAR_T_TOO_SMALL ;
       if (!ipFlag->error) ipFlag->error = 1;
-      RetVal = -1;
+      return -1;
     }
   }
 #endif
@@ -1389,10 +1388,10 @@ int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, co
 #endif
 #endif
 
-  if ((!RetVal) && ((ipFlag->add_bom) || ((ipFlag->keep_bom) && (ipFlag->bomtype > 0))))
+  if ((ipFlag->add_bom) || ((ipFlag->keep_bom) && (ipFlag->bomtype > 0)))
     if (write_bom(TempF, ipFlag, progname) == NULL) return -1;
 
-  return RetVal;
+  return 0;
 }
 
 /* convert file ipInFN and write to file ipOutFN

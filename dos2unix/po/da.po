@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-20 23:01+0200\n"
-"PO-Revision-Date: 2016-05-15 12:07+0100\n"
+"POT-Creation-Date: 2016-11-15 23:40+0100\n"
+"PO-Revision-Date: 2016-11-10 12:07+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -373,7 +373,7 @@ msgstr "%s-version.\n"
 
 #: common.c:751
 msgid "With Unicode UTF-16 support.\n"
-msgstr "Med Unicode UTF-16-understøttelse.\n"
+msgstr "Med understøttelse for Unicode UTF-16.\n"
 
 #: common.c:753
 msgid "Without Unicode UTF-16 support.\n"
@@ -381,7 +381,7 @@ msgstr "Uden Unicode UTF-16-understøttelse.\n"
 
 #: common.c:757
 msgid "With Unicode file name support.\n"
-msgstr "Med Unicode filnavnsunderstøttelse.\n"
+msgstr "Med understøttelse for Unicode-filnavne.\n"
 
 #: common.c:759
 msgid "Without Unicode file name support.\n"
@@ -401,19 +401,19 @@ msgstr "Sti til midlertidig uddatafil er for lang:"
 msgid "Writing %s BOM.\n"
 msgstr "Skriver %s BOM.\n"
 
-#: common.c:1180 common.c:1233 common.c:1740 common.c:1761
+#: common.c:1180 common.c:1233 common.c:1739 common.c:1760
 msgid "UTF-16LE"
 msgstr "UTF-16LE"
 
-#: common.c:1187 common.c:1236 common.c:1742 common.c:1763
+#: common.c:1187 common.c:1236 common.c:1741 common.c:1762
 msgid "UTF-16BE"
 msgstr "UTF-16BE"
 
-#: common.c:1194 common.c:1213 common.c:1242 common.c:1753
+#: common.c:1194 common.c:1213 common.c:1242 common.c:1752
 msgid "GB18030"
 msgstr "GB18030"
 
-#: common.c:1201 common.c:1220 common.c:1239 common.c:1755
+#: common.c:1201 common.c:1220 common.c:1239 common.c:1754
 msgid "UTF-8"
 msgstr "UTF-8"
 
@@ -422,110 +422,110 @@ msgstr "UTF-8"
 msgid "Input file %s has %s BOM.\n"
 msgstr "Inddatafilen %s har %s BOM.\n"
 
-#: common.c:1301 common.c:1344
+#: common.c:1301 common.c:1343
 msgid "Assuming UTF-16LE encoding.\n"
 msgstr "Antager UTF-16LE-kodning.\n"
 
-#: common.c:1305 common.c:1348
+#: common.c:1305 common.c:1347
 msgid "Assuming UTF-16BE encoding.\n"
 msgstr "Antager UTF-16BE-kodning.\n"
 
-#: common.c:1493
+#: common.c:1492
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
 msgstr "Åbning af midlertidig outputfil mislykkedes: %s\n"
 
-#: common.c:1505
+#: common.c:1504
 #, c-format
 msgid "using %s as temporary file\n"
 msgstr "bruger %s som midlertidig fil\n"
 
-#: common.c:1557
+#: common.c:1556
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s:"
 msgstr "Ændring af tilladelser for midlertidig outputfil %s mislykkedes:"
 
-#: common.c:1574
+#: common.c:1573
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s:"
 msgstr "Ændring af ejer og gruppe for midlertidig outputfil %s mislykkedes:"
 
-#: common.c:1621
+#: common.c:1620
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
 msgstr "problemer med at følge symbolsk henvisning \"%s\"\n"
 
-#: common.c:1622 common.c:1654
+#: common.c:1621 common.c:1653
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          outputfil forbliver i \"%s\"\n"
 
-#: common.c:1648
+#: common.c:1647
 #, c-format
 msgid "problems renaming '%s' to '%s':"
 msgstr "der opstod problemer under omdøbning af »%s« til »%s«:"
 
-#: common.c:1652
+#: common.c:1651
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          som er målet for symbolsk henvisning \"%s\"\n"
 
-#: common.c:1715 common.c:1807 common.c:1893
+#: common.c:1714 common.c:1806 common.c:1892
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "Springer binær fil %s over\n"
 
-#: common.c:1718 common.c:1810 common.c:1896
+#: common.c:1717 common.c:1809 common.c:1895
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "tegnkodningstabel %d understøttes ikke.\n"
 
-#: common.c:1722 common.c:1814 common.c:1900 common.c:1960
+#: common.c:1721 common.c:1813 common.c:1899 common.c:1959
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "Springer UTF-16-filen %s over. Størrelsen på wchar_t er %d byte.\n"
 
-#: common.c:1725 common.c:1817 common.c:1903
+#: common.c:1724 common.c:1816 common.c:1902
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
 msgstr "Springer UTF-16-filen %s over. Der opstod en UTF-16-konverteringsfejl på linje %u.\n"
 
-#: common.c:1729 common.c:1821 common.c:1907
+#: common.c:1728 common.c:1820 common.c:1906
 #, c-format
 msgid "Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"
 msgstr "Springer UTF-16-filen %s over. UTF-16-konvertering er ikke understøttet i denne version af %s.\n"
 
-#: common.c:1795 common.c:1884 common.c:1949
+#: common.c:1794 common.c:1883 common.c:1948
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "Springer %s over, ikke en almindelig fil.\n"
 
-#: common.c:1798
+#: common.c:1797
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "Springer %s over. Outputfil %s er en symbolsk henvisning.\n"
 
-#: common.c:1801 common.c:1890 common.c:1954
+#: common.c:1800 common.c:1889 common.c:1953
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr "Springer symbolsk henvisning %s over. Målet er ikke en almindelig fil.\n"
 
-#: common.c:1804
+#: common.c:1803
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr "Springer %s over. Målet for symbolsk henvisning %s er ikke en almindelig fil.\n"
 
-#: common.c:1827
+#: common.c:1826
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "omdanner fil %s til fil %s i Unix-format …\n"
 
-#: common.c:1830
+#: common.c:1829
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "omdanner fil %s til fil %s i Mac-format …\n"
 
-#: common.c:1832
+#: common.c:1831
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "omdanner fil %s til fil %s i DOS-format …\n"
@@ -536,42 +536,42 @@ msgstr "omdanner fil %s til fil %s i DOS-format …\n"
 #. 3rd %s is encoding of output file.
 #. 4th %s is name of output file.
 #. E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format...
-#: common.c:1843
+#: common.c:1842
 #, c-format
 msgid "converting %s file %s to %s file %s in Unix format...\n"
 msgstr "omdanner %s-filen %s til %s-filen %s i Unix-format …\n"
 
-#: common.c:1846
+#: common.c:1845
 #, c-format
 msgid "converting %s file %s to %s file %s in Mac format...\n"
 msgstr "omdanner %s-filen %s til %s-filen %s i Mac-format …\n"
 
-#: common.c:1848
+#: common.c:1847
 #, c-format
 msgid "converting %s file %s to %s file %s in DOS format...\n"
 msgstr "omdanner %s-filen %s til %s-filen %s i DOS-format …\n"
 
-#: common.c:1854
+#: common.c:1853
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "problemer under omdannelse af fil %s til fil %s\n"
 
-#: common.c:1887
+#: common.c:1886
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "Springer symbolsk henvisning %s over.\n"
 
-#: common.c:1913
+#: common.c:1912
 #, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "omdanner fil %s til Unix-format …\n"
 
-#: common.c:1916
+#: common.c:1915
 #, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "omdanner fil %s til Mac-format …\n"
 
-#: common.c:1918
+#: common.c:1917
 #, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "omdanner fil %s til DOS-format …\n"
@@ -581,75 +581,75 @@ msgstr "omdanner fil %s til DOS-format …\n"
 #. 2nd %s is name of input file.
 #. 3rd %s is encoding of output (input file is overwritten).
 #. E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format...
-#: common.c:1928
+#: common.c:1927
 #, c-format
 msgid "converting %s file %s to %s Unix format...\n"
 msgstr "omdanner %s-filen %s til %s-Unix-format …\n"
 
-#: common.c:1931
+#: common.c:1930
 #, c-format
 msgid "converting %s file %s to %s Mac format...\n"
 msgstr "omdanner %s-filen %s til %s-Mac-format …\n"
 
-#: common.c:1933
+#: common.c:1932
 #, c-format
 msgid "converting %s file %s to %s DOS format...\n"
 msgstr "omdanner %s-filen %s til %s-DOS-format …\n"
 
-#: common.c:1939
+#: common.c:1938
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "problemer under omdannelse af fil %s\n"
 
-#: common.c:2061 common.c:2111
+#: common.c:2060 common.c:2110
 #, c-format
 msgid "can not read from input file %s:"
 msgstr "kan ikke læse fra inputfilen %s:"
 
-#: common.c:2268
+#: common.c:2267
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "forkert flag »%c« for tilvalget -i eller --info\n"
 
-#: common.c:2393 common.c:2436
+#: common.c:2392 common.c:2435
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktuel tegnkodningstabel: %d\n"
 
-#: common.c:2448
+#: common.c:2447
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "ugyldig %s omdannelsestilstand specificeret\n"
 
-#: common.c:2456 common.c:2486
+#: common.c:2455 common.c:2485
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "tilvalg \"%s\" kræver et argument\n"
 
-#: common.c:2478
+#: common.c:2477
 #, c-format
 msgid "invalid %s display encoding specified\n"
-msgstr "ugyldig %s visningstilstand specificeret\n"
+msgstr "ugyldig visningskodning %s specificeret\n"
 
-#: common.c:2498 common.c:2511 common.c:2577
+#: common.c:2497 common.c:2510 common.c:2576
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "mål for fil %s er ikke angivet i ny-fil-tilstand\n"
 
-#: common.c:2589
+#: common.c:2588
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "kan ikke læse fra inputfil: %s\n"
 
-#: common.c:2599 common.c:2611
+#: common.c:2598 common.c:2610
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "kan ikke skrive til outputfil: %s\n"
 
-#: common.c:2686
+#: common.c:2685
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "fejl: Ugyldigt surrogatpar. Mangler lav surrogat.\n"
 
-#: common.c:2702
+#: common.c:2701
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "fejl: Ugyldigt surrogatpar. Mangler høj surrogat.\n"

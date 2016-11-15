@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-20 23:01+0200\n"
+"POT-Creation-Date: 2016-11-15 23:23+0100\n"
 "PO-Revision-Date: 2016-05-17 07:50+0200\n"
 "Last-Translator: Philipp Thomas <pth@suse.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -407,19 +407,19 @@ msgstr "Der Pfad für die temporäre Ausgabedatei ist zu lang:"
 msgid "Writing %s BOM.\n"
 msgstr "Das %s BOM wird geschrieben.\n"
 
-#: common.c:1180 common.c:1233 common.c:1740 common.c:1761
+#: common.c:1180 common.c:1233 common.c:1739 common.c:1760
 msgid "UTF-16LE"
 msgstr "UTF-16LE"
 
-#: common.c:1187 common.c:1236 common.c:1742 common.c:1763
+#: common.c:1187 common.c:1236 common.c:1741 common.c:1762
 msgid "UTF-16BE"
 msgstr "UTF-16BE"
 
-#: common.c:1194 common.c:1213 common.c:1242 common.c:1753
+#: common.c:1194 common.c:1213 common.c:1242 common.c:1752
 msgid "GB18030"
 msgstr "GB18030"
 
-#: common.c:1201 common.c:1220 common.c:1239 common.c:1755
+#: common.c:1201 common.c:1220 common.c:1239 common.c:1754
 msgid "UTF-8"
 msgstr "UTF-8"
 
@@ -428,110 +428,110 @@ msgstr "UTF-8"
 msgid "Input file %s has %s BOM.\n"
 msgstr "Die EIngabedatei %s hat ein %s BOM.\n"
 
-#: common.c:1301 common.c:1344
+#: common.c:1301 common.c:1343
 msgid "Assuming UTF-16LE encoding.\n"
 msgstr "Es wird UTF-16LE-Kodierung angenommen.\n"
 
-#: common.c:1305 common.c:1348
+#: common.c:1305 common.c:1347
 msgid "Assuming UTF-16BE encoding.\n"
 msgstr "Es wird UTF-16LE-Kodierung angenommen.\n"
 
-#: common.c:1493
+#: common.c:1492
 #, c-format
 msgid "Failed to open temporary output file: %s\n"
 msgstr "Die temporäre Ausgabedatei konnte nicht geöffnet werden: %s\n"
 
-#: common.c:1505
+#: common.c:1504
 #, c-format
 msgid "using %s as temporary file\n"
 msgstr "%s wird als temporäre Datei verwendet\n"
 
-#: common.c:1557
+#: common.c:1556
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s:"
 msgstr "Das Ändern der Rechte der temporären Ausgabedatei %s scheiterte:"
 
-#: common.c:1574
+#: common.c:1573
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s:"
 msgstr "Das Ändern des Eigentümers und der Gruppe der temporären Ausgabedatei %s scheiterte:"
 
-#: common.c:1621
+#: common.c:1620
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
 msgstr "Es gab Probleme beim Auflösen der symbolischen Verknüpfung »%s«.\n"
 
-#: common.c:1622 common.c:1654
+#: common.c:1621 common.c:1653
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          Die Ausgabedatei verbleibt in »%s«\n"
 
-#: common.c:1648
+#: common.c:1647
 #, c-format
 msgid "problems renaming '%s' to '%s':"
 msgstr "Beim Umbenennen von »%s« zu »%s« sind Probleme aufgetreten:"
 
-#: common.c:1652
+#: common.c:1651
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          welche das Ziel der symbolischen Verknüpfung »%s« ist\n"
 
-#: common.c:1715 common.c:1807 common.c:1893
+#: common.c:1714 common.c:1806 common.c:1892
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "binäre Datei %s wird übersprungen\n"
 
-#: common.c:1718 common.c:1810 common.c:1896
+#: common.c:1717 common.c:1809 common.c:1895
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "Codepage %d wird nicht unterstützt.\n"
 
-#: common.c:1722 common.c:1814 common.c:1900 common.c:1960
+#: common.c:1721 common.c:1813 common.c:1899 common.c:1959
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "UTF-16 Datei %s wird übersprungen, da wchar_t %d Bytes groß ist.\n"
 
-#: common.c:1725 common.c:1817 common.c:1903
+#: common.c:1724 common.c:1816 common.c:1902
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
 msgstr "UTF-16-Datei %s wird übersprungen, da beim Umwandeln ein Fehler in Zeile %u auftrat.\n"
 
-#: common.c:1729 common.c:1821 common.c:1907
+#: common.c:1728 common.c:1820 common.c:1906
 #, c-format
 msgid "Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"
 msgstr "UTF-16-Datei %s wird übersprungen, da die Umwandlung von UTF-16 in dieser Version von %s nicht unterstützt wird.\n"
 
-#: common.c:1795 common.c:1884 common.c:1949
+#: common.c:1794 common.c:1883 common.c:1948
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "%s wird übersprungen, da es keine reguläre Datei ist\n"
 
-#: common.c:1798
+#: common.c:1797
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "%s wird übersprungen, Ausgabedatei %s ist eine symbolische Verknüpfung.\n"
 
-#: common.c:1801 common.c:1890 common.c:1954
+#: common.c:1800 common.c:1889 common.c:1953
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr "Symbolische Verknüpfung %s wird übersprungen, da das Ziel keine reguläre Datei ist.\n"
 
-#: common.c:1804
+#: common.c:1803
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr "%s wird übersprungen, das Ziel der symbolischen Verknüpfung %s ist keine reguläre Datei.\n"
 
-#: common.c:1827
+#: common.c:1826
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "Datei %s wird zu Datei %s im Unix-Format umgewandelt …\n"
 
-#: common.c:1830
+#: common.c:1829
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "Datei %s wird in Datei %s im Mac-Format umgewandelt …\n"
 
-#: common.c:1832
+#: common.c:1831
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "Datei %s wird in Datei %s im DOS-Format umgewandelt …\n"
@@ -542,42 +542,42 @@ msgstr "Datei %s wird in Datei %s im DOS-Format umgewandelt …\n"
 #. 3rd %s is encoding of output file.
 #. 4th %s is name of output file.
 #. E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format...
-#: common.c:1843
+#: common.c:1842
 #, c-format
 msgid "converting %s file %s to %s file %s in Unix format...\n"
 msgstr "%s-Datei %s wird zu %s-Datei %s im Unix-Format umgewandelt …\n"
 
-#: common.c:1846
+#: common.c:1845
 #, c-format
 msgid "converting %s file %s to %s file %s in Mac format...\n"
 msgstr "%s-Datei %s wird in %s-Datei %s im Mac-Format umgewandelt …\n"
 
-#: common.c:1848
+#: common.c:1847
 #, c-format
 msgid "converting %s file %s to %s file %s in DOS format...\n"
 msgstr "%s-Datei %s wird in %s-Datei %s im DOS-Format umgewandelt …\n"
 
-#: common.c:1854
+#: common.c:1853
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "Beim Umwandeln von Datei %s zu Datei %s sind Probleme aufgetreten\n"
 
-#: common.c:1887
+#: common.c:1886
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "Symbolische Verknüpfung %s wird übersprungen.\n"
 
-#: common.c:1913
+#: common.c:1912
 #, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "Datei %s wird ins Unix-Format umgewandelt …\n"
 
-#: common.c:1916
+#: common.c:1915
 #, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "Datei %s wird ins Mac-Format umgewandelt …\n"
 
-#: common.c:1918
+#: common.c:1917
 #, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "Datei %s wird ins DOS-Format umgewandelt …\n"
@@ -587,76 +587,76 @@ msgstr "Datei %s wird ins DOS-Format umgewandelt …\n"
 #. 2nd %s is name of input file.
 #. 3rd %s is encoding of output (input file is overwritten).
 #. E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format...
-#: common.c:1928
+#: common.c:1927
 #, c-format
 msgid "converting %s file %s to %s Unix format...\n"
 msgstr "%s-Datei %s wird ins %s-Unix-Format umgewandelt …\n"
 
-#: common.c:1931
+#: common.c:1930
 #, c-format
 msgid "converting %s file %s to %s Mac format...\n"
 msgstr "%s-Datei %s wird ins %s-Mac-Format umgewandelt …\n"
 
-#: common.c:1933
+#: common.c:1932
 #, c-format
 msgid "converting %s file %s to %s DOS format...\n"
 msgstr "%s-Datei %s wird ins %s-DOS-Format umgewandelt …\n"
 
-#: common.c:1939
+#: common.c:1938
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "Beim Umwandeln von Datei %s sind Probleme aufgetreten\n"
 
-#: common.c:2061 common.c:2111
+#: common.c:2060 common.c:2110
 #, c-format
 msgid "can not read from input file %s:"
 msgstr "Aus der Eingabedatei %s kann nicht gelesen werden:"
 
-#: common.c:2268
+#: common.c:2267
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "falsches Flag »%c« für Option -i oder --info\n"
 
-#: common.c:2393 common.c:2436
+#: common.c:2392 common.c:2435
 #, c-format
 msgid "active code page: %d\n"
 msgstr "Aktive Codepage: %d\n"
 
-#: common.c:2448
+#: common.c:2447
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "Der angegebene Umwandlungsmodus %s ist unzulässig\n"
 
-#: common.c:2456 common.c:2486
+#: common.c:2455 common.c:2485
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "Die Option »%s« benötigt ein Argument\n"
 
-#: common.c:2478
+#: common.c:2477
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "Die angegebene Ausgabekodierung %s ist unzulässig\n"
 
-#: common.c:2498 common.c:2511 common.c:2577
+#: common.c:2497 common.c:2510 common.c:2576
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "Das Ziel der Datei %s wurde für den Neudatei-Modus nicht angegeben\n"
 
-#: common.c:2589
+#: common.c:2588
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "Aus der Eingabedatei kann nicht gelesen werden: %s\n"
 
-#: common.c:2599 common.c:2611
+#: common.c:2598 common.c:2610
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "In die Ausgabedatei kann nicht geschrieben werden: %s\n"
 
-#: common.c:2686
+#: common.c:2685
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "Fehler: Ungültiges Surrogate-Paar. Das Low-Surrogate fehlt.\n"
 
-#: common.c:2702
+#: common.c:2701
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "Fehler: Ungültiges Surrogate-Paar. Das High-Surrogate fehlt.\n"
 
