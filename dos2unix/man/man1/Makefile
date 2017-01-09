@@ -3,7 +3,7 @@
 #   Copyright information
 #
 #	Copyright (C) 2010 Jari Aalto
-#	Copyright (C) 2010-2016 Erwin Waterlander
+#	Copyright (C) 2010-2017 Erwin Waterlander
 #
 #   License
 #
@@ -49,6 +49,8 @@ ifneq (,)
     This makefile requires GNU Make.
 endif
 
+include ../../version.mk
+
 .PRECIOUS: %.pod
 
 # This variable *must* be set when calling
@@ -56,7 +58,7 @@ PACKAGE		?= dos2unix
 
 # Optional variables to set
 MANSECT		?= 1
-PODCENTER	?= $$(date "+%Y-%m-%d")
+PODCENTER	?= $(DOS2UNIX_DATE)
 
 # Directories
 MANSRC		=
