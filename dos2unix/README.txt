@@ -58,7 +58,7 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2 - 7.3.4  2009-2016
+        Erwin Waterlander       version 3.2 - 7.3.4  2009-2017
         Christian Wurll         version 3.1          1998
         Bernd Johannes Wuebben  version 3.0          1998
         Benjamin Lin            version 1.1 - 2.3    1994-1995

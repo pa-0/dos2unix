@@ -1,6 +1,6 @@
 # Author: Erwin Waterlander
 #
-#   Copyright (C) 2009-2016 Erwin Waterlander
+#   Copyright (C) 2009-2017 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -66,9 +66,6 @@ BIN		= $(PACKAGE)$(EXE)
 UNIX2DOS_BIN	= $(UNIX2DOS)$(EXE)
 MAC2UNIX_BIN	= $(MAC2UNIX)$(EXE)
 UNIX2MAC_BIN	= $(UNIX2MAC)$(EXE)
-
-# DJGPP support linking of .EXEs via 'stubify'.
-# See djgpp.mak and http://www.delorie.com/djgpp/v2faq/faq22_5.html
 
 LINK		= ln -sf
 LINK_MAN	= $(LINK)
@@ -387,11 +384,25 @@ $(BIN): dos2unix.o querycp.o common.o
 $(UNIX2DOS_BIN): unix2dos.o querycp.o common.o
 	$(CC) $+ $(LDFLAGS) $(LIBS) -o $@
 
+# DJGPP supports linking of .EXEs via 'stubify'.
+# See djgpp.mak and http://www.delorie.com/djgpp/v2faq/faq22_5.html
+# ln -s does automatic stubify in DJGPP 2.03.
+# This changed in DJGPP 2.05. DJGPP 2.05 emulates symbolic links.
+
 $(MAC2UNIX_BIN) : $(BIN)
+ifneq ($(DJGPP),)
+	stubify -g $@ ; stubedit $@ runfile=$<
+else
 	$(LINK) $< $@
+endif
+
 
 $(UNIX2MAC_BIN) : $(UNIX2DOS_BIN)
+ifneq ($(DJGPP),)
+	stubify -g $@ ; stubedit $@ runfile=$<
+else
 	$(LINK) $< $@
+endif
 
 $(MANPOTFILE) : man/man1/dos2unix.pod
 	$(MAKE) -C man/man1 ../../po-man/$(notdir $@)

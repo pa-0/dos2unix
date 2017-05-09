@@ -336,8 +336,6 @@ DOS PORT, 32 BIT
     Use DJGPP 2.03 gcc <= 4.5.3.
 
     DJGPP 2.05 seems to produce correct binaries (I tried gcc 5.3.0).
-    The problem with 2.05 is that 'ln' works differently. If you use
-    DJGPP 2.05 edit djgpp.mak and change the LINK variable to cp -f.
 
 
         make -f djgpp.mak clean

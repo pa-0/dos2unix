@@ -1,3 +1,8 @@
+2017-05-09 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Create stubs for mac2unix.exe and unix2mac.exe
+	  with DJGPP 2.05. With DJGPP 2.03 this was done with 'ln -s',
+	  but this doesn't work with DJGPP 2.05.
+
 2016-11-15 Erwin Waterlander <waterlan@xs4all.nl>
 	* test/: Use by default C.UTF-8 locale for UTF-16 tests. Not all build
 	  environments have the en_US.UTF-8 locale. Try en_US.UTF-8 if C.UTF-8
