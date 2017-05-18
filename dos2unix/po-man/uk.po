@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man 7.3.3-beta9\n"
-"POT-Creation-Date: 2016-09-06 21:21+0200\n"
+"POT-Creation-Date: 2017-05-16 07:12+0200\n"
 "PO-Revision-Date: 2016-02-06 14:39+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -1447,19 +1447,19 @@ msgstr "Для рекурсивного перетворення текстов�
 #: dos2unix.pod:724
 #, no-wrap
 msgid ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
+"    or\n"
+"    find . -name '*.txt' -exec dos2unix {} \\;\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
-"\n"
 
 #. type: textblock
-#: dos2unix.pod:726
+#: dos2unix.pod:728
 msgid "In a Windows Command Prompt the following command can be used:"
 msgstr "У командному рядку Windows можна скористатися такою командою:"
 
 #. type: verbatim
-#: dos2unix.pod:728
+#: dos2unix.pod:730
 #, no-wrap
 msgid ""
 "    for /R %G in (*.txt) do dos2unix \"%G\"\n"
@@ -1469,12 +1469,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:730
+#: dos2unix.pod:732
 msgid "PowerShell users can use the following command in Windows PowerShell:"
 msgstr "Користувачі PowerShell можуть скористатися такою командою у Windows PowerShell:"
 
 #. type: verbatim
-#: dos2unix.pod:732
+#: dos2unix.pod:734
 #, no-wrap
 msgid ""
 "    get-childitem -path . -filter '*.txt' -recurse | foreach-object {dos2unix $_.Fullname}\n"
@@ -1484,22 +1484,22 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: dos2unix.pod:735
+#: dos2unix.pod:737
 msgid "LOCALIZATION"
 msgstr "ЛОКАЛІЗАЦІЯ"
 
 #. type: =item
-#: dos2unix.pod:739
+#: dos2unix.pod:741
 msgid "B<LANG>"
 msgstr "B<LANG>"
 
 #. type: textblock
-#: dos2unix.pod:741
+#: dos2unix.pod:743
 msgid "The primary language is selected with the environment variable LANG. The LANG variable consists out of several parts. The first part is in small letters the language code. The second is optional and is the country code in capital letters, preceded with an underscore. There is also an optional third part: character encoding, preceded with a dot. A few examples for POSIX standard type shells:"
 msgstr "Основна мова визначається за допомогою змінної середовища LANG. Значення змінної LANG складається з декількох частин. Перша частина записується малими літерами і визначає код мови. Друга частина є необов’язковою, визначає код країни і записується прописними літерами, відокремлюється від першої частини символом підкреслювання. Передбачено також необов’язкову третю частину: кодування. Ця частина відокремлюється від другої частини крапкою. Ось декілька прикладів для командних оболонок стандартного типу POSIX:"
 
 #. type: verbatim
-#: dos2unix.pod:748
+#: dos2unix.pod:750
 #, no-wrap
 msgid ""
 "    export LANG=nl               Dutch\n"
@@ -1521,47 +1521,47 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:756
+#: dos2unix.pod:758
 msgid "For a complete list of language and country codes see the gettext manual: L<http://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html>"
 msgstr "Повний список мов та кодів країн наведено у підручнику з gettext: L<http://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html>"
 
 #. type: textblock
-#: dos2unix.pod:759
+#: dos2unix.pod:761
 msgid "On Unix systems you can use the command locale(1) to get locale specific information."
 msgstr "У системах Unix для отримання даних щодо локалі можна скористатися командою locale(1)."
 
 #. type: =item
-#: dos2unix.pod:762
+#: dos2unix.pod:764
 msgid "B<LANGUAGE>"
 msgstr "B<LANGUAGE>"
 
 #. type: textblock
-#: dos2unix.pod:764
+#: dos2unix.pod:766
 msgid "With the LANGUAGE environment variable you can specify a priority list of languages, separated by colons. Dos2unix gives preference to LANGUAGE over LANG.  For instance, first Dutch and then German: C<LANGUAGE=nl:de>. You have to first enable localization, by setting LANG (or LC_ALL) to a value other than \"C\", before you can use a language priority list through the LANGUAGE variable. See also the gettext manual: L<http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
 msgstr "За допомогою змінної середовища LANGUAGE ви можете вказати список пріоритеності мов. Записи у списку слід відокремлювати двокрапками. Програма dos2unix надає перевагу LANGUAGE над LANG. Наприклад, перша голландська, далі німецька: C<LANGUAGE=nl:de>. Спочатку вам слід увімкнути локалізацію, встановивши для змінної LANG (або LC_ALL) значення, відмінне від «C». Далі ви зможете використовувати список пріоритетності мов за допомогою змінної LANGUAGE. Додаткові відомості можна знайти у підручнику з gettext: L<http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
 
 #. type: textblock
-#: dos2unix.pod:772
+#: dos2unix.pod:774
 msgid "If you select a language which is not available you will get the standard English messages."
 msgstr "Якщо вами буде вибрано мову, перекладу якою немає, буде показано стандартні повідомлення англійською мовою."
 
 #. type: =item
-#: dos2unix.pod:776
+#: dos2unix.pod:778
 msgid "B<DOS2UNIX_LOCALEDIR>"
 msgstr "B<DOS2UNIX_LOCALEDIR>"
 
 #. type: textblock
-#: dos2unix.pod:778
+#: dos2unix.pod:780
 msgid "With the environment variable DOS2UNIX_LOCALEDIR the LOCALEDIR set during compilation can be overruled. LOCALEDIR is used to find the language files. The GNU default value is C</usr/local/share/locale>.  Option B<--version> will display the LOCALEDIR that is used."
 msgstr "Змінну LOCALEDIR, встановлену під час збирання програми, можна змінити за допомогою змінної середовища DOS2UNIX_LOCALEDIR. LOCALEDIR використовується для пошуку файлів перекладів. Типовим значенням у системах GNU є C</usr/local/share/locale>. Переглянути поточне значення змінної LOCALEDIR можна переглянути за допомогою параметра B<--version>."
 
 #. type: textblock
-#: dos2unix.pod:783
+#: dos2unix.pod:785
 msgid "Example (POSIX shell):"
 msgstr "Приклад (командна оболонка POSIX):"
 
 #. type: verbatim
-#: dos2unix.pod:785
+#: dos2unix.pod:787
 #, no-wrap
 msgid ""
 "    export DOS2UNIX_LOCALEDIR=$HOME/share/locale\n"
@@ -1571,74 +1571,81 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: dos2unix.pod:790
+#: dos2unix.pod:792
 msgid "RETURN VALUE"
 msgstr "ПОВЕРНУТЕ ЗНАЧЕННЯ"
 
 #. type: textblock
-#: dos2unix.pod:792
+#: dos2unix.pod:794
 msgid "On success, zero is returned.  When a system error occurs the last system error will be returned. For other errors 1 is returned."
 msgstr "Якщо завдання вдасться успішно виконати, програма поверне нульовий код виходу. Якщо станеться системна помилка, буде повернуто код цієї помилки. Якщо станеться якась інша помилка, буде повернуто код 1."
 
 #. type: textblock
-#: dos2unix.pod:795
+#: dos2unix.pod:797
 msgid "The return value is always zero in quiet mode, except when wrong command-line options are used."
 msgstr "У режимі без повідомлень повернутим значенням завжди буде нуль, якщо вказано правильні параметри командного рядка."
 
 #. type: =head1
-#: dos2unix.pod:798
+#: dos2unix.pod:800
 msgid "STANDARDS"
 msgstr "СТАНДАРТИ"
 
 #. type: textblock
-#: dos2unix.pod:800
+#: dos2unix.pod:802
 msgid "L<http://en.wikipedia.org/wiki/Text_file>"
 msgstr "L<http://en.wikipedia.org/wiki/Text_file>"
 
 #. type: textblock
-#: dos2unix.pod:802
+#: dos2unix.pod:804
 msgid "L<http://en.wikipedia.org/wiki/Carriage_return>"
 msgstr "L<http://uk.wikipedia.org/wiki/Carriage_return>"
 
 #. type: textblock
-#: dos2unix.pod:804
+#: dos2unix.pod:806
 msgid "L<http://en.wikipedia.org/wiki/Newline>"
 msgstr "L<http://uk.wikipedia.org/wiki/Newline>"
 
 #. type: textblock
-#: dos2unix.pod:806
+#: dos2unix.pod:808
 msgid "L<http://en.wikipedia.org/wiki/Unicode>"
 msgstr "L<http://uk.wikipedia.org/wiki/Unicode>"
 
 #. type: =head1
-#: dos2unix.pod:808
+#: dos2unix.pod:810
 msgid "AUTHORS"
 msgstr "АВТОРИ"
 
 #. type: textblock
-#: dos2unix.pod:810
+#: dos2unix.pod:812
 msgid "Benjamin Lin - <blin@socs.uts.edu.au>, Bernd Johannes Wuebben (mac2unix mode) - <wuebben@kde.org>, Christian Wurll (add extra newline) - <wurll@ira.uka.de>, Erwin Waterlander - <waterlan@xs4all.nl> (maintainer)"
 msgstr "Benjamin Lin - <blin@socs.uts.edu.au>, Bernd Johannes Wuebben (режим mac2unix) - <wuebben@kde.org>, Christian Wurll (додатковий новий рядок) - <wurll@ira.uka.de>, Erwin Waterlander - <waterlan@xs4all.nl> (супровідник)"
 
 #. type: textblock
-#: dos2unix.pod:815
+#: dos2unix.pod:817
 msgid "Project page: L<http://waterlan.home.xs4all.nl/dos2unix.html>"
 msgstr "Сторінка проекту: L<http://waterlan.home.xs4all.nl/dos2unix.html>"
 
 #. type: textblock
-#: dos2unix.pod:817
+#: dos2unix.pod:819
 msgid "SourceForge page: L<http://sourceforge.net/projects/dos2unix/>"
 msgstr "Сторінка на SourceForge: L<http://sourceforge.net/projects/dos2unix/>"
 
 #. type: =head1
-#: dos2unix.pod:819
+#: dos2unix.pod:821
 msgid "SEE ALSO"
 msgstr "ТАКОЖ ПЕРЕГЛЯНЬТЕ"
 
 #. type: textblock
-#: dos2unix.pod:821
+#: dos2unix.pod:823
 msgid "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 msgstr "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
+
+#~ msgid ""
+#~ "    find . -name '*.txt' |xargs dos2unix\n"
+#~ "\n"
+#~ msgstr ""
+#~ "    find . -name '*.txt' |xargs dos2unix\n"
+#~ "\n"
 
 #~ msgid ""
 #~ "    dos2unix\n"

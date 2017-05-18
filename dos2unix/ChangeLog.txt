@@ -1,3 +1,8 @@
+2017-05-18 Erwin Waterlander <waterlan@xs4all.nl>
+	* man/man1/dos2unix.pod: Improved example for recursive conversion.
+	  Thanks to report of Beep6581.
+	  https://sourceforge.net/p/dos2unix/bugs/14/
+
 2017-05-09 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Create stubs for mac2unix.exe and unix2mac.exe
 	  with DJGPP 2.05. With DJGPP 2.03 this was done with 'ln -s',

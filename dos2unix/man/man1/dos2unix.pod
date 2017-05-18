@@ -1,7 +1,7 @@
 /*
 #  Copyright and License
 #
-#   Copyright (C) 2009-2016 Erwin Waterlander
+#   Copyright (C) 2009-2017 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -721,7 +721,9 @@ Use dos2unix in combination with the find(1) and xargs(1) commands to
 recursively convert text files in a directory tree structure. For instance to
 convert all .txt files in the directory tree under the current directory type:
 
-    find . -name '*.txt' |xargs dos2unix
+    find . -name '*.txt' -print0 |xargs -0 dos2unix
+    or
+    find . -name '*.txt' -exec dos2unix {} \;
 
 In a Windows Command Prompt the following command can be used:
 

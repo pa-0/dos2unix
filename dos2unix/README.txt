@@ -166,6 +166,7 @@ ACKNOWLEDGEMENTS
                               is disabled.
         Alan S. Jones         New flags h (print header) and p (show file names
                               without path) for option -i, --info
+        Beep6581              Improved example for recursive conversion.
 
 
 FINDUTILS
