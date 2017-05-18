@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man 7.3.3-beta9\n"
-"POT-Creation-Date: 2017-05-16 07:12+0200\n"
+"POT-Creation-Date: 2017-05-18 23:02+0200\n"
 "PO-Revision-Date: 2016-02-07 21:20+0100\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -1436,41 +1436,64 @@ msgstr "KONWERSJA REKURENCYJNA"
 
 #. type: textblock
 #: dos2unix.pod:720
-msgid "Use dos2unix in combination with the find(1) and xargs(1) commands to recursively convert text files in a directory tree structure. For instance to convert all .txt files in the directory tree under the current directory type:"
+#, fuzzy
+#| msgid "Use dos2unix in combination with the find(1) and xargs(1) commands to recursively convert text files in a directory tree structure. For instance to convert all .txt files in the directory tree under the current directory type:"
+msgid "In a Unix shell the find(1) and xargs(1) commands can be used to run dos2unix recursively over all text files in a directory tree. For instance to convert all .txt files in the directory tree under the current directory type:"
 msgstr "Można użyć dos2unix w połączeniu z poleceniami find(1) i xargs(1) do rekurencyjnej konwersji plików tekstowych w strukturze drzewa katalogów. Na przykład, aby przekonwertować wszystkie pliki .txt w drzewie katalogów poniżej katalogu bieżącego, należy napisać:"
 
 #. type: verbatim
 #: dos2unix.pod:724
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "    find . -name '*.txt' |xargs dos2unix\n"
+#| "\n"
 msgid ""
 "    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
-"    or\n"
-"    find . -name '*.txt' -exec dos2unix {} \\;\n"
 "\n"
 msgstr ""
+"    find . -name '*.txt' |xargs dos2unix\n"
+"\n"
 
 #. type: textblock
-#: dos2unix.pod:728
-msgid "In a Windows Command Prompt the following command can be used:"
-msgstr "Z poziomu linii poleceń Windows można użyć następującego polecenia:"
+#: dos2unix.pod:726
+msgid "The find(1) option C<-print0> and corresponding xargs(1) option C<-0> are needed when there are files with spaces or quotes in the name. Otherwise these options can be omitted. Another option is to use find(1) with the C<-exec> option:"
+msgstr ""
 
 #. type: verbatim
 #: dos2unix.pod:730
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "    find . -name '*.txt' |xargs dos2unix\n"
+#| "\n"
 msgid ""
-"    for /R %G in (*.txt) do dos2unix \"%G\"\n"
+"    find . -name '*.txt' -exec dos2unix {} \\;\n"
 "\n"
 msgstr ""
-"    for /R %G in (*.txt) do dos2unix \"%G\"\n"
+"    find . -name '*.txt' |xargs dos2unix\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:732
+msgid "In a Windows Command Prompt the following command can be used:"
+msgstr "Z poziomu linii poleceń Windows można użyć następującego polecenia:"
+
+#. type: verbatim
+#: dos2unix.pod:734
+#, no-wrap
+msgid ""
+"    for /R %G in (*.txt) do dos2unix \"%G\"\n"
+"\n"
+msgstr ""
+"    for /R %G in (*.txt) do dos2unix \"%G\"\n"
+"\n"
+
+#. type: textblock
+#: dos2unix.pod:736
 msgid "PowerShell users can use the following command in Windows PowerShell:"
 msgstr "Użytkownicy powłoki PowerShell mogą użyć następującego polecenia w Windows PowerShell:"
 
 #. type: verbatim
-#: dos2unix.pod:734
+#: dos2unix.pod:738
 #, no-wrap
 msgid ""
 "    get-childitem -path . -filter '*.txt' -recurse | foreach-object {dos2unix $_.Fullname}\n"
@@ -1480,22 +1503,22 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: dos2unix.pod:737
+#: dos2unix.pod:741
 msgid "LOCALIZATION"
 msgstr "LOKALIZACJA"
 
 #. type: =item
-#: dos2unix.pod:741
+#: dos2unix.pod:745
 msgid "B<LANG>"
 msgstr "B<LANG>"
 
 #. type: textblock
-#: dos2unix.pod:743
+#: dos2unix.pod:747
 msgid "The primary language is selected with the environment variable LANG. The LANG variable consists out of several parts. The first part is in small letters the language code. The second is optional and is the country code in capital letters, preceded with an underscore. There is also an optional third part: character encoding, preceded with a dot. A few examples for POSIX standard type shells:"
 msgstr "Główny język wybiera się zmienną środowiskową LANG. Zmienna LANG składa się z kilku części. Pierwsza część to małe litery oznaczające kod języka. Druga część jest opcjonalna i zawiera kod kraju pisany wielkimi literami, poprzedzony podkreśleniem. Jest także opcjonalna trzecia część: kodowanie znaków, poprzedzone kropką. Kilka przykładów dla powłok zgodnych ze standardem POSIX:"
 
 #. type: verbatim
-#: dos2unix.pod:750
+#: dos2unix.pod:754
 #, no-wrap
 msgid ""
 "    export LANG=nl               Dutch\n"
@@ -1517,47 +1540,47 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:758
+#: dos2unix.pod:762
 msgid "For a complete list of language and country codes see the gettext manual: L<http://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html>"
 msgstr "Pełną listę kodów języków i krajów można znaleźć w podręczniku do gettexta: L<http://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html>"
 
 #. type: textblock
-#: dos2unix.pod:761
+#: dos2unix.pod:765
 msgid "On Unix systems you can use the command locale(1) to get locale specific information."
 msgstr "W systemach uniksowych do uzyskania informacji dotyczących lokalizacji można użyć polecenia locale(1)."
 
 #. type: =item
-#: dos2unix.pod:764
+#: dos2unix.pod:768
 msgid "B<LANGUAGE>"
 msgstr "B<LANGUAGE>"
 
 #. type: textblock
-#: dos2unix.pod:766
+#: dos2unix.pod:770
 msgid "With the LANGUAGE environment variable you can specify a priority list of languages, separated by colons. Dos2unix gives preference to LANGUAGE over LANG.  For instance, first Dutch and then German: C<LANGUAGE=nl:de>. You have to first enable localization, by setting LANG (or LC_ALL) to a value other than \"C\", before you can use a language priority list through the LANGUAGE variable. See also the gettext manual: L<http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
 msgstr "Przy użyciu zmiennej środowiskowej LANGUAGE można określić listę języków wg priorytetu, oddzielonych dwukropkami. Dos2unix przyjmuje pierwszeństwo zmiennej LANGUAGE nad LANG. Na przykład, najpierw holenderski, następnie niemiecki: C<LANGUAGE=nl:de>. Aby skorzystać z listy wg priorytetów ze zmiennej LANGUAGE, trzeba najpierw włączyć lokalizację przez ustawienie zmiennej LANG (lub LC_ALL) na wartość inną niż \"C\". Więcej informacji znajduje się w podręczniku do gettexta: L<http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
 
 #. type: textblock
-#: dos2unix.pod:774
+#: dos2unix.pod:778
 msgid "If you select a language which is not available you will get the standard English messages."
 msgstr "W przypadku wybrania niedostępnego języka, otrzymamy standardowe, angielskie komunikaty."
 
 #. type: =item
-#: dos2unix.pod:778
+#: dos2unix.pod:782
 msgid "B<DOS2UNIX_LOCALEDIR>"
 msgstr "B<DOS2UNIX_LOCALEDIR>"
 
 #. type: textblock
-#: dos2unix.pod:780
+#: dos2unix.pod:784
 msgid "With the environment variable DOS2UNIX_LOCALEDIR the LOCALEDIR set during compilation can be overruled. LOCALEDIR is used to find the language files. The GNU default value is C</usr/local/share/locale>.  Option B<--version> will display the LOCALEDIR that is used."
 msgstr "Przy użyciu zmiennej środowiskowej DOS2UNIX_LOCALEDIR, można nadpisać ustawienie LOCALEDIR z czasu kompilacji. LOCALEDIR to katalog używany do znalezienia plików lokalizacji. Domyślną wartością dla GNU jest C</usr/local/share/locale>. Opcja B<--version> wyświetla używaną wartość LOCALEDIR."
 
 #. type: textblock
-#: dos2unix.pod:785
+#: dos2unix.pod:789
 msgid "Example (POSIX shell):"
 msgstr "Przykład (dla powłoki POSIX):"
 
 #. type: verbatim
-#: dos2unix.pod:787
+#: dos2unix.pod:791
 #, no-wrap
 msgid ""
 "    export DOS2UNIX_LOCALEDIR=$HOME/share/locale\n"
@@ -1567,81 +1590,74 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: dos2unix.pod:792
+#: dos2unix.pod:796
 msgid "RETURN VALUE"
 msgstr "WARTOŚĆ ZWRACANA"
 
 #. type: textblock
-#: dos2unix.pod:794
+#: dos2unix.pod:798
 msgid "On success, zero is returned.  When a system error occurs the last system error will be returned. For other errors 1 is returned."
 msgstr "W przypadku powodzenia zwracane jest zero. Jeśli wystąpi błąd systemowy, zwracany jest ostatni błąd systemowy. W przypadku innych błędów zwracane jest 1."
 
 #. type: textblock
-#: dos2unix.pod:797
+#: dos2unix.pod:801
 msgid "The return value is always zero in quiet mode, except when wrong command-line options are used."
 msgstr "Wartość zwracana w trybie cichym to zawsze zero, z wyjątkiem sytuacji podania błędnych opcji linii poleceń."
 
 #. type: =head1
-#: dos2unix.pod:800
+#: dos2unix.pod:804
 msgid "STANDARDS"
 msgstr "STANDARDY"
 
 #. type: textblock
-#: dos2unix.pod:802
+#: dos2unix.pod:806
 msgid "L<http://en.wikipedia.org/wiki/Text_file>"
 msgstr "L<http://pl.wikipedia.org/wiki/Plik_tekstowy>"
 
 #. type: textblock
-#: dos2unix.pod:804
+#: dos2unix.pod:808
 msgid "L<http://en.wikipedia.org/wiki/Carriage_return>"
 msgstr "L<http://en.wikipedia.org/wiki/Carriage_return>"
 
 #. type: textblock
-#: dos2unix.pod:806
+#: dos2unix.pod:810
 msgid "L<http://en.wikipedia.org/wiki/Newline>"
 msgstr "L<http://pl.wikipedia.org/wiki/End-of-line>"
 
 #. type: textblock
-#: dos2unix.pod:808
+#: dos2unix.pod:812
 msgid "L<http://en.wikipedia.org/wiki/Unicode>"
 msgstr "L<http://pl.wikipedia.org/wiki/Unicode>"
 
 #. type: =head1
-#: dos2unix.pod:810
+#: dos2unix.pod:814
 msgid "AUTHORS"
 msgstr "AUTORZY"
 
 #. type: textblock
-#: dos2unix.pod:812
+#: dos2unix.pod:816
 msgid "Benjamin Lin - <blin@socs.uts.edu.au>, Bernd Johannes Wuebben (mac2unix mode) - <wuebben@kde.org>, Christian Wurll (add extra newline) - <wurll@ira.uka.de>, Erwin Waterlander - <waterlan@xs4all.nl> (maintainer)"
 msgstr "Benjamin Lin <blin@socs.uts.edu.au>; Bernd Johannes Wuebben (tryb mac2unix) <wuebben@kde.org>; Christian Wurll (dodawanie dodatkowej nowej linii) <wurll@ira.uka.de>; Erwin Waterlander <waterlan@xs4all.nl> (prowadzący)"
 
 #. type: textblock
-#: dos2unix.pod:817
+#: dos2unix.pod:821
 msgid "Project page: L<http://waterlan.home.xs4all.nl/dos2unix.html>"
 msgstr "Strona projektu: L<http://waterlan.home.xs4all.nl/dos2unix.html>"
 
 #. type: textblock
-#: dos2unix.pod:819
+#: dos2unix.pod:823
 msgid "SourceForge page: L<http://sourceforge.net/projects/dos2unix/>"
 msgstr "Strona SourceForge: L<http://sourceforge.net/projects/dos2unix/>"
 
 #. type: =head1
-#: dos2unix.pod:821
+#: dos2unix.pod:825
 msgid "SEE ALSO"
 msgstr "ZOBACZ TAKŻE"
 
 #. type: textblock
-#: dos2unix.pod:823
+#: dos2unix.pod:827
 msgid "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 msgstr "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
-
-#~ msgid ""
-#~ "    find . -name '*.txt' |xargs dos2unix\n"
-#~ "\n"
-#~ msgstr ""
-#~ "    find . -name '*.txt' |xargs dos2unix\n"
-#~ "\n"
 
 #~ msgid ""
 #~ "    dos2unix\n"

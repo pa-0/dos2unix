@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.2.1-beta1\n"
-"POT-Creation-Date: 2017-05-16 07:12+0200\n"
+"POT-Creation-Date: 2017-05-18 23:02+0200\n"
 "PO-Revision-Date: 2015-03-19 09:38+0100\n"
 "Last-Translator: Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
@@ -1453,26 +1453,49 @@ msgstr "CONVERSIÓN RECURSIVA"
 
 #. type: textblock
 #: dos2unix.pod:720
-msgid "Use dos2unix in combination with the find(1) and xargs(1) commands to recursively convert text files in a directory tree structure. For instance to convert all .txt files in the directory tree under the current directory type:"
+#, fuzzy
+#| msgid "Use dos2unix in combination with the find(1) and xargs(1) commands to recursively convert text files in a directory tree structure. For instance to convert all .txt files in the directory tree under the current directory type:"
+msgid "In a Unix shell the find(1) and xargs(1) commands can be used to run dos2unix recursively over all text files in a directory tree. For instance to convert all .txt files in the directory tree under the current directory type:"
 msgstr "Use dos2unix en combinación con los comandos find(1) y xargs(1) para convertir recursivamente archivos de texto contenidos en un árbol de directorios. Por ejemplo para convertir todos los archivos .txt en el árbol de directorios debajo del directorio actual escriba:"
 
 #. type: verbatim
 #: dos2unix.pod:724
-#, no-wrap
+#, fuzzy, no-wrap
+#| msgid ""
+#| "    find . -name *.txt |xargs dos2unix\n"
+#| "\n"
 msgid ""
 "    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
-"    or\n"
-"    find . -name '*.txt' -exec dos2unix {} \\;\n"
 "\n"
 msgstr ""
+"    find . -name *.txt |xargs dos2unix\n"
+"\n"
 
 #. type: textblock
-#: dos2unix.pod:728
-msgid "In a Windows Command Prompt the following command can be used:"
+#: dos2unix.pod:726
+msgid "The find(1) option C<-print0> and corresponding xargs(1) option C<-0> are needed when there are files with spaces or quotes in the name. Otherwise these options can be omitted. Another option is to use find(1) with the C<-exec> option:"
 msgstr ""
 
 #. type: verbatim
 #: dos2unix.pod:730
+#, fuzzy, no-wrap
+#| msgid ""
+#| "    find . -name *.txt |xargs dos2unix\n"
+#| "\n"
+msgid ""
+"    find . -name '*.txt' -exec dos2unix {} \\;\n"
+"\n"
+msgstr ""
+"    find . -name *.txt |xargs dos2unix\n"
+"\n"
+
+#. type: textblock
+#: dos2unix.pod:732
+msgid "In a Windows Command Prompt the following command can be used:"
+msgstr ""
+
+#. type: verbatim
+#: dos2unix.pod:734
 #, fuzzy, no-wrap
 #| msgid ""
 #| "    find . -name *.txt |xargs dos2unix\n"
@@ -1485,12 +1508,12 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:732
+#: dos2unix.pod:736
 msgid "PowerShell users can use the following command in Windows PowerShell:"
 msgstr ""
 
 #. type: verbatim
-#: dos2unix.pod:734
+#: dos2unix.pod:738
 #, no-wrap
 msgid ""
 "    get-childitem -path . -filter '*.txt' -recurse | foreach-object {dos2unix $_.Fullname}\n"
@@ -1498,22 +1521,22 @@ msgid ""
 msgstr ""
 
 #. type: =head1
-#: dos2unix.pod:737
+#: dos2unix.pod:741
 msgid "LOCALIZATION"
 msgstr "INTERNACIONALIZACIÓN"
 
 #. type: =item
-#: dos2unix.pod:741
+#: dos2unix.pod:745
 msgid "B<LANG>"
 msgstr "B<LANG>"
 
 #. type: textblock
-#: dos2unix.pod:743
+#: dos2unix.pod:747
 msgid "The primary language is selected with the environment variable LANG. The LANG variable consists out of several parts. The first part is in small letters the language code. The second is optional and is the country code in capital letters, preceded with an underscore. There is also an optional third part: character encoding, preceded with a dot. A few examples for POSIX standard type shells:"
 msgstr "El idioma principal se selecciona con la variable de entorno LANG. La variable LANG consiste de varias partes. La primer parte es el código del idioma en minúsculas. La segunda es opcional y es el código del país en mayúsculas, precedido por un guión bajo. Existe también una tercera parte opcional: la codificación de caracteres, precedida por un punto. Unos cuantos ejemplos para intérpretes de comandos tipo POSIX estándar:"
 
 #. type: verbatim
-#: dos2unix.pod:750
+#: dos2unix.pod:754
 #, no-wrap
 msgid ""
 "    export LANG=nl               Dutch\n"
@@ -1535,47 +1558,47 @@ msgstr ""
 "\n"
 
 #. type: textblock
-#: dos2unix.pod:758
+#: dos2unix.pod:762
 msgid "For a complete list of language and country codes see the gettext manual: L<http://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html>"
 msgstr "Para obtener una lista completa de códigos de idioma y país véase el manual de gettext: L<http://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html>"
 
 #. type: textblock
-#: dos2unix.pod:761
+#: dos2unix.pod:765
 msgid "On Unix systems you can use the command locale(1) to get locale specific information."
 msgstr "En sistemas Unix puede emplear el comando locale(1) para obtener información específica de locale."
 
 #. type: =item
-#: dos2unix.pod:764
+#: dos2unix.pod:768
 msgid "B<LANGUAGE>"
 msgstr "B<LANGUAGE>"
 
 #. type: textblock
-#: dos2unix.pod:766
+#: dos2unix.pod:770
 msgid "With the LANGUAGE environment variable you can specify a priority list of languages, separated by colons. Dos2unix gives preference to LANGUAGE over LANG.  For instance, first Dutch and then German: C<LANGUAGE=nl:de>. You have to first enable localization, by setting LANG (or LC_ALL) to a value other than \"C\", before you can use a language priority list through the LANGUAGE variable. See also the gettext manual: L<http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
 msgstr "Con la variable de entorno LANGUAGE puede especificar una lista de prioridad de los idiomas, separados por dos puntos. Dos2unix da preferencia a LANGUAGE sobre LANG. Por ejemplo, primero neerlandés y entonces alemán: C<LANGUAGE=nl:de>. Para usar una lista de prioridad de idiomas a través de la variable LANGUAGE tiene que habilitar antes la internacionalización, asignando un valor distinto de \"C\" a LANG (o LC_ALL). Véase también el manual de gettext: L<http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
 
 #. type: textblock
-#: dos2unix.pod:774
+#: dos2unix.pod:778
 msgid "If you select a language which is not available you will get the standard English messages."
 msgstr "Si selecciona un idioma que no está disponible el programa funcionará en ingles."
 
 #. type: =item
-#: dos2unix.pod:778
+#: dos2unix.pod:782
 msgid "B<DOS2UNIX_LOCALEDIR>"
 msgstr "B<DOS2UNIX_LOCALEDIR>"
 
 #. type: textblock
-#: dos2unix.pod:780
+#: dos2unix.pod:784
 msgid "With the environment variable DOS2UNIX_LOCALEDIR the LOCALEDIR set during compilation can be overruled. LOCALEDIR is used to find the language files. The GNU default value is C</usr/local/share/locale>.  Option B<--version> will display the LOCALEDIR that is used."
 msgstr "Con la variable de entorno DOS2UNIX_LOCALEDIR el LOCALEDIR asignado durante la compilación puede ser modificado. LOCALEDIR es usado para encontrar los archivos de idioma. El valor por defecto de GNU es C</usr/local/share/locale>. El parámetro B<--version> mostrará el LOCALEDIR en uso."
 
 #. type: textblock
-#: dos2unix.pod:785
+#: dos2unix.pod:789
 msgid "Example (POSIX shell):"
 msgstr "Ejemplo (intérprete de comandos POSIX):"
 
 #. type: verbatim
-#: dos2unix.pod:787
+#: dos2unix.pod:791
 #, no-wrap
 msgid ""
 "    export DOS2UNIX_LOCALEDIR=$HOME/share/locale\n"
@@ -1585,85 +1608,74 @@ msgstr ""
 "\n"
 
 #. type: =head1
-#: dos2unix.pod:792
+#: dos2unix.pod:796
 msgid "RETURN VALUE"
 msgstr "VALOR DE RETORNO"
 
 #. type: textblock
-#: dos2unix.pod:794
+#: dos2unix.pod:798
 msgid "On success, zero is returned.  When a system error occurs the last system error will be returned. For other errors 1 is returned."
 msgstr "Se regresa cero cuando el programa termina exitosamente. Cuando ocurre un error del sistema se regresará el último número de error del sistema. Para otros errores se regresa 1."
 
 #. type: textblock
-#: dos2unix.pod:797
+#: dos2unix.pod:801
 msgid "The return value is always zero in quiet mode, except when wrong command-line options are used."
 msgstr "El valor de retorno es siempre cero en modo silencioso, excepto cuando se emplean parámetros incorrectos."
 
 #. type: =head1
-#: dos2unix.pod:800
+#: dos2unix.pod:804
 msgid "STANDARDS"
 msgstr "ESTÁNDARES"
 
 #. type: textblock
-#: dos2unix.pod:802
+#: dos2unix.pod:806
 msgid "L<http://en.wikipedia.org/wiki/Text_file>"
 msgstr "L<http://es.wikipedia.org/wiki/Documento_de_texto>"
 
 #. type: textblock
-#: dos2unix.pod:804
+#: dos2unix.pod:808
 msgid "L<http://en.wikipedia.org/wiki/Carriage_return>"
 msgstr "L<http://es.wikipedia.org/wiki/Retorno_de_carro>"
 
 #. type: textblock
-#: dos2unix.pod:806
+#: dos2unix.pod:810
 msgid "L<http://en.wikipedia.org/wiki/Newline>"
 msgstr "L<http://es.wikipedia.org/wiki/Nueva_l%C3%ADnea>"
 
 #. type: textblock
-#: dos2unix.pod:808
+#: dos2unix.pod:812
 msgid "L<http://en.wikipedia.org/wiki/Unicode>"
 msgstr "L<http://es.wikipedia.org/wiki/Unicode>"
 
 #. type: =head1
-#: dos2unix.pod:810
+#: dos2unix.pod:814
 msgid "AUTHORS"
 msgstr "AUTORES"
 
 #. type: textblock
-#: dos2unix.pod:812
+#: dos2unix.pod:816
 msgid "Benjamin Lin - <blin@socs.uts.edu.au>, Bernd Johannes Wuebben (mac2unix mode) - <wuebben@kde.org>, Christian Wurll (add extra newline) - <wurll@ira.uka.de>, Erwin Waterlander - <waterlan@xs4all.nl> (maintainer)"
 msgstr "Benjamin Lin - <blin@socs.uts.edu.au>, Bernd Johannes Wuebben (mac2unix mode) - <wuebben@kde.org>, Christian Wurll (add extra newline) - <wurll@ira.uka.de>, Erwin Waterlander - <waterlan@xs4all.nl> (maintainer)"
 
 #. type: textblock
-#: dos2unix.pod:817
+#: dos2unix.pod:821
 msgid "Project page: L<http://waterlan.home.xs4all.nl/dos2unix.html>"
 msgstr "Página del proyecto: L<http://waterlan.home.xs4all.nl/dos2unix.html>"
 
 #. type: textblock
-#: dos2unix.pod:819
+#: dos2unix.pod:823
 msgid "SourceForge page: L<http://sourceforge.net/projects/dos2unix/>"
 msgstr "Página de SourceForge: L<http://sourceforge.net/projects/dos2unix/>"
 
 #. type: =head1
-#: dos2unix.pod:821
+#: dos2unix.pod:825
 msgid "SEE ALSO"
 msgstr "VÉASE TAMBIÉN"
 
 #. type: textblock
-#: dos2unix.pod:823
+#: dos2unix.pod:827
 msgid "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 msgstr "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
-
-#, fuzzy
-#~| msgid ""
-#~| "    find . -name *.txt |xargs dos2unix\n"
-#~| "\n"
-#~ msgid ""
-#~ "    find . -name '*.txt' |xargs dos2unix\n"
-#~ "\n"
-#~ msgstr ""
-#~ "    find . -name *.txt |xargs dos2unix\n"
-#~ "\n"
 
 #~ msgid ""
 #~ "    dos2unix\n"
