@@ -2,12 +2,12 @@
 # Copyright (C) 2014 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
 #
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2014-2016.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2014-2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.3.3-beta9\n"
-"POT-Creation-Date: 2017-05-18 23:02+0200\n"
-"PO-Revision-Date: 2016-02-09 09:37+0100\n"
+"Project-Id-Version: dos2unix-man-7.3.5-beta4\n"
+"POT-Creation-Date: 2017-05-18 23:07+0200\n"
+"PO-Revision-Date: 2017-05-19 18:59+0200\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 2.0.2\n"
 
 #. type: =head1
 #: dos2unix.pod:52
@@ -1255,16 +1255,14 @@ msgstr "Aus der Standardeingabe lesen und in die Standardausgabe schreiben:"
 
 #. type: verbatim
 #: dos2unix.pod:666
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -ic *.txt | xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix < a.txt\n"
 "    cat a.txt | dos2unix\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    dos2unix < a.txt\n"
+"    cat a.txt | dos2unix\n"
 "\n"
 
 #. type: textblock
@@ -1438,40 +1436,32 @@ msgstr "REKURSIVE UMWANDLUNG"
 
 #. type: textblock
 #: dos2unix.pod:720
-#, fuzzy
-#| msgid "Use dos2unix in combination with the find(1) and xargs(1) commands to recursively convert text files in a directory tree structure. For instance to convert all .txt files in the directory tree under the current directory type:"
 msgid "In a Unix shell the find(1) and xargs(1) commands can be used to run dos2unix recursively over all text files in a directory tree. For instance to convert all .txt files in the directory tree under the current directory type:"
-msgstr "Verwenden Sie dos2unix zusammen mit den Befehlen find(1) und xargs(1), um Textdateien in einem Verzeichnisbaum rekursiv umzuwandeln. Um beispielsweise alle *.txt-Dateien im aktuellen Verzeichnis und dessen Unterverzeichnissen umzuwandeln, geben Sie Folgendes ein:"
+msgstr "In einer Unix-Shell verwenden Sie dos2unix zusammen mit den Befehlen find(1) und xargs(1), um Textdateien in einem Verzeichnisbaum rekursiv umzuwandeln. Um beispielsweise alle *.txt-Dateien im aktuellen Verzeichnis und dessen Unterverzeichnissen umzuwandeln, geben Sie Folgendes ein:"
 
 #. type: verbatim
 #: dos2unix.pod:724
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:726
 msgid "The find(1) option C<-print0> and corresponding xargs(1) option C<-0> are needed when there are files with spaces or quotes in the name. Otherwise these options can be omitted. Another option is to use find(1) with the C<-exec> option:"
-msgstr ""
+msgstr "Die find(1)-Option C<-print0> und die korrespondierende xargs(1)-Option C<-0> werden für Dateien benötigt, deren Namen Leerzeichen oder Anführungszeichen enthalten. Ansonsten können diese Optionen weggelassen werden. Eine weitere Möglichkeit ist, find(1) zusammen mit der Option C<-exec> zu verwenden:"
 
 #. type: verbatim
 #: dos2unix.pod:730
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find . -name '*.txt' -exec dos2unix {} \\;\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    find . -name '*.txt' -exec dos2unix {} \\;\n"
 "\n"
 
 #. type: textblock
@@ -1660,12 +1650,3 @@ msgstr "SIEHE AUCH"
 #: dos2unix.pod:827
 msgid "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 msgstr "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
-
-#~ msgid ""
-#~ "    dos2unix\n"
-#~ "    dos2unix -l -c mac\n"
-#~ "\n"
-#~ msgstr ""
-#~ "    dos2unix\n"
-#~ "    dos2unix -l -c mac\n"
-#~ "\n"

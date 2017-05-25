@@ -1,5 +1,7 @@
 2017-??-??: Version 7.3.5
   * Code cleanup.
+  * Manual update.
+  * Translation updates.
 
 2016-05-24: Version 7.3.4
   * Safer temporary file creation on Windows.

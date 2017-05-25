@@ -1,23 +1,23 @@
 # Brazilian Portuguese translation for dos2unix-man
-# Copyright (c) 2016 Erwin Waterlander (msgids)
-# Copyright (C) 2016 Free Software Foundation, Inc.
+# Copyright (c) 2017 Erwin Waterlander (msgids)
+# Copyright (C) 2017 Free Software Foundation, Inc.
 # This file is distributed under the same license as the dos2unix package.
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2014, 2015, 2016.
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2014, 2015, 2016, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3.3-beta9\n"
+"Project-Id-Version: dos2unix-man 7.3.5-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-18 23:02+0200\n"
-"PO-Revision-Date: 2016-03-15 00:21-0300\n"
+"POT-Creation-Date: 2017-05-18 23:07+0200\n"
+"PO-Revision-Date: 2017-05-19 17:01-0200\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge.net>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Virtaal 1.0.0-beta1\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 
 #. type: =head1
 #: dos2unix.pod:52
@@ -713,7 +713,7 @@ msgstr "B<-r, --remove-bom>"
 #. type: textblock
 #: dos2unix.pod:399
 msgid "Remove Byte Order Mark (BOM). Do not write a BOM in the output file.  This is the default behavior when converting to Unix line breaks.  See also option C<-b>."
-msgstr "remove marca de ordem de bytes (BOM). Não escreve um BOM no arquivo de saída. Esse é o comportamento padrão ao converter para quebras de linha Unix. Veja também a opção C<-b>."
+msgstr "Remove marca de ordem de bytes (BOM). Não escreve um BOM no arquivo de saída. Esse é o comportamento padrão ao converter para quebras de linha Unix. Veja também a opção C<-b>."
 
 #. type: =item
 #: dos2unix.pod:403
@@ -1143,7 +1143,7 @@ msgstr "Nomes de arquivos Unicode no Windows"
 #. type: textblock
 #: dos2unix.pod:616
 msgid "Dos2unix has optional support for reading and writing Unicode file names in the Windows Command Prompt. That means that dos2unix can open files that have characters in the name that are not part of the default system ANSI code page.  To see if dos2unix for Windows was built with Unicode file name support type C<dos2unix -V>."
-msgstr "Dos2unix possui um suporte opcional para leitura e escrita de nomes de arquivos Unicode no Prompt de Comando Windows. Isso significa que dos2unix pode abrir arquivos que possuam caracteres no nome que não são parte da página de código ANSI padrão do sistema. Para ver ser dosunix para Windows foi compilado com suporte a nomes de arquivos Unicode, digite C<dos2unix -V>."
+msgstr "Dos2unix possui um suporte opcional para leitura e escrita de nomes de arquivos Unicode no Prompt de Comando Windows. Isso significa que dos2unix pode abrir arquivos que possuam caracteres no nome que não são parte da página de código ANSI padrão do sistema. Para ver se dos2unix para Windows foi compilado com suporte a nomes de arquivos em Unicode, digite C<dos2unix -V>."
 
 #. type: textblock
 #: dos2unix.pod:622
@@ -1257,16 +1257,14 @@ msgstr "Lê a entrada da \"stdin\" e escreve a saída para \"stdout\":"
 
 #. type: verbatim
 #: dos2unix.pod:666
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -ic *.txt | xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix < a.txt\n"
 "    cat a.txt | dos2unix\n"
 "\n"
 msgstr ""
-"    dos2unix -ic *.txt | xargs dos2unix\n"
+"    dos2unix < a.txt\n"
+"    cat a.txt | dos2unix\n"
 "\n"
 
 #. type: textblock
@@ -1440,40 +1438,32 @@ msgstr "CONVERSÃO RECURSIVA"
 
 #. type: textblock
 #: dos2unix.pod:720
-#, fuzzy
-#| msgid "Use dos2unix in combination with the find(1) and xargs(1) commands to recursively convert text files in a directory tree structure. For instance to convert all .txt files in the directory tree under the current directory type:"
 msgid "In a Unix shell the find(1) and xargs(1) commands can be used to run dos2unix recursively over all text files in a directory tree. For instance to convert all .txt files in the directory tree under the current directory type:"
-msgstr "Use dos2unix em combinação com os comandos find(1) e xargs(1) para converter recursivamente arquivos texto em uma estrutura de árvore de diretórios. Por exemplo, para converter todos os arquivos .txt na árvore de diretórios sob o diretório atual, digite:"
+msgstr "Em um shell Unix, os comandos find(1) e xargs(1) podem ser usados para executar recursivamente o dos2unix em todos os arquivos texto em uma árvore de diretórios. Por exemplo, para converter todos os arquivos .txt na árvore de diretórios sob o diretório atual, digite:"
 
 #. type: verbatim
 #: dos2unix.pod:724
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:726
 msgid "The find(1) option C<-print0> and corresponding xargs(1) option C<-0> are needed when there are files with spaces or quotes in the name. Otherwise these options can be omitted. Another option is to use find(1) with the C<-exec> option:"
-msgstr ""
+msgstr "A opção do find(1) C<-print0> e a opção correspondente do xargs(1) C<-0> são necessárias quando houver arquivos com espaços ou aspas no nome. Do contrário, essas opções podem ser omitidas. Outra alternativa é usar find(1) com a opção C<-exec>:"
 
 #. type: verbatim
 #: dos2unix.pod:730
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find . -name '*.txt' -exec dos2unix {} \\;\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    find . -name '*.txt' -exec dos2unix {} \\;\n"
 "\n"
 
 #. type: textblock
@@ -1519,7 +1509,7 @@ msgstr "B<LANG>"
 #. type: textblock
 #: dos2unix.pod:747
 msgid "The primary language is selected with the environment variable LANG. The LANG variable consists out of several parts. The first part is in small letters the language code. The second is optional and is the country code in capital letters, preceded with an underscore. There is also an optional third part: character encoding, preceded with a dot. A few examples for POSIX standard type shells:"
-msgstr "O idioma primário é selecionado com a variável de ambiente LANG. A variável LANG consiste em várias partes. A primeira parte está em letras pequenas no código do idioma. A segunda parte é opcional e é o código do país em letras maiúsculo, precedido de um ponto. Alguns exemplos para shells do tipo padrão POSIX:"
+msgstr "O idioma primário é selecionado com a variável de ambiente LANG. A variável LANG consiste em várias partes. A primeira parte está em letras pequenas no código do idioma. A segunda parte é opcional e é o código do país em letras maiúsculo, precedida de um sublinhado. Há também uma terceira parte opcional: codificação de caractere, precedida com um ponto. Alguns exemplos para shells do tipo padrão POSIX:"
 
 #. type: verbatim
 #: dos2unix.pod:754
@@ -1656,7 +1646,7 @@ msgstr "Página do SourceForge: L<http://sourceforge.net/projects/dos2unix/>"
 #. type: =head1
 #: dos2unix.pod:825
 msgid "SEE ALSO"
-msgstr "Veja também"
+msgstr "VEJA TAMBÉM"
 
 #. type: textblock
 #: dos2unix.pod:827

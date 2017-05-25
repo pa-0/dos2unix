@@ -1,13 +1,13 @@
 # Swedish translation for dos2unix-man.
-# Copyright © 2014-2016 Erwin Waterlander, et al. (msgids)
+# Copyright © 2014, 2015, 2016, 2017 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
-# Sebastian Rasmussen <sebras@gmail.com>, 2014-2016.
+# Sebastian Rasmussen <sebras@gmail.com>, 2014, 2015, 2016, 2017.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3.3-beta9\n"
-"POT-Creation-Date: 2017-05-18 23:02+0200\n"
-"PO-Revision-Date: 2016-02-06 12:02+0100\n"
+"Project-Id-Version: dos2unix-man 7.3.5-beta4\n"
+"POT-Creation-Date: 2017-05-18 23:07+0200\n"
+"PO-Revision-Date: 2017-05-20 23:40+0800\n"
 "Last-Translator: Sebastian Rasmussen <sebras@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.11\n"
 
 #. type: =head1
 #: dos2unix.pod:52
@@ -1255,16 +1255,14 @@ msgstr "Läsa inmatning från “stdin“ och skriv utmatning till “stdout“:
 
 #. type: verbatim
 #: dos2unix.pod:666
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -ic *.txt | xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix < a.txt\n"
 "    cat a.txt | dos2unix\n"
 "\n"
 msgstr ""
-"    dos2unix -ic *.txt | xargs dos2unix\n"
+"    dos2unix < a.txt\n"
+"    cat a.txt | dos2unix\n"
 "\n"
 
 #. type: textblock
@@ -1438,40 +1436,32 @@ msgstr "REKURSIV KONVERTERING"
 
 #. type: textblock
 #: dos2unix.pod:720
-#, fuzzy
-#| msgid "Use dos2unix in combination with the find(1) and xargs(1) commands to recursively convert text files in a directory tree structure. For instance to convert all .txt files in the directory tree under the current directory type:"
 msgid "In a Unix shell the find(1) and xargs(1) commands can be used to run dos2unix recursively over all text files in a directory tree. For instance to convert all .txt files in the directory tree under the current directory type:"
-msgstr "Använd dos2unix i kombination med kommandona find(1) och xargs(1) för att rekursivt konvertera filer i en katalogstruktur. För att till exempel konvertera alla .txt-filer i katalogträdet under den aktuella katalogen skriv:"
+msgstr "I ett Unix-skal kan kommandona find(1) och xargs(1) användas för att köra dos2unix rekursivt över alla textfiler i ett katalogträd. För att till exempel konvertera alla .txt-filer i katalogträdet under den aktuella katalogen skriv:"
 
 #. type: verbatim
 #: dos2unix.pod:724
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:726
 msgid "The find(1) option C<-print0> and corresponding xargs(1) option C<-0> are needed when there are files with spaces or quotes in the name. Otherwise these options can be omitted. Another option is to use find(1) with the C<-exec> option:"
-msgstr ""
+msgstr "Flaggan C<-print0> till find(1) och motsvarande flagga C<-0> till xargs(1) behövs när det finns filer med mellanslag eller citationstecken i namnet. Annars kan dessa flaggor utelämnas. Ett annat alternativ är att användas find(1) med flaggan C<-exec>:"
 
 #. type: verbatim
 #: dos2unix.pod:730
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find . -name '*.txt' -exec dos2unix {} \\;\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    find . -name '*.txt' -exec dos2unix {} \\;\n"
 "\n"
 
 #. type: textblock

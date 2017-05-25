@@ -3,12 +3,12 @@
 # Copyright (C) 2014 Free Software Foundation, Inc.
 # This file is distributed under the same license as the dos2unix package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2014, 2015, 2016.
+# Yuri Chornoivan <yurchor@ukr.net>, 2014, 2015, 2016, 2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3.3-beta9\n"
-"POT-Creation-Date: 2017-05-18 23:02+0200\n"
-"PO-Revision-Date: 2016-02-06 14:39+0200\n"
+"Project-Id-Version: dos2unix-man 7.3.5-beta4\n"
+"POT-Creation-Date: 2017-05-18 23:07+0200\n"
+"PO-Revision-Date: 2017-05-19 19:23+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
@@ -1257,16 +1257,14 @@ msgstr "Прочитати вхідні дані зі стандартного �
 
 #. type: verbatim
 #: dos2unix.pod:666
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -ic *.txt | xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix < a.txt\n"
 "    cat a.txt | dos2unix\n"
 "\n"
 msgstr ""
-"    dos2unix -ic *.txt | xargs dos2unix\n"
+"    dos2unix < a.txt\n"
+"    cat a.txt | dos2unix\n"
 "\n"
 
 #. type: textblock
@@ -1440,40 +1438,32 @@ msgstr "РЕКУРСИВНЕ ПЕРЕТВОРЕННЯ"
 
 #. type: textblock
 #: dos2unix.pod:720
-#, fuzzy
-#| msgid "Use dos2unix in combination with the find(1) and xargs(1) commands to recursively convert text files in a directory tree structure. For instance to convert all .txt files in the directory tree under the current directory type:"
 msgid "In a Unix shell the find(1) and xargs(1) commands can be used to run dos2unix recursively over all text files in a directory tree. For instance to convert all .txt files in the directory tree under the current directory type:"
-msgstr "Для рекурсивного перетворення текстових файлів у ієрархії каталогів слід використовувати dos2unix у поєднанні з програмами find(1) та xargs(1). Наприклад, щоб виконати перетворення усіх файлів .txt у структурі підкаталогів поточного каталогу, віддайте таку команду:"
+msgstr "У оболонці UNIX можна скористатися командами find(1) і xargs(1) для запуску dos2unix рекурсивно для усіх текстових файлів у ієрархії каталогів. Наприклад, щоб виконати перетворення усіх файлів .txt у структурі підкаталогів поточного каталогу, віддайте таку команду:"
 
 #. type: verbatim
 #: dos2unix.pod:724
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:726
 msgid "The find(1) option C<-print0> and corresponding xargs(1) option C<-0> are needed when there are files with spaces or quotes in the name. Otherwise these options can be omitted. Another option is to use find(1) with the C<-exec> option:"
-msgstr ""
+msgstr "Параметр find(1) C<-print0> і відповідний параметр xargs(1) C<-0> потрібні, якщо у назва файлів є пробіли або лапки. Інакше, ці параметри можна пропустити. Іншим варіантом дій є використання find(1) з параметром C<-exec>:"
 
 #. type: verbatim
 #: dos2unix.pod:730
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find . -name '*.txt' -exec dos2unix {} \\;\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    find . -name '*.txt' -exec dos2unix {} \\;\n"
 "\n"
 
 #. type: textblock

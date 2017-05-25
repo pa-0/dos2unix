@@ -4,9 +4,9 @@
 # Tianze Wang <zwpwjwtz@126.com>, 2015, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.3.3-beta9\n"
-"POT-Creation-Date: 2017-05-18 23:02+0200\n"
-"PO-Revision-Date: 2016-02-06 19:48+0800\n"
+"Project-Id-Version: dos2unix-man-7.3.5-beta4\n"
+"POT-Creation-Date: 2017-05-18 23:07+0200\n"
+"PO-Revision-Date: 2017-05-19 21:41+0800\n"
 "Last-Translator: Tianze Wang <zwpwjwtz@126.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 2.0.1\n"
 
 #. type: =head1
 #: dos2unix.pod:52
@@ -1257,16 +1257,14 @@ msgstr "从标准输入读取，并输出到标准输出："
 
 #. type: verbatim
 #: dos2unix.pod:666
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -ic *.txt | xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix < a.txt\n"
 "    cat a.txt | dos2unix\n"
 "\n"
 msgstr ""
-"    dos2unix -ic *.txt | xargs dos2unix\n"
+"    dos2unix < a.txt\n"
+"    cat a.txt | dos2unix\n"
 "\n"
 
 #. type: textblock
@@ -1440,40 +1438,33 @@ msgstr "递归转换"
 
 #. type: textblock
 #: dos2unix.pod:720
-#, fuzzy
-#| msgid "Use dos2unix in combination with the find(1) and xargs(1) commands to recursively convert text files in a directory tree structure. For instance to convert all .txt files in the directory tree under the current directory type:"
 msgid "In a Unix shell the find(1) and xargs(1) commands can be used to run dos2unix recursively over all text files in a directory tree. For instance to convert all .txt files in the directory tree under the current directory type:"
-msgstr "结合 find(1) 和 xargs(1) 使用dos2unix可以递归地转换目录树中的文本文件。例如，转换当前目录的目录树中所有的.txt文件："
+msgstr "结合 find(1) 和 xargs(1) 使用 dos2unix 可以递归地转换目录树中的文本文件。例如，转换当前目录的目录树中所有的 .txt 文件："
 
 #. type: verbatim
 #: dos2unix.pod:724
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    dos2unix < a.txt\n"
+"    cat a.txt | dos2unix\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:726
 msgid "The find(1) option C<-print0> and corresponding xargs(1) option C<-0> are needed when there are files with spaces or quotes in the name. Otherwise these options can be omitted. Another option is to use find(1) with the C<-exec> option:"
-msgstr ""
+msgstr "若文件名中有空格或引号，则需要使用 find(1) 选项 C<-print0> 及相应的 xargs(1) 选项 C<-0>；其他情况下则可以省略它们。也可以结合 C<-exec> 选项来使用 find(1)："
 
 #. type: verbatim
 #: dos2unix.pod:730
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find . -name '*.txt' -exec dos2unix {} \\;\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' |xargs dos2unix\n"
+"    find . -name '*.txt' -exec dos2unix {} \\;\n"
 "\n"
 
 #. type: textblock
