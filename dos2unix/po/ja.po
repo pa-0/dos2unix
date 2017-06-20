@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-15 23:23+0100\n"
+"POT-Creation-Date: 2017-06-20 19:25+0200\n"
 "PO-Revision-Date: 2016-05-15 00:11+0900\n"
 "Last-Translator: Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -602,56 +602,56 @@ msgstr "%s ファイル %s を %s の DOS 形式へ変換しています。\n"
 msgid "problems converting file %s\n"
 msgstr "ファイル %s 変換中に問題が発生しました。\n"
 
-#: common.c:2060 common.c:2110
+#: common.c:2071 common.c:2121
 #, c-format
 msgid "can not read from input file %s:"
 msgstr "入力ファイル %s から読み込めません:"
 
-#: common.c:2267
+#: common.c:2281
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "オプション -i または --info に対する間違ったフラグ '%c' です。\n"
 
-#: common.c:2392 common.c:2435
+#: common.c:2406 common.c:2449
 #, c-format
 msgid "active code page: %d\n"
 msgstr "有効なコードページ: %d\n"
 
-#: common.c:2447
+#: common.c:2461
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "無効な %s 変換モードが指定されました\n"
 
-#: common.c:2455 common.c:2485
+#: common.c:2469 common.c:2499
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "オプション '%s' には引数が必要です。\n"
 
-#: common.c:2477
+#: common.c:2491
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "無効な %s 表示エンコーディングが指定されました\n"
 
-#: common.c:2497 common.c:2510 common.c:2576
+#: common.c:2511 common.c:2524 common.c:2590
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "対象ファイル %s が新規ファイルモードで指定されていません\n"
 
-#: common.c:2588
+#: common.c:2602
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "入力ファイルから読み込めません: %s\n"
 
-#: common.c:2598 common.c:2610
+#: common.c:2612 common.c:2624
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "出力ファイルに書き込めません: %s\n"
 
-#: common.c:2685
+#: common.c:2699
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "エラー: 無効なサロゲートペアです。下位サロゲートがありません。\n"
 
-#: common.c:2701
+#: common.c:2715
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "エラー: 無効なサロゲートペアです。上位サロゲートがありません。\n"
 

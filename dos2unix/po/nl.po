@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-15 23:23+0100\n"
+"POT-Creation-Date: 2017-06-20 19:25+0200\n"
 "PO-Revision-Date: 2016-05-20 09:58+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -592,56 +592,56 @@ msgstr "converteren van bestand %2$s (%1$s) naar DOS-opmaak (%3$s)...\n"
 msgid "problems converting file %s\n"
 msgstr "problemen met conversie van bestand %s\n"
 
-#: common.c:2060 common.c:2110
+#: common.c:2071 common.c:2121
 #, c-format
 msgid "can not read from input file %s:"
 msgstr "kan niet lezen uit invoerbestand %s:"
 
-#: common.c:2267
+#: common.c:2281
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "onjuiste vlag '%c' voor optie '-i' of '--info'\n"
 
-#: common.c:2392 common.c:2435
+#: common.c:2406 common.c:2449
 #, c-format
 msgid "active code page: %d\n"
 msgstr "actieve codetabel: %d\n"
 
-#: common.c:2447
+#: common.c:2461
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "ongeldige conversiemodus %s opgegeven\n"
 
-#: common.c:2455 common.c:2485
+#: common.c:2469 common.c:2499
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "optie '%s' vereist een argument\n"
 
-#: common.c:2477
+#: common.c:2491
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "ongeldige weergavecodering %s opgegeven\n"
 
-#: common.c:2497 common.c:2510 common.c:2576
+#: common.c:2511 common.c:2524 common.c:2590
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "doel van bestand %s is niet opgegeven in 'nieuwbestand-modus'\n"
 
-#: common.c:2588
+#: common.c:2602
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "kan niet lezen uit invoerbestand: %s\n"
 
-#: common.c:2598 common.c:2610
+#: common.c:2612 common.c:2624
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "kan niet schrijven naar uitvoerbestand: %s\n"
 
-#: common.c:2685
+#: common.c:2699
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "fout: ongeldig surrogaatpaar -- het lage deel ontbreekt\n"
 
-#: common.c:2701
+#: common.c:2715
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "fout: ongeldig surrogaatpaar -- het hoge deel ontbreekt\n"
 

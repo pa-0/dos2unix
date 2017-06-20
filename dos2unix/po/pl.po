@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-15 23:23+0100\n"
+"POT-Creation-Date: 2017-06-20 19:25+0200\n"
 "PO-Revision-Date: 2016-05-13 15:20+0200\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -597,55 +597,55 @@ msgstr "konwersja pliku %s %s do formatu DOS %s...\n"
 msgid "problems converting file %s\n"
 msgstr "problemy z konwersją pliku %s\n"
 
-#: common.c:2060 common.c:2110
+#: common.c:2071 common.c:2121
 #, c-format
 msgid "can not read from input file %s:"
 msgstr "nie można czytać z pliku wejściowego %s:"
 
-#: common.c:2267
+#: common.c:2281
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "błędna flaga '%c' dla opcji -i lub --info\n"
 
-#: common.c:2392 common.c:2435
+#: common.c:2406 common.c:2449
 #, c-format
 msgid "active code page: %d\n"
 msgstr "aktywna strona kodowa: %d\n"
 
-#: common.c:2447
+#: common.c:2461
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "podano błędny tryb konwersji %s\n"
 
-#: common.c:2455 common.c:2485
+#: common.c:2469 common.c:2499
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "opcja '%s' wymaga argumentu\n"
 
-#: common.c:2477
+#: common.c:2491
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "podano błędne kodowanie wyświetlania %s\n"
 
-#: common.c:2497 common.c:2510 common.c:2576
+#: common.c:2511 common.c:2524 common.c:2590
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "nie podano celu pliku %s w trybie nowego pliku\n"
 
-#: common.c:2588
+#: common.c:2602
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "nie można czytać z pliku wejściowego: %s\n"
 
-#: common.c:2598 common.c:2610
+#: common.c:2612 common.c:2624
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "nie można zapisać do pliku wyjściowego: %s\n"
 
-#: common.c:2685
+#: common.c:2699
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "błąd: Błędna para zamienna. Brak młodszego zamiennika.\n"
 
-#: common.c:2701
+#: common.c:2715
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "błąd: Błędna para zamienna. Brak starszego zamiennika.\n"

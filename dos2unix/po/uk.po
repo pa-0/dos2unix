@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-15 23:23+0100\n"
+"POT-Creation-Date: 2017-06-20 19:25+0200\n"
 "PO-Revision-Date: 2016-05-13 17:31+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -608,56 +608,56 @@ msgstr "перетворюємо файл у кодуванні %s %s до фо�
 msgid "problems converting file %s\n"
 msgstr "під час перетворення файла %s виникли проблеми\n"
 
-#: common.c:2060 common.c:2110
+#: common.c:2071 common.c:2121
 #, c-format
 msgid "can not read from input file %s:"
 msgstr "не вдалося прочитати дані із файла вхідних даних %s:"
 
-#: common.c:2267
+#: common.c:2281
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "помилковий прапорець «%c» для параметра -i або --info\n"
 
-#: common.c:2392 common.c:2435
+#: common.c:2406 common.c:2449
 #, c-format
 msgid "active code page: %d\n"
 msgstr "активна кодова сторінка: %d\n"
 
-#: common.c:2447
+#: common.c:2461
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "вказано некоректний режим перетворення %s\n"
 
-#: common.c:2455 common.c:2485
+#: common.c:2469 common.c:2499
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "до параметра «%s» слід вказувати аргумент\n"
 
-#: common.c:2477
+#: common.c:2491
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "вказано некоректне кодування для показу %s\n"
 
-#: common.c:2497 common.c:2510 common.c:2576
+#: common.c:2511 common.c:2524 common.c:2590
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "не вказано призначення для файла %s у режимі створення файлів\n"
 
-#: common.c:2588
+#: common.c:2602
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "не вдалося прочитати дані із файла вхідних даних: %s\n"
 
-#: common.c:2598 common.c:2610
+#: common.c:2612 common.c:2624
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "не вдалося виконати запис до файла результатів: %s\n"
 
-#: common.c:2685
+#: common.c:2699
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "помилка: некоректна пара заміщення. Пропущено нижній компонент.\n"
 
-#: common.c:2701
+#: common.c:2715
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "помилка: некоректна пара заміщення. Пропущено верхній компонент.\n"
 

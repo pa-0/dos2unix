@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.1-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-15 23:23+0100\n"
+"POT-Creation-Date: 2017-06-20 19:25+0200\n"
 "PO-Revision-Date: 2015-09-20 14:17+0200\n"
 "Last-Translator: Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
@@ -605,56 +605,56 @@ msgstr "convirtiendo archivo %s %s a formato %s DOS...\n"
 msgid "problems converting file %s\n"
 msgstr "problemas convirtiendo el archivo %s\n"
 
-#: common.c:2060 common.c:2110
+#: common.c:2071 common.c:2121
 #, c-format
 msgid "can not read from input file %s:"
 msgstr "no puedo escribir al archivo de salida: %s"
 
-#: common.c:2267
+#: common.c:2281
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "'%c' es un valor incorrecto para la opción -i o --info\n"
 
-#: common.c:2392 common.c:2435
+#: common.c:2406 common.c:2449
 #, c-format
 msgid "active code page: %d\n"
 msgstr "Página de códigos activa: %d\n"
 
-#: common.c:2447
+#: common.c:2461
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "modo de conversión %s especificado es inválido\n"
 
-#: common.c:2455 common.c:2485
+#: common.c:2469 common.c:2499
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "el parámetro '%s' requiere un argumento\n"
 
-#: common.c:2477
+#: common.c:2491
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "el modo de conversión %s especificado no es válido\n"
 
-#: common.c:2497 common.c:2510 common.c:2576
+#: common.c:2511 common.c:2524 common.c:2590
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "el destino del archivo %s no se especificó en el modo de archivo nuevo\n"
 
-#: common.c:2588
+#: common.c:2602
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "no puedo escribir al archivo de salida: %s\n"
 
-#: common.c:2598 common.c:2610
+#: common.c:2612 common.c:2624
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "no puedo escribir al archivo de salida: %s\n"
 
-#: common.c:2685
+#: common.c:2699
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "error: Par sustituto no válido. Falta el sustituto bajo.\n"
 
-#: common.c:2701
+#: common.c:2715
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "error: Par sustituto no válido. Falta el sustituto alto.\n"
 
