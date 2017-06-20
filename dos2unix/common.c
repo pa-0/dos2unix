@@ -1986,9 +1986,15 @@ void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb
       D2U_UTF8_FPRINTF(stdout, "  BOM     ");
     if (ipFlag->file_info & INFO_TEXT)
       D2U_UTF8_FPRINTF(stdout, "  TXTBIN");
-    if (*filename != '\0')
-      D2U_UTF8_FPRINTF(stdout, "  FILE");
-    D2U_UTF8_FPRINTF(stdout, "\n");
+    if (*filename != '\0') {
+      if (ipFlag->file_info & INFO_DEFAULT)
+        D2U_UTF8_FPRINTF(stdout, "  ");
+      D2U_UTF8_FPRINTF(stdout, "FILE");
+    }
+    if (ipFlag->file_info & INFO_PRINT0)
+      fputc(0, stdout);
+    else
+      D2U_UTF8_FPRINTF(stdout, "\n");
     header_done = 1;
   }
 
@@ -2012,9 +2018,14 @@ void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb
       ptr++;
     else
       ptr = filename;
-    D2U_UTF8_FPRINTF(stdout, "  %s",ptr);
+    if (ipFlag->file_info & INFO_DEFAULT)
+      D2U_UTF8_FPRINTF(stdout, "  ");
+    D2U_UTF8_FPRINTF(stdout, "%s",ptr);
   }
-  D2U_UTF8_FPRINTF(stdout, "\n");
+  if (ipFlag->file_info & INFO_PRINT0)
+    fputc(0, stdout);
+  else
+    D2U_UTF8_FPRINTF(stdout, "\n");
 }
 
 #ifdef D2U_UNICODE
@@ -2230,6 +2241,9 @@ void get_info_options(char *option, CFlag *pFlag, const char *progname)
 
   while (*ptr != '\0') {
     switch (*ptr) {
+      case '0':   /* Print null characters instead of newline characters. */
+        pFlag->file_info |= INFO_PRINT0;
+        break;
       case 'd':   /* Print nr of DOS line breaks. */
         pFlag->file_info |= INFO_DOS;
         default_info = 0;

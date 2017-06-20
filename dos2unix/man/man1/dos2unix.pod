@@ -266,6 +266,12 @@ can be added.
 
 =over 4
 
+=item B<0>
+
+Print the file information lines followed by a null character instead of a newline
+character. This enables correct interpretation of file names with spaces or quotes.
+Use this flag in combination with xargs(1) option C<-0> or C<--null>.
+
 =item B<d>
 
 Print number of DOS line breaks.
@@ -327,11 +333,11 @@ List the files that have Unix line breaks:
 
 Convert only files that have DOS line breaks and leave the other files untouched:
 
-    dos2unix -ic *.txt | xargs dos2unix
+    dos2unix -ic0 *.txt | xargs -0 dos2unix
 
 Find text files that have DOS line breaks:
 
-    find -name '*.txt' | xargs dos2unix -ic
+    find -name '*.txt' -print0 | xargs -0 dos2unix -ic
 
 =item B<-k, --keepdate>
 

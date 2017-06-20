@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Requires perl-Test-Simple installation.
-use Test::Simple tests => 14;
+use Test::Simple tests => 15;
 
 $suffix = "";
 if (-e "../dos2unix.exe") {
@@ -82,3 +82,7 @@ ok( $? == 0, 'Unix2dos, force ASCII file with binary symbols' );
 system("$DOS2UNIX -i dos.txt unix.txt mac.txt mixed.txt utf16len.txt utf8unix.txt utf8dos.txt gb18030.txt > outinfo.txt");
 system("$DOS2UNIX outinfo.txt; diff info.txt outinfo.txt");
 ok( $? == 0, 'Option -i, --info');
+
+system("$DOS2UNIX -ic0 dos*.txt | xargs -0 ls 2> err.txt > outinfo0.txt");
+system("$DOS2UNIX outinfo0.txt; diff info0.txt outinfo0.txt");
+ok( $? == 0, 'Option -ic0');

@@ -203,6 +203,7 @@
 #define INFO_CONVERT 0x20
 #define INFO_HEADER  0x40
 #define INFO_NOPATH  0x80
+#define INFO_PRINT0  0x100
 
 #define SYMLINK_SKIP 0
 #define SYMLINK_FOLLOW 1
