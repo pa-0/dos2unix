@@ -268,9 +268,10 @@ can be added.
 
 =item B<0>
 
-Print the file information lines followed by a null character instead of a newline
-character. This enables correct interpretation of file names with spaces or quotes.
-Use this flag in combination with xargs(1) option C<-0> or C<--null>.
+Print the file information lines followed by a null character instead of a
+newline character. This enables correct interpretation of file names with
+spaces or quotes when flag c is used. Use this flag in combination with
+xargs(1) option C<-0> or C<--null>.
 
 =item B<d>
 

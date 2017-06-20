@@ -1,8 +1,8 @@
 2017-??-??: Version 7.3.5
   * New flag 0 for option -i, --info. End information lines with a null
     character instead of a newline character, enabling correct file name
-    interpretation.
-  * Don't print leading spaces when option -ic is used.
+    interpretation when flag c is used.
+  * Don't print leading spaces when option -i with flag c is used.
   * Code cleanup.
   * Manual update.
   * Translation updates.
