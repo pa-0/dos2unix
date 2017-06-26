@@ -4,9 +4,9 @@
 # Frédéric Marchal <fmarchal@perso.be>, 2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.3.5-beta4\n"
-"POT-Creation-Date: 2017-06-20 22:03+0200\n"
-"PO-Revision-Date: 2017-05-20 07:12+0200\n"
+"Project-Id-Version: dos2unix-man-7.3.5-beta5\n"
+"POT-Creation-Date: 2017-06-20 22:06+0200\n"
+"PO-Revision-Date: 2017-06-26 19:43+0200\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -410,12 +410,12 @@ msgstr "Des fanions facultatifs peuvent être ajoutés pour changer la sortie. U
 #. type: =item
 #: dos2unix.pod:269
 msgid "B<0>"
-msgstr ""
+msgstr "B<0>"
 
 #. type: textblock
 #: dos2unix.pod:271
 msgid "Print the file information lines followed by a null character instead of a newline character. This enables correct interpretation of file names with spaces or quotes when flag c is used. Use this flag in combination with xargs(1) option C<-0> or C<--null>."
-msgstr ""
+msgstr "Afficher les lignes d'information du fichier suivies d'un caractère nul au lieu d'un saut de ligne. Cela permet d'interpréter correctement les noms de fichiers avec des espaces ou des guillemets quand le fanion c est utilisé. Utilisez ce fanion avec les options C<-0> ou C<--null> de xargs(1)."
 
 #. type: =item
 #: dos2unix.pod:276
@@ -589,15 +589,12 @@ msgstr "Ne converti que les fichiers qui ont des sauts de lignes DOS et laisse l
 
 #. type: verbatim
 #: dos2unix.pod:337
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -ic *.txt | xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -ic0 *.txt | xargs -0 dos2unix\n"
 "\n"
 msgstr ""
-"    dos2unix -ic *.txt | xargs dos2unix\n"
+"    dos2unix -ic0 *.txt | xargs -0 dos2unix\n"
 "\n"
 
 #. type: textblock
@@ -607,15 +604,12 @@ msgstr "Trouve les fichiers texte qui ont des sauts de ligne DOS :"
 
 #. type: verbatim
 #: dos2unix.pod:341
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find -name '*.txt' -print0 | xargs -0 dos2unix -ic\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
+"    find -name '*.txt' -print0 | xargs -0 dos2unix -ic\n"
 "\n"
 
 #. type: =item

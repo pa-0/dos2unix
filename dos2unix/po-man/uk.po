@@ -6,9 +6,9 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2014, 2015, 2016, 2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3.5-beta4\n"
-"POT-Creation-Date: 2017-06-20 22:03+0200\n"
-"PO-Revision-Date: 2017-05-19 19:23+0300\n"
+"Project-Id-Version: dos2unix-man 7.3.5-beta5\n"
+"POT-Creation-Date: 2017-06-20 22:06+0200\n"
+"PO-Revision-Date: 2017-06-25 13:27+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
@@ -413,12 +413,12 @@ msgstr "Крім того, можна вказати додаткові прап
 #. type: =item
 #: dos2unix.pod:269
 msgid "B<0>"
-msgstr ""
+msgstr "B<0>"
 
 #. type: textblock
 #: dos2unix.pod:271
 msgid "Print the file information lines followed by a null character instead of a newline character. This enables correct interpretation of file names with spaces or quotes when flag c is used. Use this flag in combination with xargs(1) option C<-0> or C<--null>."
-msgstr ""
+msgstr "Виводити рядки даних щодо файла із завершенням на нульовий символ, а не символ розриву рядка. Це уможливлює правильну інтерпретацію назв файлів, що містять пробіли або символи лапок, якщо використано прапорець «c». Скористайтеся цим прапорцем у поєднанні із параметром C<-0> або C<--null> xargs(1)."
 
 #. type: =item
 #: dos2unix.pod:276
@@ -592,15 +592,12 @@ msgstr "Перетворити лише файли із розривами ря�
 
 #. type: verbatim
 #: dos2unix.pod:337
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -ic *.txt | xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -ic0 *.txt | xargs -0 dos2unix\n"
 "\n"
 msgstr ""
-"    dos2unix -ic *.txt | xargs dos2unix\n"
+"    dos2unix -ic0 *.txt | xargs -0 dos2unix\n"
 "\n"
 
 #. type: textblock
@@ -610,15 +607,12 @@ msgstr "Знайти текстові файли і розривами рядк�
 
 #. type: verbatim
 #: dos2unix.pod:341
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find -name '*.txt' -print0 | xargs -0 dos2unix -ic\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
+"    find -name '*.txt' -print0 | xargs -0 dos2unix -ic\n"
 "\n"
 
 #. type: =item

@@ -4,9 +4,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3.5-beta4\n"
-"POT-Creation-Date: 2017-06-20 22:04+0200\n"
-"PO-Revision-Date: 2017-05-20 07:57+0200\n"
+"Project-Id-Version: dos2unix-man 7.3.5-beta5\n"
+"POT-Creation-Date: 2017-06-20 22:06+0200\n"
+"PO-Revision-Date: 2017-06-25 13:37+0200\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "Language: pl\n"
@@ -409,12 +409,12 @@ msgstr "Opcjonalnie można ustawić dodatkowe flagi, aby zmienić wyjście. Moż
 #. type: =item
 #: dos2unix.pod:269
 msgid "B<0>"
-msgstr ""
+msgstr "B<0>"
 
 #. type: textblock
 #: dos2unix.pod:271
 msgid "Print the file information lines followed by a null character instead of a newline character. This enables correct interpretation of file names with spaces or quotes when flag c is used. Use this flag in combination with xargs(1) option C<-0> or C<--null>."
-msgstr ""
+msgstr "Wypisanie wierszy informacji o pliku zakończonych znakiem NUL zamiast znaku nowej linii. Pozwala to na poprawną interpretację nazw plików zawierających spacje lub cudzysłowy w przypadku użycia flagi c. Flagi należy używać w połączeniu z opcją C<-0> lub C<--null> programu xargs(1)."
 
 #. type: =item
 #: dos2unix.pod:276
@@ -588,15 +588,12 @@ msgstr "Konwersja tylko plików mających DOS-owe końce linii, pozostawienie po
 
 #. type: verbatim
 #: dos2unix.pod:337
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -ic *.txt | xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -ic0 *.txt | xargs -0 dos2unix\n"
 "\n"
 msgstr ""
-"    dos2unix -ic *.txt | xargs dos2unix\n"
+"    dos2unix -ic0 *.txt | xargs -0 dos2unix\n"
 "\n"
 
 #. type: textblock
@@ -606,15 +603,12 @@ msgstr "Wyszukanie plików tekstowych zawierających DOS-owe końce linii:"
 
 #. type: verbatim
 #: dos2unix.pod:341
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find -name '*.txt' -print0 | xargs -0 dos2unix -ic\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
+"    find -name '*.txt' -print0 | xargs -0 dos2unix -ic\n"
 "\n"
 
 #. type: =item
@@ -1664,10 +1658,3 @@ msgstr "ZOBACZ TAKŻE"
 #: dos2unix.pod:834
 msgid "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 msgstr "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
-
-#~ msgid ""
-#~ "    find -name '*.txt' | xargs dos2unix -ic\n"
-#~ "\n"
-#~ msgstr ""
-#~ "    find -name '*.txt' | xargs dos2unix -ic\n"
-#~ "\n"
