@@ -317,7 +317,11 @@ endif
 # or I don't know how to do it.
 
 CFLAGS_USER	=
+ifeq ($(DEBUG), 1)
+CFLAGS		?= -O0
+else
 CFLAGS		?= -O2
+endif
 CFLAGS		+= -Wall -Wextra -Wconversion $(RPM_OPT_FLAGS) $(CPPFLAGS) $(CFLAGS_USER)
 
 EXTRA_CFLAGS	= -DVER_REVISION=\"$(DOS2UNIX_VERSION)\" \

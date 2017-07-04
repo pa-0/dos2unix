@@ -1,4 +1,4 @@
-2017-??-??: Version 7.3.5
+2017-07-04: Version 7.3.5
   * New flag 0 for option -i, --info. End information lines with a null
     character instead of a newline character, enabling correct file name
     interpretation when flag c is used.
