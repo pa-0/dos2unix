@@ -25,7 +25,7 @@ endif
 ifeq ($(UCS),1)
 
 # Check for UTF-8 locale. Try C.UTF-8 and en_US.UTF-8.
-ifeq ($(shell ./chk_loc.sh X.UTF-8),yes)
+ifeq ($(shell ./chk_loc.sh C.UTF-8),yes)
 TESTS += utf16.t
 export D2U_UTF8_LOCALE = C.UTF-8
 else
@@ -87,7 +87,7 @@ symlink:
 wcstombs:
 	$(CC) -Wall -Wextra wcstombs_test.c -o wcstombs_test
 	@echo "====> test wcstombs() UTF-8"
-	LC_ALL=.UTF-8 ./wcstombs_test
+	LC_ALL=en_US.UTF-8 ./wcstombs_test
 	@echo "====> test wcstombs() GB18030"
 	LC_ALL=zh_CN.GB18030 ./wcstombs_test
 
