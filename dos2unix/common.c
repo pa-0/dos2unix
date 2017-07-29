@@ -56,7 +56,6 @@
 #ifdef D2U_UNIFILE
 int d2u_display_encoding = D2U_DISPLAY_ANSI ;
 #endif
-int header_done = 0;
 
 /* Copy string src to dest, and null terminate dest.
    dest_size must be the buffer size of dest. */
@@ -771,8 +770,8 @@ void PrintVersion(const char *progname, const char *localedir)
 }
 
 /* opens file of name ipFN in read only mode
- * RetVal: NULL if failure
- *         file stream otherwise
+ * returns: NULL if failure
+ *          file stream otherwise
  */
 FILE* OpenInFile(char *ipFN)
 {
@@ -788,8 +787,8 @@ FILE* OpenInFile(char *ipFN)
 
 
 /* opens file of name opFN in write only mode
- * RetVal: NULL if failure
- *         file stream otherwise
+ * returns: NULL if failure
+ *          file stream otherwise
  */
 FILE* OpenOutFile(char *opFN)
 {
@@ -804,8 +803,8 @@ FILE* OpenOutFile(char *opFN)
 }
 
 /* opens file descriptor in write only mode
- * RetVal: NULL if failure
- *         file stream otherwise
+ * returns: NULL if failure
+ *          file stream otherwise
  */
 FILE* OpenOutFiled(int fd)
 {
@@ -1004,8 +1003,8 @@ FILE* MakeTempFileFrom(const char *OutFN, char **fname_ret)
  * Note that if symbolic links are not supported, then 0 is always returned
  * and *rFN = lFN.
  *
- * RetVal: 0 if success, and *lFN is not a symlink
- *         1 if success, and *lFN is a symlink
+ * returns: 0 if success, and *lFN is not a symlink
+ *          1 if success, and *lFN is a symlink
  *         -1 otherwise
  */
 int ResolveSymbolicLink(char *lFN, char **rFN, CFlag *ipFlag, const char *progname)
@@ -1290,10 +1289,15 @@ void print_bom_info (const int bomtype)
   }
 }
 
+/* check_unicode_info()
+ * Print assumed encoding and read file's BOM. Return file's BOM in *bomtype_orig.
+ * Set ipFlag->bomtype to assumed BOM type, when file's BOM == FILE_MBS.
+ * Return -1 when a read error occurred, or when whar_t < 32 bit on non-Windows OS.
+ * Return 0 when everything is OK.
+ */
+
 int check_unicode_info(FILE *InF, CFlag *ipFlag, const char *progname, int *bomtype_orig)
 {
-  int RetVal = 0;
-
 #ifdef D2U_UNICODE
   if (ipFlag->verbose > 1) {
     if (ipFlag->ConvMode == CONVMODE_UTF16LE) {
@@ -1324,13 +1328,13 @@ int check_unicode_info(FILE *InF, CFlag *ipFlag, const char *progname, int *bomt
       /* A decoded UTF-16 surrogate pair must fit in a wchar_t */
       ipFlag->status |= WCHAR_T_TOO_SMALL ;
       if (!ipFlag->error) ipFlag->error = 1;
-      RetVal = -1;
+      return -1;
     }
   }
 #endif
 #endif
 
-  return RetVal;
+  return 0;
 }
 
 int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, const char *progname)
@@ -1395,7 +1399,7 @@ int check_unicode(FILE *InF, FILE *TempF,  CFlag *ipFlag, const char *ipInFN, co
 }
 
 /* convert file ipInFN and write to file ipOutFN
- * RetVal: 0 if success
+ * returns: 0 if success
  *         -1 otherwise
  */
 int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progname,
@@ -1663,7 +1667,7 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
 }
 
 /* convert stdin and write to stdout
- * RetVal: 0 if success
+ * returns: 0 if success
  *         -1 otherwise
  */
 int ConvertStdio(CFlag *ipFlag, const char *progname,
@@ -1766,7 +1770,7 @@ void print_format(const CFlag *pFlag, char *informat, char *outformat, size_t li
 #endif
 }
 
-void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *outfile, const char *progname, const int RetVal)
+void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *outfile, const char *progname, const int conversion_error)
 {
   char informat[32];
   char outformat[64];
@@ -1823,12 +1827,12 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
     D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
     if (informat[0] == '\0') {
       if (is_dos2unix(progname)) {
-        if (!RetVal) D2U_UTF8_FPRINTF(stderr, _("converting file %s to file %s in Unix format...\n"), infile, outfile);
+        if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting file %s to file %s in Unix format...\n"), infile, outfile);
       } else {
         if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
-          if (!RetVal) D2U_UTF8_FPRINTF(stderr, _("converting file %s to file %s in Mac format...\n"), infile, outfile);
+          if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting file %s to file %s in Mac format...\n"), infile, outfile);
         } else {
-          if (!RetVal) D2U_UTF8_FPRINTF(stderr, _("converting file %s to file %s in DOS format...\n"), infile, outfile);
+          if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting file %s to file %s in DOS format...\n"), infile, outfile);
         }
       }
     } else {
@@ -1839,23 +1843,23 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
 3rd %s is encoding of output file.
 4th %s is name of output file.
 E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format... */
-        if (!RetVal) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s file %s in Unix format...\n"), informat, infile, outformat, outfile);
+        if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s file %s in Unix format...\n"), informat, infile, outformat, outfile);
       } else {
         if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
-          if (!RetVal) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s file %s in Mac format...\n"), informat, infile, outformat, outfile);
+          if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s file %s in Mac format...\n"), informat, infile, outformat, outfile);
         } else {
-          if (!RetVal) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s file %s in DOS format...\n"), informat, infile, outformat, outfile);
+          if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s file %s in DOS format...\n"), informat, infile, outformat, outfile);
         }
       }
     }
-    if (RetVal) {
+    if (conversion_error) {
       D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
       D2U_UTF8_FPRINTF(stderr, _("problems converting file %s to file %s\n"), infile, outfile);
     }
   }
 }
 
-void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *progname, const int RetVal)
+void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *progname, const int conversion_error)
 {
   char informat[10];
   char outformat[32];
@@ -1909,12 +1913,12 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
     D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
     if (informat[0] == '\0') {
       if (is_dos2unix(progname)) {
-        if (!RetVal) D2U_UTF8_FPRINTF(stderr, _("converting file %s to Unix format...\n"), infile);
+        if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting file %s to Unix format...\n"), infile);
       } else {
         if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
-          if (!RetVal) D2U_UTF8_FPRINTF(stderr, _("converting file %s to Mac format...\n"), infile);
+          if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting file %s to Mac format...\n"), infile);
         } else {
-          if (!RetVal) D2U_UTF8_FPRINTF(stderr, _("converting file %s to DOS format...\n"), infile);
+          if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting file %s to DOS format...\n"), infile);
         }
       }
     } else {
@@ -1924,16 +1928,16 @@ void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *
 2nd %s is name of input file.
 3rd %s is encoding of output (input file is overwritten).
 E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format... */
-        if (!RetVal) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s Unix format...\n"), informat, infile, outformat);
+        if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s Unix format...\n"), informat, infile, outformat);
       } else {
         if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
-          if (!RetVal) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s Mac format...\n"), informat, infile, outformat);
+          if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s Mac format...\n"), informat, infile, outformat);
         } else {
-          if (!RetVal) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s DOS format...\n"), informat, infile, outformat);
+          if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s DOS format...\n"), informat, infile, outformat);
         }
       }
     }
-    if (RetVal) {
+    if (conversion_error) {
       D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
       D2U_UTF8_FPRINTF(stderr, _("problems converting file %s\n"), infile);
     }
@@ -1964,6 +1968,8 @@ void print_messages_info(const CFlag *pFlag, const char *infile, const char *pro
 
 void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb_dos, unsigned int lb_unix, unsigned int lb_mac)
 {
+  static int header_done = 0;
+
   if (ipFlag->file_info & INFO_CONVERT) {
     if ((ipFlag->FromToMode == FROMTO_DOS2UNIX) && (lb_dos == 0))
       return;
@@ -2187,7 +2193,6 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
 
 int GetFileInfoStdio(CFlag *ipFlag, const char *progname)
 {
-  int RetVal = 0;
   int bomtype_orig = FILE_MBS; /* messages must print the real bomtype, not the assumed bomtype */
 
   ipFlag->status = 0 ;
@@ -2208,23 +2213,20 @@ int GetFileInfoStdio(CFlag *ipFlag, const char *progname)
 #endif
 
   if (check_unicode_info(stdin, ipFlag, progname, &bomtype_orig))
-    RetVal = -1;
+    return -1;
 
   /* info sucessful? */
 #ifdef D2U_UNICODE
-  if (!RetVal) {
-    if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
-      FileInfoW(stdin, ipFlag, "", bomtype_orig, progname);
-    } else {
-      FileInfo(stdin, ipFlag, "", bomtype_orig, progname);
-    }
+  if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
+    FileInfoW(stdin, ipFlag, "", bomtype_orig, progname);
+  } else {
+    FileInfo(stdin, ipFlag, "", bomtype_orig, progname);
   }
 #else
-  if (!RetVal)
-    FileInfo(stdin, ipFlag, "", bomtype_orig, progname);
+  FileInfo(stdin, ipFlag, "", bomtype_orig, progname);
 #endif
 
-  return RetVal;
+  return 0;
 }
 
 void get_info_options(char *option, CFlag *pFlag, const char *progname)
@@ -2301,7 +2303,6 @@ int parse_options(int argc, char *argv[],
   int ShouldExit = 0;
   int CanSwitchFileMode = 1;
   int process_options = 1;
-  int RetVal = 0;
 #ifdef D2U_UNIFILE
   char *ptr;
 #endif
@@ -2536,33 +2537,34 @@ int parse_options(int argc, char *argv[],
         pFlag->stdio_mode = 0;
       }
     } else {
-      pFlag->stdio_mode = 0;
       /* not an option */
+      int conversion_error;
+      pFlag->stdio_mode = 0;
       if (pFlag->NewFile) {
         if (CanSwitchFileMode)
           CanSwitchFileMode = 0;
         else {
 #ifdef D2U_UNICODE
-          RetVal = ConvertNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag, progname, Convert, ConvertW);
+          conversion_error = ConvertNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag, progname, Convert, ConvertW);
 #else
-          RetVal = ConvertNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag, progname, Convert);
+          conversion_error = ConvertNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag, progname, Convert);
 #endif
           if (pFlag->verbose)
-            print_messages_newfile(pFlag, argv[ArgIdx-1], argv[ArgIdx], progname, RetVal);
+            print_messages_newfile(pFlag, argv[ArgIdx-1], argv[ArgIdx], progname, conversion_error);
           CanSwitchFileMode = 1;
         }
       } else {
         if (pFlag->file_info) {
-          RetVal = GetFileInfo(argv[ArgIdx], pFlag, progname);
+          conversion_error = GetFileInfo(argv[ArgIdx], pFlag, progname);
           print_messages_info(pFlag, argv[ArgIdx], progname);
         } else {
 #ifdef D2U_UNICODE
-          RetVal = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert, ConvertW);
+          conversion_error = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert, ConvertW);
 #else
-          RetVal = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert);
+          conversion_error = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert);
 #endif
           if (pFlag->verbose)
-            print_messages_oldfile(pFlag, argv[ArgIdx], progname, RetVal);
+            print_messages_oldfile(pFlag, argv[ArgIdx], progname, conversion_error);
         }
       }
     }

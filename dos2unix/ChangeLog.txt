@@ -1,3 +1,9 @@
+2017-07-29 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Code cleanup.
+
+2017-07-08 Erwin Waterlander <waterlan@xs4all.nl>
+	* test/Makefile: Fix setting C.UTF-8 environment (when available).
+
 2017-07-04 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 7.3.5
 	* Makefile: Compile with -O0 when DEBUG=1.
