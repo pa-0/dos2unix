@@ -73,9 +73,8 @@ dist:
 	$(MAKE) dist-zip EXE=.exe prefix=$(prefix) VERSIONSUFFIX="$(VERSIONSUFFIX)" ZIPOBJ_EXTRA="${ZIPOBJ_EXTRA}" ENABLE_NLS=$(ENABLE_NLS) ZIPFILE=${ZIPFILE} docsubdir=$(docsubdir) SHELL=$(D2U_MAKESHELL)
 
 strip:
-	$(MAKE) strip LINK="$(LINK)" LINK_MAN="cp -f" EXE=.exe STRIP=$(STRIP)
+	$(MAKE) strip LINK="$(LINK)" LINK_MAN="cp -f" EXE=.exe STRIP=$(STRIP) SHELL=$(D2U_MAKESHELL)
 # Fix time stamps. Otherwise make install may rebuild mac2unix unix2mac.
-# Now make install can be done in MSYS. In djgpp bash install is problematic.
 	sleep 10
 	touch mac2unix.exe
 	touch unix2mac.exe

@@ -536,12 +536,17 @@ install-bin: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN)
 	$(MKDIR) -p -m 755 $(DESTDIR)$(bindir)
 	$(INSTALL_PROGRAM) $(BIN) $(DESTDIR)$(bindir)
 	$(INSTALL_PROGRAM) $(UNIX2DOS_BIN) $(DESTDIR)$(bindir)
+ifneq ($(DJGPP),)
+	cd $(DESTDIR)$(bindir); stubify -g $(MAC2UNIX_BIN) ; stubedit $(MAC2UNIX_BIN) runfile=$(BIN)
+	cd $(DESTDIR)$(bindir); stubify -g $(UNIX2MAC_BIN) ; stubedit $(UNIX2MAC_BIN) runfile=$(UNIX2DOS_BIN)
+else
 ifeq ($(LINK),cp -f)
 	$(INSTALL_PROGRAM) $(MAC2UNIX_BIN) $(DESTDIR)$(bindir)
 	$(INSTALL_PROGRAM) $(UNIX2MAC_BIN) $(DESTDIR)$(bindir)
 else
 	cd $(DESTDIR)$(bindir); $(LINK) $(BIN) $(MAC2UNIX_BIN)
 	cd $(DESTDIR)$(bindir); $(LINK) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN)
+endif
 endif
 
 
