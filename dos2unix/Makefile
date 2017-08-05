@@ -26,12 +26,12 @@
 #
 #   Description
 #
-#	This is a GNU Makefile that uses GNU compilers, linkers and cpp. The
-#	platform specific issues are determined by the various OS teets that
-#	rely on the uname(1) command and directory locations.
+#       This is a GNU Makefile that uses GNU compilers, linkers and cpp. The
+#       platform specific issues are determined by the various OS teets that
+#       rely on the uname(1) command and directory locations.
 #
-#	Set additional flags for the build with variables CFLAGS_USER,
-#	DEFS_USER and LDFLAGS_USER.
+#       Set additional flags for the build with variables CFLAGS_USER,
+#       DEFS_USER and LDFLAGS_USER.
 
 include version.mk
 
@@ -39,18 +39,18 @@ include version.mk
 
 .PRECIOUS: %.1 %.pod
 
-CC		?= gcc
-CPP		?= cpp
-CPP_FLAGS_POD	= ALL
-STRIP		= strip
+CC              ?= gcc
+CPP             ?= cpp
+CPP_FLAGS_POD   = ALL
+STRIP           = strip
 
-PACKAGE		= dos2unix
-UNIX2DOS	= unix2dos
-MAC2UNIX	= mac2unix
-UNIX2MAC	= unix2mac
+PACKAGE         = dos2unix
+UNIX2DOS        = unix2dos
+MAC2UNIX        = mac2unix
+UNIX2MAC        = unix2mac
 
 # Native Language Support (NLS)
-ENABLE_NLS	= 1
+ENABLE_NLS      = 1
 # Large File Support (LFS)
 LFS             = 1
 # DEBUG=1 adds the -g option to CFLAGS, for adding debug symbols.
@@ -62,33 +62,33 @@ DIST_TARGET = dist-tgz
 
 EXE=
 
-BIN		= $(PACKAGE)$(EXE)
-UNIX2DOS_BIN	= $(UNIX2DOS)$(EXE)
-MAC2UNIX_BIN	= $(MAC2UNIX)$(EXE)
-UNIX2MAC_BIN	= $(UNIX2MAC)$(EXE)
+BIN             = $(PACKAGE)$(EXE)
+UNIX2DOS_BIN    = $(UNIX2DOS)$(EXE)
+MAC2UNIX_BIN    = $(MAC2UNIX)$(EXE)
+UNIX2MAC_BIN    = $(UNIX2MAC)$(EXE)
 
-LINK		= ln -sf
-LINK_MAN	= $(LINK)
+LINK            = ln -sf
+LINK_MAN        = $(LINK)
 
-prefix		= /usr
-exec_prefix	= $(prefix)
-bindir		= $(exec_prefix)/bin
-datarootdir	= $(prefix)/share
-datadir		= $(datarootdir)
+prefix          = /usr
+exec_prefix     = $(prefix)
+bindir          = $(exec_prefix)/bin
+datarootdir     = $(prefix)/share
+datadir         = $(datarootdir)
 
-docsubdir	= $(PACKAGE)-$(DOS2UNIX_VERSION)
-docdir		= $(datarootdir)/doc/$(docsubdir)
-localedir	= $(datarootdir)/locale
-mandir		= $(datarootdir)/man
-man1dir		= $(mandir)/man1
-manext		= .1
-man1ext		= .1
+docsubdir       = $(PACKAGE)-$(DOS2UNIX_VERSION)
+docdir          = $(datarootdir)/doc/$(docsubdir)
+localedir       = $(datarootdir)/locale
+mandir          = $(datarootdir)/man
+man1dir         = $(mandir)/man1
+manext          = .1
+man1ext         = .1
 
 ifdef ENABLE_NLS
-	POT		= po/$(PACKAGE).pot
-	POFILES		= $(wildcard po/??.po) $(wildcard po/??_??.po)
-	MOFILES		= $(patsubst %.po,%.mo,$(POFILES))
-	NLSSUFFIX       = -nls
+        POT             = po/$(PACKAGE).pot
+        POFILES         = $(wildcard po/??.po) $(wildcard po/??_??.po)
+        MOFILES         = $(patsubst %.po,%.mo,$(POFILES))
+        NLSSUFFIX       = -nls
 endif
 
 HTMLEXT = htm
@@ -104,18 +104,18 @@ PDFFILES_EN = man/man1/$(PACKAGE).pdf
 
 # International manuals
 ifdef ENABLE_NLS
-	MANPOTFILE      = po-man/dos2unix-man.pot
-	MANPOFILES      = $(wildcard po-man/*.po)
-	MANPODFILES	= $(patsubst po-man/%.po,man/%/man1/dos2unix.pod,$(MANPOFILES))
+        MANPOTFILE      = po-man/dos2unix-man.pot
+        MANPOFILES      = $(wildcard po-man/*.po)
+        MANPODFILES     = $(patsubst po-man/%.po,man/%/man1/dos2unix.pod,$(MANPOFILES))
 endif
-MANFILES	= $(patsubst %.pod,%.1,$(MANPODFILES))
-TXTFILES	= $(patsubst %.pod,%.txt,$(MANPODFILES))
-HTMLFILES	= $(patsubst %.pod,%.$(HTMLEXT),$(MANPODFILES))
-PSFILES 	= $(patsubst %.pod,%.ps,$(MANPODFILES))
-PDFFILES	= $(patsubst %.pod,%.pdf,$(MANPODFILES))
+MANFILES        = $(patsubst %.pod,%.1,$(MANPODFILES))
+TXTFILES        = $(patsubst %.pod,%.txt,$(MANPODFILES))
+HTMLFILES       = $(patsubst %.pod,%.$(HTMLEXT),$(MANPODFILES))
+PSFILES         = $(patsubst %.pod,%.ps,$(MANPODFILES))
+PDFFILES        = $(patsubst %.pod,%.pdf,$(MANPODFILES))
 
 # On some systems (e.g. FreeBSD 4.10) GNU install is installed as `ginstall'.
-INSTALL		= install
+INSTALL         = install
 INSTALL_PROGRAM = $(INSTALL) -m 755
 INSTALL_DATA    = $(INSTALL) -m 644
 
@@ -123,197 +123,197 @@ INSTALL_DATA    = $(INSTALL) -m 644
 MKDIR           = mkdir
 
 ifdef ENABLE_NLS
-	DOS2UNIX_NLSDEFS = -DENABLE_NLS -DLOCALEDIR=\"$(localedir)\" -DPACKAGE=\"$(PACKAGE)\"
+        DOS2UNIX_NLSDEFS = -DENABLE_NLS -DLOCALEDIR=\"$(localedir)\" -DPACKAGE=\"$(PACKAGE)\"
 endif
 
-VERSIONSUFFIX	= -bin
+VERSIONSUFFIX   = -bin
 
 # ......................................................... OS flags ...
 
 
 ifndef D2U_OS
-	d2u_os=$(shell uname -s)
+        d2u_os=$(shell uname -s)
 
 ifeq ($(findstring CYGWIN,$(d2u_os)),CYGWIN)
-	D2U_OS = cygwin
+        D2U_OS = cygwin
 endif
 
 ifndef D2U_OS
 ifeq ($(findstring MSYS,$(d2u_os)),MSYS)
-	D2U_OS = msys
+        D2U_OS = msys
 endif
 endif
 
 ifndef D2U_OS
 ifeq ($(findstring MINGW32,$(d2u_os)),MINGW32)
-	D2U_OS = mingw32
+        D2U_OS = mingw32
 endif
 endif
 
 ifndef D2U_OS
 ifeq ($(findstring MINGW64,$(d2u_os)),MINGW64)
-	D2U_OS = mingw64
+        D2U_OS = mingw64
 endif
 endif
 
 ifndef D2U_OS
 ifneq ($(DJGPP),)
-	D2U_OS = msdos
+        D2U_OS = msdos
 endif
 endif
 
 ifndef D2U_OS
 ifneq (, $(wildcard /opt/csw))
-	D2U_OS = sun
+        D2U_OS = sun
 endif
 endif
 
 ifndef D2U_OS
-	D2U_OS=$(shell echo $(d2u_os) | tr [A-Z] [a-z])
+        D2U_OS=$(shell echo $(d2u_os) | tr [A-Z] [a-z])
 endif
 
 endif
 
 ifeq (cygwin,$(D2U_OS))
 ifdef ENABLE_NLS
-	LIBS_EXTRA = -lintl -liconv
+        LIBS_EXTRA = -lintl -liconv
 endif
-	LDFLAGS_EXTRA = -Wl,--enable-auto-import
-	EXE = .exe
-	# allow non-cygwin clients which do not understand cygwin
-	# symbolic links to launch applications...
-	LINK = ln -f
-	# but use symbolic links for man pages, since man client
-	# IS a cygwin app and DOES understand symlinks.
-	LINK_MAN = ln -fs
-	# Cygwin packaging standard avoids version numbers on
-	# documentation directories.
-	docsubdir	= $(PACKAGE)
-	MACHINE := $(subst -pc-cygwin,,$(shell gcc -dumpmachine))
-	VERSIONSUFFIX	= -cygwin-$(MACHINE)
+        LDFLAGS_EXTRA = -Wl,--enable-auto-import
+        EXE = .exe
+        # allow non-cygwin clients which do not understand cygwin
+        # symbolic links to launch applications...
+        LINK = ln -f
+        # but use symbolic links for man pages, since man client
+        # IS a cygwin app and DOES understand symlinks.
+        LINK_MAN = ln -fs
+        # Cygwin packaging standard avoids version numbers on
+        # documentation directories.
+        docsubdir       = $(PACKAGE)
+        MACHINE := $(subst -pc-cygwin,,$(shell gcc -dumpmachine))
+        VERSIONSUFFIX   = -cygwin-$(MACHINE)
 endif
 
 ifeq (msys,$(D2U_OS))
-	CC=gcc
-	EXE = .exe
-	MACHINE := $(subst -pc-msys,,$(shell gcc -dumpmachine))
+        CC=gcc
+        EXE = .exe
+        MACHINE := $(subst -pc-msys,,$(shell gcc -dumpmachine))
 # MSYS 1 does not support locales and no Unicode.
 ifeq ($(shell ./test/chk_loc.sh en_US.utf8),no)
-	UCS =
-	VERSIONSUFFIX = -msys1-$(MACHINE)
+        UCS =
+        VERSIONSUFFIX = -msys1-$(MACHINE)
 else
-	VERSIONSUFFIX = -msys2-$(MACHINE)
+        VERSIONSUFFIX = -msys2-$(MACHINE)
 endif
 ifdef ENABLE_NLS
-	LIBS_EXTRA = -lintl -liconv
+        LIBS_EXTRA = -lintl -liconv
 endif
 endif
 
 ifeq (mingw32,$(D2U_OS))
-	CC=gcc
-	prefix=c:/usr/local
-	EXE = .exe
-	VERSIONSUFFIX = -win32
-	LINK = cp -f
-	UNIFILE=1
-	DIST_TARGET = dist-zip
+        CC=gcc
+        prefix=c:/usr/local
+        EXE = .exe
+        VERSIONSUFFIX = -win32
+        LINK = cp -f
+        UNIFILE=1
+        DIST_TARGET = dist-zip
 ifdef ENABLE_NLS
-	LIBS_EXTRA = -lintl -liconv
-	ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
+        LIBS_EXTRA = -lintl -liconv
+        ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
 endif
 ifeq ($(findstring w64-mingw32,$(shell gcc -dumpmachine)),w64-mingw32)
 # Mingw-w64
-	CFLAGS_COMPILER = -DD2U_COMPILER=MINGW32_W64
+        CFLAGS_COMPILER = -DD2U_COMPILER=MINGW32_W64
 ifdef ENABLE_NLS
-	ZIPOBJ_EXTRA += bin/libgcc_s_dw2-1.dll bin/libwinpthread-1.dll
+        ZIPOBJ_EXTRA += bin/libgcc_s_dw2-1.dll bin/libwinpthread-1.dll
 endif
-	CRT_GLOB_OBJ = /mingw32/i686-w64-mingw32/lib/CRT_glob.o
-	LIBS_EXTRA += $(CRT_GLOB_OBJ)
-	CFLAGS_OS=-I/mingw32/include
+        CRT_GLOB_OBJ = /mingw32/i686-w64-mingw32/lib/CRT_glob.o
+        LIBS_EXTRA += $(CRT_GLOB_OBJ)
+        CFLAGS_OS=-I/mingw32/include
 else
-	CFLAGS_OS=-D_O_U16TEXT=0x20000
+        CFLAGS_OS=-D_O_U16TEXT=0x20000
 endif
 endif
 
 ifeq (mingw64,$(D2U_OS))
-	CC=gcc
-	prefix=c:/usr/local64
-	EXE = .exe
-	VERSIONSUFFIX = -win64
-	LINK = cp -f
-	UNIFILE=1
-	DIST_TARGET = dist-zip
+        CC=gcc
+        prefix=c:/usr/local64
+        EXE = .exe
+        VERSIONSUFFIX = -win64
+        LINK = cp -f
+        UNIFILE=1
+        DIST_TARGET = dist-zip
 ifdef ENABLE_NLS
-	LIBS_EXTRA = -lintl -liconv
-	ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
+        LIBS_EXTRA = -lintl -liconv
+        ZIPOBJ_EXTRA = bin/libintl-8.dll bin/libiconv-2.dll
 endif
-	CRT_GLOB_OBJ = /mingw64/x86_64-w64-mingw32/lib/CRT_glob.o
-	LIBS_EXTRA += $(CRT_GLOB_OBJ)
-	CFLAGS_OS=-I/mingw64/include
+        CRT_GLOB_OBJ = /mingw64/x86_64-w64-mingw32/lib/CRT_glob.o
+        LIBS_EXTRA += $(CRT_GLOB_OBJ)
+        CFLAGS_OS=-I/mingw64/include
 endif
 
 ifeq (msdos,$(D2U_OS))
-	prefix=c:/dos32
-	EXE = .exe
-	VERSIONSUFFIX = pm
-	LINK_MAN = cp -f
-	docsubdir = dos2unix
-	UCS =
-	ZIPOBJ_EXTRA = bin/cwsdpmi.exe
+        prefix=c:/dos32
+        EXE = .exe
+        VERSIONSUFFIX = pm
+        LINK_MAN = cp -f
+        docsubdir = dos2unix
+        UCS =
+        ZIPOBJ_EXTRA = bin/cwsdpmi.exe
 ifdef ENABLE_NLS
-	LIBS_EXTRA = -lintl -liconv
+        LIBS_EXTRA = -lintl -liconv
 endif
 endif
 
 ifeq (os/2,$(D2U_OS))
-	prefix=c:/usr
-	EXE = .exe
-	VERSIONSUFFIX = -os2
-	LINK_MAN = cp -f
-	UCS =
-	LDFLAGS_EXTRA = -Zargs-wild
-	DIST_TARGET = dist-zip
+        prefix=c:/usr
+        EXE = .exe
+        VERSIONSUFFIX = -os2
+        LINK_MAN = cp -f
+        UCS =
+        LDFLAGS_EXTRA = -Zargs-wild
+        DIST_TARGET = dist-zip
 ifdef ENABLE_NLS
-	LIBS_EXTRA += -lintl -liconv
+        LIBS_EXTRA += -lintl -liconv
 endif
 endif
 
 ifeq (freemint,$(D2U_OS))
-	prefix=/usr
-	EXE =
-	VERSIONSUFFIX = -freemint
-	UCS=
-	ENABLE_NLS=
+        prefix=/usr
+        EXE =
+        VERSIONSUFFIX = -freemint
+        UCS=
+        ENABLE_NLS=
 ifdef ENABLE_NLS
-	LIBS_EXTRA += -lintl -liconv
+        LIBS_EXTRA += -lintl -liconv
 endif
-	EXTRA_DEFS += -Dfreemint -D__OS=\"freemint\"
+        EXTRA_DEFS += -Dfreemint -D__OS=\"freemint\"
 endif
 
 ifeq (freebsd,$(D2U_OS))
 ifdef ENABLE_NLS
-	CFLAGS_OS     = -I/usr/local/include
-	LDFLAGS_EXTRA = -L/usr/local/lib
-	LIBS_EXTRA    = -lintl
+        CFLAGS_OS     = -I/usr/local/include
+        LDFLAGS_EXTRA = -L/usr/local/lib
+        LIBS_EXTRA    = -lintl
 endif
 endif
 
 ifeq (darwin,$(D2U_OS))
 ifdef ENABLE_NLS
-	CFLAGS_OS     = -I/usr/local/include
-	LDFLAGS_EXTRA = -L/usr/local/lib
-	LIBS_EXTRA    = -lintl
+        CFLAGS_OS     = -I/usr/local/include
+        LDFLAGS_EXTRA = -L/usr/local/lib
+        LIBS_EXTRA    = -lintl
 endif
 endif
 
 ifeq (sun,$(D2U_OS))
-	# Running under SunOS/Solaris
-	LIBS_EXTRA = -lintl
+        # Running under SunOS/Solaris
+        LIBS_EXTRA = -lintl
 endif
 
 ifeq (hp-ux,$(D2U_OS))
-	# Running under HP-UX
-	EXTRA_DEFS += -Dhpux -D_HPUX_SOURCE
+        # Running under HP-UX
+        EXTRA_DEFS += -Dhpux -D_HPUX_SOURCE
 endif
 
 
@@ -322,47 +322,47 @@ endif
 # PostScript and PDF generation from UTF-8 manuals is not working,
 # or I don't know how to do it.
 
-CFLAGS_USER	=
+CFLAGS_USER     =
 ifeq ($(DEBUG), 1)
-CFLAGS		?= -O0
+CFLAGS          ?= -O0
 else
-CFLAGS		?= -O2
+CFLAGS          ?= -O2
 endif
-CFLAGS		+= -Wall -Wextra -Wconversion $(RPM_OPT_FLAGS) $(CPPFLAGS) $(CFLAGS_USER)
+CFLAGS          += -Wall -Wextra -Wconversion $(RPM_OPT_FLAGS) $(CPPFLAGS) $(CFLAGS_USER)
 
-EXTRA_CFLAGS	= -DVER_REVISION=\"$(DOS2UNIX_VERSION)\" \
-		  -DVER_DATE=\"$(DOS2UNIX_DATE)\" \
-		  -DVER_AUTHOR=\"$(DOS2UNIX_AUTHOR)\" \
-		  -DDEBUG=$(DEBUGMSG) \
-		  $(CFLAGS_OS) \
-		  $(CFLAGS_COMPILER)
+EXTRA_CFLAGS    = -DVER_REVISION=\"$(DOS2UNIX_VERSION)\" \
+                  -DVER_DATE=\"$(DOS2UNIX_DATE)\" \
+                  -DVER_AUTHOR=\"$(DOS2UNIX_AUTHOR)\" \
+                  -DDEBUG=$(DEBUGMSG) \
+                  $(CFLAGS_OS) \
+                  $(CFLAGS_COMPILER)
 
 ifeq ($(DEBUG), 1)
-	EXTRA_CFLAGS += -g
+        EXTRA_CFLAGS += -g
 endif
 
 ifdef STATIC
-	EXTRA_CFLAGS += -static
+        EXTRA_CFLAGS += -static
 endif
 
 ifdef UCS
-	EXTRA_CFLAGS += -DD2U_UNICODE
+        EXTRA_CFLAGS += -DD2U_UNICODE
 endif
 ifdef UNIFILE
-	EXTRA_CFLAGS += -DD2U_UNIFILE
+        EXTRA_CFLAGS += -DD2U_UNIFILE
 endif
 
 
 ifdef LFS
-	EXTRA_CFLAGS += -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
+        EXTRA_CFLAGS += -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
 endif
 
-LDFLAGS_USER	=
+LDFLAGS_USER    =
 LDFLAGS = $(RPM_OPT_FLAGS) $(LDFLAGS_EXTRA) $(LDFLAGS_USER)
 LIBS    = $(LIBS_EXTRA)
 
-DEFS_USER	=
-DEFS		= $(EXTRA_DEFS) $(DEFS_USER)
+DEFS_USER       =
+DEFS            = $(EXTRA_DEFS) $(DEFS_USER)
 
 # .......................................................... targets ...
 
@@ -672,23 +672,23 @@ maintainer-clean: distclean
 realclean: maintainer-clean
 
 
-ZIPOBJ	= bin/$(BIN) \
-	  bin/$(MAC2UNIX_BIN) \
-	  bin/$(UNIX2DOS_BIN) \
-	  bin/$(UNIX2MAC_BIN) \
-	  share/man/man1/$(PACKAGE).1 \
-	  share/man/man1/$(MAC2UNIX).1 \
-	  share/man/man1/$(UNIX2DOS).1 \
-	  share/man/man1/$(UNIX2MAC).1 \
-	  share/doc/$(docsubdir)/*.* \
-	  $(ZIPOBJ_EXTRA)
+ZIPOBJ  = bin/$(BIN) \
+          bin/$(MAC2UNIX_BIN) \
+          bin/$(UNIX2DOS_BIN) \
+          bin/$(UNIX2MAC_BIN) \
+          share/man/man1/$(PACKAGE).1 \
+          share/man/man1/$(MAC2UNIX).1 \
+          share/man/man1/$(UNIX2DOS).1 \
+          share/man/man1/$(UNIX2MAC).1 \
+          share/doc/$(docsubdir)/*.* \
+          $(ZIPOBJ_EXTRA)
 
 ifdef ENABLE_NLS
 ZIPOBJ += share/locale/*/LC_MESSAGES/$(PACKAGE).mo
 ZIPOBJ += share/man/*/man1/$(PACKAGE).1 \
-	  share/man/*/man1/$(MAC2UNIX).1 \
-	  share/man/*/man1/$(UNIX2DOS).1 \
-	  share/man/*/man1/$(UNIX2MAC).1
+          share/man/*/man1/$(MAC2UNIX).1 \
+          share/man/*/man1/$(UNIX2DOS).1 \
+          share/man/*/man1/$(UNIX2MAC).1
 ZIPOBJ += share/doc/$(docsubdir)/*/*
 endif
 
