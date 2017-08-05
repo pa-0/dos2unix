@@ -35,7 +35,7 @@
 
 include version.mk
 
-.PHONY: man txt html pdf mofiles tags merge test check
+.PHONY: doc man txt html pdf mofiles tags merge test check
 
 .PRECIOUS: %.1 %.pod
 
@@ -92,21 +92,27 @@ ifdef ENABLE_NLS
 endif
 
 HTMLEXT = htm
-# By default we generate only English text and html manuals.
-DOCFILES	= man/man1/$(PACKAGE).txt man/man1/$(PACKAGE).$(HTMLEXT)
-INSTALL_OBJS_DOC = README.txt INSTALL.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt $(DOCFILES)
+# English only documents.
+INSTALL_OBJS_DOC = README.txt INSTALL.txt NEWS.txt ChangeLog.txt COPYING.txt TODO.txt BUGS.txt
 
+# English manual
+MANFILES_EN = man/man1/$(PACKAGE).1
+TXTFILES_EN = man/man1/$(PACKAGE).txt
+HTMLFILES_EN = man/man1/$(PACKAGE).$(HTMLEXT)
+PSFILES_EN = man/man1/$(PACKAGE).ps
+PDFFILES_EN = man/man1/$(PACKAGE).pdf
+
+# International manuals
 ifdef ENABLE_NLS
 	MANPOTFILE      = po-man/dos2unix-man.pot
 	MANPOFILES      = $(wildcard po-man/*.po)
-	PODFILES	= $(patsubst po-man/%.po,man/%/man1/dos2unix.pod,$(MANPOFILES))
+	MANPODFILES	= $(patsubst po-man/%.po,man/%/man1/dos2unix.pod,$(MANPOFILES))
 endif
-PODFILES_ALL	= man/man1/dos2unix.pod $(PODFILES)
-MANFILES	= $(patsubst %.pod,%.1,$(PODFILES))
-TXTFILES	= $(patsubst %.pod,%.txt,$(PODFILES_ALL))
-HTMLFILES	= $(patsubst %.pod,%.$(HTMLEXT),$(PODFILES_ALL))
-PSFILES 	= $(patsubst %.pod,%.ps,$(PODFILES_ALL))
-PDFFILES	= $(patsubst %.pod,%.pdf,$(PODFILES_ALL))
+MANFILES	= $(patsubst %.pod,%.1,$(MANPODFILES))
+TXTFILES	= $(patsubst %.pod,%.txt,$(MANPODFILES))
+HTMLFILES	= $(patsubst %.pod,%.$(HTMLEXT),$(MANPODFILES))
+PSFILES 	= $(patsubst %.pod,%.ps,$(MANPODFILES))
+PDFFILES	= $(patsubst %.pod,%.pdf,$(MANPODFILES))
 
 # On some systems (e.g. FreeBSD 4.10) GNU install is installed as `ginstall'.
 INSTALL		= install
@@ -360,7 +366,8 @@ DEFS		= $(EXTRA_DEFS) $(DEFS_USER)
 
 # .......................................................... targets ...
 
-all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) $(DOCFILES) $(MOFILES) man/man1/dos2unix.1 $(MANFILES) $(MANPOTFILE)
+all: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN) doc \
+     mofiles man
 
 status:
 	@echo "D2U_OS       = $(D2U_OS)"
@@ -438,17 +445,17 @@ man/man1/dos2unix.pod : ;
 
 mofiles: $(MOFILES)
 
-html: $(HTMLFILES)
+html: $(HTMLFILES_EN) $(HTMLFILES)
 
-txt: $(TXTFILES)
+txt: $(TXTFILES_EN) $(TXTFILES)
 
-ps: $(PSFILES)
+ps: $(PSFILES_EN) $(PSFILES)
 
-pdf: $(PDFFILES)
+pdf: $(PDFFILES_EN) $(PDFFILES)
 
-man: man/man1/dos2unix.1 $(MANFILES) $(MANPOTFILE)
+man: $(MANFILES_EN) $(MANFILES) $(MANPOTFILE)
 
-doc: $(DOCFILES)
+doc: txt html
 
 tags: $(POT)
 
@@ -525,7 +532,7 @@ endif
 
 check: test
 
-install: all
+install-bin: $(BIN) $(MAC2UNIX_BIN) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN)
 	$(MKDIR) -p -m 755 $(DESTDIR)$(bindir)
 	$(INSTALL_PROGRAM) $(BIN) $(DESTDIR)$(bindir)
 	$(INSTALL_PROGRAM) $(UNIX2DOS_BIN) $(DESTDIR)$(bindir)
@@ -536,12 +543,15 @@ else
 	cd $(DESTDIR)$(bindir); $(LINK) $(BIN) $(MAC2UNIX_BIN)
 	cd $(DESTDIR)$(bindir); $(LINK) $(UNIX2DOS_BIN) $(UNIX2MAC_BIN)
 endif
+
+
+install-man: man
 	$(MKDIR) -p -m 755 $(DESTDIR)$(man1dir)
-	$(INSTALL_DATA) man/man1/$(PACKAGE).1 $(DESTDIR)$(man1dir)
+	$(INSTALL_DATA) $(MANFILES_EN) $(DESTDIR)$(man1dir)
 ifeq ($(LINK_MAN),cp -f)
-	$(INSTALL_DATA) man/man1/$(PACKAGE).1 $(DESTDIR)$(man1dir)/$(MAC2UNIX).1
-	$(INSTALL_DATA) man/man1/$(PACKAGE).1 $(DESTDIR)$(man1dir)/$(UNIX2DOS).1
-	$(INSTALL_DATA) man/man1/$(PACKAGE).1 $(DESTDIR)$(man1dir)/$(UNIX2MAC).1
+	$(INSTALL_DATA) $(MANFILES_EN) $(DESTDIR)$(man1dir)/$(MAC2UNIX).1
+	$(INSTALL_DATA) $(MANFILES_EN) $(DESTDIR)$(man1dir)/$(UNIX2DOS).1
+	$(INSTALL_DATA) $(MANFILES_EN) $(DESTDIR)$(man1dir)/$(UNIX2MAC).1
 else
 	cd $(DESTDIR)$(man1dir); $(LINK_MAN) $(PACKAGE).1 $(MAC2UNIX).1
 	cd $(DESTDIR)$(man1dir); $(LINK_MAN) $(PACKAGE).1 $(UNIX2DOS).1
@@ -553,32 +563,45 @@ ifdef ENABLE_NLS
 	$(foreach manfile, $(MANFILES), cd $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ; $(LINK_MAN) $(PACKAGE).1 $(MAC2UNIX).1 ;)
 	$(foreach manfile, $(MANFILES), cd $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ; $(LINK_MAN) $(PACKAGE).1 $(UNIX2DOS).1 ;)
 	$(foreach manfile, $(MANFILES), cd $(DESTDIR)$(datarootdir)/$(dir $(manfile)) ; $(LINK_MAN) $(PACKAGE).1 $(UNIX2MAC).1 ;)
+endif
+
+install-mo: mofiles
+ifdef ENABLE_NLS
 	@echo "-- install-mo"
 	$(foreach mofile, $(MOFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES ;)
 	$(foreach mofile, $(MOFILES), $(INSTALL_DATA) $(mofile) $(DESTDIR)$(localedir)/$(basename $(notdir $(mofile)))/LC_MESSAGES/$(PACKAGE).mo ;)
 endif
-	# Run a new instance of 'make' otherwise the $$(wildcard ) function my not have been expanded,
-	# because the files may not have been there when make was started.
-	$(MAKE) install-doc
 
-
-install-doc: $(INSTALL_OBJS_DOC)
+install-doc: doc
 	@echo "-- install-doc"
 	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
 	$(INSTALL_DATA) $(INSTALL_OBJS_DOC) $(DESTDIR)$(docdir)
+	$(INSTALL_DATA) $(TXTFILES_EN) $(DESTDIR)$(docdir)
+	$(INSTALL_DATA) $(HTMLFILES_EN) $(DESTDIR)$(docdir)
+ifdef ENABLE_NLS
+	$(foreach txtfile, $(TXTFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
+	$(foreach txtfile, $(TXTFILES), $(INSTALL_DATA) $(txtfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
+	$(foreach htmlfile, $(HTMLFILES), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
+	$(foreach htmlfile, $(HTMLFILES), $(INSTALL_DATA) $(htmlfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
+endif
+
+# No dependency. Install pdf/ps only when they have been manually generated.
+install-pdf:
+	@echo "-- install-pdf"
+	$(MKDIR) -p -m 755 $(DESTDIR)$(docdir)
 	$(foreach pdffile, $(wildcard man/man1/*.pdf), $(INSTALL_DATA) $(pdffile) $(DESTDIR)$(docdir) ;)
 	$(foreach psfile, $(wildcard man/man1/*.ps), $(INSTALL_DATA) $(psfile) $(DESTDIR)$(docdir) ;)
 ifdef ENABLE_NLS
-	# Install translated manuals when they have been generated.
-	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
-	$(foreach txtfile, $(wildcard man/*/man1/*.txt), $(INSTALL_DATA) $(txtfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(txtfile),)) ;)
-	$(foreach htmlfile, $(wildcard man/*/man1/*.$(HTMLEXT)), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
-	$(foreach htmlfile, $(wildcard man/*/man1/*.$(HTMLEXT)), $(INSTALL_DATA) $(htmlfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(htmlfile),)) ;)
 	$(foreach pdffile, $(wildcard man/*/man1/*.pdf), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(pdffile),)) ;)
 	$(foreach pdffile, $(wildcard man/*/man1/*.pdf), $(INSTALL_DATA) $(pdffile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(pdffile),)) ;)
 	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(MKDIR) -p -m 755 $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
 	$(foreach psfile, $(wildcard man/*/man1/*.ps), $(INSTALL_DATA) $(psfile) $(DESTDIR)$(docdir)/$(word 2,$(subst /, ,$(psfile),)) ;)
 endif
+
+install: install-bin install-man install-mo install-doc
+	# Run a new instance of 'make' otherwise the $$(wildcard ) function my not have been expanded,
+	# because the files may not have been there when make was started.
+	$(MAKE) install-pdf
 
 uninstall:
 	@echo "-- target: uninstall"

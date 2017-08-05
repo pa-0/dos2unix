@@ -39,8 +39,8 @@ PREREQUISITES
 
     Using Microsoft Visual C++:
         Required
-            * Visual C++   : You can get a free express version via this web page:
-                             http://www.visualstudio.com/products/visual-studio-express-vs
+            * Visual C++   : You can get a free community version via this web page:
+                             https://www.visualstudio.com/vs/community/
                              Download Visual Studio for Windows Desktop. Visual C++ is part
                              of Visual Studio. Out of the box compilation for 64-bit
                              applications is supported since version 2012.
@@ -229,21 +229,6 @@ DOCUMENTATION
 
         make maintainer-clean
         make man
-
-    Generation of correct man pages in UTF-8 format requires perl >= 5.10.1.
-
-    The manual pages in text and html format are by default only
-    created in English language. To create text and html manuals
-    for other languages type:
-
-        make txt
-        make html
-
-    Generation of correct man pages in HTML format requires perl >= 5.18.
-
-    Once the manuals in non-English languages have been created,
-    they will also be installed under share/doc/ when you type
-    'make install'
 
     Manuals in PDF format are by default not created.
     To create manuals in PDF format type:

@@ -1,3 +1,6 @@
+2017-08-05 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Build all text and html manual files when ENABLE_NLS=1.
+
 2017-07-29 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Code cleanup.
 
