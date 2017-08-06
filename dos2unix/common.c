@@ -1770,7 +1770,7 @@ void print_format(const CFlag *pFlag, char *informat, char *outformat, size_t li
 #endif
 }
 
-void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *outfile, const char *progname, const int conversion_error)
+void print_messages(const CFlag *pFlag, const char *infile, const char *outfile, const char *progname, const int conversion_error)
 {
   char informat[32];
   char outformat[64];
@@ -1798,11 +1798,14 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
     D2U_UTF8_FPRINTF(stderr, _("Skipping %s, not a regular file.\n"), infile);
   } else if (pFlag->status & OUTPUTFILE_SYMLINK) {
     D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
-    D2U_UTF8_FPRINTF(stderr, _("Skipping %s, output file %s is a symbolic link.\n"), infile, outfile);
+    if (outfile)
+      D2U_UTF8_FPRINTF(stderr, _("Skipping %s, output file %s is a symbolic link.\n"), infile, outfile);
+    else
+      D2U_UTF8_FPRINTF(stderr, _("Skipping symbolic link %s.\n"), infile);
   } else if (pFlag->status & INPUT_TARGET_NO_REGFILE) {
     D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
     D2U_UTF8_FPRINTF(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
-  } else if (pFlag->status & OUTPUT_TARGET_NO_REGFILE) {
+  } else if ((pFlag->status & OUTPUT_TARGET_NO_REGFILE) && outfile) {
     D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
     D2U_UTF8_FPRINTF(stderr, _("Skipping %s, target of symbolic link %s is not a regular file.\n"), infile, outfile);
   } else if (pFlag->status & BINARY_FILE) {
@@ -1824,122 +1827,64 @@ void print_messages_newfile(const CFlag *pFlag, const char *infile, const char *
     D2U_UTF8_FPRINTF(stderr, _("Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"), infile, progname);
 #endif
   } else {
-    D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
-    if (informat[0] == '\0') {
-      if (is_dos2unix(progname)) {
-        if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting file %s to file %s in Unix format...\n"), infile, outfile);
-      } else {
-        if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
-          if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting file %s to file %s in Mac format...\n"), infile, outfile);
+    if (!conversion_error) {
+      D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
+      if (informat[0] == '\0') {
+        if (is_dos2unix(progname)) {
+          if (outfile)
+            D2U_UTF8_FPRINTF(stderr, _("converting file %s to file %s in Unix format...\n"), infile, outfile);
+          else
+            D2U_UTF8_FPRINTF(stderr, _("converting file %s to Unix format...\n"), infile);
         } else {
-          if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting file %s to file %s in DOS format...\n"), infile, outfile);
+          if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
+            if (outfile)
+              D2U_UTF8_FPRINTF(stderr, _("converting file %s to file %s in Mac format...\n"), infile, outfile);
+            else
+              D2U_UTF8_FPRINTF(stderr, _("converting file %s to Mac format...\n"), infile);
+          } else {
+            if (outfile)
+              D2U_UTF8_FPRINTF(stderr, _("converting file %s to file %s in DOS format...\n"), infile, outfile);
+            else
+              D2U_UTF8_FPRINTF(stderr, _("converting file %s to DOS format...\n"), infile);
+          }
         }
-      }
-    } else {
-      if (is_dos2unix(progname)) {
+      } else {
+        if (is_dos2unix(progname)) {
+          if (outfile)
     /* TRANSLATORS:
 1st %s is encoding of input file.
 2nd %s is name of input file.
 3rd %s is encoding of output file.
 4th %s is name of output file.
 E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format... */
-        if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s file %s in Unix format...\n"), informat, infile, outformat, outfile);
-      } else {
-        if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
-          if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s file %s in Mac format...\n"), informat, infile, outformat, outfile);
-        } else {
-          if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s file %s in DOS format...\n"), informat, infile, outformat, outfile);
-        }
-      }
-    }
-    if (conversion_error) {
-      D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
-      D2U_UTF8_FPRINTF(stderr, _("problems converting file %s to file %s\n"), infile, outfile);
-    }
-  }
-}
-
-void print_messages_oldfile(const CFlag *pFlag, const char *infile, const char *progname, const int conversion_error)
-{
-  char informat[10];
-  char outformat[32];
-# ifdef D2U_UNIFILE
-  wchar_t informatw[32];
-  wchar_t outformatw[64];
-#endif
-
-  print_format(pFlag, informat, outformat, sizeof(informat), sizeof(outformat));
-
-/* Change informat and outformat to UTF-8 for d2u_utf8_fprintf. */
-# ifdef D2U_UNIFILE
-   /* The format string is encoded in the system default
-    * Windows ANSI code page. May have been translated
-    * by gettext. Convert it to wide characters. */
-   d2u_MultiByteToWideChar(CP_ACP,0, informat, -1, informatw, sizeof(informat));
-   d2u_MultiByteToWideChar(CP_ACP,0, outformat, -1, outformatw, sizeof(outformat));
-   /* then convert the format string to UTF-8 */
-   d2u_WideCharToMultiByte(CP_UTF8, 0, informatw, -1, informat, sizeof(informat), NULL, NULL);
-   d2u_WideCharToMultiByte(CP_UTF8, 0, outformatw, -1, outformat, sizeof(outformat), NULL, NULL);
-#endif
-
-  if (pFlag->status & NO_REGFILE) {
-    D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
-    D2U_UTF8_FPRINTF(stderr, _("Skipping %s, not a regular file.\n"), infile);
-  } else if (pFlag->status & OUTPUTFILE_SYMLINK) {
-    D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
-    D2U_UTF8_FPRINTF(stderr, _("Skipping symbolic link %s.\n"), infile);
-  } else if (pFlag->status & INPUT_TARGET_NO_REGFILE) {
-    D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
-    D2U_UTF8_FPRINTF(stderr, _("Skipping symbolic link %s, target is not a regular file.\n"), infile);
-  } else if (pFlag->status & BINARY_FILE) {
-    D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
-    D2U_UTF8_FPRINTF(stderr, _("Skipping binary file %s\n"), infile);
-  } else if (pFlag->status & WRONG_CODEPAGE) {
-    D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
-    D2U_UTF8_FPRINTF(stderr, _("code page %d is not supported.\n"), pFlag->ConvMode);
-#ifdef D2U_UNICODE
-  } else if (pFlag->status & WCHAR_T_TOO_SMALL) {
-    D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
-    D2U_UTF8_FPRINTF(stderr, _("Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"), infile, (int)sizeof(wchar_t));
-  } else if (pFlag->status & UNICODE_CONVERSION_ERROR) {
-    D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
-    D2U_UTF8_FPRINTF(stderr, _("Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"), infile, pFlag->line_nr);
-#else
-  } else if (pFlag->status & UNICODE_NOT_SUPPORTED) {
-    D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
-    D2U_UTF8_FPRINTF(stderr, _("Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"), infile, progname);
-#endif
-  } else {
-    D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
-    if (informat[0] == '\0') {
-      if (is_dos2unix(progname)) {
-        if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting file %s to Unix format...\n"), infile);
-      } else {
-        if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
-          if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting file %s to Mac format...\n"), infile);
-        } else {
-          if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting file %s to DOS format...\n"), infile);
-        }
-      }
-    } else {
-      if (is_dos2unix(progname)) {
+            D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s file %s in Unix format...\n"), informat, infile, outformat, outfile);
+          else
     /* TRANSLATORS:
 1st %s is encoding of input file.
 2nd %s is name of input file.
 3rd %s is encoding of output (input file is overwritten).
 E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format... */
-        if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s Unix format...\n"), informat, infile, outformat);
-      } else {
-        if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
-          if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s Mac format...\n"), informat, infile, outformat);
+            D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s Unix format...\n"), informat, infile, outformat);
         } else {
-          if (!conversion_error) D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s DOS format...\n"), informat, infile, outformat);
+          if (pFlag->FromToMode == FROMTO_UNIX2MAC) {
+            if (outfile)
+              D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s file %s in Mac format...\n"), informat, infile, outformat, outfile);
+            else
+              D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s Mac format...\n"), informat, infile, outformat);
+          } else {
+            if (outfile)
+              D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s file %s in DOS format...\n"), informat, infile, outformat, outfile);
+            else
+              D2U_UTF8_FPRINTF(stderr, _("converting %s file %s to %s DOS format...\n"), informat, infile, outformat);
+          }
         }
       }
-    }
-    if (conversion_error) {
+    } else {
       D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
-      D2U_UTF8_FPRINTF(stderr, _("problems converting file %s\n"), infile);
+      if (outfile)
+        D2U_UTF8_FPRINTF(stderr, _("problems converting file %s to file %s\n"), infile, outfile);
+      else
+        D2U_UTF8_FPRINTF(stderr, _("problems converting file %s\n"), infile);
     }
   }
 }
@@ -2550,7 +2495,7 @@ int parse_options(int argc, char *argv[],
           conversion_error = ConvertNewFile(argv[ArgIdx-1], argv[ArgIdx], pFlag, progname, Convert);
 #endif
           if (pFlag->verbose)
-            print_messages_newfile(pFlag, argv[ArgIdx-1], argv[ArgIdx], progname, conversion_error);
+            print_messages(pFlag, argv[ArgIdx-1], argv[ArgIdx], progname, conversion_error);
           CanSwitchFileMode = 1;
         }
       } else {
@@ -2564,7 +2509,7 @@ int parse_options(int argc, char *argv[],
           conversion_error = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert);
 #endif
           if (pFlag->verbose)
-            print_messages_oldfile(pFlag, argv[ArgIdx], progname, conversion_error);
+            print_messages(pFlag, argv[ArgIdx], NULL, progname, conversion_error);
         }
       }
     }
