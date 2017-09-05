@@ -1,3 +1,7 @@
+2017-09-05 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Option -V shows if dos2unix has support for preserving
+	  the user and group ownership of files.
+
 2017-08-05 Erwin Waterlander <waterlan@xs4all.nl>
 	* Makefile: Build all text and html manual files when ENABLE_NLS=1.
 	* Makefile: Removed unneeded tabs.

@@ -763,6 +763,11 @@ void PrintVersion(const char *progname, const char *localedir)
 #else
   D2U_ANSI_FPRINTF(stdout,"%s", "Without native language support.\n");
 #endif
+#ifndef NO_CHOWN
+  D2U_ANSI_FPRINTF(stdout,"%s", _("With support to preserve the user and group ownership of files.\n"));
+#else
+  D2U_ANSI_FPRINTF(stdout,"%s", _("Without support to preserve the user and group ownership of files.\n"));
+#endif
 #ifdef ENABLE_NLS
   D2U_ANSI_FPRINTF(stdout,"LOCALEDIR: %s\n", localedir);
 #endif
