@@ -644,6 +644,9 @@ int is_dos2unix(const char *progname)
 void PrintUsage(const char *progname)
 {
   D2U_ANSI_FPRINTF(stdout,_("Usage: %s [options] [file ...] [-n infile outfile ...]\n"), progname);
+#ifndef NO_CHOWN
+  D2U_ANSI_FPRINTF(stdout,_(" --allow-chown         allow file ownership change\n"));
+#endif
   D2U_ANSI_FPRINTF(stdout,_(" -ascii                convert only line breaks (default)\n"));
   D2U_ANSI_FPRINTF(stdout,_(" -iso                  conversion between DOS and ISO-8859-1 character set\n"));
   D2U_ANSI_FPRINTF(stdout,_("   -1252               use Windows code page 1252 (Western European)\n"));
@@ -679,6 +682,9 @@ void PrintUsage(const char *progname)
   D2U_ANSI_FPRINTF(stdout,_(" -n, --newfile         write to new file\n\
    infile              original file in new-file mode\n\
    outfile             output file in new-file mode\n"));
+#ifndef NO_CHOWN
+  D2U_ANSI_FPRINTF(stdout,_(" --no-allow-chown      don't allow file ownership change (default)\n"));
+#endif
   D2U_ANSI_FPRINTF(stdout,_(" -o, --oldfile         write to old file (default)\n\
    file ...            files to convert in old-file mode\n"));
   D2U_ANSI_FPRINTF(stdout,_(" -q, --quiet           quiet mode, suppress all warnings\n"));
@@ -1575,14 +1581,21 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
      /* Required when a different user (e.g. root) has write permission on the original file. */
      /* Make sure that the original owner can still access the file. */
      if (chown(TempPath, StatBuf.st_uid, StatBuf.st_gid)) {
-        if (ipFlag->verbose) {
-          ipFlag->error = errno;
-          errstr = strerror(errno);
-          D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
-          D2U_UTF8_FPRINTF(stderr, _("Failed to change the owner and group of temporary output file %s:"), TempPath);
-          D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
+        if (ipFlag->AllowChown) {
+          if (ipFlag->verbose) {
+            D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+            D2U_UTF8_FPRINTF(stderr, _("The user and/or group ownership of file %s is not preserved.\n"), ipOutFN);
+          }
+        } else {
+          if (ipFlag->verbose) {
+            ipFlag->error = errno;
+            errstr = strerror(errno);
+            D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+            D2U_UTF8_FPRINTF(stderr, _("Failed to change the owner and group of temporary output file %s:"), TempPath);
+            D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
+          }
+          RetVal = -1;
         }
-        RetVal = -1;
      }
   }
 #endif
@@ -2309,6 +2322,12 @@ int parse_options(int argc, char *argv[],
         pFlag->KeepDate = 1;
       else if ((strcmp(argv[ArgIdx],"-f") == 0) || (strcmp(argv[ArgIdx],"--force") == 0))
         pFlag->Force = 1;
+#ifndef NO_CHOWN
+      else if (strcmp(argv[ArgIdx],"--allow-chown") == 0)
+        pFlag->AllowChown = 1;
+      else if (strcmp(argv[ArgIdx],"--no-allow-chown") == 0)
+        pFlag->AllowChown = 0;
+#endif
 #ifdef D2U_UNICODE
 #if (defined(_WIN32) && !defined(__CYGWIN__))
       else if ((strcmp(argv[ArgIdx],"-gb") == 0) || (strcmp(argv[ArgIdx],"--gb18030") == 0))

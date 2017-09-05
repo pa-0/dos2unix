@@ -235,6 +235,7 @@ typedef struct
   int FromToMode;                       /* 0: dos2unix/unix2dos, 1: mac2unix/unix2mac */
   int NewLine;                          /* if TRUE, then additional newline */
   int Force;                            /* if TRUE, force conversion of all files. */
+  int AllowChown;                       /* if TRUE, allow file ownership change in old file mode. */
   int Follow;                           /* 0: skip symlink, 1: follow symbolic link, 2: replace symlink. */
   int status;
   int stdio_mode;                       /* if TRUE, stdio mode */

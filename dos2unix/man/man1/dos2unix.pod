@@ -105,6 +105,17 @@ Or in new file mode:
 
     dos2unix -n -- -foo out.txt
 
+=item B<--allow-chown>
+
+Allow file ownership change in old file mode.
+
+When this option is used, the conversion will not be aborted when the user
+and/or group ownership of the original file can't be preserved in old file
+mode. Conversion will continue and the converted file will get the same new
+ownership is if it was converted in new file mode. See also options C<-o> and
+C<-n>. This option is only available if dos2unix has support for for preserving
+the user and group ownership of files.
+
 =item B<-ascii>
 
 Convert only line breaks. This is the default conversion mode.
@@ -382,6 +393,15 @@ of the converted file. The read/write permissions of the new file will be the
 permissions of the original file minus the umask(1) of the person who runs the
 conversion.
 
+=item B<--no-allow-chown>
+
+Don't allow file ownership change in old file mode (default).
+
+Abort conversion when the user and/or group ownership of the original file
+can't be preserved in old file mode. See also options C<-o> and C<-n>. This
+option is only available if dos2unix has support for for preserving the user
+and group ownership of files.
+
 =item B<-o, --oldfile FILE ...>
 
 Old file mode. Convert file FILE and overwrite output to it. The program
@@ -398,6 +418,18 @@ group, and read/write permissions is only supported on Unix.
 
 To check if dos2unix has support for preserving the user and group ownership of
 files type C<dos2unix -V>.
+
+If you want to convert a file in-place, but you don't have permission to
+preserve the user and/or group ownership, you can use option C<--allow-chown>:
+
+    dos2unix --allow-chown foo.txt
+
+Another option is to use new file mode:
+
+    dos2unix -n foo.txt foo.txt
+
+The advantage of the C<--allow-chown> option is that you can use wildcards,
+and file user and group ownership will be preserved when possible.
 
 =item B<-q, --quiet>
 
