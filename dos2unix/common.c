@@ -1586,6 +1586,21 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
             D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
             D2U_UTF8_FPRINTF(stderr, _("The user and/or group ownership of file %s is not preserved.\n"), ipOutFN);
           }
+#ifndef NO_CHMOD
+          /* Set read/write permissions same as in new file mode. */
+          mask = umask(0); /* get process's umask */
+          umask(mask); /* set umask back to original */
+          RetVal = chmod(TempPath, StatBuf.st_mode & ~mask); /* set original permissions, minus umask */
+          if (RetVal) {
+             if (ipFlag->verbose) {
+               ipFlag->error = errno;
+               errstr = strerror(errno);
+               D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+               D2U_UTF8_FPRINTF(stderr, _("Failed to change the permissions of temporary output file %s:"), TempPath);
+               D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
+             }
+          }
+#endif
         } else {
           if (ipFlag->verbose) {
             ipFlag->error = errno;

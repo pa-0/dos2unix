@@ -1,3 +1,8 @@
+2017-09-11 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: When --allow-chown is used put the same read/write
+	  permissions as in new file mode.
+	* man/man1/dos2unix.pod: Updated.
+
 2017-09-05 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: Option -V shows if dos2unix has support for preserving
 	  the user and group ownership of files.

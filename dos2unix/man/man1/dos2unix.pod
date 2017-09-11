@@ -112,7 +112,7 @@ Allow file ownership change in old file mode.
 When this option is used, the conversion will not be aborted when the user
 and/or group ownership of the original file can't be preserved in old file
 mode. Conversion will continue and the converted file will get the same new
-ownership is if it was converted in new file mode. See also options C<-o> and
+ownership as if it was converted in new file mode. See also options C<-o> and
 C<-n>. This option is only available if dos2unix has support for for preserving
 the user and group ownership of files.
 
@@ -419,8 +419,14 @@ group, and read/write permissions is only supported on Unix.
 To check if dos2unix has support for preserving the user and group ownership of
 files type C<dos2unix -V>.
 
-If you want to convert a file in-place, but you don't have permission to
-preserve the user and/or group ownership, you can use option C<--allow-chown>:
+Conversion is always done via a temporary file. When an error occurs halfway
+the conversion, the temporary file is deleted and the original file stays
+intact. When the conversion is successful, the original file is replaced with
+the temporary file. You may have write permission on the original file but no
+permission to put the same user and/or group ownership properties on the
+temporary file as on the original file.  This means you are not able to
+preserve the user and/or group ownership of the original file. In this case you
+can use option C<--allow-chown> to continue with the conversion:
 
     dos2unix --allow-chown foo.txt
 
@@ -429,7 +435,7 @@ Another option is to use new file mode:
     dos2unix -n foo.txt foo.txt
 
 The advantage of the C<--allow-chown> option is that you can use wildcards,
-and file user and group ownership will be preserved when possible.
+and the file user and group ownership will be preserved when possible.
 
 =item B<-q, --quiet>
 

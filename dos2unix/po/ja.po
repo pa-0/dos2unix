@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-05 22:17+0200\n"
+"POT-Creation-Date: 2017-09-11 20:12+0200\n"
 "PO-Revision-Date: 2016-05-15 00:11+0900\n"
 "Last-Translator: Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -418,19 +418,19 @@ msgstr "一時出力ファイルのパスが長過ぎます:"
 msgid "Writing %s BOM.\n"
 msgstr "%s BOM を書き込んでいます。\n"
 
-#: common.c:1190 common.c:1243 common.c:1761 common.c:1782
+#: common.c:1190 common.c:1243 common.c:1776 common.c:1797
 msgid "UTF-16LE"
 msgstr "UTF-16LE"
 
-#: common.c:1197 common.c:1246 common.c:1763 common.c:1784
+#: common.c:1197 common.c:1246 common.c:1778 common.c:1799
 msgid "UTF-16BE"
 msgstr "UTF-16BE"
 
-#: common.c:1204 common.c:1223 common.c:1252 common.c:1774
+#: common.c:1204 common.c:1223 common.c:1252 common.c:1789
 msgid "GB18030"
 msgstr "GB18030"
 
-#: common.c:1211 common.c:1230 common.c:1249 common.c:1776
+#: common.c:1211 common.c:1230 common.c:1249 common.c:1791
 msgid "UTF-8"
 msgstr "UTF-8"
 
@@ -457,7 +457,7 @@ msgstr "一時出力ファイルを開くのに失敗しました: %s\n"
 msgid "using %s as temporary file\n"
 msgstr "%s を一時ファイルとして使用しています\n"
 
-#: common.c:1571
+#: common.c:1571 common.c:1599
 #, c-format
 msgid "Failed to change the permissions of temporary output file %s:"
 msgstr "一時出力ファイル %s のパーミッション変更に失敗しました:"
@@ -467,107 +467,107 @@ msgstr "一時出力ファイル %s のパーミッション変更に失敗し�
 msgid "The user and/or group ownership of file %s is not preserved.\n"
 msgstr ""
 
-#: common.c:1594
+#: common.c:1609
 #, c-format
 msgid "Failed to change the owner and group of temporary output file %s:"
 msgstr "一時出力ファイル %s の所有者とグループの変更に失敗しました:"
 
-#: common.c:1642
+#: common.c:1657
 #, c-format
 msgid "problems resolving symbolic link '%s'\n"
 msgstr "シンボリックリンク '%s' の解決中に問題が発生しました\n"
 
-#: common.c:1643 common.c:1675
+#: common.c:1658 common.c:1690
 #, c-format
 msgid "          output file remains in '%s'\n"
 msgstr "          出力ファイルは '%s' に残っています\n"
 
-#: common.c:1669
+#: common.c:1684
 #, c-format
 msgid "problems renaming '%s' to '%s':"
 msgstr " '%s' から '%s' への名前変更で問題が発生しました:"
 
-#: common.c:1673
+#: common.c:1688
 #, c-format
 msgid "          which is the target of symbolic link '%s'\n"
 msgstr "          これはシンボリックリンク '%s' のターゲットです\n"
 
-#: common.c:1736 common.c:1831
+#: common.c:1751 common.c:1846
 #, c-format
 msgid "Skipping binary file %s\n"
 msgstr "バイナリファイル %s をスキップしています\n"
 
-#: common.c:1739 common.c:1834
+#: common.c:1754 common.c:1849
 #, c-format
 msgid "code page %d is not supported.\n"
 msgstr "コードページ %d はサポートされていません\n"
 
-#: common.c:1743 common.c:1838 common.c:1926
+#: common.c:1758 common.c:1853 common.c:1941
 #, c-format
 msgid "Skipping UTF-16 file %s, the size of wchar_t is %d bytes.\n"
 msgstr "UTF-16 ファイル %s をスキップしています。wchar_t のサイズは %d バイトです。\n"
 
-#: common.c:1746 common.c:1841
+#: common.c:1761 common.c:1856
 #, c-format
 msgid "Skipping UTF-16 file %s, an UTF-16 conversion error occurred on line %u.\n"
 msgstr "UTF-16 ファイル %s をスキップしています。%u 行目の UTF-16 変換でエラーが発生しました。\n"
 
-#: common.c:1750 common.c:1845
+#: common.c:1765 common.c:1860
 #, c-format
 msgid "Skipping UTF-16 file %s, UTF-16 conversion is not supported in this version of %s.\n"
 msgstr "UTF-16 ファイル %s をスキップしています。UTF-16 変換はこのバージョンの %s ではサポートされていません。\n"
 
-#: common.c:1816 common.c:1915
+#: common.c:1831 common.c:1930
 #, c-format
 msgid "Skipping %s, not a regular file.\n"
 msgstr "%s をスキップしています。通常ファイルではありません。\n"
 
-#: common.c:1820
+#: common.c:1835
 #, c-format
 msgid "Skipping %s, output file %s is a symbolic link.\n"
 msgstr "%s をスキップしています。出力ファイル %s はシンボリックリンクです。\n"
 
-#: common.c:1822
+#: common.c:1837
 #, c-format
 msgid "Skipping symbolic link %s.\n"
 msgstr "シンボリックリンク %s をスキップしています。\n"
 
-#: common.c:1825 common.c:1920
+#: common.c:1840 common.c:1935
 #, c-format
 msgid "Skipping symbolic link %s, target is not a regular file.\n"
 msgstr "シンボリックリンク %s をスキップしています。対象が通常ファイルではありません。\n"
 
-#: common.c:1828
+#: common.c:1843
 #, c-format
 msgid "Skipping %s, target of symbolic link %s is not a regular file.\n"
 msgstr "%s をスキップしています。シンボリックリンク %s を辿った先が通常ファイルではありません。\n"
 
-#: common.c:1853
+#: common.c:1868
 #, c-format
 msgid "converting file %s to file %s in Unix format...\n"
 msgstr "%s から %s へ Unix 形式でファイル変換しています。\n"
 
-#: common.c:1855
+#: common.c:1870
 #, c-format
 msgid "converting file %s to Unix format...\n"
 msgstr "ファイル %s を Unix 形式へ変換しています。\n"
 
-#: common.c:1859
+#: common.c:1874
 #, c-format
 msgid "converting file %s to file %s in Mac format...\n"
 msgstr "%s から %s へ Mac 形式でファイル変換しています。\n"
 
-#: common.c:1861
+#: common.c:1876
 #, c-format
 msgid "converting file %s to Mac format...\n"
 msgstr "ファイル %s を Mac 形式へ変換しています。\n"
 
-#: common.c:1864
+#: common.c:1879
 #, c-format
 msgid "converting file %s to file %s in DOS format...\n"
 msgstr "%s から %s へ DOS 形式で変換しています。\n"
 
-#: common.c:1866
+#: common.c:1881
 #, c-format
 msgid "converting file %s to DOS format...\n"
 msgstr "ファイル %s を DOS 形式へ変換しています。\n"
@@ -578,7 +578,7 @@ msgstr "ファイル %s を DOS 形式へ変換しています。\n"
 #. 3rd %s is encoding of output file.
 #. 4th %s is name of output file.
 #. E.g.: converting UTF-16LE file in.txt to UTF-8 file out.txt in Unix format...
-#: common.c:1878
+#: common.c:1893
 #, c-format
 msgid "converting %s file %s to %s file %s in Unix format...\n"
 msgstr "%s ファイルの %s から %s ファイルの %s へ Unix 形式でファイル変換しています...\n"
@@ -588,91 +588,91 @@ msgstr "%s ファイルの %s から %s ファイルの %s へ Unix 形式でフ
 #. 2nd %s is name of input file.
 #. 3rd %s is encoding of output (input file is overwritten).
 #. E.g.: converting UTF-16LE file foo.txt to UTF-8 Unix format...
-#: common.c:1885
+#: common.c:1900
 #, c-format
 msgid "converting %s file %s to %s Unix format...\n"
 msgstr "%s ファイル %s を %s の Unix 形式へ変換しています...\n"
 
-#: common.c:1889
+#: common.c:1904
 #, c-format
 msgid "converting %s file %s to %s file %s in Mac format...\n"
 msgstr "%s ファイルの %s から %s ファイルの %s へ Mac 形式でファイル変換しています...\n"
 
-#: common.c:1891
+#: common.c:1906
 #, c-format
 msgid "converting %s file %s to %s Mac format...\n"
 msgstr "%s ファイル %s を %s の Mac 形式へ変換しています。\n"
 
-#: common.c:1894
+#: common.c:1909
 #, c-format
 msgid "converting %s file %s to %s file %s in DOS format...\n"
 msgstr "%s ファイルの %s から %s ファイルの %s へ DOS 形式で変換しています...\n"
 
-#: common.c:1896
+#: common.c:1911
 #, c-format
 msgid "converting %s file %s to %s DOS format...\n"
 msgstr "%s ファイル %s を %s の DOS 形式へ変換しています。\n"
 
-#: common.c:1903
+#: common.c:1918
 #, c-format
 msgid "problems converting file %s to file %s\n"
 msgstr "ファイル %s からファイル %s へ変換中に問題が発生しました\n"
 
-#: common.c:1905
+#: common.c:1920
 #, c-format
 msgid "problems converting file %s\n"
 msgstr "ファイル %s 変換中に問題が発生しました。\n"
 
-#: common.c:2040 common.c:2090
+#: common.c:2055 common.c:2105
 #, c-format
 msgid "can not read from input file %s:"
 msgstr "入力ファイル %s から読み込めません:"
 
-#: common.c:2246
+#: common.c:2261
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "オプション -i または --info に対する間違ったフラグ '%c' です。\n"
 
-#: common.c:2376 common.c:2419
+#: common.c:2391 common.c:2434
 #, c-format
 msgid "active code page: %d\n"
 msgstr "有効なコードページ: %d\n"
 
-#: common.c:2431
+#: common.c:2446
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "無効な %s 変換モードが指定されました\n"
 
-#: common.c:2439 common.c:2469
+#: common.c:2454 common.c:2484
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "オプション '%s' には引数が必要です。\n"
 
-#: common.c:2461
+#: common.c:2476
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "無効な %s 表示エンコーディングが指定されました\n"
 
-#: common.c:2481 common.c:2494 common.c:2561
+#: common.c:2496 common.c:2509 common.c:2576
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "対象ファイル %s が新規ファイルモードで指定されていません\n"
 
-#: common.c:2573
+#: common.c:2588
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "入力ファイルから読み込めません: %s\n"
 
-#: common.c:2583 common.c:2595
+#: common.c:2598 common.c:2610
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "出力ファイルに書き込めません: %s\n"
 
-#: common.c:2670
+#: common.c:2685
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "エラー: 無効なサロゲートペアです。下位サロゲートがありません。\n"
 
-#: common.c:2686
+#: common.c:2701
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "エラー: 無効なサロゲートペアです。上位サロゲートがありません。\n"
 
