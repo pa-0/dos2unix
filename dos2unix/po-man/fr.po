@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.3.5-beta5\n"
-"POT-Creation-Date: 2017-09-11 21:06+0200\n"
+"POT-Creation-Date: 2017-09-20 21:56+0200\n"
 "PO-Revision-Date: 2017-06-26 19:43+0200\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -739,7 +739,7 @@ msgstr ""
 
 #. type: textblock
 #: dos2unix.pod:422
-msgid "Conversion is always done via a temporary file. When an error occurs halfway the conversion, the temporary file is deleted and the original file stays intact. When the conversion is successful, the original file is replaced with the temporary file. You may have write permission on the original file but no permission to put the same user and/or group ownership properties on the temporary file as on the original file.  This means you are not able to preserve the user and/or group ownership of the original file. In this case you can use option C<--allow-chown> to continue with the conversion:"
+msgid "Conversion is always done via a temporary file. When an error occurs halfway the conversion, the temporary file is deleted and the original file stays intact. When the conversion is successful, the original file is replaced with the temporary file. You may have write permission on the original file, but no permission to put the same user and/or group ownership properties on the temporary file as the original file has. This means you are not able to preserve the user and/or group ownership of the original file. In this case you can use option C<--allow-chown> to continue with the conversion:"
 msgstr ""
 
 #. type: verbatim
@@ -777,7 +777,7 @@ msgstr ""
 
 #. type: textblock
 #: dos2unix.pod:437
-msgid "The advantage of the C<--allow-chown> option is that you can use wildcards, and the file user and group ownership will be preserved when possible."
+msgid "The advantage of the C<--allow-chown> option is that you can use wildcards, and the ownership properties will be preserved when possible."
 msgstr ""
 
 #. type: =item
