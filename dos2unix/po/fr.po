@@ -1,13 +1,13 @@
 # Message français pour dos2unix.
-# Copyright (C) 2016 Erwin Waterlander (msgids)
+# Copyright (C) 2017 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
-# Frédéric Marchal <fmarchal@perso.be>, 2016.
+# Frédéric Marchal <fmarchal@perso.be>, 2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-7.3.4-beta4\n"
+"Project-Id-Version: dos2unix-7.3.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-11 20:12+0200\n"
-"PO-Revision-Date: 2016-05-13 13:32+0200\n"
+"POT-Creation-Date: 2017-09-20 22:02+0200\n"
+"PO-Revision-Date: 2017-09-23 11:40+0200\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -139,7 +139,7 @@ msgstr "Usage: %s [options] [fichier …] [-n fichier_entrée fichier_sortie …
 
 #: common.c:648
 msgid " --allow-chown         allow file ownership change\n"
-msgstr ""
+msgstr " --allow-chown         autorise le changement de propriétaire du fichier\n"
 
 #: common.c:650
 msgid " -ascii                convert only line breaks (default)\n"
@@ -249,7 +249,7 @@ msgstr ""
 
 #: common.c:686
 msgid " --no-allow-chown      don't allow file ownership change (default)\n"
-msgstr ""
+msgstr " --no-allow-chown       n'autorise pas le changement du propriétaire du fichier (par défaut)\n"
 
 #: common.c:688
 msgid ""
@@ -396,11 +396,11 @@ msgstr "Avec support pour la langue native.\n"
 
 #: common.c:773
 msgid "With support to preserve the user and group ownership of files.\n"
-msgstr ""
+msgstr "Avec les fonctionnalités pour préserver l'utilisateur et le groupe propriétaires des fichiers.\n"
 
 #: common.c:775
 msgid "Without support to preserve the user and group ownership of files.\n"
-msgstr ""
+msgstr "Sans les fonctionnalités pour préserver l'utilisateur et le groupe propriétaires des fichiers.\n"
 
 #: common.c:909
 msgid "Path for temporary output file is too long:"
@@ -459,7 +459,7 @@ msgstr "Échec lors du changement des permissions du fichier temporaire de sorti
 #: common.c:1587
 #, c-format
 msgid "The user and/or group ownership of file %s is not preserved.\n"
-msgstr ""
+msgstr "L'utilisateur ou le groupe propriétaire du fichier %s ne sont pas préservés.\n"
 
 #: common.c:1609
 #, c-format

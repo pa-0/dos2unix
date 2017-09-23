@@ -4,9 +4,9 @@
 # Frédéric Marchal <fmarchal@perso.be>, 2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.3.5-beta5\n"
-"POT-Creation-Date: 2017-09-20 21:56+0200\n"
-"PO-Revision-Date: 2017-06-26 19:43+0200\n"
+"Project-Id-Version: dos2unix-man-7.3.6-beta4\n"
+"POT-Creation-Date: 2017-09-20 22:02+0200\n"
+"PO-Revision-Date: 2017-09-23 13:13+0200\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"Plural-Forms:  nplurals=2; plural=(n > 1);\n"
+"Plural-Forms:  nplurals=2; plural=(n >= 2);\n"
 
 #. type: =head1
 #: dos2unix.pod:52
@@ -126,17 +126,17 @@ msgstr ""
 #. type: =item
 #: dos2unix.pod:108
 msgid "B<--allow-chown>"
-msgstr ""
+msgstr "B<--allow-chown>"
 
 #. type: textblock
 #: dos2unix.pod:110
 msgid "Allow file ownership change in old file mode."
-msgstr ""
+msgstr "Autoriser le changement de propriétaire dans l'ancien mode de fichier."
 
 #. type: textblock
 #: dos2unix.pod:112
 msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
-msgstr ""
+msgstr "Quand cette option est utilisée, la conversion n'est pas interrompue si l'utilisateur ou le groupe propriétaire du fichier original ne peut pas être préservé dans l'ancien mode de fichier. La conversion continuera et le fichier converti aura le même nouveau propriétaire que si il avait été converti par le nouveau mode de fichier. Voyez aussi les options C<-o> et C<-n>. Cette option est uniquement disponible si dos2unix dispose des fonctionnalités pour préserver l'utilisateur ou le groupe propriétaire des fichiers."
 
 #. type: =item
 #: dos2unix.pod:119
@@ -695,7 +695,7 @@ msgstr "B<-n, --newfile FICHIER_ENTRÉE FICHIER_SORTIE …>"
 #. type: textblock
 #: dos2unix.pod:387
 msgid "New file mode. Convert file INFILE and write output to file OUTFILE.  File names must be given in pairs and wildcard names should I<not> be used or you I<will> lose your files."
-msgstr "Nouveau mode de fichiers. Convertit le fichier FICHER_ENTRÉE et écrit la sortie dans le fichier FICHIER_SORTIE. Les noms des fichiers doivent être indiqués par paires. Les jokers I<ne> doivent I<pas> être utilisés ou vous I<perdrez> vos fichiers."
+msgstr "Nouveau mode de fichiers. Convertit le fichier FICHER_ENTRÉE et écrit la sortie dans le fichier FICHIER_SORTIE. Les noms des fichiers doivent être indiqués par paires. Les caractères de remplacement I<ne> doivent I<pas> être utilisés ou vous I<perdrez> vos fichiers."
 
 #. type: textblock
 #: dos2unix.pod:391
@@ -705,17 +705,17 @@ msgstr "La personne qui démarre la conversion dans le nouveau mode (pairé) des
 #. type: =item
 #: dos2unix.pod:396
 msgid "B<--no-allow-chown>"
-msgstr ""
+msgstr "B<--no-allow-chown>"
 
 #. type: textblock
 #: dos2unix.pod:398
 msgid "Don't allow file ownership change in old file mode (default)."
-msgstr ""
+msgstr "Ne pas autoriser le changement du propriétaire du fichier dans l'ancien mode de fichier (par défaut)."
 
 #. type: textblock
 #: dos2unix.pod:400
 msgid "Abort conversion when the user and/or group ownership of the original file can't be preserved in old file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
-msgstr ""
+msgstr "Interrompt la conversion si l'utilisateur ou le groupe propriétaire du fichier original ne peuvent pas être préservés dans l'ancien mode de fichier. Voyez aussi les options C<-o> et C<-n>. Cette option est uniquement présente si dos2unix dispose des fonctionnalités pour préserver l'utilisateur ou le groupe propriétaire des fichiers."
 
 #. type: =item
 #: dos2unix.pod:405
@@ -725,7 +725,7 @@ msgstr "B<-o, --oldfile FICHIER …>"
 #. type: textblock
 #: dos2unix.pod:407
 msgid "Old file mode. Convert file FILE and overwrite output to it. The program defaults to run in this mode. Wildcard names may be used."
-msgstr "Ancien mode de fichiers. Convertit le fichier FICHIER et écrit la sortie dedans. Le programme fonctionne dans ce mode par défaut. Les jokers peuvent être utilisés."
+msgstr "Ancien mode de fichiers. Convertit le fichier FICHIER et écrit la sortie dedans. Le programme fonctionne dans ce mode par défaut. Les noms avec des caractères de remplacement peuvent être utilisés."
 
 #. type: textblock
 #: dos2unix.pod:410
@@ -735,50 +735,42 @@ msgstr "Dans l'ancien mode (en place) des fichiers, les fichiers convertis ont l
 #. type: textblock
 #: dos2unix.pod:419
 msgid "To check if dos2unix has support for preserving the user and group ownership of files type C<dos2unix -V>."
-msgstr ""
+msgstr "Pour vérifier si dos2unix dispose des fonctions pour préserver l'utilisateur et le groupe propriétaire du fichier, tapez C<dos2unix -V>."
 
 #. type: textblock
 #: dos2unix.pod:422
 msgid "Conversion is always done via a temporary file. When an error occurs halfway the conversion, the temporary file is deleted and the original file stays intact. When the conversion is successful, the original file is replaced with the temporary file. You may have write permission on the original file, but no permission to put the same user and/or group ownership properties on the temporary file as the original file has. This means you are not able to preserve the user and/or group ownership of the original file. In this case you can use option C<--allow-chown> to continue with the conversion:"
-msgstr ""
+msgstr "La conversion est toujours réalisée via un fichier temporaire. Quand une erreur survient au milieu de la conversion, le fichier temporaire est effacé et le fichier original reste inchangé. Quand la conversion réussi, le fichier original est remplacé par le fichier temporaire. Vous pourriez avoir la permission d'écrire dans le fichier original mais ne pas avoir la permission de remplacer les propriétés de l'utilisateur et du groupe propriétaires sur le fichier temporaire telles qu'elles sont définies sur le fichier original. Cela signifie que vous n'êtes pas en mesure de préserver l'utilisateur ou le groupe propriétaire du fichier original. Dans ce cas, vous pouvez utiliser l'option C<--allow-chown> pour continuer la conversion."
 
 #. type: verbatim
 #: dos2unix.pod:431
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -n -- -foo out.txt\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix --allow-chown foo.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -n -- -foo sortie.txt\n"
+"    dos2unix --allow-chown toto.txt\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:433
-#, fuzzy
-#| msgid "Or in new file mode:"
 msgid "Another option is to use new file mode:"
-msgstr "Ou dans le style des nouveaux fichiers:"
+msgstr "Une autre option consiste à utiliser le nouveau mode de fichier:"
 
 #. type: verbatim
 #: dos2unix.pod:435
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -n a.txt e.txt\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -n foo.txt foo.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -n a.txt e.txt\n"
+"    dos2unix -n toto.txt toto.txt\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:437
 msgid "The advantage of the C<--allow-chown> option is that you can use wildcards, and the ownership properties will be preserved when possible."
-msgstr ""
+msgstr "L'avantage de l'option C<--allow-chown> est que vous pouvez utiliser des caractères de remplacement et les propriétaires seront préservés dans la mesure du possible."
 
 #. type: =item
 #: dos2unix.pod:440

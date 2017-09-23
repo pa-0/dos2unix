@@ -4,9 +4,9 @@
 # Tianze Wang <zwpwjwtz@126.com>, 2015, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.3.5-beta5\n"
-"POT-Creation-Date: 2017-09-20 21:56+0200\n"
-"PO-Revision-Date: 2017-06-26 13:21+0800\n"
+"Project-Id-Version: dos2unix-man-7.3.6-beta4\n"
+"POT-Creation-Date: 2017-09-20 22:02+0200\n"
+"PO-Revision-Date: 2017-09-22 23:08+0200\n"
 "Last-Translator: Tianze Wang <zwpwjwtz@126.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.0.2\n"
 
 #. type: =head1
 #: dos2unix.pod:52
@@ -112,7 +112,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:104
 msgid "Or in new file mode:"
-msgstr "或者在新文件模式中："
+msgstr "或者在新文件模式下："
 
 #. type: verbatim
 #: dos2unix.pod:106
@@ -127,17 +127,17 @@ msgstr ""
 #. type: =item
 #: dos2unix.pod:108
 msgid "B<--allow-chown>"
-msgstr ""
+msgstr "B<--allow-chown>"
 
 #. type: textblock
 #: dos2unix.pod:110
 msgid "Allow file ownership change in old file mode."
-msgstr ""
+msgstr "在旧文件模式下，允许修改文件的所有者。"
 
 #. type: textblock
 #: dos2unix.pod:112
 msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
-msgstr ""
+msgstr "若使用此选项，将允许在转换文件时原始文件的属主或属组发生变更，类似于使用新文件模式进行转换。另请参见选项C<-o> 和 C<-n>。仅当 dos2unix 支持保护文件的属主/属组时才能使用该选项。"
 
 #. type: =item
 #: dos2unix.pod:119
@@ -706,17 +706,17 @@ msgstr "使用新文件（配对）模式转换时，命令执行者必须为文
 #. type: =item
 #: dos2unix.pod:396
 msgid "B<--no-allow-chown>"
-msgstr ""
+msgstr "B<--no-allow-chown>"
 
 #. type: textblock
 #: dos2unix.pod:398
 msgid "Don't allow file ownership change in old file mode (default)."
-msgstr ""
+msgstr "在旧文件模式下，不允许修改文件的所有者（默认选项）。"
 
 #. type: textblock
 #: dos2unix.pod:400
 msgid "Abort conversion when the user and/or group ownership of the original file can't be preserved in old file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
-msgstr ""
+msgstr "当原始文件的属主/属组无法保持不变时，停止格式转换。另请参见C<-o> 和 C<-n>选项。仅当 dos2unix 支持保护文件的属主/属组时才能使用该选项。"
 
 #. type: =item
 #: dos2unix.pod:405
@@ -736,50 +736,42 @@ msgstr "在旧文件（替换）模式下，被转换的文件的所有者、组
 #. type: textblock
 #: dos2unix.pod:419
 msgid "To check if dos2unix has support for preserving the user and group ownership of files type C<dos2unix -V>."
-msgstr ""
+msgstr "若要查看 dos2unix 是否支持保护文件的所有者，请输入C<dos2unix -V>。"
 
 #. type: textblock
 #: dos2unix.pod:422
 msgid "Conversion is always done via a temporary file. When an error occurs halfway the conversion, the temporary file is deleted and the original file stays intact. When the conversion is successful, the original file is replaced with the temporary file. You may have write permission on the original file, but no permission to put the same user and/or group ownership properties on the temporary file as the original file has. This means you are not able to preserve the user and/or group ownership of the original file. In this case you can use option C<--allow-chown> to continue with the conversion:"
-msgstr ""
+msgstr "dos2unix 在转换格式时会生成一个临时文件。如果在转换时出错，它会删除临时文件，从而保证原始文件不被更改；如果转换成功，将用临时文件替换原始文件。在这一过程中，如果 dos2unix 无法将临时文件的所有者设置为原始文件的所有者，那么新生成的文件也无法保留原始文件的属主/属组属性（即便您对原始文件有写入权限）。在这种情况下，可以使用C<--allow-chown>选项来继续进行转换："
 
 #. type: verbatim
 #: dos2unix.pod:431
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -n -- -foo out.txt\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix --allow-chown foo.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -n -- -foo out.txt\n"
+"    dos2unix --allow-chown foo.txt\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:433
-#, fuzzy
-#| msgid "Or in new file mode:"
 msgid "Another option is to use new file mode:"
-msgstr "或者在新文件模式中："
+msgstr "或者在新文件模式下："
 
 #. type: verbatim
 #: dos2unix.pod:435
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -n a.txt e.txt\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -n foo.txt foo.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -n a.txt e.txt\n"
+"    dos2unix -n foo.txt foo.txt\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:437
 msgid "The advantage of the C<--allow-chown> option is that you can use wildcards, and the ownership properties will be preserved when possible."
-msgstr ""
+msgstr "使用C<--allow-chown>选项的好处在于：您可以使用通配符来操作文件，同时尽可能保持文件的所有者不变。"
 
 #. type: =item
 #: dos2unix.pod:440

@@ -74,8 +74,8 @@ TRANSLATORS
 
         Brazilian Portuguese  Enrico Nicoletto             Version 6.0.5
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.6 - 7.2
-        Brazilian Portuguese  Rafael Fontenelle            Version 7.3.2 - 7.3.4
-        Chinese (simplified)  Tianze Wang                  Version 7.3.1 - 7.3.3
+        Brazilian Portuguese  Rafael Fontenelle            Version 7.3.2 - 7.4.0
+        Chinese (simplified)  Tianze Wang                  Version 7.3.1 - 7.4.0
         Chinese (traditional) mail6543210                  Version 6.0.5
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
         Danish                Joe Hansen                   Version 7.2.3 - 7.3.4
@@ -83,7 +83,7 @@ TRANSLATORS
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3.4
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
         Esperanto             Benno Schulenberg            Version 6.0.5 - 7.3
-        French                Frédéric Marchal             Version 6.0.5 - 7.3.4
+        French                Frédéric Marchal             Version 6.0.5 - 7.4.0
         German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0,
                                                            7.2.2 - 7.3.4
         German                Lars Wendler                 Version 6.0.4
@@ -93,30 +93,30 @@ TRANSLATORS
         Japanese              Yasuaki Taniguchi            Version 7.1.1
         Japanese              Takeshi Hamasaki             Version 7.3.4
         Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.3.4
-        Polish                Jakub Bogusz                 Version 6.0.5 - 7.3.4
+        Polish                Jakub Bogusz                 Version 6.0.5 - 7.4.0
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
-        Russian               Yuri Kozlov                  Version 6.0.6 - 7.3.4
+        Russian               Yuri Kozlov                  Version 6.0.6 - 7.4.0
         Serbian               Мирослав Николић             Version 6.0.5 - 7.3.4
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.3.1
-        Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.3.4
+        Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.4.0
         Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.3.4
-        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.3.4
+        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.4.0
 
         Translation of the manual.
         See http://translationproject.org/domain/dos2unix-man.html
 
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 7.2
-        Brazilian Portuguese  Rafael Fontenelle            Version 7.3.2 - 7.3.5
-        Chinese (simplified)  Tianze Wang                  Version 7.3.1 - 7.3.5
+        Brazilian Portuguese  Rafael Fontenelle            Version 7.3.2 - 7.4.0
+        Chinese (simplified)  Tianze Wang                  Version 7.3.1 - 7.4.0
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3.3
-        French                Frédéric Marchal             Version 6.0.5 - 7.3.5
+        French                Frédéric Marchal             Version 6.0.5 - 7.4.0
         German                Mario Blättermann            Version 6.0.5 - 7.3.5
-        Polish                Jakub Bogusz                 Version 6.0.5 - 7.3.5
+        Polish                Jakub Bogusz                 Version 6.0.5 - 7.4.0
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.2.1
-        Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.3.5
+        Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.4.0
         Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.3.5
 
 
