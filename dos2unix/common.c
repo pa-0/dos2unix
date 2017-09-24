@@ -1524,7 +1524,7 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
     if (check_unicode(InF, TempF, ipFlag, ipInFN, progname))
       RetVal = -1;
 
-  /* conversion sucessful? */
+  /* conversion successful? */
 #ifdef D2U_UNICODE
   if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
     if ((!RetVal) && (ConvertW(InF, TempF, ipFlag, progname)))
@@ -2151,7 +2151,7 @@ int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
     return -1;
   }
 
-  /* info sucessful? */
+  /* info successful? */
 #ifdef D2U_UNICODE
   if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
     FileInfoW(InF, ipFlag, ipInFN, bomtype_orig, progname);
@@ -2193,7 +2193,7 @@ int GetFileInfoStdio(CFlag *ipFlag, const char *progname)
   if (check_unicode_info(stdin, ipFlag, progname, &bomtype_orig))
     return -1;
 
-  /* info sucessful? */
+  /* info successful? */
 #ifdef D2U_UNICODE
   if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
     FileInfoW(stdin, ipFlag, "", bomtype_orig, progname);
@@ -2730,7 +2730,7 @@ wint_t d2u_putwc(wint_t wc, FILE *f, CFlag *ipFlag, const char *progname)
        * Surrogate halves in UTF-8 are invalid. See also
        * http://en.wikipedia.org/wiki/UTF-8#Invalid_code_points
        * http://tools.ietf.org/html/rfc3629#page-5
-       * It is a bug in (some implemenatations of) wcstombs().
+       * It is a bug in (some implementations of) wcstombs().
        * On Cygwin 1.7 wcstombs() produces correct UTF-8 from UTF-16 surrogate pairs.
        */
       /* Decode UTF-16 surrogate pair */

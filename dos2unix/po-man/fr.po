@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.3.6-beta4\n"
-"POT-Creation-Date: 2017-09-20 22:02+0200\n"
+"POT-Creation-Date: 2017-09-24 20:01+0200\n"
 "PO-Revision-Date: 2017-09-23 13:13+0200\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -135,7 +135,9 @@ msgstr "Autoriser le changement de propriétaire dans l'ancien mode de fichier."
 
 #. type: textblock
 #: dos2unix.pod:112
-msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
+#, fuzzy
+#| msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
+msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for preserving the user and group ownership of files."
 msgstr "Quand cette option est utilisée, la conversion n'est pas interrompue si l'utilisateur ou le groupe propriétaire du fichier original ne peut pas être préservé dans l'ancien mode de fichier. La conversion continuera et le fichier converti aura le même nouveau propriétaire que si il avait été converti par le nouveau mode de fichier. Voyez aussi les options C<-o> et C<-n>. Cette option est uniquement disponible si dos2unix dispose des fonctionnalités pour préserver l'utilisateur ou le groupe propriétaire des fichiers."
 
 #. type: =item

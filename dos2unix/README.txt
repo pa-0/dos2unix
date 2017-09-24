@@ -66,7 +66,7 @@ AUTHORS
 
 TRANSLATORS
 
-        Since verion 6.0.5 dos2unix is part of the Translation Project (TP).
+        Since version 6.0.5 dos2unix is part of the Translation Project (TP).
         All translations go via the Translation Project.
 
         Translation of the messages.

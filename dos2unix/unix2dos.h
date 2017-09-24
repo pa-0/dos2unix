@@ -77,7 +77,7 @@ static int U2D7BitTable [256] =
 
 
 /* ISO mode. ISO-8859-1 -> CP437 */
-/* Non-convertable characters are converted to a dot (\x2e) */
+/* Non-convertible characters are converted to a dot (\x2e) */
 
 static int U2DIso437Table[256] =
 {
@@ -100,7 +100,7 @@ static int U2DIso437Table[256] =
 };
 
 /* ISO mode. ISO-8859-1 -> CP850 */
-/* Non-convertable characters are converted to a dot (\x2e) */
+/* Non-convertible characters are converted to a dot (\x2e) */
 
 static int U2DIso850Table[256] =
 {
@@ -123,7 +123,7 @@ static int U2DIso850Table[256] =
 };
 
 /* ISO mode. ISO-8859-1 -> CP860 */
-/* Non-convertable characters are converted to a dot (\x2e) */
+/* Non-convertible characters are converted to a dot (\x2e) */
 
 static int U2DIso860Table[256] =
 {
@@ -146,7 +146,7 @@ static int U2DIso860Table[256] =
 };
 
 /* ISO mode. ISO-8859-1 -> CP863 */
-/* Non-convertable characters are converted to a dot (\x2e) */
+/* Non-convertible characters are converted to a dot (\x2e) */
 
 static int U2DIso863Table[256] =
 {
@@ -169,7 +169,7 @@ static int U2DIso863Table[256] =
 };
 
 /* ISO mode. ISO-8859-1 -> CP865 */
-/* Non-convertable characters are converted to a dot (\x2e) */
+/* Non-convertible characters are converted to a dot (\x2e) */
 
 static int U2DIso865Table[256] =
 {
@@ -192,7 +192,7 @@ static int U2DIso865Table[256] =
 };
 
 /* ISO-8859-1 -> CP1252 */
-/* Non-convertable characters are converted to a dot (\x2e) */
+/* Non-convertible characters are converted to a dot (\x2e) */
 
 static int U2DIso1252Table[256] =
 {

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man 7.3.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-20 22:02+0200\n"
+"POT-Creation-Date: 2017-09-24 20:01+0200\n"
 "PO-Revision-Date: 2017-09-22 23:56-0200\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge.net>\n"
@@ -138,7 +138,9 @@ msgstr "Permite alteração da propriedade de arquivo no modo de arquivo antigo.
 
 #. type: textblock
 #: dos2unix.pod:112
-msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
+#, fuzzy
+#| msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
+msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for preserving the user and group ownership of files."
 msgstr "Quando esta opção é usada, a conversão não será abortada quando a propriedade do usuário e/ou do grupo do arquivo original não puder ser preservada no modo de arquivo antigo. A conversão continuará e o arquivo convertido receberá a mesma propriedade nova como se tivesse convertido no modo de novo arquivo. Veja também as opções C<-o> e C<-n>. Esta opção só está disponível se o dos2unix oferecer suporte a preservação da propriedade do usuário e do grupo de arquivos."
 
 #. type: =item

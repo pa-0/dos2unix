@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.3.6-beta4\n"
-"POT-Creation-Date: 2017-09-20 22:02+0200\n"
+"POT-Creation-Date: 2017-09-24 20:01+0200\n"
 "PO-Revision-Date: 2017-09-22 23:08+0200\n"
 "Last-Translator: Tianze Wang <zwpwjwtz@126.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -136,7 +136,9 @@ msgstr "在旧文件模式下，允许修改文件的所有者。"
 
 #. type: textblock
 #: dos2unix.pod:112
-msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
+#, fuzzy
+#| msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
+msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for preserving the user and group ownership of files."
 msgstr "若使用此选项，将允许在转换文件时原始文件的属主或属组发生变更，类似于使用新文件模式进行转换。另请参见选项C<-o> 和 C<-n>。仅当 dos2unix 支持保护文件的属主/属组时才能使用该选项。"
 
 #. type: =item

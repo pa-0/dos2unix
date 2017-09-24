@@ -77,7 +77,7 @@ static int D2U7BitTable[256] =
 
 
 /* CP437 -> ISO-8859-1 */
-/* Non-convertable characters are converted to a dot (\x2e) */
+/* Non-convertible characters are converted to a dot (\x2e) */
 
 static int D2UIso437Table[256] =
 {
@@ -100,7 +100,7 @@ static int D2UIso437Table[256] =
 };
 
 /* CP850 -> ISO-8859-1 */
-/* Non-convertable characters are converted to a dot (\x2e) */
+/* Non-convertible characters are converted to a dot (\x2e) */
 
 static int D2UIso850Table[256] =
 {
@@ -123,7 +123,7 @@ static int D2UIso850Table[256] =
 };
 
 /* CP860 -> ISO-8859-1 */
-/* Non-convertable characters are converted to a dot (\x2e) */
+/* Non-convertible characters are converted to a dot (\x2e) */
 
 static int D2UIso860Table[256] =
 {
@@ -146,7 +146,7 @@ static int D2UIso860Table[256] =
 };
 
 /* CP863 -> ISO-8859-1 */
-/* Non-convertable characters are converted to a dot (\x2e) */
+/* Non-convertible characters are converted to a dot (\x2e) */
 
 static int D2UIso863Table[256] =
 {
@@ -169,7 +169,7 @@ static int D2UIso863Table[256] =
 };
 
 /* CP865 -> ISO-8859-1 */
-/* Non-convertable characters are converted to a dot (\x2e) */
+/* Non-convertible characters are converted to a dot (\x2e) */
 
 static int D2UIso865Table[256] =
 {
@@ -192,7 +192,7 @@ static int D2UIso865Table[256] =
 };
 
 /* CP1252 -> ISO-8859-1 */
-/* Non-convertable characters are converted to a dot (\x2e) */
+/* Non-convertible characters are converted to a dot (\x2e) */
 
 static int D2UIso1252Table[256] =
 {

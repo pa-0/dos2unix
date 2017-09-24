@@ -1,3 +1,6 @@
+2017-09-24 Sebastian Rasmussen
+	* Fixed typos in code and documentation.
+
 2017-09-11 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c: When --allow-chown is used put the same read/write
 	  permissions as in new file mode.
