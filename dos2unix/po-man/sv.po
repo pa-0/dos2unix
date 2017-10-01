@@ -134,11 +134,8 @@ msgstr "B<--allow-chown>"
 msgid "Allow file ownership change in old file mode."
 msgstr "Tillåt ändring av ägarskap för fil i gammalt filläge."
 
-# sebras: "for for" reported to upstream with proposed fix.
 #. type: textblock
 #: dos2unix.pod:112
-#, fuzzy
-#| msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
 msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for preserving the user and group ownership of files."
 msgstr "När denna flagga används, kommer konverteringen inte att avbrytas när användar- och/eller gruppägarskap för originalfilen inte kan bevaras i gammalt filläget. Konverteringen kommer att fortsätta och den konverterade filen kommer att få samma nya ägarskap som om den konverterades i nyfilsläge. Se också flaggorna C<-o> och C<-n>. Denna flagga är endast tillgänglig om dos2unix har stöd för att bevara användar- och gruppägarskap för filer."
 

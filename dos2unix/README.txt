@@ -112,7 +112,7 @@ TRANSLATORS
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3.3
         French                Frédéric Marchal             Version 6.0.5 - 7.4.0
-        German                Mario Blättermann            Version 6.0.5 - 7.3.5
+        German                Mario Blättermann            Version 6.0.5 - 7.4.0
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.4.0
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.2.1

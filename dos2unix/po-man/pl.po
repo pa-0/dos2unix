@@ -134,8 +134,6 @@ msgstr "Zezwolenie na zmianę właściciela w trybie starego pliku."
 
 #. type: textblock
 #: dos2unix.pod:112
-#, fuzzy
-#| msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
 msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for preserving the user and group ownership of files."
 msgstr "W przypadku użycia tej opcji, konwersja nie zostanie przerwana, jeśli nie ma możliwości zachowania właściciela i/lub grupy oryginalnego pliku w trybie starego pliku. Konwersja będzie kontynuowana, a przekonwertowany plik będzie miał tego samego właściciela, jakiego by miał w trybie nowego pliku. P. także opcje C<-o> i C<-n>. Opcja jest dostępna tylko wtedy, gdy dos2unix ma obsługę zachowywania użytkownika i grupy plików."
 
