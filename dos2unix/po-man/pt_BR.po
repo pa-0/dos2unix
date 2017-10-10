@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man 7.3.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-24 20:01+0200\n"
+"POT-Creation-Date: 2017-10-10 19:41+0200\n"
 "PO-Revision-Date: 2017-09-22 23:56-0200\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge.net>\n"
@@ -717,7 +717,7 @@ msgstr "Não permite alteração da propriedade do arquivo no modo de arquivo an
 
 #. type: textblock
 #: dos2unix.pod:400
-msgid "Abort conversion when the user and/or group ownership of the original file can't be preserved in old file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
+msgid "Abort conversion when the user and/or group ownership of the original file can't be preserved in old file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for preserving the user and group ownership of files."
 msgstr "Aborta a conversão quando a propriedade do usuário e/ou do grupo do arquivo original não puder ser preservada no modo de arquivo antigo. Veja também as opções C<-o> e C<-n>. Esta opção só está disponível se o dos2unix oferecer suporte à preservação da propriedade do usuário e do grupo de arquivos."
 
 #. type: =item

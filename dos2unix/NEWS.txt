@@ -1,4 +1,4 @@
-201?-??-??: Version 7.3.6
+2017-10-10: Version 7.4.0
   * New option --allow-chown to allow file ownership change
     in old file mode. Option --no-allow-chown does the opposite.
   * Code cleanup.

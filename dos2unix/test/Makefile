@@ -49,7 +49,9 @@ endif
 
 endif
 
+ifndef DJGPP
 PROVE_OPT ?= --nocolor
+endif
 
 all: test
 

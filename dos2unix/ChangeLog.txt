@@ -1,3 +1,6 @@
+2017-10-10 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 7.4.0
+
 2017-09-24 Sebastian Rasmussen
 	* Fixed typos in code and documentation.
 

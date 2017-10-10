@@ -399,7 +399,7 @@ Don't allow file ownership change in old file mode (default).
 
 Abort conversion when the user and/or group ownership of the original file
 can't be preserved in old file mode. See also options C<-o> and C<-n>. This
-option is only available if dos2unix has support for for preserving the user
+option is only available if dos2unix has support for preserving the user
 and group ownership of files.
 
 =item B<-o, --oldfile FILE ...>

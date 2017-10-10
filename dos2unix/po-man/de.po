@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.3.6-beta4\n"
-"POT-Creation-Date: 2017-10-01 08:12+0200\n"
+"POT-Creation-Date: 2017-10-10 19:41+0200\n"
 "PO-Revision-Date: 2017-09-27 20:43+0200\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -715,7 +715,7 @@ msgstr "verhindert die Änderung des Eigentümers der Datei im Alte-Datei-Modus 
 
 #. type: textblock
 #: dos2unix.pod:400
-msgid "Abort conversion when the user and/or group ownership of the original file can't be preserved in old file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
+msgid "Abort conversion when the user and/or group ownership of the original file can't be preserved in old file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for preserving the user and group ownership of files."
 msgstr "bricht die Umwandlung ab, wenn der Eigentümer und/oder die Gruppe der Originaldatei im Alte-Datei-Modus nicht erhalten werden kann. Siehe auch die Optionen C<-o> und C<-n>. Diese Option ist nur verfügbar, wenn dos2unix über Unterstützung für die Erhaltung des Eigentümers und der Gruppe von Dateien verfügt."
 
 #. type: =item
