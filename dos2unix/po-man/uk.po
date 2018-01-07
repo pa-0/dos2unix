@@ -6,9 +6,9 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2014, 2015, 2016, 2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3.5-beta5\n"
-"POT-Creation-Date: 2017-10-10 19:41+0200\n"
-"PO-Revision-Date: 2017-06-25 13:27+0300\n"
+"Project-Id-Version: dos2unix-man 7.3.6-beta4\n"
+"POT-Creation-Date: 2017-09-20 22:02+0200\n"
+"PO-Revision-Date: 2017-12-31 13:20+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 
 #. type: =head1
 #: dos2unix.pod:52
@@ -129,17 +129,17 @@ msgstr ""
 #. type: =item
 #: dos2unix.pod:108
 msgid "B<--allow-chown>"
-msgstr ""
+msgstr "B<--allow-chown>"
 
 #. type: textblock
 #: dos2unix.pod:110
 msgid "Allow file ownership change in old file mode."
-msgstr ""
+msgstr "Дозволити зміну власника файла у старому режимі файлів."
 
 #. type: textblock
 #: dos2unix.pod:112
-msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for preserving the user and group ownership of files."
-msgstr ""
+msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
+msgstr "Якщо використано цей параметр, перетворення не перериватиметься, якщо у старому режимі файлів не вдасться зберегти параметри належності файла до певного користувача і/або групи. Перетворення продовжуватиметься, а перетворений файл матиме нові параметри власника, такі, наче його перетворено у новому режимі файлів. Див. також параметри C<-o> і C<-n>. Цим параметром можна скористатися, лише якщо у dos2unix передбачено підтримку збереження параметрів належності файлів певним користувачам і групам."
 
 #. type: =item
 #: dos2unix.pod:119
@@ -708,17 +708,17 @@ msgstr "Власником перетвореного файла буде при
 #. type: =item
 #: dos2unix.pod:396
 msgid "B<--no-allow-chown>"
-msgstr ""
+msgstr "B<--no-allow-chown>"
 
 #. type: textblock
 #: dos2unix.pod:398
 msgid "Don't allow file ownership change in old file mode (default)."
-msgstr ""
+msgstr "Не дозволяти зміну власника файла у старому режимі файлів (типова поведінка)."
 
 #. type: textblock
 #: dos2unix.pod:400
-msgid "Abort conversion when the user and/or group ownership of the original file can't be preserved in old file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for preserving the user and group ownership of files."
-msgstr ""
+msgid "Abort conversion when the user and/or group ownership of the original file can't be preserved in old file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
+msgstr "Переривати перетворення, якщо у старому режимі файлів не вдасться зберегти параметри належності файла до певного користувача і/або групи. Див. також параметри C<-o> і C<-n>. Цим параметром можна скористатися, лише якщо у dos2unix передбачено підтримку збереження параметрів належності файлів певним користувачам і групам."
 
 #. type: =item
 #: dos2unix.pod:405
@@ -738,50 +738,42 @@ msgstr "У застарілому режимі (режимі заміщення)
 #. type: textblock
 #: dos2unix.pod:419
 msgid "To check if dos2unix has support for preserving the user and group ownership of files type C<dos2unix -V>."
-msgstr ""
+msgstr "Щоб перевірити, чи передбачено у dos2unix підтримку збереження параметрів власника і групи файлів, віддайте команду C<dos2unix -V>."
 
 #. type: textblock
 #: dos2unix.pod:422
 msgid "Conversion is always done via a temporary file. When an error occurs halfway the conversion, the temporary file is deleted and the original file stays intact. When the conversion is successful, the original file is replaced with the temporary file. You may have write permission on the original file, but no permission to put the same user and/or group ownership properties on the temporary file as the original file has. This means you are not able to preserve the user and/or group ownership of the original file. In this case you can use option C<--allow-chown> to continue with the conversion:"
-msgstr ""
+msgstr "Перетворення завжди виконується з використанням тимчасового файла. Якщо під час перетворення станеться помилка, тимчасовий файл буде вилучено, а початковий файл залишиться незмінним. Якщо перетворення буде виконано успішно, початковий файл буде замінено на тимчасовий файл. Може так статися, що у вас будуть права на перезапис початкового файла, але не буде прав для встановлення тих самих параметрів власника для тимчасового файла, який замінить собою початковий файл. Це означає, що ви не зможете зберегти параметри належності файла певному користувачу і/або групі. У цьому випадку ви можете скористатися параметром C<--allow-chown>, щоб програма могла продовжити обробку даних:"
 
 #. type: verbatim
 #: dos2unix.pod:431
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -n -- -foo out.txt\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix --allow-chown foo.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -n -- -foo out.txt\n"
+"    dos2unix --allow-chown якийсь.txt\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:433
-#, fuzzy
-#| msgid "Or in new file mode:"
 msgid "Another option is to use new file mode:"
-msgstr "Або у новому режимі файлів:"
+msgstr "Іншим варіантом дій є використання нового режиму файлів:"
 
 #. type: verbatim
 #: dos2unix.pod:435
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -n a.txt e.txt\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -n foo.txt foo.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -n a.txt e.txt\n"
+"    dos2unix -n якийсь.txt якийсь.txt\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:437
 msgid "The advantage of the C<--allow-chown> option is that you can use wildcards, and the ownership properties will be preserved when possible."
-msgstr ""
+msgstr "Перевагою використання параметра C<--allow-chown> є те, що ви можете користуватися символами-замінниками, а параметри власників буде збережено, якщо можливо."
 
 #. type: =item
 #: dos2unix.pod:440
