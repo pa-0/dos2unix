@@ -1,6 +1,6 @@
 # Author: Erwin Waterlander
 #
-#   Copyright (C) 2009-2017 Erwin Waterlander
+#   Copyright (C) 2009-2018 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -358,7 +358,7 @@ ifdef LFS
 endif
 
 LDFLAGS_USER    =
-LDFLAGS = $(RPM_OPT_FLAGS) $(LDFLAGS_EXTRA) $(LDFLAGS_USER)
+LDFLAGS = $(RPM_LD_FLAGS) $(LDFLAGS_EXTRA) $(LDFLAGS_USER)
 LIBS    = $(LIBS_EXTRA)
 
 DEFS_USER       =
