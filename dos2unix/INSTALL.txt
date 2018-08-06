@@ -77,7 +77,7 @@ BASIC INSTALLATION
 SELF-TESTS
 
     To run the self-tests you need a Perl installation including
-    module perl-Test-Simple.
+    modules perl-Test-Harness and perl-Test-Simple.
 
     To check the native Windows ports you need to run the tests in
     the MSYS2 shell.
