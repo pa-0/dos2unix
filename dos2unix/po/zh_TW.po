@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 6.0.5-b3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-11 20:12+0200\n"
+"POT-Creation-Date: 2018-08-06 20:52+0200\n"
 "PO-Revision-Date: 2014-03-14 00:43+0800\n"
 "Last-Translator: mail6543210 <mail6543210@yahoo.com.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -60,7 +60,7 @@ msgstr "使用 %d 編碼頁。\n"
 msgid "Binary symbol 0x%02X found at line %u\n"
 msgstr "找到二進位符號0x%02X 在第%d 行\n"
 
-#: dos2unix.c:529 unix2dos.c:502
+#: dos2unix.c:530 unix2dos.c:503
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "錯誤：環境變數DOS2UNIX_LOCALEDIR 的值太長。\n"
 

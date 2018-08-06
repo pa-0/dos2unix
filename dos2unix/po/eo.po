@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3-beta8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-11 20:12+0200\n"
+"POT-Creation-Date: 2018-08-06 20:52+0200\n"
 "PO-Revision-Date: 2015-08-23 11:37+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -63,7 +63,7 @@ msgstr "uziĝas kodpaĝo %d.\n"
 msgid "Binary symbol 0x%02X found at line %u\n"
 msgstr "Duuma signo 0x%02X troviĝis en linio %u\n"
 
-#: dos2unix.c:529 unix2dos.c:502
+#: dos2unix.c:530 unix2dos.c:503
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "eraro: Valoro de ĉirkaŭaĵa variablo DOS2UNIX_LOCALEDIR tro longas.\n"
 

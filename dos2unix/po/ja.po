@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-11 20:12+0200\n"
+"POT-Creation-Date: 2018-08-06 20:52+0200\n"
 "PO-Revision-Date: 2016-05-15 00:11+0900\n"
 "Last-Translator: Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -61,7 +61,7 @@ msgstr "コードページ %d を使用します。\n"
 msgid "Binary symbol 0x%02X found at line %u\n"
 msgstr "バイナリ文字 0x%02X が %u 行目で見つかりました\n"
 
-#: dos2unix.c:529 unix2dos.c:502
+#: dos2unix.c:530 unix2dos.c:503
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "エラー: 環境変数 DOS2UNIX_LOCALEDIR の値が長すぎます。\n"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-20 22:02+0200\n"
+"POT-Creation-Date: 2018-08-06 20:52+0200\n"
 "PO-Revision-Date: 2017-12-31 13:32+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -62,7 +62,7 @@ msgstr "використовуємо кодову сторінку %d.\n"
 msgid "Binary symbol 0x%02X found at line %u\n"
 msgstr "Знайдено двійковий символ 0x%02X у рядку %u\n"
 
-#: dos2unix.c:529 unix2dos.c:502
+#: dos2unix.c:530 unix2dos.c:503
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "помилка: значення змінної середовища DOS2UNIX_LOCALEDIR є надто довгим.\n"
 

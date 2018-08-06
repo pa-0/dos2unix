@@ -7,7 +7,7 @@
  *  See also http://www.freebsd.org/copyright/freebsd-license.html
  *  --------
  *
- *  Copyright (C) 2009-2016 Erwin Waterlander
+ *  Copyright (C) 2009-2018 Erwin Waterlander
  *  Copyright (C) 1998 Christian Wurll
  *  Copyright (C) 1998 Bernd Johannes Wuebben
  *  Copyright (C) 1994-1995 Benjamin Lin.
@@ -504,6 +504,7 @@ int main (int argc, char *argv[])
   CFlag *pFlag;
   char *ptr;
   char localedir[1024];
+  int ret;
 # ifdef __MINGW64__
   int _dowildcard = -1; /* enable wildcard expansion for Win64 */
 # endif
@@ -593,9 +594,11 @@ int main (int argc, char *argv[])
 #endif
 
 #ifdef D2U_UNICODE
-  return parse_options(argc_new, argv_new, pFlag, localedir, progname, PrintLicense, ConvertDosToUnix, ConvertDosToUnixW);
+  ret = parse_options(argc_new, argv_new, pFlag, localedir, progname, PrintLicense, ConvertDosToUnix, ConvertDosToUnixW);
 #else
-  return parse_options(argc_new, argv_new, pFlag, localedir, progname, PrintLicense, ConvertDosToUnix);
+  ret = parse_options(argc_new, argv_new, pFlag, localedir, progname, PrintLicense, ConvertDosToUnix);
 #endif
+  free(pFlag);
+  return ret;
 }
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-7.3.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-20 22:02+0200\n"
+"POT-Creation-Date: 2018-08-06 20:52+0200\n"
 "PO-Revision-Date: 2017-09-23 09:19+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <gnu@d07.ru>\n"
@@ -62,7 +62,7 @@ msgstr "используется кодировка %d.\n"
 msgid "Binary symbol 0x%02X found at line %u\n"
 msgstr "В строке %2$u обнаружен двоичный символ 0x%1$02X\n"
 
-#: dos2unix.c:529 unix2dos.c:502
+#: dos2unix.c:530 unix2dos.c:503
 msgid "error: Value of environment variable DOS2UNIX_LOCALEDIR is too long.\n"
 msgstr "ошибка: Значение переменной окружения DOS2UNIX_LOCALEDIR слишком длинное.\n"
 

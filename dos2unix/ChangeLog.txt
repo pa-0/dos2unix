@@ -1,3 +1,10 @@
+2018-08-06 kirotawa <kirotawa@users.sourceforge.net>
+	* dos2unix.c, unix2dos.c: Fixed a minor memory leak.
+	  See https://sourceforge.net/p/dos2unix/bugs/17/
+
+2018-07-21 Erwin Waterlander <waterlan@xs4all.nl>
+	* Makefile: Fix: Add RPM_LD_FLAGS instead of RPM_OPT_FLAGS to LDFLAGS.
+
 2017-10-10 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 7.4.0
 
