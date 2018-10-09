@@ -227,11 +227,13 @@ void d2u_utf8_fprintf( FILE *stream, const char* format, ... ) {
           BOM_printed = 1;
       }
       fwprintf(stream,L"%S",buf);
+      fflush(stream);
       SetConsoleOutputCP(outputCP);
 
    /* The following UTF-8 method does not give correct output. I don't know why. */
    /*prevmode = _setmode(_fileno(stream), _O_U8TEXT);
      fwprintf(stream,L"%S",buf);
+     fflush(stream);
      _setmode(_fileno(stream), prevmode); */
 
    } else if ((d2u_display_encoding == D2U_DISPLAY_UNICODE) || (d2u_display_encoding == D2U_DISPLAY_UNICODEBOM)) {
