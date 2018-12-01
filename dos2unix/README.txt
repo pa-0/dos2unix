@@ -167,6 +167,8 @@ ACKNOWLEDGEMENTS
         Alan S. Jones         New flags h (print header) and p (show file names
                               without path) for option -i, --info
         Beep6581              Improved example for recursive conversion.
+        kirowata              Fixed a minor memory leak.
+        Than Ngo              Fixed issues reported by Coverity Scan.
 
 
 FINDUTILS

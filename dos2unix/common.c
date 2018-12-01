@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2009-2017 Erwin Waterlander
+ *   Copyright (C) 2009-2018 Erwin Waterlander
  *   All rights reserved.
  *
  *   Redistribution and use in source and binary forms, with or without
@@ -983,6 +983,7 @@ FILE* MakeTempFileFrom(const char *OutFN, char **fname_ret)
   *fname_ret = fname_str;
 
   free(cpy);
+  cpy = NULL;
 
 #ifdef NO_MKSTEMP
   if ((name = d2u_mktemp(fname_str)) == NULL)
@@ -1001,6 +1002,10 @@ FILE* MakeTempFileFrom(const char *OutFN, char **fname_ret)
   return (fp);
 
   make_failed:
+    if (cpy) {
+       free(cpy);
+       cpy = NULL;
+    }
     free(*fname_ret);
     *fname_ret = NULL;
     return NULL;
@@ -1978,7 +1983,7 @@ void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb
       D2U_UTF8_FPRINTF(stdout, "FILE");
     }
     if (ipFlag->file_info & INFO_PRINT0)
-      fputc(0, stdout);
+      (void) fputc(0, stdout);
     else
       D2U_UTF8_FPRINTF(stdout, "\n");
     header_done = 1;
@@ -2009,7 +2014,7 @@ void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb
     D2U_UTF8_FPRINTF(stdout, "%s",ptr);
   }
   if (ipFlag->file_info & INFO_PRINT0)
-    fputc(0, stdout);
+    (void) fputc(0, stdout);
   else
     D2U_UTF8_FPRINTF(stdout, "\n");
 }

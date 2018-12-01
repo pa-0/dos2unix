@@ -1,3 +1,7 @@
+2018-12-01 Than Ngo <ngothan@users.sourceforge.net>
+	* common.c: Fixed issues reported by Coverity Scan
+	  See https://sourceforge.net/p/dos2unix/bugs/18/
+
 2018-08-06 kirotawa <kirotawa@users.sourceforge.net>
 	* dos2unix.c, unix2dos.c: Fixed a minor memory leak.
 	  See https://sourceforge.net/p/dos2unix/bugs/17/
