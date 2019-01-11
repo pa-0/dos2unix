@@ -58,7 +58,7 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2 - 7.4.0  2009-2017
+        Erwin Waterlander       version 3.2 - 7.4.1  2009-2019
         Christian Wurll         version 3.1          1998
         Bernd Johannes Wuebben  version 3.0          1998
         Benjamin Lin            version 1.1 - 2.3    1994-1995
@@ -150,6 +150,8 @@ ACKNOWLEDGEMENTS
         Alan S. Jones         Reported bug in UTF-16 conversion by mac2unix.
         Alan S. Jones         Idea for an info option, to list file statistics
                               about line breaks and byte order marks.
+        Alan S. Jones         New flags h (print header) and p (show file names
+                              without path) for option -i, --info
         Gary Johnson          Idea for an info option, to list only files which have
                               DOS line breaks, or only files with Unix line breaks.
         Helmut Karlowski      Makefile and PrintVersion() update for freeMiNT.
@@ -164,8 +166,6 @@ ACKNOWLEDGEMENTS
         Hans Passant          Correct redirection of unicode UTF-16 screen output.
         anonymous             Don't install international man pages when NLS
                               is disabled.
-        Alan S. Jones         New flags h (print header) and p (show file names
-                              without path) for option -i, --info
         Beep6581              Improved example for recursive conversion.
         kirowata              Fixed a minor memory leak.
         Than Ngo              Fixed issues reported by Coverity Scan.

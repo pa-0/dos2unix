@@ -2,6 +2,10 @@
 	* common.c: Fixed issues reported by Coverity Scan
 	  See https://sourceforge.net/p/dos2unix/bugs/18/
 
+2018-10-09 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Flush printf output stream before changing Windows console
+	  cp in utf8 mode. This to prevent issues. Although I did not see any.
+
 2018-08-06 kirotawa <kirotawa@users.sourceforge.net>
 	* dos2unix.c, unix2dos.c: Fixed a minor memory leak.
 	  See https://sourceforge.net/p/dos2unix/bugs/17/

@@ -1,9 +1,16 @@
+2019-??-??: Version 7.4.0
+
+  * Updated Danish, Hungarian, and Ukranian translations.
+  * Code cleanup.
+
 2017-10-10: Version 7.4.0
+
   * New option --allow-chown to allow file ownership change
     in old file mode. Option --no-allow-chown does the opposite.
   * Code cleanup.
 
 2017-07-04: Version 7.3.5
+
   * New flag 0 for option -i, --info. End information lines with a null
     character instead of a newline character, enabling correct file name
     interpretation when flag c is used.
@@ -13,6 +20,7 @@
   * Translation updates.
 
 2016-05-24: Version 7.3.4
+
   * Safer temporary file creation on Windows.
   * Code cleanup.
   * Updated translations.
