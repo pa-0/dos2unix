@@ -1,6 +1,6 @@
 2019-??-??: Version 7.4.0
 
-  * Updated Danish, Hungarian, and Ukranian translations.
+  * Updated Danish, German, Hungarian, Japanese and Ukranian translations.
   * Code cleanup.
 
 2017-10-10: Version 7.4.0

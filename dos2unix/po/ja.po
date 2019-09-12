@@ -1,15 +1,15 @@
 # Japanese gettext message file for dos2unix
-# Copyright (C) 2016 Erwin Waterlander (msgids)
+# Copyright (C) 2019 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
 # Yasuaki Taniguchi <yasuakit@gmail.com>, 2014.
-# Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>, 2016.
+# Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>, 2016, 2019.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.3.4-beta4\n"
+"Project-Id-Version: dos2unix 7.3.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-11 20:59+0100\n"
-"PO-Revision-Date: 2016-05-15 00:11+0900\n"
+"POT-Creation-Date: 2019-09-12 20:34+0200\n"
+"PO-Revision-Date: 2019-08-24 15:04+0900\n"
 "Last-Translator: Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: dos2unix.c:79
 #, c-format
@@ -145,7 +145,7 @@ msgstr "使用法: %s [options] [file ...] [-n infile outfile ...]\n"
 
 #: common.c:650
 msgid " --allow-chown         allow file ownership change\n"
-msgstr ""
+msgstr " --allow-chown         ファイルの所有者の変更を許可します\n"
 
 #: common.c:652
 msgid " -ascii                convert only line breaks (default)\n"
@@ -255,7 +255,7 @@ msgstr ""
 
 #: common.c:688
 msgid " --no-allow-chown      don't allow file ownership change (default)\n"
-msgstr ""
+msgstr " --no-allow-chown      ファイルの所有者の変更を許可しません（デフォルト）\n"
 
 #: common.c:690
 msgid ""
@@ -402,11 +402,11 @@ msgstr "ネイティブ言語サポート。\n"
 
 #: common.c:775
 msgid "With support to preserve the user and group ownership of files.\n"
-msgstr ""
+msgstr "ファイルの所有者とグループを保持するサポート付き。\n"
 
 #: common.c:777
 msgid "Without support to preserve the user and group ownership of files.\n"
-msgstr ""
+msgstr "ファイルの所有者とグループを保持するサポート無し。\n"
 
 #: common.c:911
 msgid "Path for temporary output file is too long:"
@@ -465,7 +465,7 @@ msgstr "一時出力ファイル %s のパーミッション変更に失敗し�
 #: common.c:1594
 #, c-format
 msgid "The user and/or group ownership of file %s is not preserved.\n"
-msgstr ""
+msgstr "ファイル %s の所有者かグループまたはその両方が保持されません。\n"
 
 #: common.c:1616
 #, c-format
