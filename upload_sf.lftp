@@ -1,8 +1,8 @@
 open sftp://waterlan,dos2unix@frs.sourceforge.net
 cd /home/frs/project/d/do/dos2unix/dos2unix
-mkdir 7.4.0
-cd 7.4.0
-mput dos2unix-7.4.0.tar.gz d2u740.zip d2u740b.zip d2u740pm.zip d2u740pm-nls.zip dos2unix-7.4.0-win32.zip dos2unix-7.4.0-win64.zip dos2unix-7.4.0-win32-nls.zip dos2unix-7.4.0-win64-nls.zip dos2unix-7.4.0-os2-watcom.zip d2u740/ChangeLog.txt
+mkdir 7.4.1
+cd 7.4.1
+mput dos2unix-7.4.1.tar.gz d2u741.zip d2u741b.zip d2u741pm.zip dos2unix-7.4.1-win32.zip dos2unix-7.4.1-win64.zip dos2unix-7.4.1-win32-nls.zip dos2unix-7.4.1-win64-nls.zip dos2unix-7.4.1-os2-watcom.zip d2u741/ChangeLog.txt
 mput README.txt
-mput dos2unix-7.4.0.tar.gz.asc
+mput dos2unix-7.4.1.tar.gz.asc
 exit

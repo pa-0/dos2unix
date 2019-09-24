@@ -1,3 +1,6 @@
+2019-09-24 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 7.4.1
+
 2018-12-01 Than Ngo <ngothan@users.sourceforge.net>
 	* common.c: Fixed issues reported by Coverity Scan
 	  See https://sourceforge.net/p/dos2unix/bugs/18/

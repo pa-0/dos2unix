@@ -1,4 +1,4 @@
-2019-??-??: Version 7.4.0
+2019-09-24: Version 7.4.1
 
   * Updated Danish, German, Hungarian, Japanese and Ukranian translations.
   * Code cleanup.
