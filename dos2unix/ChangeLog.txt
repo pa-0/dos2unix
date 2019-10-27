@@ -1,3 +1,6 @@
+2019-10-27 pan93412 <pan93412@gmail.com>
+	* po/zh_TW.po: Updated Traditional Chinese translation.
+
 2019-09-24 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 7.4.1
 

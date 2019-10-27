@@ -58,7 +58,7 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2 - 7.4.1  2009-2019
+        Erwin Waterlander       version 3.2 - 7.4.2  2009-2019
         Christian Wurll         version 3.1          1998
         Bernd Johannes Wuebben  version 3.0          1998
         Benjamin Lin            version 1.1 - 2.3    1994-1995
@@ -77,6 +77,7 @@ TRANSLATORS
         Brazilian Portuguese  Rafael Fontenelle            Version 7.3.2 - 7.4.0
         Chinese (simplified)  Tianze Wang                  Version 7.3.1 - 7.4.0
         Chinese (traditional) mail6543210                  Version 6.0.5
+        Chinese (traditional) pan93412                     Version 7.4.2
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
         Danish                Joe Hansen                   Version 7.2.3 - 7.4.1
         Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4

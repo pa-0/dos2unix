@@ -1,3 +1,7 @@
+20??-??-??: Version 7.4.2
+
+  * Updated Traditional Chinese translation.
+
 2019-09-24: Version 7.4.1
 
   * Updated Danish, German, Hungarian, Japanese and Ukranian translations.
@@ -19,7 +23,7 @@
   * Manual update.
   * Translation updates.
 
-2016-05-24: Version 7.3.4
+2016-05-24: Version 7.3.4 
 
   * Safer temporary file creation on Windows.
   * Code cleanup.
