@@ -1,6 +1,6 @@
 20??-??-??: Version 7.4.2
 
-  * Updated Traditional Chinese translation.
+  * Updated Serbian and Traditional Chinese translation.
 
 2019-09-24: Version 7.4.1
 

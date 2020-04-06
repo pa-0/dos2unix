@@ -58,7 +58,7 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2 - 7.4.2  2009-2019
+        Erwin Waterlander       version 3.2 - 7.4.2  2009-2020
         Christian Wurll         version 3.1          1998
         Bernd Johannes Wuebben  version 3.0          1998
         Benjamin Lin            version 1.1 - 2.3    1994-1995
@@ -98,7 +98,7 @@ TRANSLATORS
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.4.0
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
         Russian               Yuri Kozlov                  Version 6.0.6 - 7.4.0
-        Serbian               Мирослав Николић             Version 6.0.5 - 7.3.4
+        Serbian               Мирослав Николић             Version 6.0.5 - 7.4.2
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.3.1
         Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.4.0
