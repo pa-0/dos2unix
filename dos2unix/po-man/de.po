@@ -3,19 +3,21 @@
 # This file is distributed under the same license as the dos2unix package.
 #
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2014-2017.
+# Roland Illig <roland.illig@gmx.de>, 20202.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.3.6-beta4\n"
-"POT-Creation-Date: 2017-10-10 19:41+0200\n"
-"PO-Revision-Date: 2017-09-27 20:43+0200\n"
-"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
+"POT-Creation-Date: 2017-09-20 22:02+0200\n"
+"PO-Revision-Date: 2020-04-08 17:27+0200\n"
+"Last-Translator: Roland Illig <roland.illig@gmx.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Poedit 2.3\n"
 
 #. type: =head1
 #: dos2unix.pod:52
@@ -57,7 +59,7 @@ msgstr "Das Paket Dos2unix enthält die Werkzeuge C<dos2unix> und C<unix2dos> zu
 #. type: textblock
 #: dos2unix.pod:66
 msgid "In DOS/Windows text files a line break, also known as newline, is a combination of two characters: a Carriage Return (CR) followed by a Line Feed (LF). In Unix text files a line break is a single character: the Line Feed (LF). In Mac text files, prior to Mac OS X, a line break was single Carriage Return (CR)  character. Nowadays Mac OS uses Unix style (LF) line breaks."
-msgstr "In Textdateien unter DOS/Windows sind Zeilenumbrüche, auch als neue Zeile (NL) bekannt, eine Kombination aus zwei Zeichen: einem Wagenrücklauf (Carriage Return, CR) gefolgt von einem Zeilenvorschub (Line Feed, LF). In Unix-Textdateien bestehen Zeilenumbrüche nur aus einem Zeichen, dem Zeilenvorschub (LF). In Mac-Textdateien aus der Zeit vor MacOSX bestand ein Zeilenumbruch aus einem einzelnen CR-Zeichen. Heute verwendet Mac OS Zeilenumbrüche im Unix-Stil (LF)."
+msgstr "In Textdateien unter DOS/Windows sind Zeilenumbrüche, auch als neue Zeile (NL) bekannt, eine Kombination aus zwei Zeichen: einem Wagenrücklauf (Carriage Return, CR) gefolgt von einem Zeilenvorschub (Line Feed, LF). In Unix-Textdateien bestehen Zeilenumbrüche nur aus einem Zeichen, dem Zeilenvorschub (LF). In Mac-Textdateien aus der Zeit vor MacOS X bestand ein Zeilenumbruch aus einem einzelnen CR-Zeichen. Heute verwendet macOS Zeilenumbrüche im Unix-Stil (LF)."
 
 #. type: textblock
 #: dos2unix.pod:72
@@ -97,7 +99,7 @@ msgstr "B<-->"
 #. type: textblock
 #: dos2unix.pod:98
 msgid "Treat all following options as file names. Use this option if you want to convert files whose names start with a dash. For instance to convert a file named \"-foo\", you can use this command:"
-msgstr "nimmt alle folgenden Optionen als Dateinamen an. Verwenden Sie diese Option, wenn Sie Dateien umwandeln wollen, deren Namen mit einem Minuszeichen beginnen. Um beispielsweise eine Datei namens »-bla« umzuwandeln, können Sie folgenden Befehl verwenden:"
+msgstr "nimmt an, dass alle folgenden Optionen Dateinamen sind. Verwenden Sie diese Option, wenn Sie Dateien umwandeln wollen, deren Namen mit einem Minuszeichen beginnen. Um beispielsweise eine Datei namens »-bla« umzuwandeln, können Sie folgenden Befehl verwenden:"
 
 #. type: verbatim
 #: dos2unix.pod:102
@@ -136,7 +138,7 @@ msgstr "erlaubt die Änderung des Eigentümers der Datei im Alte-Datei-Modus."
 
 #. type: textblock
 #: dos2unix.pod:112
-msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for preserving the user and group ownership of files."
+msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
 msgstr "Wenn diese Option verwendet wird, dann bricht die Umwandlung nicht ab, wenn der Eigentümer und die Gruppe der Originaldatei im Alte-Datei-Modus nicht erhalten werden kann. Die Umwandlung wird fortgesetzt und die umgewandelte Datei erhält den gleichen neuen Eigentümer, als wäre sie im Neue-Datei-Modus umgewandelt worden. Siehe auch die Optionen C<-o> und C<-n>. Diese Option ist nur verfügbar, wenn dos2unix über Unterstützung für die Erhaltung des Eigentümers und der Gruppe von Dateien verfügt."
 
 #. type: =item
@@ -227,7 +229,7 @@ msgstr "B<-7>"
 #. type: textblock
 #: dos2unix.pod:154
 msgid "Convert 8 bit characters to 7 bit space."
-msgstr "wandelt 8bit-Zeichen in ein 7bit-Bitmuster um."
+msgstr "wandelt 8-Bit-Zeichen in ein 7-Bit-Bitmuster um."
 
 #. type: =item
 #: dos2unix.pod:156
@@ -307,7 +309,7 @@ msgstr "Nachteilig für Unicode ist, dass es nicht zu ASCII kompatibel ist. Die 
 #. type: textblock
 #: dos2unix.pod:211
 msgid "When method C<unicodebom> is used the Unicode text will be preceded with a BOM (Byte Order Mark). A BOM is required for correct redirection or piping in PowerShell."
-msgstr "Wenn die Methode C<unicodebom> verwendet wird, dann wird dem Unicode-Text eine BOM (Markierung der Bytereihenfolge) vorangestellt. Eine BOM ist ist für korrekte um- oder Weiterleitung in der PowerShell notwendig."
+msgstr "Wenn die Methode C<unicodebom> verwendet wird, dann wird dem Unicode-Text eine BOM (Markierung der Bytereihenfolge) vorangestellt. Eine BOM ist für korrekte Um- oder Weiterleitung in der PowerShell notwendig."
 
 #. type: =item
 #: dos2unix.pod:216
@@ -332,7 +334,7 @@ msgstr "In einer ConEmu-Konsole funktioniert die UTF-8-Kodierung gut."
 #. type: textblock
 #: dos2unix.pod:230
 msgid "When method C<utf8bom> is used the UTF-8 text will be preceded with a BOM (Byte Order Mark). A BOM is required for correct redirection or piping in PowerShell."
-msgstr "Wenn die Methode C<utf8bom> verwendet wird, dann wird dem UTF-8-Text eine BOM (Markierung der Bytereihenfolge) vorangestellt. Eine BOM ist ist für korrekte um- oder Weiterleitung in der PowerShell notwendig."
+msgstr "Wenn die Methode C<utf8bom> verwendet wird, dann wird dem UTF-8-Text eine BOM (Markierung der Bytereihenfolge) vorangestellt. Eine BOM ist für korrekte Um- oder Weiterleitung in der PowerShell notwendig."
 
 #. type: textblock
 #: dos2unix.pod:237
@@ -357,7 +359,7 @@ msgstr "B<-gb, --gb18030>"
 #. type: textblock
 #: dos2unix.pod:246
 msgid "On Windows UTF-16 files are by default converted to UTF-8, regardless of the locale setting. Use this option to convert UTF-16 files to GB18030. This option is only available on Windows. See also section GB18030."
-msgstr "wandelt unter Windows UTF-16-Dateien standardmäßig in UTF-8 um, ungeachtet der Einstellung der Locale. Verwenden Sie diese Option zum umwandeln von Utf-16-Dateien in GB18030. Diese Option ist nur unter Windows verfügbar. Siehe auch Abschnitt GB18030."
+msgstr "wandelt unter Windows UTF-16-Dateien standardmäßig in UTF-8 um, ungeachtet der Einstellung der Locale. Verwenden Sie diese Option zum umwandeln von UTF-16-Dateien in GB18030. Diese Option ist nur unter Windows verfügbar. Siehe auch Abschnitt GB18030."
 
 #. type: =item
 #: dos2unix.pod:250
@@ -372,7 +374,7 @@ msgstr "zeigt eine Hilfe an und beendet das Programm."
 #. type: =item
 #: dos2unix.pod:254
 msgid "B<-i[FLAGS], --info[=FLAGS] FILE ...>"
-msgstr "B<-i[SCHALTER], --info[=SCHALTER] DATEI>"
+msgstr "B<-i[SCHALTER], --info[=SCHALTER] DATEI …>"
 
 #. type: textblock
 #: dos2unix.pod:256
@@ -715,7 +717,7 @@ msgstr "verhindert die Änderung des Eigentümers der Datei im Alte-Datei-Modus 
 
 #. type: textblock
 #: dos2unix.pod:400
-msgid "Abort conversion when the user and/or group ownership of the original file can't be preserved in old file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for preserving the user and group ownership of files."
+msgid "Abort conversion when the user and/or group ownership of the original file can't be preserved in old file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
 msgstr "bricht die Umwandlung ab, wenn der Eigentümer und/oder die Gruppe der Originaldatei im Alte-Datei-Modus nicht erhalten werden kann. Siehe auch die Optionen C<-o> und C<-n>. Diese Option ist nur verfügbar, wenn dos2unix über Unterstützung für die Erhaltung des Eigentümers und der Gruppe von Dateien verfügt."
 
 #. type: =item
@@ -1136,7 +1138,7 @@ msgstr "Unicode-Textdateien können DOS-, Unix- oder Mac-Zeilenumbrüche enthalt
 #. type: textblock
 #: dos2unix.pod:613
 msgid "All versions of dos2unix and unix2dos can convert UTF-8 encoded files, because UTF-8 was designed for backward compatibility with ASCII."
-msgstr "Alle Versionen von dos2unix und unix2dos können UTF-8-kodierte Dateien umwandeln, weil UTF-8 im Hinblick auf Abwärtskompatiblität mit ASCII entwickelt wurde."
+msgstr "Alle Versionen von dos2unix und unix2dos können UTF-8-kodierte Dateien umwandeln, weil UTF-8 im Hinblick auf Abwärtskompatibilität mit ASCII entwickelt wurde."
 
 #. type: textblock
 #: dos2unix.pod:616
@@ -1306,7 +1308,7 @@ msgstr "GB18030 ist ein Standard der chinesischen Regierung. Eine Teilmenge des 
 #. type: textblock
 #: dos2unix.pod:698
 msgid "GB18030 is fully compatible with Unicode, and can be considered an unicode transformation format. Like UTF-8, GB18030 is compatible with ASCII. GB18030 is also compatible with Windows code page 936, also known as GBK."
-msgstr "GB18030 ist vollständig zu Unicode kompatibel und kann als Unicode-Umwandlungsformat betrahctet werden. Wie auch UTF-8 ist GB18030 kompatibel zu ASCII. Ebenfalls kompatibel ist es zur Codepage 936 von Windows, auch als GBK bekannt."
+msgstr "GB18030 ist vollständig zu Unicode kompatibel und kann als Unicode-Umwandlungsformat betrachtet werden. Wie auch UTF-8 ist GB18030 kompatibel zu ASCII. Ebenfalls kompatibel ist es zur Codepage 936 von Windows, auch als GBK bekannt."
 
 #. type: textblock
 #: dos2unix.pod:702
@@ -1517,7 +1519,7 @@ msgstr "REKURSIVE UMWANDLUNG"
 #. type: textblock
 #: dos2unix.pod:768
 msgid "In a Unix shell the find(1) and xargs(1) commands can be used to run dos2unix recursively over all text files in a directory tree. For instance to convert all .txt files in the directory tree under the current directory type:"
-msgstr "In einer Unix-Shell verwenden Sie dos2unix zusammen mit den Befehlen find(1) und xargs(1), um Textdateien in einem Verzeichnisbaum rekursiv umzuwandeln. Um beispielsweise alle *.txt-Dateien im aktuellen Verzeichnis und dessen Unterverzeichnissen umzuwandeln, geben Sie Folgendes ein:"
+msgstr "In einer Unix-Shell können Sie dos2unix zusammen mit den Befehlen find(1) und xargs(1) verwenden, um Textdateien in einem Verzeichnisbaum rekursiv umzuwandeln. Um beispielsweise alle *.txt-Dateien im aktuellen Verzeichnis und dessen Unterverzeichnissen umzuwandeln, geben Sie Folgendes ein:"
 
 #. type: verbatim
 #: dos2unix.pod:772
@@ -1547,7 +1549,7 @@ msgstr ""
 #. type: textblock
 #: dos2unix.pod:780
 msgid "In a Windows Command Prompt the following command can be used:"
-msgstr "In einer Eingabeaufforderung kann der folgende Befehl verwendet werden:"
+msgstr "In einer Windows-Eingabeaufforderung kann der folgende Befehl verwendet werden:"
 
 #. type: verbatim
 #: dos2unix.pod:782
@@ -1629,7 +1631,7 @@ msgstr "B<LANGUAGE>"
 #. type: textblock
 #: dos2unix.pod:818
 msgid "With the LANGUAGE environment variable you can specify a priority list of languages, separated by colons. Dos2unix gives preference to LANGUAGE over LANG.  For instance, first Dutch and then German: C<LANGUAGE=nl:de>. You have to first enable localization, by setting LANG (or LC_ALL) to a value other than \"C\", before you can use a language priority list through the LANGUAGE variable. See also the gettext manual: L<http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
-msgstr "Mit der Umgebungsvariable LANGUAGE können Sie eine Prioritätenliste für Sprachen übergeben, die Sie durch Doppelpunkte voneinander trennen. Dos2unix gibt LANGUAGE vor LANG den Vorzug, zum Beispiel bei Deutsch vor Niederländisch: C<LANGUAGE=de:nl>. Sie müssen zunächst die Lokalisierung aktivieren, indem Sie die Variable LANG (oder LC_ALL) auf einen anderen Wert als »C« setzen, bevor Sie die Liste der Sprachprioritäten mit der Variable LANGUAGE nutzen können. Weitere Informationen finden Sie im Gettext-Handbuch: L<http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
+msgstr "Mit der Umgebungsvariable LANGUAGE können Sie eine Prioritätenliste für Sprachen übergeben, die Sie durch Doppelpunkte voneinander trennen. Dos2unix gibt LANGUAGE vor LANG den Vorzug, zum Beispiel bei Deutsch vor Niederländisch: C<LANGUAGE=de:nl>. Sie müssen zunächst die Lokalisierung aktivieren, indem Sie die Variable LANG (oder LC_ALL) auf einen anderen Wert als »C« setzen, bevor Sie die Liste der Sprachprioritäten mit der Variable LANGUAGE nutzen können. Weitere Informationen finden Sie im Gettext-Handbuch: L<https://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
 
 #. type: textblock
 #: dos2unix.pod:826
@@ -1684,22 +1686,22 @@ msgstr "STANDARDS"
 #. type: textblock
 #: dos2unix.pod:854
 msgid "L<http://en.wikipedia.org/wiki/Text_file>"
-msgstr "L<http://de.wikipedia.org/wiki/Textdatei>"
+msgstr "L<https://de.wikipedia.org/wiki/Textdatei>"
 
 #. type: textblock
 #: dos2unix.pod:856
 msgid "L<http://en.wikipedia.org/wiki/Carriage_return>"
-msgstr "L<http://de.wikipedia.org/wiki/Wagenr%C3%BCcklauf>"
+msgstr "L<https://de.wikipedia.org/wiki/Wagenr%C3%BCcklauf>"
 
 #. type: textblock
 #: dos2unix.pod:858
 msgid "L<http://en.wikipedia.org/wiki/Newline>"
-msgstr "L<http://de.wikipedia.org/wiki/Zeilenumbruch>"
+msgstr "L<https://de.wikipedia.org/wiki/Zeilenumbruch>"
 
 #. type: textblock
 #: dos2unix.pod:860
 msgid "L<http://en.wikipedia.org/wiki/Unicode>"
-msgstr "L<http://en.wikipedia.org/wiki/Unicode>"
+msgstr "L<https://de.wikipedia.org/wiki/Unicode>"
 
 #. type: =head1
 #: dos2unix.pod:862
@@ -1714,12 +1716,12 @@ msgstr "Benjamin Lin - <blin@socs.uts.edu.au>, Bernd Johannes Wuebben (Mac2unix-
 #. type: textblock
 #: dos2unix.pod:869
 msgid "Project page: L<http://waterlan.home.xs4all.nl/dos2unix.html>"
-msgstr "Projektseite: L<http://waterlan.home.xs4all.nl/dos2unix.html>"
+msgstr "Projektseite: L<https://waterlan.home.xs4all.nl/dos2unix.html>"
 
 #. type: textblock
 #: dos2unix.pod:871
 msgid "SourceForge page: L<http://sourceforge.net/projects/dos2unix/>"
-msgstr "SourceForge-Seite: L<http://sourceforge.net/projects/dos2unix/>"
+msgstr "SourceForge-Seite: L<https://sourceforge.net/projects/dos2unix/>"
 
 #. type: =head1
 #: dos2unix.pod:873
