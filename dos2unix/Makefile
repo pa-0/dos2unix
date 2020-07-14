@@ -1,6 +1,6 @@
 # Author: Erwin Waterlander
 #
-#   Copyright (C) 2009-2018 Erwin Waterlander
+#   Copyright (C) 2009-2020 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -86,7 +86,7 @@ man1ext         = .1
 
 ifdef ENABLE_NLS
         POT             = po/$(PACKAGE).pot
-        POFILES         = $(wildcard po/??.po) $(wildcard po/??_??.po)
+        POFILES         = $(wildcard po/*.po)
         MOFILES         = $(patsubst %.po,%.mo,$(POFILES))
         NLSSUFFIX       = -nls
 endif

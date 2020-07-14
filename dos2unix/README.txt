@@ -85,6 +85,7 @@ TRANSLATORS
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
         Esperanto             Benno Schulenberg            Version 6.0.5 - 7.3
         French                Frédéric Marchal             Version 6.0.5 - 7.4.0
+        Friulian              Fabio Tomat                  Version 7.4.2
         German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0,
                                                            7.2.2 - 7.4.1
         German                Lars Wendler                 Version 6.0.4
