@@ -1,24 +1,23 @@
 # Dutch translations for the dos2unix man page.
-# Copyright (C) 2016 Erwin Waterlander (msgids)
+# Copyright (C) 2017 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
 #
 # “Hm!  I can see those old men shake their heads.”
 #
 # Erwin Waterlander <waterlan@xs4all.nl>, 2014.
-# Benno Schulenberg <benno@vertaalt.nl>, 2014, 2015, 2016.
+# Benno Schulenberg <benno@vertaalt.nl>, 2014, 2015, 2016, 2020.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.3.3-beta9\n"
-"POT-Creation-Date: 2017-10-10 19:41+0200\n"
-"PO-Revision-Date: 2016-02-08 17:33+0100\n"
-"Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
+"Project-Id-Version: dos2unix-man-7.3.6-beta4\n"
+"POT-Creation-Date: 2017-09-20 22:02+0200\n"
+"PO-Revision-Date: 2020-09-27 16:25+0200\n"
+"Last-Translator: Benno Schulenberg <vertaling@coevern.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. type: =head1
@@ -131,16 +130,16 @@ msgstr ""
 #. type: =item
 #: dos2unix.pod:108
 msgid "B<--allow-chown>"
-msgstr ""
+msgstr "B<--allow-chown>"
 
 #. type: textblock
 #: dos2unix.pod:110
 msgid "Allow file ownership change in old file mode."
-msgstr ""
+msgstr "Wijziging van bestandseigenaar toestaan in oud-bestand-modus."
 
 #. type: textblock
 #: dos2unix.pod:112
-msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for preserving the user and group ownership of files."
+msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
 msgstr ""
 
 #. type: =item
@@ -430,7 +429,7 @@ msgstr "Bij de optie kunnen één of meer vlaggen meegegeven worden om de uitvoe
 #. type: =item
 #: dos2unix.pod:280
 msgid "B<0>"
-msgstr ""
+msgstr "B<0>"
 
 #. type: textblock
 #: dos2unix.pod:282
@@ -609,15 +608,12 @@ msgstr "Alleen bestanden die DOS-regeleindes bevatten converteren en andere best
 
 #. type: verbatim
 #: dos2unix.pod:348
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -ic *.txt | xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -ic0 *.txt | xargs -0 dos2unix\n"
 "\n"
 msgstr ""
-"    dos2unix -ic *.txt | xargs dos2unix\n"
+"    dos2unix -ic0 *.txt | xargs -0 dos2unix\n"
 "\n"
 
 #. type: textblock
@@ -627,15 +623,12 @@ msgstr "De bestanden vinden die DOS-regeleindes bevatten:"
 
 #. type: verbatim
 #: dos2unix.pod:352
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find -name '*.txt' -print0 | xargs -0 dos2unix -ic\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' | xargs dos2unix\n"
+"    find -name '*.txt' -print0 | xargs -0 dos2unix -ic\n"
 "\n"
 
 #. type: =item
@@ -716,16 +709,16 @@ msgstr "De gebruiker die de conversie start in nieuw-bestand (gepaarde) modus wo
 #. type: =item
 #: dos2unix.pod:396
 msgid "B<--no-allow-chown>"
-msgstr ""
+msgstr "B<--no-allow-chown>"
 
 #. type: textblock
 #: dos2unix.pod:398
 msgid "Don't allow file ownership change in old file mode (default)."
-msgstr ""
+msgstr "Wijziging van bestandseigenaar niet toestaan in oud-bestand-modus (standaard)."
 
 #. type: textblock
 #: dos2unix.pod:400
-msgid "Abort conversion when the user and/or group ownership of the original file can't be preserved in old file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for preserving the user and group ownership of files."
+msgid "Abort conversion when the user and/or group ownership of the original file can't be preserved in old file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
 msgstr ""
 
 #. type: =item
@@ -746,7 +739,7 @@ msgstr "In oud-bestand (vervangende) modus krijgt het geconverteerde bestand dez
 #. type: textblock
 #: dos2unix.pod:419
 msgid "To check if dos2unix has support for preserving the user and group ownership of files type C<dos2unix -V>."
-msgstr ""
+msgstr "Om te controleren of dos2unix ondersteuning heeft voor het behouden van de gebruiker en de groep van bestanden, typt u C<dos2unix -V>."
 
 #. type: textblock
 #: dos2unix.pod:422
@@ -755,41 +748,33 @@ msgstr ""
 
 #. type: verbatim
 #: dos2unix.pod:431
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -n -- -foo out.txt\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix --allow-chown foo.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -n -- -foo uit.txt\n"
+"    dos2unix --allow-chown foo.txt\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:433
-#, fuzzy
-#| msgid "Or in new file mode:"
 msgid "Another option is to use new file mode:"
-msgstr "Of in nieuw-bestand-modus:"
+msgstr "Een andere mogelijkheid is het gebruiken van nieuw-bestand-modus:"
 
 #. type: verbatim
 #: dos2unix.pod:435
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -n a.txt e.txt\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -n foo.txt foo.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -n a.txt e.txt\n"
+"    dos2unix -n foo.txt foo.txt\n"
 "\n"
 
 #. type: textblock
 #: dos2unix.pod:437
 msgid "The advantage of the C<--allow-chown> option is that you can use wildcards, and the ownership properties will be preserved when possible."
-msgstr ""
+msgstr "Het voordeel van optie C<--allow-chown> is dat u jokertekens kunt gebruiken, en dat dan de eigenaarseigenschappen waar mogelijk behouden zullen blijven."
 
 #. type: =item
 #: dos2unix.pod:440
@@ -1353,16 +1338,14 @@ msgstr "Invoer lezen van standaardinvoer en uitvoer schrijven naar standaarduitv
 
 #. type: verbatim
 #: dos2unix.pod:714
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -ic *.txt | xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix < a.txt\n"
 "    cat a.txt | dos2unix\n"
 "\n"
 msgstr ""
-"    dos2unix -ic *.txt | xargs dos2unix\n"
+"    dos2unix < a.txt\n"
+"    cat a.txt | dos2unix\n"
 "\n"
 
 #. type: textblock
@@ -1537,21 +1520,17 @@ msgstr "RECURSIEVE CONVERSIE"
 #. type: textblock
 #: dos2unix.pod:768
 #, fuzzy
-#| msgid "Use dos2unix in combination with the find(1) and xargs(1) commands to recursively convert text files in a directory tree structure. For instance to convert all .txt files in the directory tree under the current directory type:"
 msgid "In a Unix shell the find(1) and xargs(1) commands can be used to run dos2unix recursively over all text files in a directory tree. For instance to convert all .txt files in the directory tree under the current directory type:"
 msgstr "Gebruik dos2unix in combinatie met de opdrachten B<find>(1) en B<xargs>(1) om tekstbestanden in een mappenboom recursief om te zetten.  Bijvoorbeeld om alle .txt-bestanden in de mappenboom onder de huidige map te converteren, typt u:"
 
 #. type: verbatim
 #: dos2unix.pod:772
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find . -name '*.txt' -print0 |xargs -0 dos2unix\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' | xargs dos2unix\n"
+"    find . -name '*.txt' -print0 | xargs -0 dos2unix\n"
 "\n"
 
 #. type: textblock
@@ -1561,15 +1540,12 @@ msgstr ""
 
 #. type: verbatim
 #: dos2unix.pod:778
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    find . -name '*.txt' |xargs dos2unix\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    find . -name '*.txt' -exec dos2unix {} \\;\n"
 "\n"
 msgstr ""
-"    find . -name '*.txt' | xargs dos2unix\n"
+"    find . -name '*.txt' -exec dos2unix {} \\;\n"
 "\n"
 
 #. type: textblock
@@ -1756,25 +1732,6 @@ msgstr "ZIE OOK"
 #: dos2unix.pod:875
 msgid "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 msgstr "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
-
-#~ msgid ""
-#~ "    find -name '*.txt' | xargs dos2unix -ic\n"
-#~ "\n"
-#~ msgstr ""
-#~ "    find -name '*.txt' | xargs dos2unix -ic\n"
-#~ "\n"
-
-#~ msgid ""
-#~ "    dos2unix\n"
-#~ "    dos2unix -l -c mac\n"
-#~ "\n"
-#~ msgstr ""
-#~ "    dos2unix\n"
-#~ "    dos2unix -l -c mac\n"
-#~ "\n"
-
-#~ msgid "Freecode: L<http://freecode.com/projects/dos2unix>"
-#~ msgstr "Freecode: L<http://freecode.com/projects/dos2unix>"
 
 #~ msgid "The Windows versions of dos2unix and unix2dos convert UTF-16 encoded files always to UTF-8 encoded files. Unix versions of dos2unix/unix2dos convert UTF-16 encoded files to the locale character encoding when it is set to UTF-8.  Use the locale(1) command to find out what the locale character encoding is."
 #~ msgstr "De Windows-versies van dos2unix en unix2dos converteren UTF-16-gecodeerde bestanden altijd naar UTF-8-gecodeerde bestanden.  Unix-versies van dos2unix/unix2dos zetten UTF-16-gecodeerde bestanden om naar de lokale tekencodering als die gelijk is aan UTF-8.  Gebruik de opdracht locale(1) om uit te vinden wat de lokale tekencodering is."

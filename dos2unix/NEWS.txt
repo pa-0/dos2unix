@@ -1,7 +1,8 @@
 20??-??-??: Version 7.4.2
 
   * New Friulian translation of the messages.
-  * Updated German, Serbian and Traditional Chinese translations.
+  * Updated Dutch, German, Serbian, Traditional Chinese, and Ukrainian
+    translations.
 
 2019-09-24: Version 7.4.1
 

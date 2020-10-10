@@ -81,7 +81,7 @@ TRANSLATORS
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
         Danish                Joe Hansen                   Version 7.2.3 - 7.4.1
         Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4
-        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3.4
+        Dutch                 Benno Schulenberg            Version 6.0.5 - 7.4.2
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
         Esperanto             Benno Schulenberg            Version 6.0.5 - 7.3
         French                Frédéric Marchal             Version 6.0.5 - 7.4.0
@@ -122,7 +122,7 @@ TRANSLATORS
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.2.1
         Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.4.0
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.4.1
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.4.2
 
 
 ACKNOWLEDGEMENTS
@@ -174,6 +174,7 @@ ACKNOWLEDGEMENTS
         Beep6581              Improved example for recursive conversion.
         kirowata              Fixed a minor memory leak.
         Than Ngo              Fixed issues reported by Coverity Scan.
+        Vladislav Glinsky     Reported typo in Ukrainian translation.        
 
 
 FINDUTILS
