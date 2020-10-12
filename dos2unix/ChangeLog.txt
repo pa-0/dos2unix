@@ -1,3 +1,6 @@
+2020-10-12 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 7.4.2
+
 2020-07-14 Fabio Tomat <f.t.public@gmail.com>
 	* New Friulian translation of the messages.
 

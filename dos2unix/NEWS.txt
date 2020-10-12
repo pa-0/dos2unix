@@ -1,4 +1,4 @@
-20??-??-??: Version 7.4.2
+2020-10-12: Version 7.4.2
 
   * New Friulian translation of the messages.
   * Updated Dutch, German, Serbian, Traditional Chinese, and Ukrainian
