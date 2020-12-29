@@ -1,3 +1,7 @@
+2020-12-29 Philipp Klaus Krause <spth@users.sourceforge.net>
+	* common.c: Assign strerror return value to const char.
+	  See https://sourceforge.net/p/dos2unix/patches/10/
+
 2020-10-12 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 7.4.2
 

@@ -175,6 +175,7 @@ ACKNOWLEDGEMENTS
         kirowata              Fixed a minor memory leak.
         Than Ngo              Fixed issues reported by Coverity Scan.
         Vladislav Glinsky     Reported typo in Ukrainian translation.        
+        Philipp Klaus Krause  Assign strerror return value to const char.
 
 
 FINDUTILS
