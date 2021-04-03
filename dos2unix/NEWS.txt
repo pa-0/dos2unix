@@ -1,5 +1,6 @@
-????-??-??: Version 7.4.3
+2021-04-03: Version 7.4.3-beta1
 
+  * New Serbian translation of the manual.
   * Updated Esperanto translation.
 
 2020-10-12: Version 7.4.2

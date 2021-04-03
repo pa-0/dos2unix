@@ -5,6 +5,9 @@
 	* common.c: Assign strerror return value to const char.
 	  See https://sourceforge.net/p/dos2unix/patches/10/
 
+2020-11-09 Мирослав Николић <miroslavnikolic@rocketmail.com>
+	* New Serbian translation of the manual.
+
 2020-10-12 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 7.4.2
 

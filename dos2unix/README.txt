@@ -120,6 +120,7 @@ TRANSLATORS
         German                Mario Blättermann            Version 6.0.5 - 7.4.0
         German                Roland Illig                 Version 7.4.2
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.4.0
+        Serbian               Мирослав Николић             Version 7.4.3
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.2.1
         Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.4.0
