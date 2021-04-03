@@ -84,6 +84,7 @@ TRANSLATORS
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.4.2
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
         Esperanto             Benno Schulenberg            Version 6.0.5 - 7.3
+        Esperanto             Felipe Castro                Version 7.4.3
         French                Frédéric Marchal             Version 6.0.5 - 7.4.0
         Friulian              Fabio Tomat                  Version 7.4.2
         German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0,
