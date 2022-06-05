@@ -1,4 +1,7 @@
 2022-06-05 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 7.4.3
+
+2022-06-05 Erwin Waterlander <waterlan@xs4all.nl>
 	* test/Makefile: Disabled GB18030 tests for Darwin.
 	  GB18030 is not properly supported on Darwin.
 
