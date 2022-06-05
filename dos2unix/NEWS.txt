@@ -2,6 +2,7 @@
 
   * New Serbian translation of the manual.
   * Updated Esperanto translation.
+  * Skip GB18030 tests on Darwin.
 
 2020-10-12: Version 7.4.2
 

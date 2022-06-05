@@ -1,3 +1,7 @@
+2022-06-05 Erwin Waterlander <waterlan@xs4all.nl>
+	* test/Makefile: Disabled GB18030 tests for Darwin.
+	  GB18030 is not properly supported on Darwin.
+
 2021-03-17 Felipe Castro <fefcas@gmail.com>
 	* Updated Esperanto translation of messages.
 

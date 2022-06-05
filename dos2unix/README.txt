@@ -178,6 +178,7 @@ ACKNOWLEDGEMENTS
         Than Ngo              Fixed issues reported by Coverity Scan.
         Vladislav Glinsky     Reported typo in Ukrainian translation.        
         Philipp Klaus Krause  Assign strerror return value to const char.
+        Victor                Reported that GB18030 conversion is not working on Darwin.
 
 
 FINDUTILS
