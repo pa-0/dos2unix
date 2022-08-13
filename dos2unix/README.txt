@@ -71,7 +71,7 @@ TRANSLATORS
         All translations go via the Translation Project.
 
         Translation of the messages.
-        See http://translationproject.org/domain/dos2unix.html
+        See https://translationproject.org/domain/dos2unix.html
 
         Brazilian Portuguese  Enrico Nicoletto             Version 6.0.5
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.6 - 7.2
@@ -111,7 +111,7 @@ TRANSLATORS
         Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.4.0
 
         Translation of the manual.
-        See http://translationproject.org/domain/dos2unix-man.html
+        See https://translationproject.org/domain/dos2unix-man.html
 
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 7.2
         Brazilian Portuguese  Rafael Fontenelle            Version 7.3.2 - 7.4.0
@@ -187,20 +187,20 @@ FINDUTILS
 
         Windows users who are looking for the Unix 'find' and 'xargs' commands
         can find them in the findutils package for Windows at the ezwinports
-        project page at: http://sourceforge.net/projects/ezwinports/files/
+        project page at: https://sourceforge.net/projects/ezwinports/files/
 
         A DOS version of the findutils package can be obtained from the DJGPP
-        project (http://www.delorie.com/djgpp/) at
+        project (https://www.delorie.com/djgpp/) at
         ftp://ftp.delorie.com/pub/djgpp/current/v2gnu/
 
 CONTACT INFORMATION
 
-        Project home page        : http://waterlan.home.xs4all.nl/dos2unix.html
-        SourceForge project page : http://sourceforge.net/projects/dos2unix/
+        Project home page        : https://waterlan.home.xs4all.nl/dos2unix.html
+        SourceForge project page : https://sourceforge.net/projects/dos2unix/
 
         Erwin Waterlander
         waterlan@xs4all.nl
-        http://waterlan.home.xs4all.nl/
+        https://waterlan.home.xs4all.nl/
 
         If you need support you can email me directly or make a ticket on the
         SourceForge project page. Help in any form is appreciated. A problem

@@ -396,7 +396,7 @@ $(UNIX2DOS_BIN): unix2dos.o querycp.o common.o
 	$(CC) $+ $(LDFLAGS) $(LIBS) -o $@
 
 # DJGPP supports linking of .EXEs via 'stubify'.
-# See djgpp.mak and http://www.delorie.com/djgpp/v2faq/faq22_5.html
+# See djgpp.mak and https://www.delorie.com/djgpp/v2faq/faq22_5.html
 # ln -s does automatic stubify in DJGPP 2.03.
 # This changed in DJGPP 2.05. DJGPP 2.05 emulates symbolic links.
 

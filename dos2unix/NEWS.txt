@@ -125,7 +125,7 @@
 
   * Dos2unix is part of the Translation Project (TP).
     All translations go via the Translation Project.
-    See http://translationproject.org/
+    See https://translationproject.org/
   * New translations of UI messages: Brazilian Portuguese, Chinese (traditional),
     Danish, French, Hungarian, Polish, Serbian, Ukrainian, Vietnamese.
   * New translations of the manual: Brazilian Portuguese, French, German,
@@ -174,7 +174,7 @@
 
 2012-01-27: Version 5.3.2
 
-  * New homepage URL: http://waterlan.home.xs4all.nl/dos2unix.html
+  * New homepage URL: https://waterlan.home.xs4all.nl/dos2unix.html
   * Compiles for native MSYS.
   * Compile with OpenWatcom for DOS32 and Win32.
   * Detect code page on OS/2.
