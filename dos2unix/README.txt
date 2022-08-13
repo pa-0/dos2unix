@@ -75,6 +75,7 @@ TRANSLATORS
         Brazilian Portuguese  Enrico Nicoletto             Version 6.0.5
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.6 - 7.2
         Brazilian Portuguese  Rafael Fontenelle            Version 7.3.2 - 7.4.0
+        Catalan               Jordi Mas i Hernàndez        Version 7.4.4
         Chinese (simplified)  Tianze Wang                  Version 7.3.1 - 7.4.0
         Chinese (traditional) mail6543210                  Version 6.0.5
         Chinese (traditional) pan93412                     Version 7.4.2

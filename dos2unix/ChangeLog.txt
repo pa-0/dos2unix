@@ -1,3 +1,6 @@
+2022-08-13 Jordi Mas i Hernàndez <jmas@softcatala.org>
+	* New Catalan translation of the messages.
+
 2022-06-05 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 7.4.3
 
