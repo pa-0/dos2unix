@@ -1,3 +1,6 @@
+2022-08-13 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c, README.txt: Added link to homepage at sourceforge.
+
 2022-08-13 Jordi Mas i Hernàndez <jmas@softcatala.org>
 	* New Catalan translation of the messages.
 

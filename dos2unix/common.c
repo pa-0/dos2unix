@@ -779,7 +779,8 @@ void PrintVersion(const char *progname, const char *localedir)
 #ifdef ENABLE_NLS
   D2U_ANSI_FPRINTF(stdout,"LOCALEDIR: %s\n", localedir);
 #endif
-  D2U_ANSI_FPRINTF(stdout,"http://waterlan.home.xs4all.nl/dos2unix.html\n");
+  D2U_ANSI_FPRINTF(stdout,"https://waterlan.home.xs4all.nl/dos2unix.html\n");
+  D2U_ANSI_FPRINTF(stdout,"https://dos2unix.sourceforge.io/\n");
 }
 
 /* opens file of name ipFN in read only mode

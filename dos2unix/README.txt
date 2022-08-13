@@ -18,7 +18,8 @@ FILE LIST
 
 PROJECT HOME PAGE
 
-        http://waterlan.home.xs4all.nl/dos2unix.html
+        https://waterlan.home.xs4all.nl/dos2unix.html
+        https://dos2unix.sourceforge.io/
 
 
 HISTORY
