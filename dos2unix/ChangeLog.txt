@@ -1,3 +1,6 @@
+2022-09-08 Seong-ho Cho <darkcircle.0426@gmail.com>
+	* New Korean translation of the messages.
+
 2022-08-13 Erwin Waterlander <waterlan@xs4all.nl>
 	* common.c, README.txt: Added link to homepage at sourceforge.
 	* Updated various web addresses.

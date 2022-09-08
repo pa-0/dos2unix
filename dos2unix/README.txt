@@ -99,6 +99,7 @@ TRANSLATORS
         Hungarian             Gabor Kelemen                Version 7.3.4
         Japanese              Yasuaki Taniguchi            Version 7.1.1
         Japanese              Takeshi Hamasaki             Version 7.3.4 - 7.4.1
+        Korean                Seong-ho Cho                 Version 7.4.4
         Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.4.0
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.4.0
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
