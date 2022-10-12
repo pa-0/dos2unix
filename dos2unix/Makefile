@@ -1,6 +1,6 @@
 # Author: Erwin Waterlander
 #
-#   Copyright (C) 2009-2020 Erwin Waterlander
+#   Copyright (C) 2009-2022 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -525,6 +525,9 @@ man/sr/man1/$(PACKAGE).$(HTMLEXT) : man/sr/man1/$(PACKAGE).pod
 
 man/sv/man1/$(PACKAGE).$(HTMLEXT) : man/sv/man1/$(PACKAGE).pod
 	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - textfilsformatskonverterare från DOS/Mac till Unix och vice versa" $< > $@
+
+man/ro/man1/$(PACKAGE).$(HTMLEXT) : man/ro/man1/$(PACKAGE).pod
+	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - Convertor de format de fișier text din DOS/Mac în Unix și viceversa" $< > $@
 
 test: all
 ifneq ($(DJGPP),)

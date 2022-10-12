@@ -102,6 +102,7 @@ TRANSLATORS
         Korean                Seong-ho Cho                 Version 7.4.4
         Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.4.0
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.4.0
+        Romanian              Remus-Gabriel Chelu          Version 7.4.4
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
         Russian               Yuri Kozlov                  Version 6.0.6 - 7.4.0
         Serbian               Мирослав Николић             Version 6.0.5 - 7.4.2
@@ -123,6 +124,7 @@ TRANSLATORS
         German                Mario Blättermann            Version 6.0.5 - 7.4.0
         German                Roland Illig                 Version 7.4.2
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.4.0
+        Romanian              Remus-Gabriel Chelu          Version 7.4.4
         Serbian               Мирослав Николић             Version 7.4.3
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.2.1
