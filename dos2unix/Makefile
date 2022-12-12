@@ -508,6 +508,9 @@ man/fr/man1/$(PACKAGE).$(HTMLEXT) : man/fr/man1/$(PACKAGE).pod
 man/nl/man1/$(PACKAGE).$(HTMLEXT) : man/nl/man1/$(PACKAGE).pod
 	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/Mac naar Unix en vice versa tekstbestand formaat omzetter" $< > $@
 
+man/ko/man1/$(PACKAGE).$(HTMLEXT) : man/ko/man1/$(PACKAGE).pod
+	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - DOS/맥 에서 유닉스에서, 그 반대로의 텍스트 파일 형식 변환 프로그램" $< > $@
+
 man/pl/man1/$(PACKAGE).$(HTMLEXT) : man/pl/man1/$(PACKAGE).pod
 	PERL_UNICODE=SDA pod2html --title="$(PACKAGE) $(DOS2UNIX_VERSION) - konwerter formatu plików tekstowych między systemami DOS/Mac a Uniksem" $< > $@
 

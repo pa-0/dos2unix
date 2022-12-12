@@ -1,3 +1,6 @@
+2022-12-12 Seong-ho Cho <darkcircle.0426@gmail.com>
+	* New Korean translation of the manual.
+
 2022-10-12 Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>
 	* New Romanian translations of messages and manual.
 

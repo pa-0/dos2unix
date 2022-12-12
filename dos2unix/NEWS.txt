@@ -1,7 +1,7 @@
 202?-??-??: Version 7.4.4
 
   * New Catalan, Romanian, and Korean translations of the messages.
-  * New Romanian translation of the manual.
+  * New Korean and Romanian translations of the manual.
 
 2022-06-05: Version 7.4.3
 
@@ -17,7 +17,7 @@
 
 2019-09-24: Version 7.4.1
 
-  * Updated Danish, German, Hungarian, Japanese and Ukranian translations.
+  * Updated Danish, German, Hungarian, Japanese and Ukrainian translations.
   * Code cleanup.
 
 2017-10-10: Version 7.4.0

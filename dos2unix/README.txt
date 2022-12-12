@@ -123,6 +123,7 @@ TRANSLATORS
         French                Frédéric Marchal             Version 6.0.5 - 7.4.0
         German                Mario Blättermann            Version 6.0.5 - 7.4.0
         German                Roland Illig                 Version 7.4.2
+        Korean                Seong-ho Cho                 Version 7.4.4
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.4.0
         Romanian              Remus-Gabriel Chelu          Version 7.4.4
         Serbian               Мирослав Николић             Version 7.4.3
