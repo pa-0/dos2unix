@@ -6,14 +6,15 @@
 #
 # Cronologia traducerii fișierului „dos2unix”:
 # Traducerea inițială, făcută de R-GC, pentru versiunea dos2unix-man 7.3.6-beta4.
-# Actualizare a traducerii pentru versiunea Y, făcută de X.
+# Traducerea inițială, făcută de R-GC, pentru versiunea dos2unix-man 7.4.4-beta4, 2022.
+# Actualizare a traducerii pentru versiunea Y, făcută de X, Y(anul).
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3.6-beta4\n"
+"Project-Id-Version: dos2unix-man 7.4.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-20 22:02+0200\n"
-"PO-Revision-Date: 2022-10-10 18:56+0200\n"
+"POT-Creation-Date: 2022-12-12 22:16+0100\n"
+"PO-Revision-Date: 2022-12-19 13:26+0100\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -151,7 +152,7 @@ msgstr "Permite schimbarea proprietarului fișierului în modul-fișier_vechi."
 
 #. type: textblock
 #: dos2unix.pod:112
-msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
+msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for preserving the user and group ownership of files."
 msgstr "Când este utilizată această opțiune, conversia nu va fi întreruptă atunci când utilizatorul și/sau grupul proprietar al fișierului original nu poate fi păstrat în modul-fișier_vechi. Conversia va continua și fișierul convertit va primi același nou proprietar ca și cum ar fi fost convertit în modul-fișier_nou. A se vedea, de asemenea, opțiunile C<-o> și C<-n>. Această opțiune este disponibilă numai dacă «dos2unix» are suport pentru păstrarea utilizatorului și grupului proprietar al fișierelor."
 
 #. type: =item
@@ -733,7 +734,7 @@ msgstr "Nu permite schimbarea proprietarului fișierului în modul-fișier_vechi
 
 #. type: textblock
 #: dos2unix.pod:400
-msgid "Abort conversion when the user and/or group ownership of the original file can't be preserved in old file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
+msgid "Abort conversion when the user and/or group ownership of the original file can't be preserved in old file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for preserving the user and group ownership of files."
 msgstr "Anulează conversia atunci când utilizatorul și/sau grupul proprietar al fișierului original nu poate fi păstrat în modul-fișier_vechi. A se vedea, de asemenea, opțiunile C<-o> și C<-n>. Această opțiune este disponibilă doar dacă «dos2unix» are suport pentru păstrarea dreptului de proprietate asupra fișierelor de către utilizator și grup."
 
 #. type: =item
@@ -1724,7 +1725,7 @@ msgstr "L<http://en.wikipedia.org/wiki/Newline>"
 # la asta!
 # ***
 # Notă: am găsit și echivalentul în limba română
-# pentru : 
+# pentru :
 # http://en.wikipedia.org/wiki/Text_file
 # → https://ro.wikipedia.org/wiki/Fi%C8%99ier_text
 # sper să apară bine după procesarea fișierului.

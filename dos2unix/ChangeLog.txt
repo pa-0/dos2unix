@@ -1,3 +1,6 @@
+2022-12-20 Erwin Waterlander <waterlan@xs4all.nl>
+	* Updated manual translations.
+
 2022-12-12 Seong-ho Cho <darkcircle.0426@gmail.com>
 	* New Korean translation of the manual.
 

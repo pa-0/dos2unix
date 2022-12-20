@@ -5,16 +5,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.3.6-beta4\n"
-"POT-Creation-Date: 2017-09-20 22:02+0200\n"
-"PO-Revision-Date: 2022-11-29 20:21+0900\n"
+"Project-Id-Version: dos2unix-man 7.4.4-beta4\n"
+"POT-Creation-Date: 2022-12-12 22:16+0100\n"
+"PO-Revision-Date: 2022-12-20 12:17+0900\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: Korean <translation-team-ko@googlegroups.com>\n"
 "Language: ko\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Generator: Poedit 2.3.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
@@ -26,7 +26,7 @@ msgstr "이름"
 #. type: textblock
 #: dos2unix.pod:54
 msgid "dos2unix - DOS/Mac to Unix and vice versa text file format converter"
-msgstr "dos2unix - DOS/맥 에서 유닉스에서, 그 반대로의 텍스트 파일 형식 변환 프로그램"
+msgstr "dos2unix - DOS/맥 에서 유닉스로, 내지는 그 반대로의 텍스트 파일 형식 변환 프로그램"
 
 #. type: =head1
 #: dos2unix.pod:56
@@ -41,8 +41,8 @@ msgid ""
 "    unix2dos [options] [FILE ...] [-n INFILE OUTFILE ...]\n"
 "\n"
 msgstr ""
-"    dos2unix [<옵션>] [<파일> ...] [-n <입력파일> <출력파일> ...]\n"
-"    unix2dos [<옵션>] [<파일> ...] [-n <입력파일> <출력파일> ...]\n"
+"    dos2unix [옵션] [파일 ...] [-n 입력파일 출력파일 ...]\n"
+"    unix2dos [옵션] [파일 ...] [-n 입력파일 출력파일 ...]\n"
 "\n"
 
 #. type: =head1
@@ -53,7 +53,7 @@ msgstr "설명"
 #. type: textblock
 #: dos2unix.pod:63
 msgid "The Dos2unix package includes utilities C<dos2unix> and C<unix2dos> to convert plain text files in DOS or Mac format to Unix format and vice versa."
-msgstr "dos2unix 패키지에는 DOS 또는 맥 형식을 유닉스 형식으로, 그 반대로 원시 텍스트 파일을 변환하는 C<dos2unix> 유틸리티와 C<unix2dos> 유틸리티가 들어있습니다."
+msgstr "dos2unix 패키지에는 DOS 또는 맥 형식을 유닉스 형식으로, 내지는 그 반대로 원시 텍스트 파일을 변환하는 C<dos2unix> 유틸리티와 C<unix2dos> 유틸리티가 들어있습니다."
 
 #. type: textblock
 #: dos2unix.pod:66
@@ -137,8 +137,8 @@ msgstr "이전 파일 모드의 파일 소유권을 바꿀 수 있게 합니다.
 
 #. type: textblock
 #: dos2unix.pod:112
-msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
-msgstr "이 옵션을 사용하면 이전 파일의 사용자 또는 그룹 소유권을 유지할 수 없을 때 변환을 멈추지 않습니다. 새 파일의 모드로 변환할 때 처럼 동일하게 변환한 파일에 새 소유권을 부여하면서 변환을 계속합니다."
+msgid "When this option is used, the conversion will not be aborted when the user and/or group ownership of the original file can't be preserved in old file mode. Conversion will continue and the converted file will get the same new ownership as if it was converted in new file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for preserving the user and group ownership of files."
+msgstr "이 옵션을 사용하면 이전 파일의 사용자 또는 그룹 소유권을 유지할 수 없을 때 변환을 멈추지 않습니다. 새 파일의 모드로 변환할 때 처럼 동일하게 변환한 파일에 새 소유권을 부여하면서 변환을 계속합니다. C<-o>, C<-n> 옵션도 참고하십시오. 이 옵션은 dos2unix에서 파일의 사용자 및 그룹 소유권을 유지하는 기능이 있을 경우에만 사용할 수 있습니다."
 
 #. type: =item
 #: dos2unix.pod:119
@@ -243,7 +243,7 @@ msgstr "바이트 순서 표시(BOM)를 유지합니다. 입력 파일에 BOM이
 #. type: =item
 #: dos2unix.pod:162
 msgid "B<-c, --convmode CONVMODE>"
-msgstr "B<-c, --convmode <변환모드>>"
+msgstr "B<-c, --convmode 변환모드>"
 
 #. type: textblock
 #: dos2unix.pod:164
@@ -253,7 +253,7 @@ msgstr "변환 모드를 설정합니다. <변환모드>는 I<ascii>, I<7bit>, I
 #. type: =item
 #: dos2unix.pod:168
 msgid "B<-D, --display-enc ENCODING>"
-msgstr "B<-D, --display-enc <인코딩>>"
+msgstr "B<-D, --display-enc 인코딩>"
 
 #. type: textblock
 #: dos2unix.pod:170
@@ -268,7 +268,7 @@ msgstr "이 옵션은 유니코드 파일 이름을 지원하는 윈도우용 do
 #. type: textblock
 #: dos2unix.pod:178
 msgid "There are several methods for displaying text in a Windows console based on the encoding of the text. They all have their own advantages and disadvantages."
-msgstr "텍스트 인코딩 기반으로 윈도우 콘솔에서 텍스트를 나타낸느 방법에는 여러가지가 있습니다. 각 방법에는 고유의 장점과 단점이 있습니다."
+msgstr "텍스트 인코딩 기반으로 윈도우 콘솔에서 텍스트를 나타내는 방법에는 여러가지가 있습니다. 각 방법에는 고유의 장점과 단점이 있습니다."
 
 #. type: =item
 #: dos2unix.pod:184
@@ -373,7 +373,7 @@ msgstr "도움말을 표시하고 나갑니다."
 #. type: =item
 #: dos2unix.pod:254
 msgid "B<-i[FLAGS], --info[=FLAGS] FILE ...>"
-msgstr "B<-i[<플래그>], --info[=<플래그>] <파일> ...>"
+msgstr "B<-i[플래그], --info[=플래그] 파일 ...>"
 
 #. type: textblock
 #: dos2unix.pod:256
@@ -692,7 +692,7 @@ msgstr "출력 인코딩이 UTF-8, UTF-16, GB18030이 아니라면 이 옵션을
 #. type: =item
 #: dos2unix.pod:385
 msgid "B<-n, --newfile INFILE OUTFILE ...>"
-msgstr "B<-n, --newfile <입력파일> <출력파일> ...>"
+msgstr "B<-n, --newfile 입력파일 출력파일 ...>"
 
 #. type: textblock
 #: dos2unix.pod:387
@@ -716,13 +716,13 @@ msgstr "이전 파일 모드의 파일 소유권 변경을 허용하지 않습�
 
 #. type: textblock
 #: dos2unix.pod:400
-msgid "Abort conversion when the user and/or group ownership of the original file can't be preserved in old file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for for preserving the user and group ownership of files."
-msgstr "원본의 사용자 또는 그룹 소유권을 이전 파일 모드에서 유지할 수 없다면 변환을 멈춥니다. C<-o>, C<-n> 옵션도 참고하십시오. 이 옵션은 dos2unix에서 파일의 사용자 및 그룹 소유권을 유지하는 기능이 있을 경우에만 사용할 수 있습니다."
+msgid "Abort conversion when the user and/or group ownership of the original file can't be preserved in old file mode. See also options C<-o> and C<-n>. This option is only available if dos2unix has support for preserving the user and group ownership of files."
+msgstr "원본 파일의 사용자 또는 그룹 소유권을 이전 파일 모드에서 유지할 수 없다면 변환을 멈춥니다. C<-o>, C<-n> 옵션도 참고하십시오. 이 옵션은 dos2unix에서 파일의 사용자 및 그룹 소유권을 유지하는 기능이 있을 경우에만 사용할 수 있습니다."
 
 #. type: =item
 #: dos2unix.pod:405
 msgid "B<-o, --oldfile FILE ...>"
-msgstr "B<-o, --oldfile <파일> ...>"
+msgstr "B<-o, --oldfile 파일 ...>"
 
 #. type: textblock
 #: dos2unix.pod:407
@@ -922,7 +922,7 @@ msgstr "일반 모드에서는 개행 문자를 DOS에서 유닉스로 그 반�
 #. type: textblock
 #: dos2unix.pod:518
 msgid "In Mac mode line breaks are converted from Mac to Unix and vice versa. DOS line breaks are not changed."
-msgstr "맥 모드에서 개행 문자를 맥에서 유닉스로 그 반대로 변환합니다. DOS 개행 문자를 바꾸지 않습니다."
+msgstr "맥 모드에서 개행 문자를 맥에서 유닉스로, 내지는 그 반대로 변환합니다. DOS 개행 문자를 바꾸지 않습니다."
 
 #. type: textblock
 #: dos2unix.pod:521
@@ -972,7 +972,7 @@ msgstr "DOS 문자 세트(코드 페이지)에서 유닉스 ISO 문자 세트 IS
 #. type: textblock
 #: dos2unix.pod:549
 msgid "When only option C<-iso> is used dos2unix will try to determine the active code page. When this is not possible dos2unix will use default code page CP437, which is mainly used in the USA.  To force a specific code page use options C<-437> (US), C<-850> (Western European), C<-860> (Portuguese), C<-863> (French Canadian), or C<-865> (Nordic).  Windows code page CP1252 (Western European) is also supported with option C<-1252>. For other code pages use dos2unix in combination with iconv(1).  Iconv can convert between a long list of character encodings."
-msgstr "dos2unix에 C<-iso>옵션만 사용했을 경우 활성 코드 페이지 확인을 시도합니다. 불가능하다면 dos2unix는 미합중국에서 주로 사용하는 CP437 기본 코드 페이지를 사용합니다.  코드 페이지를 강제로 지정하려면 C<-437> (US), C<-850> (서유럽어), C<-860> (포르투갈어), C<-863> (캐나다 프랑스어), C<-865> (북유럽어) 옵션 중 하나를 사용하십시오.  윈도우 코드 페이지 CP1252 (서유럽어)는 C<-1252> 옵션으로 지원합니다. 다른 코드 페이지를 활용하려면 dos2unix를 iconv(1)와 함께 사용하십시오.  iconv는 다양한 문자 인코딩을 변환할 수 있습니다."
+msgstr "dos2unix에 C<-iso>옵션만 사용했을 경우 활성 코드 페이지 확인을 시도합니다. 불가능하다면 dos2unix는 미합중국에서 주로 사용하는 CP437 기본 코드 페이지를 사용합니다.  코드 페이지를 강제로 지정하려면 C<-437> (US), C<-850> (서유럽어), C<-860> (포르투갈어), C<-863> (캐나다 프랑스어), C<-865> (북유럽어) 옵션 중 하나를 사용하십시오.  윈도우 코드 페이지 CP1252 (서유럽어)는 C<-1252> 옵션으로 지원합니다. 다른 코드 페이지를 활용하려면 dos2unix와 iconv(1)를 함께 사용하십시오.  iconv는 다양한 문자 인코딩을 변환할 수 있습니다."
 
 #. type: textblock
 #: dos2unix.pod:558
@@ -1227,7 +1227,7 @@ msgstr "dos2unix에서는 윈도우 명령 프롬프트의 유니코드 파일 �
 #. type: textblock
 #: dos2unix.pod:670
 msgid "There are some issues with displaying Unicode file names in a Windows console.  See option C<-D>, C<--display-enc>. The file names may be displayed wrongly in the console, but the files will be written with the correct name."
-msgstr "윈도우 콘솔에 유니코드 파일 이름을 표시하는 몇가지 문제가 있습니다.  C<-D>, C<--display-enc> 옵션을 참고하십시오. 콘솔에서 파일 이름이 잘못 나타날 수는 있지만 파일은 (어쨌든) 올바른 이름으로 기록합니다."
+msgstr "윈도우 콘솔에 유니코드 파일 이름을 표시할 때 몇가지 문제가 있습니다.  C<-D>, C<--display-enc> 옵션을 참고하십시오. 콘솔에서 파일 이름이 잘못 나타날 수는 있지만 파일은 (어쨌든) 올바른 이름으로 기록합니다."
 
 #. type: =head2
 #: dos2unix.pod:674
@@ -1518,7 +1518,7 @@ msgstr "재귀 변환"
 #. type: textblock
 #: dos2unix.pod:768
 msgid "In a Unix shell the find(1) and xargs(1) commands can be used to run dos2unix recursively over all text files in a directory tree. For instance to convert all .txt files in the directory tree under the current directory type:"
-msgstr "유닉스 셸에서 dos2unix로 하여금 디렉터리 트리의 모든 텍스트 파일을 재귀적으로 뒤져서 실행하려 할 때, find(1)와 xargs(1) 명령을 사용할 수 있습니다. 예를 들어 아래 디렉터리 형태를 갖춘 디렉터리 트리의 모든 .txt 파일을 변환하려면:"
+msgstr "유닉스 셸에서 dos2unix로 하여금 디렉터리 트리의 모든 텍스트 파일을 재귀적으로 탐색하여 처리하려 할 때, find(1)와 xargs(1) 명령을 사용할 수 있습니다. 예를 들어 아래 형태를 갖춘 디렉터리 트리의 모든 .txt 파일을 변환하려면:"
 
 #. type: verbatim
 #: dos2unix.pod:772
@@ -1637,7 +1637,7 @@ msgstr "LANGUAGE 환경 변수에는 언어를 우선 순위별로 콜론으로 
 #. type: textblock
 #: dos2unix.pod:826
 msgid "If you select a language which is not available you will get the standard English messages."
-msgstr "사용할 수 없는 언어를 선택했다면 표준 (국제) 영어 메세지로 나타납니다."
+msgstr "사용할 수 없는 언어를 선택했다면 표준 (국제) 영어 메시지로 나타납니다."
 
 # NOTE: 환경변수 이름이므로 변환하지 말것
 #. type: =item
