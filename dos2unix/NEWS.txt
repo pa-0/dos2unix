@@ -2,6 +2,7 @@
 
   * New Catalan, Romanian, and Korean translations of the messages.
   * New Korean and Romanian translations of the manual.
+  * Several translation updates.
 
 2022-06-05: Version 7.4.3
 

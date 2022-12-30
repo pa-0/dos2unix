@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man 7.4.4-beta4\n"
 "POT-Creation-Date: 2022-12-12 22:16+0100\n"
-"PO-Revision-Date: 2022-12-20 12:17+0900\n"
+"PO-Revision-Date: 2022-12-30 15:36+0900\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: Korean <translation-team-ko@googlegroups.com>\n"
 "Language: ko\n"
@@ -41,8 +41,8 @@ msgid ""
 "    unix2dos [options] [FILE ...] [-n INFILE OUTFILE ...]\n"
 "\n"
 msgstr ""
-"    dos2unix [옵션] [파일 ...] [-n 입력파일 출력파일 ...]\n"
-"    unix2dos [옵션] [파일 ...] [-n 입력파일 출력파일 ...]\n"
+"    dos2unix [<옵션>] [<파일> ...] [-n <입력파일> <출력파일> ...]\n"
+"    unix2dos [<옵션>] [<파일> ...] [-n <입력파일> <출력파일> ...]\n"
 "\n"
 
 #. type: =head1
@@ -243,7 +243,7 @@ msgstr "바이트 순서 표시(BOM)를 유지합니다. 입력 파일에 BOM이
 #. type: =item
 #: dos2unix.pod:162
 msgid "B<-c, --convmode CONVMODE>"
-msgstr "B<-c, --convmode 변환모드>"
+msgstr "B<< -c, --convmode <변환모드> >>"
 
 #. type: textblock
 #: dos2unix.pod:164
@@ -253,7 +253,7 @@ msgstr "변환 모드를 설정합니다. <변환모드>는 I<ascii>, I<7bit>, I
 #. type: =item
 #: dos2unix.pod:168
 msgid "B<-D, --display-enc ENCODING>"
-msgstr "B<-D, --display-enc 인코딩>"
+msgstr "B<< -D, --display-enc <인코딩> >>"
 
 #. type: textblock
 #: dos2unix.pod:170
@@ -373,7 +373,7 @@ msgstr "도움말을 표시하고 나갑니다."
 #. type: =item
 #: dos2unix.pod:254
 msgid "B<-i[FLAGS], --info[=FLAGS] FILE ...>"
-msgstr "B<-i[플래그], --info[=플래그] 파일 ...>"
+msgstr "B<< -i[<플래그>], --info[=<플래그>] <파일> ... >>"
 
 #. type: textblock
 #: dos2unix.pod:256
@@ -692,7 +692,7 @@ msgstr "출력 인코딩이 UTF-8, UTF-16, GB18030이 아니라면 이 옵션을
 #. type: =item
 #: dos2unix.pod:385
 msgid "B<-n, --newfile INFILE OUTFILE ...>"
-msgstr "B<-n, --newfile 입력파일 출력파일 ...>"
+msgstr "B<< -n, --newfile <입력파일> <출력파일> ... >>"
 
 #. type: textblock
 #: dos2unix.pod:387
@@ -722,7 +722,7 @@ msgstr "원본 파일의 사용자 또는 그룹 소유권을 이전 파일 모�
 #. type: =item
 #: dos2unix.pod:405
 msgid "B<-o, --oldfile FILE ...>"
-msgstr "B<-o, --oldfile 파일 ...>"
+msgstr "B<< -o, --oldfile <파일> ... >>"
 
 #. type: textblock
 #: dos2unix.pod:407

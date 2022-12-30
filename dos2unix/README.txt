@@ -118,6 +118,7 @@ TRANSLATORS
         Brazilian Portuguese  Rafael Ferreira              Version 6.0.5 - 7.2
         Brazilian Portuguese  Rafael Fontenelle            Version 7.3.2 - 7.4.0
         Chinese (simplified)  Tianze Wang                  Version 7.3.1 - 7.4.0
+        Chinese (simplified)  Boyuan Yang                  Version 7.4.4
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3.3
         French                Frédéric Marchal             Version 6.0.5 - 7.4.0
