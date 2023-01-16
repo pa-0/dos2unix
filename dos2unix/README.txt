@@ -59,7 +59,7 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2 - 7.4.3  2009-2022
+        Erwin Waterlander       version 3.2 - 7.4.4  2009-2023
         Christian Wurll         version 3.1          1998
         Bernd Johannes Wuebben  version 3.0          1998
         Benjamin Lin            version 1.1 - 2.3    1994-1995
@@ -89,6 +89,7 @@ TRANSLATORS
         Esperanto             Felipe Castro                Version 7.4.3
         French                Frédéric Marchal             Version 6.0.5 - 7.4.0
         Friulian              Fabio Tomat                  Version 7.4.2
+        Georgian              Temuri Doghonadze            Version 7.4.4
         German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0,
                                                            7.2.2 - 7.4.1
         German                Lars Wendler                 Version 6.0.4

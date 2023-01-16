@@ -1,6 +1,7 @@
-202?-??-??: Version 7.4.4
+2023-??-??: Version 7.4.4
 
-  * New Catalan, Romanian, and Korean translations of the messages.
+  * New Catalan, Georgian, Romanian, and Korean translations of the
+    UI messages.
   * New Korean and Romanian translations of the manual.
   * Several translation updates.
 
