@@ -1,3 +1,9 @@
+2023-04-06 Erwin Waterlander <waterlan@xs4all.nl>
+	* New option -e, --add-eol to add a line break to the last
+	  line if there isn't one. Option --no-add-eol disables the
+	  feature. Thanks to Anonymous.
+	  See https://sourceforge.net/p/dos2unix/feature-requests/6/
+
 2023-02-11 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 7.4.4
 

@@ -1,7 +1,7 @@
 /*
 #  Copyright and License
 #
-#   Copyright (C) 2009-2017 Erwin Waterlander
+#   Copyright (C) 2009-2023 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -237,6 +237,17 @@ PowerShell.
 The default encoding can be changed with environment variable DOS2UNIX_DISPLAY_ENC
 by setting it to C<unicode>, C<unicodebom>, C<utf8>, or C<utf8bom>.
 
+=item B<-e, --add-eol>
+
+Add a line break to last line if there isn't one. This works for every
+conversion.
+
+On Windows it is common that the last line doesn't end with a line break. Some
+Unix programs have problems processing files without a line break on the last
+line, because the POSIX standard defines that a line in a text file ends with a
+terminating newline character. For instance concatenating files without a
+newline on the last line may not give the expected result.
+
 =item B<-f, --force>
 
 Force conversion of binary files.
@@ -401,6 +412,10 @@ Abort conversion when the user and/or group ownership of the original file
 can't be preserved in old file mode. See also options C<-o> and C<-n>. This
 option is only available if dos2unix has support for preserving the user
 and group ownership of files.
+
+=item B<--no-add-eol>
+
+Do not add a line break to last line if there isn't one.
 
 =item B<-o, --oldfile FILE ...>
 

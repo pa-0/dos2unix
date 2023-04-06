@@ -668,6 +668,7 @@ void PrintUsage(const char *progname)
   D2U_ANSI_FPRINTF(stdout,_(" -D, --display-enc     set encoding of displayed text messages\n\
    encoding            ansi, unicode, utf8, default to ansi\n"));
 #endif
+  D2U_ANSI_FPRINTF(stdout,_(" -e, --add-eol         add line break to last line if there isn't one\n"));
   D2U_ANSI_FPRINTF(stdout,_(" -f, --force           force conversion of binary files\n"));
 #ifdef D2U_UNICODE
 #if (defined(_WIN32) && !defined(__CYGWIN__))
@@ -687,6 +688,7 @@ void PrintUsage(const char *progname)
 #ifndef NO_CHOWN
   D2U_ANSI_FPRINTF(stdout,_(" --no-allow-chown      don't allow file ownership change (default)\n"));
 #endif
+  D2U_ANSI_FPRINTF(stdout,_(" --no-add-eol          don't add line break to last line if there isn't one (default)\n"));
   D2U_ANSI_FPRINTF(stdout,_(" -o, --oldfile         write to old file (default)\n\
    file ...            files to convert in old-file mode\n"));
   D2U_ANSI_FPRINTF(stdout,_(" -q, --quiet           quiet mode, suppress all warnings\n"));
@@ -2309,6 +2311,7 @@ int parse_options(int argc, char *argv[],
   pFlag->keep_utf16 = 0;
   pFlag->file_info = 0;
   pFlag->locale_target = TARGET_UTF8;
+  pFlag->add_eol = 0;
 
 #ifdef D2U_UNIFILE
    ptr = getenv("DOS2UNIX_DISPLAY_ENC");
@@ -2343,6 +2346,10 @@ int parse_options(int argc, char *argv[],
         pFlag->keep_bom = 1;
       else if ((strcmp(argv[ArgIdx],"-k") == 0) || (strcmp(argv[ArgIdx],"--keepdate") == 0))
         pFlag->KeepDate = 1;
+      else if ((strcmp(argv[ArgIdx],"-e") == 0) || (strcmp(argv[ArgIdx],"--add-eol") == 0))
+        pFlag->add_eol = 1;
+      else if (strcmp(argv[ArgIdx],"--no-add-eol") == 0)
+        pFlag->add_eol = 0;
       else if ((strcmp(argv[ArgIdx],"-f") == 0) || (strcmp(argv[ArgIdx],"--force") == 0))
         pFlag->Force = 1;
 #ifndef NO_CHOWN

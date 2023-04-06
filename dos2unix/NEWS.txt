@@ -1,3 +1,9 @@
+2023-??-??: Version 7.5.0
+
+  * New option -e, --add-eol to add a line break to the last
+    line if there isn't one. Option --no-add-eol disables the
+    feature.
+
 2023-02-11: Version 7.4.4
 
   * New Catalan, Georgian, Romanian, and Korean translations of the
