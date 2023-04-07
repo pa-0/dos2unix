@@ -242,11 +242,12 @@ by setting it to C<unicode>, C<unicodebom>, C<utf8>, or C<utf8bom>.
 Add a line break to last line if there isn't one. This works for every
 conversion.
 
-On Windows it is common that the last line doesn't end with a line break. Some
-Unix programs have problems processing files without a line break on the last
-line, because the POSIX standard defines that a line in a text file ends with a
-terminating newline character. For instance concatenating files without a
-newline on the last line may not give the expected result.
+A file converted from DOS to Unix format may lack a line break on the last
+line. There are text editors that write text files without a line break on the
+last line. Some Unix programs have problems processing these files, because the
+POSIX standard defines that every line in a text file must end with a
+terminating newline character. For instance concatenating files may not give
+the expected result.
 
 =item B<-f, --force>
 

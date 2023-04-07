@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Requires perl-Test-Simple installation.
-use Test::Simple tests => 24;
+use Test::Simple tests => 25;
 
 $suffix = "";
 if (-e "../dos2unix.exe") {
@@ -21,6 +21,9 @@ system("$DOS2UNIX -v -e -n noeol_unix.txt out_unix.txt; cmp out_unix.txt eol_uni
 ok( $? == 0, 'dos2unix add eol' );
 
 system("$DOS2UNIX -v -e -n noeol_mac.txt out_unix.txt; cmp out_unix.txt eol_macunix.txt");
+ok( $? == 0, 'dos2unix add eol' );
+
+system("$DOS2UNIX -v -e -n noeol_dos_utf16.txt out_unix.txt; cmp out_unix.txt eol_unix.txt");
 ok( $? == 0, 'dos2unix add eol' );
 
 # ---------------
