@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.4.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-06 21:19+0200\n"
+"POT-Creation-Date: 2023-04-12 21:38+0200\n"
 "PO-Revision-Date: 2023-01-15 08:42+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <(nothing)>\n"
@@ -186,7 +186,7 @@ msgstr ""
 
 #: common.c:671
 #, fuzzy
-msgid " -e, --add-eol         add line break to last line if there isn't one\n"
+msgid " -e, --add-eol         add a line break to the last line if there isn't one\n"
 msgstr " --no-allow-chown      ფაილის მფლობელის შეცვლის არ-დაშვება (ნაგულისხმები)\n"
 
 #: common.c:672
@@ -241,7 +241,7 @@ msgstr " --no-allow-chown      ფაილის მფლობელის �
 
 #: common.c:691
 #, fuzzy
-msgid " --no-add-eol          don't add line break to last line if there isn't one (default)\n"
+msgid " --no-add-eol          don't add a line break to the last line if there isn't one (default)\n"
 msgstr " --no-allow-chown      ფაილის მფლობელის შეცვლის არ-დაშვება (ნაგულისხმები)\n"
 
 #: common.c:692

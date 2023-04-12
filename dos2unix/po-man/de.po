@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.4.4-beta4\n"
-"POT-Creation-Date: 2023-04-07 20:45+0200\n"
+"POT-Creation-Date: 2023-04-12 21:38+0200\n"
 "PO-Revision-Date: 2022-12-19 13:08+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -349,7 +349,7 @@ msgstr "B<-m, --add-bom>"
 
 #. type: textblock
 #: dos2unix.pod:242
-msgid "Add a line break to last line if there isn't one. This works for every conversion."
+msgid "Add a line break to the last line if there isn't one. This works for every conversion."
 msgstr ""
 
 #. type: textblock
@@ -745,7 +745,7 @@ msgstr "B<-m, --add-bom>"
 
 #. type: textblock
 #: dos2unix.pod:419
-msgid "Do not add a line break to last line if there isn't one."
+msgid "Do not add a line break to the last line if there isn't one."
 msgstr ""
 
 #. type: =item

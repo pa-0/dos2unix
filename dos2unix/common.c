@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2009-2022 Erwin Waterlander
+ *   Copyright (C) 2009-2023 Erwin Waterlander
  *   All rights reserved.
  *
  *   Redistribution and use in source and binary forms, with or without
@@ -668,7 +668,7 @@ void PrintUsage(const char *progname)
   D2U_ANSI_FPRINTF(stdout,_(" -D, --display-enc     set encoding of displayed text messages\n\
    encoding            ansi, unicode, utf8, default to ansi\n"));
 #endif
-  D2U_ANSI_FPRINTF(stdout,_(" -e, --add-eol         add line break to last line if there isn't one\n"));
+  D2U_ANSI_FPRINTF(stdout,_(" -e, --add-eol         add a line break to the last line if there isn't one\n"));
   D2U_ANSI_FPRINTF(stdout,_(" -f, --force           force conversion of binary files\n"));
 #ifdef D2U_UNICODE
 #if (defined(_WIN32) && !defined(__CYGWIN__))
@@ -688,7 +688,7 @@ void PrintUsage(const char *progname)
 #ifndef NO_CHOWN
   D2U_ANSI_FPRINTF(stdout,_(" --no-allow-chown      don't allow file ownership change (default)\n"));
 #endif
-  D2U_ANSI_FPRINTF(stdout,_(" --no-add-eol          don't add line break to last line if there isn't one (default)\n"));
+  D2U_ANSI_FPRINTF(stdout,_(" --no-add-eol          don't add a line break to the last line if there isn't one (default)\n"));
   D2U_ANSI_FPRINTF(stdout,_(" -o, --oldfile         write to old file (default)\n\
    file ...            files to convert in old-file mode\n"));
   D2U_ANSI_FPRINTF(stdout,_(" -q, --quiet           quiet mode, suppress all warnings\n"));

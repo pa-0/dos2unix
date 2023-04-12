@@ -239,7 +239,7 @@ by setting it to C<unicode>, C<unicodebom>, C<utf8>, or C<utf8bom>.
 
 =item B<-e, --add-eol>
 
-Add a line break to last line if there isn't one. This works for every
+Add a line break to the last line if there isn't one. This works for every
 conversion.
 
 A file converted from DOS to Unix format may lack a line break on the last
@@ -416,7 +416,7 @@ and group ownership of files.
 
 =item B<--no-add-eol>
 
-Do not add a line break to last line if there isn't one.
+Do not add a line break to the last line if there isn't one.
 
 =item B<-o, --oldfile FILE ...>
 
