@@ -239,6 +239,7 @@ typedef struct
   int Follow;                           /* 0: skip symlink, 1: follow symbolic link, 2: replace symlink. */
   int status;
   int stdio_mode;                       /* if TRUE, stdio mode */
+  int to_stdout;                        /* write output to stdout in old file mode */
   int error;                            /* an error occurred */
   int bomtype;                          /* byte order mark */
   int add_bom;                          /* 1: write BOM */

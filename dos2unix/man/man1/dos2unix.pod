@@ -418,6 +418,11 @@ and group ownership of files.
 
 Do not add a line break to the last line if there isn't one.
 
+=item B<-O, --to-stdout>
+
+Write to standard output. Use option C<-o> to go back to old file (in-place)
+mode.
+
 =item B<-o, --oldfile FILE ...>
 
 Old file mode. Convert file FILE and overwrite output to it. The program

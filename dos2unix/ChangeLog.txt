@@ -1,3 +1,6 @@
+2023-04-16 Erwin Waterlander <waterlan@xs4all.nl>
+	* New option -O, --to-stdout to write to standard output.
+
 2023-04-06 Erwin Waterlander <waterlan@xs4all.nl>
 	* New option -e, --add-eol to add a line break to the last
 	  line if there isn't one. Option --no-add-eol disables the

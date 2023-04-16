@@ -689,6 +689,7 @@ void PrintUsage(const char *progname)
   D2U_ANSI_FPRINTF(stdout,_(" --no-allow-chown      don't allow file ownership change (default)\n"));
 #endif
   D2U_ANSI_FPRINTF(stdout,_(" --no-add-eol          don't add a line break to the last line if there isn't one (default)\n"));
+  D2U_ANSI_FPRINTF(stdout,_(" -O, --to-stdout       write to standard output\n"));
   D2U_ANSI_FPRINTF(stdout,_(" -o, --oldfile         write to old file (default)\n\
    file ...            files to convert in old-file mode\n"));
   D2U_ANSI_FPRINTF(stdout,_(" -q, --quiet           quiet mode, suppress all warnings\n"));
@@ -1709,6 +1710,93 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
   return RetVal;
 }
 
+/* convert file ipInFN and write to file ipOutFN
+ * returns: 0 if success
+ *         -1 otherwise
+ */
+int ConvertToStdout(char *ipInFN, CFlag *ipFlag, const char *progname,
+                   int (*Convert)(FILE*, FILE*, CFlag *, const char *)
+#ifdef D2U_UNICODE
+                 , int (*ConvertW)(FILE*, FILE*, CFlag *, const char *)
+#endif
+                  )
+{
+  int RetVal = 0;
+  FILE *InF = NULL;
+  const char *errstr;
+
+  ipFlag->status = 0 ;
+
+  /* Test if input file is a regular file or symbolic link */
+  if (regfile(ipInFN, 1, ipFlag, progname)) {
+    ipFlag->status |= NO_REGFILE ;
+    /* Not a failure, skipping non-regular input file according spec. */
+    return -1;
+  }
+
+  /* Test if input file target is a regular file */
+  if (symbolic_link(ipInFN) && regfile_target(ipInFN, ipFlag,progname)) {
+    ipFlag->status |= INPUT_TARGET_NO_REGFILE ;
+    /* Not a failure, skipping non-regular input file according spec. */
+    return -1;
+  }
+
+  /* can open in file? */
+  InF=OpenInFile(ipInFN);
+  if (InF == NULL) {
+    if (ipFlag->verbose) {
+      ipFlag->error = errno;
+      errstr = strerror(errno);
+      D2U_UTF8_FPRINTF(stderr, "%s: %s:", progname, ipInFN);
+      D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
+    }
+    return -1;
+  }
+
+#if defined(_WIN32) && !defined(__CYGWIN__)
+
+    /* stdin and stdout are by default text streams. We need
+     * to set them to binary mode. Otherwise an LF will
+     * automatically be converted to CR-LF on DOS/Windows.
+     * Erwin */
+
+    /* POSIX 'setmode' was deprecated by MicroSoft since
+     * Visual C++ 2005. Use ISO C++ conformant '_setmode' instead. */
+
+    _setmode(_fileno(stdout), _O_BINARY);
+#elif defined(__MSDOS__) || defined(__CYGWIN__) || defined(__OS2__)
+    setmode(fileno(stdout), O_BINARY);
+#endif
+
+  if (!RetVal)
+    if (check_unicode(InF, stdout, ipFlag, ipInFN, progname))
+      RetVal = -1;
+
+  /* conversion successful? */
+#ifdef D2U_UNICODE
+  if ((ipFlag->bomtype == FILE_UTF16LE) || (ipFlag->bomtype == FILE_UTF16BE)) {
+    if ((!RetVal) && (ConvertW(InF, stdout, ipFlag, progname)))
+      RetVal = -1;
+    if (ipFlag->status & UNICODE_CONVERSION_ERROR) {
+      if (!ipFlag->error) ipFlag->error = 1;
+      RetVal = -1;
+    }
+  } else {
+    if ((!RetVal) && (Convert(InF, stdout, ipFlag, progname)))
+      RetVal = -1;
+  }
+#else
+  if ((!RetVal) && (Convert(InF, stdout, ipFlag, progname)))
+    RetVal = -1;
+#endif
+
+   /* can close in file? */
+  if (d2u_fclose(InF, ipInFN, ipFlag, "r", progname) == EOF)
+    RetVal = -1;
+
+  return RetVal;
+}
+
 /* convert stdin and write to stdout
  * returns: 0 if success
  *         -1 otherwise
@@ -2305,6 +2393,7 @@ int parse_options(int argc, char *argv[],
   pFlag->Follow = SYMLINK_SKIP;
   pFlag->status = 0;
   pFlag->stdio_mode = 1;
+  pFlag->to_stdout = 0;
   pFlag->error = 0;
   pFlag->bomtype = FILE_MBS;
   pFlag->add_bom = 0;
@@ -2515,6 +2604,7 @@ int parse_options(int argc, char *argv[],
         }
         pFlag->NewFile = 0;
         pFlag->file_info = 0;
+        pFlag->to_stdout = 0;
       }
 
       else if ((strcmp(argv[ArgIdx],"-n") == 0) || (strcmp(argv[ArgIdx],"--newfile") == 0)) {
@@ -2528,6 +2618,9 @@ int parse_options(int argc, char *argv[],
         }
         pFlag->NewFile = 1;
         pFlag->file_info = 0;
+      }
+      else if ((strcmp(argv[ArgIdx],"-O") == 0) || (strcmp(argv[ArgIdx],"--to-stdout") == 0)) {
+        pFlag->to_stdout = 1;
       }
       else { /* wrong option */
         PrintUsage(progname);
@@ -2557,11 +2650,20 @@ int parse_options(int argc, char *argv[],
           conversion_error = GetFileInfo(argv[ArgIdx], pFlag, progname);
           print_messages_info(pFlag, argv[ArgIdx], progname);
         } else {
+          /* Old file mode */
+          if (pFlag->to_stdout) {
 #ifdef D2U_UNICODE
-          conversion_error = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert, ConvertW);
+            conversion_error = ConvertToStdout(argv[ArgIdx], pFlag, progname, Convert, ConvertW);
 #else
-          conversion_error = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert);
+            conversion_error = ConvertToStdout(argv[ArgIdx], pFlag, progname, Convert);
 #endif
+          } else {
+#ifdef D2U_UNICODE
+            conversion_error = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert, ConvertW);
+#else
+            conversion_error = ConvertNewFile(argv[ArgIdx], argv[ArgIdx], pFlag, progname, Convert);
+#endif
+          }
           if (pFlag->verbose)
             print_messages(pFlag, argv[ArgIdx], NULL, progname, conversion_error);
         }
