@@ -1,4 +1,4 @@
-TESTS = ascii.t iso.t misc.t bom.t noeol.t
+TESTS = ascii.t iso.t misc.t bom.t noeol.t stdio.t
 
 d2u_os=$(shell uname -s)
 UCS = 1
@@ -91,6 +91,9 @@ symlink:
 	prove -v $(PROVE_OPT) $@.t
 
 noeol:
+	prove -v $(PROVE_OPT) $@.t
+
+stdio:
 	prove -v $(PROVE_OPT) $@.t
 
 wcstombs:
