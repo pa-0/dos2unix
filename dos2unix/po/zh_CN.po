@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.4.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-16 10:12+0200\n"
+"POT-Creation-Date: 2023-04-23 10:26+0200\n"
 "PO-Revision-Date: 2023-01-21 13:31+0800\n"
 "Last-Translator: Tianze Wang <zwpwjwtz@126.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -670,26 +670,26 @@ msgstr "选项“%s”需要一个参数\n"
 msgid "invalid %s display encoding specified\n"
 msgstr "指定了无效的显示编码 %s\n"
 
-#: common.c:2600 common.c:2614 common.c:2693
+#: common.c:2600 common.c:2614 common.c:2626
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "新文件模式中未指明文件 %s 的目的位置\n"
 
-#: common.c:2705
+#: common.c:2709
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "无法读取输入文件：%s\n"
 
-#: common.c:2715 common.c:2727
+#: common.c:2719 common.c:2731
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "无法写入输出文件：%s\n"
 
-#: common.c:2802
+#: common.c:2806
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "错误：无效的代理对。缺少低位字符。\n"
 
-#: common.c:2818
+#: common.c:2822
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "错误：无效的代理对。缺少高位字符。\n"
 

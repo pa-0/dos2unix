@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.4.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-16 10:12+0200\n"
+"POT-Creation-Date: 2023-04-23 10:26+0200\n"
 "PO-Revision-Date: 2022-12-30 15:34+0900\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: Korean <translation-team-ko@googlegroups.com>\n"
@@ -673,25 +673,25 @@ msgstr "'%s' 옵션에 인자 값이 필요합니다\n"
 msgid "invalid %s display encoding specified\n"
 msgstr "부적절한 %s 출력 인코딩을 지정했습니다\n"
 
-#: common.c:2600 common.c:2614 common.c:2693
+#: common.c:2600 common.c:2614 common.c:2626
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "새 파일 모드의 %s 파일 대상을 지정하지 않았습니다\n"
 
-#: common.c:2705
+#: common.c:2709
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "입력 파일을 읽을 수 없습니다: %s\n"
 
-#: common.c:2715 common.c:2727
+#: common.c:2719 common.c:2731
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "출력 파일에 기록할 수 없습니다: %s\n"
 
-#: common.c:2802
+#: common.c:2806
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "오류: 부적절한 대리 쌍. 하위 대리자가 빠졌습니다.\n"
 
-#: common.c:2818
+#: common.c:2822
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "오류: 부적절한 대리 쌍. 상위 대리자가 빠졌습니다.\n"

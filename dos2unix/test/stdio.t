@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # Requires perl-Test-Simple installation.
-use Test::Simple tests => 6;
+use Test::Simple tests => 7;
 
 $suffix = "";
 if (-e "../dos2unix.exe") {
@@ -32,3 +32,5 @@ ok( $? == 0, 'convert and concatenate two utf8 files' );
 system("$DOS2UNIX -v -e -O noeol_dos_utf16.txt noeol_dos_utf16.txt > out_unix.txt; cmp out_unix.txt eol_unix2.txt");
 ok( $? == 0, 'convert and concatenate two utf16 files' );
 
+system("$DOS2UNIX -v -n dos.txt out1.txt -O dos.txt > out2.txt; cmp out2.txt unix.txt");
+ok( $? == 0, 'To stdout after paired conversion' );

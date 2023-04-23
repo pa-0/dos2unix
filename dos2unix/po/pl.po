@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-16 10:12+0200\n"
+"POT-Creation-Date: 2023-04-23 10:26+0200\n"
 "PO-Revision-Date: 2017-09-22 21:34+0200\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -668,25 +668,25 @@ msgstr "opcja '%s' wymaga argumentu\n"
 msgid "invalid %s display encoding specified\n"
 msgstr "podano błędne kodowanie wyświetlania %s\n"
 
-#: common.c:2600 common.c:2614 common.c:2693
+#: common.c:2600 common.c:2614 common.c:2626
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "nie podano celu pliku %s w trybie nowego pliku\n"
 
-#: common.c:2705
+#: common.c:2709
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "nie można czytać z pliku wejściowego: %s\n"
 
-#: common.c:2715 common.c:2727
+#: common.c:2719 common.c:2731
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "nie można zapisać do pliku wyjściowego: %s\n"
 
-#: common.c:2802
+#: common.c:2806
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "błąd: Błędna para zamienna. Brak młodszego zamiennika.\n"
 
-#: common.c:2818
+#: common.c:2822
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "błąd: Błędna para zamienna. Brak starszego zamiennika.\n"

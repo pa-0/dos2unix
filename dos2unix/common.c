@@ -2620,6 +2620,15 @@ int parse_options(int argc, char *argv[],
         pFlag->file_info = 0;
       }
       else if ((strcmp(argv[ArgIdx],"-O") == 0) || (strcmp(argv[ArgIdx],"--to-stdout") == 0)) {
+        /* last convert not paired */
+        if (!CanSwitchFileMode) {
+          D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
+          D2U_UTF8_FPRINTF(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
+          pFlag->error = 1;
+          ShouldExit = 1;
+          pFlag->stdio_mode = 0;
+        }
+        pFlag->NewFile = 0;
         pFlag->to_stdout = 1;
       }
       else { /* wrong option */
@@ -2688,11 +2697,6 @@ int parse_options(int argc, char *argv[],
     return pFlag->error;
   }
 
-  if (!CanSwitchFileMode) {
-    D2U_UTF8_FPRINTF(stderr,"%s: ",progname);
-    D2U_UTF8_FPRINTF(stderr, _("target of file %s not specified in new-file mode\n"), argv[ArgIdx-1]);
-    pFlag->error = 1;
-  }
   return pFlag->error;
 }
 

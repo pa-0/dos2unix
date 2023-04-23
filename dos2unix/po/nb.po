@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-7.3.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-16 10:12+0200\n"
+"POT-Creation-Date: 2023-04-23 10:26+0200\n"
 "PO-Revision-Date: 2017-09-25 18:43+0200\n"
 "Last-Translator: Åka Sikrom <a4@hush.com>\n"
 "Language-Team: Norwegian Bokmaal <i18n-nb@lister.ping.uio.no>\n"
@@ -670,26 +670,26 @@ msgstr "valget «%s» krever at du bruker et argument\n"
 msgid "invalid %s display encoding specified\n"
 msgstr "du har valgt en ugyldig %s-koding\n"
 
-#: common.c:2600 common.c:2614 common.c:2693
+#: common.c:2600 common.c:2614 common.c:2626
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "mål for fila %s er ikke valgt i ny fil-modus\n"
 
-#: common.c:2705
+#: common.c:2709
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "klarte ikke å lese fra inndata-fil: %s\n"
 
-#: common.c:2715 common.c:2727
+#: common.c:2719 common.c:2731
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "klarte ikke å skrive til utdata-fil: %s\n"
 
-#: common.c:2802
+#: common.c:2806
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "feil: ugyldig surrogatpar. Nedre surrogat mangler.\n"
 
-#: common.c:2818
+#: common.c:2822
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "feil: ugyldig surrogatpar. Øvre surrogat mangler.\n"
 
