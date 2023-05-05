@@ -1,12 +1,12 @@
 # Messages français pour dos2unix-man.
-# Copyright (C) 2022 Erwin Waterlander (msgids)
+# Copyright (C) 2023 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
-# Frédéric Marchal <fmarchal@perso.be>, 2022.
+# Frédéric Marchal <fmarchal@perso.be>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.4.4-beta4\n"
-"POT-Creation-Date: 2023-04-20 22:32+0200\n"
-"PO-Revision-Date: 2022-12-19 13:04+0100\n"
+"Project-Id-Version: dos2unix-man-7.5.0-beta5\n"
+"POT-Creation-Date: 2023-04-23 10:34+0200\n"
+"PO-Revision-Date: 2023-04-26 17:51+0200\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -340,20 +340,18 @@ msgstr "L'encodage par défaut peut être changé en assignant la valeur C<unico
 
 #. type: =item
 #: dos2unix.pod:240
-#, fuzzy
-#| msgid "B<-m, --add-bom>"
 msgid "B<-e, --add-eol>"
-msgstr "B<-m, --add-bom>"
+msgstr "B<-e, --add-eol>"
 
 #. type: textblock
 #: dos2unix.pod:242
 msgid "Add a line break to the last line if there isn't one. This works for every conversion."
-msgstr ""
+msgstr "Ajoute un saut de ligne à la dernière ligne si elle n'en a pas déjà un. Cela fonctionne avec toutes les conversions."
 
 #. type: textblock
 #: dos2unix.pod:245
 msgid "A file converted from DOS to Unix format may lack a line break on the last line. There are text editors that write text files without a line break on the last line. Some Unix programs have problems processing these files, because the POSIX standard defines that every line in a text file must end with a terminating newline character. For instance concatenating files may not give the expected result."
-msgstr ""
+msgstr "Un fichier converti de DOS vers le format Unix peut ne pas avoir de saut de ligne à la dernière ligne. Il existe des éditeurs de texte qui écrivent le fichier texte sans saut de ligne à la dernière ligne. Certains programmes Unix ont des difficultés à traiter ces fichiers car le standard POSIX défini que chaque ligne d'un fichier texte doit être terminé par le caractère de nouvelle ligne. Par exemple, concaténer des fichiers peut ne pas donner le résultat attendu."
 
 #. type: =item
 #: dos2unix.pod:252
@@ -736,50 +734,41 @@ msgstr "Interrompt la conversion si l'utilisateur ou le groupe propriétaire du 
 
 #. type: =item
 #: dos2unix.pod:417
-#, fuzzy
-#| msgid "B<-m, --add-bom>"
 msgid "B<--no-add-eol>"
-msgstr "B<-m, --add-bom>"
+msgstr "B<--no-add-eol>"
 
 #. type: textblock
 #: dos2unix.pod:419
 msgid "Do not add a line break to the last line if there isn't one."
-msgstr ""
+msgstr "N'ajoute pas de saut de ligne à la dernière ligne s'il n'y en a pas."
 
 #. type: =item
 #: dos2unix.pod:421
-#, fuzzy
-#| msgid "B<-q, --quiet>"
 msgid "B<-O, --to-stdout>"
-msgstr "B<-q, --quiet>"
+msgstr "B<-O, --to-stdout>"
 
 #. type: textblock
 #: dos2unix.pod:423
 msgid "Write to standard output, like a Unix filter. Use option C<-o> to go back to old file (in-place) mode."
-msgstr ""
+msgstr "Écrit vers la sortie standard, comme un filtre Unix. Utilisez l'option C<-o> pour revenir au mode de l'ancien fichier (en place)."
 
 #. type: textblock
 #: dos2unix.pod:426
 msgid "Combined with option C<-e> files can be properly concatenated. No merged last and first lines, and no Unicode byte order marks in the middle of the concatenated file. Example:"
-msgstr ""
+msgstr "Combiné avec l'option C<-e>, les fichiers peuvent être concaténés correctement. Les première et dernière lignes ne sont pas fusionnées et il n'y a pas de marque d'ordre des octets au milieu du fichier concaténé. Exemple :"
 
 #. type: verbatim
 #: dos2unix.pod:430
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -ul -n in.txt out.txt\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -e -O file1.txt file2.txt > output.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -ul -n entrée.txt sortie.txt\n"
+"    dos2unix -e -O fichier1.txt fichier2.txt > sortie.txt\n"
 "\n"
 
 #. type: =item
 #: dos2unix.pod:432
-#, fuzzy
-#| msgid "B<-o, --oldfile FILE ...>"
 msgid "B<-o, --oldfile FILE ...>"
 msgstr "B<-o, --oldfile FICHIER …>"
 

@@ -5,19 +5,19 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.4.4-beta4\n"
+"Project-Id-Version: dos2unix 7.5.0-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 15:47+0200\n"
-"PO-Revision-Date: 2023-04-23 20:52+0900\n"
+"POT-Creation-Date: 2023-04-23 10:34+0200\n"
+"PO-Revision-Date: 2023-04-27 12:37+0900\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: Korean <translation-team-ko@googlegroups.com>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: dos2unix.c:79
 #, c-format
@@ -44,7 +44,7 @@ msgstr "이진 심볼 0x00%02X을(를) %u번재 행에서 찾았습니다\n"
 #: dos2unix.c:237 dos2unix.c:314 dos2unix.c:445 dos2unix.c:522 unix2dos.c:210
 #: unix2dos.c:281 unix2dos.c:432 unix2dos.c:503
 msgid "Added line break to last line.\n"
-msgstr ""
+msgstr "개행 문자를 줄 마지막에 넣습니다.\n"
 
 #: dos2unix.c:330 dos2unix.c:538 unix2dos.c:297 unix2dos.c:519
 #, c-format
@@ -214,7 +214,7 @@ msgstr ""
 
 #: common.c:671
 msgid " -e, --add-eol         add a line break to the last line if there isn't one\n"
-msgstr ""
+msgstr " -e, --add-eol         개행 문자가 줄 끝에 없을 경우 줄 마지막에 넣습니다\n"
 
 #: common.c:672
 msgid " -f, --force           force conversion of binary files\n"
@@ -268,11 +268,11 @@ msgstr " --no-allow-chown      파일 소유권 변경을 허용하지 않습니
 
 #: common.c:691
 msgid " --no-add-eol          don't add a line break to the last line if there isn't one (default)\n"
-msgstr ""
+msgstr " --no-add-eol          개행 문자가 줄 끝에 없을 경우 줄 마지막에 넣지 않습니다. (기본 옵션)\n"
 
 #: common.c:692
 msgid " -O, --to-stdout       write to standard output\n"
-msgstr ""
+msgstr " -O, --to-stdout       표준 출력에 기록합니다\n"
 
 #: common.c:693
 msgid ""

@@ -2,20 +2,21 @@
 # Copyright (C) 2014 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
 # Tianze Wang <zwpwjwtz@126.com>, 2015, 2016.
+# Boyuan Yang <073plan@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.4.4-beta4\n"
-"POT-Creation-Date: 2023-04-20 22:32+0200\n"
-"PO-Revision-Date: 2023-01-21 13:31+0800\n"
-"Last-Translator: Tianze Wang <zwpwjwtz@126.com>\n"
+"Project-Id-Version: dos2unix-man-7.5.0-beta5\n"
+"POT-Creation-Date: 2023-04-23 10:34+0200\n"
+"PO-Revision-Date: 2023-04-27 15:54-0400\n"
+"Last-Translator: Boyuan Yang <073plan@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #. type: =head1
 #: dos2unix.pod:52
@@ -217,7 +218,7 @@ msgstr "B<-865>"
 #. type: textblock
 #: dos2unix.pod:150
 msgid "Use DOS code page 865 (Nordic)."
-msgstr " 使用DOS 865 编码页（北欧）。"
+msgstr "使用DOS 865 编码页（北欧）。"
 
 #. type: =item
 #: dos2unix.pod:152
@@ -341,20 +342,18 @@ msgstr "默认的编码方式可以通过设置 DOS2UNIX_DISPLAY_ENC 环境变�
 
 #. type: =item
 #: dos2unix.pod:240
-#, fuzzy
-#| msgid "B<-m, --add-bom>"
 msgid "B<-e, --add-eol>"
-msgstr "B<-m, --add-bom>"
+msgstr "B<-e, --add-eol>"
 
 #. type: textblock
 #: dos2unix.pod:242
 msgid "Add a line break to the last line if there isn't one. This works for every conversion."
-msgstr ""
+msgstr "如果最后一行不存在换行符，则添加一个。这个操作在每次转换时均将进行。"
 
 #. type: textblock
 #: dos2unix.pod:245
 msgid "A file converted from DOS to Unix format may lack a line break on the last line. There are text editors that write text files without a line break on the last line. Some Unix programs have problems processing these files, because the POSIX standard defines that every line in a text file must end with a terminating newline character. For instance concatenating files may not give the expected result."
-msgstr ""
+msgstr "从 DOS 格式转换为 Unix 格式的文件可能在最后一行缺失一个换行符。某些文本编辑器在写入文本文件是也不会在最后一行添加换行符。某些 Unix 程序处理这些文件时会出现问题，因 POSIX 标准定义每个文本文件的每一行必须以换行符结束。例如，对多个文件前后相接时可能得到意料之外的结果。"
 
 #. type: =item
 #: dos2unix.pod:252
@@ -737,50 +736,41 @@ msgstr "当原始文件的属主/属组无法保持不变时，停止格式转�
 
 #. type: =item
 #: dos2unix.pod:417
-#, fuzzy
-#| msgid "B<-m, --add-bom>"
 msgid "B<--no-add-eol>"
-msgstr "B<-m, --add-bom>"
+msgstr "B<--no-add-eol>"
 
 #. type: textblock
 #: dos2unix.pod:419
 msgid "Do not add a line break to the last line if there isn't one."
-msgstr ""
+msgstr "即使最后一行末尾没有换行符也不要添加换行符。"
 
 #. type: =item
 #: dos2unix.pod:421
-#, fuzzy
-#| msgid "B<-q, --quiet>"
 msgid "B<-O, --to-stdout>"
-msgstr "B<-q, --quiet>"
+msgstr "B<-O, --to-stdout>"
 
 #. type: textblock
 #: dos2unix.pod:423
 msgid "Write to standard output, like a Unix filter. Use option C<-o> to go back to old file (in-place) mode."
-msgstr ""
+msgstr "写入标准输出，类似 Unix 过滤器。使用选项 C<-o> 可以回到旧的文件（在位）模式。"
 
 #. type: textblock
 #: dos2unix.pod:426
 msgid "Combined with option C<-e> files can be properly concatenated. No merged last and first lines, and no Unicode byte order marks in the middle of the concatenated file. Example:"
-msgstr ""
+msgstr "与 C<-e> 选项结合使用可以正确地合并多个文件。不会出现合并的首行和末行，文件中间也不会出现 Unicode 字节顺序标记。例如："
 
 #. type: verbatim
 #: dos2unix.pod:430
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -ul -n in.txt out.txt\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -e -O file1.txt file2.txt > output.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -ul -n in.txt out.txt\n"
+"    dos2unix -e -O file1.txt file2.txt > output.txt\n"
 "\n"
 
 #. type: =item
 #: dos2unix.pod:432
-#, fuzzy
-#| msgid "B<-o, --oldfile FILE ...>"
 msgid "B<-o, --oldfile FILE ...>"
 msgstr "B<-o, --oldfile 文件 ...>"
 

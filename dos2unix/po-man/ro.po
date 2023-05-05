@@ -1,20 +1,21 @@
 # Mesajele în limba română pentru pachetul dos2unix-man
-# Copyright © 2022 Erwin Waterlander (msgids)
+# Copyright © 2022, 2023 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
 #
-# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2022.
+# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2022 - 2023.
 #
-# Cronologia traducerii fișierului „dos2unix”:
-# Traducerea inițială, făcută de R-GC, pentru versiunea dos2unix-man 7.3.6-beta4.
-# Traducerea inițială, făcută de R-GC, pentru versiunea dos2unix-man 7.4.4-beta4, 2022.
-# Actualizare a traducerii pentru versiunea Y, făcută de X, Y(anul).
+# Cronologia traducerii fișierului „dos2unix-man”:
+# Traducerea inițială, făcută de R-GC, pentru versiunea dos2unix 7.3.6-beta4, oct-2022.
+# Traducerea inițială, făcută de R-GC, pentru versiunea dos2unix 7.4.4-beta4, dec-2022.
+# Traducerea inițială, făcută de R-GC, pentru versiunea dos2unix 7.5.0-beta5, apr-2023.
+# Actualizare a traducerii pentru versiunea Y, făcută de X,Y(luna-anul).
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.4.4-beta4\n"
+"Project-Id-Version: dos2unix-man 7.5.0-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-20 22:32+0200\n"
-"PO-Revision-Date: 2022-12-19 13:26+0100\n"
+"POT-Creation-Date: 2023-04-23 10:34+0200\n"
+"PO-Revision-Date: 2023-04-26 18:44+0200\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -23,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || ((n%100) > 0 && (n%100) < 20)) ? 1 : 2);\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #. type: =head1
 #: dos2unix.pod:52
@@ -357,20 +358,18 @@ msgstr "Codificarea implicită poate fi schimbată cu variabila de mediu DOS2UNI
 
 #. type: =item
 #: dos2unix.pod:240
-#, fuzzy
-#| msgid "B<-m, --add-bom>"
 msgid "B<-e, --add-eol>"
-msgstr "B<-m, --add-bom>"
+msgstr "B<-e, --add-eol>"
 
 #. type: textblock
 #: dos2unix.pod:242
 msgid "Add a line break to the last line if there isn't one. This works for every conversion."
-msgstr ""
+msgstr "Adaugă o întrerupere de linie la ultima linie, dacă nu există una. Acest lucru funcționează pentru fiecare conversie."
 
 #. type: textblock
 #: dos2unix.pod:245
 msgid "A file converted from DOS to Unix format may lack a line break on the last line. There are text editors that write text files without a line break on the last line. Some Unix programs have problems processing these files, because the POSIX standard defines that every line in a text file must end with a terminating newline character. For instance concatenating files may not give the expected result."
-msgstr ""
+msgstr "Un fișier convertit din formatul DOS în formatul Unix poate să nu aibă o întrerupere de linie pe ultima linie. Există editoare de text care scriu fișiere de text fără o întrerupere de linie pe ultima linie. Unele programe Unix au probleme în procesarea acestor fișiere, deoarece standardul POSIX definește că fiecare linie dintr-un fișier text trebuie să se încheie cu un caracter de sfârșit de linie nouă. De exemplu, concatenarea fișierelor poate să nu dea rezultatul așteptat."
 
 #. type: =item
 #: dos2unix.pod:252
@@ -756,50 +755,41 @@ msgstr "Anulează conversia atunci când utilizatorul și/sau grupul proprietar 
 
 #. type: =item
 #: dos2unix.pod:417
-#, fuzzy
-#| msgid "B<-m, --add-bom>"
 msgid "B<--no-add-eol>"
-msgstr "B<-m, --add-bom>"
+msgstr "B<--no-add-eol>"
 
 #. type: textblock
 #: dos2unix.pod:419
 msgid "Do not add a line break to the last line if there isn't one."
-msgstr ""
+msgstr "Nu adaugă o întrerupere de linie la ultima linie, dacă nu există una."
 
 #. type: =item
 #: dos2unix.pod:421
-#, fuzzy
-#| msgid "B<-q, --quiet>"
 msgid "B<-O, --to-stdout>"
-msgstr "B<-q, --quiet>"
+msgstr "B<-O, --to-stdout>"
 
 #. type: textblock
 #: dos2unix.pod:423
 msgid "Write to standard output, like a Unix filter. Use option C<-o> to go back to old file (in-place) mode."
-msgstr ""
+msgstr "Scrie la ieșirea standard, ca un filtru Unix. Folosiți opțiunea C<-o> pentru a reveni la modul-fișier_vechi (în același loc / în același fișier)."
 
 #. type: textblock
 #: dos2unix.pod:426
 msgid "Combined with option C<-e> files can be properly concatenated. No merged last and first lines, and no Unicode byte order marks in the middle of the concatenated file. Example:"
-msgstr ""
+msgstr "În combinație cu opțiunea C<-e>, fișierele pot fi concatenate în mod corespunzător. Nu se fuzionează ultima și prima linie și nici marcajele de ordine a octeților (BOM) Unicode în mijlocul fișierului concatenat. Exemplu:"
 
 #. type: verbatim
 #: dos2unix.pod:430
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -ul -n in.txt out.txt\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -e -O file1.txt file2.txt > output.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -ul -n fișier_intrare.txt fișier_ieșire.txt\n"
+"    dos2unix -e -O fișier1.txt fișier2.txt > fișier_ieșire.txt\n"
 "\n"
 
 #. type: =item
 #: dos2unix.pod:432
-#, fuzzy
-#| msgid "B<-o, --oldfile FILE ...>"
 msgid "B<-o, --oldfile FILE ...>"
 msgstr "B<-o, --oldfile FIȘIER ...>"
 

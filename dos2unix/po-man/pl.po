@@ -1,12 +1,12 @@
 # Polish translation for dos2unix man.
 # This file is distributed under the same license as the dos2unix package.
-# Jakub Bogusz <qboosh@pld-linux.org>, 2014-2022.
+# Jakub Bogusz <qboosh@pld-linux.org>, 2014-2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.4.4-beta4\n"
-"POT-Creation-Date: 2023-04-20 22:32+0200\n"
-"PO-Revision-Date: 2022-12-19 20:24+0100\n"
+"Project-Id-Version: dos2unix-man 7.5.0-beta5\n"
+"POT-Creation-Date: 2023-04-23 10:34+0200\n"
+"PO-Revision-Date: 2023-04-26 18:15+0200\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "Language: pl\n"
@@ -119,7 +119,7 @@ msgid ""
 "    dos2unix -n -- -foo out.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -n -- -foo out.txt\n"
+"    dos2unix -n -- -foo wynik.txt\n"
 "\n"
 
 #. type: =item
@@ -339,20 +339,18 @@ msgstr "Domyślne kodowanie można zmienić przy użyciu zmiennej środowiskowej
 
 #. type: =item
 #: dos2unix.pod:240
-#, fuzzy
-#| msgid "B<-m, --add-bom>"
 msgid "B<-e, --add-eol>"
-msgstr "B<-m, --add-bom>"
+msgstr "B<-e, --add-eol>"
 
 #. type: textblock
 #: dos2unix.pod:242
 msgid "Add a line break to the last line if there isn't one. This works for every conversion."
-msgstr ""
+msgstr "Dodawanie znaku końca linii do ostatniej linii, jeśli ta go nie zawiera. Działa przy każdej konwersji."
 
 #. type: textblock
 #: dos2unix.pod:245
 msgid "A file converted from DOS to Unix format may lack a line break on the last line. There are text editors that write text files without a line break on the last line. Some Unix programs have problems processing these files, because the POSIX standard defines that every line in a text file must end with a terminating newline character. For instance concatenating files may not give the expected result."
-msgstr ""
+msgstr "Pliki przekształcone z formatu DOS do Uniksa mogą nie mieć w ostatnim wierszu znaku końca linii. Istnieją edytory tekstu zapisujące pliki tekstowe bez znaku końca wiersza w ostatniej linii. Niektóre programy uniksowe mają problemy przy przetwarzaniu takich plików, ponieważ standard POSIX określa, że każdy wiersz pliku tekstowego musi kończyć się znakiem końca linii. Na przykład łączenie plików może nie dać oczekiwanego wyniku."
 
 #. type: =item
 #: dos2unix.pod:252
@@ -735,50 +733,41 @@ msgstr "Przerwanie konwersji, jeżeli użytkownik lub grupa oryginalnego pliku n
 
 #. type: =item
 #: dos2unix.pod:417
-#, fuzzy
-#| msgid "B<-m, --add-bom>"
 msgid "B<--no-add-eol>"
-msgstr "B<-m, --add-bom>"
+msgstr "B<--no-add-eol>"
 
 #. type: textblock
 #: dos2unix.pod:419
 msgid "Do not add a line break to the last line if there isn't one."
-msgstr ""
+msgstr "Bez dodawania znaku końca linii do ostatniego wiersza, jeśli ten go nie zawiera."
 
 #. type: =item
 #: dos2unix.pod:421
-#, fuzzy
-#| msgid "B<-q, --quiet>"
 msgid "B<-O, --to-stdout>"
-msgstr "B<-q, --quiet>"
+msgstr "B<-O, --to-stdout>"
 
 #. type: textblock
 #: dos2unix.pod:423
 msgid "Write to standard output, like a Unix filter. Use option C<-o> to go back to old file (in-place) mode."
-msgstr ""
+msgstr "Zapis na standardowe wyjście, jak filtr uniksowy. Opcja C<-o> przywróci tryb starego pliku (zamianę z miejscu)."
 
 #. type: textblock
 #: dos2unix.pod:426
 msgid "Combined with option C<-e> files can be properly concatenated. No merged last and first lines, and no Unicode byte order marks in the middle of the concatenated file. Example:"
-msgstr ""
+msgstr "W połączeniu z opcją C<-e> pliki mogą być właściwie łączone - bez połączonych ostatnich i pierwszych linii oraz znaków unikodowych BOM w środku połączonego pliku. Przykład:"
 
 #. type: verbatim
 #: dos2unix.pod:430
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -ul -n in.txt out.txt\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -e -O file1.txt file2.txt > output.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -ul -n in.txt out.txt\n"
+"    dos2unix -e -O plik1.txt plik2.txt > wynik.txt\n"
 "\n"
 
 #. type: =item
 #: dos2unix.pod:432
-#, fuzzy
-#| msgid "B<-o, --oldfile FILE ...>"
 msgid "B<-o, --oldfile FILE ...>"
 msgstr "B<-o, --oldfile PLIK ...>"
 
@@ -1054,7 +1043,7 @@ msgid ""
 "    dos2unix -iso -n in.txt out.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -iso -n in.txt out.txt\n"
+"    dos2unix -iso -n wejście.txt wynik.txt\n"
 "\n"
 
 #. type: textblock
@@ -1069,7 +1058,7 @@ msgid ""
 "    dos2unix -850 -n in.txt out.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -850 -n in.txt out.txt\n"
+"    dos2unix -850 -n wejście.txt wynik.txt\n"
 "\n"
 
 #. type: textblock
@@ -1084,7 +1073,7 @@ msgid ""
 "    dos2unix -1252 -n in.txt out.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -1252 -n in.txt out.txt\n"
+"    dos2unix -1252 -n wejście.txt wynik.txt\n"
 "\n"
 
 #. type: textblock
@@ -1099,7 +1088,7 @@ msgid ""
 "    iconv -f CP1252 -t UTF-8 in.txt | dos2unix > out.txt\n"
 "\n"
 msgstr ""
-"    iconv -f CP1252 -t UTF-8 in.txt | dos2unix > out.txt\n"
+"    iconv -f CP1252 -t UTF-8 wejście.txt | dos2unix > wynik.txt\n"
 "\n"
 
 #. type: textblock
@@ -1114,7 +1103,7 @@ msgid ""
 "    unix2dos -iso -n in.txt out.txt\n"
 "\n"
 msgstr ""
-"    unix2dos -iso -n in.txt out.txt\n"
+"    unix2dos -iso -n wejście.txt wynik.txt\n"
 "\n"
 
 #. type: textblock
@@ -1129,7 +1118,7 @@ msgid ""
 "    unix2dos -850 -n in.txt out.txt\n"
 "\n"
 msgstr ""
-"    unix2dos -850 -n in.txt out.txt\n"
+"    unix2dos -850 -n wejście.txt wynik.txt\n"
 "\n"
 
 #. type: textblock
@@ -1144,7 +1133,7 @@ msgid ""
 "    unix2dos -1252 -n in.txt out.txt\n"
 "\n"
 msgstr ""
-"    unix2dos -1252 -n in.txt out.txt\n"
+"    unix2dos -1252 -n wejście.txt wynik.txt\n"
 "\n"
 
 #. type: textblock
@@ -1159,7 +1148,7 @@ msgid ""
 "    unix2dos < in.txt | iconv -f UTF-8 -t CP1252 > out.txt\n"
 "\n"
 msgstr ""
-"    unix2dos < in.txt | iconv -f UTF-8 -t CP1252 > out.txt\n"
+"    unix2dos < wejście.txt | iconv -f UTF-8 -t CP1252 > wynik.txt\n"
 "\n"
 
 #. type: textblock
@@ -1304,7 +1293,7 @@ msgid ""
 "    dos2unix -n in.txt out.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -n in.txt out.txt\n"
+"    dos2unix -n wejście.txt wynik.txt\n"
 "\n"
 
 #. type: textblock
@@ -1319,7 +1308,7 @@ msgid ""
 "    dos2unix -ul -n in.txt out.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -ul -n in.txt out.txt\n"
+"    dos2unix -ul -n wejście.txt wynik.txt\n"
 "\n"
 
 #. type: textblock
@@ -1334,7 +1323,7 @@ msgid ""
 "    unix2dos -m -n in.txt out.txt\n"
 "\n"
 msgstr ""
-"    unix2dos -m -n in.txt out.txt\n"
+"    unix2dos -m -n wejście.txt wynik.txt\n"
 "\n"
 
 #. type: textblock
@@ -1349,7 +1338,7 @@ msgid ""
 "    unix2dos < in.txt | iconv -f UTF-8 -t UTF-16 > out.txt\n"
 "\n"
 msgstr ""
-"    unix2dos < in.txt | iconv -f UTF-8 -t UTF-16 > out.txt\n"
+"    unix2dos < wejście.txt | iconv -f UTF-8 -t UTF-16 > wynik.txt\n"
 "\n"
 
 #. type: =head1

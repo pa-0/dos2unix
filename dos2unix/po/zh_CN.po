@@ -2,21 +2,22 @@
 # This file is distributed under the same license as the dos2unix package.
 #
 # Tianze Wang <zwpwjwtz@126.com>, 2015.
+# Boyuan Yang <073plan@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.4.4-beta4\n"
+"Project-Id-Version: dos2unix 7.5.0-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 10:26+0200\n"
-"PO-Revision-Date: 2023-01-21 13:31+0800\n"
-"Last-Translator: Tianze Wang <zwpwjwtz@126.com>\n"
+"POT-Creation-Date: 2023-04-23 10:34+0200\n"
+"PO-Revision-Date: 2023-04-27 15:47-0400\n"
+"Last-Translator: Boyuan Yang <073plan@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 2.2.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: dos2unix.c:79
 #, c-format
@@ -43,7 +44,7 @@ msgstr "找到二进制符号 0x00%02X 于第 %u 行\n"
 #: dos2unix.c:237 dos2unix.c:314 dos2unix.c:445 dos2unix.c:522 unix2dos.c:210
 #: unix2dos.c:281 unix2dos.c:432 unix2dos.c:503
 msgid "Added line break to last line.\n"
-msgstr ""
+msgstr "已向末行添加换行符。\n"
 
 #: dos2unix.c:330 dos2unix.c:538 unix2dos.c:297 unix2dos.c:519
 #, c-format
@@ -191,7 +192,7 @@ msgstr " -b, --keep-bom         保留UTF-8 BOM头\n"
 
 #: common.c:664
 msgid " -b, --keep-bom        keep Byte Order Mark (default)\n"
-msgstr "-b, --keep-bom         保留UTF-8 BOM头（默认）\n"
+msgstr " -b, --keep-bom        保留字节顺序标记（默认）\n"
 
 #: common.c:665
 msgid ""
@@ -210,9 +211,8 @@ msgstr ""
 "   encoding            ansi、unicode或utf8，默认为ansi\n"
 
 #: common.c:671
-#, fuzzy
 msgid " -e, --add-eol         add a line break to the last line if there isn't one\n"
-msgstr " --no-allow-chown      不允许修改文件所有者（默认选项）\n"
+msgstr " -e, --add-eol         如不存在，则向最后一行添加换行符\n"
 
 #: common.c:672
 msgid " -f, --force           force conversion of binary files\n"
@@ -265,16 +265,14 @@ msgid " --no-allow-chown      don't allow file ownership change (default)\n"
 msgstr " --no-allow-chown      不允许修改文件所有者（默认选项）\n"
 
 #: common.c:691
-#, fuzzy
 msgid " --no-add-eol          don't add a line break to the last line if there isn't one (default)\n"
-msgstr " --no-allow-chown      不允许修改文件所有者（默认选项）\n"
+msgstr " --no-add-eol          如果最后一行不存在换行符，不要添加（默认）\n"
 
 #: common.c:692
 msgid " -O, --to-stdout       write to standard output\n"
-msgstr ""
+msgstr " -O, --to-stdout       写入标准输出\n"
 
 #: common.c:693
-#, fuzzy
 msgid ""
 " -o, --oldfile         write to old file (default)\n"
 "   file ...            files to convert in old-file mode\n"
@@ -427,7 +425,7 @@ msgstr "不支持保护文件的属主和属组。\n"
 
 #: common.c:915
 msgid "Path for temporary output file is too long:"
-msgstr "临时输出"
+msgstr "临时输出文件的路径过长："
 
 #: common.c:1201 common.c:1208 common.c:1215 common.c:1222 common.c:1234
 #: common.c:1241
