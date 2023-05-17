@@ -1,5 +1,9 @@
+2023-05-17 Erwin Waterlander <waterlan@xs4all.nl>
+	* Version 7.5.0
+
 2023-04-16 Erwin Waterlander <waterlan@xs4all.nl>
 	* New option -O, --to-stdout to write to standard output.
+	  Thanks to Victor.
 
 2023-04-06 Erwin Waterlander <waterlan@xs4all.nl>
 	* New option -e, --add-eol to add a line break to the last

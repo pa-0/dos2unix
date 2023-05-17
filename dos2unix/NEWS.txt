@@ -1,4 +1,4 @@
-2023-??-??: Version 7.5.0
+2023-05-17: Version 7.5.0
 
   * New option -e, --add-eol to add a line break to the last
     line if there isn't one. Option --no-add-eol disables the
