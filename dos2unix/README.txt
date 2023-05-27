@@ -80,7 +80,7 @@ TRANSLATORS
         Chinese (simplified)  Tianze Wang                  Version 7.3.1 - 7.4.0
         Chinese (simplified)  Boyuan Yang                  Version 7.5.0
         Chinese (traditional) mail6543210                  Version 6.0.5
-        Chinese (traditional) pan93412                     Version 7.4.2
+        Chinese (traditional) Yi-Jyun Pan                  Version 7.4.2 - 7.5.1
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
         Danish                Joe Hansen                   Version 7.2.3 - 7.4.1
         Dutch                 Erwin Waterlander            Version 4.0   - 6.0.4
@@ -108,7 +108,7 @@ TRANSLATORS
         Romanian              Remus-Gabriel Chelu          Version 7.4.4 - 7.5.0
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
         Russian               Yuri Kozlov                  Version 6.0.6 - 7.4.0
-        Serbian               Мирослав Николић             Version 6.0.5 - 7.4.2
+        Serbian               Мирослав Николић             Version 6.0.5 - 7.5.1
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.3.1
         Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.5.0
@@ -131,7 +131,7 @@ TRANSLATORS
         Korean                Seong-ho Cho                 Version 7.4.4 - 7.5.0
         Polish                Jakub Bogusz                 Version 6.0.5 - 7.5.0
         Romanian              Remus-Gabriel Chelu          Version 7.4.4
-        Serbian               Мирослав Николић             Version 7.4.3
+        Serbian               Мирослав Николић             Version 7.4.3 - 7.5.1
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.2.1
         Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.5.0

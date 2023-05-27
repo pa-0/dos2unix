@@ -2,22 +2,22 @@
 # This file is distributed under the same license as the dos2unix package.
 #
 # mail6543210 <mail6543210@yahoo.com.tw>, 2014.
-# pan93412 <pan93412@gmail.com>, 2019.
+# Yi-Jyun Pan <pan93412@gmail.com>, 2019, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.3.6-beta4\n"
+"Project-Id-Version: dos2unix 7.5.0-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 10:26+0200\n"
-"PO-Revision-Date: 2019-10-13 22:43+0800\n"
-"Last-Translator: pan93412 <pan93412@gmail.com>\n"
-"Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
+"POT-Creation-Date: 2023-04-23 10:34+0200\n"
+"PO-Revision-Date: 2023-05-23 13:06+0800\n"
+"Last-Translator: Yi-Jyun Pan <pan93412@gmail.com>\n"
+"Language-Team: Chinese (traditional) <zh-l10n@lists.linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Lokalize 19.08.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #: dos2unix.c:79
 #, c-format
@@ -44,7 +44,7 @@ msgstr "在第 %2$u 找到二進位符號 0x00%1$02X\n"
 #: dos2unix.c:237 dos2unix.c:314 dos2unix.c:445 dos2unix.c:522 unix2dos.c:210
 #: unix2dos.c:281 unix2dos.c:432 unix2dos.c:503
 msgid "Added line break to last line.\n"
-msgstr ""
+msgstr "已在最後一列加上斷行字元。\n"
 
 #: dos2unix.c:330 dos2unix.c:538 unix2dos.c:297 unix2dos.c:519
 #, c-format
@@ -106,6 +106,13 @@ msgid ""
 "   the distribution.\n"
 "\n"
 msgstr ""
+"原始碼和二進位形式的重散佈和使用，無論是否\n"
+"經過修改，只要符合以下條件，都是被允許的：\n"
+"\n"
+"1. 重散佈原始碼必須保留上述著作權聲明，\n"
+"   此條件清單和以下的免責聲明。\n"
+"2. 以二進位形式重散佈的，必須在隨附於此散佈\n"
+"   的文件和/或其他資料中再現上述著作權聲明。\n"
 
 # License, wait for translating.
 #: common.c:623
@@ -122,6 +129,13 @@ msgid ""
 "OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN\n"
 "IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
 msgstr ""
+"本軟體由作者以「現狀」提供，任何明示或默示的保證，包括但不限於\n"
+"適銷性和特定目的的適用性的默示保證，都予以否認。在任何情況下，\n"
+"作者均不承擔任何直接、間接、附帶、特殊、典範或後果性損害賠償責任\n"
+"（包括但不限於替代商品或服務的取得；使用、資料或利潤的損失；\n"
+"或業務中斷），無論該損害是怎麼引起的，以及是否基於任何責任理論，\n"
+"無論是契約、嚴格責任或侵權行為（包括疏忽或其他），並由使用本軟體\n"
+"引起，即使已經告知可能會有此類損害的可能性。\n"
 
 #: common.c:648
 #, c-format
@@ -193,9 +207,8 @@ msgstr ""
 "   編碼方式            ansi、unicode、utf8，預設是 ansi\n"
 
 #: common.c:671
-#, fuzzy
 msgid " -e, --add-eol         add a line break to the last line if there isn't one\n"
-msgstr " --no-allow-chown      不允許變更檔案擁有者 (預設值)\n"
+msgstr " -e, --add-eol         如果最後一列沒有斷列字元則加上\n"
 
 #: common.c:672
 msgid " -f, --force           force conversion of binary files\n"
@@ -248,16 +261,14 @@ msgid " --no-allow-chown      don't allow file ownership change (default)\n"
 msgstr " --no-allow-chown      不允許變更檔案擁有者 (預設值)\n"
 
 #: common.c:691
-#, fuzzy
 msgid " --no-add-eol          don't add a line break to the last line if there isn't one (default)\n"
-msgstr " --no-allow-chown      不允許變更檔案擁有者 (預設值)\n"
+msgstr " --no-add-eol          如果最後一列沒有斷列字元則不要加上 (預設值)\n"
 
 #: common.c:692
 msgid " -O, --to-stdout       write to standard output\n"
-msgstr ""
+msgstr " -O, --to-stdout       寫入標準輸出\n"
 
 #: common.c:693
-#, fuzzy
 msgid ""
 " -o, --oldfile         write to old file (default)\n"
 "   file ...            files to convert in old-file mode\n"

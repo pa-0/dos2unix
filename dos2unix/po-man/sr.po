@@ -2,20 +2,20 @@
 # Copyright @ 2020 Erwin Waterlander (msgids).
 # This file is distributed under the same license as the dos2unix package.
 # Мирослав Николић <miroslavnikolic@rocketmail.com>, 2020-2023.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.4.4-beta4\n"
-"POT-Creation-Date: 2023-04-20 22:32+0200\n"
-"PO-Revision-Date: 2023-02-19 11:56+0100\n"
+"Project-Id-Version: dos2unix-man 7.5.0-beta5\n"
+"POT-Creation-Date: 2023-04-23 10:34+0200\n"
+"PO-Revision-Date: 2023-05-18 12:59+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 
 #. type: =head1
 #: dos2unix.pod:52
@@ -341,20 +341,18 @@ msgstr "Подразумевано кодирање можете изменит�
 
 #. type: =item
 #: dos2unix.pod:240
-#, fuzzy
-#| msgid "B<-m, --add-bom>"
 msgid "B<-e, --add-eol>"
-msgstr "B<-m, --add-bom>"
+msgstr "B<-e, --add-eol>"
 
 #. type: textblock
 #: dos2unix.pod:242
 msgid "Add a line break to the last line if there isn't one. This works for every conversion."
-msgstr ""
+msgstr "Додаје прекид реда у последњи ред ако га нема. Ово ради за сва претварања."
 
 #. type: textblock
 #: dos2unix.pod:245
 msgid "A file converted from DOS to Unix format may lack a line break on the last line. There are text editors that write text files without a line break on the last line. Some Unix programs have problems processing these files, because the POSIX standard defines that every line in a text file must end with a terminating newline character. For instance concatenating files may not give the expected result."
-msgstr ""
+msgstr "Датотеци претвореној из ДОС у Јуникс формат може да недостаје прекид реда у последњем реду. Постоје уређивачи текста који пишу текстуалне датотеке без прекида реда у последњем реду. Неки Јуникс програми имају проблема са обрадом тих датотека, јер POSIX стандард одређује да сваки ред у текстуалној датотеци мора да се завршава крајњим знаком новог реда. Јер надовезане датотеке неће давати очекивани резултат."
 
 #. type: =item
 #: dos2unix.pod:252
@@ -737,50 +735,41 @@ msgstr "Прекида претварање када власништво кор
 
 #. type: =item
 #: dos2unix.pod:417
-#, fuzzy
-#| msgid "B<-m, --add-bom>"
 msgid "B<--no-add-eol>"
-msgstr "B<-m, --add-bom>"
+msgstr "B<--no-add-eol>"
 
 #. type: textblock
 #: dos2unix.pod:419
 msgid "Do not add a line break to the last line if there isn't one."
-msgstr ""
+msgstr "Не додаје прекид реда у последњи ред ако га нема."
 
 #. type: =item
 #: dos2unix.pod:421
-#, fuzzy
-#| msgid "B<-q, --quiet>"
 msgid "B<-O, --to-stdout>"
-msgstr "B<-q, --quiet>"
+msgstr "B<-O, --to-stdout>"
 
 #. type: textblock
 #: dos2unix.pod:423
 msgid "Write to standard output, like a Unix filter. Use option C<-o> to go back to old file (in-place) mode."
-msgstr ""
+msgstr "Пише на стандардни излаз, као Јуникс филтер. Користите опцију „-o“ да се вратите на режим старе датотеке (одмах)."
 
 #. type: textblock
 #: dos2unix.pod:426
 msgid "Combined with option C<-e> files can be properly concatenated. No merged last and first lines, and no Unicode byte order marks in the middle of the concatenated file. Example:"
-msgstr ""
+msgstr "Заједно са опцијом „-e“ датотеке се могу исправно надовезати. Нема стопљеног првог и последњег реда, и нема ознаке поретка Јуникод бајта по средини надовезане датотеке. Пример:"
 
 #. type: verbatim
 #: dos2unix.pod:430
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -ul -n in.txt out.txt\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -e -O file1.txt file2.txt > output.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -ul -n улаз.txt излаз.txt\n"
+"    dos2unix -e -O дттка1.txt дттка2.txt > излаз.txt\n"
 "\n"
 
 #. type: =item
 #: dos2unix.pod:432
-#, fuzzy
-#| msgid "B<-o, --oldfile FILE ...>"
 msgid "B<-o, --oldfile FILE ...>"
 msgstr "B<-o, --oldfile ДАТОТЕКА ...>"
 
