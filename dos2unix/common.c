@@ -1508,8 +1508,30 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
     return -1;
   }
 
+  /* If output file is a symbolic link, optional resolve the link and modify  */
+  /* the target, instead of removing the link and creating a new regular file */
+  TargetFN = ipOutFN;
+  if (symbolic_link(ipOutFN) && !RetVal) {
+    ResolveSymlinkResult = 0; /* indicates that TargetFN need not be freed */
+    if (ipFlag->Follow == SYMLINK_FOLLOW) {
+      ResolveSymlinkResult = ResolveSymbolicLink(ipOutFN, &TargetFN, ipFlag, progname);
+      if (ResolveSymlinkResult < 0) {
+        if (ipFlag->verbose) {
+          D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
+          D2U_UTF8_FPRINTF(stderr, _("problems resolving symbolic link '%s'\n"), ipOutFN);
+          D2U_UTF8_FPRINTF(stderr, _("          output file remains in '%s'\n"), TempPath);
+        }
+        RetVal = -1;
+      }
+    }
+  }
+  /* The symbolic link's target could be on another file system. rename() used below
+   * can't move files to another file system. We need to create the temp file on the
+   * target file system.
+   */
+
   /* can open temp output file? */
-  if((TempF = MakeTempFileFrom(ipOutFN, &TempPath))==NULL) {
+  if((TempF = MakeTempFileFrom(TargetFN, &TempPath))==NULL) {
     if (ipFlag->verbose) {
       if (errno) {
         ipFlag->error = errno;
@@ -1652,24 +1674,6 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
         D2U_ANSI_FPRINTF(stderr, " %s\n", errstr);
       }
       RetVal = -1;
-    }
-  }
-
-  /* If output file is a symbolic link, optional resolve the link and modify  */
-  /* the target, instead of removing the link and creating a new regular file */
-  TargetFN = ipOutFN;
-  if (symbolic_link(ipOutFN) && !RetVal) {
-    ResolveSymlinkResult = 0; /* indicates that TargetFN need not be freed */
-    if (ipFlag->Follow == SYMLINK_FOLLOW) {
-      ResolveSymlinkResult = ResolveSymbolicLink(ipOutFN, &TargetFN, ipFlag, progname);
-      if (ResolveSymlinkResult < 0) {
-        if (ipFlag->verbose) {
-          D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
-          D2U_UTF8_FPRINTF(stderr, _("problems resolving symbolic link '%s'\n"), ipOutFN);
-          D2U_UTF8_FPRINTF(stderr, _("          output file remains in '%s'\n"), TempPath);
-        }
-        RetVal = -1;
-      }
     }
   }
 
