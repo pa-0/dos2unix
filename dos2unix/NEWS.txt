@@ -2,7 +2,7 @@
 
   * Fixed problem of converting a symbolic link target
     that is on another file system.
-  * Updated traditional Chinese and Serbian translations.
+  * Updated Chinese and Serbian translations.
 
 2023-05-17: Version 7.5.0
 

@@ -2,21 +2,20 @@
 # Copyright (C) 2014 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
 # Tianze Wang <zwpwjwtz@126.com>, 2015, 2016.
-# Boyuan Yang <073plan@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.5.0-beta5\n"
 "POT-Creation-Date: 2023-04-23 10:34+0200\n"
-"PO-Revision-Date: 2023-04-27 15:54-0400\n"
-"Last-Translator: Boyuan Yang <073plan@gmail.com>\n"
+"PO-Revision-Date: 2023-06-02 15:43+0800\n"
+"Last-Translator: Tianze Wang <zwpwjwtz@126.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 3.2.2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #. type: =head1
 #: dos2unix.pod:52
@@ -218,7 +217,7 @@ msgstr "B<-865>"
 #. type: textblock
 #: dos2unix.pod:150
 msgid "Use DOS code page 865 (Nordic)."
-msgstr "使用DOS 865 编码页（北欧）。"
+msgstr " 使用DOS 865 编码页（北欧）。"
 
 #. type: =item
 #: dos2unix.pod:152
@@ -348,12 +347,12 @@ msgstr "B<-e, --add-eol>"
 #. type: textblock
 #: dos2unix.pod:242
 msgid "Add a line break to the last line if there isn't one. This works for every conversion."
-msgstr "如果最后一行不存在换行符，则添加一个。这个操作在每次转换时均将进行。"
+msgstr "如果文件末尾缺少换行符，则追加一个换行符。每次转换时均执行此操作。"
 
 #. type: textblock
 #: dos2unix.pod:245
 msgid "A file converted from DOS to Unix format may lack a line break on the last line. There are text editors that write text files without a line break on the last line. Some Unix programs have problems processing these files, because the POSIX standard defines that every line in a text file must end with a terminating newline character. For instance concatenating files may not give the expected result."
-msgstr "从 DOS 格式转换为 Unix 格式的文件可能在最后一行缺失一个换行符。某些文本编辑器在写入文本文件是也不会在最后一行添加换行符。某些 Unix 程序处理这些文件时会出现问题，因 POSIX 标准定义每个文本文件的每一行必须以换行符结束。例如，对多个文件前后相接时可能得到意料之外的结果。"
+msgstr "从DOS转换至Unix格式的文件的末尾可能缺少换行符；部分文本编辑器也会主动忽略文本文件末尾的换行符。由于POSIX规范要求文本文件中的每一行必须以换行符结尾，部分Unix程序在处理此类缺少末尾换行符的文件时可能存在问题，例如：拼接两个文本文件时，第一个文件的最后一行会直接与第二个文件的第一行相连，从而产生非预期的结果。"
 
 #. type: =item
 #: dos2unix.pod:252
@@ -742,7 +741,7 @@ msgstr "B<--no-add-eol>"
 #. type: textblock
 #: dos2unix.pod:419
 msgid "Do not add a line break to the last line if there isn't one."
-msgstr "即使最后一行末尾没有换行符也不要添加换行符。"
+msgstr "即使文件末尾缺少换行符，也不要追加换行符。"
 
 #. type: =item
 #: dos2unix.pod:421
@@ -752,12 +751,12 @@ msgstr "B<-O, --to-stdout>"
 #. type: textblock
 #: dos2unix.pod:423
 msgid "Write to standard output, like a Unix filter. Use option C<-o> to go back to old file (in-place) mode."
-msgstr "写入标准输出，类似 Unix 过滤器。使用选项 C<-o> 可以回到旧的文件（在位）模式。"
+msgstr "将结果重定向至标准输出（类似Unix过滤器）。可以使用选项 C<-o> 来切换回旧文件（原位修改）模式。"
 
 #. type: textblock
 #: dos2unix.pod:426
 msgid "Combined with option C<-e> files can be properly concatenated. No merged last and first lines, and no Unicode byte order marks in the middle of the concatenated file. Example:"
-msgstr "与 C<-e> 选项结合使用可以正确地合并多个文件。不会出现合并的首行和末行，文件中间也不会出现 Unicode 字节顺序标记。例如："
+msgstr "与选项 C<-e>一起使用时，可以确保拼接文件时上一个文件的最后一行不会错误地与下一个文件的第一行合并，且不会受到Unicode字节序记号的干扰。例如："
 
 #. type: verbatim
 #: dos2unix.pod:430
