@@ -195,6 +195,9 @@ ACKNOWLEDGEMENTS
         Victor                Idea for 'to standard output' mode (option -O).
         anonymous             Idea for adding a newline to the last line if there isn't
                               one (option -e).
+        fdamien12             Reported problem of converting  a symbolic link target
+                              that is on another file system.
+        Dimitry Andric        Aligned Dutch help text.
 
 
 FINDUTILS
