@@ -29,10 +29,10 @@
 #
 #       To learn what TOP LEVEL section to use in manual pages,
 #       see POSIX/Susv standard and "Utility Description Defaults" at
-#       http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap01.html#tag_01_11
+#       https://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap01.html#tag_01_11
 #
 #       This is manual page in Perl POD format. Read more at
-#       http://perldoc.perl.org/perlpod.html or run command:
+#       https://perldoc.perl.org/perlpod.html or run command:
 #
 #           perldoc perlpod | less
 #
@@ -667,7 +667,7 @@ ISO and 7-bit mode conversion do not work on UTF-16 files.
 
 On Windows Unicode text files typically have a Byte Order Mark (BOM), because
 many Windows programs (including Notepad) add BOMs by default. See also
-L<http://en.wikipedia.org/wiki/Byte_order_mark>.
+L<https://en.wikipedia.org/wiki/Byte_order_mark>.
 
 On Unix Unicode files typically don't have a BOM. It is assumed that text files
 are encoded in the locale character encoding.
@@ -720,7 +720,7 @@ Convert from Unix UTF-8 to Windows UTF-16:
 
 GB18030 is a Chinese government standard. A mandatory subset of the GB18030
 standard is officially required for all software products sold in China. See
-also L<http://en.wikipedia.org/wiki/GB_18030>.
+also L<https://en.wikipedia.org/wiki/GB_18030>.
 
 GB18030 is fully compatible with Unicode, and can be considered an unicode
 transformation format. Like UTF-8, GB18030 is compatible with ASCII. GB18030
@@ -835,7 +835,7 @@ shells:
     export LANG=en_GB.UTF-8      English, UK, UTF-8 encoding
 
 For a complete list of language and country codes see the gettext manual:
-L<http://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html>
+L<https://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html>
 
 On Unix systems you can use the command locale(1) to get locale specific
 information.
@@ -848,7 +848,7 @@ For instance, first Dutch and then German: C<LANGUAGE=nl:de>. You have to first
 enable localization, by setting LANG (or LC_ALL) to a value other than
 "C", before you can use a language priority list through the LANGUAGE
 variable. See also the gettext manual:
-L<http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>
+L<https://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>
 
 If you select a language which is not available you will get the
 standard English messages.
@@ -878,13 +878,13 @@ are used.
 
 =head1 STANDARDS
 
-L<http://en.wikipedia.org/wiki/Text_file>
+L<https://en.wikipedia.org/wiki/Text_file>
 
-L<http://en.wikipedia.org/wiki/Carriage_return>
+L<https://en.wikipedia.org/wiki/Carriage_return>
 
-L<http://en.wikipedia.org/wiki/Newline>
+L<https://en.wikipedia.org/wiki/Newline>
 
-L<http://en.wikipedia.org/wiki/Unicode>
+L<https://en.wikipedia.org/wiki/Unicode>
 
 =head1 AUTHORS
 
@@ -893,9 +893,9 @@ Bernd Johannes Wuebben (mac2unix mode) - <wuebben@kde.org>,
 Christian Wurll (add extra newline) - <wurll@ira.uka.de>,
 Erwin Waterlander - <waterlan@xs4all.nl> (maintainer)
 
-Project page: L<http://waterlan.home.xs4all.nl/dos2unix.html>
+Project page: L<https://waterlan.home.xs4all.nl/dos2unix.html>
 
-SourceForge page: L<http://sourceforge.net/projects/dos2unix/>
+SourceForge page: L<https://sourceforge.net/projects/dos2unix/>
 
 =head1 SEE ALSO
 
