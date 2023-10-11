@@ -2046,16 +2046,19 @@ void print_messages_info(const CFlag *pFlag, const char *infile, const char *pro
   }
 }
 
-void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb_dos, unsigned int lb_unix, unsigned int lb_mac)
+void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb_dos, unsigned int lb_unix, unsigned int lb_mac, int last_eol)
 {
   static int header_done = 0;
+  char eol[6];
 
   if (ipFlag->file_info & INFO_CONVERT) {
-    if ((ipFlag->FromToMode == FROMTO_DOS2UNIX) && (lb_dos == 0))
+    if ((ipFlag->FromToMode == FROMTO_DOS2UNIX) && (lb_dos == 0) && (! ipFlag->add_eol || last_eol == INFO_UNIX ))
       return;
-    if (((ipFlag->FromToMode == FROMTO_UNIX2DOS)||(ipFlag->FromToMode == FROMTO_UNIX2MAC)) && (lb_unix == 0))
+    if ((ipFlag->FromToMode == FROMTO_UNIX2DOS) && (lb_unix == 0) && (! ipFlag->add_eol || last_eol == INFO_DOS ))
       return;
-    if ((ipFlag->FromToMode == FROMTO_MAC2UNIX) && (lb_mac == 0))
+    if ((ipFlag->FromToMode == FROMTO_UNIX2MAC) && (lb_unix == 0) && (! ipFlag->add_eol || last_eol == INFO_MAC ))
+      return;
+    if ((ipFlag->FromToMode == FROMTO_MAC2UNIX) && (lb_mac == 0) && (! ipFlag->add_eol || last_eol == INFO_UNIX ))
       return;
     if ((ipFlag->Force == 0) && (ipFlag->status & BINARY_FILE))
       return;
@@ -2072,6 +2075,8 @@ void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb
       D2U_UTF8_FPRINTF(stdout, "  BOM     ");
     if (ipFlag->file_info & INFO_TEXT)
       D2U_UTF8_FPRINTF(stdout, "  TXTBIN");
+    if (ipFlag->add_eol && !(ipFlag->file_info & INFO_CONVERT))
+      D2U_UTF8_FPRINTF(stdout, " LASTLN");
     if (*filename != '\0') {
       if (ipFlag->file_info & INFO_DEFAULT)
         D2U_UTF8_FPRINTF(stdout, "  ");
@@ -2082,6 +2087,20 @@ void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb
     else
       D2U_UTF8_FPRINTF(stdout, "\n");
     header_done = 1;
+  }
+
+  switch (last_eol) {
+    case INFO_DOS:
+      strncpy(eol,"dos  ",sizeof(eol));
+      break;
+    case INFO_UNIX:
+      strncpy(eol,"unix ",sizeof(eol));
+      break;
+    case INFO_MAC:
+      strncpy(eol,"mac  ",sizeof(eol));
+      break;
+    default:
+      strncpy(eol,"noeol",sizeof(eol));
   }
 
   if (ipFlag->file_info & INFO_DOS)
@@ -2098,6 +2117,8 @@ void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb
     else
       D2U_UTF8_FPRINTF(stdout, "  text  ");
   }
+  if (ipFlag->add_eol && !(ipFlag->file_info & INFO_CONVERT))
+    D2U_UTF8_FPRINTF(stdout, " %s ", eol);
   if (*filename != '\0') {
     const char *ptr;
     if ((ipFlag->file_info & INFO_NOPATH) && (((ptr=strrchr(filename,'/')) != NULL) || ((ptr=strrchr(filename,'\\')) != NULL)) )
@@ -2122,6 +2143,7 @@ void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, co
   unsigned int lb_dos = 0;
   unsigned int lb_unix = 0;
   unsigned int lb_mac = 0;
+  int last_eol = 0;
 
   ipFlag->status = 0;
 
@@ -2135,18 +2157,24 @@ void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, co
     }
     if (TempChar != 0x0a) { /* Not an LF */
       PreviousChar = TempChar;
-      if (TempChar == 0x0d) /* CR */
+      if (TempChar == 0x0d) { /* CR */
         lb_mac++;
+        last_eol = INFO_MAC;
+      } else {
+        last_eol = 0;
+      }
     } else{
       /* TempChar is an LF */
       if ( PreviousChar == 0x0d ) { /* CR,LF pair. */
         lb_dos++;
         lb_mac--;
+        last_eol = INFO_DOS;
         PreviousChar = TempChar;
         continue;
       }
       PreviousChar = TempChar;
       lb_unix++; /* Unix line end (LF). */
+      last_eol = INFO_UNIX;
     }
   }
   if ((TempChar == WEOF) && ferror(ipInF)) {
@@ -2160,7 +2188,7 @@ void FileInfoW(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, co
     return;
   }
 
-  printInfo(ipFlag, filename, bomtype, lb_dos, lb_unix, lb_mac);
+  printInfo(ipFlag, filename, bomtype, lb_dos, lb_unix, lb_mac, last_eol);
 
 }
 #endif
@@ -2172,6 +2200,7 @@ void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, con
   unsigned int lb_dos = 0;
   unsigned int lb_unix = 0;
   unsigned int lb_mac = 0;
+  int last_eol = 0;
 
   ipFlag->status = 0;
 
@@ -2185,18 +2214,24 @@ void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, con
       }
     if (TempChar != '\x0a') { /* Not an LF */
       PreviousChar = TempChar;
-      if (TempChar == '\x0d') /* CR */
+      if (TempChar == '\x0d') { /* CR */
         lb_mac++;
+        last_eol = INFO_MAC;
+      } else {
+        last_eol = 0;
+      }
     } else {
       /* TempChar is an LF */
       if ( PreviousChar == '\x0d' ) { /* CR,LF pair. */
         lb_dos++;
         lb_mac--;
+        last_eol = INFO_DOS;
         PreviousChar = TempChar;
         continue;
       }
       PreviousChar = TempChar;
       lb_unix++; /* Unix line end (LF). */
+      last_eol = INFO_UNIX;
     }
   }
   if ((TempChar == EOF) && ferror(ipInF)) {
@@ -2210,7 +2245,7 @@ void FileInfo(FILE* ipInF, CFlag *ipFlag, const char *filename, int bomtype, con
     return;
   }
 
-  printInfo(ipFlag, filename, bomtype, lb_dos, lb_unix, lb_mac);
+  printInfo(ipFlag, filename, bomtype, lb_dos, lb_unix, lb_mac, last_eol);
 }
 
 int GetFileInfo(char *ipInFN, CFlag *ipFlag, const char *progname)
