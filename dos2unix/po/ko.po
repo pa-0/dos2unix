@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.5.0-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-01 22:23+0200\n"
+"POT-Creation-Date: 2023-10-24 23:17+0200\n"
 "PO-Revision-Date: 2023-04-27 12:37+0900\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: Korean <translation-team-ko@googlegroups.com>\n"
@@ -640,55 +640,55 @@ msgstr "%s 파일을 %s 파일로 변환하는 문제\n"
 msgid "problems converting file %s\n"
 msgstr "%s 파일 변환 문제\n"
 
-#: common.c:2157 common.c:2207
+#: common.c:2185 common.c:2242
 #, c-format
 msgid "can not read from input file %s:"
 msgstr "입력 파일을 읽을 수 없습니다 %s:"
 
-#: common.c:2363
+#: common.c:2402
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "옵션 -i 또는 --info에 대한 잘못된 플래그 '%c'\n"
 
-#: common.c:2499 common.c:2542
+#: common.c:2538 common.c:2581
 #, c-format
 msgid "active code page: %d\n"
 msgstr "활성 코드 페이지: %d\n"
 
-#: common.c:2554
+#: common.c:2593
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "부적절한 %s 변환 모드를 지정했습니다\n"
 
-#: common.c:2562 common.c:2592
+#: common.c:2601 common.c:2631
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "'%s' 옵션에 인자 값이 필요합니다\n"
 
-#: common.c:2584
+#: common.c:2623
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "부적절한 %s 출력 인코딩을 지정했습니다\n"
 
-#: common.c:2604 common.c:2618 common.c:2630
+#: common.c:2643 common.c:2657 common.c:2669
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "새 파일 모드의 %s 파일 대상을 지정하지 않았습니다\n"
 
-#: common.c:2713
+#: common.c:2752
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "입력 파일을 읽을 수 없습니다: %s\n"
 
-#: common.c:2723 common.c:2735
+#: common.c:2762 common.c:2774
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "출력 파일에 기록할 수 없습니다: %s\n"
 
-#: common.c:2810
+#: common.c:2849
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "오류: 부적절한 대리 쌍. 하위 대리자가 빠졌습니다.\n"
 
-#: common.c:2826
+#: common.c:2865
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "오류: 부적절한 대리 쌍. 상위 대리자가 빠졌습니다.\n"

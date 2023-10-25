@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.5.0-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-01 22:23+0200\n"
+"POT-Creation-Date: 2023-10-24 23:17+0200\n"
 "PO-Revision-Date: 2023-05-23 13:06+0800\n"
 "Last-Translator: Yi-Jyun Pan <pan93412@gmail.com>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@lists.linux.org.tw>\n"
@@ -634,56 +634,56 @@ msgstr "轉換檔案 %s 到 %s 錯誤\n"
 msgid "problems converting file %s\n"
 msgstr "轉換檔案 %s 錯誤\n"
 
-#: common.c:2157 common.c:2207
+#: common.c:2185 common.c:2242
 #, c-format
 msgid "can not read from input file %s:"
 msgstr "無法讀取 %s 輸入檔："
 
-#: common.c:2363
+#: common.c:2402
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "傳入 -i 或 --info 選項的 '%c' 旗標錯誤\n"
 
-#: common.c:2499 common.c:2542
+#: common.c:2538 common.c:2581
 #, c-format
 msgid "active code page: %d\n"
 msgstr "作用中編碼頁：%d\n"
 
-#: common.c:2554
+#: common.c:2593
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "指定的轉換模式 %s 不合法\n"
 
-#: common.c:2562 common.c:2592
+#: common.c:2601 common.c:2631
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "選項 '%s' 需要一個參數\n"
 
-#: common.c:2584
+#: common.c:2623
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "指定了無效的 %s 顯示編碼方式\n"
 
-#: common.c:2604 common.c:2618 common.c:2630
+#: common.c:2643 common.c:2657 common.c:2669
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "新檔模式中未指明檔案 %s 的目的位置\n"
 
-#: common.c:2713
+#: common.c:2752
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "無法讀取下述輸入檔案：%s\n"
 
-#: common.c:2723 common.c:2735
+#: common.c:2762 common.c:2774
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "無法寫入輸出檔：%s\n"
 
-#: common.c:2810
+#: common.c:2849
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "錯誤：代理 (surrogate) 配對無效。缺少低代理。\n"
 
-#: common.c:2826
+#: common.c:2865
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "錯誤：代理 (surrogate) 配對無效。缺少高代理。\n"
 

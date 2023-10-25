@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.4.4-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-01 22:23+0200\n"
+"POT-Creation-Date: 2023-10-24 23:17+0200\n"
 "PO-Revision-Date: 2023-01-15 08:42+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <(nothing)>\n"
@@ -615,55 +615,55 @@ msgstr ""
 msgid "problems converting file %s\n"
 msgstr "ფაილის (%s) გადაყვანის შეცდომა\n"
 
-#: common.c:2157 common.c:2207
+#: common.c:2185 common.c:2242
 #, c-format
 msgid "can not read from input file %s:"
 msgstr "შეტანის ფაილის წაკითხვის შეცდომა: %s:"
 
-#: common.c:2363
+#: common.c:2402
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr ""
 
-#: common.c:2499 common.c:2542
+#: common.c:2538 common.c:2581
 #, c-format
 msgid "active code page: %d\n"
 msgstr "აქტიური კოდის გვერდი: %d\n"
 
-#: common.c:2554
+#: common.c:2593
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "მითითებულია არასწორი %s გადაყვანის რეჟიმი\n"
 
-#: common.c:2562 common.c:2592
+#: common.c:2601 common.c:2631
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "პარამეტრს ('%s') არგუმენტი ესაჭიროება\n"
 
-#: common.c:2584
+#: common.c:2623
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "მითითებული (%s) ჩვენების კოდირება არასწორია\n"
 
-#: common.c:2604 common.c:2618 common.c:2630
+#: common.c:2643 common.c:2657 common.c:2669
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "ახალი-ფაილის რეჟიმში ფაილისთვის %s სამიზნე მითითებული არაა\n"
 
-#: common.c:2713
+#: common.c:2752
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "შეტანის ფაილის წაკითხვის შეცდომა: %s\n"
 
-#: common.c:2723 common.c:2735
+#: common.c:2762 common.c:2774
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "გამოტანის ფაილში ჩაწერის შეცდომა: %s\n"
 
-#: common.c:2810
+#: common.c:2849
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "შეცდომა: სუროგატების არასწორი წყვილი. დაბალი სუროგატი მითითებული არაა.\n"
 
-#: common.c:2826
+#: common.c:2865
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "შეცდომა: სუროგატების არასწორი წყვილი. მაღალი სუროგატი მითითებული არაა.\n"

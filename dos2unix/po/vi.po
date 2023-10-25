@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.5.0-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-01 22:23+0200\n"
+"POT-Creation-Date: 2023-10-24 23:17+0200\n"
 "PO-Revision-Date: 2023-04-29 07:52+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -625,56 +625,56 @@ msgstr "Đang chuyển đổi tập tin %s thành tập tin %s\n"
 msgid "problems converting file %s\n"
 msgstr "gặp trục trặc khi chuyển đổi tập tin %s\n"
 
-#: common.c:2157 common.c:2207
+#: common.c:2185 common.c:2242
 #, c-format
 msgid "can not read from input file %s:"
 msgstr "không thể đọc từ tập tin đầu vào %s:"
 
-#: common.c:2363
+#: common.c:2402
 #, c-format
 msgid "wrong flag '%c' for option -i or --info\n"
 msgstr "cờ “%c” cho tùy chọn -i hay --info bị sai\n"
 
-#: common.c:2499 common.c:2542
+#: common.c:2538 common.c:2581
 #, c-format
 msgid "active code page: %d\n"
 msgstr "trang mã đang hoạt động: %d\n"
 
-#: common.c:2554
+#: common.c:2593
 #, c-format
 msgid "invalid %s conversion mode specified\n"
 msgstr "đã đưa ra chế độ chuyển đổi %s không hợp lệ\n"
 
-#: common.c:2562 common.c:2592
+#: common.c:2601 common.c:2631
 #, c-format
 msgid "option '%s' requires an argument\n"
 msgstr "tùy chọn “%s” yêu cầu một đối số\n"
 
-#: common.c:2584
+#: common.c:2623
 #, c-format
 msgid "invalid %s display encoding specified\n"
 msgstr "đã đưa ra bảng mã hiển thị không hợp lệ %s\n"
 
-#: common.c:2604 common.c:2618 common.c:2630
+#: common.c:2643 common.c:2657 common.c:2669
 #, c-format
 msgid "target of file %s not specified in new-file mode\n"
 msgstr "đích của tập tin %s không được chỉ định trong chế độ tập-tin-mới\n"
 
-#: common.c:2713
+#: common.c:2752
 #, c-format
 msgid "can not read from input file: %s\n"
 msgstr "không thể đọc từ tập tin đầu vào: %s\n"
 
-#: common.c:2723 common.c:2735
+#: common.c:2762 common.c:2774
 #, c-format
 msgid "can not write to output file: %s\n"
 msgstr "không thể ghi vào tập tin đầu ra: %s\n"
 
-#: common.c:2810
+#: common.c:2849
 msgid "error: Invalid surrogate pair. Missing low surrogate.\n"
 msgstr "lỗi: Cặp thay thế không hợp lệ. Thiếu cái thay thế dưới.\n"
 
-#: common.c:2826
+#: common.c:2865
 msgid "error: Invalid surrogate pair. Missing high surrogate.\n"
 msgstr "lỗi: Cặp thay thế không hợp lệ. Thiếu cái thay thế trên.\n"
 
