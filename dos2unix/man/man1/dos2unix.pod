@@ -284,6 +284,16 @@ Example output:
 
 Note that sometimes a binary file can be mistaken for a text file. See also option C<-s>.
 
+If in addition option C<-e> or C<--add-eol> is used also the type of the
+line break of the last line is printed, or C<noeol> if there is none.
+
+Example output:
+
+     6       0       0  no_bom    text   dos     dos.txt
+     0       6       0  no_bom    text   unix    unix.txt
+     0       0       6  no_bom    text   mac     mac.txt
+     1       0       0  no_bom    text   noeol   noeol_dos.txt
+
 Optionally extra flags can be set to change the output. One or more flags
 can be added.
 
@@ -316,12 +326,19 @@ Print the byte order mark.
 
 Print if file is text or binary.
 
+=item B<e>
+
+Print the type of the line break of the last line, or C<noeol> if there is none.
+
 =item B<c>
 
 Print only the files that would be converted.
 
 With the C<c> flag dos2unix will print only the files that contain DOS line breaks,
 unix2dos will print only file names that have Unix line breaks.
+
+If in addition option C<-e> or C<--add-eol> is used also the files that lack a
+line break on the last line will be printed.
 
 =item B<h>
 
@@ -354,6 +371,10 @@ List the files that have DOS line breaks:
 List the files that have Unix line breaks:
 
     unix2dos -ic *.txt
+
+List the files that have DOS line breaks or lack a line break on the last line:
+
+    dos2unix -e -ic *.txt
 
 Convert only files that have DOS line breaks and leave the other files untouched:
 

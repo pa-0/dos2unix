@@ -2075,10 +2075,10 @@ void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb
       D2U_UTF8_FPRINTF(stdout, "  BOM     ");
     if (ipFlag->file_info & INFO_TEXT)
       D2U_UTF8_FPRINTF(stdout, "  TXTBIN");
-    if (ipFlag->add_eol && !(ipFlag->file_info & INFO_CONVERT))
+    if ((ipFlag->add_eol && !(ipFlag->file_info & INFO_CONVERT)) || ipFlag->file_info & INFO_EOL)
       D2U_UTF8_FPRINTF(stdout, " LASTLN");
     if (*filename != '\0') {
-      if (ipFlag->file_info & INFO_DEFAULT)
+      if ((ipFlag->file_info & INFO_DEFAULT) || (ipFlag->file_info & INFO_EOL))
         D2U_UTF8_FPRINTF(stdout, "  ");
       D2U_UTF8_FPRINTF(stdout, "FILE");
     }
@@ -2117,7 +2117,7 @@ void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb
     else
       D2U_UTF8_FPRINTF(stdout, "  text  ");
   }
-  if (ipFlag->add_eol && !(ipFlag->file_info & INFO_CONVERT))
+  if ((ipFlag->add_eol && !(ipFlag->file_info & INFO_CONVERT)) || ipFlag->file_info & INFO_EOL)
     D2U_UTF8_FPRINTF(stdout, " %s ", eol);
   if (*filename != '\0') {
     const char *ptr;
@@ -2125,7 +2125,7 @@ void printInfo(CFlag *ipFlag, const char *filename, int bomtype, unsigned int lb
       ptr++;
     else
       ptr = filename;
-    if (ipFlag->file_info & INFO_DEFAULT)
+    if ((ipFlag->file_info & INFO_DEFAULT) || (ipFlag->file_info & INFO_EOL))
       D2U_UTF8_FPRINTF(stdout, "  ");
     D2U_UTF8_FPRINTF(stdout, "%s",ptr);
   }
@@ -2379,6 +2379,10 @@ void get_info_options(char *option, CFlag *pFlag, const char *progname)
         break;
       case 't':   /* Text or binary. */
         pFlag->file_info |= INFO_TEXT;
+        default_info = 0;
+        break;
+      case 'e':   /* Print EOL of last line. */
+        pFlag->file_info |= INFO_EOL;
         default_info = 0;
         break;
       case 'c':   /* Print only files that would be converted. */
