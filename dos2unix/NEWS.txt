@@ -2,6 +2,7 @@
 
   * Dos2unix can print info about the line break type of the last line,
     or indicate there is none.
+  * Updated documentation about ASCII mode conversion.
 
 2023-08-29: Version 7.5.1
 

@@ -1,3 +1,8 @@
+2023-11-05 Erwin Waterlander <waterlan@xs4all.nl>
+	* Updated documentation about ASCII mode conversion.
+	  Resolves https://sourceforge.net/p/dos2unix/feature-requests/8/
+	  Thanks to Tony Mancill.
+
 2023-10-25 Erwin Waterlander <waterlan@xs4all.nl>
 	* New flag 'e' for option -i, --info to print the line break
 	  type of the last line.

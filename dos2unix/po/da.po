@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.3.6-beta4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-24 23:17+0200\n"
+"POT-Creation-Date: 2023-11-03 22:27+0100\n"
 "PO-Revision-Date: 2018-08-14 12:07+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -152,7 +152,8 @@ msgid " --allow-chown         allow file ownership change\n"
 msgstr " --allow-chown         tillad ændring af filejerskab\n"
 
 #: common.c:652
-msgid " -ascii                convert only line breaks (default)\n"
+#, fuzzy
+msgid " -ascii                default conversion mode\n"
 msgstr " -ascii                omdan kun linjeskift (standard)\n"
 
 #: common.c:653

@@ -649,7 +649,7 @@ void PrintUsage(const char *progname)
 #ifndef NO_CHOWN
   D2U_ANSI_FPRINTF(stdout,_(" --allow-chown         allow file ownership change\n"));
 #endif
-  D2U_ANSI_FPRINTF(stdout,_(" -ascii                convert only line breaks (default)\n"));
+  D2U_ANSI_FPRINTF(stdout,_(" -ascii                default conversion mode\n"));
   D2U_ANSI_FPRINTF(stdout,_(" -iso                  conversion between DOS and ISO-8859-1 character set\n"));
   D2U_ANSI_FPRINTF(stdout,_("   -1252               use Windows code page 1252 (Western European)\n"));
   D2U_ANSI_FPRINTF(stdout,_("   -437                use DOS code page 437 (US) (default)\n"));

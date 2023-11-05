@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.5.0-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-24 23:17+0200\n"
+"POT-Creation-Date: 2023-11-03 22:27+0100\n"
 "PO-Revision-Date: 2023-05-23 13:06+0800\n"
 "Last-Translator: Yi-Jyun Pan <pan93412@gmail.com>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@lists.linux.org.tw>\n"
@@ -147,7 +147,8 @@ msgid " --allow-chown         allow file ownership change\n"
 msgstr " --allow-chown         允許變更檔案擁有者\n"
 
 #: common.c:652
-msgid " -ascii                convert only line breaks (default)\n"
+#, fuzzy
+msgid " -ascii                default conversion mode\n"
 msgstr " -ascii                只轉換換行字元 (預設)\n"
 
 #: common.c:653

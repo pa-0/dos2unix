@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.5.0-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-24 23:17+0200\n"
+"POT-Creation-Date: 2023-11-03 22:27+0100\n"
 "PO-Revision-Date: 2023-04-26 18:05+0200\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -174,7 +174,8 @@ msgid " --allow-chown         allow file ownership change\n"
 msgstr " --allow-chown         permite schimbarea proprietarului fișierului\n"
 
 #: common.c:652
-msgid " -ascii                convert only line breaks (default)\n"
+#, fuzzy
+msgid " -ascii                default conversion mode\n"
 msgstr " -ascii                convertește doar întreruperile de linie (implicit)\n"
 
 #: common.c:653

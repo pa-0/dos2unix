@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix 7.5.0-beta5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-24 23:17+0200\n"
+"POT-Creation-Date: 2023-11-03 22:27+0100\n"
 "PO-Revision-Date: 2023-04-26 18:43+0200\n"
 "Last-Translator: Roland Illig <roland.illig@gmx.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -157,7 +157,8 @@ msgid " --allow-chown         allow file ownership change\n"
 msgstr " --allow-chown         erlaubt die Änderung des Dateieigentümers\n"
 
 #: common.c:652
-msgid " -ascii                convert only line breaks (default)\n"
+#, fuzzy
+msgid " -ascii                default conversion mode\n"
 msgstr " -ascii                wandelt nur Zeilenumbrüche um (Vorgabe)\n"
 
 #: common.c:653

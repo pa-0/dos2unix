@@ -118,7 +118,7 @@ the user and group ownership of files.
 
 =item B<-ascii>
 
-Convert only line breaks. This is the default conversion mode.
+Default conversion mode. See also section CONVERSION MODES.
 
 =item B<-iso>
 
@@ -560,7 +560,7 @@ Display version information and exit.
 
 =head1 MAC MODE
 
-In normal mode line breaks are converted from DOS to Unix and vice versa.
+By default line breaks are converted from DOS to Unix and vice versa.
 Mac line breaks are not converted.
 
 In Mac mode line breaks are converted from Mac to Unix and vice versa. DOS
@@ -575,12 +575,15 @@ commands C<mac2unix> or C<unix2mac>.
 
 =item B<ascii>
 
-In mode C<ascii> only line breaks are converted. This is the default conversion
-mode.
+This is the default conversion mode. This mode is for converting ASCII and
+ASCII-compatible encoded files, like UTF-8. Enabling B<ascii> mode disables
+B<7bit> and B<iso> mode.
 
-Although the name of this mode is ASCII, which is a 7 bit standard, the
-actual mode is 8 bit. Use always this mode when converting Unicode UTF-8
-files.
+If dos2unix has UTF-16 support, UTF-16 encoded files are converted to the
+current locale character encoding on POSIX systems and to UTF-8 on Windows.
+Enabling B<ascii> mode disables the option to keep UTF-16 encoding (C<-u>) and
+the options to assume UTF-16 input (C<-ul> and C<-ub>).  To see if dos2unix has
+UTF-16 support type C<dos2unix -V>. See also section UNICODE.
 
 =item B<7bit>
 
