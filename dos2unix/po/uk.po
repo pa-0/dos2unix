@@ -6,10 +6,10 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2014, 2015, 2016, 2017, 2020, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.5.0-beta5\n"
+"Project-Id-Version: dos2unix 7.5.2-beta2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-03 22:27+0100\n"
-"PO-Revision-Date: 2023-04-26 20:58+0300\n"
+"POT-Creation-Date: 2023-11-05 14:18+0100\n"
+"PO-Revision-Date: 2023-11-10 16:55+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -159,9 +159,8 @@ msgid " --allow-chown         allow file ownership change\n"
 msgstr " --allow-chown         дозволити зміну власника файла\n"
 
 #: common.c:652
-#, fuzzy
 msgid " -ascii                default conversion mode\n"
-msgstr " -ascii                перетворити лише символи розриву рядків (типово)\n"
+msgstr " -ascii                типовий режим перетворення\n"
 
 #: common.c:653
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"

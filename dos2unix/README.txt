@@ -79,7 +79,7 @@ TRANSLATORS
         Catalan               Jordi Mas i Hernàndez        Version 7.4.4
         Chinese (simplified)  Tianze Wang                  Version 7.3.1 - 7.4.0
                                                            7.5.1
-        Chinese (simplified)  Boyuan Yang                  Version 7.5.0
+        Chinese (simplified)  Boyuan Yang                  Version 7.5.0 - 7.5.2
         Chinese (traditional) mail6543210                  Version 6.0.5
         Chinese (traditional) Yi-Jyun Pan                  Version 7.4.2 - 7.5.1
         Danish                Thomas Pryds                 Version 6.0.5 - 6.0.6
@@ -89,32 +89,32 @@ TRANSLATORS
         Esperanto             Rugxulo                      Version 5.1   - 6.0.4
         Esperanto             Benno Schulenberg            Version 6.0.5 - 7.3
         Esperanto             Felipe Castro                Version 7.4.3
-        French                Frédéric Marchal             Version 6.0.5 - 7.5.0
+        French                Frédéric Marchal             Version 6.0.5 - 7.5.2
         Friulian              Fabio Tomat                  Version 7.4.2
         Georgian              Temuri Doghonadze            Version 7.4.4
         German                Philipp Thomas               Version 5.0   - 6.0.3, 7.0,
                                                            7.2.2 - 7.4.1
         German                Lars Wendler                 Version 6.0.4
         German                Mario Blättermann            Version 6.0.6, 7.1 - 7.2
-        German                Roland Illig                 Version 7.4.2 - 7.5.0
+        German                Roland Illig                 Version 7.4.2 - 7.5.2
         Hungarian             Balázs Úr                    Version 6.0.5 - 7.2.3,
                                                            7.4.0 - 7.4.1
         Hungarian             Gabor Kelemen                Version 7.3.4
         Japanese              Yasuaki Taniguchi            Version 7.1.1
         Japanese              Takeshi Hamasaki             Version 7.3.4 - 7.4.1
-        Korean                Seong-ho Cho                 Version 7.4.4 - 7.5.0
+        Korean                Seong-ho Cho                 Version 7.4.4 - 7.5.2
         Norwegian Bokmaal     Åka Sikrom                   Version 6.0.6 - 7.4.0
         Norwegian Bokmaal     Johnny A. Solbu              Version 7.5.0
-        Polish                Jakub Bogusz                 Version 6.0.5 - 7.5.0
-        Romanian              Remus-Gabriel Chelu          Version 7.4.4 - 7.5.0
+        Polish                Jakub Bogusz                 Version 6.0.5 - 7.5.2
+        Romanian              Remus-Gabriel Chelu          Version 7.4.4 - 7.5.2
         Russian               Андрей Углик (Andrei Uhlik)  Version 6.0.4
-        Russian               Yuri Kozlov                  Version 6.0.6 - 7.4.0
+        Russian               Yuri Kozlov                  Version 6.0.6 - 7.5.2
         Serbian               Мирослав Николић             Version 6.0.5 - 7.5.1
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.3.1
         Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.5.0
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.5.0
-        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.5.0
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.5.2
+        Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.5.2
 
         Translation of the manual.
         See https://translationproject.org/domain/dos2unix-man.html
@@ -127,17 +127,17 @@ TRANSLATORS
         Chinese (simplified)  Boyuan Yang                  Version 7.5.0
         Dutch                 Erwin Waterlander            Version 5.1.1 - 6.0.4
         Dutch                 Benno Schulenberg            Version 6.0.5 - 7.3.3
-        French                Frédéric Marchal             Version 6.0.5 - 7.5.0
-        German                Mario Blättermann            Version 6.0.5 - 7.4.0
+        French                Frédéric Marchal             Version 6.0.5 - 7.5.2
+        German                Mario Blättermann            Version 6.0.5 - 7.5.2
         German                Roland Illig                 Version 7.4.2
-        Korean                Seong-ho Cho                 Version 7.4.4 - 7.5.0
-        Polish                Jakub Bogusz                 Version 6.0.5 - 7.5.0
-        Romanian              Remus-Gabriel Chelu          Version 7.4.4
+        Korean                Seong-ho Cho                 Version 7.4.4 - 7.5.2
+        Polish                Jakub Bogusz                 Version 6.0.5 - 7.5.2
+        Romanian              Remus-Gabriel Chelu          Version 7.4.4 - 7.5.2
         Serbian               Мирослав Николић             Version 7.4.3 - 7.5.1
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.2.1
         Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.5.0
-        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.5.0
+        Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.5.2
 
 
 ACKNOWLEDGEMENTS

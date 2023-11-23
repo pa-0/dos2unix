@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.5.0-beta5\n"
+"Project-Id-Version: dos2unix 7.5.2-beta2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-03 22:27+0100\n"
-"PO-Revision-Date: 2023-04-26 18:02+0200\n"
+"POT-Creation-Date: 2023-11-05 14:18+0100\n"
+"PO-Revision-Date: 2023-11-10 20:01+0100\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "Language: pl\n"
@@ -148,9 +148,8 @@ msgid " --allow-chown         allow file ownership change\n"
 msgstr " --allow-chown         zezwolenie na zmianę właściciela pliku\n"
 
 #: common.c:652
-#, fuzzy
 msgid " -ascii                default conversion mode\n"
-msgstr " -ascii                konwersja tylko końców linii (domyślne)\n"
+msgstr " -ascii                domyślny tryb konwersji\n"
 
 #: common.c:653
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"

@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.5.0-beta5\n"
+"Project-Id-Version: dos2unix 7.5.2-beta2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-03 22:27+0100\n"
-"PO-Revision-Date: 2023-04-27 12:37+0900\n"
+"POT-Creation-Date: 2023-11-05 14:18+0100\n"
+"PO-Revision-Date: 2023-11-13 03:50+0900\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: Korean <translation-team-ko@googlegroups.com>\n"
 "Language: ko\n"
@@ -153,9 +153,8 @@ msgid " --allow-chown         allow file ownership change\n"
 msgstr " --allow-chown         파일 소유권 변경을 허용합니다\n"
 
 #: common.c:652
-#, fuzzy
 msgid " -ascii                default conversion mode\n"
-msgstr " -ascii                개행 문자만 변환합니다 (기본)\n"
+msgstr " -ascii                기본 변환 모드\n"
 
 #: common.c:653
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"

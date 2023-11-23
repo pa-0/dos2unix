@@ -2,21 +2,22 @@
 # This file is distributed under the same license as the dos2unix package.
 #
 # Tianze Wang <zwpwjwtz@126.com>, 2015.
+# Boyuan Yang <073plan@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.5.0-beta5\n"
+"Project-Id-Version: dos2unix 7.5.2-beta2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-03 22:27+0100\n"
-"PO-Revision-Date: 2023-06-02 15:33+0800\n"
-"Last-Translator: Tianze Wang <zwpwjwtz@126.com>\n"
+"POT-Creation-Date: 2023-11-05 14:18+0100\n"
+"PO-Revision-Date: 2023-11-10 13:52-0500\n"
+"Last-Translator: Boyuan Yang <073plan@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 2.2.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #: dos2unix.c:79
 #, c-format
@@ -150,9 +151,8 @@ msgid " --allow-chown         allow file ownership change\n"
 msgstr " --allow-chown         允许修改文件所有者\n"
 
 #: common.c:652
-#, fuzzy
 msgid " -ascii                default conversion mode\n"
-msgstr " -ascii                只转换换行符（默认）\n"
+msgstr " -ascii                默认转换模式\n"
 
 #: common.c:653
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"

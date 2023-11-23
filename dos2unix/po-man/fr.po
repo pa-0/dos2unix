@@ -4,9 +4,9 @@
 # Frédéric Marchal <fmarchal@perso.be>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.5.0-beta5\n"
-"POT-Creation-Date: 2023-11-05 14:03+0100\n"
-"PO-Revision-Date: 2023-04-26 17:51+0200\n"
+"Project-Id-Version: dos2unix-man-7.5.2-beta2\n"
+"POT-Creation-Date: 2023-11-05 14:18+0100\n"
+"PO-Revision-Date: 2023-11-10 15:49+0100\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -145,10 +145,8 @@ msgstr "B<-ascii>"
 
 #. type: textblock
 #: dos2unix.pod:121
-#, fuzzy
-#| msgid "Conversion between DOS and ISO-8859-1 character set. See also section CONVERSION MODES."
 msgid "Default conversion mode. See also section CONVERSION MODES."
-msgstr "Convertit le jeu de caractères du DOS vers ISO-8859-1. Voyez aussi la section des MODES DE CONVERSION."
+msgstr "Mode de conversion par défaut. Voyez aussi la section des MODES DE CONVERSION."
 
 #. type: =item
 #: dos2unix.pod:123
@@ -437,21 +435,11 @@ msgstr "Notez qu'un fichier binaire peut parfois être considéré à tord comme
 #. type: textblock
 #: dos2unix.pod:287
 msgid "If in addition option C<-e> or C<--add-eol> is used also the type of the line break of the last line is printed, or C<noeol> if there is none."
-msgstr ""
+msgstr "Si l'option C<-e> ou C<--add-eol> est également utilisée, le type du saut de ligne de la dernière ligne est affiché ou C<noeol> est affiché s'il n'y en a pas."
 
 #. type: verbatim
 #: dos2unix.pod:292
-#, fuzzy, no-wrap
-#| msgid ""
-#| "     6       0       0  no_bom    text    dos.txt\n"
-#| "     0       6       0  no_bom    text    unix.txt\n"
-#| "     0       0       6  no_bom    text    mac.txt\n"
-#| "     6       6       6  no_bom    text    mixed.txt\n"
-#| "    50       0       0  UTF-16LE  text    utf16le.txt\n"
-#| "     0      50       0  no_bom    text    utf8unix.txt\n"
-#| "    50       0       0  UTF-8     text    utf8dos.txt\n"
-#| "     2     418     219  no_bom    binary  dos2unix.exe\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "     6       0       0  no_bom    text   dos     dos.txt\n"
 "     0       6       0  no_bom    text   unix    unix.txt\n"
@@ -459,14 +447,10 @@ msgid ""
 "     1       0       0  no_bom    text   noeol   noeol_dos.txt\n"
 "\n"
 msgstr ""
-"     6       0       0  no_bom    text    dos.txt\n"
-"     0       6       0  no_bom    text    unix.txt\n"
-"     0       0       6  no_bom    text    mac.txt\n"
-"     6       6       6  no_bom    text    mixed.txt\n"
-"    50       0       0  UTF-16LE  text    utf16le.txt\n"
-"     0      50       0  no_bom    text    utf8unix.txt\n"
-"    50       0       0  UTF-8     text    utf8dos.txt\n"
-"     2     418     219  no_bom    binary  dos2unix.exe\n"
+"     6       0       0  no_bom    text   dos     dos.txt\n"
+"     0       6       0  no_bom    text   unix    unix.txt\n"
+"     0       0       6  no_bom    text   mac     mac.txt\n"
+"     1       0       0  no_bom    text   noeol   noeol_dos.txt\n"
 "\n"
 
 #. type: textblock
@@ -537,14 +521,12 @@ msgstr "Affiche si le fichier est texte ou binaire."
 #. type: =item
 #: dos2unix.pod:329
 msgid "B<e>"
-msgstr ""
+msgstr "B<e>"
 
 #. type: textblock
 #: dos2unix.pod:331
-#, fuzzy
-#| msgid "Do not add a line break to the last line if there isn't one."
 msgid "Print the type of the line break of the last line, or C<noeol> if there is none."
-msgstr "N'ajoute pas de saut de ligne à la dernière ligne s'il n'y en a pas."
+msgstr "Affiche le type du saut de ligne de la dernière ligne ou C<noeol> s'il n'y en a pas."
 
 #. type: =item
 #: dos2unix.pod:333
@@ -564,7 +546,7 @@ msgstr "Avec le fanion C<c>, dos2unix n'affichera que les fichiers contenant des
 #. type: textblock
 #: dos2unix.pod:340
 msgid "If in addition option C<-e> or C<--add-eol> is used also the files that lack a line break on the last line will be printed."
-msgstr ""
+msgstr "Si l'option C<-e> ou C<--add-eol> est également utilisée, les fichiers qui n'ont pas de saut de ligne à la dernière ligne seront affichés."
 
 #. type: =item
 #: dos2unix.pod:343
@@ -668,22 +650,17 @@ msgstr ""
 
 #. type: textblock
 #: dos2unix.pod:375
-#, fuzzy
-#| msgid "List the files that have DOS line breaks:"
 msgid "List the files that have DOS line breaks or lack a line break on the last line:"
-msgstr "Liste les fichiers qui ont des sauts de ligne DOS :"
+msgstr "Liste les fichiers qui ont des sauts de ligne DOS ou qui n'ont pas de saut de ligne à la dernière ligne."
 
 #. type: verbatim
 #: dos2unix.pod:377
-#, fuzzy, no-wrap
-#| msgid ""
-#| "    dos2unix -ic *.txt\n"
-#| "\n"
+#, no-wrap
 msgid ""
 "    dos2unix -e -ic *.txt\n"
 "\n"
 msgstr ""
-"    dos2unix -ic *.txt\n"
+"    dos2unix -e -ic *.txt\n"
 "\n"
 
 #. type: textblock
@@ -1038,10 +1015,8 @@ msgstr "MODE MAC"
 
 #. type: textblock
 #: dos2unix.pod:563
-#, fuzzy
-#| msgid "In normal mode line breaks are converted from DOS to Unix and vice versa.  Mac line breaks are not converted."
 msgid "By default line breaks are converted from DOS to Unix and vice versa.  Mac line breaks are not converted."
-msgstr "En mode normal, les sauts de lignes sont convertis du DOS vers Unix et inversement. Les sauts de lignes Mac ne sont pas convertis."
+msgstr "Par défaut, les sauts de lignes sont convertis du DOS vers Unix et inversement. Les sauts de lignes Mac ne sont pas convertis."
 
 #. type: textblock
 #: dos2unix.pod:566
@@ -1066,12 +1041,12 @@ msgstr "B<ascii>"
 #. type: textblock
 #: dos2unix.pod:578
 msgid "This is the default conversion mode. This mode is for converting ASCII and ASCII-compatible encoded files, like UTF-8. Enabling B<ascii> mode disables B<7bit> and B<iso> mode."
-msgstr ""
+msgstr "Ceci est le mode de conversion par défaut. Ce mode convertit les fichiers ASCII en fichiers compatibles avec l'ASCII tel que UTF-9. Activer le mode B<ascii> désactive les modes B<7bit> et B<iso>."
 
 #. type: textblock
 #: dos2unix.pod:582
 msgid "If dos2unix has UTF-16 support, UTF-16 encoded files are converted to the current locale character encoding on POSIX systems and to UTF-8 on Windows.  Enabling B<ascii> mode disables the option to keep UTF-16 encoding (C<-u>) and the options to assume UTF-16 input (C<-ul> and C<-ub>).  To see if dos2unix has UTF-16 support type C<dos2unix -V>. See also section UNICODE."
-msgstr ""
+msgstr "Si dos2unix supporte UTF-16, les fichiers encodés en UTF-16 sont convertis vers l'encodage des caractères des paramètres linguistiques courants sur les systèmes POSIX et vers UTF-8 sous Windows. Activer le mode B<ascii> désactive l'option pour garder l'encodage UTF-8 (C<-u>) et les options qui supposent une entrée en UTF-16 (C<-ul> et C<-ub>). Pour voir si dos2unix supporte UTF-16, tapez C<dos2unix -V>. Consultez aussi la section UNICODE."
 
 #. type: =item
 #: dos2unix.pod:588
@@ -1305,10 +1280,8 @@ msgstr "Marque d'ordre des octets"
 
 #. type: textblock
 #: dos2unix.pod:692
-#, fuzzy
-#| msgid "On Windows Unicode text files typically have a Byte Order Mark (BOM), because many Windows programs (including Notepad) add BOMs by default. See also L<http://en.wikipedia.org/wiki/Byte_order_mark>."
 msgid "On Windows Unicode text files typically have a Byte Order Mark (BOM), because many Windows programs (including Notepad) add BOMs by default. See also L<https://en.wikipedia.org/wiki/Byte_order_mark>."
-msgstr "Les fichiers textes Unicode sous Windows on généralement un indicateur d'ordre des octets (BOM) car de nombreux programmes Windows (y compris Notepad) ajoutent cet indicateur par défaut. Consultez aussi L<http://fr.wikipedia.org/wiki/Indicateur_d%27ordre_des_octets>."
+msgstr "Les fichiers textes Unicode sous Windows on généralement un indicateur d'ordre des octets (BOM) car de nombreux programmes Windows (y compris Notepad) ajoutent cet indicateur par défaut. Consultez aussi L<https://fr.wikipedia.org/wiki/Indicateur_d%27ordre_des_octets>."
 
 #. type: textblock
 #: dos2unix.pod:696
@@ -1427,10 +1400,8 @@ msgstr "GB18030"
 
 #. type: textblock
 #: dos2unix.pod:745
-#, fuzzy
-#| msgid "GB18030 is a Chinese government standard. A mandatory subset of the GB18030 standard is officially required for all software products sold in China. See also L<http://en.wikipedia.org/wiki/GB_18030>."
 msgid "GB18030 is a Chinese government standard. A mandatory subset of the GB18030 standard is officially required for all software products sold in China. See also L<https://en.wikipedia.org/wiki/GB_18030>."
-msgstr "GB18030 est un standard du gouvernement chinois. Tout logiciel vendu en Chine doit officiellement supporter un sous ensemble obligatoire du standard GB18030. Consultez L<http://fr.wikipedia.org/wiki/GB_18030>."
+msgstr "GB18030 est un standard du gouvernement chinois. Tout logiciel vendu en Chine doit officiellement supporter un sous ensemble obligatoire du standard GB18030. Consultez L<https://fr.wikipedia.org/wiki/GB_18030>."
 
 #. type: textblock
 #: dos2unix.pod:749
@@ -1744,10 +1715,8 @@ msgstr ""
 
 #. type: textblock
 #: dos2unix.pod:861
-#, fuzzy
-#| msgid "For a complete list of language and country codes see the gettext manual: L<http://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html>"
 msgid "For a complete list of language and country codes see the gettext manual: L<https://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html>"
-msgstr "La liste complète des codes de langues et de pays est dans le manuel de gettext: L<http://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html>"
+msgstr "La liste complète des codes de langues et de pays est dans le manuel de gettext: L<https://www.gnu.org/software/gettext/manual/html_node/Usual-Language-Codes.html>"
 
 #. type: textblock
 #: dos2unix.pod:864
@@ -1761,10 +1730,8 @@ msgstr "B<LANGUE>"
 
 #. type: textblock
 #: dos2unix.pod:869
-#, fuzzy
-#| msgid "With the LANGUAGE environment variable you can specify a priority list of languages, separated by colons. Dos2unix gives preference to LANGUAGE over LANG.  For instance, first Dutch and then German: C<LANGUAGE=nl:de>. You have to first enable localization, by setting LANG (or LC_ALL) to a value other than \"C\", before you can use a language priority list through the LANGUAGE variable. See also the gettext manual: L<http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
 msgid "With the LANGUAGE environment variable you can specify a priority list of languages, separated by colons. Dos2unix gives preference to LANGUAGE over LANG.  For instance, first Dutch and then German: C<LANGUAGE=nl:de>. You have to first enable localization, by setting LANG (or LC_ALL) to a value other than \"C\", before you can use a language priority list through the LANGUAGE variable. See also the gettext manual: L<https://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
-msgstr "Avec la variable d'environnement LANGUAGE, vous pouvez spécifier une liste de langues prioritaires séparées par des deux-points. Dos2unix fait passer LANGUAGE avant LANG. Par exemple, pour utiliser le français avant l'anglais: C<LANGUAGE=fr:en>. Vous devez d'abord activer l'environnement linguistique en assignant une valeur autre que « C » à LANG (ou LC_ALL). Ensuite, vous pourrez utiliser la liste de priorité avec la variable LANGUAGE. Voyez également le manuel de gettext: L<http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
+msgstr "Avec la variable d'environnement LANGUAGE, vous pouvez spécifier une liste de langues prioritaires séparées par des deux-points. Dos2unix fait passer LANGUAGE avant LANG. Par exemple, pour utiliser le français avant l'anglais: C<LANGUAGE=fr:en>. Vous devez d'abord activer l'environnement linguistique en assignant une valeur autre que « C » à LANG (ou LC_ALL). Ensuite, vous pourrez utiliser la liste de priorité avec la variable LANGUAGE. Voyez également le manuel de gettext: L<https://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html>"
 
 #. type: textblock
 #: dos2unix.pod:877
@@ -1818,31 +1785,23 @@ msgstr "STANDARDS"
 
 #. type: textblock
 #: dos2unix.pod:905
-#, fuzzy
-#| msgid "L<http://en.wikipedia.org/wiki/Text_file>"
 msgid "L<https://en.wikipedia.org/wiki/Text_file>"
-msgstr "L<http://fr.wikipedia.org/wiki/Fichier_texte>"
+msgstr "L<https://fr.wikipedia.org/wiki/Fichier_texte>"
 
 #. type: textblock
 #: dos2unix.pod:907
-#, fuzzy
-#| msgid "L<http://en.wikipedia.org/wiki/Carriage_return>"
 msgid "L<https://en.wikipedia.org/wiki/Carriage_return>"
-msgstr "L<http://fr.wikipedia.org/wiki/Retour_chariot>"
+msgstr "L<https://fr.wikipedia.org/wiki/Retour_chariot>"
 
 #. type: textblock
 #: dos2unix.pod:909
-#, fuzzy
-#| msgid "L<http://en.wikipedia.org/wiki/Newline>"
 msgid "L<https://en.wikipedia.org/wiki/Newline>"
-msgstr "L<http://fr.wikipedia.org/wiki/Fin_de_ligne>"
+msgstr "L<https://fr.wikipedia.org/wiki/Fin_de_ligne>"
 
 #. type: textblock
 #: dos2unix.pod:911
-#, fuzzy
-#| msgid "L<http://en.wikipedia.org/wiki/Unicode>"
 msgid "L<https://en.wikipedia.org/wiki/Unicode>"
-msgstr "L<http://fr.wikipedia.org/wiki/Unicode>"
+msgstr "L<https://fr.wikipedia.org/wiki/Unicode>"
 
 #. type: =head1
 #: dos2unix.pod:913
@@ -1856,17 +1815,13 @@ msgstr "Benjamin Lin - <blin@socs.uts.edu.au>, Bernd Johannes Wuebben (mode mac2
 
 #. type: textblock
 #: dos2unix.pod:920
-#, fuzzy
-#| msgid "Project page: L<http://waterlan.home.xs4all.nl/dos2unix.html>"
 msgid "Project page: L<https://waterlan.home.xs4all.nl/dos2unix.html>"
-msgstr "Page du projet: L<http://waterlan.home.xs4all.nl/dos2unix.html>"
+msgstr "Page du projet: L<https://waterlan.home.xs4all.nl/dos2unix.html>"
 
 #. type: textblock
 #: dos2unix.pod:922
-#, fuzzy
-#| msgid "SourceForge page: L<http://sourceforge.net/projects/dos2unix/>"
 msgid "SourceForge page: L<https://sourceforge.net/projects/dos2unix/>"
-msgstr "Page SourceForge: L<http://sourceforge.net/projects/dos2unix/>"
+msgstr "Page SourceForge: L<https://sourceforge.net/projects/dos2unix/>"
 
 #. type: =head1
 #: dos2unix.pod:924
@@ -1878,16 +1833,14 @@ msgstr "VOIR AUSSI"
 msgid "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 msgstr "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 
-#, fuzzy
-#~| msgid "Although the name of this mode is ASCII, which is a 7 bit standard, the actual mode is 8 bit. Use always this mode when converting Unicode UTF-8 files."
-#~ msgid "Although the name of this mode is B<ascii>, which is a 7 bit standard, the actual mode is 8 bit. Use always this mode when converting Unicode UTF-8 files."
-#~ msgstr "Bien que le nom de ce mode soit ASCII, qui est un standard 7 bits, ce mode travail en réalité sur 8 bits. Utilisez toujours ce mode lorsque vous convertissez des fichiers Unicode UTF-8."
-
 #~ msgid "Convert only line breaks. This is the default conversion mode."
 #~ msgstr "Convertit uniquement les sauts de lignes. C'est le mode de conversion par défaut."
 
 #~ msgid "In mode C<ascii> only line breaks are converted. This is the default conversion mode."
 #~ msgstr "En mode C<ascii>, seuls les sauts de lignes sont convertis. Ceci est le mode de conversion par défaut."
+
+#~ msgid "Although the name of this mode is ASCII, which is a 7 bit standard, the actual mode is 8 bit. Use always this mode when converting Unicode UTF-8 files."
+#~ msgstr "Bien que le nom de ce mode soit ASCII, qui est un standard 7 bits, ce mode travail en réalité sur 8 bits. Utilisez toujours ce mode lorsque vous convertissez des fichiers Unicode UTF-8."
 
 #~ msgid ""
 #~ "    find -name '*.txt' | xargs dos2unix -ic\n"

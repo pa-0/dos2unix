@@ -1,14 +1,14 @@
 # Vietnamese translations for dos2unix package
 # Bản dịch tiếng Việt cho gói dos2unix.
 # This file is distributed under the same license as the dos2unix package.
-# Trần Ngọc Quân <vnwildman@gmail.com>, 2014-2017, 2023.
+# Trần Ngọc Quân <vnwildman@gmail.com>, 2014-2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.5.0-beta5\n"
+"Project-Id-Version: dos2unix 7.5.2-beta2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-03 22:27+0100\n"
-"PO-Revision-Date: 2023-04-29 07:52+0700\n"
+"POT-Creation-Date: 2023-11-05 14:18+0100\n"
+"PO-Revision-Date: 2023-11-19 09:23+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
 "Language: vi\n"
@@ -16,7 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"X-Generator: Gtranslator 42.0\n"
 
 #: dos2unix.c:79
 #, c-format
@@ -138,13 +139,12 @@ msgid " --allow-chown         allow file ownership change\n"
 msgstr " --allow-chown         cho phép thay đổi chủ sở hữu tập tin\n"
 
 #: common.c:652
-#, fuzzy
 msgid " -ascii                default conversion mode\n"
-msgstr " -ascii                chỉ chuyển đổi các ngắt dòng (mặc định)\n"
+msgstr " -ascii                chế độ chuyển đổi mặc định\n"
 
 #: common.c:653
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
-msgstr " -iso                  chuyển đổi giữa DOS và ISO-8859-1\n"
+msgstr " -iso                  chuyển đổi bộ ký tự giữa DOS và ISO-8859-1\n"
 
 #: common.c:654
 msgid "   -1252               use Windows code page 1252 (Western European)\n"

@@ -2,20 +2,21 @@
 # Copyright © 2022, 2023 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
 #
-# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2022.
+# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2022 - 2023.
 #
 # Cronologia traducerii fișierului „dos2unix”:
 # Traducerea inițială, făcută de R-GC, pentru versiunea dos2unix 7.3.6-beta4, oct-2022.
 # Traducerea inițială, făcută de R-GC, pentru versiunea dos2unix 7.4.4-beta4, dec-2022.
 # Traducerea inițială, făcută de R-GC, pentru versiunea dos2unix 7.5.0-beta5, apr-2023.
+# Traducerea inițială, făcută de R-GC, pentru versiunea dos2unix 7.5.2-beta2, noi-2023.
 # Actualizare a traducerii pentru versiunea Y, făcută de X,Y(luna-anul).
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.5.0-beta5\n"
+"Project-Id-Version: dos2unix 7.5.2-beta2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-03 22:27+0100\n"
-"PO-Revision-Date: 2023-04-26 18:05+0200\n"
+"POT-Creation-Date: 2023-11-05 14:18+0100\n"
+"PO-Revision-Date: 2023-11-10 15:21+0100\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -151,7 +152,7 @@ msgstr ""
 "DAR FĂRĂ A SE LIMITA LA, ACHIZIȚIA DE BUNURI SAU SERVICII SUBSTITUENTE; PIERDERE\n"
 "DE UTILIZARE, DE DATE SAU DE PROFIT DE AFACERI; SAU ÎNTRERUPERE DE AFACERI)\n"
 "ORICUM AR FI CAUZATE ȘI CU PRIVIRE LA ORICE TEORIE A RĂSPUNDERII, FIE EA\n"
-"ÎN CONTRACT, RESPONSABILITATE STRICTĂ SAU DELICTIVĂ (INCLUZÂND NEGLIJENȚA SAU\n"
+"ÎN CONTRACT, RESPONSABILITATE STRICTĂ SAU DELICTUALĂ (INCLUZÂND NEGLIJENȚA SAU\n"
 "ORICE ALTCEVA) REZULTATE DIN ORICE MOD DE UTILIZARE AL ACESTUI SOFTWARE, CHIAR\n"
 "DACĂ S-A AVIZAT DE POSIBILITATEA ACESTOR PREJUDICII.\n"
 
@@ -174,9 +175,8 @@ msgid " --allow-chown         allow file ownership change\n"
 msgstr " --allow-chown         permite schimbarea proprietarului fișierului\n"
 
 #: common.c:652
-#, fuzzy
 msgid " -ascii                default conversion mode\n"
-msgstr " -ascii                convertește doar întreruperile de linie (implicit)\n"
+msgstr " -ascii                modul de conversie implicit\n"
 
 #: common.c:653
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
