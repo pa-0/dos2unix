@@ -658,7 +658,7 @@ UTF-16 format.
 
 =head2 Conversion
 
-Unicode text files can have DOS, Unix or Mac line breaks, like regular text
+Unicode text files can have DOS, Unix or Mac line breaks, like ASCII text
 files.
 
 All versions of dos2unix and unix2dos can convert UTF-8 encoded files, because

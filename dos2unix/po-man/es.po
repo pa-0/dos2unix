@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.2.1-beta1\n"
-"POT-Creation-Date: 2023-11-05 14:03+0100\n"
+"POT-Creation-Date: 2023-11-27 21:39+0100\n"
 "PO-Revision-Date: 2015-03-19 09:38+0100\n"
 "Last-Translator: Enrique Lazcorreta Puigmartí <enrique.lazcorreta@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
@@ -1286,7 +1286,9 @@ msgstr "Conversion"
 
 #. type: textblock
 #: dos2unix.pod:661
-msgid "Unicode text files can have DOS, Unix or Mac line breaks, like regular text files."
+#, fuzzy
+#| msgid "Unicode text files can have DOS, Unix or Mac line breaks, like regular text files."
+msgid "Unicode text files can have DOS, Unix or Mac line breaks, like ASCII text files."
 msgstr "Los archivos de texto Unicode pueden tener saltos de línea DOS, Unix o Mac, como cualquier archivo de texto."
 
 #. type: textblock

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man 7.5.0-beta5\n"
-"POT-Creation-Date: 2023-11-05 14:04+0100\n"
+"POT-Creation-Date: 2023-11-27 21:39+0100\n"
 "PO-Revision-Date: 2023-05-18 12:59+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -1256,7 +1256,9 @@ msgstr "Претварање"
 
 #. type: textblock
 #: dos2unix.pod:661
-msgid "Unicode text files can have DOS, Unix or Mac line breaks, like regular text files."
+#, fuzzy
+#| msgid "Unicode text files can have DOS, Unix or Mac line breaks, like regular text files."
+msgid "Unicode text files can have DOS, Unix or Mac line breaks, like ASCII text files."
 msgstr "Јуникод текстуалне датотеке могу имати ДОС, Јуникс или мек преломе реда, као обичне текстуалне датотеке."
 
 #. type: textblock

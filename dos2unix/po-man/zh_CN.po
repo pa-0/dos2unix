@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.5.0-beta5\n"
-"POT-Creation-Date: 2023-11-05 14:04+0100\n"
+"POT-Creation-Date: 2023-11-27 21:39+0100\n"
 "PO-Revision-Date: 2023-06-02 15:43+0800\n"
 "Last-Translator: Tianze Wang <zwpwjwtz@126.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -1258,7 +1258,9 @@ msgstr "转换"
 
 #. type: textblock
 #: dos2unix.pod:661
-msgid "Unicode text files can have DOS, Unix or Mac line breaks, like regular text files."
+#, fuzzy
+#| msgid "Unicode text files can have DOS, Unix or Mac line breaks, like regular text files."
+msgid "Unicode text files can have DOS, Unix or Mac line breaks, like ASCII text files."
 msgstr "Unicode文本文件可以含有DOS、Unix或Mac断行符，就像普通文本文件一样。"
 
 #. type: textblock

@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dos2unix-man-7.3.6-beta4\n"
-"POT-Creation-Date: 2023-11-05 14:04+0100\n"
+"POT-Creation-Date: 2023-11-27 21:39+0100\n"
 "PO-Revision-Date: 2020-09-27 16:25+0200\n"
 "Last-Translator: Benno Schulenberg <vertaling@coevern.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -1268,7 +1268,9 @@ msgstr "Conversie"
 
 #. type: textblock
 #: dos2unix.pod:661
-msgid "Unicode text files can have DOS, Unix or Mac line breaks, like regular text files."
+#, fuzzy
+#| msgid "Unicode text files can have DOS, Unix or Mac line breaks, like regular text files."
+msgid "Unicode text files can have DOS, Unix or Mac line breaks, like ASCII text files."
 msgstr "Unicode-tekstbestanden kunnen DOS-, Unix- of Mac-regeleindes hebben, net als reguliere tekstbestanden."
 
 #. type: textblock
