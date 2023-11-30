@@ -4,9 +4,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.5.2-beta2\n"
-"POT-Creation-Date: 2023-11-27 21:39+0100\n"
-"PO-Revision-Date: 2023-11-11 08:30+0100\n"
+"Project-Id-Version: dos2unix-man 7.5.2-beta3\n"
+"POT-Creation-Date: 2023-11-27 22:01+0100\n"
+"PO-Revision-Date: 2023-11-29 21:05+0100\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "Language: pl\n"
@@ -1228,10 +1228,8 @@ msgstr "Konwersje"
 
 #. type: textblock
 #: dos2unix.pod:661
-#, fuzzy
-#| msgid "Unicode text files can have DOS, Unix or Mac line breaks, like regular text files."
 msgid "Unicode text files can have DOS, Unix or Mac line breaks, like ASCII text files."
-msgstr "Pliki tekstowe Unicode mogą mieć znaki końca linii systemu DOS, Unix lub Mac, podobnie jak zwykłe pliki tekstowe."
+msgstr "Pliki tekstowe Unicode mogą mieć znaki końca linii systemu DOS, Unix lub Mac, podobnie jak pliki tekstowe ASCII."
 
 #. type: textblock
 #: dos2unix.pod:664

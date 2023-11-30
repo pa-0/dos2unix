@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.5.2-beta2\n"
-"POT-Creation-Date: 2023-11-27 21:39+0100\n"
-"PO-Revision-Date: 2023-11-13 04:11+0900\n"
+"Project-Id-Version: dos2unix-man 7.5.2-beta3\n"
+"POT-Creation-Date: 2023-11-27 22:01+0100\n"
+"PO-Revision-Date: 2023-12-01 01:54+0900\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: Korean <translation-team-ko@googlegroups.com>\n"
 "Language: ko\n"
@@ -303,7 +303,7 @@ msgstr "ConEmu 콘솔을 사용한다면 ConEmu에서 적절한 글꼴을 자동
 #. type: textblock
 #: dos2unix.pod:208
 msgid "The disadvantage of unicode is that it is not compatible with ASCII. The output is not easy to handle when you redirect it to another program."
-msgstr "유니코드 사용의 단점은 ASCII와 호환성이 없다는 점입니다. 다른 프로그램으로 출력을 전달할 때 쉽게 처리할 수 없습니다."
+msgstr "유니코드 사용의 단점은 아스키와 호환성이 없다는 점입니다. 다른 프로그램으로 출력을 전달할 때 쉽게 처리할 수 없습니다."
 
 #. type: textblock
 #: dos2unix.pod:211
@@ -318,12 +318,12 @@ msgstr "B<utf8, utf8bom>"
 #. type: textblock
 #: dos2unix.pod:218
 msgid "The advantage of utf8 is that it is compatible with ASCII. You need to set the console's font to a TrueType font. With a TrueType font the text is displayed similar as with the C<unicode> encoding."
-msgstr "utf8의 장점은 ASCII와의 호환성입니다. 콘솔의 글꼴을 트루타입 글꼴로 선택해야 합니다. 트루타입 글꼴로 설정하면 C<unicode> 인코딩 때와 비슷하게 나타납니다."
+msgstr "utf8의 장점은 아스키와의 호환성입니다. 콘솔의 글꼴을 트루타입 글꼴로 선택해야 합니다. 트루타입 글꼴로 설정하면 C<unicode> 인코딩 때와 비슷하게 나타납니다."
 
 #. type: textblock
 #: dos2unix.pod:222
 msgid "The disadvantage is that when you use the default raster font all non-ASCII characters are displayed wrong. Not only unicode file names, but also translated messages become unreadable. On Windows configured for an East-Asian region you may see a lot of flickering of the console when the messages are displayed."
-msgstr "단점은 래스터 글꼴을 기본으로 사용하면 ASCII 인코딩 하지 않는 문자를 잘못 나타낼 수 있습니다. 유니코드 파일 이름 뿐만 아니라 번역 메시지 조차 제대로 읽을 수 없습니다. 윈도우에서는 동아시아 지역으로 설정했을 경우 메시지가 나타날 때 콘솔 화면이 상당히 많이 깜빡거리는걸 볼 수 있습니다."
+msgstr "단점은 래스터 글꼴을 기본으로 사용하면 아스키 인코딩을 하지 않는 문자를 잘못 나타낼 수 있습니다. 유니코드 파일 이름 뿐만 아니라 번역 메시지 조차 제대로 읽을 수 없습니다. 윈도우에서는 동아시아 지역으로 설정했을 경우 메시지가 나타날 때 콘솔 화면이 상당히 많이 깜빡거리는걸 볼 수 있습니다."
 
 #. type: textblock
 #: dos2unix.pod:228
@@ -1043,7 +1043,7 @@ msgstr "B<ascii>"
 #. type: textblock
 #: dos2unix.pod:578
 msgid "This is the default conversion mode. This mode is for converting ASCII and ASCII-compatible encoded files, like UTF-8. Enabling B<ascii> mode disables B<7bit> and B<iso> mode."
-msgstr "기본 변환 모드입니다. 이 모드는 ASCII와 UTF-8과 같은 ASCII 호환 인코딩 파일을 변환합니다. B<ascii> 모드를 활성화하면 B<7bit> 모드와 B<iso> 모드를 사용하지 않습니다."
+msgstr "기본 변환 모드입니다. 이 모드는 아스키와 UTF-8과 같은 아스키 호환 인코딩 파일을 변환합니다. B<ascii> 모드를 활성화하면 B<7bit> 모드와 B<iso> 모드를 사용하지 않습니다."
 
 #. type: textblock
 #: dos2unix.pod:582
@@ -1058,7 +1058,7 @@ msgstr "B<7bit>"
 #. type: textblock
 #: dos2unix.pod:590
 msgid "In this mode all 8 bit non-ASCII characters (with values from 128 to 255)  are converted to a 7 bit space."
-msgstr "이 모드에서는 ASCII 영역 밖(128~255 값)의 모든 8비트 문자를 7비트 영역으로 변환합니다."
+msgstr "이 모드에서는 아스키 영역 밖(128~255 값)의 모든 8비트 문자를 7비트 영역으로 변환합니다."
 
 #. type: =item
 #: dos2unix.pod:593
@@ -1232,15 +1232,13 @@ msgstr "변환"
 
 #. type: textblock
 #: dos2unix.pod:661
-#, fuzzy
-#| msgid "Unicode text files can have DOS, Unix or Mac line breaks, like regular text files."
 msgid "Unicode text files can have DOS, Unix or Mac line breaks, like ASCII text files."
-msgstr "유니코드 텍스트 파일에는 DOS, 유닉스, 맥 개행 문자를 일반 텍스트 파일처럼 가질 수 있습니다."
+msgstr "유니코드 텍스트 파일에는 DOS, 유닉스, 맥 개행 문자를 아스키 텍스트 파일처럼 가질 수 있습니다."
 
 #. type: textblock
 #: dos2unix.pod:664
 msgid "All versions of dos2unix and unix2dos can convert UTF-8 encoded files, because UTF-8 was designed for backward compatibility with ASCII."
-msgstr "dos2unix와 unix2dos의 모든 버전에서는 UTF-8이 ASCII와의 하위 호환성을 고려했기 때문에 UTF-8 인코딩 파일을 변환할 수 있습니다."
+msgstr "dos2unix와 unix2dos의 모든 버전에서는 UTF-8이 아스키와의 하위 호환성을 고려했기 때문에 UTF-8 인코딩 파일을 변환할 수 있습니다."
 
 #. type: textblock
 #: dos2unix.pod:667
@@ -1410,7 +1408,7 @@ msgstr "GB18030은 중화인민공화국 정부 표준입니다. GB18030 표준 
 #. type: textblock
 #: dos2unix.pod:749
 msgid "GB18030 is fully compatible with Unicode, and can be considered an unicode transformation format. Like UTF-8, GB18030 is compatible with ASCII. GB18030 is also compatible with Windows code page 936, also known as GBK."
-msgstr "GB18030은 유니코드와 완벽하게 호환하며, 유니코드 변환 형식으로 고려할 수 있습니다. UTF-8과 유사하게, GB18030은 ASCII와 호환성을 지닙니다. GB18030은 또한 GBK로 알려진 윈도우 코드 페이지 936과도 호환성이 있습니다."
+msgstr "GB18030은 유니코드와 완벽하게 호환하며, 유니코드 변환 형식으로 고려할 수 있습니다. UTF-8과 유사하게, GB18030은 아스키와 호환성을 지닙니다. GB18030은 또한 GBK로 알려진 윈도우 코드 페이지 936과도 호환성이 있습니다."
 
 #. type: textblock
 #: dos2unix.pod:753

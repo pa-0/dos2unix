@@ -1,13 +1,13 @@
 # German translation of the dos2unix man page.
 # Copyright (C) 2014 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2014-2017, 2022-2023. 
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2014-2017, 2022-2023.
 # Roland Illig <roland.illig@gmx.de>, 2020.
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man-7.5.2-beta2\n"
-"POT-Creation-Date: 2023-11-27 21:38+0100\n"
-"PO-Revision-Date: 2023-11-12 18:22+0100\n"
+"Project-Id-Version: dos2unix-man-7.5.2-beta3\n"
+"POT-Creation-Date: 2023-11-27 22:01+0100\n"
+"PO-Revision-Date: 2023-11-29 17:22+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
@@ -1232,10 +1232,8 @@ msgstr "Umwandlung"
 
 #. type: textblock
 #: dos2unix.pod:661
-#, fuzzy
-#| msgid "Unicode text files can have DOS, Unix or Mac line breaks, like regular text files."
 msgid "Unicode text files can have DOS, Unix or Mac line breaks, like ASCII text files."
-msgstr "Unicode-Textdateien können DOS-, Unix- oder Mac-Zeilenumbrüche enthalten, so wie reguläre Textdateien."
+msgstr "Unicode-Textdateien können DOS-, Unix- oder Mac-Zeilenumbrüche enthalten, so wie ASCII-Textdateien."
 
 #. type: textblock
 #: dos2unix.pod:664
@@ -1834,12 +1832,3 @@ msgstr "SIEHE AUCH"
 #: dos2unix.pod:926
 msgid "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
 msgstr "file(1)  find(1)  iconv(1)  locale(1)  xargs(1)"
-
-#~ msgid "Convert only line breaks. This is the default conversion mode."
-#~ msgstr "wandelt nur Zeilenumbrüche um. Dies ist der vorgegebene Umwandlungsmodus."
-
-#~ msgid "In mode C<ascii> only line breaks are converted. This is the default conversion mode."
-#~ msgstr "Im C<ascii>-Modus werden nur Zeilenumbrüche umgewandelt. Dies ist der vorgegebene Umwandlungsmodus."
-
-#~ msgid "Although the name of this mode is ASCII, which is a 7 bit standard, the actual mode is 8 bit. Use always this mode when converting Unicode UTF-8 files."
-#~ msgstr "Obwohl der Name dieses Modus auf ASCII hinweist, welches ein 7-bit-Standard ist, bezieht sich der eigentliche Modus auf 8 Bit. Verwenden Sie diesen Modus immer dann, wenn Sie Unicode-Dateien in UTF-8-Kodierung umwandeln."

@@ -9,14 +9,15 @@
 # Traducerea inițială, făcută de R-GC, pentru versiunea dos2unix 7.4.4-beta4, dec-2022.
 # Traducerea inițială, făcută de R-GC, pentru versiunea dos2unix 7.5.0-beta5, apr-2023.
 # Traducerea inițială, făcută de R-GC, pentru versiunea dos2unix 7.5.2-beta2, noi-2023.
+# Traducerea inițială, făcută de R-GC, pentru versiunea dos2unix 7.5.2-beta3, noi-2023.
 # Actualizare a traducerii pentru versiunea Y, făcută de X,Y(luna-anul).
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-man 7.5.2-beta2\n"
+"Project-Id-Version: dos2unix-man 7.5.2-beta3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-27 21:39+0100\n"
-"PO-Revision-Date: 2023-11-10 15:45+0100\n"
+"POT-Creation-Date: 2023-11-27 22:01+0100\n"
+"PO-Revision-Date: 2023-11-29 16:19+0100\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -1252,10 +1253,8 @@ msgstr "Conversie"
 
 #. type: textblock
 #: dos2unix.pod:661
-#, fuzzy
-#| msgid "Unicode text files can have DOS, Unix or Mac line breaks, like regular text files."
 msgid "Unicode text files can have DOS, Unix or Mac line breaks, like ASCII text files."
-msgstr "Fișierele text Unicode pot avea întreruperi de linie DOS, Unix sau Mac, ca și fișierele text obișnuite."
+msgstr "Fișierele text Unicode pot avea întreruperi de linie DOS, Unix sau Mac, ca și fișierele text ASCII."
 
 #. type: textblock
 #: dos2unix.pod:664
