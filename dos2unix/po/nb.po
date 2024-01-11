@@ -2,14 +2,14 @@
 # Copyright (C) 2015 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
 # Åka Sikrom <a4@hush.com>, 2015-2017.
-# Johnny A. Solbu <johnny@solbu.net>, 2023
+# Johnny A. Solbu <johnny@solbu.net>, 2023-2024
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix-7.5.0-beta5\n"
+"Project-Id-Version: dos2unix-7.5.2-beta2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-03 22:27+0100\n"
-"PO-Revision-Date: 2023-04-26 23:15+0200\n"
+"POT-Creation-Date: 2023-11-05 14:18+0100\n"
+"PO-Revision-Date: 2024-01-06 16:38+0100\n"
 "Last-Translator: Johnny A. Solbu <johnny@solbu.net>\n"
 "Language-Team: Norwegian Bokmaal <l10n-no@lister.huftis.org>\n"
 "Language: nb\n"
@@ -151,9 +151,8 @@ msgid " --allow-chown         allow file ownership change\n"
 msgstr " --allow-chown         tillat endring av fileierskap\n"
 
 #: common.c:652
-#, fuzzy
 msgid " -ascii                default conversion mode\n"
-msgstr " -ascii                bare konverter linjeskift (standard)\n"
+msgstr " -ascii                standard konverteringsmodus\n"
 
 #: common.c:653
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"
