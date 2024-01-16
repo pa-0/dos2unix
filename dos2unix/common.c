@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2009-2023 Erwin Waterlander
+ *   Copyright (C) 2009-2024 Erwin Waterlander
  *   All rights reserved.
  *
  *   Redistribution and use in source and binary forms, with or without
@@ -1519,7 +1519,6 @@ int ConvertNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag, const char *progn
         if (ipFlag->verbose) {
           D2U_UTF8_FPRINTF(stderr, "%s: ", progname);
           D2U_UTF8_FPRINTF(stderr, _("problems resolving symbolic link '%s'\n"), ipOutFN);
-          D2U_UTF8_FPRINTF(stderr, _("          output file remains in '%s'\n"), TempPath);
         }
         RetVal = -1;
       }

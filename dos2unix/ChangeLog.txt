@@ -1,3 +1,8 @@
+2024-01-16 Erwin Waterlander <waterlan@xs4all.nl>
+	* common.c: Fixed use of uninitialized local variable 'TempPath'
+	  in verbose mode. See https://sourceforge.net/p/dos2unix/bugs/20/
+	  Thanks to anonymous.
+
 2023-11-05 Erwin Waterlander <waterlan@xs4all.nl>
 	* Updated documentation about ASCII mode conversion.
 	  Resolves https://sourceforge.net/p/dos2unix/feature-requests/8/
