@@ -1,4 +1,4 @@
-2023-??-??: Version 7.5.2
+2024-??-??: Version 7.5.2
 
   * Dos2unix can print info about the line break type of the last line,
     or indicate there is none.

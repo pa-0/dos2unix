@@ -1,14 +1,15 @@
 # Swedish translation for dos2unix.
-# Copyright © 2014, 2015, 2016, 2017, 2023 Erwin Waterlander (msgids)
+# Copyright © 2014, 2015, 2016, 2017, 2023, 2024 Erwin Waterlander (msgids)
 # This file is distributed under the same license as the dos2unix package.
-# Sebastian Rasmussen <sebras@gmail.com>, 2014, 2015, 2016, 2017, 2023.
+# Luna Jernberg <droidbittin@gmail.com>, 2023.
+# Sebastian Rasmussen <sebras@gmail.com>, 2014, 2015, 2016, 2017, 2023, 2024.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dos2unix 7.5.0-beta5\n"
+"Project-Id-Version: dos2unix 7.5.2-beta2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 19:49+0100\n"
-"PO-Revision-Date: 2023-04-26 17:21+0200\n"
+"POT-Creation-Date: 2024-01-18 22:13+0100\n"
+"PO-Revision-Date: 2024-01-17 12:41+0100\n"
 "Last-Translator: Sebastian Rasmussen <sebras@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: dos2unix.c:79
 #, c-format
@@ -152,9 +153,8 @@ msgid " --allow-chown         allow file ownership change\n"
 msgstr " --allow-chown         tillåt ändring av ägarskap för fil\n"
 
 #: common.c:652
-#, fuzzy
 msgid " -ascii                default conversion mode\n"
-msgstr " -ascii                konvertera bara radbrytningar (standard)\n"
+msgstr " -ascii                standardkonverteringsläge\n"
 
 #: common.c:653
 msgid " -iso                  conversion between DOS and ISO-8859-1 character set\n"

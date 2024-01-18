@@ -59,7 +59,7 @@ HISTORY
 
 AUTHORS
 
-        Erwin Waterlander       version 3.2 - 7.5.2  2009-2023
+        Erwin Waterlander       version 3.2 - 7.5.2  2009-2024
         Christian Wurll         version 3.1          1998
         Bernd Johannes Wuebben  version 3.0          1998
         Benjamin Lin            version 1.1 - 2.3    1994-1995
@@ -112,7 +112,8 @@ TRANSLATORS
         Serbian               Мирослав Николић             Version 6.0.5 - 7.5.2
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.3.1
-        Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.5.0
+        Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.5.2
+        Swedish               Luna Jernberg                Version 7.5.2
         Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.5.2
         Vietnamese            Trần Ngọc Quân               Version 6.0.5 - 7.5.2
 
@@ -136,7 +137,7 @@ TRANSLATORS
         Serbian               Мирослав Николић             Version 7.4.3 - 7.5.1
         Spanish               Julio A. Freyre-Gonzalez     Version 5.3.1 - 6.0.4
         Spanish               Enrique Lazcorreta Puigmartí Version 6.0.6 - 7.2.1
-        Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.5.0
+        Swedish               Sebastian Rasmussen          Version 7.3.2 - 7.5.2
         Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.5.2
 
 
