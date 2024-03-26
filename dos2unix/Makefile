@@ -1,6 +1,6 @@
 # Author: Erwin Waterlander
 #
-#   Copyright (C) 2009-2022 Erwin Waterlander
+#   Copyright (C) 2009-2024 Erwin Waterlander
 #   All rights reserved.
 #
 #   Redistribution and use in source and binary forms, with or without
@@ -416,7 +416,7 @@ else
 endif
 
 $(MANPOTFILE) : man/man1/dos2unix.pod
-	$(MAKE) -C man/man1 ../../po-man/$(notdir $@)
+	$(MAKE) -C man/man1 pods
 
 #  WARNING: Backward-incompatibility since GNU make 3.82.
 #  The pattern-specific variables and pattern rules are now applied in the
@@ -432,10 +432,10 @@ po/%.po : $(POT)
 	touch $@
 
 %.po : man/man1/dos2unix.pod
-	$(MAKE) -C man/man1 $(subst po-man/,../../po-man/,$@)
+	$(MAKE) -C man/man1 pods
 
 man/%/man1/dos2unix.pod : po-man/%.po
-	$(MAKE) -C man/man1 $(subst man/,../,$@)
+	$(MAKE) -C man/man1 pods
 
 # empty recipe to break circular dependency
 man/man1/dos2unix.pod : ;

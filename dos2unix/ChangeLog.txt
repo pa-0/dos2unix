@@ -1,3 +1,7 @@
+2024-03-26 Erwin Waterlander <waterlan@xs4all.nl>
+	* man/man1/Makefile: Stopped using po4a-translate and po4a-updatepo.
+	  They are deprecated since po4a 0.68.
+
 2024-01-22 Erwin Waterlander <waterlan@xs4all.nl>
 	* Version 7.5.2
 
