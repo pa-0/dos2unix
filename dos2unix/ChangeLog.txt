@@ -1,3 +1,6 @@
+2024-10-09 Fabio Tomat <f.t.public@gmail.com>
+	* po/fur.po: Updated Friulian translation.
+
 2024-09-23 Rafael Fontenelle <rafaelff@gnome.org>
 	* po*/pt_BR.po: Updated Brazilian Portuguese translations.
 
