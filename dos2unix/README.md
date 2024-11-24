@@ -1,28 +1,32 @@
 
-dos2unix - DOS/Mac to Unix and vice versa text file format converter.
+# dos2unix #
+
+_DOS/Mac to Unix and vice versa text file format converter._
 
 
-FILE LIST
+## FILE LIST ##
 
-        README.txt            : This file.
-        INSTALL.txt           : How to build and install.
-        COPYING.txt           : distribution license.
-        NEWS.txt              : Basic change log for users.
-        ChangeLog.txt         : Detailed change log for programmers.
-        TODO.txt              : Things to do.
-        BUGS.txt              : Known bugs and instructions on reporting new ones.
-        DEVEL.txt             : Information about dos2unix' implementation choices.
-        man/man1/dos2unix.txt : Dos2unix manual, text format.
-        man/man1/dos2unix.htm : Dos2unix manual, HTML format.
+|FILENAME              |  DESCRIPTION                                       | LINK
+|                   :--|:--                                                 |:--   
+|README.txt            | This file.                                         |https://github.com/pa-0/dos2unix/blob/master/dos2unix/README.txt
+|INSTALL.txt           | How to build and install.                          |https://github.com/pa-0/dos2unix/blob/master/dos2unix/INSTALL.txt
+|COPYING.txt           | distribution license.                              |https://github.com/pa-0/dos2unix/blob/master/dos2unix/COPYING.txt
+|NEWS.txt              | Basic change log for users.                        |https://github.com/pa-0/dos2unix/blob/master/dos2unix/NEWS.txt
+|ChangeLog.txt         | Detailed change log for programmers.               |https://github.com/pa-0/dos2unix/blob/master/dos2unix/ChangeLog.txt
+|TODO.txt              | Things to do.                                      |https://github.com/pa-0/dos2unix/blob/master/dos2unix/TODO.txt
+|BUGS.txt              | Known bugs and instructions on reporting new ones. |https://github.com/pa-0/dos2unix/blob/master/dos2unix/BUGS.txt
+|DEVEL.txt             | Information about dos2unix' implementation choices.|https://github.com/pa-0/dos2unix/blob/master/dos2unix/DEVEL.txt
+|man/man1/dos2unix.txt | Dos2unix manual, text format.                      |https://github.com/pa-0/dos2unix/blob/master/dos2unix/man/man1/dos2unix.txt
+|man/man1/dos2unix.htm | Dos2unix manual, HTML format.                      |https://github.com/pa-0/dos2unix/blob/master/dos2unix/man/man1/dos2unix.htm
 
 
-PROJECT HOME PAGE
+## PROJECT HOME PAGE ##
 
         https://waterlan.home.xs4all.nl/dos2unix.html
         https://dos2unix.sourceforge.io/
 
 
-HISTORY
+## HISTORY ##
 
         This is an update of Benjamin Lin's implementations of dos2unix and
         unix2dos.  Benjamin Lin's implementations of dos2unix and unix2dos were
@@ -57,7 +61,7 @@ HISTORY
         * Secure.
 
 
-AUTHORS
+## AUTHORS ##
 
         Erwin Waterlander       version 3.2 - 7.5.2  2009-2024
         Christian Wurll         version 3.1          1998
@@ -65,7 +69,7 @@ AUTHORS
         Benjamin Lin            version 1.1 - 2.3    1994-1995
         John Birchfield         version 1.0          1989
 
-TRANSLATORS
+## TRANSLATORS ##
 
         Since version 6.0.5 dos2unix is part of the Translation Project (TP).
         All translations go via the Translation Project.
@@ -141,7 +145,7 @@ TRANSLATORS
         Ukrainian             Yuri Chornoivan              Version 6.0.5 - 7.5.2
 
 
-ACKNOWLEDGEMENTS
+## ACKNOWLEDGEMENTS ##
 
         Rugxulo               query_con_codepage(), code page detection in DOS.
         Rugxulo               DJGPP stubs for mac2unix and unix2mac.
@@ -201,7 +205,7 @@ ACKNOWLEDGEMENTS
         Dimitry Andric        Aligned Dutch help text.
 
 
-FINDUTILS
+## FINDUTILS ##
 
         Windows users who are looking for the Unix 'find' and 'xargs' commands
         can find them in the findutils package for Windows at the ezwinports
@@ -211,7 +215,7 @@ FINDUTILS
         project (https://www.delorie.com/djgpp/) at
         ftp://ftp.delorie.com/pub/djgpp/current/v2gnu/
 
-CONTACT INFORMATION
+## CONTACT INFORMATION ##
 
         Project home page        : https://waterlan.home.xs4all.nl/dos2unix.html
         SourceForge project page : https://sourceforge.net/projects/dos2unix/
